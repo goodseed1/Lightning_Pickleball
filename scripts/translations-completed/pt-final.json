@@ -1,0 +1,51 @@
+{
+  "scheduleMeetup": {
+    "success": {
+      "created": "A reunião regular foi criada.",
+      "deleted": "A reunião regular foi excluída."
+    }
+  },
+  "rateSportsmanship": {
+    "loading": "Carregando..."
+  },
+  "clubTournamentManagement": {
+    "stats": {
+      "champion": "Campeão: "
+    }
+  },
+  "meetupDetail": {
+    "rsvp": {
+      "title": "RSVP"
+    }
+  },
+  "tournamentDetail": {
+    "participantsSuffix": " participantes"
+  },
+  "eventDetail": {
+    "participants": {
+      "label": "participantes",
+      "waiting": "esperando",
+      "count": "",
+      "host": "Anfitrião",
+      "me": "(Eu)"
+    }
+  },
+  "hallOfFame": {
+    "honorBadges": {
+      "receivedCount": "×{{count}}"
+    }
+  },
+  "matchDetail": {
+    "defaultMessage": "Ansioso por uma ótima partida!"
+  },
+  "appNavigator": {
+    "screens": {
+      "chatScreen": "Treinador Relâmpago"
+    }
+  },
+  "screens": {
+    "rateSportsmanship": {
+      "eventNotFound": "Evento não encontrado"
+    }
+  }
+}

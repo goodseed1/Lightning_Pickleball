@@ -1,0 +1,391 @@
+{
+  "clubLeaguesTournaments": {
+    "memberPreLeagueStatus": {
+      "peopleUnit": ""
+    }
+  },
+  "createEvent": {
+    "languages": {
+      "korean": "한국어",
+      "chinese": "中文",
+      "japanese": "日本語",
+      "spanish": "Español",
+      "french": "Français"
+    }
+  },
+  "duesManagement": {
+    "settings": {
+      "venmo": "Venmo"
+    },
+    "countSuffix": ""
+  },
+  "meetupDetail": {
+    "rsvp": {
+      "title": "RSVP"
+    }
+  },
+  "lessonCard": {
+    "currencySuffix": ""
+  },
+  "tournamentDetail": {
+    "participantsSuffix": "",
+    "bestFinish": {
+      "champion": "🥇 Champion",
+      "runnerUp": "🥈 Runner-up",
+      "semiFinal": "🥉 Semi-finalist",
+      "nthPlace": "{position}th place"
+    }
+  },
+  "myProfile": {
+    "title": "My Profile"
+  },
+  "developerTools": {
+    "loginRequired": "Please log in first.",
+    "copiedTitle": "✅ Copied",
+    "copiedMessage": "UID copied to clipboard.",
+    "copyUid": "📋 Copy My UID",
+    "loginRequiredLabel": "Login required",
+    "deleteAllAccounts": "🚨 Delete All Accounts",
+    "deleteAllAccountsSubtitle": "Permanently delete Auth + Firestore users",
+    "deleteActivityData": "🗑️ Delete All Activity Data",
+    "deleteActivityDataSubtitle": "Keep profiles, delete activity only",
+    "setAdminClaim": "🔒 Set Admin Claim",
+    "setAdminClaimSubtitle": "Grant admin access via Custom Claim"
+  },
+  "eventChat": {
+    "welcomeMessage": "Welcome to the chat room! Feel free to discuss about the event.",
+    "loadingChatRoom": "Loading chat room...",
+    "inputPlaceholder": "Type a message...",
+    "errors": {
+      "notAuthorized": "You are not authorized to access this chat room. Please apply to the event and get approved first.",
+      "networkError": "Please check your network connection and try again.",
+      "unknownError": "Unknown error",
+      "chatRoomNotice": "Chat Room Notice",
+      "userNotFound": "User information not found.",
+      "sendError": "An error occurred while sending the message."
+    }
+  },
+  "eventDetail": {
+    "participants": {
+      "count": ""
+    }
+  },
+  "eloTrend": {
+    "titleBase": "Applied",
+    "soloLobby": "solo lobby",
+    "partnerInvite": "partner",
+    "friendInvite": "friend",
+    "friendInvitations": "🎾 Friend Invitations",
+    "partnerInvitations": "Partner Invitations",
+    "noApplied": "No applied activities"
+  },
+  "hallOfFame": {
+    "honorTags": {
+      "mr_manner": "#MrManner",
+      "punctual_pro": "#PunctualPro",
+      "mental_fortress": "#MentalFortress",
+      "court_jester": "#CourtJester"
+    }
+  },
+  "achievementsGuide": {
+    "subtitle": "Learn how to earn all trophies and badges",
+    "seasonTrophies": "Season Trophies",
+    "notYetEarned": "Not yet earned",
+    "categories": {
+      "streaks": "Streak Achievements"
+    }
+  },
+  "recordScore": {
+    "submitNoteLeague": "After submission, the league standings will be automatically updated.",
+    "submitNoteLightning": "After submission, the match record will be saved.",
+    "submitNoteTournament": "After submission, the tournament will be automatically updated.",
+    "specialCases": "Special Cases",
+    "specialCasesDescription": "Select if there was a retirement or walkover.",
+    "retiredAtLabel": "Which set did the retirement occur?",
+    "selectWinnerRequired": "Select Winner (Required)",
+    "selectPlayerWhoDidNotRetire": "Select the player who did not retire",
+    "selectPlayerWhoShowedUp": "Select the player who showed up",
+    "pleaseSelectWinner": "Please select a winner."
+  },
+  "scoreConfirmation": {
+    "alerts": {
+      "pleaseSelect": "Please select whether you agree with the score.",
+      "pleaseProvideReason": "Please provide a reason for disagreeing with the score.",
+      "confirmationError": "An error occurred while processing your confirmation."
+    }
+  },
+  "matchDetail": {
+    "defaultMessage": "Looking forward to a great match!"
+  },
+  "matchRequest": {
+    "court": {
+      "perHour": "/hour"
+    },
+    "message": {
+      "title": "Message (Optional)",
+      "label": "Match Request Message"
+    },
+    "summary": {
+      "title": "Match Summary"
+    }
+  },
+  "cards": {
+    "hostedEvent": {
+      "weather": {
+        "drizzle": "Drizzle",
+        "showers": "Showers",
+        "lightsnow": "Light Snow",
+        "heavysnow": "Heavy Snow",
+        "humid": "Humid",
+        "hot": "Hot",
+        "cold": "Cold"
+      }
+    }
+  },
+  "mapAppSelector": {
+    "appNotInstalled": "App Not Installed",
+    "install": "Install",
+    "installed": "Installed",
+    "installationRequired": "Installation Required",
+    "checkingApps": "Checking available apps...",
+    "setAsDefault": "Set as default",
+    "autoOpenDescription": "Automatically open with this app next time"
+  },
+  "participantSelector": {
+    "maxParticipants": "Maximum Participants",
+    "peopleSuffix": " people",
+    "customInput": "Or enter a custom number:",
+    "placeholder": "e.g., 16"
+  },
+  "ntrpSelector": {
+    "levels": {
+      "beginner": {
+        "label": "1.0-2.5 (Beginner)",
+        "description": "Just started playing tennis"
+      },
+      "intermediate": {
+        "label": "3.0-3.5 (Intermediate)",
+        "description": "Can rally and play basic matches"
+      },
+      "advanced": {
+        "label": "4.0-4.5 (Advanced)",
+        "description": "Consistent and competitive player"
+      },
+      "expert": {
+        "label": "5.0+ (Expert)",
+        "description": "Tournament level player"
+      },
+      "any": {
+        "label": "Any Level",
+        "description": "All skill levels welcome"
+      }
+    }
+  },
+  "clubHallOfFame": {
+    "tabs": {
+      "trophies": "🏆 Trophies",
+      "rankings": "📊 ELO Rankings"
+    }
+  },
+  "contexts": {
+    "auth": {
+      "tooManyRequests": "Too many requests. Please try again later.",
+      "emailAlreadyInUse": "This email is already in use.",
+      "weakPassword": "Password is too weak. Please use at least 6 characters.",
+      "emailAlreadyVerified": "Email is already verified. Please log in."
+    },
+    "matching": {
+      "startFailed": "An error occurred while starting matching."
+    }
+  },
+  "roleManagement": {
+    "alerts": {
+      "transferConfirm": {
+        "title": "Confirm Admin Transfer"
+      },
+      "transferError": {
+        "message": "An error occurred during admin transfer."
+      }
+    }
+  },
+  "appNavigator": {
+    "screens": {
+      "eventChat": "Event Chat",
+      "eventDetail": "Event Details",
+      "userProfile": "User Profile",
+      "recordScore": "Record Score",
+      "meetupDetail": "Meetup Info",
+      "leagueDetail": "League Info",
+      "manageLeagueParticipants": "Manage League Matches",
+      "createMeetup": "Create New Recurring Meetup",
+      "clubMemberInvitation": "Invite Members",
+      "chatScreen": "Lightning Coach",
+      "achievementsGuide": "Achievements Guide"
+    }
+  },
+  "clubOverviewScreen": {
+    "emptyStateGuestTitleDefault": "🎾 Welcome to the club!",
+    "emptyStateGuestDescription": "Join this club to enjoy tennis with members.",
+    "emptyStateGuestAction1": "Apply for membership",
+    "emptyStateGuestAction2": "Check club information",
+    "aiHelperHint": "Not sure what to do?",
+    "aiHelperButton": "Chat with AI Assistant",
+    "aiHelperSubtext": "Ask questions about tennis or how to use the app!",
+    "actionRequired": "Action Required"
+  },
+  "league": {
+    "validation": {
+      "mensOnly": " is only available for male players.",
+      "womensOnly": " is only available for female players.",
+      "doublesNeedPartner": "Doubles requires a partner.",
+      "mixedDoublesRequirement": "Mixed doubles requires one male and one female player.",
+      "genderRestriction": " is only available for {gender} players."
+    }
+  },
+  "tournament": {
+    "bestFinish": {
+      "champion": "🥇 Champion",
+      "runnerUp": "🥈 Runner-up",
+      "semiFinal": "🥉 Semi-finalist",
+      "nthPlace": "{position}th place"
+    }
+  },
+  "clubCommunication": {
+    "validation": {
+      "contentRequired": "Please enter content",
+      "contentTooLong": "Content cannot exceed 5,000 characters",
+      "commentRequired": "Please enter a comment",
+      "commentTooLong": "Comment cannot exceed 1,000 characters",
+      "messageRequired": "Please enter a message",
+      "messageTooLong": "Message cannot exceed 1,000 characters"
+    }
+  },
+  "clubPoliciesScreen": {
+    "clubIntro": "Club Introduction",
+    "regularMeetings": "Regular Meetings",
+    "costInfo": "Cost Information",
+    "yearlyFee": "Yearly Dues",
+    "paymentMethods": "Payment Methods",
+    "qrHint": "Tap payment methods with QR icon to view QR code",
+    "myDuesButton": "View & Pay My Dues",
+    "memberOnlyButton": "Member Only Feature",
+    "emptyTitle": "No Information Available",
+    "emptyMessage": "Club rules, regular meeting times, and cost information have not been set up yet."
+  },
+  "policyEditScreen": {
+    "dontSave": "Don't Save",
+    "saveSuccessMessage": "Policy saved successfully.",
+    "saveFailedMessage": "An error occurred while saving the policy.",
+    "loadFailed": "Load Failed",
+    "loadFailedMessage": "An error occurred while loading the policy.",
+    "emptyContentError": "Please enter policy content."
+  },
+  "findClubScreen": {
+    "joinRequestButton": "Request",
+    "joinRequestSuccessMessage": "Join request submitted successfully. Please wait for club admin approval.",
+    "joinRequestErrorMessage": "An error occurred while submitting join request.",
+    "loginRequiredMessage": "Login is required.",
+    "alreadyPending": "Join request already pending."
+  },
+  "clubDetailScreen": {
+    "goBack": "Go Back",
+    "joinWaiting": "Awaiting Approval",
+    "reapply": "Reapply",
+    "joinApply": "Request to Join",
+    "joinModalTitle": "Join Club",
+    "joinMessageLabel": "Join Message (Optional)",
+    "joinMessagePlaceholder": "Briefly introduce yourself or explain why you want to join."
+  },
+  "matches": {
+    "skillLevels": {
+      "2.0-3.0": "2.0-3.0",
+      "3.0-4.0": "3.0-4.0",
+      "4.0-5.0": "4.0-5.0",
+      "5.0+": "5.0+"
+    },
+    "createModal": {
+      "maxParticipants": {
+        "placeholder": "4"
+      }
+    }
+  },
+  "leagues": {
+    "admin": {
+      "startAcceptingApplications": "🎭 Start Accepting Applications"
+    },
+    "match": {
+      "reschedule": "Reschedule",
+      "result": "Result",
+      "submittedResult": "Submitted Result (Pending Approval)",
+      "submitResult": "Submit Result",
+      "submitResultAdmin": "Submit Result (Admin)",
+      "noMatches": "No matches yet",
+      "matchesWillAppear": "Matches will appear here once created."
+    }
+  },
+  "schedules": {
+    "form": {
+      "both": "Both",
+      "participationInfo": "Participation Information",
+      "skillLevelPlaceholder": "e.g., 3.5+",
+      "membersOnly": "Members Only",
+      "registrationRequired": "Registration Required",
+      "registrationDeadline": "Registration Deadline (hours before)"
+    }
+  },
+  "clubPolicies": {
+    "empty": {
+      "title": "No Information Available",
+      "description": "Club rules, meeting times, and fee information have not been set up yet."
+    }
+  },
+  "findClub": {
+    "errors": {
+      "loginRequired": "Login required.",
+      "alreadyMember": "You are already a member of this club.",
+      "alreadyRequested": "You have already requested to join.",
+      "joinFailed": "An error occurred while requesting to join."
+    },
+    "empty": {
+      "noClubs": "No public clubs available",
+      "createNew": "Create a new club"
+    }
+  },
+  "modals": {
+    "playoffCreated": {
+      "viewMatches": "View Playoff Matches",
+      "playoffType": "Playoff Format",
+      "semifinals": "Semifinals + Final",
+      "qualifiedPlayers": "🎉 Qualified Players"
+    },
+    "publicMatchScore": {
+      "noApprovedParticipants": "No approved participants. Please approve participants before submitting score."
+    },
+    "chatUI": {
+      "inputPlaceholder": "Type a message..."
+    }
+  },
+  "screens": {
+    "rateSportsmanship": {
+      "eventNotFound": "Event not found"
+    }
+  },
+  "utils": {
+    "ltr": {
+      "whatIsLtr": {
+        "title": "What is LTR?",
+        "content": "LTR (Lightning Tennis Rating) is a proprietary skill assessment system developed exclusively for the Lightning Tennis community. LTR is calculated based on the ELO algorithm applied to all public lightning match results, showing your growth journey in an intuitive scale from 1 to 10. It's an honorable indicator of how much you've grown within our ecosystem."
+      },
+      "relationToNtrp": {
+        "title": "Relationship to NTRP",
+        "content": "LTR is a unique system distinct from USTA's NTRP. For the convenience of users familiar with NTRP ratings, you can select your skill level in a range similar to NTRP when signing up, but all official levels calculated and displayed within the app are based on LTR."
+      }
+    }
+  },
+  "feedCard": {
+    "feedTextError": "Unable to load feed",
+    "viewClub": "View Club",
+    "notification": "Notification",
+    "unknown": "Unknown"
+  }
+}

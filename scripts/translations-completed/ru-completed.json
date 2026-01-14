@@ -1,0 +1,95 @@
+{
+  "clubLeaguesTournaments": {
+    "memberPreLeagueStatus": {
+      "peopleUnit": "чел."
+    }
+  },
+  "eventCard": {
+    "labels": {
+      "participants": "{{current}}/{{max}}"
+    }
+  },
+  "createEvent": {
+    "languages": {
+      "korean": "한국어",
+      "chinese": "中文",
+      "japanese": "日本語",
+      "spanish": "Español",
+      "french": "Français"
+    }
+  },
+  "duesManagement": {
+    "settings": {
+      "venmo": "Venmo"
+    },
+    "countSuffix": "чел."
+  },
+  "meetupDetail": {
+    "rsvp": {
+      "title": "RSVP"
+    }
+  },
+  "lessonCard": {
+    "currencySuffix": ""
+  },
+  "tournamentDetail": {
+    "participantsSuffix": "чел."
+  },
+  "myProfile": {
+    "title": "Мой профиль"
+  },
+  "eventDetail": {
+    "participants": {
+      "label": "участников",
+      "waiting": "ожидают",
+      "count": "чел.",
+      "host": "Хост",
+      "me": "(Я)"
+    }
+  },
+  "hallOfFame": {
+    "honorBadges": {
+      "receivedCount": "×{{count}}"
+    }
+  },
+  "matchDetail": {
+    "defaultMessage": "С нетерпением жду отличного матча!"
+  },
+  "appNavigator": {
+    "screens": {
+      "chatScreen": "Тренер Молния"
+    }
+  },
+  "matches": {
+    "skillLevels": {
+      "2": {
+        "0-3": {
+          "0": "2.0-3.0"
+        }
+      },
+      "3": {
+        "0-4": {
+          "0": "3.0-4.0"
+        }
+      },
+      "4": {
+        "0-5": {
+          "0": "4.0-5.0"
+        }
+      },
+      "5": {
+        "0+": "5.0+"
+      }
+    },
+    "createModal": {
+      "maxParticipants": {
+        "placeholder": "4"
+      }
+    }
+  },
+  "screens": {
+    "rateSportsmanship": {
+      "eventNotFound": "Событие не найдено"
+    }
+  }
+}

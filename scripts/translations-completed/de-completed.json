@@ -1,0 +1,250 @@
+{
+  "common": {
+    "ok": "OK",
+    "all": "Alle",
+    "none": "Keine",
+    "refresh": "Aktualisieren",
+    "update": "Aktualisieren",
+    "create": "Erstellen",
+    "actions": {
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "delete": "Löschen",
+      "edit": "Bearbeiten",
+      "submit": "Senden",
+      "back": "Zurück",
+      "next": "Weiter",
+      "previous": "Zurück",
+      "confirm": "Bestätigen",
+      "close": "Schließen",
+      "view": "Ansehen",
+      "share": "Teilen",
+      "download": "Herunterladen",
+      "upload": "Hochladen",
+      "search": "Suchen",
+      "filter": "Filtern",
+      "sort": "Sortieren",
+      "refresh": "Aktualisieren"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "pending": "Ausstehend",
+      "completed": "Abgeschlossen",
+      "cancelled": "Abgebrochen",
+      "draft": "Entwurf"
+    },
+    "time": {
+      "today": "Heute",
+      "tomorrow": "Morgen",
+      "yesterday": "Gestern",
+      "thisWeek": "Diese Woche",
+      "nextWeek": "Nächste Woche",
+      "lastWeek": "Letzte Woche",
+      "thisMonth": "Dieser Monat",
+      "nextMonth": "Nächster Monat",
+      "lastMonth": "Letzter Monat"
+    }
+  },
+  "auth": {
+    "register": {
+      "displayName": "Name",
+      "success": {
+        "ok": "OK"
+      }
+    }
+  },
+  "createClub": {
+    "fields": {
+      "logo": "Logo"
+    }
+  },
+  "profile": {
+    "settingsTab": {
+      "administrator": "Administrator"
+    }
+  },
+  "clubList": {
+    "clubType": {
+      "casual": "Ungezwungen",
+      "social": "Sozial"
+    }
+  },
+  "units": {
+    "km": "km",
+    "mi": "mi"
+  },
+  "eventCard": {
+    "eventTypes": {
+      "casual": "Ungezwungen",
+      "general": "Allgemein"
+    },
+    "labels": {
+      "participants": "{{current}}/{{max}}"
+    },
+    "buttons": {
+      "chat": "Chat"
+    }
+  },
+  "createEvent": {
+    "alerts": {
+      "confirm": "OK"
+    },
+    "languages": {
+      "chinese": "中文",
+      "japanese": "日本語",
+      "spanish": "Español",
+      "french": "Français"
+    }
+  },
+  "hostedEventCard": {
+    "eventTypes": {
+      "casual": "Ungezwungen",
+      "general": "Allgemein"
+    },
+    "buttons": {
+      "chat": "Chat"
+    }
+  },
+  "duesManagement": {
+    "alerts": {
+      "ok": "OK"
+    },
+    "settings": {
+      "venmo": "Venmo"
+    },
+    "report": {
+      "totalColumn": "Gesamt"
+    }
+  },
+  "clubAdmin": {
+    "chat": "Chat",
+    "chatNormal": "Normal"
+  },
+  "editClubPolicy": {
+    "ok": "OK",
+    "no": "Nein"
+  },
+  "createClubTournament": {
+    "matchFormats": {
+      "best_of_1": "1 Satz",
+      "best_of_3": "3 Sätze",
+      "best_of_5": "5 Sätze"
+    },
+    "seedingMethods": {
+      "manual": "Manuell"
+    }
+  },
+  "appliedEventCard": {
+    "eventType": {
+      "casual": "Ungezwungen",
+      "general": "Allgemein"
+    },
+    "actions": {
+      "chat": "Chat"
+    }
+  },
+  "meetupDetail": {
+    "editEvent": {
+      "durationUnit": "Min"
+    }
+  },
+  "teamInvitations": {
+    "ok": "OK"
+  },
+  "createClubLeague": {
+    "ok": "OK"
+  },
+  "manageAnnouncement": {
+    "ok": "OK"
+  },
+  "lessonCard": {
+    "currencySuffix": ""
+  },
+  "pastEventCard": {
+    "chat": "Chat"
+  },
+  "weeklySchedule": {
+    "total": "Gesamt"
+  },
+  "myClubSettings": {
+    "alerts": {
+      "ok": "OK"
+    }
+  },
+  "clubLeagueManagement": {
+    "status": {
+      "playoffs": "Playoffs"
+    }
+  },
+  "hallOfFame": {
+    "honorBadges": {
+      "receivedCount": "×{{count}}"
+    }
+  },
+  "recordScore": {
+    "set": "Satz",
+    "setN": "Satz {{n}}",
+    "alerts": {
+      "confirm": "OK",
+      "globalRanking": "Global"
+    }
+  },
+  "directChat": {
+    "club": "Club"
+  },
+  "types": {
+    "clubSchedule": {
+      "timePeriod": {
+        "am": "AM",
+        "pm": "PM"
+      }
+    },
+    "dues": {
+      "period": {
+        "year": "{{year}}",
+        "yearMonth": "{{month}}/{{year}}"
+      }
+    }
+  },
+  "matches": {
+    "skillLevels": {
+      "2": {
+        "0-3": {
+          "0": "2.0-3.0"
+        }
+      },
+      "3": {
+        "0-4": {
+          "0": "3.0-4.0"
+        }
+      },
+      "4": {
+        "0-5": {
+          "0": "4.0-5.0"
+        }
+      },
+      "5": {
+        "0+": "5.0+"
+      }
+    },
+    "createModal": {
+      "maxParticipants": {
+        "placeholder": "4"
+      }
+    },
+    "alerts": {
+      "createSuccess": {
+        "confirm": "OK"
+      }
+    }
+  },
+  "clubPolicies": {
+    "defaultClubName": "Club"
+  },
+  "modals": {
+    "playoffCreated": {
+      "final": "Finale"
+    }
+  }
+}

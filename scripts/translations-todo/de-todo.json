@@ -1,0 +1,300 @@
+{
+  "common": {
+    "ok": "OK"
+  },
+  "auth": {
+    "register": {
+      "displayName": "Name",
+      "success": {
+        "ok": "OK"
+      }
+    }
+  },
+  "createClub": {
+    "fields": {
+      "logo": "Logo"
+    }
+  },
+  "profile": {
+    "settingsTab": {
+      "administrator": "Administrator"
+    },
+    "userProfile": {
+      "timeSlots": {
+        "brunch": "Brunch"
+      }
+    }
+  },
+  "onboarding": {
+    "maxDistance": "Max {{distance}}km"
+  },
+  "units": {
+    "km": "km",
+    "mi": "mi",
+    "distanceKm": "{{distance}} km",
+    "distanceMi": "{{distance}} mi"
+  },
+  "roles": {
+    "manager": "Manager"
+  },
+  "terms": {
+    "optional": "Optional"
+  },
+  "club": {
+    "chat": "Chat",
+    "clubMembers": {
+      "roles": {
+        "manager": "Manager"
+      }
+    }
+  },
+  "editProfile": {
+    "common": {
+      "ok": "OK"
+    }
+  },
+  "clubLeaguesTournaments": {
+    "status": {
+      "playoffs": "Playoffs"
+    },
+    "labels": {
+      "status": "Status",
+      "format": "Format"
+    },
+    "memberPreLeagueStatus": {
+      "format": "Format",
+      "status": "Status"
+    }
+  },
+  "clubTournamentManagement": {
+    "stats": {
+      "champion": "Champion: "
+    },
+    "common": {
+      "confirm": "OK"
+    }
+  },
+  "eventCard": {
+    "matchTypeSelector": {
+      "mixed": "Mixed"
+    },
+    "labels": {
+      "participants": "{{current}}/{{max}}"
+    },
+    "buttons": {
+      "chat": "Chat"
+    }
+  },
+  "createEvent": {
+    "eventType": {
+      "match": "Match"
+    },
+    "fields": {
+      "partner": "Partner"
+    },
+    "gameTypes": {
+      "mixed": "Mixed"
+    },
+    "alerts": {
+      "confirm": "OK"
+    },
+    "languages": {
+      "korean": "한국어",
+      "english": "English",
+      "chinese": "中文",
+      "japanese": "日本語",
+      "spanish": "Español",
+      "french": "Français"
+    }
+  },
+  "hostedEventCard": {
+    "buttons": {
+      "chat": "Chat"
+    },
+    "partner": "Partner: "
+  },
+  "duesManagement": {
+    "tabs": {
+      "status": "Status"
+    },
+    "alerts": {
+      "ok": "OK"
+    },
+    "settings": {
+      "bank": "Bank",
+      "venmo": "Venmo"
+    }
+  },
+  "feed": {
+    "title": "Feed"
+  },
+  "regularMeetup": {
+    "crowdOk": "OK"
+  },
+  "eventParticipation": {
+    "tabs": {
+      "details": "Details"
+    }
+  },
+  "clubAdmin": {
+    "chat": "Chat",
+    "chatNormal": "Normal"
+  },
+  "editClubPolicy": {
+    "ok": "OK"
+  },
+  "appliedEventCard": {
+    "actions": {
+      "chat": "Chat"
+    }
+  },
+  "meetupDetail": {
+    "weather": {
+      "windLabel": "Wind"
+    }
+  },
+  "teamInvitations": {
+    "ok": "OK"
+  },
+  "createClubLeague": {
+    "ok": "OK"
+  },
+  "manageAnnouncement": {
+    "ok": "OK"
+  },
+  "playerCard": {
+    "online": "Online"
+  },
+  "pastEventCard": {
+    "chat": "Chat"
+  },
+  "myClubSettings": {
+    "alerts": {
+      "ok": "OK"
+    }
+  },
+  "tournamentDetail": {
+    "bestFinish": {
+      "champion": "🥇 Champion"
+    }
+  },
+  "clubLeagueManagement": {
+    "status": {
+      "playoffs": "Playoffs"
+    }
+  },
+  "teamPairing": {
+    "teamLabel": "Team {{number}}"
+  },
+  "hallOfFame": {
+    "honorBadges": {
+      "receivedCount": "×{{count}}"
+    }
+  },
+  "recordScore": {
+    "tiebreak": "Tiebreak",
+    "tiebreakLabel": "Tiebreak ({{placeholder}})",
+    "walkover": "Walkover",
+    "alerts": {
+      "confirm": "OK",
+      "standardTiebreak": "Tiebreak",
+      "globalRanking": "Global"
+    }
+  },
+  "scoreConfirmation": {
+    "walkover": "Walkover"
+  },
+  "leagueDetail": {
+    "champion": "Champion",
+    "standings": {
+      "playoffTitle": "Playoff Standings",
+      "thirdPlace": "3rd Place",
+      "fourthPlace": "4th Place"
+    },
+    "playoffs": {
+      "format": "Format:"
+    }
+  },
+  "roleManagement": {
+    "roles": {
+      "manager": "Manager"
+    }
+  },
+  "appNavigator": {
+    "screens": {
+      "chatScreen": "Lightning Coach"
+    }
+  },
+  "tournament": {
+    "bestFinish": {
+      "champion": "🥇 Champion"
+    }
+  },
+  "matches": {
+    "skillLevels": {
+      "2": {
+        "0-3": {
+          "0": "2.0-3.0"
+        }
+      },
+      "3": {
+        "0-4": {
+          "0": "3.0-4.0"
+        }
+      },
+      "4": {
+        "0-5": {
+          "0": "4.0-5.0"
+        }
+      },
+      "5": {
+        "0+": "5.0+"
+      }
+    },
+    "createModal": {
+      "maxParticipants": {
+        "placeholder": "4"
+      }
+    },
+    "alerts": {
+      "createSuccess": {
+        "confirm": "OK"
+      }
+    }
+  },
+  "leagues": {
+    "admin": {
+      "maxParticipants": "Max"
+    },
+    "match": {
+      "status": {
+        "walkover": "Walkover"
+      },
+      "walkover": "Walkover"
+    }
+  },
+  "services": {
+    "activity": {
+      "tennisUserFallback": "TennisUser{{id}}"
+    }
+  },
+  "aiMatching": {
+    "candidate": {
+      "strengths": {
+        "volley": "Volley",
+        "mental": "Mental"
+      }
+    },
+    "mockData": {
+      "candidate1": {
+        "name": "Junsu Kim"
+      },
+      "candidate2": {
+        "name": "Seoyeon Lee"
+      },
+      "candidate3": {
+        "name": "Minjae Park"
+      }
+    }
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "profileSettings": {
+    "location": {
+      "permission": {
+        "undetermined": "未确定",
+        "checking": "检查中...",
+        "grantedDescription": "可以查找附近的俱乐部和比赛",
+        "deniedDescription": "请在设置中启用位置权限",
+        "undeterminedDescription": "请设置位置权限",
+        "checkingDescription": "正在检查权限状态"
+      },
+      "alerts": {
+        "permissionGrantedTitle": "位置权限已授予",
+        "permissionGrantedMessage": "位置权限已授予。您可以查找附近的俱乐部和比赛。",
+        "permissionTitle": "位置权限",
+        "permissionMessage": "需要位置权限以查找附近的俱乐部和比赛。请在设置中启用。",
+        "errorMessage": "检查位置权限时发生错误。",
+        "openSettings": "打开设置"
+      },
+      "update": {
+        "checkingPermission": "正在检查位置权限...",
+        "permissionRequiredTitle": "需要位置权限",
+        "permissionRequiredMessage": "需要位置权限以获取您的当前位置。",
+        "gettingLocation": "正在获取当前位置...",
+        "savingLocation": "正在保存位置...",
+        "gettingAddress": "正在获取地址信息...",
+        "successMessage": "位置已更新：{{city}}",
+        "partialSuccessTitle": "部分成功",
+        "partialSuccessMessage": "位置已保存（无地址信息）",
+        "errorMessage": "更新位置时发生错误。"
+      }
+    },
+    "theme": {
+      "lightMode": "浅色模式",
+      "darkMode": "深色模式",
+      "followSystem": "跟随系统",
+      "settingsTitle": "主题设置",
+      "settingsMessage": "选择您喜欢的主题",
+      "lightModeSubtitle": "使用浅色主题",
+      "darkModeSubtitle": "使用深色主题",
+      "followSystemSubtitle": "根据设备设置自动调整"
+    },
+    "privacy": {
+      "title": "隐私设置",
+      "message": "导航到隐私设置。",
+      "comingSoonTitle": "即将推出",
+      "comingSoonMessage": "隐私设置功能即将推出。"
+    }
+  },
+  "eventCard": {
+    "labels": {
+      "participants": "{{current}}/{{max}}"
+    }
+  },
+  "createEvent": {
+    "header": {
+      "editEvent": "编辑活动",
+      "createNew": "创建新活动"
+    },
+    "eventType": {
+      "lightningMatch": "闪电赛",
+      "lightningMeetup": "闪电聚会",
+      "match": "比赛",
+      "meetup": "聚会",
+      "doublesMatch": "双打比赛",
+      "singlesMatch": "单打比赛"
+    },
+    "languages": {
+      "korean": "한국어",
+      "english": "English",
+      "chinese": "中文",
+      "japanese": "日本語",
+      "spanish": "Español",
+      "french": "Français"
+    }
+  },
+  "hostedEventCard": {
+    "status": {
+      "inProgress": "进行中",
+      "partnerPending": "等待搭档",
+      "recruiting": "招募中",
+      "full": "已满"
+    }
+  },
+  "duesManagement": {
+    "actions": {
+      "change": "更改",
+      "viewAttachment": "查看附件",
+      "processPayment": "处理付款",
+      "markAsPaid": "标记为已付款"
+    },
+    "settings": {
+      "title": "会费设置",
+      "paymentMethods": "付款方式",
+      "autoInvoice": "自动发票",
+      "autoInvoiceDesc": "自动发送月度发票",
+      "daysLabel": "天",
+      "dayOfMonth": "每月第几天",
+      "addPaymentMethod": "添加付款方式",
+      "qrCode": "二维码",
+      "bank": "银行",
+      "venmo": "Venmo"
+    },
+    "overview": {
+      "title": "概览",
+      "totalMembers": "总成员数",
+      "totalOwed": "总欠款",
+      "totalPaid": "总已付款",
+      "collectionRate": "收款率",
+      "pendingApproval": "待审批",
+      "memberDuesStatus": "成员会费状态",
+      "autoInvoiceLabel": "自动发票",
+      "noRecordsYet": "暂无会费记录",
+      "clickAutoInvoice": "点击上方的自动发票按钮以自动向所有成员发送月度发票"
+    },
+    "overdue": {
+      "membersWithOverdue": "逾期会费成员",
+      "amountDue": "应付金额",
+      "sendReminder": "发送提醒"
+    }
+  },
+  "createMeetup": {
+    "location": {
+      "homeCourt": "🏠 主场",
+      "otherCourt": "🗺️ 其他球场",
+      "clubHomeCourt": "俱乐部主场",
+      "changeInSettings": "可在俱乐部设置中更改",
+      "courtLocation": "球场位置",
+      "searchTennisCourt": "搜索网球场",
+      "searchHelper": "点击搜索网球场。"
+    }
+  },
+  "clubDuesManagement": {
+    "status": {
+      "summary": "付款摘要",
+      "totalMembers": "总成员数",
+      "paid": "已付款",
+      "unpaid": "未付款",
+      "overdue": "逾期",
+      "collectionRate": "收款率",
+      "memberPaymentStatus": "成员付款状态",
+      "autoInvoice": "自动发票",
+      "noMembers": "未找到成员"
+    }
+  },
+  "eventParticipation": {
+    "header": {
+      "title": "活动参与"
+    },
+    "participants": {
+      "list": "参与者",
+      "waitingList": "等待名单"
+    }
+  },
+  "lessonCard": {
+    "currencySuffix": ""
+  },
+  "tournamentDetail": {
+    "participantsSuffix": "人"
+  },
+  "hallOfFame": {
+    "honorBadges": {
+      "receivedCount": "×{{count}}"
+    }
+  },
+  "matchRequest": {
+    "message": {
+      "title": "留言（可选）",
+      "label": "比赛请求留言",
+      "placeholder": "写下您的问候语或对比赛的期望"
+    }
+  },
+  "leagueDetail": {
+    "standings": {
+      "rank": "排名",
+      "player": "球员",
+      "wins": "胜",
+      "losses": "负",
+      "points": "积分",
+      "playoffTitle": "季后赛排名",
+      "thirdPlace": "第三名",
+      "fourthPlace": "第四名"
+    }
+  },
+  "types": {
+    "match": {
+      "matchStatus": {
+        "disputed": "有争议"
+      },
+      "matchFormats": {
+        "singles": "单打",
+        "doubles": "双打"
+      },
+      "validation": {
+        "minOneSet": "至少需要输入一盘。",
+        "gamesNonNegative": "第{{setNum}}盘：局数必须为0或更大。",
+        "gamesExceedMax": "第{{setNum}}盘：局数不能超过{{maxGames}}局。",
+        "gamesExceedMaxShort": "第{{setNum}}盘：在短盘中，局数不能超过{{maxGames}}局（最多{{gamesPerSet}}-{{minWin}}或{{maxAllowed}}-{{gamesPerSet1}}）。",
+        "tiebreakRequired": "第{{setNum}}盘：在{{setType}}中，当比分为{{score}}-{{score}}时需要抢七分数。",
+        "tiebreakMargin": "第{{setNum}}盘：{{tiebreakType}}必须以2分优势结束（例如，7-5、8-6、10-8）。",
+        "tiebreakMinPoints": "第{{setNum}}盘：{{tiebreakType}}必须至少达到{{minPoints}}分（例如，{{minPoints}}-{{minPoints2}}、{{minPoints1}}-{{minPoints3}}）。",
+        "incompleteSet": "第{{setNum}}盘：在{{setType}}中，盘以少于{{gamesPerSet}}局结束。请确认这是否为退赛或特殊情况。",
+        "invalidWinScore": "第{{setNum}}盘：要以{{gamesPerSet}}局获胜，对手最多只能有{{maxOppGames}}局。",
+        "invalidWinScoreShort": "第{{setNum}}盘：在短盘中，{{gamesPerSet}}-{{minGames}}是不可能的。要以{{gamesPerSet}}局获胜，对手最多只能有{{maxOppGames}}局。",
+        "invalidMaxGamesScore": "第{{setNum}}盘：要以{{maxGames}}局获胜，对手必须有{{gamesPerSet1}}或{{gamesPerSet}}局。",
+        "invalidMaxGamesScoreShort": "第{{setNum}}盘：在短盘中，{{maxGames}}-{{minGames}}是不可能的。盘以{{gamesPerSet}}-{{minGames}}结束。",
+        "regularSet": "常规盘",
+        "shortSet": "短盘",
+        "tiebreak": "抢七",
+        "superTiebreak": "超级抢十"
+      }
+    },
+    "tournament": {
+      "validation": {
+        "singlesNoPartner": "单打锦标赛不需要搭档。",
+        "mensSinglesMaleOnly": "男子单打仅限男性球员。",
+        "womensSinglesFemaleOnly": "女子单打仅限女性球员。",
+        "doublesPartnerRequired": "双打锦标赛需要搭档。",
+        "mensDoublesMaleOnly": "男子双打仅限男性球员。",
+        "womensDoublesFemaleOnly": "女子双打仅限女性球员。",
+        "mixedDoublesRequirement": "混合双打需要一男一女球员。"
+      },
+      "eventTypes": {
+        "mens_singles": "男子单打",
+        "womens_singles": "女子单打",
+        "mens_doubles": "男子双打",
+        "womens_doubles": "女子双打",
+        "mixed_doubles": "混合双打"
+      }
+    }
+  },
+  "matches": {
+    "header": {
+      "title": "🎾 比赛与活动",
+      "notificationSettings": "通知设置",
+      "currentNotificationDistance": "当前通知距离：{{distance}}英里"
+    },
+    "skillLevels": {
+      "2": {
+        "0-3": {
+          "0": "2.0-3.0"
+        }
+      },
+      "3": {
+        "0-4": {
+          "0": "3.0-4.0"
+        }
+      },
+      "4": {
+        "0-5": {
+          "0": "4.0-5.0"
+        }
+      },
+      "5": {
+        "0+": "5.0+"
+      }
+    },
+    "createModal": {
+      "maxParticipants": {
+        "placeholder": "4"
+      }
+    }
+  },
+  "performanceDashboard": {
+    "stats": {
+      "winRate": "胜率",
+      "matchQuality": "比赛质量",
+      "playingFrequency": "打球频率",
+      "totalMatches": "总比赛数",
+      "averageSatisfaction": "平均满意度",
+      "matchesPerWeek": "每周比赛数",
+      "periodRecord": "{{period}}战绩",
+      "winsLosses": "{{wins}}胜 {{losses}}负"
+    },
+    "charts": {
+      "skillProgress": {
+        "title": "技能水平进度",
+        "subtitle": "基于最近10场比赛"
+      }
+    }
+  },
+  "aiMatching": {
+    "analyzing": {
+      "title": "AI匹配分析",
+      "steps": {
+        "profile": "正在分析个人资料...",
+        "skillLevel": "正在匹配技能水平...",
+        "location": "正在按位置搜索...",
+        "schedule": "正在检查日程兼容性...",
+        "selection": "正在选择最佳匹配..."
+      },
+      "tip": "💡 AI正在分析您的技能水平、位置和日程\n以找到最佳匹配搭档"
+    }
+  }
+}

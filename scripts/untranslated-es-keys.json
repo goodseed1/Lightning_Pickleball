@@ -1,0 +1,221 @@
+{
+  "common": {
+    "error": "Error",
+    "no": "No"
+  },
+  "auth": {
+    "register.errors.title": "Error"
+  },
+  "clubList": {
+    "clubType.casual": "Casual",
+    "clubType.social": "Social"
+  },
+  "profile": {
+    "userProfile.friendRequest.error": "Error",
+    "userProfile.sendMessage.error": "Error"
+  },
+  "onboarding": {
+    "alerts.error": "Error"
+  },
+  "units": {
+    "km": "km",
+    "mi": "mi",
+    "distanceKm": "{{distance}} km",
+    "distanceMi": "{{distance}} mi"
+  },
+  "ntrpResult": {
+    "recommended": "Rec"
+  },
+  "admin": {
+    "matchManagement.total": "Total"
+  },
+  "club": {
+    "chat": "Chat",
+    "clubMembers.alerts.loadError.title": "Error"
+  },
+  "clubChat": {
+    "roleAdmin": "Admin"
+  },
+  "clubSelector": {
+    "club": "Club"
+  },
+  "rateSportsmanship": {
+    "alerts.error": "Error"
+  },
+  "alert": {
+    "title.error": "Error"
+  },
+  "editProfile": {
+    "common.error": "Error"
+  },
+  "discover": {
+    "alerts.error": "Error"
+  },
+  "emailLogin": {
+    "verification.sentTo": "{{email}}",
+    "alerts.genericError.title": "Error",
+    "alerts.resendError.title": "Error",
+    "alerts.missingInfo.title": "Error",
+    "alerts.loginInfoMissing.title": "Error",
+    "alerts.forgotPassword.sendError.title": "Error"
+  },
+  "myActivities": {
+    "alerts.partnerInvitation.error.title": "Error",
+    "alerts.friendInvitation.error.title": "Error"
+  },
+  "clubLeaguesTournaments": {
+    "alerts.error.title": "Error",
+    "alerts.selectPartner.title": "Error"
+  },
+  "clubTournamentManagement": {
+    "roundGeneration.errorTitle": "Error",
+    "tournamentStart.errorTitle": "Error",
+    "seedAssignment.errorTitle": "Error",
+    "deletion.errorTitle": "Error",
+    "participantRemoval.errorTitle": "Error",
+    "participantAdd.errorTitle": "Error",
+    "common.error": "Error"
+  },
+  "profileSettings": {
+    "location.alerts.errorTitle": "Error",
+    "location.update.errorTitle": "Error"
+  },
+  "eventCard": {
+    "eventTypes.casual": "Casual",
+    "eventTypes.general": "General",
+    "labels.participants": "{{current}}/{{max}}",
+    "buttons.chat": "Chat"
+  },
+  "createEvent": {
+    "languages.chinese": "中文",
+    "languages.japanese": "日本語",
+    "languages.spanish": "Español",
+    "languages.french": "Français"
+  },
+  "hostedEventCard": {
+    "eventTypes.casual": "Casual",
+    "eventTypes.general": "General",
+    "buttons.chat": "Chat",
+    "alerts.error": "Error"
+  },
+  "duesManagement": {
+    "alerts.error": "Error",
+    "settings.venmo": "Venmo",
+    "report.totalColumn": "Total"
+  },
+  "createMeetup": {
+    "errors.errorTitle": "Error"
+  },
+  "activityTab": {
+    "error": "Error",
+    "no": "No"
+  },
+  "regularMeetup": {
+    "error": "Error"
+  },
+  "clubAdmin": {
+    "chat": "Chat",
+    "chatNormal": "Normal"
+  },
+  "editClubPolicy": {
+    "error": "Error",
+    "no": "No"
+  },
+  "createClubTournament": {
+    "matchFormats.best_of_1": "1 Set",
+    "matchFormats.best_of_3": "3 Sets",
+    "matchFormats.best_of_5": "5 Sets",
+    "seedingMethods.manual": "Manual"
+  },
+  "appliedEventCard": {
+    "eventType.casual": "Casual",
+    "eventType.general": "General",
+    "actions.chat": "Chat",
+    "alerts.error": "Error"
+  },
+  "meetupDetail": {
+    "editEvent.durationUnit": "min"
+  },
+  "teamInvitations": {
+    "error": "Error"
+  },
+  "manageAnnouncement": {
+    "error": "Error"
+  },
+  "lessonCard": {
+    "currencySuffix": ""
+  },
+  "pastEventCard": {
+    "chat": "Chat"
+  },
+  "weeklySchedule": {
+    "total": "Total"
+  },
+  "myClubSettings": {
+    "alerts.error": "Error"
+  },
+  "postDetail": {
+    "error": "Error"
+  },
+  "lessonForm": {
+    "errorTitle": "Error"
+  },
+  "developerTools": {
+    "errorTitle": "Error"
+  },
+  "clubLeagueManagement": {
+    "status.playoffs": "Playoffs"
+  },
+  "hallOfFame": {
+    "honorBadges.receivedCount": "×{{count}}"
+  },
+  "recordScore": {
+    "set": "Set",
+    "setN": "Set {{n}}",
+    "alerts.error": "Error",
+    "alerts.globalRanking": "Global"
+  },
+  "scoreConfirmation": {
+    "alerts.error": "Error"
+  },
+  "directChat": {
+    "club": "Club",
+    "alerts.error": "Error"
+  },
+  "roleManagement": {
+    "alerts.loadError.title": "Error",
+    "alerts.transferError.title": "Error"
+  },
+  "clubOverviewScreen": {
+    "deleteError": "Error"
+  },
+  "types": {
+    "clubSchedule.timePeriod.am": "AM",
+    "clubSchedule.timePeriod.pm": "PM",
+    "dues.period.year": "{{year}}",
+    "dues.period.yearMonth": "{{month}}/{{year}}"
+  },
+  "findClubScreen": {
+    "joinRequestError": "Error"
+  },
+  "matches": {
+    "skillLevels.2.0-3.0": "2.0-3.0",
+    "skillLevels.3.0-4.0": "3.0-4.0",
+    "skillLevels.4.0-5.0": "4.0-5.0",
+    "skillLevels.5.0+": "5.0+",
+    "createModal.maxParticipants.placeholder": "4"
+  },
+  "services": {
+    "map.error": "Error"
+  },
+  "aiMatching": {
+    "mockData.candidate1.name": "Junsu Kim",
+    "mockData.candidate2.name": "Seoyeon Lee"
+  },
+  "clubPolicies": {
+    "defaultClubName": "Club"
+  },
+  "modals": {
+    "playoffCreated.final": "Final"
+  }
+}

@@ -1,0 +1,527 @@
+[
+  {
+    "key": "common.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "common.no",
+    "enValue": "No",
+    "targetValue": "No"
+  },
+  {
+    "key": "common.ok",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "auth.register.errors.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubList.clubType.casual",
+    "enValue": "Casual",
+    "targetValue": "Casual"
+  },
+  {
+    "key": "clubList.clubType.social",
+    "enValue": "Social",
+    "targetValue": "Social"
+  },
+  {
+    "key": "profile.userProfile.friendRequest.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "profile.userProfile.sendMessage.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "onboarding.alerts.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "units.km",
+    "enValue": "km",
+    "targetValue": "km"
+  },
+  {
+    "key": "units.mi",
+    "enValue": "mi",
+    "targetValue": "mi"
+  },
+  {
+    "key": "units.distanceKm",
+    "enValue": "{{distance}} km",
+    "targetValue": "{{distance}} km"
+  },
+  {
+    "key": "units.distanceMi",
+    "enValue": "{{distance}} mi",
+    "targetValue": "{{distance}} mi"
+  },
+  {
+    "key": "ntrpResult.recommended",
+    "enValue": "Rec",
+    "targetValue": "Rec"
+  },
+  {
+    "key": "admin.matchManagement.total",
+    "enValue": "Total",
+    "targetValue": "Total"
+  },
+  {
+    "key": "club.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "club.clubMembers.alerts.loadError.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubChat.roleAdmin",
+    "enValue": "Admin",
+    "targetValue": "Admin"
+  },
+  {
+    "key": "clubSelector.club",
+    "enValue": "Club",
+    "targetValue": "Club"
+  },
+  {
+    "key": "rateSportsmanship.alerts.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "alert.title.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "editProfile.common.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "discover.alerts.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "emailLogin.alerts.genericError.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "emailLogin.alerts.resendError.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "emailLogin.alerts.missingInfo.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "emailLogin.alerts.loginInfoMissing.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "emailLogin.alerts.forgotPassword.sendError.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "myActivities.alerts.partnerInvitation.error.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "myActivities.alerts.friendInvitation.error.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.error.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.selectPartner.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubTournamentManagement.roundGeneration.errorTitle",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubTournamentManagement.tournamentStart.errorTitle",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubTournamentManagement.seedAssignment.errorTitle",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubTournamentManagement.deletion.errorTitle",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubTournamentManagement.participantRemoval.errorTitle",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubTournamentManagement.participantAdd.errorTitle",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubTournamentManagement.common.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "profileSettings.location.alerts.errorTitle",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "profileSettings.location.update.errorTitle",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "eventCard.eventTypes.casual",
+    "enValue": "Casual",
+    "targetValue": "Casual"
+  },
+  {
+    "key": "eventCard.eventTypes.general",
+    "enValue": "General",
+    "targetValue": "General"
+  },
+  {
+    "key": "eventCard.labels.participants",
+    "enValue": "{{current}}/{{max}}",
+    "targetValue": "{{current}}/{{max}}"
+  },
+  {
+    "key": "eventCard.buttons.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "createEvent.languages.chinese",
+    "enValue": "中文",
+    "targetValue": "中文"
+  },
+  {
+    "key": "createEvent.languages.japanese",
+    "enValue": "日本語",
+    "targetValue": "日本語"
+  },
+  {
+    "key": "createEvent.languages.spanish",
+    "enValue": "Español",
+    "targetValue": "Español"
+  },
+  {
+    "key": "createEvent.languages.french",
+    "enValue": "Français",
+    "targetValue": "Français"
+  },
+  {
+    "key": "hostedEventCard.eventTypes.casual",
+    "enValue": "Casual",
+    "targetValue": "Casual"
+  },
+  {
+    "key": "hostedEventCard.eventTypes.general",
+    "enValue": "General",
+    "targetValue": "General"
+  },
+  {
+    "key": "hostedEventCard.buttons.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "hostedEventCard.alerts.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "duesManagement.alerts.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "duesManagement.settings.venmo",
+    "enValue": "Venmo",
+    "targetValue": "Venmo"
+  },
+  {
+    "key": "duesManagement.report.totalColumn",
+    "enValue": "Total",
+    "targetValue": "Total"
+  },
+  {
+    "key": "createMeetup.errors.errorTitle",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "activityTab.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "activityTab.no",
+    "enValue": "No",
+    "targetValue": "No"
+  },
+  {
+    "key": "regularMeetup.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubAdmin.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "clubAdmin.chatNormal",
+    "enValue": "Normal",
+    "targetValue": "Normal"
+  },
+  {
+    "key": "editClubPolicy.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "editClubPolicy.no",
+    "enValue": "No",
+    "targetValue": "No"
+  },
+  {
+    "key": "createClubTournament.matchFormats.best_of_1",
+    "enValue": "1 Set",
+    "targetValue": "1 Set"
+  },
+  {
+    "key": "createClubTournament.matchFormats.best_of_3",
+    "enValue": "3 Sets",
+    "targetValue": "3 Sets"
+  },
+  {
+    "key": "createClubTournament.matchFormats.best_of_5",
+    "enValue": "5 Sets",
+    "targetValue": "5 Sets"
+  },
+  {
+    "key": "createClubTournament.seedingMethods.manual",
+    "enValue": "Manual",
+    "targetValue": "Manual"
+  },
+  {
+    "key": "appliedEventCard.eventType.casual",
+    "enValue": "Casual",
+    "targetValue": "Casual"
+  },
+  {
+    "key": "appliedEventCard.eventType.general",
+    "enValue": "General",
+    "targetValue": "General"
+  },
+  {
+    "key": "appliedEventCard.actions.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "appliedEventCard.alerts.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "meetupDetail.editEvent.durationUnit",
+    "enValue": "min",
+    "targetValue": "min"
+  },
+  {
+    "key": "teamInvitations.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "manageAnnouncement.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "lessonCard.currencySuffix",
+    "enValue": "",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "pastEventCard.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "weeklySchedule.total",
+    "enValue": "Total",
+    "targetValue": "Total"
+  },
+  {
+    "key": "myClubSettings.alerts.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "postDetail.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "lessonForm.errorTitle",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "developerTools.errorTitle",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubLeagueManagement.status.playoffs",
+    "enValue": "Playoffs",
+    "targetValue": "Playoffs"
+  },
+  {
+    "key": "hallOfFame.honorBadges.receivedCount",
+    "enValue": "×{{count}}",
+    "targetValue": "×{{count}}"
+  },
+  {
+    "key": "recordScore.set",
+    "enValue": "Set",
+    "targetValue": "Set"
+  },
+  {
+    "key": "recordScore.setN",
+    "enValue": "Set {{n}}",
+    "targetValue": "Set {{n}}"
+  },
+  {
+    "key": "recordScore.alerts.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "recordScore.alerts.globalRanking",
+    "enValue": "Global",
+    "targetValue": "Global"
+  },
+  {
+    "key": "scoreConfirmation.alerts.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "directChat.club",
+    "enValue": "Club",
+    "targetValue": "Club"
+  },
+  {
+    "key": "directChat.alerts.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "roleManagement.alerts.loadError.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "roleManagement.alerts.transferError.title",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "clubOverviewScreen.deleteError",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "types.clubSchedule.timePeriod.am",
+    "enValue": "AM",
+    "targetValue": "AM"
+  },
+  {
+    "key": "types.clubSchedule.timePeriod.pm",
+    "enValue": "PM",
+    "targetValue": "PM"
+  },
+  {
+    "key": "types.dues.period.year",
+    "enValue": "{{year}}",
+    "targetValue": "{{year}}"
+  },
+  {
+    "key": "types.dues.period.yearMonth",
+    "enValue": "{{month}}/{{year}}",
+    "targetValue": "{{month}}/{{year}}"
+  },
+  {
+    "key": "findClubScreen.joinRequestError",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "matches.createModal.maxParticipants.placeholder",
+    "enValue": "4",
+    "targetValue": "4"
+  },
+  {
+    "key": "services.map.error",
+    "enValue": "Error",
+    "targetValue": "Error"
+  },
+  {
+    "key": "aiMatching.mockData.candidate1.name",
+    "enValue": "Junsu Kim",
+    "targetValue": "Junsu Kim"
+  },
+  {
+    "key": "aiMatching.mockData.candidate2.name",
+    "enValue": "Seoyeon Lee",
+    "targetValue": "Seoyeon Lee"
+  },
+  {
+    "key": "clubPolicies.defaultClubName",
+    "enValue": "Club",
+    "targetValue": "Club"
+  },
+  {
+    "key": "modals.playoffCreated.final",
+    "enValue": "Final",
+    "targetValue": "Final"
+  }
+]

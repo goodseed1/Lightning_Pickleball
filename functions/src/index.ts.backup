@@ -1,0 +1,2707 @@
+/**
+ * Lightning Tennis Firebase Cloud Functions
+ * Social network and recommendation functions
+ */
+
+import * as functions from 'firebase-functions';
+import * as admin from 'firebase-admin';
+// import { getDistance } from 'geofire-common';
+// Simple distance calculation function for lat/lng coordinates
+function getDistance(coords1: [number, number], coords2: [number, number]): number {
+  const R = 6371e3; // Earth's radius in meters
+  const φ1 = (coords1[0] * Math.PI) / 180;
+  const φ2 = (coords2[0] * Math.PI) / 180;
+  const Δφ = ((coords2[0] - coords1[0]) * Math.PI) / 180;
+  const Δλ = ((coords2[1] - coords1[1]) * Math.PI) / 180;
+
+  const a =
+    Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+    Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  return R * c; // Distance in meters
+}
+
+// Initialize Firebase Admin
+admin.initializeApp();
+
+const db = admin.firestore();
+
+// Types
+interface UserProfile {
+  uid: string;
+  profile: {
+    nickname: string;
+    skillLevel: 'beginner' | 'intermediate' | 'advanced' | 'expert';
+    location: string;
+    zipCode: string;
+    preferredLanguage: string;
+  };
+  location?: {
+    lat: number;
+    lng: number;
+  };
+  friends?: string[];
+}
+
+interface Club {
+  id: string;
+  name: string;
+  location: {
+    region: string;
+    coordinates?: {
+      lat: number;
+      lng: number;
+    };
+  };
+  stats: {
+    totalMembers: number;
+  };
+}
+
+interface ActivityFeedMetadata {
+  [key: string]: string | number | boolean | null | undefined;
+}
+
+interface ActivityFeedItem {
+  id: string;
+  type: 'new_member' | 'new_event' | 'friend_activity' | 'club_update';
+  userId?: string;
+  clubId?: string;
+  title: string;
+  description: string;
+  timestamp: admin.firestore.Timestamp;
+  metadata?: ActivityFeedMetadata;
+}
+
+interface ClubData {
+  id: string;
+  name: string;
+  description?: string;
+  location: {
+    region: string;
+    coordinates?: {
+      lat: number;
+      lng: number;
+    };
+  };
+  stats: {
+    totalMembers: number;
+  };
+  settings?: Record<string, unknown>;
+}
+
+interface UserData {
+  uid: string;
+  profile: {
+    nickname: string;
+    firstName?: string;
+    lastName?: string;
+    skillLevel: string;
+    location: string;
+    zipCode: string;
+    preferredLanguage: string;
+  };
+  settings?: Record<string, unknown>;
+}
+
+interface LeagueStanding {
+  playerId: string;
+  wins: number;
+  losses: number;
+  points: number;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+interface LeagueData {
+  participants: string[];
+  standings?: LeagueStanding[];
+  settings?: Record<string, unknown>;
+}
+
+interface MatchUpdateData {
+  updatedAt: admin.firestore.FieldValue;
+  replacedPlayer?: {
+    originalId: string;
+    originalName: string;
+    replacementId: string;
+    replacementName: string;
+    reason: string;
+    timestamp: admin.firestore.FieldValue;
+  };
+  status?: string;
+  forfeitingPlayerId?: string;
+  winnerId?: string;
+  loserForfeit?: boolean;
+}
+
+// ============ LIGHTNING EVENT CREATION FUNCTION ============
+
+/**
+ * Create a new lightning event (match or meetup)
+ */
+export const createLightningEvent = functions.https.onCall(async (data, context) => {
+  try {
+    // Verify authentication
+    if (!context.auth) {
+      throw new functions.https.HttpsError('unauthenticated', 'User must be authenticated');
+    }
+
+    const userId = context.auth.uid;
+    const { eventData, type } = data;
+
+    // Validate type
+    if (!type || !['match', 'meetup'].includes(type)) {
+      throw new functions.https.HttpsError(
+        'invalid-argument',
+        'Invalid event type. Must be "match" or "meetup"'
+      );
+    }
+
+    // Validate required eventData fields
+    if (!eventData || !eventData.title || !eventData.location || !eventData.scheduledTime) {
+      throw new functions.https.HttpsError(
+        'invalid-argument',
+        'Missing required event data fields'
+      );
+    }
+
+    console.log(`🎾 Creating lightning ${type} for user: ${userId}`);
+
+    // Create the event in Firestore
+    const eventDoc = await db.collection('lightning_matches').add({
+      ...eventData,
+      hostId: userId,
+      type,
+      isRanked: type === 'match', // Only matches affect ranking
+      status: 'active',
+      participantIds: [userId], // Host is first participant
+      participantCount: 1,
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    console.log(`✅ Lightning ${type} created:`, eventDoc.id);
+
+    // Create activity feed item
+    await db.collection('activity_feed').add({
+      type: type === 'match' ? 'new_match' : 'new_meetup',
+      userId,
+      eventId: eventDoc.id,
+      title: `New ${type === 'match' ? 'Match' : 'Meetup'} Created`,
+      description: `${eventData.title} - ${eventData.location}`,
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      metadata: {
+        eventType: type,
+        isRanked: type === 'match',
+        location: eventData.location,
+        scheduledTime: eventData.scheduledTime,
+      },
+    });
+
+    return {
+      success: true,
+      eventId: eventDoc.id,
+      type,
+      isRanked: type === 'match',
+    };
+  } catch (error) {
+    console.error('❌ Error creating lightning event:', error);
+    throw new functions.https.HttpsError('internal', error.message);
+  }
+});
+
+// ============ PLAYER RECOMMENDATION FUNCTION ============
+
+/**
+ * Recommend players based on location and skill level
+ * Returns 5 users who are not already friends and match criteria
+ */
+export const recommendPlayers = functions.https.onCall(async (data, context) => {
+  try {
+    // Verify authentication
+    if (!context.auth) {
+      throw new functions.https.HttpsError('unauthenticated', 'User must be authenticated');
+    }
+
+    const userId = context.auth.uid;
+    const { maxDistance = 50 } = data; // Default 50km radius
+
+    console.log(`🔍 Starting player recommendation for user: ${userId}`);
+
+    // Get current user's profile
+    const userDoc = await db.collection('users').doc(userId).get();
+    if (!userDoc.exists) {
+      throw new functions.https.HttpsError('not-found', 'User profile not found');
+    }
+
+    const currentUser = userDoc.data() as UserProfile;
+    const userSkillLevel = currentUser.profile?.skillLevel;
+    const userLocation = currentUser.location;
+
+    console.log(`📍 User location: ${userLocation?.lat}, ${userLocation?.lng}`);
+    console.log(`🎾 User skill level: ${userSkillLevel}`);
+    // Location-based region functionality to be implemented
+
+    // Get user's existing friends
+    const existingFriends: string[] = currentUser.friends || [];
+
+    // Get all users except current user and existing friends
+    const usersQuery = db
+      .collection('users')
+      .where(admin.firestore.FieldPath.documentId(), '!=', userId)
+      .limit(100); // Limit initial query for performance
+
+    const usersSnapshot = await usersQuery.get();
+    console.log(`👥 Found ${usersSnapshot.docs.length} potential candidates`);
+
+    // Filter and score potential matches
+    const candidates: Array<{ user: UserProfile; score: number; distance?: number }> = [];
+
+    for (const doc of usersSnapshot.docs) {
+      const userData = { uid: doc.id, ...doc.data() } as UserProfile;
+
+      // Skip if already friends
+      if (existingFriends.includes(userData.uid)) {
+        continue;
+      }
+
+      // Skip if user doesn't have required profile data
+      if (!userData.profile?.skillLevel) {
+        continue;
+      }
+
+      let score = 0;
+      let distance: number | undefined;
+
+      // 1. Skill level compatibility (40% of score)
+      const skillCompatibility = calculateSkillCompatibility(
+        userSkillLevel,
+        userData.profile.skillLevel
+      );
+      score += skillCompatibility * 40;
+
+      // 2. Location proximity (35% of score)
+      if (userLocation && userData.location) {
+        distance =
+          getDistance(
+            [userLocation.lat, userLocation.lng],
+            [userData.location.lat, userData.location.lng]
+          ) / 1000; // Convert to kilometers
+
+        if (distance <= maxDistance) {
+          const locationScore = Math.max(0, 100 - (distance / maxDistance) * 100);
+          score += locationScore * 35;
+        } else {
+          continue; // Skip users too far away
+        }
+      }
+
+      // 3. Language compatibility (15% of score)
+      const languageScore = calculateLanguageCompatibility(
+        currentUser.profile?.preferredLanguage,
+        userData.profile?.preferredLanguage
+      );
+      score += languageScore * 15;
+
+      // 4. Activity level bonus (10% of score)
+      const activityScore = _calculateActivityScore(userData);
+      score += activityScore * 10;
+
+      if (score > 30) {
+        // Minimum threshold
+        candidates.push({
+          user: userData,
+          score,
+          distance,
+        });
+      }
+    }
+
+    // Sort by score and take top 5
+    candidates.sort((a, b) => b.score - a.score);
+    const recommendations = candidates.slice(0, 5);
+
+    console.log(`✅ Generated ${recommendations.length} recommendations`);
+
+    // Format response
+    const result = recommendations.map(({ user, score, distance }) => ({
+      userId: user.uid,
+      profile: {
+        nickname: user.profile?.nickname,
+        skillLevel: user.profile?.skillLevel,
+        location: user.profile?.location,
+        preferredLanguage: user.profile?.preferredLanguage,
+      },
+      compatibility: {
+        score: Math.round(score),
+        distance: distance ? Math.round(distance * 10) / 10 : undefined,
+        reasons: generateCompatibilityReasons(currentUser, user, score, distance),
+      },
+    }));
+
+    return {
+      success: true,
+      recommendations: result,
+      totalCandidates: candidates.length,
+      timestamp: admin.firestore.Timestamp.now(),
+    };
+  } catch (error) {
+    console.error('❌ Error in recommendPlayers:', error);
+    throw new functions.https.HttpsError('internal', 'Failed to generate recommendations');
+  }
+});
+
+// ============ CLUB MEMBER ACTIVITY FEED FUNCTION ============
+
+/**
+ * Create activity feed items when a new member joins a club
+ * Triggered when a clubMembers document is created with status 'active'
+ */
+export const onNewClubMember = functions.firestore
+  .document('clubMembers/{membershipId}')
+  .onCreate(async (snapshot, context) => {
+    try {
+      const membershipData = snapshot.data();
+      const membershipId = context.params.membershipId;
+
+      console.log(`🎉 New club member detected: ${membershipId}`);
+
+      // Only process if member status is 'active'
+      if (membershipData.status !== 'active') {
+        console.log('⏭️ Skipping - member status is not active');
+        return;
+      }
+
+      const { clubId, userId } = membershipData;
+
+      // Get club information - using tennis_clubs collection (actual collection)
+      const clubDoc = await db.collection('tennis_clubs').doc(clubId).get();
+      if (!clubDoc.exists) {
+        console.error('❌ Club not found:', clubId);
+        return;
+      }
+
+      const clubData = clubDoc.data() as ClubData;
+
+      // Get new member information
+      const userDoc = await db.collection('users').doc(userId).get();
+      if (!userDoc.exists) {
+        console.error('❌ User not found:', userId);
+        return;
+      }
+
+      const userData = userDoc.data() as UserData;
+
+      // Get all active club members (excluding the new member)
+      const membersSnapshot = await db
+        .collection('clubMembers')
+        .where('clubId', '==', clubId)
+        .where('status', '==', 'active')
+        .where('userId', '!=', userId)
+        .get();
+
+      console.log(`👥 Found ${membersSnapshot.docs.length} existing members to notify`);
+
+      // Create a single feed item for the new member joining
+      const newMemberName = userData.profile?.nickname || 'New Member';
+      const clubName = clubData.profile?.name || clubData.name || 'Club';
+
+      // Create feed item in the main feed collection
+      const feedItem = {
+        type: 'club_new_member',
+        userId: userId, // The new member is the owner/subject of this feed item
+        clubId: clubId,
+        text: `${newMemberName}님이 ${clubName}에 새로 가입했습니다! 환영해주세요! 🎾`,
+        content: {
+          title: '새 멤버 가입',
+          body: `${newMemberName}님이 ${clubName}에 가입하여 테니스 커뮤니티의 일원이 되었습니다.`,
+        },
+        metadata: {
+          newMemberId: userId,
+          newMemberName: newMemberName,
+          clubName: clubName,
+          membershipId: membershipId,
+        },
+        visibility: 'club_members', // Only visible to club members
+        likes: [],
+        comments: [],
+        timestamp: admin.firestore.FieldValue.serverTimestamp(),
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      };
+
+      // Add to main feed collection
+      await db.collection('feed').add(feedItem);
+      console.log(`✅ Created welcome feed item for new member ${newMemberName} in ${clubName}`);
+
+      // Also add to social_feed collection for compatibility
+      await db.collection('social_feed').add(feedItem);
+
+      // Update club stats in tennis_clubs collection
+      await db
+        .collection('tennis_clubs')
+        .doc(clubId)
+        .update({
+          'stats.totalMembers': admin.firestore.FieldValue.increment(1),
+          'stats.activeMemberCount': admin.firestore.FieldValue.increment(1),
+          updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+        });
+
+      // Optional: Send push notifications to club members
+      console.log(
+        `📱 Preparing to send notifications to ${membersSnapshot.docs.length} club members`
+      );
+      // await sendNewMemberNotifications(clubId, userData, clubData, membersSnapshot.docs);
+    } catch (error) {
+      console.error('❌ Error in onNewClubMember:', error);
+      // Don't throw - we don't want to fail the original operation
+    }
+  });
+
+// ============ HELPER FUNCTIONS ============
+
+/**
+ * Calculate skill level compatibility score (0-100)
+ */
+function calculateSkillCompatibility(skill1?: string, skill2?: string): number {
+  if (!skill1 || !skill2) return 0;
+
+  const skillLevels = { beginner: 1, intermediate: 2, advanced: 3, expert: 4 };
+  const level1 = skillLevels[skill1 as keyof typeof skillLevels] || 0;
+  const level2 = skillLevels[skill2 as keyof typeof skillLevels] || 0;
+
+  const difference = Math.abs(level1 - level2);
+
+  // Perfect match = 100, adjacent levels = 80, 2 levels apart = 40, 3+ levels = 0
+  if (difference === 0) return 100;
+  if (difference === 1) return 80;
+  if (difference === 2) return 40;
+  return 0;
+}
+
+/**
+ * [FUTURE] Calculate region overlap score (0-100)
+ * Will be used for enhanced location-based matching
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function _calculateRegionOverlap(regions1: string[], regions2: string[]): number {
+  if (!regions1.length || !regions2.length) return 0;
+
+  const overlap = regions1.filter(region => regions2.includes(region)).length;
+  const maxPossible = Math.min(regions1.length, regions2.length);
+
+  return (overlap / maxPossible) * 100;
+}
+
+/**
+ * Calculate language compatibility score (0-100)
+ */
+function calculateLanguageCompatibility(lang1?: string, lang2?: string): number {
+  if (!lang1 || !lang2) return 50; // Neutral if unknown
+  return lang1 === lang2 ? 100 : 30; // Same language = 100, different = 30
+}
+
+/**
+ * [FUTURE] Calculate activity score based on user engagement (0-100)
+ * Will be enhanced with actual activity data
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function _calculateActivityScore(_user: UserProfile): number {
+  // This is a simplified version - you could enhance with actual activity data
+  // For now, return a base score that could be enhanced with:
+  // - Recent matches played
+  // - Club participation
+  // - Profile completeness
+  return 50; // Baseline activity score
+}
+
+/**
+ * Generate compatibility reasons for recommendations
+ */
+function generateCompatibilityReasons(
+  currentUser: UserProfile,
+  recommendedUser: UserProfile,
+  score: number,
+  distance?: number
+): string[] {
+  const reasons: string[] = [];
+
+  const skillCompatibility = calculateSkillCompatibility(
+    currentUser.profile?.skillLevel,
+    recommendedUser.profile?.skillLevel
+  );
+
+  if (skillCompatibility >= 80) {
+    reasons.push('Similar skill level');
+  }
+
+  if (distance && distance <= 10) {
+    reasons.push('Lives nearby');
+  }
+
+  if (currentUser.profile?.preferredLanguage === recommendedUser.profile?.preferredLanguage) {
+    reasons.push('Same language');
+  }
+
+  // Region overlap functionality will be re-implemented using _calculateRegionOverlap
+
+  if (score >= 80) {
+    reasons.unshift('High compatibility');
+  }
+
+  return reasons;
+}
+
+/**
+ * Generate new member notification title
+ */
+function generateNewMemberTitle(language: string): string {
+  return language === 'ko' ? '새로운 멤버 가입!' : 'New Member Joined!';
+}
+
+/**
+ * Generate new member notification description
+ */
+function generateNewMemberDescription(
+  nickname: string,
+  clubName: string,
+  language: string
+): string {
+  if (language === 'ko') {
+    return `${nickname}님이 ${clubName}에 새로 가입했습니다! 따뜻하게 환영해주세요. 🎾`;
+  } else {
+    return `${nickname} just joined ${clubName}! Please give them a warm welcome. 🎾`;
+  }
+}
+
+/**
+ * [FUTURE] Send push notifications to club members about new member
+ * Push notification feature will be implemented later
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+async function _sendNewMemberNotifications(
+  _clubId: string,
+  _newUser: UserProfile,
+  _club: Club,
+  _existingMembers: admin.firestore.QueryDocumentSnapshot[]
+): Promise<void> {
+  try {
+    // Get FCM tokens for club members who have notifications enabled
+    const notificationPromises = _existingMembers.map(async memberDoc => {
+      const memberData = memberDoc.data();
+
+      // Check if member wants club notifications
+      if (!memberData.notifications?.clubEvents) {
+        return Promise.resolve();
+      }
+
+      // Get user's FCM token
+      const userDoc = await db.collection('users').doc(memberData.userId).get();
+      const userData = userDoc.data();
+      const fcmToken = userData?.fcmToken;
+
+      if (!fcmToken) {
+        return Promise.resolve();
+      }
+
+      const language = userData?.profile?.preferredLanguage || 'en';
+
+      const message = {
+        token: fcmToken,
+        notification: {
+          title: generateNewMemberTitle(language),
+          body: generateNewMemberDescription(
+            _newUser.profile?.nickname || 'New Member',
+            _club.name,
+            language
+          ),
+        },
+        data: {
+          type: 'new_member',
+          clubId: _clubId,
+          newMemberId: _newUser.uid,
+          clickAction: 'FLUTTER_NOTIFICATION_CLICK',
+        },
+      };
+
+      return admin.messaging().send(message);
+    });
+
+    const results = await Promise.allSettled(notificationPromises);
+    const successful = results.filter(result => result.status === 'fulfilled').length;
+
+    console.log(`📱 Sent ${successful} push notifications for new member`);
+  } catch (error) {
+    console.error('❌ Error sending push notifications:', error);
+    // Don't throw - notifications are not critical
+  }
+}
+
+// ============ ACHIEVEMENT SYSTEM FUNCTIONS ============
+
+// Import achievement functions
+export {
+  checkAchievements,
+  getAchievements,
+  getUserAchievementProgress,
+} from './achievementSystem';
+
+// Import achievement badge functions
+export { onFirstWin } from './achievements/onFirstWin';
+export { onFirstClubJoin, onClubMembershipStatusChange } from './achievements/onFirstClubJoin';
+
+// ============ CLUB SCHEDULE FUNCTIONS ============
+
+// Import scheduled functions
+export {
+  generateWeeklyEvents,
+  generateWeeklyEventsManual,
+  weeklyEventGeneratorHealth,
+} from './scheduledFunctions/weeklyEventGenerator';
+
+// Import event participation functions
+export {
+  requestEventParticipation,
+  updateParticipationStatus,
+} from './eventParticipation/eventParticipationHandler';
+
+// ============ FRIENDSHIP FUNCTIONS ============
+
+// Import friendship functions
+export { sendFriendRequest } from './friendship/sendFriendRequest';
+export { acceptFriendRequest } from './friendship/acceptFriendRequest';
+export { declineFriendRequest } from './friendship/declineFriendRequest';
+
+// ============ PARTICIPANT CANCELLATION FUNCTIONS ============
+
+// Import participant cancellation functions
+export { cancelParticipantByHost, cancelMyParticipation } from './cancelParticipant';
+
+// Import application approval functions
+export { approveApplication, declineApplication, onApplicationCreated } from './approveApplication';
+
+// ============ ADDITIONAL UTILITY FUNCTIONS ============
+
+/**
+ * Create general activity feed item
+ * Can be used by other functions to create feed items
+ */
+export const createActivityFeedItem = functions.https.onCall(async (data, context) => {
+  try {
+    if (!context.auth) {
+      throw new functions.https.HttpsError('unauthenticated', 'User must be authenticated');
+    }
+
+    const { type, targetUserIds, title, description, metadata } = data;
+
+    if (!type || !targetUserIds || !Array.isArray(targetUserIds)) {
+      throw new functions.https.HttpsError('invalid-argument', 'Invalid parameters');
+    }
+
+    const batch = db.batch();
+    const feedItemId = `${type}_${context.auth.uid}_${Date.now()}`;
+
+    const activityItem: ActivityFeedItem = {
+      id: feedItemId,
+      type,
+      userId: context.auth.uid,
+      title,
+      description,
+      timestamp: admin.firestore.Timestamp.now(),
+      metadata: metadata || {},
+    };
+
+    // Add to each target user's feed
+    for (const userId of targetUserIds) {
+      const userFeedRef = db
+        .collection('activityFeed')
+        .doc(userId)
+        .collection('items')
+        .doc(feedItemId);
+
+      batch.set(userFeedRef, { ...activityItem, userId });
+    }
+
+    await batch.commit();
+
+    return {
+      success: true,
+      feedItemId,
+      targetCount: targetUserIds.length,
+    };
+  } catch (error) {
+    console.error('❌ Error creating activity feed item:', error);
+    throw new functions.https.HttpsError('internal', 'Failed to create activity feed item');
+  }
+});
+
+// ============ TOURNAMENT BRACKET GENERATION ============
+
+/**
+ * Generate tournament bracket for a league
+ * Creates matches by randomly pairing registered players
+ */
+export const generateBracket = functions.https.onCall(async (data, context) => {
+  try {
+    // 💥 1. CCTV - Function Entry Point
+    console.log(`\n\n--- 🚨 generateBracket FUNCTION TRIGGERED! 🚨 ---`);
+    console.log(`⏰ Timestamp: ${new Date().toISOString()}`);
+    console.log(`📊 Raw Input Data:`, JSON.stringify(data, null, 2));
+    console.log(
+      `👤 Context Auth:`,
+      context.auth ? `Authenticated (${context.auth.uid})` : 'NOT AUTHENTICATED'
+    );
+
+    // Verify authentication
+    if (!context.auth) {
+      console.log(`❌ CCTV: Authentication failed - throwing error`);
+      throw new functions.https.HttpsError('unauthenticated', 'Authentication is required.');
+    }
+
+    const { leagueId } = data;
+    const adminUid = context.auth.uid;
+
+    if (!leagueId) {
+      console.log(`❌ CCTV: Missing leagueId - throwing error`);
+      throw new functions.https.HttpsError('invalid-argument', 'League ID is required.');
+    }
+
+    console.log(`🎯 CCTV: Processing tournament generation`);
+    console.log(`   Tournament ID: ${leagueId}`);
+    console.log(`   Admin UID: ${adminUid}`);
+
+    // Get league document
+    const leagueRef = db.doc(`leagues_tournaments/${leagueId}`);
+    const leagueDoc = await leagueRef.get();
+
+    if (!leagueDoc.exists) {
+      throw new functions.https.HttpsError('not-found', 'League not found.');
+    }
+
+    const leagueData = leagueDoc.data();
+
+    // Verify user is admin of the club
+    const clubRef = db.doc(`tennis_clubs/${leagueData.clubId}`);
+    const clubVerificationDoc = await clubRef.get();
+
+    if (!clubVerificationDoc.exists) {
+      throw new functions.https.HttpsError('not-found', 'Club not found.');
+    }
+
+    // Check if user is admin of the club
+    const membershipSnapshot = await db
+      .collection('clubMembers')
+      .where('clubId', '==', leagueData.clubId)
+      .where('userId', '==', adminUid)
+      .where('status', '==', 'active')
+      .get();
+
+    if (membershipSnapshot.empty) {
+      throw new functions.https.HttpsError(
+        'permission-denied',
+        'You are not a member of this club.'
+      );
+    }
+
+    const membershipData = membershipSnapshot.docs[0].data();
+    if (membershipData.role !== 'admin' && membershipData.role !== 'manager') {
+      throw new functions.https.HttpsError(
+        'permission-denied',
+        'Only club admins can generate brackets.'
+      );
+    }
+
+    // Check if bracket already exists
+    const existingMatches = await leagueRef.collection('matches').limit(1).get();
+    if (!existingMatches.empty) {
+      throw new functions.https.HttpsError(
+        'already-exists',
+        'Bracket already generated for this league.'
+      );
+    }
+
+    // 🎯 [Echo Check] Query real-time approved participants from participation_applications
+    console.log(`🔍 [Echo Check] Querying latest approved participants for league: ${leagueId}`);
+
+    const applicationsSnapshot = await db
+      .collection('participation_applications')
+      .where('eventId', '==', leagueId)
+      .where('status', '==', 'approved')
+      .get();
+
+    const registeredPlayers = applicationsSnapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        userId: data.applicantId,
+        name: data.applicantName,
+        registeredAt: data.processedAt || data.createdAt,
+      };
+    });
+
+    // 💥 2. CCTV - Participant Data Receipt
+    console.log(`\n🔍 CCTV: ACTUAL PARTICIPANTS RECEIVED FROM FIRESTORE`);
+    console.log(`   📊 Total Count: ${registeredPlayers.length}`);
+    console.log(
+      `   👥 Full Participant List:`,
+      registeredPlayers.map(p => ({
+        name: p.name,
+        userId: p.userId,
+        registeredAt: p.registeredAt?.toDate?.() || p.registeredAt,
+      }))
+    );
+    console.log(
+      `   🕵️ Raw Firestore Documents:`,
+      applicationsSnapshot.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data(),
+      }))
+    );
+
+    if (registeredPlayers.length < 2) {
+      throw new functions.https.HttpsError(
+        'failed-precondition',
+        `At least 2 players are required to generate bracket. Currently have ${registeredPlayers.length} approved participants.`
+      );
+    }
+
+    console.log(
+      `✅ [Echo Check] Proceeding with ${registeredPlayers.length} approved participants`
+    );
+
+    // 🎯 [BRACKET GENESIS] Proper seeded tournament bracket generation
+    // Step 1: Sort participants by registration time to establish seeding
+    const seededPlayers = [...registeredPlayers]
+      .sort((a, b) => {
+        const timeA = a.registeredAt?.seconds || 0;
+        const timeB = b.registeredAt?.seconds || 0;
+        return timeA - timeB; // Earlier registration = higher seed (lower number)
+      })
+      .map((player, index) => ({
+        ...player,
+        seed: index + 1, // Assign seeds 1, 2, 3, etc.
+      }));
+
+    // 💥 3. CCTV - Seeding Assignment
+    console.log(`\n🏆 CCTV: SEEDING ASSIGNMENT RESULTS`);
+    console.log(
+      `   📋 Seeded Players (sorted by registration time):`,
+      seededPlayers.map(p => ({
+        name: p.name,
+        seed: p.seed,
+        userId: p.userId,
+        registeredAt: p.registeredAt?.toDate?.() || p.registeredAt,
+      }))
+    );
+
+    // Step 2: Calculate tournament structure and bye requirements
+    const totalPlayers = seededPlayers.length;
+    const nextPowerOfTwo = Math.pow(2, Math.ceil(Math.log2(totalPlayers)));
+    const numberOfByes = nextPowerOfTwo - totalPlayers;
+
+    // 💥 4. CCTV - Bye Calculation
+    console.log(`\n🧮 CCTV: BYE CALCULATION MATHEMATICS`);
+    console.log(`   📊 Total Players: ${totalPlayers}`);
+    console.log(`   🔢 Next Power of 2: ${nextPowerOfTwo}`);
+    console.log(`   🎯 Number of Byes: ${numberOfByes}`);
+    console.log(`   📐 Formula: ${nextPowerOfTwo} - ${totalPlayers} = ${numberOfByes} byes`);
+
+    // Step 3: Assign byes to highest seeds (1, 2, etc.)
+    const byePlayers = seededPlayers.slice(0, numberOfByes);
+    const round1Players = seededPlayers.slice(numberOfByes);
+
+    // 💥 5. CCTV - Bye Assignment Verification
+    console.log(`\n🎯 CCTV: BYE PLAYER ASSIGNMENT`);
+    console.log(
+      `   🏆 Bye Players (TOP seeds):`,
+      byePlayers.map(p => `${p.name} (seed ${p.seed})`)
+    );
+    console.log(
+      `   ⚔️ Round 1 Players:`,
+      round1Players.map(p => `${p.name} (seed ${p.seed})`)
+    );
+    console.log(
+      `   🕵️ Critical Check - Does seed #1 have bye?`,
+      byePlayers.some(p => p.seed === 1) ? '✅ YES' : '❌ NO'
+    );
+
+    // Step 4: Create Round 1 matches using ATP/WTA standard seeding algorithm
+    const batch = db.batch();
+    const matches = [];
+    let matchCount = 0;
+
+    // 💥 6. CCTV - Round 1 Matchup Generation Start
+    console.log(`\n🎾 CCTV: ROUND 1 MATCHUP GENERATION`);
+    console.log(`   📊 Round 1 Players Available: ${round1Players.length}`);
+    console.log(`   📐 Expected Matches: ${Math.floor(round1Players.length / 2)}`);
+    console.log(`   🏆 Algorithm: ATP/WTA Standard (Highest vs Lowest Seed)`);
+
+    // 🎯 ATP/WTA STANDARD ALGORITHM: Highest seed vs Lowest seed pairing
+    const numRound1Matches = Math.floor(round1Players.length / 2);
+
+    for (let i = 0; i < numRound1Matches; i++) {
+      // ATP/WTA Standard: Pair highest available seed with lowest available seed
+      const highSeedPlayer = round1Players[i]; // Highest seed (e.g., seed 3)
+      const lowSeedPlayer = round1Players[round1Players.length - 1 - i]; // Lowest seed (e.g., seed 6)
+
+      // 💥 7. CCTV - Individual Match Creation
+      console.log(`\n   🔍 CCTV: Creating Match ${i + 1}/${numRound1Matches}`);
+      console.log(
+        `      🥎 High Seed Player: ${highSeedPlayer.name} (seed ${highSeedPlayer.seed})`
+      );
+      console.log(`      🥎 Low Seed Player: ${lowSeedPlayer.name} (seed ${lowSeedPlayer.seed})`);
+
+      const matchRef = leagueRef.collection('matches').doc();
+
+      // Calculate which Round 2 match this winner will advance to
+      const round2MatchIndex = i; // This winner will play against bye player at this index
+      const targetByePlayer = byePlayers[round2MatchIndex] || byePlayers[0]; // Fallback to first bye player
+      // 🔧 CRITICAL FIX: Use actual Firestore document ID instead of predetermined string
+      const round2MatchRef = leagueRef.collection('matches').doc();
+      const round2MatchId = round2MatchRef.id;
+
+      console.log(
+        `      🔗 Next Round Connection: Winner → ${targetByePlayer?.name || 'TBD'} (seed ${targetByePlayer?.seed || 'N/A'})`
+      );
+
+      const matchData = {
+        roundNumber: 1,
+        matchNumber: matchCount + 1,
+        bracketPosition: matchCount + 1,
+        player1: {
+          playerId: highSeedPlayer.userId,
+          playerName: highSeedPlayer.name,
+          seed: highSeedPlayer.seed,
+        },
+        player2: {
+          playerId: lowSeedPlayer.userId,
+          playerName: lowSeedPlayer.name,
+          seed: lowSeedPlayer.seed,
+        },
+        // 🔗 BRACKET CONNECTION: Link to Round 2 match
+        nextMatchId: round2MatchId,
+        nextRoundOpponent: {
+          playerId: targetByePlayer?.userId || 'TBD',
+          playerName: targetByePlayer?.name || 'TBD',
+          seed: targetByePlayer?.seed || null,
+        },
+        status: 'scheduled',
+        winner: null,
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+        createdBy: adminUid,
+      };
+
+      batch.set(matchRef, matchData);
+      matches.push({ id: matchRef.id, ...matchData });
+      matchCount++;
+
+      // 🔧 CRITICAL FIX: Create the corresponding Round 2 match immediately
+      if (targetByePlayer) {
+        const round2MatchData = {
+          roundNumber: 2,
+          matchNumber: round2MatchIndex + 1,
+          bracketPosition: matchCount + round2MatchIndex + 1,
+          // 🏆 Bye player (seed 1, 2, etc.) is pre-assigned
+          player1: {
+            playerId: targetByePlayer.userId,
+            playerName: targetByePlayer.name,
+            seed: targetByePlayer.seed,
+          },
+          // 🔗 Opponent will be the winner from this Round 1 match
+          player2: {
+            playerId: 'TBD',
+            playerName: 'TBD',
+            seed: null,
+          },
+          // 🔗 BRACKET FLOW: Track which Round 1 match feeds into this Round 2 match
+          sourceMatchIds: [matchRef.id],
+          expectedOpponent: `Winner of (${highSeedPlayer.name} vs ${lowSeedPlayer.name})`,
+          status: 'scheduled',
+          winner: null,
+          createdAt: admin.firestore.FieldValue.serverTimestamp(),
+          updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+          createdBy: adminUid,
+        };
+
+        batch.set(round2MatchRef, round2MatchData);
+        matches.push({ id: round2MatchRef.id, ...round2MatchData });
+
+        console.log(`      🔗 Linked Round 2 Match Created:`, {
+          id: round2MatchRef.id,
+          byePlayer: `${targetByePlayer.name} (seed ${targetByePlayer.seed})`,
+          sourceR1Match: matchRef.id,
+        });
+      }
+
+      console.log(`      ✅ Match Data Created:`, {
+        id: matchRef.id,
+        player1: `${matchData.player1.playerName} (seed ${matchData.player1.seed})`,
+        player2: `${matchData.player2.playerName} (seed ${matchData.player2.seed})`,
+        nextMatchId: matchData.nextMatchId,
+        linkedR2Match: round2MatchRef ? '🔗 CREATED' : '❌ NONE',
+      });
+    }
+
+    // 💥 8. CCTV - Round 1 Generation Summary
+    console.log(`\n📋 CCTV: ROUND 1 GENERATION COMPLETE`);
+    console.log(`   ✅ Total Matches Created: ${matchCount}`);
+    console.log(
+      `   🎾 Final Round 1 Matchups:`,
+      matches
+        .filter(m => m.roundNumber === 1)
+        .map(
+          m =>
+            `${m.player1.playerName}(${m.player1.seed}) vs ${m.player2.playerName}(${m.player2.seed})`
+        )
+    );
+
+    // 💥 9. CCTV - Round 2 Generation Summary (Created Inline with Round 1)
+    console.log(`\n📋 CCTV: ROUND 2 GENERATION COMPLETE (INLINE CREATION)`);
+    console.log(
+      `   🏆 Round 2 Matches with Bye Players:`,
+      matches
+        .filter(m => m.roundNumber === 2)
+        .map(
+          m => `${m.player1.playerName}(seed ${m.player1.seed}) vs ${m.expectedOpponent || 'TBD'}`
+        )
+    );
+    console.log(`   🔧 All Round 2 matches created with actual Firestore document IDs`);
+
+    // Update total match count to include both Round 1 and Round 2 matches
+    const totalMatches = matches.length;
+
+    // Update league with seeded participants and proper bracket structure
+    batch.update(leagueRef, {
+      status: 'ongoing',
+      bracketGenerated: true,
+      bracketGeneratedAt: admin.firestore.FieldValue.serverTimestamp(),
+      bracketGeneratedBy: adminUid,
+      totalMatches: totalMatches,
+      participants: seededPlayers.map(p => ({
+        playerId: p.userId,
+        playerName: p.name,
+        seed: p.seed,
+        registeredAt: p.registeredAt,
+      })),
+      bracketStructure: {
+        totalPlayers,
+        nextPowerOfTwo,
+        numberOfByes,
+        round1Matches: matchCount,
+        round2ByePlayers: byePlayers.length,
+      },
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    // 💥 12. CCTV - Firestore Save Operation
+    console.log(`\n💾 CCTV: FIRESTORE BATCH COMMIT`);
+    console.log(
+      `   📊 Total Items to Save: ${totalMatches + 1} (${totalMatches} matches + 1 tournament update)`
+    );
+    console.log(`   🎯 Collections: leagues_tournaments/${leagueId} + matches subcollection`);
+    console.log(`   ⏳ Executing batch.commit()...`);
+
+    // Commit all changes
+    await batch.commit();
+
+    // 💥 13. CCTV - Save Confirmation & Final Status
+    console.log(`   ✅ BATCH COMMIT SUCCESSFUL!`);
+
+    console.log(`\n🏁 CCTV: FINAL TOURNAMENT BRACKET STATUS`);
+    console.log(
+      `   🏆 Tournament Structure: ${totalPlayers} players → ${nextPowerOfTwo}-bracket (${numberOfByes} byes)`
+    );
+    console.log(`   🎾 Round 1 Matches: ${matchCount}`);
+    console.log(`   🏆 Round 2 Bye Players: ${byePlayers.length}`);
+    console.log(
+      `   🚨 CRITICAL: Seed #1 Player Status: ${seededPlayers[0]?.name} → ${byePlayers.some(p => p.seed === 1) ? '✅ HAS BYE IN ROUND 2' : '❌ COMPETING IN ROUND 1'}`
+    );
+
+    console.log(`\n📋 CCTV: COMPLETE BRACKET STRUCTURE`);
+    console.log(
+      `   🎾 Round 1 Final Matchups:`,
+      matches
+        .filter(m => m.roundNumber === 1)
+        .map(
+          m =>
+            `${m.player1.playerName}(${m.player1.seed}) vs ${m.player2.playerName}(${m.player2.seed})`
+        )
+    );
+    console.log(
+      `   🏆 Round 2 Final Matchups:`,
+      matches
+        .filter(m => m.roundNumber === 2)
+        .map(m => `${m.player1.playerName}(${m.player1.seed}) vs ${m.expectedOpponent || 'TBD'}`)
+    );
+
+    console.log(`--- ✅ generateBracket EXECUTION COMPLETED! 🚨 ---\n\n`);
+
+    // Get club information for enhanced feed item
+    const clubDoc = await db.collection('tennis_clubs').doc(leagueData.clubId).get();
+    const clubData = clubDoc.exists ? clubDoc.data() : { name: 'Unknown Club' };
+    const clubName = clubData.name || clubData.profile?.name || 'Tennis Club';
+
+    // Create enhanced league started feed item with seeded bracket information
+    await db.collection('feed').add({
+      type: 'league_started',
+      userId: adminUid,
+      clubId: leagueData.clubId,
+      leagueId: leagueId,
+      text: `🏆 "${leagueData.name}" 시즌이 ${clubName}에서 시작되었습니다! ${totalPlayers}명의 시드 순위가 정해진 참가자들이 ${totalMatches}개의 경기에서 경쟁합니다. ${numberOfByes > 0 ? `최고 시드 ${numberOfByes}명은 부전승으로 2라운드 진출!` : ''} 🎾`,
+      content: {
+        title: '시드 토너먼트 시작!',
+        body: `${leagueData.name}의 시드 대진표가 완성되었습니다. ${numberOfByes > 0 ? '부전승 선수들이 2라운드에서 대기 중입니다!' : '모든 선수가 1라운드부터 경쟁합니다!'}`,
+      },
+      metadata: {
+        leagueName: leagueData.name,
+        clubName: clubName,
+        totalMatches: totalMatches,
+        totalPlayers: totalPlayers,
+        numberOfByes: numberOfByes,
+        bracketStructure: `${totalPlayers} → ${nextPowerOfTwo}`,
+        topSeed: seededPlayers[0]?.name || 'Unknown',
+        bracketGeneratedBy: adminUid,
+        eventType: 'seeded_tournament_start',
+      },
+      visibility: 'club_members',
+      likes: [],
+      comments: [],
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    // Also add to social_feed collection for compatibility
+    await db.collection('social_feed').add({
+      type: 'league_started',
+      userId: adminUid,
+      clubId: leagueData.clubId,
+      leagueId: leagueId,
+      text: `🏆 "${leagueData.name}" 시즌이 ${clubName}에서 시작되었습니다! ${totalPlayers}명의 시드 순위가 정해진 참가자들이 ${totalMatches}개의 경기에서 경쟁합니다. ${numberOfByes > 0 ? `최고 시드 ${numberOfByes}명은 부전승으로 2라운드 진출!` : ''} 🎾`,
+      content: {
+        title: '시드 토너먼트 시작!',
+        body: `${leagueData.name}의 시드 대진표가 완성되었습니다. ${numberOfByes > 0 ? '부전승 선수들이 2라운드에서 대기 중입니다!' : '모든 선수가 1라운드부터 경쟁합니다!'}`,
+      },
+      metadata: {
+        leagueName: leagueData.name,
+        clubName: clubName,
+        totalMatches: totalMatches,
+        totalPlayers: totalPlayers,
+        numberOfByes: numberOfByes,
+        bracketStructure: `${totalPlayers} → ${nextPowerOfTwo}`,
+        topSeed: seededPlayers[0]?.name || 'Unknown',
+        bracketGeneratedBy: adminUid,
+        eventType: 'seeded_tournament_start',
+      },
+      visibility: 'club_members',
+      likes: [],
+      comments: [],
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    return {
+      success: true,
+      message: 'Seeded bracket generated successfully with proper bye assignment.',
+      data: {
+        totalMatches: totalMatches,
+        round1Matches: matchCount,
+        round2ByePlayers: byePlayers.length,
+        totalPlayers: totalPlayers,
+        bracketStructure: `${totalPlayers} → ${nextPowerOfTwo}`,
+        numberOfByes: numberOfByes,
+        topSeed: seededPlayers[0]?.name || 'Unknown',
+        leagueStatus: 'ongoing',
+      },
+    };
+  } catch (error) {
+    console.error('❌ Error generating bracket:', error);
+
+    if (error instanceof functions.https.HttpsError) {
+      throw error;
+    }
+
+    throw new functions.https.HttpsError(
+      'internal',
+      'Failed to generate bracket. Please try again.'
+    );
+  }
+});
+
+// ============ MATCH RESULT FEED GENERATION ============
+// Import match result feed generation function
+export { onMatchResultRecorded } from './onMatchResultRecorded';
+
+// ============ TOURNAMENT & MATCH COMPLETION TRACKING ============
+// Import trophy award and match history functions
+export { onTournamentCompleted } from './onTournamentCompleted';
+export { onMatchCompleted } from './onMatchCompleted';
+
+// ============ CLUB LEAVE FUNCTION ============
+// Import from separate file to avoid compilation issues
+export { leaveClub } from './leaveClub';
+
+/**
+ * ✅ Scheduled Cloud Function to automatically update event status
+ * Runs every day at 3 AM to mark completed events
+ */
+export const updateEventStatus = functions.pubsub
+  .schedule('0 3 * * *') // Cron expression: daily at 3 AM
+  .timeZone('America/New_York') // Atlanta timezone
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  .onRun(async _context => {
+    console.log('⏰ Starting scheduled event status update at:', new Date().toISOString());
+
+    try {
+      // Calculate the cutoff time (24 hours ago from now)
+      const currentTime = admin.firestore.Timestamp.now();
+      const cutoffTime = new admin.firestore.Timestamp(
+        currentTime.seconds - 24 * 60 * 60, // 24 hours in seconds
+        currentTime.nanoseconds
+      );
+
+      console.log('📅 Current time:', currentTime.toDate().toISOString());
+      console.log('📅 Cutoff time (24h ago):', cutoffTime.toDate().toISOString());
+
+      // Query for upcoming events that should be marked as completed
+      const eventsSnapshot = await db
+        .collection('events')
+        .where('status', '==', 'upcoming')
+        .where('scheduledTime', '<', cutoffTime)
+        .get();
+
+      console.log(`🔍 Found ${eventsSnapshot.docs.length} events to update`);
+
+      if (eventsSnapshot.empty) {
+        console.log('✅ No events need status update');
+        return null;
+      }
+
+      // Batch update all events
+      const batch = db.batch();
+      let updateCount = 0;
+
+      eventsSnapshot.docs.forEach(doc => {
+        const eventData = doc.data();
+        console.log(`📝 Updating event: ${doc.id} - ${eventData.title}`);
+        console.log(`   Scheduled time: ${eventData.scheduledTime?.toDate().toISOString()}`);
+
+        batch.update(doc.ref, {
+          status: 'completed',
+          completedAt: currentTime,
+          lastUpdated: currentTime,
+          updatedBy: 'system_scheduler',
+        });
+
+        updateCount++;
+      });
+
+      // Commit the batch update
+      await batch.commit();
+
+      console.log(`✅ Successfully updated ${updateCount} events to 'completed' status`);
+
+      // Optional: Create system log entry
+      await db.collection('systemLogs').add({
+        type: 'scheduled_event_status_update',
+        timestamp: currentTime,
+        eventsUpdated: updateCount,
+        eventIds: eventsSnapshot.docs.map(doc => doc.id),
+        message: `Updated ${updateCount} events from 'upcoming' to 'completed' status`,
+      });
+
+      return {
+        success: true,
+        eventsUpdated: updateCount,
+        timestamp: currentTime.toDate().toISOString(),
+      };
+    } catch (error) {
+      console.error('❌ Error updating event statuses:', error);
+
+      // Log error to system logs
+      await db.collection('systemLogs').add({
+        type: 'scheduled_event_status_update_error',
+        timestamp: admin.firestore.Timestamp.now(),
+        error: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : undefined,
+      });
+
+      // Re-throw to trigger Cloud Functions error handling
+      throw error;
+    }
+  });
+
+/**
+ * Safely delete a club and all its related data
+ * Only the original creator can delete the club
+ */
+export const deleteClub = functions.https.onCall(async (data, context) => {
+  console.log('🗑️ deleteClub called with data:', data);
+
+  // Authentication check
+  if (!context.auth) {
+    console.error('❌ Unauthenticated request to deleteClub');
+    throw new functions.https.HttpsError('unauthenticated', 'Authentication is required.');
+  }
+
+  const userId = context.auth.uid;
+  const { clubId } = data;
+
+  if (!clubId) {
+    throw new functions.https.HttpsError('invalid-argument', 'Club ID is required.');
+  }
+
+  console.log(`🔍 Attempting to delete club ${clubId} by user ${userId}`);
+
+  try {
+    const batch = db.batch();
+
+    // 1. Verify the club exists and user has permission to delete it
+    const clubRef = db.doc(`tennis_clubs/${clubId}`);
+    const clubDoc = await clubRef.get();
+
+    if (!clubDoc.exists) {
+      throw new functions.https.HttpsError('not-found', 'Club does not exist.');
+    }
+
+    const clubData = clubDoc.data()!;
+    if (clubData.createdBy !== userId) {
+      console.error(
+        `❌ Permission denied: User ${userId} is not the creator of club ${clubId} (creator: ${clubData.createdBy})`
+      );
+      throw new functions.https.HttpsError(
+        'permission-denied',
+        'Only the original creator can delete this club.'
+      );
+    }
+
+    console.log(`✅ Permission verified: User ${userId} is the creator of club ${clubId}`);
+
+    // 2. Find and delete all related collections
+    const collectionsToDelete = [
+      'clubMembers',
+      'club_join_requests',
+      'participation_applications',
+      'club_posts',
+      'club_post_comments',
+      'events',
+      'club_events',
+      'leagues_tournaments',
+      'clubSchedules',
+      'club_dues_settings',
+      'club_dues_status',
+      'club_activity_logs',
+    ];
+
+    let totalDeletedDocs = 0;
+
+    for (const collectionName of collectionsToDelete) {
+      console.log(`🔍 Searching for documents in ${collectionName} where clubId = ${clubId}`);
+
+      try {
+        const snapshot = await db.collection(collectionName).where('clubId', '==', clubId).get();
+
+        console.log(`📋 Found ${snapshot.size} documents in ${collectionName}`);
+
+        snapshot.docs.forEach(doc => {
+          console.log(`🗑️ Marking for deletion: ${collectionName}/${doc.id}`);
+          batch.delete(doc.ref);
+          totalDeletedDocs++;
+        });
+      } catch (collectionError) {
+        console.warn(`⚠️ Could not process collection ${collectionName}:`, collectionError.message);
+        // Continue with other collections - don't fail the entire operation
+      }
+    }
+
+    // 3. Clean up user clubMemberships sub-collections
+    console.log(`👥 Cleaning up user clubMemberships for club: ${clubId}`);
+    try {
+      // Get all club members to clean up their individual membership records
+      const clubMembersSnapshot = await db
+        .collection('clubMembers')
+        .where('clubId', '==', clubId)
+        .get();
+      console.log(`🧹 Found ${clubMembersSnapshot.size} club members to clean up`);
+
+      let cleanedMemberships = 0;
+      for (const memberDoc of clubMembersSnapshot.docs) {
+        const memberData = memberDoc.data();
+        if (memberData.userId) {
+          try {
+            // Delete the user's clubMemberships sub-document
+            const membershipRef = db
+              .collection('users')
+              .doc(memberData.userId)
+              .collection('clubMemberships')
+              .doc(clubId);
+            batch.delete(membershipRef);
+            cleanedMemberships++;
+            console.log(`🗑️ Marking user ${memberData.userId} clubMembership for deletion`);
+          } catch (memberCleanupError) {
+            console.warn(
+              `⚠️ Could not clean membership for user ${memberData.userId}:`,
+              memberCleanupError.message
+            );
+          }
+        }
+      }
+      totalDeletedDocs += cleanedMemberships;
+      console.log(`✅ Cleaned up ${cleanedMemberships} user clubMemberships`);
+    } catch (membershipCleanupError) {
+      console.warn(`⚠️ Could not clean up user clubMemberships:`, membershipCleanupError.message);
+    }
+
+    // 4. Handle chat messages subcollection separately
+    console.log(`🗣️ Deleting chat messages for club: ${clubId}`);
+    try {
+      const chatMessagesSnapshot = await db
+        .collection('club_chats')
+        .doc(clubId)
+        .collection('messages')
+        .get();
+
+      console.log(`💬 Found ${chatMessagesSnapshot.size} chat messages to delete`);
+
+      chatMessagesSnapshot.docs.forEach(doc => {
+        console.log(`🗑️ Marking chat message for deletion: ${doc.id}`);
+        batch.delete(doc.ref);
+        totalDeletedDocs++;
+      });
+
+      // Also delete the chat document itself
+      if (chatMessagesSnapshot.size > 0) {
+        batch.delete(db.collection('club_chats').doc(clubId));
+        totalDeletedDocs++;
+      }
+    } catch (chatError) {
+      console.warn(`⚠️ Could not delete chat messages:`, chatError.message);
+    }
+
+    // 5. Delete the club document itself
+    console.log(`🗑️ Marking club document for deletion: tennis_clubs/${clubId}`);
+    batch.delete(clubRef);
+    totalDeletedDocs++;
+
+    // 6. Create a deletion log entry before committing
+    const deletionLogRef = db.collection('systemLogs').doc();
+    const clubName =
+      clubData.name || clubData.profile?.name || clubData.basicInfo?.name || 'Unknown Club';
+    batch.set(deletionLogRef, {
+      type: 'club_deletion',
+      timestamp: admin.firestore.Timestamp.now(),
+      clubId: clubId,
+      clubName: clubName,
+      deletedBy: userId,
+      totalDocumentsDeleted: totalDeletedDocs,
+      collectionsAffected: [...collectionsToDelete, 'club_chats'],
+      message: `Club "${clubName}" and all related data deleted by creator`,
+    });
+
+    // 7. Execute all deletions atomically
+    console.log(`🚀 Committing batch deletion of ${totalDeletedDocs} documents`);
+    await batch.commit();
+
+    console.log(`✅ Successfully deleted club ${clubId} and ${totalDeletedDocs} related documents`);
+
+    return {
+      success: true,
+      message: `Club "${clubData.name}" and all related data have been deleted.`,
+      deletedDocuments: totalDeletedDocs,
+      clubName: clubData.name,
+    };
+  } catch (error) {
+    console.error('❌ Error in deleteClub function:', error);
+
+    // Log error to system logs
+    await db.collection('systemLogs').add({
+      type: 'club_deletion_error',
+      timestamp: admin.firestore.Timestamp.now(),
+      clubId: clubId,
+      userId: userId,
+      error: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined,
+    });
+
+    // Re-throw as Cloud Functions error
+    if (error instanceof functions.https.HttpsError) {
+      throw error;
+    } else {
+      throw new functions.https.HttpsError(
+        'internal',
+        'An error occurred while deleting the club.'
+      );
+    }
+  }
+});
+
+// ============ LEAGUE ADMIN OVERRIDE FUNCTIONS ============
+
+/**
+ * Process a walkover (forfeit) in a league match
+ * Handles complex tournament logic for when a player forfeits
+ */
+export const processWalkover = functions.https.onCall(async (data, context) => {
+  console.log('⚽ processWalkover called with data:', data);
+
+  // Authentication check
+  if (!context.auth) {
+    console.error('❌ Unauthenticated request to processWalkover');
+    throw new functions.https.HttpsError('unauthenticated', 'Authentication is required.');
+  }
+
+  const adminUserId = context.auth.uid;
+  const { leagueId, matchId, forfeitingPlayerId, reason = '관리자 기권 처리' } = data;
+
+  if (!leagueId || !matchId || !forfeitingPlayerId) {
+    throw new functions.https.HttpsError(
+      'invalid-argument',
+      'League ID, Match ID, and forfeiting player ID are required.'
+    );
+  }
+
+  console.log(`🔍 Processing walkover for match ${matchId} in league ${leagueId}`);
+
+  try {
+    const batch = db.batch();
+
+    // 1. Verify admin permissions
+    const leagueRef = db.doc(`leagues_tournaments/${leagueId}`);
+    const leagueDoc = await leagueRef.get();
+
+    if (!leagueDoc.exists) {
+      throw new functions.https.HttpsError('not-found', 'League not found.');
+    }
+
+    const leagueData = leagueDoc.data()!;
+
+    // Check admin permissions on the club
+    const membershipSnapshot = await db
+      .collection('clubMembers')
+      .where('clubId', '==', leagueData.clubId)
+      .where('userId', '==', adminUserId)
+      .where('status', '==', 'active')
+      .get();
+
+    if (membershipSnapshot.empty) {
+      throw new functions.https.HttpsError(
+        'permission-denied',
+        'You are not a member of this club.'
+      );
+    }
+
+    const membershipData = membershipSnapshot.docs[0].data();
+    if (membershipData.role !== 'admin' && membershipData.role !== 'manager') {
+      throw new functions.https.HttpsError(
+        'permission-denied',
+        'Only club admins can process walkovers.'
+      );
+    }
+
+    // 2. Get the match document
+    const matchRef = db.doc(`league_matches/${matchId}`);
+    const matchDoc = await matchRef.get();
+
+    if (!matchDoc.exists) {
+      throw new functions.https.HttpsError('not-found', 'Match not found.');
+    }
+
+    const matchData = matchDoc.data()!;
+
+    // Verify the forfeiting player is in this match
+    if (matchData.player1Id !== forfeitingPlayerId && matchData.player2Id !== forfeitingPlayerId) {
+      throw new functions.https.HttpsError(
+        'invalid-argument',
+        'Forfeiting player is not in this match.'
+      );
+    }
+
+    // Determine the winner (the other player)
+    const winnerId =
+      matchData.player1Id === forfeitingPlayerId ? matchData.player2Id : matchData.player1Id;
+    const winnerName =
+      matchData.player1Id === forfeitingPlayerId ? matchData.player2Name : matchData.player1Name;
+    const forfeitingPlayerName =
+      matchData.player1Id === forfeitingPlayerId ? matchData.player1Name : matchData.player2Name;
+
+    console.log(`🏆 Winner by walkover: ${winnerName} (${winnerId})`);
+    console.log(`❌ Forfeiting player: ${forfeitingPlayerName} (${forfeitingPlayerId})`);
+
+    // 3. Update the match with walkover result
+    batch.update(matchRef, {
+      status: 'completed',
+      winnerId: winnerId,
+      loserForfeit: true,
+      forfeitingPlayerId: forfeitingPlayerId,
+      player1Score: matchData.player1Id === forfeitingPlayerId ? 0 : 3, // Winner gets default score
+      player2Score: matchData.player2Id === forfeitingPlayerId ? 0 : 3,
+      completedAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      adminProcessed: true,
+      walkoverHistory: [
+        ...(matchData.walkoverHistory || []),
+        {
+          timestamp: admin.firestore.FieldValue.serverTimestamp(),
+          adminId: adminUserId,
+          reason,
+          forfeitingPlayerId,
+          winnerId,
+        },
+      ],
+    });
+
+    // 4. Update league standings
+    const standings = [...(leagueData.standings || [])];
+    const winnerStanding = standings.find(s => s.playerId === winnerId);
+    const forfeitStanding = standings.find(s => s.playerId === forfeitingPlayerId);
+
+    if (winnerStanding && forfeitStanding) {
+      // Winner gets points for walkover victory
+      winnerStanding.wins++;
+      winnerStanding.points += 3;
+      winnerStanding.gamesFor += 3; // Default game score for walkover
+
+      // Forfeiting player gets loss
+      forfeitStanding.losses++;
+      forfeitStanding.gamesAgainst += 3;
+
+      // Sort standings
+      standings.sort((a, b) => {
+        if (b.points !== a.points) return b.points - a.points;
+        if (b.wins !== a.wins) return b.wins - a.wins;
+        const aGameDiff = a.gamesFor - a.gamesAgainst;
+        const bGameDiff = b.gamesFor - b.gamesAgainst;
+        return bGameDiff - aGameDiff;
+      });
+
+      batch.update(leagueRef, {
+        standings: standings,
+        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+    }
+
+    // 5. Create walkover activity feed item
+    const clubDoc = await db.collection('tennis_clubs').doc(leagueData.clubId).get();
+    const clubData = clubDoc.exists ? clubDoc.data() : { name: 'Unknown Club' };
+    const clubName = clubData?.name || clubData?.profile?.name || 'Tennis Club';
+
+    await db.collection('feed').add({
+      type: 'league_walkover',
+      userId: adminUserId,
+      clubId: leagueData.clubId,
+      leagueId: leagueId,
+      matchId: matchId,
+      text: `🚫 ${leagueData.name}에서 ${forfeitingPlayerName}님이 기권하여 ${winnerName}님이 부전승으로 승리했습니다.`,
+      content: {
+        title: '부전승 처리',
+        body: `관리자에 의해 기권 처리되어 경기 결과가 확정되었습니다.`,
+      },
+      metadata: {
+        leagueName: leagueData.name,
+        clubName: clubName,
+        winnerId: winnerId,
+        winnerName: winnerName,
+        forfeitingPlayerId: forfeitingPlayerId,
+        forfeitingPlayerName: forfeitingPlayerName,
+        reason: reason,
+        processedBy: adminUserId,
+        matchType: 'walkover',
+      },
+      visibility: 'club_members',
+      likes: [],
+      comments: [],
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    // 6. Commit all changes
+    await batch.commit();
+
+    console.log(`✅ Successfully processed walkover for match ${matchId}`);
+
+    return {
+      success: true,
+      message: 'Walkover processed successfully.',
+      data: {
+        matchId: matchId,
+        winnerId: winnerId,
+        winnerName: winnerName,
+        forfeitingPlayerId: forfeitingPlayerId,
+        forfeitingPlayerName: forfeitingPlayerName,
+        processedAt: admin.firestore.Timestamp.now().toDate().toISOString(),
+      },
+    };
+  } catch (error) {
+    console.error('❌ Error processing walkover:', error);
+
+    // Log error to system logs
+    await db.collection('systemLogs').add({
+      type: 'walkover_processing_error',
+      timestamp: admin.firestore.Timestamp.now(),
+      leagueId: leagueId,
+      matchId: matchId,
+      adminUserId: adminUserId,
+      error: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined,
+    });
+
+    if (error instanceof functions.https.HttpsError) {
+      throw error;
+    } else {
+      throw new functions.https.HttpsError(
+        'internal',
+        'An error occurred while processing walkover.'
+      );
+    }
+  }
+});
+
+/**
+ * Remove a participant from a league with various forfeit options
+ * Handles complex scenarios like ongoing matches and tournament brackets
+ */
+export const removeParticipantFromLeague = functions.https.onCall(async (data, context) => {
+  console.log('👤➡️🚪 removeParticipantFromLeague called with data:', data);
+
+  // Authentication check
+  if (!context.auth) {
+    console.error('❌ Unauthenticated request to removeParticipantFromLeague');
+    throw new functions.https.HttpsError('unauthenticated', 'Authentication is required.');
+  }
+
+  const adminUserId = context.auth.uid;
+  const {
+    leagueId,
+    userId,
+    forfeitOption = 'forfeit_ongoing', // 'forfeit_ongoing', 'cancel_future', 'replace_player'
+    reason = '관리자에 의한 참가자 제외',
+    replacementPlayerId,
+  } = data;
+
+  if (!leagueId || !userId) {
+    throw new functions.https.HttpsError('invalid-argument', 'League ID and User ID are required.');
+  }
+
+  console.log(
+    `🔍 Removing participant ${userId} from league ${leagueId} with option: ${forfeitOption}`
+  );
+
+  try {
+    const batch = db.batch();
+
+    // 1. Verify admin permissions
+    const leagueRef = db.doc(`leagues_tournaments/${leagueId}`);
+    const leagueDoc = await leagueRef.get();
+
+    if (!leagueDoc.exists) {
+      throw new functions.https.HttpsError('not-found', 'League not found.');
+    }
+
+    const leagueData = leagueDoc.data()!;
+
+    // Check admin permissions on the club
+    const membershipSnapshot = await db
+      .collection('clubMembers')
+      .where('clubId', '==', leagueData.clubId)
+      .where('userId', '==', adminUserId)
+      .where('status', '==', 'active')
+      .get();
+
+    if (membershipSnapshot.empty) {
+      throw new functions.https.HttpsError(
+        'permission-denied',
+        'You are not a member of this club.'
+      );
+    }
+
+    const membershipData = membershipSnapshot.docs[0].data();
+    if (membershipData.role !== 'admin' && membershipData.role !== 'manager') {
+      throw new functions.https.HttpsError(
+        'permission-denied',
+        'Only club admins can remove participants.'
+      );
+    }
+
+    // 2. Verify the user is actually in the league
+    const participants = leagueData.participants || [];
+    if (!participants.includes(userId)) {
+      throw new functions.https.HttpsError(
+        'not-found',
+        'User is not a participant in this league.'
+      );
+    }
+
+    // 3. Get user information
+    const userDoc = await db.collection('users').doc(userId).get();
+    const userData = userDoc.exists ? userDoc.data() : null;
+    const userName = userData?.profile?.nickname || 'Unknown User';
+
+    // 4. Find all matches involving this player
+    const matchesSnapshot = await db
+      .collection('league_matches')
+      .where('leagueId', '==', leagueId)
+      .where('status', 'in', ['scheduled', 'in_progress'])
+      .get();
+
+    const playerMatches = matchesSnapshot.docs.filter(doc => {
+      const matchData = doc.data();
+      return matchData.player1Id === userId || matchData.player2Id === userId;
+    });
+
+    console.log(`🎾 Found ${playerMatches.length} matches involving this player`);
+
+    // 5. Process matches based on forfeit option
+    let processedMatches = 0;
+
+    for (const matchDoc of playerMatches) {
+      const matchData = matchDoc.data();
+      const isPlayer1 = matchData.player1Id === userId;
+      const opponentId = isPlayer1 ? matchData.player2Id : matchData.player1Id;
+
+      switch (forfeitOption) {
+        case 'forfeit_ongoing':
+          // Award victory to opponent
+          batch.update(matchDoc.ref, {
+            status: 'completed',
+            winnerId: opponentId,
+            loserForfeit: true,
+            forfeitingPlayerId: userId,
+            player1Score: isPlayer1 ? 0 : 3,
+            player2Score: isPlayer1 ? 3 : 0,
+            completedAt: admin.firestore.FieldValue.serverTimestamp(),
+            updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+            adminProcessed: true,
+            removalReason: reason,
+          });
+          processedMatches++;
+          break;
+
+        case 'cancel_future':
+          // Cancel future matches
+          if (matchData.status === 'scheduled') {
+            batch.update(matchDoc.ref, {
+              status: 'cancelled',
+              cancelledAt: admin.firestore.FieldValue.serverTimestamp(),
+              updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+              cancelledBy: adminUserId,
+              cancelReason: `Player ${userName} removed from league`,
+            });
+            processedMatches++;
+          }
+          break;
+
+        case 'replace_player':
+          // Replace with another player (if provided)
+          if (replacementPlayerId) {
+            const replacementDoc = await db.collection('users').doc(replacementPlayerId).get();
+            const replacementName = replacementDoc.exists
+              ? replacementDoc.data()?.profile?.nickname || 'Replacement Player'
+              : 'Replacement Player';
+
+            const updateData: MatchUpdateData = {
+              updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+              replacedPlayer: {
+                originalPlayerId: userId,
+                originalPlayerName: userName,
+                replacementPlayerId: replacementPlayerId,
+                replacementPlayerName: replacementName,
+                replacedAt: admin.firestore.FieldValue.serverTimestamp(),
+                replacedBy: adminUserId,
+              },
+            };
+
+            if (isPlayer1) {
+              updateData.player1Id = replacementPlayerId;
+              updateData.player1Name = replacementName;
+            } else {
+              updateData.player2Id = replacementPlayerId;
+              updateData.player2Name = replacementName;
+            }
+
+            batch.update(matchDoc.ref, updateData);
+            processedMatches++;
+          }
+          break;
+      }
+    }
+
+    // 6. Update league participants and standings
+    const updatedParticipants = participants.filter(p => p !== userId);
+    const updatedStandings = (leagueData.standings || []).filter(
+      (s: LeagueStanding) => s.playerId !== userId
+    );
+
+    // If replacement player, add them to participants and standings
+    if (forfeitOption === 'replace_player' && replacementPlayerId) {
+      updatedParticipants.push(replacementPlayerId);
+
+      const replacementDoc = await db.collection('users').doc(replacementPlayerId).get();
+      const replacementName = replacementDoc.exists
+        ? replacementDoc.data()?.profile?.nickname || 'Replacement Player'
+        : 'Replacement Player';
+
+      updatedStandings.push({
+        playerId: replacementPlayerId,
+        playerName: replacementName,
+        wins: 0,
+        losses: 0,
+        points: 0,
+        gamesFor: 0,
+        gamesAgainst: 0,
+        rank: updatedStandings.length + 1,
+      });
+    }
+
+    batch.update(leagueRef, {
+      participants: updatedParticipants,
+      standings: updatedStandings,
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      participantRemovalHistory: [
+        ...(leagueData.participantRemovalHistory || []),
+        {
+          timestamp: admin.firestore.FieldValue.serverTimestamp(),
+          removedUserId: userId,
+          removedUserName: userName,
+          adminId: adminUserId,
+          forfeitOption: forfeitOption,
+          reason: reason,
+          replacementPlayerId: replacementPlayerId || null,
+          affectedMatches: processedMatches,
+        },
+      ],
+    });
+
+    // 7. Create activity feed item
+    const clubDoc = await db.collection('tennis_clubs').doc(leagueData.clubId).get();
+    const clubData = clubDoc.exists ? clubDoc.data() : { name: 'Unknown Club' };
+    const clubName = clubData?.name || clubData?.profile?.name || 'Tennis Club';
+
+    await db.collection('feed').add({
+      type: 'league_participant_removed',
+      userId: adminUserId,
+      clubId: leagueData.clubId,
+      leagueId: leagueId,
+      text: `📋 ${leagueData.name}에서 ${userName}님이 리그에서 제외되었습니다. (${processedMatches}개 경기 처리)`,
+      content: {
+        title: '참가자 제외',
+        body: `관리자에 의해 리그 참가자가 제외되어 관련 경기가 처리되었습니다.`,
+      },
+      metadata: {
+        leagueName: leagueData.name,
+        clubName: clubName,
+        removedUserId: userId,
+        removedUserName: userName,
+        forfeitOption: forfeitOption,
+        processedMatches: processedMatches,
+        reason: reason,
+        processedBy: adminUserId,
+        replacementPlayerId: replacementPlayerId || null,
+      },
+      visibility: 'club_members',
+      likes: [],
+      comments: [],
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    // 8. Commit all changes
+    await batch.commit();
+
+    console.log(`✅ Successfully removed participant ${userId} from league ${leagueId}`);
+
+    return {
+      success: true,
+      message: 'Participant removed from league successfully.',
+      data: {
+        leagueId: leagueId,
+        removedUserId: userId,
+        removedUserName: userName,
+        forfeitOption: forfeitOption,
+        processedMatches: processedMatches,
+        replacementPlayerId: replacementPlayerId || null,
+        processedAt: admin.firestore.Timestamp.now().toDate().toISOString(),
+      },
+    };
+  } catch (error) {
+    console.error('❌ Error removing participant from league:', error);
+
+    // Log error to system logs
+    await db.collection('systemLogs').add({
+      type: 'participant_removal_error',
+      timestamp: admin.firestore.Timestamp.now(),
+      leagueId: leagueId,
+      userId: userId,
+      adminUserId: adminUserId,
+      forfeitOption: forfeitOption,
+      error: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined,
+    });
+
+    if (error instanceof functions.https.HttpsError) {
+      throw error;
+    } else {
+      throw new functions.https.HttpsError(
+        'internal',
+        'An error occurred while removing participant from league.'
+      );
+    }
+  }
+});
+
+/**
+ * Scheduled Cloud Function: Mark Past Meetups as Completed
+ *
+ * [작전명] 원장 마감 (Operation Ledger)
+ *
+ * This function runs daily at midnight (Korea Time) to automatically
+ * update the status of past regular meetups from 'confirmed' to 'completed'.
+ *
+ * This ensures data integrity by maintaining the "truth" in the database
+ * instead of using client-side filtering workarounds.
+ *
+ * Schedule: Every day at 00:00 KST
+ * Target: regular_meetups collection
+ * Condition: dateTime < now AND status === 'confirmed'
+ * Action: Update status to 'completed' and add completedAt timestamp
+ */
+export const markPastMeetupsAsCompleted = functions
+  .region('asia-northeast3') // Seoul region for better performance in Korea
+  .pubsub.schedule('0 0 * * *') // Daily at midnight
+  .timeZone('Asia/Seoul') // Korea Standard Time
+  .onRun(async () => {
+    const startTime = Date.now();
+    const now = new Date();
+
+    console.log(
+      `🏛️ [Operation Ledger] Starting daily meetup status update at ${now.toISOString()}`
+    );
+
+    try {
+      // Query past meetups that are still marked as 'confirmed'
+      const pastMeetupsQuery = db
+        .collection('regular_meetups')
+        .where('dateTime', '<', now)
+        .where('status', '==', 'confirmed');
+
+      const snapshot = await pastMeetupsQuery.get();
+
+      if (snapshot.empty) {
+        console.log('✅ [Operation Ledger] No past meetups to update.');
+        return null;
+      }
+
+      console.log(
+        `📋 [Operation Ledger] Found ${snapshot.size} past meetup(s) to mark as completed.`
+      );
+
+      // Prepare batch update
+      const batch = db.batch();
+      const updatedMeetups: string[] = [];
+
+      snapshot.forEach(doc => {
+        const meetupData = doc.data();
+        const meetupDate = meetupData.dateTime?.toDate?.() || new Date(meetupData.dateTime);
+
+        console.log(
+          `📝 [Operation Ledger] Marking meetup ${doc.id} as completed (Date: ${meetupDate.toISOString()})`
+        );
+
+        batch.update(doc.ref, {
+          status: 'completed',
+          completedAt: admin.firestore.FieldValue.serverTimestamp(),
+          // Keep track of when this was automatically updated
+          autoCompletedBy: 'markPastMeetupsAsCompleted',
+          autoCompletedAt: admin.firestore.FieldValue.serverTimestamp(),
+        });
+
+        updatedMeetups.push(doc.id);
+      });
+
+      // Execute batch update
+      await batch.commit();
+
+      const endTime = Date.now();
+      const executionTime = endTime - startTime;
+
+      console.log(
+        `✅ [Operation Ledger] Successfully updated ${snapshot.size} past meetup(s) to 'completed' status.`
+      );
+      console.log(`📊 [Operation Ledger] Updated meetups: ${updatedMeetups.join(', ')}`);
+      console.log(`⏱️ [Operation Ledger] Execution completed in ${executionTime}ms`);
+
+      return {
+        success: true,
+        updatedCount: snapshot.size,
+        updatedMeetups,
+        executionTimeMs: executionTime,
+        timestamp: now.toISOString(),
+      };
+    } catch (error) {
+      console.error('❌ [Operation Ledger] Error marking past meetups as completed:', error);
+
+      // In production, you might want to send an alert/notification here
+      // For now, we'll just log the error and return failure status
+      return {
+        success: false,
+        error: error.message,
+        timestamp: now.toISOString(),
+      };
+    }
+  });
+
+// ============================================================================
+// 🏰 OPERATION CITADEL: Secure Join Request Approval
+// ============================================================================
+
+/**
+ * Secure Cloud Function for approving club join requests
+ * Eliminates the "address mismatch" issue by centralizing all logic server-side
+ * Uses atomic transactions to ensure data consistency
+ */
+export const approveJoinRequest = functions.https.onCall(async (data, context) => {
+  const { requestId } = data;
+  const adminId = context.auth?.uid;
+
+  console.log('🏰 [Operation Citadel] approveJoinRequest called', {
+    requestId,
+    adminId,
+    timestamp: new Date().toISOString(),
+  });
+
+  if (!adminId) {
+    console.error('🚫 [Operation Citadel] Unauthenticated request');
+    throw new functions.https.HttpsError(
+      'unauthenticated',
+      'You must be logged in to approve join requests.'
+    );
+  }
+
+  if (!requestId) {
+    console.error('🚫 [Operation Citadel] Missing requestId');
+    throw new functions.https.HttpsError('invalid-argument', 'requestId is required.');
+  }
+
+  try {
+    // 🏰 CITADEL CORE: Atomic transaction ensures all-or-nothing operation
+    const result = await db.runTransaction(async transaction => {
+      console.log('🔄 [Operation Citadel] Starting atomic transaction for requestId:', requestId);
+
+      // 🕵️ [Operation Interrogation] Enhanced debugging for document lookup
+      console.log(`🕵️ [Interrogation] Searching for document: club_join_requests/${requestId}`);
+      console.log(`🕵️ [Interrogation] Collection: club_join_requests, Document ID: ${requestId}`);
+      console.log(
+        `🕵️ [Interrogation] Full path: ${db.collection('club_join_requests').doc(requestId).path}`
+      );
+
+      // 1. 🎯 Read from CORRECT collection: 'club_join_requests' (not subcollection)
+      const requestRef = db.collection('club_join_requests').doc(requestId);
+      const requestDoc = await transaction.get(requestRef);
+
+      if (!requestDoc.exists) {
+        console.error('❌ [Operation Interrogation] Join request not found - enhanced debugging:', {
+          requestId,
+          collection: 'club_join_requests',
+          searchPath: requestRef.path,
+          documentExists: requestDoc.exists,
+          timestamp: new Date().toISOString(),
+        });
+
+        // 🕵️ [Operation Interrogation] Check if document exists in other collections
+        console.log('🕵️ [Interrogation] Checking for document in other potential collections...');
+
+        try {
+          // Check if it might be in old collection name
+          const altRef = db.collection('clubJoinRequests').doc(requestId);
+          const altDoc = await altRef.get();
+          console.log(`🕵️ [Interrogation] Check clubJoinRequests: ${altDoc.exists}`);
+        } catch {
+          console.log('🕵️ [Interrogation] clubJoinRequests collection does not exist');
+        }
+
+        throw new functions.https.HttpsError(
+          'not-found',
+          `Join request '${requestId}' not found. It may have been processed already or the ID is incorrect. ` +
+            `Searched in: club_join_requests/${requestId}`
+        );
+      }
+
+      const requestData = requestDoc.data();
+      console.log('✅ [Operation Citadel] Found join request data:', {
+        requestId,
+        clubId: requestData?.clubId,
+        userId: requestData?.userId,
+        status: requestData?.status,
+        userEmail: requestData?.userEmail,
+      });
+
+      if (!requestData?.clubId || !requestData?.userId) {
+        console.error('❌ [Operation Citadel] Invalid request data structure', { requestData });
+        throw new functions.https.HttpsError('failed-precondition', 'Invalid join request data.');
+      }
+
+      const { clubId, userId: applicantId } = requestData;
+
+      // 2. 🏰 CITADEL SECURITY: Verify admin has permission to approve for this club
+      const clubRef = db.collection('tennis_clubs').doc(clubId);
+      const clubDoc = await transaction.get(clubRef);
+
+      if (!clubDoc.exists) {
+        console.error('❌ [Operation Citadel] Club not found', { clubId });
+        throw new functions.https.HttpsError('not-found', 'Club not found.');
+      }
+
+      // 3. 🏰 CITADEL OPERATIONS: All database operations in single atomic transaction
+      console.log('⚡ [Operation Citadel] Executing atomic operations...');
+
+      // 3a. Update join request status
+      transaction.update(requestRef, {
+        status: 'approved',
+        approvedAt: admin.firestore.FieldValue.serverTimestamp(),
+        processedBy: adminId,
+        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+
+      // 3b. Create club membership record
+      const membershipId = `${clubId}_${applicantId}`;
+      const memberRef = db.collection('clubMembers').doc(membershipId);
+      transaction.set(memberRef, {
+        userId: applicantId,
+        clubId: clubId,
+        role: 'member',
+        status: 'active',
+        joinedAt: admin.firestore.FieldValue.serverTimestamp(),
+        approvedBy: adminId,
+        memberInfo: {
+          joinedViaRequest: true,
+          requestId: requestId,
+        },
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+
+      // 3c. Update club statistics
+      transaction.update(clubRef, {
+        'statistics.activeMembers': admin.firestore.FieldValue.increment(1),
+        'statistics.totalMembers': admin.firestore.FieldValue.increment(1),
+        lastActivity: admin.firestore.FieldValue.serverTimestamp(),
+        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+
+      // 3d. Create activity log entry
+      const activityRef = db.collection('clubActivityLogs').doc();
+      transaction.set(activityRef, {
+        clubId: clubId,
+        type: 'member_approved',
+        performedBy: adminId,
+        targetUserId: applicantId,
+        metadata: {
+          requestId: requestId,
+          membershipId: membershipId,
+        },
+        timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      });
+
+      return {
+        requestId,
+        clubId,
+        applicantId,
+        membershipId,
+        success: true,
+      };
+    });
+
+    console.log('✅ [Operation Citadel] Transaction completed successfully:', result);
+
+    return {
+      success: true,
+      message: 'Join request approved successfully',
+      data: {
+        requestId: result.requestId,
+        clubId: result.clubId,
+        membershipId: result.membershipId,
+      },
+    };
+  } catch (error) {
+    console.error('❌ [Operation Citadel] Error approving join request:', {
+      requestId,
+      adminId,
+      error: error.message,
+      code: error.code,
+      stack: error.stack,
+    });
+
+    // Re-throw Firebase HTTP errors as-is
+    if (error instanceof functions.https.HttpsError) {
+      throw error;
+    }
+
+    // Wrap other errors as internal errors
+    throw new functions.https.HttpsError(
+      'internal',
+      `Failed to approve join request: ${error.message}`
+    );
+  }
+});
+
+/**
+ * Secure Cloud Function for rejecting club join requests
+ * Companion function to approveJoinRequest for complete join request management
+ */
+export const rejectJoinRequest = functions.https.onCall(async (data, context) => {
+  const { requestId, reason } = data;
+  const adminId = context.auth?.uid;
+
+  console.log('🏰 [Operation Citadel] rejectJoinRequest called', {
+    requestId,
+    adminId,
+    reason: reason || 'No reason provided',
+  });
+
+  if (!adminId) {
+    throw new functions.https.HttpsError(
+      'unauthenticated',
+      'You must be logged in to reject join requests.'
+    );
+  }
+
+  if (!requestId) {
+    throw new functions.https.HttpsError('invalid-argument', 'requestId is required.');
+  }
+
+  try {
+    const result = await db.runTransaction(async transaction => {
+      // 🕵️ [Operation Interrogation] Enhanced debugging for reject function too
+      console.log(
+        `🕵️ [Interrogation] REJECT - Searching for document: club_join_requests/${requestId}`
+      );
+
+      // Read from correct collection
+      const requestRef = db.collection('club_join_requests').doc(requestId);
+      const requestDoc = await transaction.get(requestRef);
+
+      if (!requestDoc.exists) {
+        console.error('❌ [Operation Interrogation] REJECT - Join request not found:', {
+          requestId,
+          collection: 'club_join_requests',
+          searchPath: requestRef.path,
+          timestamp: new Date().toISOString(),
+        });
+
+        throw new functions.https.HttpsError(
+          'not-found',
+          `Join request '${requestId}' not found for rejection. It may have been processed already or the ID is incorrect. ` +
+            `Searched in: club_join_requests/${requestId}`
+        );
+      }
+
+      const requestData = requestDoc.data();
+
+      // Update request status
+      transaction.update(requestRef, {
+        status: 'rejected',
+        rejectedAt: admin.firestore.FieldValue.serverTimestamp(),
+        processedBy: adminId,
+        rejectionReason: reason || 'No reason provided',
+        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+
+      // Create activity log
+      const activityRef = db.collection('clubActivityLogs').doc();
+      transaction.set(activityRef, {
+        clubId: requestData?.clubId,
+        type: 'member_rejected',
+        performedBy: adminId,
+        targetUserId: requestData?.userId,
+        metadata: {
+          requestId: requestId,
+          reason: reason || 'No reason provided',
+        },
+        timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      });
+
+      return { requestId, success: true };
+    });
+
+    console.log('✅ [Operation Citadel] Join request rejected successfully:', result);
+
+    return {
+      success: true,
+      message: 'Join request rejected successfully',
+      data: { requestId: result.requestId },
+    };
+  } catch (error) {
+    console.error('❌ [Operation Citadel] Error rejecting join request:', error);
+
+    if (error instanceof functions.https.HttpsError) {
+      throw error;
+    }
+
+    throw new functions.https.HttpsError(
+      'internal',
+      `Failed to reject join request: ${error.message}`
+    );
+  }
+});
+
+// ============ TOURNAMENT AUTO-ADVANCEMENT SYSTEM ============
+// Import tournament automation functions
+// 🚫 [PARADIGM SHIFT] Disabled onUpdate trigger - replaced with client-driven Callable Function
+// export { onMatchResultUpdated } from './triggers/onMatchResultUpdated';
+
+// ============ CLIENT-DRIVEN TOURNAMENT ORCHESTRATOR ============
+/**
+ * 🎼 [ORCHESTRATOR] Client-driven tournament score submission and winner advancement
+ * 
+ * This Callable Function replaces the unreliable onUpdate trigger system.
+ * The client now explicitly orchestrates all tournament operations with complete control.
+ */
+export const submitScoreAndAdvanceWinner = functions.https.onCall(async (data, context) => {
+  console.log('🎼 [ORCHESTRATOR] Starting client-driven tournament operation...');
+  
+  // Authentication check
+  if (!context.auth) {
+    throw new functions.https.HttpsError('unauthenticated', 'User must be authenticated');
+  }
+
+  const { tournamentId, matchId, scoreData, winnerPlayerObject } = data;
+
+  // 💥 현미경 프로토콜: 서버 사이드 ID 문자열 분석 💥
+  console.log('--- 🔬 SERVER-SIDE MICROSCOPE ---');
+  console.log(`Received Tournament ID Length: ${tournamentId.length}`);
+  console.log('Received Tournament ID Chars:', tournamentId.split('').map((c: string) => c.charCodeAt(0)).join(','));
+  console.log(`Received Match ID Length: ${matchId.length}`);
+  console.log('Received Match ID Chars:', matchId.split('').map((c: string) => c.charCodeAt(0)).join(','));
+  console.log('--- 🔬 END SERVER MICROSCOPE ---');
+  
+  // Input validation
+  if (!tournamentId || !matchId || !scoreData || !winnerPlayerObject) {
+    throw new functions.https.HttpsError(
+      'invalid-argument', 
+      'Missing required fields: tournamentId, matchId, scoreData, winnerPlayerObject'
+    );
+  }
+
+  console.log('🎼 [ORCHESTRATOR] Input data:', {
+    tournamentId,
+    matchId,
+    winnerName: winnerPlayerObject.playerName,
+    scoreData: scoreData.finalScore
+  });
+
+  try {
+    // 💥 [ATOMIC OPERATION] Execute everything in a single transaction
+    await admin.firestore().runTransaction(async (transaction) => {
+      console.log('🔒 [TRANSACTION] Starting atomic operation...');
+      
+      // --- Part 1: Update the completed match ---
+      const completedMatchRef = admin.firestore()
+        .doc(`tournaments/${tournamentId}/matches/${matchId}`);
+      
+      const completedMatchDoc = await transaction.get(completedMatchRef);
+      if (!completedMatchDoc.exists) {
+        throw new Error(`Match ${matchId} not found`);
+      }
+      
+      const completedMatchData = completedMatchDoc.data();
+      console.log('📝 [TRANSACTION] Updating match result...');
+      
+      transaction.update(completedMatchRef, {
+        ...scoreData,
+        status: 'completed',
+        winner: winnerPlayerObject.playerId,
+        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+
+      // --- Part 2: Advance the winner (if there's a next match) ---
+      const nextMatchInfo = completedMatchData?.nextMatch;
+      
+      if (nextMatchInfo && nextMatchInfo.matchId) {
+        console.log('🎯 [TRANSACTION] Advancing winner to next match...', {
+          nextMatchId: nextMatchInfo.matchId,
+          position: nextMatchInfo.position,
+          winnerName: winnerPlayerObject.playerName
+        });
+        
+        const nextMatchRef = admin.firestore()
+          .doc(`leagues_tournaments/${tournamentId}/matches/${nextMatchInfo.matchId}`);
+        
+        const nextMatchDoc = await transaction.get(nextMatchRef);
+        if (!nextMatchDoc.exists) {
+          throw new Error(`Next match ${nextMatchInfo.matchId} not found`);
+        }
+        
+        const nextMatchData = nextMatchDoc.data();
+        const opponentPosition = nextMatchInfo.position === 'player1' ? 'player2' : 'player1';
+        const opponentPlayer = nextMatchData?.[opponentPosition];
+        
+        // 🛡️ [COMPLETE DATA PRESERVATION] Start with existing match data
+        const updateData = { 
+          ...nextMatchData,  // Preserve ALL existing data
+          [nextMatchInfo.position]: {
+            playerId: winnerPlayerObject.playerId,
+            playerName: winnerPlayerObject.playerName,
+            seed: winnerPlayerObject.seed,
+          },
+          updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+        };
+
+        // Check if both players are now ready
+        if (opponentPlayer && opponentPlayer.playerId && opponentPlayer.playerName) {
+          updateData.status = 'scheduled';
+          console.log('🎉 [TRANSACTION] Both players ready - match scheduled!', {
+            matchId: nextMatchInfo.matchId,
+            player1: updateData.player1?.playerName,
+            player2: updateData.player2?.playerName,
+          });
+        } else {
+          console.log('⏳ [TRANSACTION] Winner placed, waiting for opponent');
+        }
+
+        // 💾 [CRITICAL DEBUG] Log final data being written
+        console.log('💾 [TRANSACTION] Final next match data:', JSON.stringify(updateData, null, 2));
+        
+        transaction.update(nextMatchRef, updateData);
+      } else {
+        console.log('🏆 [TRANSACTION] Tournament final match completed - no advancement needed');
+      }
+      
+      console.log('✅ [TRANSACTION] Atomic operation completed successfully');
+    });
+
+    console.log('🎼 [ORCHESTRATOR] Tournament operation completed successfully');
+    return { 
+      success: true, 
+      message: "Match result recorded and winner advanced successfully",
+      tournamentId,
+      matchId
+    };
+
+  } catch (error) {
+    console.error('❌ [ORCHESTRATOR] Tournament operation failed:', error);
+    throw new functions.https.HttpsError('internal', `Tournament operation failed: ${error.message}`);
+  }
+});
+
+// ============ EMERGENCY TOURNAMENT FIX FUNCTION ============
+/**
+ * Emergency function to fix tournaments created before Server Sovereignty Recovery
+ * Adds nextMatch connections and advances winners manually
+ */
+export const fixTournamentConnectionsManual = functions.https.onRequest(async (req, res) => {
+  const tournamentId = 'A9a9Bw7wUGc0r87UzkTQ';
+
+  console.log(`🔧 [EMERGENCY FIX] Adding nextMatch connections to tournament ${tournamentId}`);
+
+  try {
+    const batch = db.batch();
+
+    // Add nextMatch connections to Round 1 matches
+    console.log('🔗 Adding Round 1 → Round 2 connections...');
+
+    // Match 1 → Match 5 (player2)
+    const match1Ref = db.doc(`leagues_tournaments/${tournamentId}/matches/${tournamentId}_match_1`);
+    batch.update(match1Ref, {
+      nextMatch: {
+        matchId: `${tournamentId}_match_5`,
+        position: 'player2',
+      },
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    // Match 2 → Match 6 (player2)
+    const match2Ref = db.doc(`leagues_tournaments/${tournamentId}/matches/${tournamentId}_match_2`);
+    batch.update(match2Ref, {
+      nextMatch: {
+        matchId: `${tournamentId}_match_6`,
+        position: 'player2',
+      },
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    // Add Round 2 → Round 3 connections
+    console.log('🔗 Adding Round 2 → Round 3 connections...');
+
+    // Match 5 → Match 7 (player1)
+    const match5Ref = db.doc(`leagues_tournaments/${tournamentId}/matches/${tournamentId}_match_5`);
+    batch.update(match5Ref, {
+      nextMatch: {
+        matchId: `${tournamentId}_match_7`,
+        position: 'player1',
+      },
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    // Match 6 → Match 7 (player2)
+    const match6Ref = db.doc(`leagues_tournaments/${tournamentId}/matches/${tournamentId}_match_6`);
+    batch.update(match6Ref, {
+      nextMatch: {
+        matchId: `${tournamentId}_match_7`,
+        position: 'player2',
+      },
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    await batch.commit();
+
+    console.log('✅ [FIX] nextMatch connections added successfully!');
+
+    // Now manually advance Round 1 winners
+    console.log('🎯 [FIX] Manually advancing Round 1 winners...');
+
+    const advancementBatch = db.batch();
+
+    // Move 철이 to Match 5 player2
+    advancementBatch.update(match5Ref, {
+      player2: {
+        playerId: '5D2WUjWtF2ezPlV8OX926d4Fdyb2',
+        playerName: '철이',
+        seed: 3,
+      },
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    // Move 정이 to Match 6 player2
+    advancementBatch.update(match6Ref, {
+      player2: {
+        playerId: 'celVeuZPpwRsDI5drwZ4U0ULJlg2',
+        playerName: '정이',
+        seed: 4,
+      },
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    await advancementBatch.commit();
+
+    console.log('✅ [FIX] Tournament advancement completed!');
+    console.log('📊 Round 2 should now show:');
+    console.log('   Match 5: 숙이 vs 철이');
+    console.log('   Match 6: 광이 vs 정이');
+
+    res.json({
+      success: true,
+      message: 'Tournament fixed successfully',
+      tournamentId,
+      fixedMatches: ['match_1', 'match_2', 'match_5', 'match_6', 'match_7'],
+    });
+  } catch (error) {
+    console.error('❌ [FIX] Failed to fix tournament:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Emergency fix for Round 1 connections
+const { fixRound1ConnectionsManual, fixRound1ConnectionsForTournament, fixMissingWinnerDataManual } = require('./triggers/fixRound1Connections');
+exports.fixRound1Connections = functions.https.onRequest(fixRound1ConnectionsManual);
+exports.fixRound1ConnectionsForTournament = functions.https.onRequest(fixRound1ConnectionsForTournament);
+exports.fixMissingWinnerData = functions.https.onRequest(fixMissingWinnerDataManual);
+
+// Debug tournament state
+const { debugTournamentStateManual } = require('./triggers/debugTournamentState');
+exports.debugTournamentState = functions.https.onRequest(debugTournamentStateManual);
+
+// Direct database fix
+const { directDatabaseFixManual } = require('./triggers/directDatabaseFix');
+exports.directDatabaseFix = functions.https.onRequest(directDatabaseFixManual);
+
+// 💥 리트머스 시험지 - The Ultimate Proof! 💥
+const { testTrigger } = require('./testTrigger');
+exports.testTrigger = testTrigger;

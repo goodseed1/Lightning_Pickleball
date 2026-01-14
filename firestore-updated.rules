@@ -1,0 +1,256 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ==== Users ====
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+
+      match /{subcollection=**} {
+        allow read: if request.auth != null;
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    // ==== Lightning Matches ====
+    match /lightning_matches/{matchId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null &&
+        (request.auth.uid == resource.data.hostId ||
+         request.auth.uid in resource.data.guestIds);
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.hostId;
+    }
+
+    // ==== Events ====
+    match /events/{eventId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Participation Applications ====
+    match /participation_applications/{applicationId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.applicantId;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.applicantId;
+    }
+
+    // ==== Event Chat Rooms ====
+    match /event_chat_rooms/{chatRoomId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+    }
+
+    // ==== Activity Notifications ====
+    match /activity_notifications/{notificationId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Clubs (original rules) ====
+    match /clubs/{clubId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Clubs (actual collection used by app: tennis_clubs) ====
+    match /tennis_clubs/{clubId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null &&
+        request.resource.data.createdBy == request.auth.uid;
+      allow update, delete: if request.auth != null &&
+        resource.data.createdBy == request.auth.uid;
+    }
+
+    // ==== Club Events ====
+    match /club_events/{eventId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Club Memberships (original rules) ====
+    match /club_memberships/{membershipId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Club Members (actual collection used by app: clubMembers) ====
+    match /clubMembers/{docId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null &&
+        request.resource.data.userId == request.auth.uid;
+      allow update, delete: if request.auth != null &&
+        resource.data.userId == request.auth.uid;
+    }
+
+    // ==== Friendships ====
+    match /friendships/{friendshipId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Social Feed ====
+    match /social_feed/{feedId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Feed Items (New for social feed system) ====
+    match /feed_items/{feedId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Community Groups ====
+    match /community_groups/{groupId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Leagues ====
+    match /leagues/{leagueId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Tournaments ====
+    match /tournaments/{tournamentId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Player Stats ====
+    match /player_stats/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ==== Achievements ====
+    match /achievements/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ==== User Ratings (New for sportsmanship system) ====
+    match /user_ratings/{ratingId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Match History ====
+    match /match_history/{matchId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+    }
+
+    // ==== Tennis Courts ====
+    match /tennis_courts/{courtId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+    }
+
+    // ==== Business Partnerships (New) ====
+    match /business_partnerships/{partnershipId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Notifications ====
+    match /notifications/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      match /{notificationId} {
+        allow read, write: if request.auth != null &&
+          request.auth.uid == userId;
+      }
+    }
+
+    // ==== Chat Messages ====
+    match /chat_messages/{messageId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== AI Chat History (New) ====
+    match /ai_chat_history/{chatId} {
+      allow read: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.userId;
+      allow update: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+    }
+
+    // ==== Knowledge Base (AI Chatbot RAG) ====
+    match /knowledge_base/{documentId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // ==== System Settings (read-only) ====
+    match /system_settings/{settingId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // ==== Test Collections (Development only - can be removed in production) ====
+    match /test_users/{userId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Development Collections ====
+    match /dev_logs/{logId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Default allow for any other collections (Development mode) ====
+    match /{document=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+  }
+}

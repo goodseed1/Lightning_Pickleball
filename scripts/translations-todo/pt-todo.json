@@ -1,0 +1,421 @@
+{
+  "common": {
+    "ok": "OK"
+  },
+  "auth": {
+    "register": {
+      "success": {
+        "ok": "OK"
+      }
+    }
+  },
+  "createClub": {
+    "fields": {
+      "logo": "Logo"
+    }
+  },
+  "clubList": {
+    "clubType": {
+      "casual": "Casual",
+      "social": "Social"
+    },
+    "filters": {
+      "nearby": "Nearby"
+    }
+  },
+  "scheduleMeetup": {
+    "success": {
+      "created": "Regular meeting has been created.",
+      "deleted": "Regular meeting has been deleted."
+    }
+  },
+  "profile": {
+    "userProfile": {
+      "timeSlots": {
+        "brunch": "Brunch"
+      }
+    }
+  },
+  "units": {
+    "km": "km",
+    "mi": "mi",
+    "distanceKm": "{{distance}} km",
+    "distanceMi": "{{distance}} mi"
+  },
+  "ntrpResult": {
+    "recommended": "Rec"
+  },
+  "club": {
+    "chat": "Chat"
+  },
+  "clubChat": {
+    "roleStaff": "Staff"
+  },
+  "rateSportsmanship": {
+    "loading": "Loading...",
+    "selectedCount": "Selected tags: {{count}}",
+    "submitting": "Submitting..."
+  },
+  "editProfile": {
+    "common": {
+      "ok": "OK"
+    }
+  },
+  "discover": {
+    "alerts": {
+      "cancelSuccess": "Application canceled successfully."
+    }
+  },
+  "myActivities": {
+    "alerts": {
+      "partnerInvitation": {
+        "success": {
+          "message": "Partner invitation accepted!"
+        }
+      }
+    }
+  },
+  "clubLeaguesTournaments": {
+    "status": {
+      "playoffs": "Playoffs"
+    },
+    "labels": {
+      "status": "Status"
+    },
+    "memberPreLeagueStatus": {
+      "peopleUnit": "",
+      "status": "Status"
+    }
+  },
+  "clubTournamentManagement": {
+    "common": {
+      "confirm": "OK"
+    }
+  },
+  "profileSettings": {
+    "location": {
+      "update": {
+        "savingLocation": "Saving location..."
+      }
+    }
+  },
+  "eventCard": {
+    "eventTypes": {
+      "casual": "Casual"
+    },
+    "labels": {
+      "participants": "{{current}}/{{max}}"
+    },
+    "buttons": {
+      "chat": "Chat"
+    },
+    "soloApplicants": {
+      "count": "{{count}} solo"
+    }
+  },
+  "createEvent": {
+    "alerts": {
+      "confirm": "OK"
+    },
+    "languages": {
+      "korean": "한국어",
+      "english": "English",
+      "chinese": "中文",
+      "japanese": "日本語",
+      "spanish": "Español",
+      "french": "Français"
+    }
+  },
+  "hostedEventCard": {
+    "eventTypes": {
+      "casual": "Casual"
+    },
+    "buttons": {
+      "chat": "Chat"
+    }
+  },
+  "duesManagement": {
+    "tabs": {
+      "status": "Status"
+    },
+    "alerts": {
+      "ok": "OK"
+    },
+    "settings": {
+      "venmo": "Venmo"
+    },
+    "countSuffix": ""
+  },
+  "feed": {
+    "title": "Feed"
+  },
+  "eventParticipation": {
+    "participants": {
+      "list": "Participants"
+    },
+    "statusLabels": {
+      "waitlisted": "Waitlisted"
+    },
+    "typeLabels": {
+      "spectator": "Spectator"
+    }
+  },
+  "clubAdmin": {
+    "chat": "Chat",
+    "chatNormal": "Normal"
+  },
+  "editClubPolicy": {
+    "ok": "OK",
+    "unsavedChangesWarning": "You have unsaved changes"
+  },
+  "createClubTournament": {
+    "shortSetsDescription": "4-game sets (regular is 6 games)",
+    "seedingMethods": {
+      "manual": "Manual",
+      "random": "Random",
+      "random_description": "Fair random seeding (skill-independent)"
+    }
+  },
+  "appliedEventCard": {
+    "eventType": {
+      "casual": "Casual"
+    },
+    "actions": {
+      "chat": "Chat"
+    }
+  },
+  "meetupDetail": {
+    "editEvent": {
+      "durationUnit": "min"
+    }
+  },
+  "teamInvitations": {
+    "ok": "OK"
+  },
+  "createClubLeague": {
+    "selectedInfo": "Selected",
+    "ok": "OK"
+  },
+  "manageAnnouncement": {
+    "ok": "OK",
+    "savedSuccess": "Announcement has been saved.",
+    "deletedSuccess": "Announcement has been deleted.",
+    "unknown": "Unknown"
+  },
+  "lessonCard": {
+    "consultButton": "Consult",
+    "currencySuffix": "",
+    "capacity": "Capacity: {{count}}"
+  },
+  "playerCard": {
+    "online": "Online",
+    "skilled": "Skilled"
+  },
+  "pastEventCard": {
+    "chat": "Chat"
+  },
+  "myClubSettings": {
+    "alerts": {
+      "ok": "OK"
+    }
+  },
+  "concludeLeague": {
+    "stats": {
+      "points": "{{points}} pts"
+    }
+  },
+  "tournamentDetail": {
+    "participantsSuffix": ""
+  },
+  "clubLeagueManagement": {
+    "status": {
+      "playoffs": "Playoffs"
+    }
+  },
+  "eventDetail": {
+    "participants": {
+      "count": ""
+    }
+  },
+  "eloTrend": {
+    "titleBase": "Applied",
+    "soloLobby": "solo lobby",
+    "partnerInvite": "partner"
+  },
+  "hallOfFame": {
+    "counts": {
+      "honors": "{{count}} honors"
+    },
+    "honorBadges": {
+      "receivedCount": "×{{count}}"
+    }
+  },
+  "achievementsGuide": {
+    "notYetEarned": "Not yet earned"
+  },
+  "badgeGallery": {
+    "badges": {
+      "tournament_champion": {
+        "description": "You won a tournament!"
+      },
+      "league_champion": {
+        "description": "You won a league! 👑"
+      },
+      "winning_streak_10": {
+        "name": "Unstoppable"
+      }
+    },
+    "alerts": {
+      "timeoutTitle": "Timeout"
+    }
+  },
+  "recordScore": {
+    "tiebreak": "Tiebreak",
+    "tiebreakLabel": "Tiebreak ({{placeholder}})",
+    "alerts": {
+      "confirm": "OK",
+      "standardTiebreak": "Tiebreak",
+      "globalRanking": "Global"
+    }
+  },
+  "scoreConfirmation": {
+    "agree": "I agree",
+    "disagree": "I disagree"
+  },
+  "matchRequest": {
+    "skillLevel": {
+      "elementary": "Elementary"
+    },
+    "schedule": {
+      "twoHours": "2 hours",
+      "threeHours": "3 hours"
+    },
+    "court": {
+      "perHour": "/hour"
+    }
+  },
+  "mapAppSelector": {
+    "installed": "Installed"
+  },
+  "participantSelector": {
+    "peopleSuffix": " people",
+    "placeholder": "e.g., 16"
+  },
+  "ntrpSelector": {
+    "levels": {
+      "beginner": {
+        "description": "Just started playing tennis"
+      }
+    }
+  },
+  "clubOverviewScreen": {
+    "runnerUp": "Runner-up"
+  },
+  "types": {
+    "match": {
+      "validation": {
+        "tiebreak": "tiebreak",
+        "superTiebreak": "super tiebreak"
+      }
+    },
+    "dues": {
+      "period": {
+        "year": "{{year}}",
+        "yearMonth": "{{month}}/{{year}}"
+      }
+    }
+  },
+  "league": {
+    "genderLabels": {
+      "male": "male",
+      "female": "female"
+    }
+  },
+  "clubCommunication": {
+    "timeAgo": {
+      "minutesAgo": "{count} minutes ago",
+      "hoursAgo": "{count} hours ago"
+    }
+  },
+  "policyEditScreen": {
+    "rule": "Rule",
+    "characters": "characters",
+    "modified": "Modified",
+    "preview": "Preview"
+  },
+  "findClubScreen": {
+    "searching": "Searching for clubs...",
+    "joinComplete": "Joined"
+  },
+  "clubDetailScreen": {
+    "reapply": "Reapply"
+  },
+  "matches": {
+    "skillLevels": {
+      "2": {
+        "0-3": {
+          "0": "2.0-3.0"
+        }
+      },
+      "3": {
+        "0-4": {
+          "0": "3.0-4.0"
+        }
+      },
+      "4": {
+        "0-5": {
+          "0": "4.0-5.0"
+        }
+      },
+      "5": {
+        "0+": "5.0+"
+      }
+    },
+    "createModal": {
+      "maxParticipants": {
+        "placeholder": "4"
+      }
+    },
+    "alerts": {
+      "createSuccess": {
+        "confirm": "OK"
+      }
+    }
+  },
+  "schedules": {
+    "form": {
+      "indoor": "Indoor",
+      "outdoor": "Outdoor"
+    }
+  },
+  "aiMatching": {
+    "candidate": {
+      "strengths": {
+        "backhand": "Backhand",
+        "forehand": "Forehand",
+        "mental": "Mental"
+      }
+    }
+  },
+  "findClub": {
+    "searching": "Searching clubs...",
+    "status": {
+      "joined": "Joined"
+    }
+  },
+  "modals": {
+    "tournamentCompleted": {
+      "runnerUp": "Runner-up"
+    },
+    "leagueCompleted": {
+      "runnerUp": "Runner-up",
+      "points": "pts"
+    },
+    "playoffCreated": {
+      "final": "Final"
+    }
+  },
+  "feedCard": {
+    "unknown": "Unknown"
+  }
+}

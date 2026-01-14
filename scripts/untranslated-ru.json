@@ -1,0 +1,62 @@
+[
+  {
+    "key": "eventCard.labels.participants",
+    "enValue": "{{current}}/{{max}}"
+  },
+  {
+    "key": "createEvent.languages.korean",
+    "enValue": "한국어"
+  },
+  {
+    "key": "createEvent.languages.chinese",
+    "enValue": "中文"
+  },
+  {
+    "key": "createEvent.languages.japanese",
+    "enValue": "日本語"
+  },
+  {
+    "key": "createEvent.languages.spanish",
+    "enValue": "Español"
+  },
+  {
+    "key": "createEvent.languages.french",
+    "enValue": "Français"
+  },
+  {
+    "key": "duesManagement.settings.venmo",
+    "enValue": "Venmo"
+  },
+  {
+    "key": "meetupDetail.rsvp.title",
+    "enValue": "RSVP"
+  },
+  {
+    "key": "lessonCard.currencySuffix",
+    "enValue": ""
+  },
+  {
+    "key": "hallOfFame.honorBadges.receivedCount",
+    "enValue": "×{{count}}"
+  },
+  {
+    "key": "matches.skillLevels.2.0-3.0",
+    "enValue": "2.0-3.0"
+  },
+  {
+    "key": "matches.skillLevels.3.0-4.0",
+    "enValue": "3.0-4.0"
+  },
+  {
+    "key": "matches.skillLevels.4.0-5.0",
+    "enValue": "4.0-5.0"
+  },
+  {
+    "key": "matches.skillLevels.5.0+",
+    "enValue": "5.0+"
+  },
+  {
+    "key": "matches.createModal.maxParticipants.placeholder",
+    "enValue": "4"
+  }
+]

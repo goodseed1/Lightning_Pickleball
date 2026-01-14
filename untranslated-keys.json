@@ -1,0 +1,4542 @@
+[
+  {
+    "key": "ntrpAssessment.confidence",
+    "value": "Confidence"
+  },
+  {
+    "key": "ntrpAssessment.confidenceHigh",
+    "value": "high"
+  },
+  {
+    "key": "ntrpAssessment.confidenceMedium",
+    "value": "medium"
+  },
+  {
+    "key": "ntrpAssessment.confidenceLow",
+    "value": "low"
+  },
+  {
+    "key": "ntrpAssessment.scoreBreakdown",
+    "value": "Score Breakdown"
+  },
+  {
+    "key": "ntrpAssessment.skills",
+    "value": "Skills"
+  },
+  {
+    "key": "ntrpAssessment.tactics",
+    "value": "Tactics"
+  },
+  {
+    "key": "ntrpAssessment.experience",
+    "value": "Experience"
+  },
+  {
+    "key": "ntrpAssessment.selfAssessment",
+    "value": "Self-Assessment"
+  },
+  {
+    "key": "ntrpAssessment.adjustLevel",
+    "value": "Adjust Level (±1)"
+  },
+  {
+    "key": "terms.details.locationServices.title",
+    "value": "Location-Based Services Terms"
+  },
+  {
+    "key": "terms.details.liabilityDisclaimer.title",
+    "value": "Liability Disclaimer"
+  },
+  {
+    "key": "terms.details.marketingCommunications.title",
+    "value": "Marketing Communications Consent"
+  },
+  {
+    "key": "terms.details.inclusivityPolicy.title",
+    "value": "Diversity & Inclusion Policy"
+  },
+  {
+    "key": "admin.devTools.currentStreak",
+    "value": "Current Streak"
+  },
+  {
+    "key": "admin.devTools.eloRating",
+    "value": "ELO Rating"
+  },
+  {
+    "key": "admin.devTools.badges",
+    "value": "🏆 Earned Badges"
+  },
+  {
+    "key": "admin.devTools.requestPermissions",
+    "value": "Request Notification Permissions"
+  },
+  {
+    "key": "admin.devTools.permissionGrantedMessage",
+    "value": "You can now receive push notifications."
+  },
+  {
+    "key": "admin.devTools.permissionRequiredMessage",
+    "value": "Please allow notifications in Settings."
+  },
+  {
+    "key": "admin.devTools.matchNotifications",
+    "value": "Personal Match Notifications"
+  },
+  {
+    "key": "admin.devTools.matchNotificationsDesc",
+    "value": "Receive notifications for new lightning matches"
+  },
+  {
+    "key": "admin.devTools.clubEventNotifications",
+    "value": "Club Event Notifications"
+  },
+  {
+    "key": "admin.devTools.clubEventNotificationsDesc",
+    "value": "Receive notifications for club meetups"
+  },
+  {
+    "key": "admin.devTools.notificationDistance",
+    "value": "Notification Distance Range"
+  },
+  {
+    "key": "admin.devTools.milesAway",
+    "value": "miles away"
+  },
+  {
+    "key": "admin.devTools.mile",
+    "value": "mile"
+  },
+  {
+    "key": "admin.devTools.miles",
+    "value": "miles"
+  },
+  {
+    "key": "admin.devTools.quietHours",
+    "value": "Quiet Hours"
+  },
+  {
+    "key": "admin.devTools.korean",
+    "value": "Korean"
+  },
+  {
+    "key": "admin.devTools.privacy",
+    "value": "Privacy"
+  },
+  {
+    "key": "admin.devTools.help",
+    "value": "Help"
+  },
+  {
+    "key": "admin.devTools.appInfo",
+    "value": "App Info"
+  },
+  {
+    "key": "admin.devTools.developerTools",
+    "value": "🔧 Developer Tools"
+  },
+  {
+    "key": "admin.devTools.resetting",
+    "value": "Resetting..."
+  },
+  {
+    "key": "admin.devTools.warningDevOnly",
+    "value": "⚠️ For Developers Only - Run Once!"
+  },
+  {
+    "key": "admin.devTools.resetCompleteMessage",
+    "value": "{{count}} membership statistics have been reset."
+  },
+  {
+    "key": "admin.devTools.resetFailedMessage",
+    "value": "An error occurred while resetting league statistics.\n\n{{error}}"
+  },
+  {
+    "key": "admin.matchManagement.title",
+    "value": "Match Management"
+  },
+  {
+    "key": "admin.matchManagement.events",
+    "value": "Events"
+  },
+  {
+    "key": "admin.matchManagement.tournaments",
+    "value": "Tournaments"
+  },
+  {
+    "key": "admin.matchManagement.leagues",
+    "value": "Leagues"
+  },
+  {
+    "key": "admin.matchManagement.total",
+    "value": "Total"
+  },
+  {
+    "key": "admin.matchManagement.inProgress",
+    "value": "In Progress"
+  },
+  {
+    "key": "admin.matchManagement.scheduled",
+    "value": "Scheduled"
+  },
+  {
+    "key": "admin.matchManagement.today",
+    "value": "Today"
+  },
+  {
+    "key": "admin.matchManagement.daysAgo",
+    "value": " days ago"
+  },
+  {
+    "key": "club.clubMembers.actions.manage",
+    "value": "Manage"
+  },
+  {
+    "key": "club.clubMembers.alerts.roleChange.title",
+    "value": "Change Role"
+  },
+  {
+    "key": "club.clubMembers.alerts.roleChange.confirm",
+    "value": "Change"
+  },
+  {
+    "key": "club.clubMembers.alerts.approveRequest.title",
+    "value": "Approve Request"
+  },
+  {
+    "key": "club.clubMembers.alerts.approveRequest.message",
+    "value": "Approve {{userName}}'s join request?"
+  },
+  {
+    "key": "club.clubMembers.alerts.approveRequest.success",
+    "value": "{{userName}}'s request has been approved."
+  },
+  {
+    "key": "club.clubMembers.alerts.declineRequest.title",
+    "value": "Decline Request"
+  },
+  {
+    "key": "club.clubMembers.alerts.declineRequest.message",
+    "value": "Decline {{userName}}'s join request?"
+  },
+  {
+    "key": "club.clubMembers.alerts.declineRequest.success",
+    "value": "{{userName}}'s request has been declined."
+  },
+  {
+    "key": "club.clubMembers.alerts.declineRequest.invalidData",
+    "value": "Invalid request data."
+  },
+  {
+    "key": "club.clubMembers.alerts.removeSuccess",
+    "value": "Member has been removed."
+  },
+  {
+    "key": "club.clubMembers.alerts.actionError",
+    "value": "An error occurred while performing the action."
+  },
+  {
+    "key": "club.clubMembers.alerts.memberNotFound",
+    "value": "Member not found. They may have already been removed."
+  },
+  {
+    "key": "club.clubMembers.alerts.permissionDenied",
+    "value": "Permission denied. Only admins can perform this action."
+  },
+  {
+    "key": "club.clubMembers.alerts.cannotRemoveSelf",
+    "value": "You cannot remove yourself."
+  },
+  {
+    "key": "club.clubMembers.alerts.cannotRemoveOwner",
+    "value": "Cannot remove the club owner."
+  },
+  {
+    "key": "club.clubMembers.loading",
+    "value": "Loading members..."
+  },
+  {
+    "key": "club.clubMembers.memberCount",
+    "value": "{{count}} member(s)"
+  },
+  {
+    "key": "club.clubMembers.requestCount",
+    "value": "{{count}} request(s)"
+  },
+  {
+    "key": "club.clubMembers.dateFormats.joinedAt",
+    "value": "Joined {{date}}"
+  },
+  {
+    "key": "club.clubMembers.dateFormats.requestedAt",
+    "value": "Requested {{date}}"
+  },
+  {
+    "key": "club.clubMembers.removalReason.label",
+    "value": "Removal Reason (Optional)"
+  },
+  {
+    "key": "club.clubMembers.removalReason.placeholder",
+    "value": "Enter removal reason..."
+  },
+  {
+    "key": "club.clubMembers.removalReason.defaultReason",
+    "value": "Removed by admin"
+  },
+  {
+    "key": "rateSportsmanship.title",
+    "value": "Rate Sportsmanship"
+  },
+  {
+    "key": "rateSportsmanship.selectBadges",
+    "value": "Select Honor Badges"
+  },
+  {
+    "key": "rateSportsmanship.selectBadgesDescription",
+    "value": "Choose tags that represent this player's excellent qualities"
+  },
+  {
+    "key": "rateSportsmanship.selectedCount",
+    "value": "Selected tags: {{count}}"
+  },
+  {
+    "key": "rateSportsmanship.submitting",
+    "value": "Submitting..."
+  },
+  {
+    "key": "rateSportsmanship.submitButton",
+    "value": "Award Honor Badges"
+  },
+  {
+    "key": "rateSportsmanship.honorTags.sharpEyed",
+    "value": "#SharpEyed"
+  },
+  {
+    "key": "rateSportsmanship.honorTags.fullOfEnergy",
+    "value": "#FullOfEnergy"
+  },
+  {
+    "key": "rateSportsmanship.honorTags.mrManner",
+    "value": "#MrManner"
+  },
+  {
+    "key": "rateSportsmanship.honorTags.punctualPro",
+    "value": "#PunctualPro"
+  },
+  {
+    "key": "rateSportsmanship.honorTags.mentalFortress",
+    "value": "#MentalFortress"
+  },
+  {
+    "key": "rateSportsmanship.honorTags.courtJester",
+    "value": "#CourtJester"
+  },
+  {
+    "key": "rateSportsmanship.alerts.tagsRequiredMessage",
+    "value": "Please select at least one tag for each participant"
+  },
+  {
+    "key": "rateSportsmanship.alerts.badgesAwarded",
+    "value": "Honor Badges Awarded"
+  },
+  {
+    "key": "rateSportsmanship.alerts.badgesAwardedMessage",
+    "value": "Sportsmanship tags have been successfully awarded. Thank you!"
+  },
+  {
+    "key": "editProfile.nickname.label",
+    "value": "Nickname *"
+  },
+  {
+    "key": "editProfile.nickname.placeholder",
+    "value": "Enter your nickname"
+  },
+  {
+    "key": "editProfile.nickname.available",
+    "value": "Nickname is available!"
+  },
+  {
+    "key": "editProfile.nickname.checking",
+    "value": "Checking"
+  },
+  {
+    "key": "editProfile.nickname.checkingMessage",
+    "value": "Checking nickname availability. Please wait."
+  },
+  {
+    "key": "editProfile.nickname.unavailable",
+    "value": "Nickname Unavailable"
+  },
+  {
+    "key": "editProfile.nickname.unavailableMessage",
+    "value": "This nickname is not available. Please choose another one."
+  },
+  {
+    "key": "editProfile.travelDistance.label",
+    "value": "Max Travel Distance ({{unit}})"
+  },
+  {
+    "key": "editProfile.languages.label",
+    "value": "Languages"
+  },
+  {
+    "key": "editProfile.languages.select",
+    "value": "Select Languages"
+  },
+  {
+    "key": "editProfile.goals.label",
+    "value": "Goals"
+  },
+  {
+    "key": "editProfile.goals.placeholder",
+    "value": "Enter your tennis goals..."
+  },
+  {
+    "key": "editProfile.activityTime.label",
+    "value": "Activity Preferred Times"
+  },
+  {
+    "key": "editProfile.activityTime.weekdays",
+    "value": "Weekdays"
+  },
+  {
+    "key": "editProfile.activityTime.weekends",
+    "value": "Weekends"
+  },
+  {
+    "key": "editProfile.activityTime.preferredTimesLabel",
+    "value": "Preferred Times ({{type}})"
+  },
+  {
+    "key": "editProfile.activityTime.earlyMorning",
+    "value": "Early Morning (6-9am)"
+  },
+  {
+    "key": "editProfile.activityTime.morning",
+    "value": "Morning (9am-12pm)"
+  },
+  {
+    "key": "editProfile.activityTime.lunch",
+    "value": "Lunch (12-2pm)"
+  },
+  {
+    "key": "editProfile.activityTime.afternoon",
+    "value": "Afternoon (2-6pm)"
+  },
+  {
+    "key": "editProfile.activityTime.evening",
+    "value": "Evening (6-9pm)"
+  },
+  {
+    "key": "editProfile.activityTime.night",
+    "value": "Night (9pm-12am)"
+  },
+  {
+    "key": "editProfile.languageModal.done",
+    "value": "Done"
+  },
+  {
+    "key": "editProfile.common.ok",
+    "value": "OK"
+  },
+  {
+    "key": "discover.skillFilters.beginner",
+    "value": "Beginner"
+  },
+  {
+    "key": "discover.skillFilters.intermediate",
+    "value": "Intermediate"
+  },
+  {
+    "key": "discover.skillFilters.advanced",
+    "value": "Advanced"
+  },
+  {
+    "key": "discover.skillFilters.expert",
+    "value": "Expert"
+  },
+  {
+    "key": "discover.alerts.eventFull",
+    "value": "This event is already full."
+  },
+  {
+    "key": "discover.alerts.canceled",
+    "value": "Canceled"
+  },
+  {
+    "key": "discover.alerts.cancelSuccess",
+    "value": "Application canceled successfully."
+  },
+  {
+    "key": "discover.alerts.deleted",
+    "value": "Deleted"
+  },
+  {
+    "key": "discover.alerts.lessonDeleted",
+    "value": "Lesson has been deleted."
+  },
+  {
+    "key": "discover.alerts.serviceDeleted",
+    "value": "Post has been deleted."
+  },
+  {
+    "key": "discover.alerts.lessonCreated",
+    "value": "Lesson has been created."
+  },
+  {
+    "key": "discover.alerts.lessonUpdated",
+    "value": "Lesson has been updated."
+  },
+  {
+    "key": "discover.alerts.serviceCreated",
+    "value": "Post has been created."
+  },
+  {
+    "key": "discover.alerts.serviceUpdated",
+    "value": "Post has been updated."
+  },
+  {
+    "key": "discover.alerts.chatError",
+    "value": "Cannot open chat room."
+  },
+  {
+    "key": "discover.alerts.chatAccessDenied",
+    "value": "Chat Room Notice"
+  },
+  {
+    "key": "discover.alerts.applicationError",
+    "value": "An error occurred while applying."
+  },
+  {
+    "key": "discover.alerts.quickMatch.title",
+    "value": "⚡ Quick Match"
+  },
+  {
+    "key": "discover.alerts.quickMatch.cannotChallenge",
+    "value": "Cannot Challenge"
+  },
+  {
+    "key": "discover.alerts.quickMatch.sameGenderOnly",
+    "value": "You can only challenge players of the same gender."
+  },
+  {
+    "key": "discover.alerts.quickMatch.ntrpOutOfRange",
+    "value": "LTR {{ntrp}} is beyond your challenge range. (max +1.0)"
+  },
+  {
+    "key": "discover.alerts.quickMatch.challenge",
+    "value": "Challenge"
+  },
+  {
+    "key": "discover.alerts.quickMatch.success",
+    "value": "Challenge Sent!"
+  },
+  {
+    "key": "discover.alerts.teamApplication.submitted",
+    "value": "Application Submitted"
+  },
+  {
+    "key": "discover.alerts.teamApplication.error",
+    "value": "An error occurred while submitting team application: {{error}}"
+  },
+  {
+    "key": "discover.alerts.soloApplication.title",
+    "value": "Solo Application Submitted!"
+  },
+  {
+    "key": "discover.alerts.soloApplication.error",
+    "value": "An error occurred: {{error}}"
+  },
+  {
+    "key": "discover.partnerInvitation.banner",
+    "value": "You have {{count}} partner invitation{{plural}}"
+  },
+  {
+    "key": "discover.partnerInvitation.bannerSingle",
+    "value": "You have 1 partner invitation"
+  },
+  {
+    "key": "emailLogin.title.login",
+    "value": "Login"
+  },
+  {
+    "key": "emailLogin.title.signup",
+    "value": "Sign Up"
+  },
+  {
+    "key": "emailLogin.title.verification",
+    "value": "Email Verification"
+  },
+  {
+    "key": "emailLogin.placeholders.email",
+    "value": "Enter your email"
+  },
+  {
+    "key": "emailLogin.placeholders.password",
+    "value": "Enter your password"
+  },
+  {
+    "key": "emailLogin.buttons.changeEmail",
+    "value": "Sign up with different email"
+  },
+  {
+    "key": "emailLogin.buttons.tryAgain",
+    "value": "Try Again"
+  },
+  {
+    "key": "emailLogin.emailStatus.alreadyRegistered",
+    "value": "This email is already registered. Try logging in instead."
+  },
+  {
+    "key": "emailLogin.verification.checkEmail",
+    "value": "Check Your Email!"
+  },
+  {
+    "key": "emailLogin.verification.sentTo",
+    "value": "{{email}}"
+  },
+  {
+    "key": "emailLogin.verification.changeEmailButton",
+    "value": "Sign up with different email"
+  },
+  {
+    "key": "emailLogin.alerts.invalidEmail.message",
+    "value": "Please enter a valid email address.\n\nExample: example@email.com"
+  },
+  {
+    "key": "emailLogin.alerts.passwordMismatch.message",
+    "value": "The passwords you entered do not match.\nPlease check again."
+  },
+  {
+    "key": "emailLogin.alerts.emailAlreadyRegistered.message",
+    "value": "This email is already registered.\nTry logging in instead."
+  },
+  {
+    "key": "emailLogin.alerts.tooManyAttempts.title",
+    "value": "Too Many Attempts"
+  },
+  {
+    "key": "emailLogin.alerts.authError.message",
+    "value": "An error occurred during authentication."
+  },
+  {
+    "key": "emailLogin.alerts.genericError.message",
+    "value": "An error occurred during authentication."
+  },
+  {
+    "key": "emailLogin.alerts.resendError.message",
+    "value": "An error occurred while resending verification email."
+  },
+  {
+    "key": "emailLogin.alerts.missingInfo.message",
+    "value": "Missing information for resend. Please try logging in again."
+  },
+  {
+    "key": "emailLogin.alerts.forgotPassword.invalidFormat.message",
+    "value": "Please enter a valid email address."
+  },
+  {
+    "key": "emailLogin.alerts.forgotPassword.tooManyRequests.title",
+    "value": "Too Many Requests"
+  },
+  {
+    "key": "emailLogin.alerts.forgotPassword.tooManyRequests.message",
+    "value": "Too many requests. Please try again later."
+  },
+  {
+    "key": "emailLogin.alerts.forgotPassword.sendError.message",
+    "value": "An error occurred while sending the password reset email."
+  },
+  {
+    "key": "myActivities.profile.earnedBadges",
+    "value": "Earned Badges"
+  },
+  {
+    "key": "myActivities.profile.goals",
+    "value": "Goals"
+  },
+  {
+    "key": "myActivities.stats.rankedMatchStats",
+    "value": "Ranked Match Statistics"
+  },
+  {
+    "key": "myActivities.stats.onlyRankedMatches",
+    "value": "Only ranked matches that affect ELO rating"
+  },
+  {
+    "key": "myActivities.stats.eloRatingTrend",
+    "value": "ELO Rating Trend"
+  },
+  {
+    "key": "myActivities.stats.lastSixMonths",
+    "value": "Last 6 months"
+  },
+  {
+    "key": "myActivities.stats.currentEloRating",
+    "value": "Current ELO Rating"
+  },
+  {
+    "key": "myActivities.stats.intermediateTier",
+    "value": "Intermediate Tier"
+  },
+  {
+    "key": "myActivities.stats.matches",
+    "value": "Matches"
+  },
+  {
+    "key": "myActivities.stats.wins",
+    "value": "Wins"
+  },
+  {
+    "key": "myActivities.stats.losses",
+    "value": "Losses"
+  },
+  {
+    "key": "myActivities.stats.winRate",
+    "value": "Win Rate"
+  },
+  {
+    "key": "myActivities.stats.recentMatchResults",
+    "value": "Recent Match Results"
+  },
+  {
+    "key": "myActivities.settings.lightningMatchNotifications",
+    "value": "Lightning Match Notifications"
+  },
+  {
+    "key": "myActivities.settings.newMatchRequestNotifications",
+    "value": "New match request notifications"
+  },
+  {
+    "key": "myActivities.settings.chatNotifications",
+    "value": "Chat Notifications"
+  },
+  {
+    "key": "myActivities.settings.languageChangeComingSoon",
+    "value": "Language change feature coming soon."
+  },
+  {
+    "key": "myActivities.settings.currentLanguage",
+    "value": "English"
+  },
+  {
+    "key": "myActivities.settings.privacySettingsComingSoon",
+    "value": "Privacy settings feature coming soon."
+  },
+  {
+    "key": "myActivities.settings.signOut",
+    "value": "Sign Out"
+  },
+  {
+    "key": "myActivities.alerts.signOut.title",
+    "value": "Sign Out"
+  },
+  {
+    "key": "myActivities.alerts.signOut.confirm",
+    "value": "Sign Out"
+  },
+  {
+    "key": "myActivities.alerts.partnerInvitation.success.message",
+    "value": "Partner invitation accepted!"
+  },
+  {
+    "key": "myActivities.alerts.partnerInvitation.rejected.title",
+    "value": "Rejected"
+  },
+  {
+    "key": "myActivities.alerts.partnerInvitation.rejected.message",
+    "value": "Partner invitation rejected. You can re-accept within 24 hours."
+  },
+  {
+    "key": "myActivities.alerts.friendInvitation.accepted.title",
+    "value": "Accepted"
+  },
+  {
+    "key": "myActivities.alerts.friendInvitation.accepted.message",
+    "value": "Friend invitation accepted!"
+  },
+  {
+    "key": "myActivities.alerts.friendInvitation.rejected.title",
+    "value": "Rejected"
+  },
+  {
+    "key": "myActivities.alerts.friendInvitation.rejected.message",
+    "value": "Friend invitation rejected."
+  },
+  {
+    "key": "myActivities.alerts.friendInvitation.error.acceptMessage",
+    "value": "An error occurred while accepting the invitation."
+  },
+  {
+    "key": "myActivities.alerts.friendInvitation.error.rejectMessage",
+    "value": "An error occurred while rejecting the invitation."
+  },
+  {
+    "key": "myActivities.alerts.eventEdit.message",
+    "value": "Event editing feature coming soon."
+  },
+  {
+    "key": "clubLeaguesTournaments.modals.selectPartner",
+    "value": "🏛️ Select Partner"
+  },
+  {
+    "key": "clubLeaguesTournaments.modals.loadingPartners",
+    "value": "Loading partners..."
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.alreadyParticipant.title",
+    "value": "Already Participating"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.alreadyParticipant.message",
+    "value": "You are already a participant in this league."
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.applicationComplete.title",
+    "value": "Registration Complete"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.applicationComplete.message",
+    "value": "League application completed!"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.registrationComplete.title",
+    "value": "Registration Complete"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.registrationComplete.messageTournament",
+    "value": "Tournament registration completed!"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.registrationComplete.messageTeam",
+    "value": "Team {{team}} registered successfully!"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.teamInvitationSent.title",
+    "value": "Team Invitation Sent"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.notice.title",
+    "value": "Notice"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.error.unexpectedError",
+    "value": "An unexpected error occurred: {{error}}"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.teamConfirmed.titleTournament",
+    "value": "🎉 Registration Complete!"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.teamConfirmed.messageTournament",
+    "value": "Successfully registered for \"{{tournament}}\" with {{partner}}!"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.teamConfirmed.titleLeague",
+    "value": "🎉 Team Confirmed & League Application Complete!"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.teamConfirmed.messageLeague",
+    "value": "Successfully applied for \"{{league}}\" with {{partner}}!"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.rejectInvitation.title",
+    "value": "Reject Invitation"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.rejectInvitation.reject",
+    "value": "Reject"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.invitationRejected.title",
+    "value": "Invitation Rejected"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.invitationRejected.message",
+    "value": "Team invitation rejected."
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.invitationSent.title",
+    "value": "Invitation Sent"
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.selectPartner.messageNoPartner",
+    "value": "Please select a partner."
+  },
+  {
+    "key": "clubLeaguesTournaments.alerts.selectPartner.messagePartnerNotFound",
+    "value": "Selected partner not found."
+  },
+  {
+    "key": "clubLeaguesTournaments.empty.noLeagues.title",
+    "value": "No active leagues"
+  },
+  {
+    "key": "clubLeaguesTournaments.empty.noLeagues.message",
+    "value": "We'll notify you when new leagues are available."
+  },
+  {
+    "key": "clubLeaguesTournaments.empty.noTournaments.title",
+    "value": "No tournaments available"
+  },
+  {
+    "key": "clubLeaguesTournaments.empty.noTournaments.message",
+    "value": "We'll notify you when new tournaments are available."
+  },
+  {
+    "key": "clubTournamentManagement.participantAdd.successMessage",
+    "value": "{{count}} participant(s) added successfully."
+  },
+  {
+    "key": "clubTournamentManagement.participantAdd.partialSuccessMessage",
+    "value": "{{success}} participant(s) added, {{failed}} failed."
+  },
+  {
+    "key": "clubTournamentManagement.participantAdd.successMessageWithNames",
+    "value": "{{count}} participant(s) added.\n{{names}}"
+  },
+  {
+    "key": "clubTournamentManagement.participantAdd.partialSuccessMessageWithDetails",
+    "value": "Success: {{successCount}}\n{{successNames}}\n\nFailed: {{failedCount}}\n{{failedDetails}}"
+  },
+  {
+    "key": "clubTournamentManagement.matchResult.title",
+    "value": "Match Result"
+  },
+  {
+    "key": "clubTournamentManagement.matchResult.info",
+    "value": "Match Info"
+  },
+  {
+    "key": "clubTournamentManagement.matchResult.notFound",
+    "value": "Match information not found."
+  },
+  {
+    "key": "clubTournamentManagement.matchResult.submitted",
+    "value": "Score Submitted"
+  },
+  {
+    "key": "clubTournamentManagement.matchResult.successMessage",
+    "value": "Match result has been submitted successfully."
+  },
+  {
+    "key": "clubTournamentManagement.management.tournamentManagement",
+    "value": "Tournament Management"
+  },
+  {
+    "key": "clubTournamentManagement.management.deleteDescription",
+    "value": "Permanently delete the tournament. This action cannot be undone."
+  },
+  {
+    "key": "clubTournamentManagement.management.registrationFullMessage",
+    "value": "Registration is full. You can now close registration."
+  },
+  {
+    "key": "clubTournamentManagement.management.evenParticipantsRequired",
+    "value": "Doubles requires even number of participants (current: {{count}})"
+  },
+  {
+    "key": "clubTournamentManagement.management.assignSeedsManually",
+    "value": "Assign seeds manually in the Participants tab"
+  },
+  {
+    "key": "clubTournamentManagement.management.generateBracketAndStart",
+    "value": "Generate Bracket & Start Tournament"
+  },
+  {
+    "key": "clubTournamentManagement.management.addingParticipantsWait",
+    "value": "Adding participants... Please wait until complete."
+  },
+  {
+    "key": "clubTournamentManagement.management.tournamentInProgress",
+    "value": "Tournament is in progress. Check match results in the Matches tab."
+  },
+  {
+    "key": "clubTournamentManagement.management.evenParticipantsNeeded",
+    "value": "Doubles requires even participants (current: {{count}})"
+  },
+  {
+    "key": "clubTournamentManagement.management.tournamentCompleted",
+    "value": "Tournament has been completed."
+  },
+  {
+    "key": "clubTournamentManagement.common.confirm",
+    "value": "OK"
+  },
+  {
+    "key": "clubTournamentManagement.common.generate",
+    "value": "Generate"
+  },
+  {
+    "key": "clubTournamentManagement.common.assign",
+    "value": "Assign"
+  },
+  {
+    "key": "clubTournamentManagement.emptyStates.bracketNotGenerated",
+    "value": "Bracket not yet generated"
+  },
+  {
+    "key": "clubTournamentManagement.emptyStates.bracketAfterRegistration",
+    "value": "Bracket will be generated after registration closes"
+  },
+  {
+    "key": "clubTournamentManagement.emptyStates.cannotLoadTeamInfo",
+    "value": "Cannot load team information"
+  },
+  {
+    "key": "clubTournamentManagement.emptyStates.participantsCannotFormTeams",
+    "value": "Participants cannot form teams. Please check partner information for each participant."
+  },
+  {
+    "key": "clubTournamentManagement.labels.participantCount",
+    "value": "Participants: {{current}}/{{max}}"
+  },
+  {
+    "key": "profileSettings.location.permission.granted",
+    "value": "Granted"
+  },
+  {
+    "key": "profileSettings.location.permission.denied",
+    "value": "Denied"
+  },
+  {
+    "key": "profileSettings.location.permission.undetermined",
+    "value": "Not determined"
+  },
+  {
+    "key": "profileSettings.location.permission.checking",
+    "value": "Checking..."
+  },
+  {
+    "key": "profileSettings.location.permission.undeterminedDescription",
+    "value": "Please set location permission"
+  },
+  {
+    "key": "profileSettings.location.permission.checkingDescription",
+    "value": "Checking permission status"
+  },
+  {
+    "key": "profileSettings.location.alerts.errorMessage",
+    "value": "An error occurred while checking location permission."
+  },
+  {
+    "key": "profileSettings.location.update.checkingPermission",
+    "value": "Checking location permission..."
+  },
+  {
+    "key": "profileSettings.location.update.gettingLocation",
+    "value": "Getting current location..."
+  },
+  {
+    "key": "profileSettings.location.update.savingLocation",
+    "value": "Saving location..."
+  },
+  {
+    "key": "profileSettings.location.update.gettingAddress",
+    "value": "Getting address information..."
+  },
+  {
+    "key": "profileSettings.location.update.errorMessage",
+    "value": "An error occurred while updating location."
+  },
+  {
+    "key": "profileSettings.theme.settingsMessage",
+    "value": "Choose your preferred theme"
+  },
+  {
+    "key": "profileSettings.theme.lightModeSubtitle",
+    "value": "Use light theme"
+  },
+  {
+    "key": "profileSettings.theme.darkModeSubtitle",
+    "value": "Use dark theme"
+  },
+  {
+    "key": "profileSettings.theme.followSystemSubtitle",
+    "value": "Automatic based on device settings"
+  },
+  {
+    "key": "profileSettings.privacy.title",
+    "value": "Privacy Settings"
+  },
+  {
+    "key": "profileSettings.privacy.message",
+    "value": "Navigate to privacy settings."
+  },
+  {
+    "key": "profileSettings.privacy.comingSoonMessage",
+    "value": "Privacy settings feature coming soon."
+  },
+  {
+    "key": "profileSettings.logout.title",
+    "value": "Sign Out"
+  },
+  {
+    "key": "profileSettings.logout.confirm",
+    "value": "Sign Out"
+  },
+  {
+    "key": "profileSettings.deleteAccount.confirmNicknameMessage",
+    "value": "To proceed with account deletion, type your nickname \"{{nickname}}\"."
+  },
+  {
+    "key": "profileSettings.deleteAccount.finalConfirmationTitle",
+    "value": "Final Confirmation"
+  },
+  {
+    "key": "profileSettings.deleteAccount.completeTitle",
+    "value": "Complete"
+  },
+  {
+    "key": "profileSettings.deleteAccount.completeMessage",
+    "value": "Your account has been deleted."
+  },
+  {
+    "key": "profileSettings.deleteAccount.noticeTitle",
+    "value": "Notice"
+  },
+  {
+    "key": "profileSettings.deleteAccount.noticeMessage",
+    "value": "There was an issue deleting your account. Please try again."
+  },
+  {
+    "key": "eventCard.matchTypeSelector.mixed",
+    "value": "Mixed"
+  },
+  {
+    "key": "eventCard.eventTypes.match",
+    "value": "Match"
+  },
+  {
+    "key": "eventCard.eventTypes.practice",
+    "value": "Practice"
+  },
+  {
+    "key": "eventCard.eventTypes.tournament",
+    "value": "Tournament"
+  },
+  {
+    "key": "eventCard.eventTypes.lightning",
+    "value": "Match"
+  },
+  {
+    "key": "eventCard.eventTypes.meetup",
+    "value": "Meetup"
+  },
+  {
+    "key": "eventCard.eventTypes.casual",
+    "value": "Casual"
+  },
+  {
+    "key": "eventCard.eventTypes.ranked",
+    "value": "Ranked"
+  },
+  {
+    "key": "eventCard.eventTypes.general",
+    "value": "General"
+  },
+  {
+    "key": "eventCard.labels.host",
+    "value": "Host"
+  },
+  {
+    "key": "eventCard.labels.singles",
+    "value": "Singles"
+  },
+  {
+    "key": "eventCard.labels.doubles",
+    "value": "Doubles"
+  },
+  {
+    "key": "eventCard.labels.participants",
+    "value": "{{current}}/{{max}}"
+  },
+  {
+    "key": "eventCard.labels.friendly",
+    "value": "Friendly"
+  },
+  {
+    "key": "eventCard.labels.waiting",
+    "value": "{{count}} waiting"
+  },
+  {
+    "key": "eventCard.labels.full",
+    "value": "Full"
+  },
+  {
+    "key": "eventCard.buttons.chat",
+    "value": "Chat"
+  },
+  {
+    "key": "eventCard.buttons.registrationClosed",
+    "value": "Registration Closed"
+  },
+  {
+    "key": "eventCard.results.win",
+    "value": "Win"
+  },
+  {
+    "key": "eventCard.results.loss",
+    "value": "Loss"
+  },
+  {
+    "key": "eventCard.results.hostTeamWins",
+    "value": "Host Team Wins"
+  },
+  {
+    "key": "eventCard.results.guestTeamWins",
+    "value": "Guest Team Wins"
+  },
+  {
+    "key": "eventCard.requirements.levelMismatch",
+    "value": "Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})"
+  },
+  {
+    "key": "eventCard.requirements.genderMismatch",
+    "value": "Gender Mismatch"
+  },
+  {
+    "key": "eventCard.requirements.menOnly",
+    "value": "This is a men's match"
+  },
+  {
+    "key": "eventCard.requirements.womenOnly",
+    "value": "This is a women's match"
+  },
+  {
+    "key": "eventCard.requirements.canApply",
+    "value": "Apply: LTR {{minNtrp}} - {{maxNtrp}}"
+  },
+  {
+    "key": "eventCard.requirements.level",
+    "value": "Level: {{level}}"
+  },
+  {
+    "key": "eventCard.soloApplicants.count",
+    "value": "{{count}} solo"
+  },
+  {
+    "key": "eventCard.soloApplicants.label",
+    "value": "{{count}} solo applicants"
+  },
+  {
+    "key": "createEvent.autoNtrp.hostLevel",
+    "value": "Host LTR: {{level}} ({{gameType}})"
+  },
+  {
+    "key": "createEvent.autoNtrp.partnerLevel",
+    "value": "Partner LTR: {{level}} ({{gameType}})"
+  },
+  {
+    "key": "createEvent.autoNtrp.combinedLevel",
+    "value": "Combined LTR: {{level}}"
+  },
+  {
+    "key": "createEvent.autoNtrp.hostLevelWithType",
+    "value": "Host LTR: {{level}} ({{type}})"
+  },
+  {
+    "key": "createEvent.autoNtrp.partnerLevelWithType",
+    "value": "Partner LTR: {{level}} ({{type}})"
+  },
+  {
+    "key": "createEvent.helperText.languageSelection",
+    "value": "Select languages you can communicate in for a better match experience."
+  },
+  {
+    "key": "createEvent.helperText.matchLevelAuto",
+    "value": "Match level is auto-calculated based on {{type}}."
+  },
+  {
+    "key": "createEvent.toggleDescriptions.autoApproval",
+    "value": "When enabled, participants are auto-approved first-come-first-served until capacity. When disabled, host must manually approve each participant."
+  },
+  {
+    "key": "createEvent.toggleDescriptions.autoApprovalDetailed",
+    "value": "When enabled, requests are auto-approved first-come-first-serve until full. When disabled, host must manually approve each request."
+  },
+  {
+    "key": "createEvent.sms.defaultSender",
+    "value": "A friend"
+  },
+  {
+    "key": "createEvent.infoText.eventTypeNotice",
+    "value": "{{type}} event notice"
+  },
+  {
+    "key": "createEvent.modals.selectLanguages",
+    "value": "Select Languages"
+  },
+  {
+    "key": "createEvent.modals.selectPartner",
+    "value": "Select Partner"
+  },
+  {
+    "key": "createEvent.modals.smsInvitation",
+    "value": "SMS Invitation"
+  },
+  {
+    "key": "createEvent.search.searchingUsers",
+    "value": "Searching users..."
+  },
+  {
+    "key": "createEvent.search.loadUsers",
+    "value": "Load Users"
+  },
+  {
+    "key": "createEvent.search.searchPrompt",
+    "value": "Please search for users"
+  },
+  {
+    "key": "createEvent.selectedFriends",
+    "value": "Selected ({{count}})"
+  },
+  {
+    "key": "createEvent.phone.placeholderKR",
+    "value": "Enter phone number (e.g., 010-1234-5678)"
+  },
+  {
+    "key": "createEvent.phone.placeholderUS",
+    "value": "Enter phone number (e.g., (555) 123-4567)"
+  },
+  {
+    "key": "createEvent.phone.placeholderIntl",
+    "value": "Enter phone number (e.g., +1-234-567-8901)"
+  },
+  {
+    "key": "createEvent.dateFormat",
+    "value": "{{month}}/{{day}}/{{year}} {{hours}}:{{minutes}}"
+  },
+  {
+    "key": "createEvent.errors.smsErrorMessage",
+    "value": "Cannot open SMS app. Please send invitations manually."
+  },
+  {
+    "key": "createEvent.languages.korean",
+    "value": "한국어"
+  },
+  {
+    "key": "createEvent.languages.english",
+    "value": "English"
+  },
+  {
+    "key": "createEvent.languages.chinese",
+    "value": "中文"
+  },
+  {
+    "key": "createEvent.languages.japanese",
+    "value": "日本語"
+  },
+  {
+    "key": "createEvent.languages.spanish",
+    "value": "Español"
+  },
+  {
+    "key": "createEvent.languages.french",
+    "value": "Français"
+  },
+  {
+    "key": "hostedEventCard.eventTypes.match",
+    "value": "Match"
+  },
+  {
+    "key": "hostedEventCard.eventTypes.practice",
+    "value": "Practice"
+  },
+  {
+    "key": "hostedEventCard.eventTypes.tournament",
+    "value": "Tournament"
+  },
+  {
+    "key": "hostedEventCard.eventTypes.lightning",
+    "value": "Match"
+  },
+  {
+    "key": "hostedEventCard.eventTypes.meetup",
+    "value": "Meetup"
+  },
+  {
+    "key": "hostedEventCard.eventTypes.casual",
+    "value": "Casual"
+  },
+  {
+    "key": "hostedEventCard.eventTypes.ranked",
+    "value": "Ranked"
+  },
+  {
+    "key": "hostedEventCard.eventTypes.general",
+    "value": "General"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Sunny",
+    "value": "Sunny"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Partly Cloudy",
+    "value": "Partly Cloudy"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Mostly Cloudy",
+    "value": "Mostly Cloudy"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Cloudy",
+    "value": "Cloudy"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Overcast",
+    "value": "Overcast"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Fog",
+    "value": "Fog"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Light Rain",
+    "value": "Light Rain"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Rain",
+    "value": "Rain"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Heavy Rain",
+    "value": "Heavy Rain"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Drizzle",
+    "value": "Drizzle"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Showers",
+    "value": "Showers"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Thunderstorm",
+    "value": "Thunderstorm"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Snow",
+    "value": "Snow"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Light Snow",
+    "value": "Light Snow"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Heavy Snow",
+    "value": "Heavy Snow"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Sleet",
+    "value": "Sleet"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Hail",
+    "value": "Hail"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Windy",
+    "value": "Windy"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Humid",
+    "value": "Humid"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Hot",
+    "value": "Hot"
+  },
+  {
+    "key": "hostedEventCard.weather.conditions.Cold",
+    "value": "Cold"
+  },
+  {
+    "key": "duesManagement.report.title",
+    "value": "Annual Payment Report"
+  },
+  {
+    "key": "duesManagement.report.loading",
+    "value": "Loading report..."
+  },
+  {
+    "key": "duesManagement.report.memberColumn",
+    "value": "Member"
+  },
+  {
+    "key": "duesManagement.report.monthlyTotal",
+    "value": "Monthly Total"
+  },
+  {
+    "key": "duesManagement.report.totalColumn",
+    "value": "Total"
+  },
+  {
+    "key": "duesManagement.report.reportFileName",
+    "value": "Dues Report"
+  },
+  {
+    "key": "duesManagement.paymentForm.paymentMethod",
+    "value": "Payment Method"
+  },
+  {
+    "key": "duesManagement.paymentForm.transactionId",
+    "value": "Transaction ID (Optional)"
+  },
+  {
+    "key": "duesManagement.paymentForm.transactionPlaceholder",
+    "value": "Enter transaction ID"
+  },
+  {
+    "key": "duesManagement.paymentForm.notesPlaceholder",
+    "value": "Enter notes"
+  },
+  {
+    "key": "duesManagement.paymentForm.markAsPaid",
+    "value": "Mark as Paid"
+  },
+  {
+    "key": "duesManagement.paymentDetails.member",
+    "value": "Member"
+  },
+  {
+    "key": "duesManagement.paymentDetails.amount",
+    "value": "Amount"
+  },
+  {
+    "key": "duesManagement.paymentDetails.method",
+    "value": "Method"
+  },
+  {
+    "key": "duesManagement.paymentDetails.requested",
+    "value": "Requested"
+  },
+  {
+    "key": "duesManagement.paymentDetails.paymentProof",
+    "value": "Payment Proof"
+  },
+  {
+    "key": "duesManagement.types.joinFee",
+    "value": "Join Fee"
+  },
+  {
+    "key": "duesManagement.types.monthly",
+    "value": "Monthly"
+  },
+  {
+    "key": "duesManagement.types.lateFee",
+    "value": "Late Fee"
+  },
+  {
+    "key": "duesManagement.types.quarterly",
+    "value": "Quarterly"
+  },
+  {
+    "key": "duesManagement.types.custom",
+    "value": "Custom"
+  },
+  {
+    "key": "duesManagement.types.adminAdded",
+    "value": "Added manually by admin"
+  },
+  {
+    "key": "duesManagement.inputs.joinFeeDollar",
+    "value": "Join Fee ($)"
+  },
+  {
+    "key": "duesManagement.inputs.monthlyFeeDollar",
+    "value": "Monthly Fee ($)"
+  },
+  {
+    "key": "duesManagement.inputs.quarterlyFeeDollar",
+    "value": "Quarterly Fee ($)"
+  },
+  {
+    "key": "duesManagement.inputs.yearlyFeeDollar",
+    "value": "Yearly Fee ($)"
+  },
+  {
+    "key": "duesManagement.inputs.gracePeriodLabel",
+    "value": "Grace Period (days)"
+  },
+  {
+    "key": "duesManagement.inputs.lateFeeDollar",
+    "value": "Late Fee ($)"
+  },
+  {
+    "key": "duesManagement.inputs.paymentMethodPlaceholder",
+    "value": "e.g. PayPal, KakaoPay"
+  },
+  {
+    "key": "duesManagement.inputs.addPaymentPlaceholder",
+    "value": "e.g. PayPal, KakaoPay"
+  },
+  {
+    "key": "createMeetup.loading",
+    "value": "Loading club information..."
+  },
+  {
+    "key": "createMeetup.errors.failedToLoadMeetup",
+    "value": "Could not load meetup information."
+  },
+  {
+    "key": "createMeetup.errors.failedToLoadMeetupError",
+    "value": "An error occurred while loading meetup information."
+  },
+  {
+    "key": "createMeetup.errors.invalidLocationType",
+    "value": "Invalid location type."
+  },
+  {
+    "key": "createMeetup.errors.selectValidDate",
+    "value": "Please select a valid date."
+  },
+  {
+    "key": "createMeetup.errors.minOneCourt",
+    "value": "At least 1 court is required."
+  },
+  {
+    "key": "createMeetup.errors.clubInfoLoading",
+    "value": "Club information is still loading. Please try again in a moment."
+  },
+  {
+    "key": "createMeetup.errors.externalCourtNameRequired",
+    "value": "Please enter external court name."
+  },
+  {
+    "key": "createMeetup.errors.externalCourtAddressRequired",
+    "value": "Please enter external court address."
+  },
+  {
+    "key": "createMeetup.errors.savingError",
+    "value": "An error occurred while saving data. Please contact the developer.\\n\\nError: {{error}}"
+  },
+  {
+    "key": "createMeetup.errors.updateError",
+    "value": "An error occurred while updating the meetup.\\n\\nError: {{error}}"
+  },
+  {
+    "key": "createMeetup.success.copied",
+    "value": "Meetup has been copied!"
+  },
+  {
+    "key": "createMeetup.notes.copyDateChangeable",
+    "value": "💡 You can change the date for the copied meetup."
+  },
+  {
+    "key": "createMeetup.notes.editNote",
+    "value": "The meetup information will be updated."
+  },
+  {
+    "key": "createMeetup.location.homeCourt",
+    "value": "🏠 Home Court"
+  },
+  {
+    "key": "createMeetup.location.clubHomeCourt",
+    "value": "Club Home Court"
+  },
+  {
+    "key": "createMeetup.location.changeInSettings",
+    "value": "Can be changed in club settings"
+  },
+  {
+    "key": "createMeetup.court.availableCourts",
+    "value": "Available Courts"
+  },
+  {
+    "key": "createMeetup.court.courtNumbers",
+    "value": "Court Numbers (Optional)"
+  },
+  {
+    "key": "createMeetup.court.courtNumbersPlaceholder",
+    "value": "e.g., 3, 4, 5"
+  },
+  {
+    "key": "createMeetup.court.lastMeetupHint",
+    "value": "💡 Last meetup: \\\"{{numbers}}\\\""
+  },
+  {
+    "key": "createMeetup.buttons.creating",
+    "value": "Creating..."
+  },
+  {
+    "key": "createMeetup.buttons.updating",
+    "value": "Updating..."
+  },
+  {
+    "key": "createMeetup.buttons.confirming",
+    "value": "Confirming..."
+  },
+  {
+    "key": "createMeetup.picker.done",
+    "value": "Done"
+  },
+  {
+    "key": "createMeetup.notification.title",
+    "value": "New Meetup Confirmed!"
+  },
+  {
+    "key": "createMeetup.notification.body",
+    "value": "Meetup on {{date}} has been confirmed."
+  },
+  {
+    "key": "clubDuesManagement.loading",
+    "value": "Loading data..."
+  },
+  {
+    "key": "clubDuesManagement.tabs.unpaid",
+    "value": "Unpaid Members"
+  },
+  {
+    "key": "clubDuesManagement.errors.invalidAmount",
+    "value": "Please enter valid dues amount"
+  },
+  {
+    "key": "clubDuesManagement.errors.invalidDueDay",
+    "value": "Due day must be between 1-31"
+  },
+  {
+    "key": "clubDuesManagement.success.settingsSavedMessage",
+    "value": "Dues settings have been saved"
+  },
+  {
+    "key": "clubDuesManagement.success.remindersSent",
+    "value": "Reminders Sent"
+  },
+  {
+    "key": "clubDuesManagement.settings.title",
+    "value": "Dues Policy"
+  },
+  {
+    "key": "clubDuesManagement.settings.monthly",
+    "value": "Monthly"
+  },
+  {
+    "key": "clubDuesManagement.settings.yearly",
+    "value": "Yearly"
+  },
+  {
+    "key": "clubDuesManagement.settings.amount",
+    "value": "Dues Amount"
+  },
+  {
+    "key": "clubDuesManagement.settings.amountPlaceholder",
+    "value": "Enter amount"
+  },
+  {
+    "key": "clubDuesManagement.settings.dueDay",
+    "value": "Due Day"
+  },
+  {
+    "key": "clubDuesManagement.settings.dueDayPlaceholder",
+    "value": "Day of month"
+  },
+  {
+    "key": "clubDuesManagement.settings.dueDayHelper",
+    "value": "Monthly due date (1-31)"
+  },
+  {
+    "key": "clubDuesManagement.settings.gracePeriodPlaceholder",
+    "value": "Days"
+  },
+  {
+    "key": "clubDuesManagement.settings.paymentInstructions",
+    "value": "Payment Instructions"
+  },
+  {
+    "key": "clubDuesManagement.settings.accountInfo",
+    "value": "Account/ID Info"
+  },
+  {
+    "key": "clubDuesManagement.settings.dayUnit",
+    "value": "th"
+  },
+  {
+    "key": "clubDuesManagement.settings.daysUnit",
+    "value": "days"
+  },
+  {
+    "key": "clubDuesManagement.unpaid.management",
+    "value": "Unpaid Members Management"
+  },
+  {
+    "key": "clubDuesManagement.unpaid.count",
+    "value": "{{count}} members have unpaid dues"
+  },
+  {
+    "key": "clubDuesManagement.unpaid.list",
+    "value": "Unpaid Members List"
+  },
+  {
+    "key": "clubDuesManagement.unpaid.reminderCount",
+    "value": "{{count}} reminders sent"
+  },
+  {
+    "key": "clubDuesManagement.unpaid.markPaid",
+    "value": "Mark Paid"
+  },
+  {
+    "key": "clubDuesManagement.autoInvoice.enabled",
+    "value": "Auto invoice has been enabled"
+  },
+  {
+    "key": "clubDuesManagement.autoInvoice.disabled",
+    "value": "Auto invoice has been disabled"
+  },
+  {
+    "key": "regularMeetup.regularMeetupTitle",
+    "value": "{{day}} Regular Meetup"
+  },
+  {
+    "key": "regularMeetup.crowdOk",
+    "value": "OK"
+  },
+  {
+    "key": "eventParticipation.participants.list",
+    "value": "Participants"
+  },
+  {
+    "key": "eventParticipation.participants.waitingList",
+    "value": "Waiting List"
+  },
+  {
+    "key": "eventParticipation.status.pending",
+    "value": "Pending"
+  },
+  {
+    "key": "eventParticipation.status.waiting",
+    "value": "Waiting"
+  },
+  {
+    "key": "eventParticipation.status.registrationConfirmed",
+    "value": "Registration Confirmed"
+  },
+  {
+    "key": "eventParticipation.status.registrationPending",
+    "value": "Registration Pending"
+  },
+  {
+    "key": "eventParticipation.status.addedToWaitingList",
+    "value": "Added to Waiting List"
+  },
+  {
+    "key": "eventParticipation.status.registrationCancelled",
+    "value": "Registration Cancelled"
+  },
+  {
+    "key": "eventParticipation.status.participationConfirmed",
+    "value": "Your participation is confirmed."
+  },
+  {
+    "key": "eventParticipation.status.waitingApproval",
+    "value": "Waiting for organizer approval."
+  },
+  {
+    "key": "eventParticipation.status.notifyWhenAvailable",
+    "value": "You will be notified if a spot becomes available."
+  },
+  {
+    "key": "eventParticipation.statusLabels.approved",
+    "value": "Approved"
+  },
+  {
+    "key": "eventParticipation.statusLabels.rejected",
+    "value": "Rejected"
+  },
+  {
+    "key": "eventParticipation.statusLabels.waitlisted",
+    "value": "Waitlisted"
+  },
+  {
+    "key": "eventParticipation.statusLabels.confirmed",
+    "value": "Confirmed"
+  },
+  {
+    "key": "eventParticipation.typeLabels.participant",
+    "value": "Participant"
+  },
+  {
+    "key": "eventParticipation.typeLabels.spectator",
+    "value": "Spectator"
+  },
+  {
+    "key": "eventParticipation.typeLabels.helper",
+    "value": "Helper"
+  },
+  {
+    "key": "eventParticipation.messages.autoApprovalTitle",
+    "value": "Regular Meeting Participation Confirmed!"
+  },
+  {
+    "key": "eventParticipation.messages.autoApprovalBody",
+    "value": "Your participation in {eventTitle} has been automatically approved."
+  },
+  {
+    "key": "eventParticipation.messages.requestSentTitle",
+    "value": "Event Participation Request Sent"
+  },
+  {
+    "key": "eventParticipation.messages.requestSentBody",
+    "value": "Your participation request for {eventTitle} has been sent. Please wait for approval."
+  },
+  {
+    "key": "eventParticipation.messages.approvedTitle",
+    "value": "Event Participation Approved!"
+  },
+  {
+    "key": "eventParticipation.messages.approvedBody",
+    "value": "Your participation in {eventTitle} has been approved."
+  },
+  {
+    "key": "eventParticipation.messages.rejectedTitle",
+    "value": "Event Participation Rejected"
+  },
+  {
+    "key": "eventParticipation.messages.rejectedBody",
+    "value": "Your participation request for {eventTitle} has been rejected."
+  },
+  {
+    "key": "manageLeagueParticipants.title",
+    "value": "Manage Matches"
+  },
+  {
+    "key": "manageLeagueParticipants.loadingMatches",
+    "value": "Loading matches..."
+  },
+  {
+    "key": "manageLeagueParticipants.approveMatchResult",
+    "value": "Approve Match Result"
+  },
+  {
+    "key": "manageLeagueParticipants.approve",
+    "value": "Approve"
+  },
+  {
+    "key": "manageLeagueParticipants.matchApproved",
+    "value": "Match result has been approved"
+  },
+  {
+    "key": "manageLeagueParticipants.matchResultSaved",
+    "value": "Match result has been saved"
+  },
+  {
+    "key": "manageLeagueParticipants.round",
+    "value": "Round"
+  },
+  {
+    "key": "manageLeagueParticipants.winner",
+    "value": "Winner"
+  },
+  {
+    "key": "manageLeagueParticipants.enterResult",
+    "value": "Enter Result"
+  },
+  {
+    "key": "manageLeagueParticipants.scheduledMatches",
+    "value": "Scheduled Matches"
+  },
+  {
+    "key": "manageLeagueParticipants.noMatchesDescription",
+    "value": "Matches will appear here when they are scheduled"
+  },
+  {
+    "key": "manageLeagueParticipants.setScores",
+    "value": "Set Scores"
+  },
+  {
+    "key": "manageLeagueParticipants.set",
+    "value": "Set"
+  },
+  {
+    "key": "manageLeagueParticipants.calculateWinner",
+    "value": "Calculate Winner"
+  },
+  {
+    "key": "manageLeagueParticipants.resultPreview",
+    "value": "Result Preview"
+  },
+  {
+    "key": "manageLeagueParticipants.status.scheduled",
+    "value": "Scheduled"
+  },
+  {
+    "key": "manageLeagueParticipants.status.inProgress",
+    "value": "In Progress"
+  },
+  {
+    "key": "manageLeagueParticipants.errors.selectWinner",
+    "value": "Please select a winner"
+  },
+  {
+    "key": "createClubTournament.loadingMembers",
+    "value": "Loading members..."
+  },
+  {
+    "key": "createClubTournament.headerSubtitle",
+    "value": "Start a tournament with your club members"
+  },
+  {
+    "key": "createClubTournament.matchTypeSubtitle",
+    "value": "What type of matches will this tournament feature?"
+  },
+  {
+    "key": "createClubTournament.tournamentNamePlaceholder",
+    "value": "e.g., 2025 {eventType} Tournament"
+  },
+  {
+    "key": "createClubTournament.descriptionPlaceholder",
+    "value": "Enter a brief description of the tournament"
+  },
+  {
+    "key": "createClubTournament.matchFormat",
+    "value": "Match Format"
+  },
+  {
+    "key": "createClubTournament.shortSets",
+    "value": "Short Sets"
+  },
+  {
+    "key": "createClubTournament.shortSetsDescription",
+    "value": "4-game sets (regular is 6 games)"
+  },
+  {
+    "key": "createClubTournament.seedingMethod",
+    "value": "Seeding Method"
+  },
+  {
+    "key": "createClubTournament.matchFormats.best_of_1",
+    "value": "1 Set"
+  },
+  {
+    "key": "createClubTournament.matchFormats.best_of_1_description",
+    "value": "Single set match"
+  },
+  {
+    "key": "createClubTournament.matchFormats.best_of_3",
+    "value": "3 Sets"
+  },
+  {
+    "key": "createClubTournament.matchFormats.best_of_3_description",
+    "value": "Best of 2 sets"
+  },
+  {
+    "key": "createClubTournament.matchFormats.best_of_5",
+    "value": "5 Sets"
+  },
+  {
+    "key": "createClubTournament.matchFormats.best_of_5_description",
+    "value": "Best of 3 sets"
+  },
+  {
+    "key": "createClubTournament.seedingMethods.manual",
+    "value": "Manual"
+  },
+  {
+    "key": "createClubTournament.seedingMethods.manual_description",
+    "value": "Admin assigns seeds manually"
+  },
+  {
+    "key": "createClubTournament.seedingMethods.random",
+    "value": "Random"
+  },
+  {
+    "key": "createClubTournament.seedingMethods.random_description",
+    "value": "Fair random seeding (skill-independent)"
+  },
+  {
+    "key": "createClubTournament.seedingMethods.ranking",
+    "value": "Club Ranking"
+  },
+  {
+    "key": "createClubTournament.seedingMethods.rating",
+    "value": "Personal Rating"
+  },
+  {
+    "key": "createClubTournament.eventTypes.mens_singles",
+    "value": "Men's Singles"
+  },
+  {
+    "key": "createClubTournament.eventTypes.mens_singles_description",
+    "value": "Male 1v1 match"
+  },
+  {
+    "key": "createClubTournament.eventTypes.womens_singles",
+    "value": "Women's Singles"
+  },
+  {
+    "key": "createClubTournament.eventTypes.womens_singles_description",
+    "value": "Female 1v1 match"
+  },
+  {
+    "key": "createClubTournament.eventTypes.mens_doubles",
+    "value": "Men's Doubles"
+  },
+  {
+    "key": "createClubTournament.eventTypes.mens_doubles_description",
+    "value": "Male 2v2 match"
+  },
+  {
+    "key": "createClubTournament.eventTypes.womens_doubles",
+    "value": "Women's Doubles"
+  },
+  {
+    "key": "createClubTournament.eventTypes.womens_doubles_description",
+    "value": "Female 2v2 match"
+  },
+  {
+    "key": "createClubTournament.eventTypes.mixed_doubles",
+    "value": "Mixed Doubles"
+  },
+  {
+    "key": "createClubTournament.eventTypes.mixed_doubles_description",
+    "value": "Mixed gender 2v2 match"
+  },
+  {
+    "key": "createClubTournament.errors.nameRequired",
+    "value": "Please enter a tournament name"
+  },
+  {
+    "key": "createClubTournament.success.created",
+    "value": "Tournament created successfully"
+  },
+  {
+    "key": "meetupDetail.loading",
+    "value": "Loading meetup details..."
+  },
+  {
+    "key": "meetupDetail.errors.notFound",
+    "value": "Meetup not found."
+  },
+  {
+    "key": "meetupDetail.weather.title",
+    "value": "Weather Forecast"
+  },
+  {
+    "key": "meetupDetail.weather.chanceOfRain",
+    "value": "Chance of rain"
+  },
+  {
+    "key": "meetupDetail.weather.windLabel",
+    "value": "Wind"
+  },
+  {
+    "key": "meetupDetail.weather.notAvailable",
+    "value": "Weather Not Available"
+  },
+  {
+    "key": "meetupDetail.weather.wind.perfect",
+    "value": "Perfect conditions"
+  },
+  {
+    "key": "meetupDetail.weather.wind.playable",
+    "value": "Playable"
+  },
+  {
+    "key": "meetupDetail.weather.wind.affects",
+    "value": "Wind affects play"
+  },
+  {
+    "key": "meetupDetail.rsvp.title",
+    "value": "RSVP"
+  },
+  {
+    "key": "meetupDetail.rsvp.notice",
+    "value": "Notice"
+  },
+  {
+    "key": "meetupDetail.rsvp.cannotChangeNearStart",
+    "value": "Cannot change RSVP within 15 minutes of meetup start."
+  },
+  {
+    "key": "meetupDetail.rsvp.attend",
+    "value": "Attend"
+  },
+  {
+    "key": "meetupDetail.rsvp.decline",
+    "value": "Decline"
+  },
+  {
+    "key": "meetupDetail.rsvp.maybe",
+    "value": "Maybe"
+  },
+  {
+    "key": "meetupDetail.rsvp.deadlineNote",
+    "value": "Changes allowed until 15 minutes before start."
+  },
+  {
+    "key": "meetupDetail.participants.title",
+    "value": "Participants"
+  },
+  {
+    "key": "meetupDetail.chat.title",
+    "value": "Meetup Chat"
+  },
+  {
+    "key": "createClubLeague.headerSubtitle",
+    "value": "Start a league with your club members"
+  },
+  {
+    "key": "createClubLeague.matchTypeQuestion",
+    "value": "What type of matches will this league feature?"
+  },
+  {
+    "key": "createClubLeague.mensSingles",
+    "value": "Men's Singles"
+  },
+  {
+    "key": "createClubLeague.mensSinglesDescription",
+    "value": "Men's 1v1 matches"
+  },
+  {
+    "key": "createClubLeague.womensSingles",
+    "value": "Women's Singles"
+  },
+  {
+    "key": "createClubLeague.womensSinglesDescription",
+    "value": "Women's 1v1 matches"
+  },
+  {
+    "key": "createClubLeague.mensDoubles",
+    "value": "Men's Doubles"
+  },
+  {
+    "key": "createClubLeague.mensDoublesDescription",
+    "value": "Men's 2v2 matches"
+  },
+  {
+    "key": "createClubLeague.womensDoubles",
+    "value": "Women's Doubles"
+  },
+  {
+    "key": "createClubLeague.womensDoublesDescription",
+    "value": "Women's 2v2 matches"
+  },
+  {
+    "key": "createClubLeague.mixedDoubles",
+    "value": "Mixed Doubles"
+  },
+  {
+    "key": "createClubLeague.mixedDoublesDescription",
+    "value": "Mixed 2v2 matches"
+  },
+  {
+    "key": "createClubLeague.selectedInfo",
+    "value": "Selected"
+  },
+  {
+    "key": "createClubLeague.doublesNote",
+    "value": "(Doubles - Partners required)"
+  },
+  {
+    "key": "createClubLeague.singlesNote",
+    "value": "(Singles)"
+  },
+  {
+    "key": "createClubLeague.leagueInformation",
+    "value": "League Information"
+  },
+  {
+    "key": "createClubLeague.seasonNamePlaceholder",
+    "value": "e.g., 2025 {{eventType}} League"
+  },
+  {
+    "key": "createClubLeague.descriptionPlaceholder",
+    "value": "Enter a brief description of the league"
+  },
+  {
+    "key": "createClubLeague.applicationDeadline",
+    "value": "Application Deadline *"
+  },
+  {
+    "key": "createClubLeague.entryFee",
+    "value": "Entry Fee"
+  },
+  {
+    "key": "createClubLeague.maxPlayers",
+    "value": "Max Players"
+  },
+  {
+    "key": "createClubLeague.nameRequired",
+    "value": "Please enter a season name"
+  },
+  {
+    "key": "createClubLeague.createSuccess",
+    "value": "League created successfully"
+  },
+  {
+    "key": "createClubLeague.ok",
+    "value": "OK"
+  },
+  {
+    "key": "manageAnnouncement.title",
+    "value": "Manage Announcement"
+  },
+  {
+    "key": "manageAnnouncement.ok",
+    "value": "OK"
+  },
+  {
+    "key": "manageAnnouncement.savedSuccess",
+    "value": "Announcement has been saved."
+  },
+  {
+    "key": "manageAnnouncement.savingError",
+    "value": "An error occurred while saving."
+  },
+  {
+    "key": "manageAnnouncement.deletedSuccess",
+    "value": "Announcement has been deleted."
+  },
+  {
+    "key": "manageAnnouncement.deletingError",
+    "value": "An error occurred while deleting."
+  },
+  {
+    "key": "manageAnnouncement.lastUpdated",
+    "value": "Last updated:"
+  },
+  {
+    "key": "manageAnnouncement.announcementDetails",
+    "value": "Announcement Details"
+  },
+  {
+    "key": "manageAnnouncement.contentLabel",
+    "value": "Content"
+  },
+  {
+    "key": "manageAnnouncement.importantNotice",
+    "value": "Important Notice"
+  },
+  {
+    "key": "manageAnnouncement.importantNoticeDescription",
+    "value": "Important notices are displayed more prominently"
+  },
+  {
+    "key": "lessonCard.consultButton",
+    "value": "Consult"
+  },
+  {
+    "key": "lessonCard.currencySuffix",
+    "value": ""
+  },
+  {
+    "key": "lessonCard.capacity",
+    "value": "Capacity: {{count}}"
+  },
+  {
+    "key": "createModal.lightningMatch.subtitle",
+    "value": "Ranked Match"
+  },
+  {
+    "key": "createModal.lightningMeetup.subtitle",
+    "value": "Casual Meetup"
+  },
+  {
+    "key": "aiChat.searching",
+    "value": "🔍 Searching for matches..."
+  },
+  {
+    "key": "aiChat.quickPrompts.rulesHelp",
+    "value": "Explain basic tennis rules"
+  },
+  {
+    "key": "aiChat.quickPrompts.techniqueTips",
+    "value": "Give me technique improvement tips for my skill level"
+  },
+  {
+    "key": "aiChat.quickPrompts.equipmentHelp",
+    "value": "Recommend tennis equipment for my skill level"
+  },
+  {
+    "key": "aiChat.adminResponse",
+    "value": "📬 Admin Response:\n\n{{response}}\n\n---\nOriginal Feedback: \"{{title}}\""
+  },
+  {
+    "key": "rankingPrivacy.visibility.public.label",
+    "value": "Public"
+  },
+  {
+    "key": "rankingPrivacy.visibility.public.description",
+    "value": "Non-members can access all club tabs except League/Tournament. Join requests allowed."
+  },
+  {
+    "key": "rankingPrivacy.visibility.membersOnly.label",
+    "value": "Members Only"
+  },
+  {
+    "key": "rankingPrivacy.visibility.membersOnly.description",
+    "value": "Non-members cannot see Members tab (League/Tournament excluded). Join requests allowed."
+  },
+  {
+    "key": "rankingPrivacy.visibility.private.label",
+    "value": "Private"
+  },
+  {
+    "key": "tournamentDetail.participantsSuffix",
+    "value": ""
+  },
+  {
+    "key": "tournamentDetail.bestFinish.champion",
+    "value": "🥇 Champion"
+  },
+  {
+    "key": "tournamentDetail.bestFinish.runnerUp",
+    "value": "🥈 Runner-up"
+  },
+  {
+    "key": "tournamentDetail.bestFinish.semiFinal",
+    "value": "🥉 Semi-finalist"
+  },
+  {
+    "key": "tournamentDetail.bestFinish.nthPlace",
+    "value": "{position}th place"
+  },
+  {
+    "key": "developerTools.loginRequired",
+    "value": "Please log in first."
+  },
+  {
+    "key": "developerTools.copiedTitle",
+    "value": "✅ Copied"
+  },
+  {
+    "key": "developerTools.deleteAllAccountsSubtitle",
+    "value": "Permanently delete Auth + Firestore users"
+  },
+  {
+    "key": "developerTools.deleteActivityDataSubtitle",
+    "value": "Keep profiles, delete activity only"
+  },
+  {
+    "key": "developerTools.setAdminClaim",
+    "value": "🔒 Set Admin Claim"
+  },
+  {
+    "key": "developerTools.setAdminClaimSubtitle",
+    "value": "Grant admin access via Custom Claim"
+  },
+  {
+    "key": "eventChat.loadingChatRoom",
+    "value": "Loading chat room..."
+  },
+  {
+    "key": "eventChat.errors.loadingError",
+    "value": "An error occurred while loading the chat room: {{error}}"
+  },
+  {
+    "key": "eventChat.errors.chatRoomNotice",
+    "value": "Chat Room Notice"
+  },
+  {
+    "key": "eventChat.errors.userNotFound",
+    "value": "User information not found."
+  },
+  {
+    "key": "eventChat.errors.sendError",
+    "value": "An error occurred while sending the message."
+  },
+  {
+    "key": "eloTrend.titleBase",
+    "value": "Applied"
+  },
+  {
+    "key": "eloTrend.pending",
+    "value": "pending"
+  },
+  {
+    "key": "eloTrend.approved",
+    "value": "approved"
+  },
+  {
+    "key": "eloTrend.soloLobby",
+    "value": "solo lobby"
+  },
+  {
+    "key": "eloTrend.partnerInvite",
+    "value": "partner"
+  },
+  {
+    "key": "eloTrend.friendInvite",
+    "value": "friend"
+  },
+  {
+    "key": "eloTrend.friendInvitations",
+    "value": "🎾 Friend Invitations"
+  },
+  {
+    "key": "eloTrend.partnerInvitations",
+    "value": "Partner Invitations"
+  },
+  {
+    "key": "hallOfFame.title",
+    "value": "Hall of Fame"
+  },
+  {
+    "key": "hallOfFame.loading",
+    "value": "Loading achievements..."
+  },
+  {
+    "key": "hallOfFame.counts.trophies",
+    "value": "{{count}} trophies"
+  },
+  {
+    "key": "hallOfFame.counts.badges",
+    "value": "{{count}} badges"
+  },
+  {
+    "key": "hallOfFame.counts.honors",
+    "value": "{{count}} honors"
+  },
+  {
+    "key": "hallOfFame.sections.trophies",
+    "value": "Trophies"
+  },
+  {
+    "key": "hallOfFame.sections.badges",
+    "value": "Badges"
+  },
+  {
+    "key": "hallOfFame.sections.honorBadges",
+    "value": "Honor Badges"
+  },
+  {
+    "key": "hallOfFame.honorBadges.loading",
+    "value": "Loading honor badges..."
+  },
+  {
+    "key": "hallOfFame.honorBadges.receivedCount",
+    "value": "×{{count}}"
+  },
+  {
+    "key": "hallOfFame.honorTags.sharp_eyed",
+    "value": "#SharpEyed"
+  },
+  {
+    "key": "hallOfFame.honorTags.full_of_energy",
+    "value": "#FullOfEnergy"
+  },
+  {
+    "key": "hallOfFame.honorTags.mr_manner",
+    "value": "#MrManner"
+  },
+  {
+    "key": "hallOfFame.honorTags.punctual_pro",
+    "value": "#PunctualPro"
+  },
+  {
+    "key": "hallOfFame.honorTags.mental_fortress",
+    "value": "#MentalFortress"
+  },
+  {
+    "key": "hallOfFame.honorTags.court_jester",
+    "value": "#CourtJester"
+  },
+  {
+    "key": "achievementsGuide.title",
+    "value": "Achievements Guide"
+  },
+  {
+    "key": "achievementsGuide.seasonTrophies",
+    "value": "Season Trophies"
+  },
+  {
+    "key": "achievementsGuide.badges",
+    "value": "Badges"
+  },
+  {
+    "key": "achievementsGuide.earnedOn",
+    "value": "Earned on {{date}}"
+  },
+  {
+    "key": "achievementsGuide.notYetEarned",
+    "value": "Not yet earned"
+  },
+  {
+    "key": "achievementsGuide.categories.matches",
+    "value": "Match Achievements"
+  },
+  {
+    "key": "achievementsGuide.categories.social",
+    "value": "Social Achievements"
+  },
+  {
+    "key": "achievementsGuide.categories.clubs",
+    "value": "Club Achievements"
+  },
+  {
+    "key": "achievementsGuide.categories.tournaments",
+    "value": "Tournament Achievements"
+  },
+  {
+    "key": "achievementsGuide.categories.streaks",
+    "value": "Streak Achievements"
+  },
+  {
+    "key": "achievementsGuide.categories.special",
+    "value": "Special Achievements"
+  },
+  {
+    "key": "badgeGallery.badges.tournament_champion.name",
+    "value": "Tournament Champion"
+  },
+  {
+    "key": "badgeGallery.badges.tournament_champion.description",
+    "value": "You won a tournament!"
+  },
+  {
+    "key": "badgeGallery.badges.league_master.name",
+    "value": "League Master"
+  },
+  {
+    "key": "badgeGallery.badges.league_master.description",
+    "value": "You finished 1st in a league!"
+  },
+  {
+    "key": "badgeGallery.badges.perfect_season.name",
+    "value": "Perfect Season"
+  },
+  {
+    "key": "badgeGallery.badges.perfect_season.description",
+    "value": "You finished a season undefeated!"
+  },
+  {
+    "key": "badgeGallery.badges.community_leader.name",
+    "value": "Community Leader"
+  },
+  {
+    "key": "badgeGallery.badges.community_leader.description",
+    "value": "You are an active club administrator!"
+  },
+  {
+    "key": "badgeGallery.badges.unknown.name",
+    "value": "Special Badge"
+  },
+  {
+    "key": "badgeGallery.badges.unknown.description",
+    "value": "Special badge"
+  },
+  {
+    "key": "badgeGallery.badges.social_player.name",
+    "value": "Social Player"
+  },
+  {
+    "key": "badgeGallery.badges.social_player.description",
+    "value": "Played matches with 5+ players!"
+  },
+  {
+    "key": "badgeGallery.badges.winning_streak_3.name",
+    "value": "Hot Streak"
+  },
+  {
+    "key": "badgeGallery.badges.winning_streak_3.description",
+    "value": "Win 3 matches in a row"
+  },
+  {
+    "key": "badgeGallery.badges.winning_streak_5.name",
+    "value": "On Fire"
+  },
+  {
+    "key": "badgeGallery.badges.winning_streak_5.description",
+    "value": "Win 5 matches in a row"
+  },
+  {
+    "key": "badgeGallery.badges.winning_streak_10.name",
+    "value": "Unstoppable"
+  },
+  {
+    "key": "badgeGallery.badges.winning_streak_10.description",
+    "value": "Win 10 matches in a row"
+  },
+  {
+    "key": "badgeGallery.badges.match_milestone_10.name",
+    "value": "Getting Started"
+  },
+  {
+    "key": "badgeGallery.badges.match_milestone_10.description",
+    "value": "Play 10 matches"
+  },
+  {
+    "key": "badgeGallery.badges.match_milestone_50.name",
+    "value": "Dedicated Player"
+  },
+  {
+    "key": "badgeGallery.badges.match_milestone_50.description",
+    "value": "Play 50 matches"
+  },
+  {
+    "key": "badgeGallery.badges.match_milestone_100.name",
+    "value": "Century Club"
+  },
+  {
+    "key": "badgeGallery.badges.match_milestone_100.description",
+    "value": "Play 100 matches"
+  },
+  {
+    "key": "badgeGallery.alerts.timeoutTitle",
+    "value": "Timeout"
+  },
+  {
+    "key": "badgeGallery.alerts.permissionTitle",
+    "value": "Permission Denied"
+  },
+  {
+    "key": "badgeGallery.alerts.unavailableTitle",
+    "value": "Service Unavailable"
+  },
+  {
+    "key": "badgeGallery.alerts.unavailableMessage",
+    "value": "Firebase service is currently unavailable. Please try again later."
+  },
+  {
+    "key": "recordScore.submitNoteLeague",
+    "value": "After submission, the league standings will be automatically updated."
+  },
+  {
+    "key": "recordScore.submitNoteLightning",
+    "value": "After submission, the match record will be saved."
+  },
+  {
+    "key": "recordScore.submitNoteTournament",
+    "value": "After submission, the tournament will be automatically updated."
+  },
+  {
+    "key": "recordScore.specialCases",
+    "value": "Special Cases"
+  },
+  {
+    "key": "recordScore.retired",
+    "value": "Retired"
+  },
+  {
+    "key": "recordScore.retiredAtLabel",
+    "value": "Which set did the retirement occur?"
+  },
+  {
+    "key": "recordScore.walkover",
+    "value": "Walkover"
+  },
+  {
+    "key": "recordScore.selectWinner",
+    "value": "Select Winner"
+  },
+  {
+    "key": "recordScore.selectWinnerRequired",
+    "value": "Select Winner (Required)"
+  },
+  {
+    "key": "recordScore.selectPlayerWhoDidNotRetire",
+    "value": "Select the player who did not retire"
+  },
+  {
+    "key": "recordScore.selectPlayerWhoShowedUp",
+    "value": "Select the player who showed up"
+  },
+  {
+    "key": "recordScore.pleaseSelectWinner",
+    "value": "Please select a winner."
+  },
+  {
+    "key": "scoreConfirmation.submittedScore",
+    "value": "Submitted Score"
+  },
+  {
+    "key": "scoreConfirmation.submittedBy",
+    "value": "Score submitted by {{name}}"
+  },
+  {
+    "key": "scoreConfirmation.submittedAt",
+    "value": "Submitted At"
+  },
+  {
+    "key": "scoreConfirmation.matchType.league",
+    "value": "League Match"
+  },
+  {
+    "key": "scoreConfirmation.matchType.tournament",
+    "value": "Tournament"
+  },
+  {
+    "key": "scoreConfirmation.matchType.lightning",
+    "value": "Lightning Match"
+  },
+  {
+    "key": "scoreConfirmation.walkover",
+    "value": "Walkover"
+  },
+  {
+    "key": "scoreConfirmation.retiredAt",
+    "value": "Retired in set {{set}}"
+  },
+  {
+    "key": "scoreConfirmation.confirmationTitle",
+    "value": "Is the score accurate?"
+  },
+  {
+    "key": "scoreConfirmation.confirmationSubtitle",
+    "value": "Please verify that the score matches the actual match result."
+  },
+  {
+    "key": "scoreConfirmation.agree",
+    "value": "I agree"
+  },
+  {
+    "key": "scoreConfirmation.disagree",
+    "value": "I disagree"
+  },
+  {
+    "key": "scoreConfirmation.reasonLabel",
+    "value": "Reason for disagreement"
+  },
+  {
+    "key": "scoreConfirmation.submitDefault",
+    "value": "Please select"
+  },
+  {
+    "key": "scoreConfirmation.alerts.pleaseSelect",
+    "value": "Please select whether you agree with the score."
+  },
+  {
+    "key": "scoreConfirmation.alerts.pleaseProvideReason",
+    "value": "Please provide a reason for disagreeing with the score."
+  },
+  {
+    "key": "scoreConfirmation.alerts.confirmationError",
+    "value": "An error occurred while processing your confirmation."
+  },
+  {
+    "key": "matchRequest.alerts.selectTime",
+    "value": "Please select a match time."
+  },
+  {
+    "key": "matchRequest.alerts.selectCourt",
+    "value": "Please select a court."
+  },
+  {
+    "key": "matchRequest.alerts.requestComplete",
+    "value": "Match Request Sent"
+  },
+  {
+    "key": "matchRequest.alerts.requestError",
+    "value": "An error occurred while sending the match request."
+  },
+  {
+    "key": "matchRequest.skillLevel.beginner",
+    "value": "Beginner"
+  },
+  {
+    "key": "matchRequest.skillLevel.elementary",
+    "value": "Elementary"
+  },
+  {
+    "key": "matchRequest.skillLevel.intermediate",
+    "value": "Intermediate"
+  },
+  {
+    "key": "matchRequest.skillLevel.advanced",
+    "value": "Advanced"
+  },
+  {
+    "key": "matchRequest.playerCard.matches",
+    "value": "matches"
+  },
+  {
+    "key": "matchRequest.playerCard.winRate",
+    "value": "win rate"
+  },
+  {
+    "key": "matchRequest.playerCard.recentMatches",
+    "value": "Recent Matches"
+  },
+  {
+    "key": "matchRequest.schedule.title",
+    "value": "Match Schedule"
+  },
+  {
+    "key": "matchRequest.schedule.duration",
+    "value": "Match Duration"
+  },
+  {
+    "key": "matchRequest.schedule.oneHour",
+    "value": "1 hour"
+  },
+  {
+    "key": "matchRequest.schedule.twoHours",
+    "value": "2 hours"
+  },
+  {
+    "key": "matchRequest.schedule.threeHours",
+    "value": "3 hours"
+  },
+  {
+    "key": "matchRequest.court.title",
+    "value": "Select Court"
+  },
+  {
+    "key": "matchRequest.court.perHour",
+    "value": "/hour"
+  },
+  {
+    "key": "matchRequest.message.title",
+    "value": "Message (Optional)"
+  },
+  {
+    "key": "matchRequest.message.label",
+    "value": "Match Request Message"
+  },
+  {
+    "key": "matchRequest.message.placeholder",
+    "value": "Write a greeting or your expectations for the match"
+  },
+  {
+    "key": "matchRequest.summary.title",
+    "value": "Match Summary"
+  },
+  {
+    "key": "leagueDetail.applicationPending",
+    "value": "League application is pending."
+  },
+  {
+    "key": "leagueDetail.applicationRejected",
+    "value": "Your league application has been rejected."
+  },
+  {
+    "key": "leagueDetail.generateBracket",
+    "value": "Generate Bracket"
+  },
+  {
+    "key": "leagueDetail.generateBracketMessage",
+    "value": "Manage applications in Participants tab, then generate bracket in Management tab"
+  },
+  {
+    "key": "leagueDetail.generateBracketMessageSimple",
+    "value": "Match schedule will appear here once the bracket is generated"
+  },
+  {
+    "key": "leagueDetail.bracketGeneratedSuccess",
+    "value": "Bracket generated successfully!\n\nMatch list will appear shortly."
+  },
+  {
+    "key": "leagueDetail.bracketDeletedSuccess",
+    "value": "Bracket deleted successfully.\n\nYou can now generate a new bracket."
+  },
+  {
+    "key": "leagueDetail.startPlayoffs",
+    "value": "Start Playoffs"
+  },
+  {
+    "key": "leagueDetail.playoffsStartedSuccess",
+    "value": "Playoffs started successfully!\n\nPlayoff matches will appear shortly."
+  },
+  {
+    "key": "leagueDetail.thirdPlace",
+    "value": "3rd"
+  },
+  {
+    "key": "leagueDetail.fourthPlace",
+    "value": "4th"
+  },
+  {
+    "key": "leagueDetail.playoffMatchErrorMessage",
+    "value": "Playoff matches can only be submitted during playoff stage.\n\nPlease check league status."
+  },
+  {
+    "key": "leagueDetail.playoffResultUpdated",
+    "value": "Playoff match result has been updated!"
+  },
+  {
+    "key": "leagueDetail.resultSubmitted",
+    "value": "Match result has been submitted."
+  },
+  {
+    "key": "leagueDetail.resultSubmitSuccess",
+    "value": "Result Submitted"
+  },
+  {
+    "key": "leagueDetail.checkNetwork",
+    "value": "Please check your network connection."
+  },
+  {
+    "key": "leagueDetail.resultCorrectedSuccess",
+    "value": "Match result has been corrected."
+  },
+  {
+    "key": "leagueDetail.scheduleChangedSuccess",
+    "value": "Match schedule has been changed."
+  },
+  {
+    "key": "leagueDetail.walkoverSuccess",
+    "value": "Walkover processed successfully."
+  },
+  {
+    "key": "leagueDetail.bulkApprovalSuccess",
+    "value": "Bulk Approval Complete"
+  },
+  {
+    "key": "leagueDetail.bulkApprovalPartial",
+    "value": "Bulk Approval Partially Complete"
+  },
+  {
+    "key": "leagueDetail.leagueDeleteSuccess",
+    "value": "League deleted successfully."
+  },
+  {
+    "key": "cards.hostedEvent.doubles",
+    "value": "Doubles"
+  },
+  {
+    "key": "cards.hostedEvent.singles",
+    "value": "Singles"
+  },
+  {
+    "key": "cards.hostedEvent.weather.sunny",
+    "value": "Sunny"
+  },
+  {
+    "key": "cards.hostedEvent.weather.partlycloudy",
+    "value": "Partly Cloudy"
+  },
+  {
+    "key": "cards.hostedEvent.weather.mostlycloudy",
+    "value": "Mostly Cloudy"
+  },
+  {
+    "key": "cards.hostedEvent.weather.cloudy",
+    "value": "Cloudy"
+  },
+  {
+    "key": "cards.hostedEvent.weather.overcast",
+    "value": "Overcast"
+  },
+  {
+    "key": "cards.hostedEvent.weather.fog",
+    "value": "Fog"
+  },
+  {
+    "key": "cards.hostedEvent.weather.lightrain",
+    "value": "Light Rain"
+  },
+  {
+    "key": "cards.hostedEvent.weather.rain",
+    "value": "Rain"
+  },
+  {
+    "key": "cards.hostedEvent.weather.heavyrain",
+    "value": "Heavy Rain"
+  },
+  {
+    "key": "cards.hostedEvent.weather.drizzle",
+    "value": "Drizzle"
+  },
+  {
+    "key": "cards.hostedEvent.weather.showers",
+    "value": "Showers"
+  },
+  {
+    "key": "cards.hostedEvent.weather.thunderstorm",
+    "value": "Thunderstorm"
+  },
+  {
+    "key": "cards.hostedEvent.weather.snow",
+    "value": "Snow"
+  },
+  {
+    "key": "cards.hostedEvent.weather.lightsnow",
+    "value": "Light Snow"
+  },
+  {
+    "key": "cards.hostedEvent.weather.heavysnow",
+    "value": "Heavy Snow"
+  },
+  {
+    "key": "cards.hostedEvent.weather.sleet",
+    "value": "Sleet"
+  },
+  {
+    "key": "cards.hostedEvent.weather.hail",
+    "value": "Hail"
+  },
+  {
+    "key": "cards.hostedEvent.weather.windy",
+    "value": "Windy"
+  },
+  {
+    "key": "cards.hostedEvent.weather.humid",
+    "value": "Humid"
+  },
+  {
+    "key": "cards.hostedEvent.weather.hot",
+    "value": "Hot"
+  },
+  {
+    "key": "cards.hostedEvent.weather.cold",
+    "value": "Cold"
+  },
+  {
+    "key": "mapAppSelector.appNotInstalled",
+    "value": "App Not Installed"
+  },
+  {
+    "key": "mapAppSelector.appNotInstalledMessage",
+    "value": "{{appName}} is not installed on your device."
+  },
+  {
+    "key": "mapAppSelector.install",
+    "value": "Install"
+  },
+  {
+    "key": "mapAppSelector.installed",
+    "value": "Installed"
+  },
+  {
+    "key": "mapAppSelector.checkingApps",
+    "value": "Checking available apps..."
+  },
+  {
+    "key": "mapAppSelector.setAsDefault",
+    "value": "Set as default"
+  },
+  {
+    "key": "mapAppSelector.autoOpenDescription",
+    "value": "Automatically open with this app next time"
+  },
+  {
+    "key": "participantSelector.maxParticipants",
+    "value": "Maximum Participants"
+  },
+  {
+    "key": "participantSelector.peopleSuffix",
+    "value": " people"
+  },
+  {
+    "key": "participantSelector.customInput",
+    "value": "Or enter a custom number:"
+  },
+  {
+    "key": "participantSelector.placeholder",
+    "value": "e.g., 16"
+  },
+  {
+    "key": "ntrpSelector.levels.beginner.label",
+    "value": "1.0-2.5 (Beginner)"
+  },
+  {
+    "key": "ntrpSelector.levels.beginner.description",
+    "value": "Just started playing tennis"
+  },
+  {
+    "key": "ntrpSelector.levels.intermediate.label",
+    "value": "3.0-3.5 (Intermediate)"
+  },
+  {
+    "key": "ntrpSelector.levels.advanced.label",
+    "value": "4.0-4.5 (Advanced)"
+  },
+  {
+    "key": "ntrpSelector.levels.expert.label",
+    "value": "5.0+ (Expert)"
+  },
+  {
+    "key": "ntrpSelector.levels.expert.description",
+    "value": "Tournament level player"
+  },
+  {
+    "key": "ntrpSelector.levels.any.label",
+    "value": "Any Level"
+  },
+  {
+    "key": "clubHallOfFame.tabs.trophies",
+    "value": "🏆 Trophies"
+  },
+  {
+    "key": "clubHallOfFame.tabs.rankings",
+    "value": "📊 ELO Rankings"
+  },
+  {
+    "key": "contexts.location.cannotGetLocation",
+    "value": "Cannot get location."
+  },
+  {
+    "key": "contexts.notification.later",
+    "value": "Later"
+  },
+  {
+    "key": "contexts.notification.matchNotificationTitle",
+    "value": "Match Notification"
+  },
+  {
+    "key": "contexts.notification.matchNotificationBody",
+    "value": "You have a tennis match scheduled in 30 minutes."
+  },
+  {
+    "key": "contexts.auth.wrongPassword",
+    "value": "Incorrect password."
+  },
+  {
+    "key": "contexts.auth.invalidEmail",
+    "value": "Invalid email address."
+  },
+  {
+    "key": "contexts.auth.tooManyRequests",
+    "value": "Too many requests. Please try again later."
+  },
+  {
+    "key": "contexts.auth.emailAlreadyInUse",
+    "value": "This email is already in use."
+  },
+  {
+    "key": "contexts.matching.startFailed",
+    "value": "An error occurred while starting matching."
+  },
+  {
+    "key": "roleManagement.statsTitle",
+    "value": "Role Statistics"
+  },
+  {
+    "key": "roleManagement.transferSection.title",
+    "value": "🔄 Transfer Admin"
+  },
+  {
+    "key": "roleManagement.transferSection.button",
+    "value": "Transfer Admin"
+  },
+  {
+    "key": "roleManagement.roleChangeTitle",
+    "value": "Change Roles"
+  },
+  {
+    "key": "roleManagement.modal.title",
+    "value": "🔄 Select New Admin"
+  },
+  {
+    "key": "roleManagement.modal.loading",
+    "value": "Loading manager list..."
+  },
+  {
+    "key": "roleManagement.alerts.transferSuccess.message",
+    "value": "'{{name}}' is now the new club admin."
+  },
+  {
+    "key": "roleManagement.alerts.transferError.message",
+    "value": "An error occurred during admin transfer."
+  },
+  {
+    "key": "appNavigator.screens.eventChat",
+    "value": "Event Chat"
+  },
+  {
+    "key": "appNavigator.screens.eventDetail",
+    "value": "Event Details"
+  },
+  {
+    "key": "appNavigator.screens.rateSportsmanship",
+    "value": "Rate Sportsmanship"
+  },
+  {
+    "key": "appNavigator.screens.recordScore",
+    "value": "Record Score"
+  },
+  {
+    "key": "appNavigator.screens.meetupDetail",
+    "value": "Meetup Info"
+  },
+  {
+    "key": "appNavigator.screens.leagueDetail",
+    "value": "League Info"
+  },
+  {
+    "key": "appNavigator.screens.manageLeagueParticipants",
+    "value": "Manage League Matches"
+  },
+  {
+    "key": "appNavigator.screens.concludeLeague",
+    "value": "Select Winner"
+  },
+  {
+    "key": "appNavigator.screens.clubMemberInvitation",
+    "value": "Invite Members"
+  },
+  {
+    "key": "appNavigator.screens.chatScreen",
+    "value": "Lightning Coach"
+  },
+  {
+    "key": "appNavigator.screens.achievementsGuide",
+    "value": "Achievements Guide"
+  },
+  {
+    "key": "clubOverviewScreen.loadingClubInfo",
+    "value": "Loading club info..."
+  },
+  {
+    "key": "clubOverviewScreen.loadingAnnouncements",
+    "value": "Loading announcements..."
+  },
+  {
+    "key": "clubOverviewScreen.important",
+    "value": "Important"
+  },
+  {
+    "key": "clubOverviewScreen.bracketGeneration",
+    "value": "Bracket Generation"
+  },
+  {
+    "key": "clubOverviewScreen.playoffsInProgress",
+    "value": "Playoffs in Progress"
+  },
+  {
+    "key": "clubOverviewScreen.clubNotifications",
+    "value": "Club Notifications"
+  },
+  {
+    "key": "clubOverviewScreen.teamInviteTitle",
+    "value": "Team Invite"
+  },
+  {
+    "key": "clubOverviewScreen.deleteNotificationError",
+    "value": "An error occurred while deleting the notification."
+  },
+  {
+    "key": "clubOverviewScreen.clubActivity",
+    "value": "Club Activity"
+  },
+  {
+    "key": "clubOverviewScreen.recentWinners",
+    "value": "🏆 Recent Winners"
+  },
+  {
+    "key": "clubOverviewScreen.winner",
+    "value": "Winner"
+  },
+  {
+    "key": "clubOverviewScreen.runnerUp",
+    "value": "Runner-up"
+  },
+  {
+    "key": "clubOverviewScreen.emptyStateMemberDescription",
+    "value": "The club admin is preparing new activities. Please wait a moment!"
+  },
+  {
+    "key": "clubOverviewScreen.emptyStateMemberAction1",
+    "value": "Chat with members in club chat"
+  },
+  {
+    "key": "clubOverviewScreen.emptyStateMemberAction2",
+    "value": "Explore other players nearby"
+  },
+  {
+    "key": "clubOverviewScreen.emptyStateGuestAction2",
+    "value": "Check club information"
+  },
+  {
+    "key": "clubOverviewScreen.aiHelperButton",
+    "value": "Chat with AI Assistant"
+  },
+  {
+    "key": "types.clubSchedule.scheduleTypes.practice",
+    "value": "Practice Session"
+  },
+  {
+    "key": "types.clubSchedule.scheduleTypes.social",
+    "value": "Social Tennis"
+  },
+  {
+    "key": "types.clubSchedule.scheduleTypes.league_match",
+    "value": "League Match"
+  },
+  {
+    "key": "types.clubSchedule.scheduleTypes.clinic",
+    "value": "Training Clinic"
+  },
+  {
+    "key": "types.clubSchedule.scheduleTypes.tournament",
+    "value": "Tournament"
+  },
+  {
+    "key": "types.clubSchedule.scheduleTypes.meeting",
+    "value": "Club Meeting"
+  },
+  {
+    "key": "types.clubSchedule.scheduleTypes.mixed_doubles",
+    "value": "Mixed Doubles"
+  },
+  {
+    "key": "types.clubSchedule.scheduleTypes.beginner_friendly",
+    "value": "Beginner Friendly"
+  },
+  {
+    "key": "types.clubSchedule.scheduleTypes.advanced_only",
+    "value": "Advanced Only"
+  },
+  {
+    "key": "types.clubSchedule.scheduleTypes.custom",
+    "value": "Custom Event"
+  },
+  {
+    "key": "types.clubSchedule.recurrence.weekly",
+    "value": "Every week"
+  },
+  {
+    "key": "types.clubSchedule.recurrence.biweekly",
+    "value": "Every two weeks"
+  },
+  {
+    "key": "types.clubSchedule.recurrence.monthly",
+    "value": "Every month"
+  },
+  {
+    "key": "types.clubSchedule.recurrence.custom",
+    "value": "Custom schedule"
+  },
+  {
+    "key": "types.clubSchedule.timePeriod.am",
+    "value": "AM"
+  },
+  {
+    "key": "types.clubSchedule.timePeriod.pm",
+    "value": "PM"
+  },
+  {
+    "key": "types.dues.duesTypes.join",
+    "value": "Join Fee"
+  },
+  {
+    "key": "types.dues.duesTypes.monthly",
+    "value": "Monthly Dues"
+  },
+  {
+    "key": "types.dues.duesTypes.quarterly",
+    "value": "Quarterly Dues"
+  },
+  {
+    "key": "types.dues.duesTypes.yearly",
+    "value": "Yearly Dues"
+  },
+  {
+    "key": "types.dues.duesTypes.late_fee",
+    "value": "Late Fee"
+  },
+  {
+    "key": "types.dues.paymentStatus.paid",
+    "value": "Paid"
+  },
+  {
+    "key": "types.dues.paymentStatus.unpaid",
+    "value": "Unpaid"
+  },
+  {
+    "key": "types.dues.paymentStatus.overdue",
+    "value": "Overdue"
+  },
+  {
+    "key": "types.dues.paymentStatus.exempt",
+    "value": "Exempt"
+  },
+  {
+    "key": "types.dues.period.year",
+    "value": "{{year}}"
+  },
+  {
+    "key": "types.dues.period.yearMonth",
+    "value": "{{month}}/{{year}}"
+  },
+  {
+    "key": "league.validation.mensOnly",
+    "value": " is only available for male players."
+  },
+  {
+    "key": "league.validation.womensOnly",
+    "value": " is only available for female players."
+  },
+  {
+    "key": "league.validation.doublesNeedPartner",
+    "value": "Doubles requires a partner."
+  },
+  {
+    "key": "league.validation.genderRestriction",
+    "value": " is only available for {gender} players."
+  },
+  {
+    "key": "league.eventTypes.mens_singles",
+    "value": "Men's Singles"
+  },
+  {
+    "key": "league.eventTypes.womens_singles",
+    "value": "Women's Singles"
+  },
+  {
+    "key": "league.eventTypes.mens_doubles",
+    "value": "Men's Doubles"
+  },
+  {
+    "key": "league.eventTypes.womens_doubles",
+    "value": "Women's Doubles"
+  },
+  {
+    "key": "league.eventTypes.mixed_doubles",
+    "value": "Mixed Doubles"
+  },
+  {
+    "key": "league.genderLabels.male",
+    "value": "male"
+  },
+  {
+    "key": "league.genderLabels.female",
+    "value": "female"
+  },
+  {
+    "key": "tournament.bestFinish.champion",
+    "value": "🥇 Champion"
+  },
+  {
+    "key": "tournament.bestFinish.runnerUp",
+    "value": "🥈 Runner-up"
+  },
+  {
+    "key": "tournament.bestFinish.semiFinal",
+    "value": "🥉 Semi-finalist"
+  },
+  {
+    "key": "tournament.bestFinish.nthPlace",
+    "value": "{position}th place"
+  },
+  {
+    "key": "clubCommunication.timeAgo.justNow",
+    "value": "just now"
+  },
+  {
+    "key": "clubCommunication.timeAgo.minutesAgo",
+    "value": "{count} minutes ago"
+  },
+  {
+    "key": "clubCommunication.timeAgo.hoursAgo",
+    "value": "{count} hours ago"
+  },
+  {
+    "key": "clubCommunication.timeAgo.daysAgo",
+    "value": "{count} days ago"
+  },
+  {
+    "key": "clubCommunication.timeAgo.monthsAgo",
+    "value": "{count} months ago"
+  },
+  {
+    "key": "clubCommunication.timeAgo.yearsAgo",
+    "value": "{count} years ago"
+  },
+  {
+    "key": "clubCommunication.validation.policyRequired",
+    "value": "Please enter policy content"
+  },
+  {
+    "key": "clubCommunication.validation.policyTooShort",
+    "value": "Policy content must be at least 10 characters"
+  },
+  {
+    "key": "clubCommunication.validation.policyTooLong",
+    "value": "Policy content cannot exceed 10,000 characters"
+  },
+  {
+    "key": "clubCommunication.validation.titleRequired",
+    "value": "Please enter a title"
+  },
+  {
+    "key": "clubCommunication.validation.contentRequired",
+    "value": "Please enter content"
+  },
+  {
+    "key": "clubCommunication.validation.contentTooLong",
+    "value": "Content cannot exceed 5,000 characters"
+  },
+  {
+    "key": "clubCommunication.validation.commentRequired",
+    "value": "Please enter a comment"
+  },
+  {
+    "key": "clubCommunication.validation.commentTooLong",
+    "value": "Comment cannot exceed 1,000 characters"
+  },
+  {
+    "key": "clubCommunication.validation.messageRequired",
+    "value": "Please enter a message"
+  },
+  {
+    "key": "clubPoliciesScreen.loading",
+    "value": "Loading club information..."
+  },
+  {
+    "key": "clubPoliciesScreen.clubIntro",
+    "value": "Club Introduction"
+  },
+  {
+    "key": "clubPoliciesScreen.facilities",
+    "value": "Facilities"
+  },
+  {
+    "key": "clubPoliciesScreen.clubRules",
+    "value": "Club Rules"
+  },
+  {
+    "key": "clubPoliciesScreen.regularMeetings",
+    "value": "Regular Meetings"
+  },
+  {
+    "key": "clubPoliciesScreen.recurring",
+    "value": "Recurring"
+  },
+  {
+    "key": "clubPoliciesScreen.costInfo",
+    "value": "Cost Information"
+  },
+  {
+    "key": "clubPoliciesScreen.joinFee",
+    "value": "Join Fee"
+  },
+  {
+    "key": "clubPoliciesScreen.monthlyFee",
+    "value": "Monthly Dues"
+  },
+  {
+    "key": "clubPoliciesScreen.yearlyFee",
+    "value": "Yearly Dues"
+  },
+  {
+    "key": "clubPoliciesScreen.dueDateValue",
+    "value": "{{day}}th of each month"
+  },
+  {
+    "key": "clubPoliciesScreen.lateFee",
+    "value": "Late Fee"
+  },
+  {
+    "key": "clubPoliciesScreen.paymentMethods",
+    "value": "Payment Methods"
+  },
+  {
+    "key": "clubPoliciesScreen.qrCodeTitle",
+    "value": "{{method}} QR Code"
+  },
+  {
+    "key": "clubPoliciesScreen.memberOnlyButton",
+    "value": "Member Only Feature"
+  },
+  {
+    "key": "clubPoliciesScreen.days.monday",
+    "value": "Monday"
+  },
+  {
+    "key": "clubPoliciesScreen.days.tuesday",
+    "value": "Tuesday"
+  },
+  {
+    "key": "clubPoliciesScreen.days.wednesday",
+    "value": "Wednesday"
+  },
+  {
+    "key": "clubPoliciesScreen.days.thursday",
+    "value": "Thursday"
+  },
+  {
+    "key": "clubPoliciesScreen.days.friday",
+    "value": "Friday"
+  },
+  {
+    "key": "clubPoliciesScreen.days.saturday",
+    "value": "Saturday"
+  },
+  {
+    "key": "clubPoliciesScreen.days.sunday",
+    "value": "Sunday"
+  },
+  {
+    "key": "policyEditScreen.quickInsert",
+    "value": "Quick Insert"
+  },
+  {
+    "key": "policyEditScreen.section",
+    "value": "Section"
+  },
+  {
+    "key": "policyEditScreen.rule",
+    "value": "Rule"
+  },
+  {
+    "key": "policyEditScreen.notice",
+    "value": "Notice"
+  },
+  {
+    "key": "policyEditScreen.policyContent",
+    "value": "Policy Content"
+  },
+  {
+    "key": "policyEditScreen.placeholder",
+    "value": "Enter policy content..."
+  },
+  {
+    "key": "policyEditScreen.characters",
+    "value": "characters"
+  },
+  {
+    "key": "policyEditScreen.modified",
+    "value": "Modified"
+  },
+  {
+    "key": "policyEditScreen.preview",
+    "value": "Preview"
+  },
+  {
+    "key": "policyEditScreen.loadingPolicy",
+    "value": "Loading policy..."
+  },
+  {
+    "key": "policyEditScreen.saveSuccessMessage",
+    "value": "Policy saved successfully."
+  },
+  {
+    "key": "policyEditScreen.saveFailedMessage",
+    "value": "An error occurred while saving the policy."
+  },
+  {
+    "key": "policyEditScreen.loadFailedMessage",
+    "value": "An error occurred while loading the policy."
+  },
+  {
+    "key": "policyEditScreen.emptyContentError",
+    "value": "Please enter policy content."
+  },
+  {
+    "key": "findClubScreen.searching",
+    "value": "Searching for clubs..."
+  },
+  {
+    "key": "findClubScreen.totalClubs",
+    "value": "Total clubs: {{count}}"
+  },
+  {
+    "key": "findClubScreen.public",
+    "value": "Public"
+  },
+  {
+    "key": "findClubScreen.members",
+    "value": "{{current}}/{{max}} members"
+  },
+  {
+    "key": "findClubScreen.joinRequest",
+    "value": "Join Request"
+  },
+  {
+    "key": "findClubScreen.joinComplete",
+    "value": "Joined"
+  },
+  {
+    "key": "findClubScreen.joinDeclined",
+    "value": "Declined"
+  },
+  {
+    "key": "findClubScreen.emptySearchMessage",
+    "value": "Try a different search term"
+  },
+  {
+    "key": "findClubScreen.joinRequestTitle",
+    "value": "Join Club"
+  },
+  {
+    "key": "findClubScreen.joinRequestButton",
+    "value": "Request"
+  },
+  {
+    "key": "findClubScreen.joinRequestSuccessMessage",
+    "value": "Join request submitted successfully. Please wait for club admin approval."
+  },
+  {
+    "key": "findClubScreen.joinRequestErrorMessage",
+    "value": "An error occurred while submitting join request."
+  },
+  {
+    "key": "findClubScreen.loginRequired",
+    "value": "Notice"
+  },
+  {
+    "key": "findClubScreen.alreadyMember",
+    "value": "Already a member of this club."
+  },
+  {
+    "key": "findClubScreen.alreadyPending",
+    "value": "Join request already pending."
+  },
+  {
+    "key": "clubDetailScreen.notFound",
+    "value": "Club Not Found"
+  },
+  {
+    "key": "clubDetailScreen.joinWaiting",
+    "value": "Awaiting Approval"
+  },
+  {
+    "key": "clubDetailScreen.reapply",
+    "value": "Reapply"
+  },
+  {
+    "key": "clubDetailScreen.joinModalTitle",
+    "value": "Join Club"
+  },
+  {
+    "key": "matches.skillLevels.2.0-3.0",
+    "value": "2.0-3.0"
+  },
+  {
+    "key": "matches.skillLevels.3.0-4.0",
+    "value": "3.0-4.0"
+  },
+  {
+    "key": "matches.skillLevels.4.0-5.0",
+    "value": "4.0-5.0"
+  },
+  {
+    "key": "matches.skillLevels.5.0+",
+    "value": "5.0+"
+  },
+  {
+    "key": "matches.recurringPatterns.weekly",
+    "value": "Weekly"
+  },
+  {
+    "key": "matches.recurringPatterns.biweekly",
+    "value": "Bi-weekly"
+  },
+  {
+    "key": "matches.recurringPatterns.monthly",
+    "value": "Monthly"
+  },
+  {
+    "key": "matches.recurringPatterns.weeklyMonday",
+    "value": "Every Monday"
+  },
+  {
+    "key": "matches.createModal.title.placeholder",
+    "value": "e.g., Weekend Doubles Game"
+  },
+  {
+    "key": "matches.createModal.matchType.personal",
+    "value": "Personal Match"
+  },
+  {
+    "key": "matches.createModal.matchType.club",
+    "value": "Club Event"
+  },
+  {
+    "key": "matches.createModal.clubSelection.label",
+    "value": "Select Club"
+  },
+  {
+    "key": "matches.createModal.location.placeholder",
+    "value": "e.g., Central Park Tennis Courts"
+  },
+  {
+    "key": "matches.createModal.recurring.label",
+    "value": "Recurring"
+  },
+  {
+    "key": "matches.createModal.maxParticipants.label",
+    "value": "Max Participants"
+  },
+  {
+    "key": "matches.createModal.maxParticipants.placeholder",
+    "value": "4"
+  },
+  {
+    "key": "matches.createModal.skillLevel.label",
+    "value": "Skill Level"
+  },
+  {
+    "key": "matches.createModal.description.placeholder",
+    "value": "Enter additional information about the match"
+  },
+  {
+    "key": "matches.alerts.createSuccess.title",
+    "value": "Match Created Successfully!"
+  },
+  {
+    "key": "matches.alerts.createSuccess.confirm",
+    "value": "OK"
+  },
+  {
+    "key": "matches.alerts.joinMatch.title",
+    "value": "Join Match"
+  },
+  {
+    "key": "matches.alerts.joinMatch.join",
+    "value": "Join"
+  },
+  {
+    "key": "matches.alerts.joinMatch.success",
+    "value": "Joined Successfully!"
+  },
+  {
+    "key": "matches.alerts.joinMatch.successMessage",
+    "value": "Your match participation request has been completed."
+  },
+  {
+    "key": "matches.mockData.me",
+    "value": "Me"
+  },
+  {
+    "key": "matches.mockData.weekendDoubles",
+    "value": "Weekend Doubles Match"
+  },
+  {
+    "key": "matches.mockData.weekendDescription",
+    "value": "Relaxed doubles match"
+  },
+  {
+    "key": "matches.mockData.mondayTraining",
+    "value": "Monday Regular Training"
+  },
+  {
+    "key": "matches.mockData.mondayDescription",
+    "value": "Weekly Monday evening training"
+  },
+  {
+    "key": "leagues.admin.applicant",
+    "value": "Applicant"
+  },
+  {
+    "key": "leagues.admin.leagueOpenedTitle",
+    "value": "🎭 League Opened"
+  },
+  {
+    "key": "leagues.admin.leagueOpenError",
+    "value": "An error occurred while opening the league. Please try again."
+  },
+  {
+    "key": "leagues.admin.adminRequired",
+    "value": "Admin permission required."
+  },
+  {
+    "key": "leagues.admin.approvalCompleteTitle",
+    "value": "✅ Approval Complete"
+  },
+  {
+    "key": "leagues.admin.approvalCompleteMessage",
+    "value": "{{name}}'s application has been approved."
+  },
+  {
+    "key": "leagues.admin.approvalError",
+    "value": "An error occurred while approving the application. Please try again."
+  },
+  {
+    "key": "leagues.admin.maxParticipants",
+    "value": "Max"
+  },
+  {
+    "key": "leagues.admin.applicationDate",
+    "value": "Applied"
+  },
+  {
+    "key": "leagues.admin.processing",
+    "value": "Processing..."
+  },
+  {
+    "key": "leagues.admin.applicantsWillAppear",
+    "value": "Applicants will appear here in real-time"
+  },
+  {
+    "key": "leagues.admin.leaguePrivateTitle",
+    "value": "League is Private"
+  },
+  {
+    "key": "leagues.admin.opening",
+    "value": "Opening..."
+  },
+  {
+    "key": "leagues.admin.startAcceptingApplications",
+    "value": "🎭 Start Accepting Applications"
+  },
+  {
+    "key": "leagues.match.status.walkover",
+    "value": "Walkover"
+  },
+  {
+    "key": "leagues.match.correctResult",
+    "value": "Correct Result"
+  },
+  {
+    "key": "leagues.match.reschedule",
+    "value": "Reschedule"
+  },
+  {
+    "key": "leagues.match.walkover",
+    "value": "Walkover"
+  },
+  {
+    "key": "leagues.match.court",
+    "value": "Court"
+  },
+  {
+    "key": "leagues.match.result",
+    "value": "Result"
+  },
+  {
+    "key": "leagues.match.winner",
+    "value": "Winner"
+  },
+  {
+    "key": "leagues.match.submittedResult",
+    "value": "Submitted Result (Pending Approval)"
+  },
+  {
+    "key": "leagues.match.matchesWillAppear",
+    "value": "Matches will appear here once created."
+  },
+  {
+    "key": "schedules.form.titlePlaceholder",
+    "value": "e.g., Wednesday Evening Practice"
+  },
+  {
+    "key": "schedules.form.descriptionPlaceholder",
+    "value": "Enter detailed description of the schedule"
+  },
+  {
+    "key": "schedules.form.dayOfWeek",
+    "value": "Day of Week *"
+  },
+  {
+    "key": "schedules.form.duration",
+    "value": "Duration (minutes) *"
+  },
+  {
+    "key": "schedules.form.locationNamePlaceholder",
+    "value": "e.g., Central Park Tennis Courts"
+  },
+  {
+    "key": "schedules.form.addressPlaceholder",
+    "value": "Enter full address"
+  },
+  {
+    "key": "schedules.form.directions",
+    "value": "Directions"
+  },
+  {
+    "key": "schedules.form.directionsPlaceholder",
+    "value": "Parking info, entrance location, etc."
+  },
+  {
+    "key": "schedules.form.indoor",
+    "value": "Indoor"
+  },
+  {
+    "key": "schedules.form.outdoor",
+    "value": "Outdoor"
+  },
+  {
+    "key": "schedules.form.both",
+    "value": "Both"
+  },
+  {
+    "key": "schedules.form.participationInfo",
+    "value": "Participation Information"
+  },
+  {
+    "key": "schedules.form.minParticipants",
+    "value": "Min Participants"
+  },
+  {
+    "key": "schedules.form.maxParticipants",
+    "value": "Max Participants"
+  },
+  {
+    "key": "schedules.form.skillLevelPlaceholder",
+    "value": "e.g., 3.5+"
+  },
+  {
+    "key": "schedules.form.membersOnly",
+    "value": "Members Only"
+  },
+  {
+    "key": "schedules.form.registrationDeadline",
+    "value": "Registration Deadline (hours before)"
+  },
+  {
+    "key": "performanceDashboard.loading",
+    "value": "Analyzing performance..."
+  },
+  {
+    "key": "performanceDashboard.periods.weekly",
+    "value": "Weekly"
+  },
+  {
+    "key": "performanceDashboard.periods.monthly",
+    "value": "Monthly"
+  },
+  {
+    "key": "performanceDashboard.periods.yearly",
+    "value": "Yearly"
+  },
+  {
+    "key": "performanceDashboard.charts.winRateTrend.title",
+    "value": "Win Rate Trend"
+  },
+  {
+    "key": "performanceDashboard.charts.winRateTrend.subtitle",
+    "value": "Weekly win rate changes"
+  },
+  {
+    "key": "performanceDashboard.charts.matchFrequency.title",
+    "value": "Match Frequency by Day"
+  },
+  {
+    "key": "performanceDashboard.charts.matchFrequency.subtitle",
+    "value": "Average matches"
+  },
+  {
+    "key": "performanceDashboard.charts.timePerformance.subtitle",
+    "value": "Preferred playing times"
+  },
+  {
+    "key": "performanceDashboard.timeSlots.morning",
+    "value": "Morning"
+  },
+  {
+    "key": "performanceDashboard.timeSlots.afternoon",
+    "value": "Afternoon"
+  },
+  {
+    "key": "performanceDashboard.timeSlots.evening",
+    "value": "Evening"
+  },
+  {
+    "key": "performanceDashboard.weekLabels.week1",
+    "value": "Week 1"
+  },
+  {
+    "key": "performanceDashboard.weekLabels.week2",
+    "value": "Week 2"
+  },
+  {
+    "key": "performanceDashboard.weekLabels.week3",
+    "value": "Week 3"
+  },
+  {
+    "key": "performanceDashboard.weekLabels.week4",
+    "value": "Week 4"
+  },
+  {
+    "key": "performanceDashboard.dayLabels.mon",
+    "value": "Mon"
+  },
+  {
+    "key": "performanceDashboard.dayLabels.tue",
+    "value": "Tue"
+  },
+  {
+    "key": "performanceDashboard.dayLabels.wed",
+    "value": "Wed"
+  },
+  {
+    "key": "performanceDashboard.dayLabels.thu",
+    "value": "Thu"
+  },
+  {
+    "key": "performanceDashboard.dayLabels.fri",
+    "value": "Fri"
+  },
+  {
+    "key": "performanceDashboard.dayLabels.sat",
+    "value": "Sat"
+  },
+  {
+    "key": "performanceDashboard.dayLabels.sun",
+    "value": "Sun"
+  },
+  {
+    "key": "performanceDashboard.monthlyReport.title",
+    "value": "Monthly Report"
+  },
+  {
+    "key": "performanceDashboard.monthlyReport.highlights",
+    "value": "This Month's Highlights"
+  },
+  {
+    "key": "performanceDashboard.monthlyReport.improvements",
+    "value": "Areas for Improvement"
+  },
+  {
+    "key": "performanceDashboard.detailedAnalysis.title",
+    "value": "Detailed Analysis"
+  },
+  {
+    "key": "aiMatching.results.refreshButton",
+    "value": "Search Again"
+  },
+  {
+    "key": "aiMatching.candidate.matchScore",
+    "value": "Match Score"
+  },
+  {
+    "key": "aiMatching.candidate.skillLevel.beginner",
+    "value": "Beginner"
+  },
+  {
+    "key": "aiMatching.candidate.skillLevel.elementary",
+    "value": "Elementary"
+  },
+  {
+    "key": "aiMatching.candidate.skillLevel.intermediate",
+    "value": "Intermediate"
+  },
+  {
+    "key": "aiMatching.candidate.skillLevel.advanced",
+    "value": "Advanced"
+  },
+  {
+    "key": "aiMatching.candidate.attributes.strengths",
+    "value": "Key Strengths"
+  },
+  {
+    "key": "aiMatching.candidate.attributes.playStyle",
+    "value": "Play Style"
+  },
+  {
+    "key": "aiMatching.candidate.playStyles.aggressive",
+    "value": "Aggressive"
+  },
+  {
+    "key": "aiMatching.candidate.playStyles.defensive",
+    "value": "Defensive"
+  },
+  {
+    "key": "aiMatching.candidate.playStyles.allRound",
+    "value": "All-Round"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.serve",
+    "value": "Serve"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.volley",
+    "value": "Volley"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.strategic",
+    "value": "Strategic Play"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.backhand",
+    "value": "Backhand"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.defense",
+    "value": "Defense"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.endurance",
+    "value": "Endurance"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.forehand",
+    "value": "Forehand"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.netPlay",
+    "value": "Net Play"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.mental",
+    "value": "Mental"
+  },
+  {
+    "key": "aiMatching.candidate.availability.morning",
+    "value": "Morning (6-12)"
+  },
+  {
+    "key": "aiMatching.candidate.availability.afternoon",
+    "value": "Afternoon (12-18)"
+  },
+  {
+    "key": "aiMatching.candidate.availability.evening",
+    "value": "Evening (18-22)"
+  },
+  {
+    "key": "aiMatching.candidate.availability.weekend",
+    "value": "Weekend"
+  },
+  {
+    "key": "aiMatching.candidate.selected",
+    "value": "Selected"
+  },
+  {
+    "key": "aiMatching.mockData.candidate1.name",
+    "value": "Junsu Kim"
+  },
+  {
+    "key": "aiMatching.mockData.candidate1.bio",
+    "value": "Passionate player continuously improving skills."
+  },
+  {
+    "key": "aiMatching.mockData.candidate2.name",
+    "value": "Seoyeon Lee"
+  },
+  {
+    "key": "aiMatching.mockData.candidate3.name",
+    "value": "Minjae Park"
+  },
+  {
+    "key": "aiMatching.mockData.candidate3.bio",
+    "value": "Seeks competitive yet enjoyable matches."
+  },
+  {
+    "key": "aiMatching.bottomBar.selectedName",
+    "value": "To {{name}}"
+  },
+  {
+    "key": "clubPolicies.loading",
+    "value": "Loading club information..."
+  },
+  {
+    "key": "clubPolicies.days.monday",
+    "value": "Monday"
+  },
+  {
+    "key": "clubPolicies.days.tuesday",
+    "value": "Tuesday"
+  },
+  {
+    "key": "clubPolicies.days.wednesday",
+    "value": "Wednesday"
+  },
+  {
+    "key": "clubPolicies.days.thursday",
+    "value": "Thursday"
+  },
+  {
+    "key": "clubPolicies.days.friday",
+    "value": "Friday"
+  },
+  {
+    "key": "clubPolicies.days.saturday",
+    "value": "Saturday"
+  },
+  {
+    "key": "clubPolicies.days.sunday",
+    "value": "Sunday"
+  },
+  {
+    "key": "clubPolicies.sections.introduction",
+    "value": "Club Introduction"
+  },
+  {
+    "key": "clubPolicies.sections.facilities",
+    "value": "Facilities"
+  },
+  {
+    "key": "clubPolicies.sections.rules",
+    "value": "Club Rules"
+  },
+  {
+    "key": "clubPolicies.sections.meetings",
+    "value": "Regular Meeting Times"
+  },
+  {
+    "key": "clubPolicies.sections.fees",
+    "value": "Fee Information"
+  },
+  {
+    "key": "clubPolicies.recurring",
+    "value": "Recurring"
+  },
+  {
+    "key": "clubPolicies.fees.joinFee",
+    "value": "Join Fee"
+  },
+  {
+    "key": "clubPolicies.fees.monthlyFee",
+    "value": "Monthly Fee"
+  },
+  {
+    "key": "clubPolicies.fees.yearlyFee",
+    "value": "Yearly Fee"
+  },
+  {
+    "key": "clubPolicies.fees.dueDateValue",
+    "value": "{{day}}th of each month"
+  },
+  {
+    "key": "clubPolicies.fees.lateFee",
+    "value": "Late Fee"
+  },
+  {
+    "key": "clubPolicies.fees.paymentMethods",
+    "value": "Payment Methods"
+  },
+  {
+    "key": "clubPolicies.buttons.checkDues",
+    "value": "Check & Pay My Dues"
+  },
+  {
+    "key": "clubPolicies.buttons.membersOnly",
+    "value": "Members Only Feature"
+  },
+  {
+    "key": "clubPolicies.qrModal.title",
+    "value": "{{method}} QR Code"
+  },
+  {
+    "key": "clubPolicies.defaultClubName",
+    "value": "Club"
+  },
+  {
+    "key": "findClub.title",
+    "value": "Find Club"
+  },
+  {
+    "key": "findClub.searching",
+    "value": "Searching clubs..."
+  },
+  {
+    "key": "findClub.totalClubs",
+    "value": "Total clubs: {{count}}"
+  },
+  {
+    "key": "findClub.joinRequest",
+    "value": "Join Club Request"
+  },
+  {
+    "key": "findClub.joinButton",
+    "value": "Request"
+  },
+  {
+    "key": "findClub.joinSuccess",
+    "value": "Join request submitted. Please wait for club admin approval."
+  },
+  {
+    "key": "findClub.labels.public",
+    "value": "Public"
+  },
+  {
+    "key": "findClub.labels.memberCount",
+    "value": "{{current}}/{{max}} members"
+  },
+  {
+    "key": "findClub.status.joined",
+    "value": "Joined"
+  },
+  {
+    "key": "findClub.status.declined",
+    "value": "Request Declined"
+  },
+  {
+    "key": "findClub.errors.alreadyMember",
+    "value": "You are already a member of this club."
+  },
+  {
+    "key": "findClub.empty.tryDifferent",
+    "value": "Try a different search term"
+  },
+  {
+    "key": "modals.tournamentCompleted.title",
+    "value": "Tournament Victory!"
+  },
+  {
+    "key": "modals.tournamentCompleted.winner",
+    "value": "Winner"
+  },
+  {
+    "key": "modals.tournamentCompleted.runnerUp",
+    "value": "Runner-up"
+  },
+  {
+    "key": "modals.leagueCompleted.title",
+    "value": "League Completed!"
+  },
+  {
+    "key": "modals.leagueCompleted.winner",
+    "value": "Winner"
+  },
+  {
+    "key": "modals.leagueCompleted.runnerUp",
+    "value": "Runner-up"
+  },
+  {
+    "key": "modals.leagueCompleted.points",
+    "value": "pts"
+  },
+  {
+    "key": "modals.playoffCreated.title",
+    "value": "Playoff Created!"
+  },
+  {
+    "key": "modals.playoffCreated.playoffType",
+    "value": "Playoff Format"
+  },
+  {
+    "key": "modals.playoffCreated.final",
+    "value": "Final"
+  },
+  {
+    "key": "modals.playoffCreated.semifinals",
+    "value": "Semifinals + Final"
+  },
+  {
+    "key": "modals.playoffCreated.qualifiedPlayers",
+    "value": "🎉 Qualified Players"
+  },
+  {
+    "key": "modals.publicMatchScore.submitSuccess",
+    "value": "Match result has been saved."
+  },
+  {
+    "key": "screens.rateSportsmanship.eventNotFound",
+    "value": "Event not found"
+  },
+  {
+    "key": "utils.ltr.whatIsLtr.title",
+    "value": "What is LTR?"
+  },
+  {
+    "key": "feedCard.justNow",
+    "value": "Just now"
+  },
+  {
+    "key": "feedCard.minutesAgo",
+    "value": "{{minutes}}m ago"
+  },
+  {
+    "key": "feedCard.hoursAgo",
+    "value": "{{hours}}h ago"
+  },
+  {
+    "key": "feedCard.daysAgo",
+    "value": "{{days}}d ago"
+  },
+  {
+    "key": "feedCard.matchCompleted.win",
+    "value": "{{actorName}} defeated {{targetName}} {{score}}"
+  },
+  {
+    "key": "feedCard.matchCompleted.played",
+    "value": "{{actorName}} played against {{targetName}} {{score}}"
+  },
+  {
+    "key": "feedCard.newMemberJoined",
+    "value": "{{actorName}} joined {{clubName}}"
+  },
+  {
+    "key": "feedCard.leagueCreated",
+    "value": "{{actorName}} created {{leagueName}}"
+  },
+  {
+    "key": "feedCard.league",
+    "value": "League"
+  },
+  {
+    "key": "feedCard.actorActivity",
+    "value": "{{actorName}} had an activity"
+  },
+  {
+    "key": "feedCard.notification",
+    "value": "Notification"
+  },
+  {
+    "key": "feedCard.hide",
+    "value": "Hide"
+  }
+]

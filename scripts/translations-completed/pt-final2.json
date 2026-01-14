@@ -1,0 +1,123 @@
+{
+  "rateSportsmanship": {
+    "submitting": "Enviando..."
+  },
+  "discover": {
+    "alerts": {
+      "cancelSuccess": "Inscrição cancelada com sucesso."
+    }
+  },
+  "myActivities": {
+    "alerts": {
+      "partnerInvitation": {
+        "success": {
+          "message": "Convite de parceiro aceito!"
+        }
+      }
+    }
+  },
+  "profileSettings": {
+    "location": {
+      "update": {
+        "savingLocation": "Salvando localização..."
+      }
+    }
+  },
+  "editClubPolicy": {
+    "unsavedChangesWarning": "Você tem alterações não salvas"
+  },
+  "createClubTournament": {
+    "shortSetsDescription": "Sets de 4 games (regular é 6 games)",
+    "matchFormats": {
+      "best_of_1": "1 Set",
+      "best_of_3": "3 Sets",
+      "best_of_5": "5 Sets"
+    },
+    "seedingMethods": {
+      "random_description": "Classificação aleatória justa (independente de habilidade)"
+    }
+  },
+  "manageAnnouncement": {
+    "savedSuccess": "Anúncio foi salvo.",
+    "deletedSuccess": "Anúncio foi excluído."
+  },
+  "eloTrend": {
+    "soloLobby": "lobby solo",
+    "partnerInvite": "parceiro"
+  },
+  "achievementsGuide": {
+    "notYetEarned": "Ainda não conquistado"
+  },
+  "badgeGallery": {
+    "badges": {
+      "tournament_champion": {
+        "description": "Você venceu um torneio!"
+      }
+    }
+  },
+  "scoreConfirmation": {
+    "agree": "Concordo",
+    "disagree": "Discordo"
+  },
+  "matchRequest": {
+    "schedule": {
+      "twoHours": "2 horas",
+      "threeHours": "3 horas"
+    },
+    "court": {
+      "perHour": "/hora"
+    }
+  },
+  "participantSelector": {
+    "peopleSuffix": " pessoas",
+    "placeholder": "ex: 16"
+  },
+  "ntrpSelector": {
+    "levels": {
+      "beginner": {
+        "description": "Acabei de começar a jogar tênis"
+      }
+    }
+  },
+  "clubOverviewScreen": {
+    "runnerUp": "Vice-campeão"
+  },
+  "types": {
+    "match": {
+      "validation": {
+        "tiebreak": "tie-break",
+        "superTiebreak": "super tie-break"
+      }
+    }
+  },
+  "league": {
+    "genderLabels": {
+      "male": "masculino",
+      "female": "feminino"
+    }
+  },
+  "clubCommunication": {
+    "timeAgo": {
+      "minutesAgo": "{count} minutos atrás",
+      "hoursAgo": "{count} horas atrás"
+    }
+  },
+  "policyEditScreen": {
+    "characters": "caracteres"
+  },
+  "findClubScreen": {
+    "searching": "Procurando clubes..."
+  },
+  "findClub": {
+    "searching": "Procurando clubes..."
+  },
+  "modals": {
+    "tournamentCompleted": {
+      "runnerUp": "Vice-campeão"
+    },
+    "leagueCompleted": {
+      "runnerUp": "Vice-campeão",
+      "points": "pts"
+    }
+  }
+}

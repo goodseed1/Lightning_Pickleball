@@ -1,0 +1,338 @@
+[
+  {
+    "id": "3HH4sSmwD9ATq3bfbIYZ",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "B4V9N7yFpzY6q2ka3zLMYEYJ9Ej2",
+      "role": "admin",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768338533,
+        "_nanoseconds": 232000000
+      },
+      "joinedAt": {
+        "_seconds": 1768338533,
+        "_nanoseconds": 232000000
+      },
+      "updatedAt": {
+        "_seconds": 1768338533,
+        "_nanoseconds": 232000000
+      }
+    }
+  },
+  {
+    "id": "LHewuoUY279poGQapzXH",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "8P5DeXNL2hOe2XQRTaN7NqhXqL13",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "LOzWppWUrTy1ZhD1YzmK",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "R5xusVJqO4fBDLhU3G54A6GaDlh2",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "OVCYVMfDSXsSTavrtnSK",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "ENWaTOxsUHgsqJV4Q2YnNK4Isgx2",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "TQXWpSj8FC2DpUiH1lB8",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "n5B7UCa3PzLv2ksDikq0WFcJchG3",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "b64YIHcDm2YhoJWw15V5",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "63XorjryyePM5qOuHVstO5RJOY02",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "c3n1vhkXQ9qe1GKNQK1U",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "O6GLvLyddIagVjscv26WBJ7AnMC2",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "clyra1NU58lPTSe0zXkW",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "nv95ND2ulaRQlWoeWaMbQCLSpsC3",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "fvji0kYTR7Dw4TQwzdzy",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "wIGU8dmlAQh9TLWbE1s9sjp9hJX2",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "gaWw9YRmkIAj6In7UmX0",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "SxgDrDI0obbb2mmI15JHQtJFGLq2",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "ooeq79S2w95OD3Cgwqus",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "jDQeLezDcuRW9nDYLrg35NLFiv62",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "qycs9xdwm0Wg0ziRC5yu",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "8Zjs1w1NG9X0eSO9HmArSaFS5Vk2",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "uQbQf0LnQwA6ibAiln6I",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "XXSHkryiK2NiBwxwjwgliXV0dUX2",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "v7HEptJNvoOVIC1z5E8G",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "GUIBJzVruUe4cK7XFrkknvoeSNA2",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "vT9kHGDXdPzzD67tOXXY",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "aTejuSfWaxMsJPffCYcZJiU05RY2",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  },
+  {
+    "id": "xI301qabUnu35HfCdjbw",
+    "data": {
+      "clubId": "dRxu8Xnwmfoj0zzyQjVu",
+      "userId": "7CV7CRf0zSh4uMpoY17u6cajoNJ3",
+      "role": "member",
+      "status": "active",
+      "createdAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "joinedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      },
+      "updatedAt": {
+        "_seconds": 1768283395,
+        "_nanoseconds": 664000000
+      }
+    }
+  }
+]

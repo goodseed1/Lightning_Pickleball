@@ -1,0 +1,10 @@
+src/screens/clubs/CreateClubScreen.tsx
+src/components/common/SafeGooglePlacesAutocomplete.tsx
+src/components/layout/Section.tsx
+src/components/layout/TwoColChips.tsx
+src/components/layout/Field.tsx
+src/navigation/AppNavigator.tsx
+src/i18n/index.ts
+src/services/clubService.js
+App.tsx
+package.json

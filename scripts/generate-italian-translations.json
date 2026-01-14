@@ -1,0 +1,597 @@
+{
+  "clubTournamentManagement": {
+    "status": {
+      "bracketGeneration": "Generazione Tabellone",
+      "inProgress": "In Corso",
+      "completed": "Completato"
+    },
+    "participants": {
+      "label": "Partecipanti",
+      "overview": "Panoramica Partecipanti",
+      "current": "Partecipanti Attuali",
+      "max": "Partecipanti Massimi",
+      "list": "Lista Partecipanti",
+      "count": " partecipanti",
+      "player1": "Giocatore 1",
+      "player2": "Giocatore 2"
+    },
+    "tournamentStart": {
+      "bracketGenerationError": "Si è verificato un errore durante la generazione del tabellone del torneo.",
+      "roundCheckError": "Errore durante il controllo della possibilità di generazione del turno.",
+      "errorTitle": "Errore",
+      "errorMessage": "Impossibile avviare il torneo.",
+      "addingParticipants": "Aggiunta Partecipanti"
+    },
+    "seedAssignment": {
+      "title": "Assegna Testa di Serie"
+    }
+  },
+  "leagueDetail": {
+    "leagueDeleteError": "Errore durante l'eliminazione della lega.",
+    "removeParticipant": "Rimuovi Partecipante",
+    "removeParticipantConfirm": "Rimuovere \"{{userName}}\" dalla lega?",
+    "removeParticipantSuccess": "{{userName}} è stato rimosso dalla lega.",
+    "removeParticipantError": "Errore durante la rimozione del partecipante.",
+    "adminCorrection": "Correzione Amministratore",
+    "adminScheduleChange": "Modifica Programma Admin",
+    "adminWalkover": "Walkover Amministratore",
+    "champion": "Campione",
+    "runnerUp": "Secondo Classificato"
+  },
+  "duesManagement": {
+    "status": {
+      "paid": "Pagato",
+      "unpaid": "Non Pagato",
+      "exempt": "Esente",
+      "overdue": "Scaduto",
+      "pending": "In Sospeso"
+    },
+    "alerts": {
+      "ok": "OK"
+    },
+    "settings": {
+      "venmo": "Venmo"
+    },
+    "modals": {
+      "createRecord": "Crea Record Quote",
+      "createRecordPrompt": "Quale tipo di record desideri creare per questo membro?",
+      "editDuesSettings": "Modifica Impostazioni Quote"
+    }
+  },
+  "services": {
+    "camera": {
+      "permissionTitle": "Permesso Fotocamera Richiesto",
+      "permissionMessage": "Il permesso della fotocamera è necessario per scattare foto profilo.",
+      "galleryPermissionTitle": "Permesso Galleria Richiesto",
+      "galleryPermissionMessage": "Il permesso di accesso alla galleria è necessario per selezionare foto.",
+      "galleryPermissionIosMessage": "Controlla i permessi dell'app in Impostazioni > Privacy e Sicurezza",
+      "openSettings": "Apri Impostazioni",
+      "permissionError": "Si è verificato un errore durante la richiesta dei permessi.",
+      "photoError": "Si è verificato un errore durante lo scatto della foto.",
+      "galleryAccessError": "Errore Accesso Galleria",
+      "simulatorError": "Si è verificato un problema nell'accesso alla galleria sul simulatore iOS. Prova su un dispositivo reale."
+    }
+  },
+  "clubDuesManagement": {
+    "loading": "Caricamento dati...",
+    "tabs": {
+      "settings": "Impostazioni",
+      "status": "Stato Pagamento",
+      "unpaid": "Membri Non Paganti"
+    },
+    "errors": {
+      "loadData": "Caricamento dati fallito",
+      "inputError": "Errore di Input",
+      "invalidAmount": "Inserisci un importo valido per le quote",
+      "invalidDueDay": "Il giorno di scadenza deve essere compreso tra 1-31",
+      "saveFailed": "Salvataggio Fallito",
+      "saveError": "Si è verificato un errore durante il salvataggio delle impostazioni"
+    }
+  },
+  "profileSettings": {
+    "title": "Impostazioni Profilo",
+    "personalInfo": "Informazioni Personali",
+    "preferences": "Preferenze",
+    "privacy": "Privacy",
+    "account": "Account"
+  },
+  "eventCard": {
+    "details": "Dettagli",
+    "participants": "Partecipanti",
+    "date": "Data",
+    "time": "Ora",
+    "location": "Luogo",
+    "join": "Partecipa",
+    "leave": "Abbandona"
+  },
+  "clubLeaguesTournaments": {
+    "leagues": "Leghe",
+    "tournaments": "Tornei",
+    "upcoming": "Prossimi",
+    "ongoing": "In Corso",
+    "completed": "Completati"
+  },
+  "editProfile": {
+    "title": "Modifica Profilo",
+    "save": "Salva",
+    "cancel": "Annulla",
+    "photo": "Foto",
+    "name": "Nome",
+    "bio": "Biografia"
+  },
+  "createEvent": {
+    "title": "Crea Evento",
+    "name": "Nome Evento",
+    "description": "Descrizione",
+    "date": "Data",
+    "time": "Ora",
+    "location": "Luogo",
+    "create": "Crea"
+  },
+  "createMeetup": {
+    "title": "Crea Incontro",
+    "details": "Dettagli",
+    "settings": "Impostazioni",
+    "submit": "Invia"
+  },
+  "aiMatching": {
+    "title": "Abbinamento AI",
+    "findMatch": "Trova Abbinamento",
+    "recommendations": "Raccomandazioni",
+    "compatibility": "Compatibilità"
+  },
+  "admin": {
+    "devTools": {
+      "matchNotificationsDesc": "Ricevi notifiche per nuove partite lightning",
+      "clubEventNotifications": "Notifiche Eventi Club",
+      "clubEventNotificationsDesc": "Ricevi notifiche per incontri del club",
+      "notificationDistance": "Intervallo Distanza Notifiche",
+      "milesAway": "miglia di distanza",
+      "mile": "miglio",
+      "miles": "miglia"
+    }
+  },
+  "performanceDashboard": {
+    "title": "Dashboard Prestazioni",
+    "stats": "Statistiche",
+    "recent": "Recenti",
+    "overall": "Complessivo"
+  },
+  "club": {
+    "members": "Membri",
+    "events": "Eventi",
+    "settings": "Impostazioni",
+    "about": "Informazioni"
+  },
+  "createClubTournament": {
+    "title": "Crea Torneo Club",
+    "details": "Dettagli Torneo",
+    "format": "Formato",
+    "create": "Crea Torneo"
+  },
+  "types": {
+    "singles": "Singolare",
+    "doubles": "Doppio",
+    "mixed": "Misto"
+  },
+  "editClubPolicy": {
+    "title": "Modifica Regolamento Club",
+    "save": "Salva Modifiche",
+    "cancel": "Annulla"
+  },
+  "createClubLeague": {
+    "title": "Crea Lega Club",
+    "name": "Nome Lega",
+    "format": "Formato",
+    "startDate": "Data Inizio",
+    "create": "Crea"
+  },
+  "badgeGallery": {
+    "title": "Galleria Distintivi",
+    "earned": "Guadagnati",
+    "available": "Disponibili",
+    "locked": "Bloccati"
+  },
+  "hostedEventCard": {
+    "host": "Ospite",
+    "participants": "Partecipanti",
+    "details": "Dettagli",
+    "manage": "Gestisci"
+  },
+  "manageLeagueParticipants": {
+    "title": "Gestisci Partecipanti Lega",
+    "add": "Aggiungi Partecipante",
+    "remove": "Rimuovi",
+    "list": "Lista Partecipanti"
+  },
+  "contexts": {
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo"
+  },
+  "scoreConfirmation": {
+    "title": "Conferma Punteggio",
+    "winner": "Vincitore",
+    "confirm": "Conferma",
+    "dispute": "Contesta"
+  },
+  "clubPolicies": {
+    "title": "Regolamenti Club",
+    "rules": "Regole",
+    "guidelines": "Linee Guida",
+    "code": "Codice di Condotta"
+  },
+  "meetupDetail": {
+    "title": "Dettagli Incontro",
+    "when": "Quando",
+    "where": "Dove",
+    "who": "Chi",
+    "join": "Partecipa"
+  },
+  "clubPoliciesScreen": {
+    "title": "Regolamenti Club",
+    "edit": "Modifica",
+    "view": "Visualizza"
+  },
+  "schedules": {
+    "upcoming": "Prossimi",
+    "past": "Passati",
+    "today": "Oggi"
+  },
+  "manageAnnouncement": {
+    "title": "Gestisci Annuncio",
+    "create": "Crea Annuncio",
+    "edit": "Modifica Annuncio",
+    "delete": "Elimina"
+  },
+  "matchRequest": {
+    "title": "Richiesta Partita",
+    "send": "Invia Richiesta",
+    "accept": "Accetta",
+    "decline": "Rifiuta"
+  },
+  "cards": {
+    "view": "Visualizza",
+    "edit": "Modifica",
+    "delete": "Elimina"
+  },
+  "clubOverviewScreen": {
+    "title": "Panoramica Club",
+    "members": "Membri",
+    "events": "Eventi",
+    "activity": "Attività"
+  },
+  "myActivities": {
+    "title": "Le Mie Attività",
+    "upcoming": "Prossime",
+    "past": "Passate",
+    "all": "Tutte"
+  },
+  "findClub": {
+    "title": "Trova Club",
+    "search": "Cerca",
+    "nearby": "Vicini",
+    "all": "Tutti"
+  },
+  "findClubScreen": {
+    "title": "Trova Club",
+    "distance": "Distanza",
+    "rating": "Valutazione",
+    "members": "Membri"
+  },
+  "leagues": {
+    "active": "Attive",
+    "upcoming": "Prossime",
+    "completed": "Completate"
+  },
+  "modals": {
+    "confirm": "Conferma",
+    "cancel": "Annulla",
+    "close": "Chiudi"
+  },
+  "rateSportsmanship": {
+    "title": "Valuta Sportività",
+    "excellent": "Eccellente",
+    "good": "Buono",
+    "fair": "Discreto",
+    "poor": "Scarso"
+  },
+  "roleManagement": {
+    "title": "Gestione Ruoli",
+    "assign": "Assegna Ruolo",
+    "remove": "Rimuovi Ruolo",
+    "roles": "Ruoli"
+  },
+  "policyEditScreen": {
+    "title": "Modifica Regolamento",
+    "save": "Salva",
+    "preview": "Anteprima"
+  },
+  "eventParticipation": {
+    "join": "Partecipa",
+    "leave": "Abbandona",
+    "participants": "Partecipanti",
+    "waitlist": "Lista d'Attesa"
+  },
+  "matches": {
+    "upcoming": "Prossime",
+    "completed": "Completate",
+    "cancelled": "Annullate"
+  },
+  "recordScore": {
+    "title": "Registra Punteggio",
+    "winner": "Vincitore",
+    "score": "Punteggio",
+    "submit": "Invia"
+  },
+  "clubCommunication": {
+    "announcements": "Annunci",
+    "messages": "Messaggi",
+    "notifications": "Notifiche"
+  },
+  "hallOfFame": {
+    "title": "Hall of Fame",
+    "champions": "Campioni",
+    "records": "Record",
+    "achievements": "Successi"
+  },
+  "feedCard": {
+    "like": "Mi piace",
+    "comment": "Commenta",
+    "share": "Condividi"
+  },
+  "aiChat": {
+    "title": "Chat AI",
+    "ask": "Chiedi",
+    "suggestions": "Suggerimenti"
+  },
+  "appNavigator": {
+    "home": "Home",
+    "matches": "Partite",
+    "clubs": "Club",
+    "profile": "Profilo"
+  },
+  "clubChat": {
+    "title": "Chat Club",
+    "send": "Invia",
+    "members": "Membri"
+  },
+  "developerTools": {
+    "title": "Strumenti Sviluppatore",
+    "debug": "Debug",
+    "logs": "Log"
+  },
+  "league": {
+    "join": "Iscriviti",
+    "standings": "Classifica",
+    "schedule": "Calendario"
+  },
+  "clubDetailScreen": {
+    "about": "Informazioni",
+    "events": "Eventi",
+    "members": "Membri"
+  },
+  "appliedEventCard": {
+    "applied": "Iscritto",
+    "pending": "In Attesa",
+    "approved": "Approvato"
+  },
+  "playerCard": {
+    "level": "Livello",
+    "wins": "Vittorie",
+    "matches": "Partite"
+  },
+  "eventChat": {
+    "title": "Chat Evento",
+    "send": "Invia",
+    "participants": "Partecipanti"
+  },
+  "ntrpSelector": {
+    "select": "Seleziona Livello",
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzato"
+  },
+  "terms": {
+    "details": {
+      "privacyPolicy": {
+        "title": "Informativa sulla Privacy"
+      },
+      "locationServices": {
+        "title": "Termini dei Servizi Basati sulla Posizione",
+        "content": "Termini dei Servizi Basati sulla Posizione\n\n1. Raccolta e Uso delle Informazioni sulla Posizione\n- Fornitura di servizi di ricerca partite nelle vicinanze\n- Fornitura di servizi di ricerca campi da tennis\n- Fornitura di servizi di notifica basati sulla distanza\n\n2. Consenso per le Informazioni sulla Posizione\n- Gli utenti possono rifiutare la fornitura delle informazioni sulla posizione in qualsiasi momento\n- Il rifiuto delle informazioni sulla posizione può limitare alcune funzionalità del servizio\n\n3. Protezione delle Informazioni sulla Posizione\n- Le informazioni sulla posizione raccolte vengono crittografate e archiviate in modo sicuro\n- Non fornite a terze parti senza il consenso dell'utente"
+      },
+      "liabilityDisclaimer": {
+        "title": "Esclusione di Responsabilità",
+        "content": "⚠️ AVVISO LEGALE IMPORTANTE ⚠️\n\nL'app Lightning Tennis serve come piattaforma per connettere singoli giocatori di tennis.\n\nNON ASSUMIAMO ALCUNA RESPONSABILITÀ LEGALE per:\n\n1. Esclusione Incidenti di Sicurezza\n- Lesioni o incidenti durante le partite di tennis\n- Dispute personali tra partecipanti alle partite\n- Incidenti di sicurezza presso strutture di campi da tennis\n\n2. Esclusione Dispute Finanziarie\n- Dispute relative ai costi delle partite\n- Problemi relativi alle tariffe di noleggio del campo\n- Transazioni finanziarie tra utenti\n\n3. Responsabilità dell'Utente\n- Tutta la sicurezza e responsabilità per le partite appartengono agli organizzatori e ai partecipanti\n- Gli utenti devono verificare la propria condizione di salute prima di partecipare\n- È raccomandata un'adeguata copertura assicurativa\n\nUtilizzando questo servizio, accetti questi termini di esclusione di responsabilità."
+      },
+      "marketingCommunications": {
+        "title": "Consenso alle Comunicazioni di Marketing",
+        "content": "Consenso alle Comunicazioni di Marketing (Facoltativo)\n\n1. Contenuto\n- Nuove funzionalità e aggiornamenti del servizio\n- Annunci di eventi speciali e promozioni\n- Informazioni e suggerimenti utili relativi al tennis\n- Vantaggi di partnership e informazioni sugli sconti\n\n2. Metodi di Consegna\n- Notifiche push\n- Email\n- Notifiche in-app\n\n3. Opt-out\n- Puoi rinunciare in qualsiasi momento nelle impostazioni\n- Rinuncia selettiva disponibile per singole notifiche\n\nQuesto consenso è facoltativo e il rifiuto non limiterà l'uso del servizio."
+      },
+      "inclusivityPolicy": {
+        "title": "Politica di Diversità e Inclusione"
+      }
+    }
+  },
+  "eloTrend": {
+    "title": "Andamento ELO",
+    "increase": "Aumento",
+    "decrease": "Diminuzione",
+    "stable": "Stabile"
+  },
+  "mapAppSelector": {
+    "title": "Seleziona App Mappe",
+    "apple": "Apple Maps",
+    "google": "Google Maps",
+    "waze": "Waze"
+  },
+  "tournamentDetail": {
+    "bracket": "Tabellone",
+    "participants": "Partecipanti",
+    "schedule": "Calendario",
+    "results": "Risultati"
+  },
+  "profile": {
+    "loading": {
+      "clubs": "Caricamento club...",
+      "trophies": "Caricamento trofei...",
+      "matchHistory": "Caricamento storico partite..."
+    },
+    "settings": {
+      "notifications": "Impostazioni Notifiche",
+      "profileSettings": "Impostazioni Profilo",
+      "appSettings": "Impostazioni App"
+    },
+    "userProfile": {
+      "timeSlots": {
+        "brunch": "Brunch"
+      }
+    }
+  },
+  "lessonCard": {
+    "book": "Prenota",
+    "instructor": "Istruttore",
+    "duration": "Durata",
+    "price": "Prezzo"
+  },
+  "achievementsGuide": {
+    "title": "Guida ai Successi",
+    "progress": "Progresso",
+    "unlocked": "Sbloccati",
+    "locked": "Bloccati"
+  },
+  "userActivity": {
+    "recent": "Recenti",
+    "all": "Tutte",
+    "filter": "Filtro"
+  },
+  "rankingPrivacy": {
+    "public": "Pubblico",
+    "private": "Privato",
+    "friends": "Amici"
+  },
+  "discover": {
+    "players": "Giocatori",
+    "clubs": "Club",
+    "events": "Eventi",
+    "nearby": "Vicini"
+  },
+  "emailLogin": {
+    "title": "Accesso Email",
+    "email": "Email",
+    "password": "Password",
+    "login": "Accedi",
+    "forgotPassword": "Password dimenticata?"
+  },
+  "eventDetail": {
+    "when": "Quando",
+    "where": "Dove",
+    "participants": "Partecipanti",
+    "description": "Descrizione"
+  },
+  "tournament": {
+    "bracket": "Tabellone",
+    "schedule": "Calendario",
+    "results": "Risultati"
+  },
+  "units": {
+    "km": "km",
+    "mi": "mi",
+    "distanceKm": "{{distance}} km",
+    "distanceMi": "{{distance}} mi"
+  },
+  "participantSelector": {
+    "select": "Seleziona Partecipante",
+    "selected": "Selezionato",
+    "available": "Disponibile"
+  },
+  "utils": {
+    "error": "Errore",
+    "success": "Successo",
+    "warning": "Avviso"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "register": {
+      "success": {
+        "ok": "OK"
+      }
+    }
+  },
+  "clubDetail": {
+    "about": "Informazioni",
+    "join": "Iscriviti"
+  },
+  "common": {
+    "no": "No",
+    "ok": "OK"
+  },
+  "createClub": {
+    "facility": {
+      "proshop": "Negozio Pro"
+    },
+    "fields": {
+      "logo": "Logo"
+    }
+  },
+  "regularMeetup": {
+    "schedule": "Programma",
+    "recurring": "Ricorrente"
+  },
+  "createModal": {
+    "title": "Crea",
+    "cancel": "Annulla"
+  },
+  "pastEventCard": {
+    "date": "Data",
+    "participants": "Partecipanti"
+  },
+  "clubHallOfFame": {
+    "champions": "Campioni",
+    "records": "Record"
+  },
+  "profileSetup": {
+    "nickname": "Soprannome"
+  },
+  "roles": {
+    "manager": "Manager"
+  },
+  "clubSelector": {
+    "select": "Seleziona Club"
+  },
+  "alert": {
+    "ok": "OK"
+  },
+  "feed": {
+    "noContent": "Nessun contenuto"
+  },
+  "activityTab": {
+    "all": "Tutte"
+  },
+  "clubAdmin": {
+    "settings": "Impostazioni"
+  },
+  "teamInvitations": {
+    "pending": "In Sospeso"
+  },
+  "myClubSettings": {
+    "general": "Generale"
+  },
+  "postDetail": {
+    "comments": "Commenti"
+  },
+  "appliedEvents": {
+    "upcoming": "Prossimi"
+  },
+  "directChat": {
+    "send": "Invia"
+  },
+  "matchDetail": {
+    "details": "Dettagli"
+  },
+  "screens": {
+    "loading": "Caricamento..."
+  }
+}

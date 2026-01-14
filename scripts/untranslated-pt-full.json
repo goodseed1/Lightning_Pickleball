@@ -1,0 +1,607 @@
+[
+  {
+    "key": "common.ok",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "createClub.fields.logo",
+    "enValue": "Logo",
+    "targetValue": "Logo"
+  },
+  {
+    "key": "clubList.clubType.casual",
+    "enValue": "Casual",
+    "targetValue": "Casual"
+  },
+  {
+    "key": "clubList.clubType.social",
+    "enValue": "Social",
+    "targetValue": "Social"
+  },
+  {
+    "key": "clubList.filters.nearby",
+    "enValue": "Nearby",
+    "targetValue": "Nearby"
+  },
+  {
+    "key": "scheduleMeetup.success.created",
+    "enValue": "Regular meeting has been created.",
+    "targetValue": "Regular meeting has been created."
+  },
+  {
+    "key": "scheduleMeetup.success.deleted",
+    "enValue": "Regular meeting has been deleted.",
+    "targetValue": "Regular meeting has been deleted."
+  },
+  {
+    "key": "profile.userProfile.timeSlots.brunch",
+    "enValue": "Brunch",
+    "targetValue": "Brunch"
+  },
+  {
+    "key": "units.km",
+    "enValue": "km",
+    "targetValue": "km"
+  },
+  {
+    "key": "units.mi",
+    "enValue": "mi",
+    "targetValue": "mi"
+  },
+  {
+    "key": "units.distanceKm",
+    "enValue": "{{distance}} km",
+    "targetValue": "{{distance}} km"
+  },
+  {
+    "key": "units.distanceMi",
+    "enValue": "{{distance}} mi",
+    "targetValue": "{{distance}} mi"
+  },
+  {
+    "key": "ntrpResult.recommended",
+    "enValue": "Rec",
+    "targetValue": "Rec"
+  },
+  {
+    "key": "club.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "clubChat.roleStaff",
+    "enValue": "Staff",
+    "targetValue": "Staff"
+  },
+  {
+    "key": "rateSportsmanship.loading",
+    "enValue": "Loading...",
+    "targetValue": "Loading..."
+  },
+  {
+    "key": "rateSportsmanship.selectedCount",
+    "enValue": "Selected tags: {{count}}",
+    "targetValue": "Selected tags: {{count}}"
+  },
+  {
+    "key": "rateSportsmanship.submitting",
+    "enValue": "Submitting...",
+    "targetValue": "Submitting..."
+  },
+  {
+    "key": "discover.alerts.cancelSuccess",
+    "enValue": "Application canceled successfully.",
+    "targetValue": "Application canceled successfully."
+  },
+  {
+    "key": "myActivities.alerts.partnerInvitation.success.message",
+    "enValue": "Partner invitation accepted!",
+    "targetValue": "Partner invitation accepted!"
+  },
+  {
+    "key": "clubLeaguesTournaments.status.playoffs",
+    "enValue": "Playoffs",
+    "targetValue": "Playoffs"
+  },
+  {
+    "key": "clubLeaguesTournaments.labels.status",
+    "enValue": "Status",
+    "targetValue": "Status"
+  },
+  {
+    "key": "clubLeaguesTournaments.memberPreLeagueStatus.peopleUnit",
+    "enValue": "",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "clubLeaguesTournaments.memberPreLeagueStatus.status",
+    "enValue": "Status",
+    "targetValue": "Status"
+  },
+  {
+    "key": "profileSettings.location.update.savingLocation",
+    "enValue": "Saving location...",
+    "targetValue": "Saving location..."
+  },
+  {
+    "key": "eventCard.eventTypes.casual",
+    "enValue": "Casual",
+    "targetValue": "Casual"
+  },
+  {
+    "key": "eventCard.labels.participants",
+    "enValue": "{{current}}/{{max}}",
+    "targetValue": "{{current}}/{{max}}"
+  },
+  {
+    "key": "eventCard.buttons.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "eventCard.soloApplicants.count",
+    "enValue": "{{count}} solo",
+    "targetValue": "{{count}} solo"
+  },
+  {
+    "key": "createEvent.languages.korean",
+    "enValue": "한국어",
+    "targetValue": "한국어"
+  },
+  {
+    "key": "createEvent.languages.english",
+    "enValue": "English",
+    "targetValue": "English"
+  },
+  {
+    "key": "createEvent.languages.chinese",
+    "enValue": "中文",
+    "targetValue": "中文"
+  },
+  {
+    "key": "createEvent.languages.japanese",
+    "enValue": "日本語",
+    "targetValue": "日本語"
+  },
+  {
+    "key": "createEvent.languages.spanish",
+    "enValue": "Español",
+    "targetValue": "Español"
+  },
+  {
+    "key": "createEvent.languages.french",
+    "enValue": "Français",
+    "targetValue": "Français"
+  },
+  {
+    "key": "hostedEventCard.eventTypes.casual",
+    "enValue": "Casual",
+    "targetValue": "Casual"
+  },
+  {
+    "key": "hostedEventCard.buttons.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "duesManagement.tabs.status",
+    "enValue": "Status",
+    "targetValue": "Status"
+  },
+  {
+    "key": "duesManagement.settings.venmo",
+    "enValue": "Venmo",
+    "targetValue": "Venmo"
+  },
+  {
+    "key": "duesManagement.countSuffix",
+    "enValue": "",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "feed.title",
+    "enValue": "Feed",
+    "targetValue": "Feed"
+  },
+  {
+    "key": "eventParticipation.participants.list",
+    "enValue": "Participants",
+    "targetValue": "Participants"
+  },
+  {
+    "key": "eventParticipation.statusLabels.waitlisted",
+    "enValue": "Waitlisted",
+    "targetValue": "Waitlisted"
+  },
+  {
+    "key": "eventParticipation.typeLabels.spectator",
+    "enValue": "Spectator",
+    "targetValue": "Spectator"
+  },
+  {
+    "key": "clubAdmin.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "clubAdmin.chatNormal",
+    "enValue": "Normal",
+    "targetValue": "Normal"
+  },
+  {
+    "key": "editClubPolicy.unsavedChangesWarning",
+    "enValue": "You have unsaved changes",
+    "targetValue": "You have unsaved changes"
+  },
+  {
+    "key": "createClubTournament.shortSetsDescription",
+    "enValue": "4-game sets (regular is 6 games)",
+    "targetValue": "4-game sets (regular is 6 games)"
+  },
+  {
+    "key": "createClubTournament.seedingMethods.manual",
+    "enValue": "Manual",
+    "targetValue": "Manual"
+  },
+  {
+    "key": "createClubTournament.seedingMethods.random",
+    "enValue": "Random",
+    "targetValue": "Random"
+  },
+  {
+    "key": "createClubTournament.seedingMethods.random_description",
+    "enValue": "Fair random seeding (skill-independent)",
+    "targetValue": "Fair random seeding (skill-independent)"
+  },
+  {
+    "key": "appliedEventCard.eventType.casual",
+    "enValue": "Casual",
+    "targetValue": "Casual"
+  },
+  {
+    "key": "appliedEventCard.actions.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "meetupDetail.editEvent.durationUnit",
+    "enValue": "min",
+    "targetValue": "min"
+  },
+  {
+    "key": "createClubLeague.selectedInfo",
+    "enValue": "Selected",
+    "targetValue": "Selected"
+  },
+  {
+    "key": "manageAnnouncement.savedSuccess",
+    "enValue": "Announcement has been saved.",
+    "targetValue": "Announcement has been saved."
+  },
+  {
+    "key": "manageAnnouncement.deletedSuccess",
+    "enValue": "Announcement has been deleted.",
+    "targetValue": "Announcement has been deleted."
+  },
+  {
+    "key": "manageAnnouncement.unknown",
+    "enValue": "Unknown",
+    "targetValue": "Unknown"
+  },
+  {
+    "key": "lessonCard.consultButton",
+    "enValue": "Consult",
+    "targetValue": "Consult"
+  },
+  {
+    "key": "lessonCard.currencySuffix",
+    "enValue": "",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "lessonCard.capacity",
+    "enValue": "Capacity: {{count}}",
+    "targetValue": "Capacity: {{count}}"
+  },
+  {
+    "key": "playerCard.online",
+    "enValue": "Online",
+    "targetValue": "Online"
+  },
+  {
+    "key": "playerCard.skilled",
+    "enValue": "Skilled",
+    "targetValue": "Skilled"
+  },
+  {
+    "key": "pastEventCard.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "concludeLeague.stats.points",
+    "enValue": "{{points}} pts",
+    "targetValue": "{{points}} pts"
+  },
+  {
+    "key": "tournamentDetail.participantsSuffix",
+    "enValue": "",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "clubLeagueManagement.status.playoffs",
+    "enValue": "Playoffs",
+    "targetValue": "Playoffs"
+  },
+  {
+    "key": "eventDetail.participants.count",
+    "enValue": "",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "eloTrend.titleBase",
+    "enValue": "Applied",
+    "targetValue": "Applied"
+  },
+  {
+    "key": "eloTrend.soloLobby",
+    "enValue": "solo lobby",
+    "targetValue": "solo lobby"
+  },
+  {
+    "key": "eloTrend.partnerInvite",
+    "enValue": "partner",
+    "targetValue": "partner"
+  },
+  {
+    "key": "hallOfFame.counts.honors",
+    "enValue": "{{count}} honors",
+    "targetValue": "{{count}} honors"
+  },
+  {
+    "key": "hallOfFame.honorBadges.receivedCount",
+    "enValue": "×{{count}}",
+    "targetValue": "×{{count}}"
+  },
+  {
+    "key": "achievementsGuide.notYetEarned",
+    "enValue": "Not yet earned",
+    "targetValue": "Not yet earned"
+  },
+  {
+    "key": "badgeGallery.badges.tournament_champion.description",
+    "enValue": "You won a tournament!",
+    "targetValue": "You won a tournament!"
+  },
+  {
+    "key": "badgeGallery.badges.league_champion.description",
+    "enValue": "You won a league! 👑",
+    "targetValue": "You won a league! 👑"
+  },
+  {
+    "key": "badgeGallery.badges.winning_streak_10.name",
+    "enValue": "Unstoppable",
+    "targetValue": "Unstoppable"
+  },
+  {
+    "key": "badgeGallery.alerts.timeoutTitle",
+    "enValue": "Timeout",
+    "targetValue": "Timeout"
+  },
+  {
+    "key": "recordScore.tiebreak",
+    "enValue": "Tiebreak",
+    "targetValue": "Tiebreak"
+  },
+  {
+    "key": "recordScore.tiebreakLabel",
+    "enValue": "Tiebreak ({{placeholder}})",
+    "targetValue": "Tiebreak ({{placeholder}})"
+  },
+  {
+    "key": "recordScore.alerts.standardTiebreak",
+    "enValue": "Tiebreak",
+    "targetValue": "Tiebreak"
+  },
+  {
+    "key": "recordScore.alerts.globalRanking",
+    "enValue": "Global",
+    "targetValue": "Global"
+  },
+  {
+    "key": "scoreConfirmation.agree",
+    "enValue": "I agree",
+    "targetValue": "I agree"
+  },
+  {
+    "key": "scoreConfirmation.disagree",
+    "enValue": "I disagree",
+    "targetValue": "I disagree"
+  },
+  {
+    "key": "matchRequest.skillLevel.elementary",
+    "enValue": "Elementary",
+    "targetValue": "Elementary"
+  },
+  {
+    "key": "matchRequest.schedule.twoHours",
+    "enValue": "2 hours",
+    "targetValue": "2 hours"
+  },
+  {
+    "key": "matchRequest.schedule.threeHours",
+    "enValue": "3 hours",
+    "targetValue": "3 hours"
+  },
+  {
+    "key": "matchRequest.court.perHour",
+    "enValue": "/hour",
+    "targetValue": "/hour"
+  },
+  {
+    "key": "mapAppSelector.installed",
+    "enValue": "Installed",
+    "targetValue": "Installed"
+  },
+  {
+    "key": "participantSelector.peopleSuffix",
+    "enValue": " people",
+    "targetValue": " people"
+  },
+  {
+    "key": "participantSelector.placeholder",
+    "enValue": "e.g., 16",
+    "targetValue": "e.g., 16"
+  },
+  {
+    "key": "ntrpSelector.levels.beginner.description",
+    "enValue": "Just started playing tennis",
+    "targetValue": "Just started playing tennis"
+  },
+  {
+    "key": "clubOverviewScreen.runnerUp",
+    "enValue": "Runner-up",
+    "targetValue": "Runner-up"
+  },
+  {
+    "key": "types.match.validation.tiebreak",
+    "enValue": "tiebreak",
+    "targetValue": "tiebreak"
+  },
+  {
+    "key": "types.match.validation.superTiebreak",
+    "enValue": "super tiebreak",
+    "targetValue": "super tiebreak"
+  },
+  {
+    "key": "types.dues.period.year",
+    "enValue": "{{year}}",
+    "targetValue": "{{year}}"
+  },
+  {
+    "key": "types.dues.period.yearMonth",
+    "enValue": "{{month}}/{{year}}",
+    "targetValue": "{{month}}/{{year}}"
+  },
+  {
+    "key": "league.genderLabels.male",
+    "enValue": "male",
+    "targetValue": "male"
+  },
+  {
+    "key": "league.genderLabels.female",
+    "enValue": "female",
+    "targetValue": "female"
+  },
+  {
+    "key": "clubCommunication.timeAgo.minutesAgo",
+    "enValue": "{count} minutes ago",
+    "targetValue": "{count} minutes ago"
+  },
+  {
+    "key": "clubCommunication.timeAgo.hoursAgo",
+    "enValue": "{count} hours ago",
+    "targetValue": "{count} hours ago"
+  },
+  {
+    "key": "policyEditScreen.rule",
+    "enValue": "Rule",
+    "targetValue": "Rule"
+  },
+  {
+    "key": "policyEditScreen.characters",
+    "enValue": "characters",
+    "targetValue": "characters"
+  },
+  {
+    "key": "policyEditScreen.modified",
+    "enValue": "Modified",
+    "targetValue": "Modified"
+  },
+  {
+    "key": "policyEditScreen.preview",
+    "enValue": "Preview",
+    "targetValue": "Preview"
+  },
+  {
+    "key": "findClubScreen.searching",
+    "enValue": "Searching for clubs...",
+    "targetValue": "Searching for clubs..."
+  },
+  {
+    "key": "findClubScreen.joinComplete",
+    "enValue": "Joined",
+    "targetValue": "Joined"
+  },
+  {
+    "key": "clubDetailScreen.reapply",
+    "enValue": "Reapply",
+    "targetValue": "Reapply"
+  },
+  {
+    "key": "matches.createModal.maxParticipants.placeholder",
+    "enValue": "4",
+    "targetValue": "4"
+  },
+  {
+    "key": "schedules.form.indoor",
+    "enValue": "Indoor",
+    "targetValue": "Indoor"
+  },
+  {
+    "key": "schedules.form.outdoor",
+    "enValue": "Outdoor",
+    "targetValue": "Outdoor"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.backhand",
+    "enValue": "Backhand",
+    "targetValue": "Backhand"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.forehand",
+    "enValue": "Forehand",
+    "targetValue": "Forehand"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.mental",
+    "enValue": "Mental",
+    "targetValue": "Mental"
+  },
+  {
+    "key": "findClub.searching",
+    "enValue": "Searching clubs...",
+    "targetValue": "Searching clubs..."
+  },
+  {
+    "key": "findClub.status.joined",
+    "enValue": "Joined",
+    "targetValue": "Joined"
+  },
+  {
+    "key": "modals.tournamentCompleted.runnerUp",
+    "enValue": "Runner-up",
+    "targetValue": "Runner-up"
+  },
+  {
+    "key": "modals.leagueCompleted.runnerUp",
+    "enValue": "Runner-up",
+    "targetValue": "Runner-up"
+  },
+  {
+    "key": "modals.leagueCompleted.points",
+    "enValue": "pts",
+    "targetValue": "pts"
+  },
+  {
+    "key": "modals.playoffCreated.final",
+    "enValue": "Final",
+    "targetValue": "Final"
+  },
+  {
+    "key": "feedCard.unknown",
+    "enValue": "Unknown",
+    "targetValue": "Unknown"
+  }
+]

@@ -1,0 +1,852 @@
+[
+  {
+    "key": "profileSettings.location.permission.undetermined",
+    "enValue": "Not determined",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.permission.checking",
+    "enValue": "Checking...",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.permission.grantedDescription",
+    "enValue": "Can find nearby clubs and matches",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.permission.deniedDescription",
+    "enValue": "Please enable location permission in Settings",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.permission.undeterminedDescription",
+    "enValue": "Please set location permission",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.permission.checkingDescription",
+    "enValue": "Checking permission status",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.alerts.permissionGrantedTitle",
+    "enValue": "Location Permission Granted",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.alerts.permissionGrantedMessage",
+    "enValue": "Location permission is already granted. You can find nearby clubs and matches.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.alerts.permissionTitle",
+    "enValue": "Location Permission",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.alerts.permissionMessage",
+    "enValue": "Location permission is needed to find nearby clubs and matches. Please enable it in Settings.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.alerts.errorTitle",
+    "enValue": "Error",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.alerts.errorMessage",
+    "enValue": "An error occurred while checking location permission.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.alerts.openSettings",
+    "enValue": "Open Settings",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.update.checkingPermission",
+    "enValue": "Checking location permission...",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.update.permissionRequiredTitle",
+    "enValue": "Location Permission Required",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.update.permissionRequiredMessage",
+    "enValue": "Location permission is needed to get your current location.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.update.gettingLocation",
+    "enValue": "Getting current location...",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.update.savingLocation",
+    "enValue": "Saving location...",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.update.gettingAddress",
+    "enValue": "Getting address information...",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.update.successTitle",
+    "enValue": "Success",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.update.successMessage",
+    "enValue": "Location updated: {{city}}",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.update.partialSuccessTitle",
+    "enValue": "Partial Success",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.update.partialSuccessMessage",
+    "enValue": "Location saved (no address information)",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.update.errorTitle",
+    "enValue": "Error",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.location.update.errorMessage",
+    "enValue": "An error occurred while updating location.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.theme.lightMode",
+    "enValue": "Light Mode",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.theme.darkMode",
+    "enValue": "Dark Mode",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.theme.followSystem",
+    "enValue": "Follow System",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.theme.settingsTitle",
+    "enValue": "Theme Settings",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.theme.settingsMessage",
+    "enValue": "Choose your preferred theme",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.theme.lightModeSubtitle",
+    "enValue": "Use light theme",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.theme.darkModeSubtitle",
+    "enValue": "Use dark theme",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.theme.followSystemSubtitle",
+    "enValue": "Automatic based on device settings",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.privacy.title",
+    "enValue": "Privacy Settings",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.privacy.message",
+    "enValue": "Navigate to privacy settings.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.privacy.comingSoonTitle",
+    "enValue": "Coming Soon",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "profileSettings.privacy.comingSoonMessage",
+    "enValue": "Privacy settings feature coming soon.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "eventCard.labels.participants",
+    "enValue": "{{current}}/{{max}}",
+    "targetValue": "{{current}}/{{max}}"
+  },
+  {
+    "key": "createEvent.header.editEvent",
+    "enValue": "Edit Event",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createEvent.header.createNew",
+    "enValue": "Create New",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createEvent.eventType.lightningMatch",
+    "enValue": "Lightning Match",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createEvent.eventType.lightningMeetup",
+    "enValue": "Lightning Meetup",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createEvent.eventType.meetup",
+    "enValue": "Meetup",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createEvent.eventType.doublesMatch",
+    "enValue": "Doubles Match",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createEvent.eventType.singlesMatch",
+    "enValue": "Singles Match",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createEvent.languages.korean",
+    "enValue": "한국어",
+    "targetValue": "한국어"
+  },
+  {
+    "key": "createEvent.languages.english",
+    "enValue": "English",
+    "targetValue": "English"
+  },
+  {
+    "key": "createEvent.languages.chinese",
+    "enValue": "中文",
+    "targetValue": "中文"
+  },
+  {
+    "key": "createEvent.languages.japanese",
+    "enValue": "日本語",
+    "targetValue": "日本語"
+  },
+  {
+    "key": "createEvent.languages.spanish",
+    "enValue": "Español",
+    "targetValue": "Español"
+  },
+  {
+    "key": "createEvent.languages.french",
+    "enValue": "Français",
+    "targetValue": "Français"
+  },
+  {
+    "key": "hostedEventCard.status.inProgress",
+    "enValue": "In Progress",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "hostedEventCard.status.partnerPending",
+    "enValue": "Partner Pending",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "hostedEventCard.status.recruiting",
+    "enValue": "Recruiting",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "hostedEventCard.status.full",
+    "enValue": "Full",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.actions.share",
+    "enValue": "Share",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.actions.change",
+    "enValue": "Change",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.actions.viewAttachment",
+    "enValue": "View Attachment",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.actions.processPayment",
+    "enValue": "Process Payment",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.actions.markAsPaid",
+    "enValue": "Mark as Paid",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.settings.title",
+    "enValue": "Dues Settings",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.settings.paymentMethods",
+    "enValue": "Payment Methods",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.settings.autoInvoice",
+    "enValue": "Auto Invoice",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.settings.autoInvoiceDesc",
+    "enValue": "Automatically send monthly invoices",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.settings.daysLabel",
+    "enValue": "days",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.settings.dayOfMonth",
+    "enValue": "Day of month",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.settings.addPaymentMethod",
+    "enValue": "Add Payment Method",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.settings.qrCode",
+    "enValue": "QR Code",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.settings.bank",
+    "enValue": "Bank",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.settings.venmo",
+    "enValue": "Venmo",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.settings.none",
+    "enValue": "None",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overview.title",
+    "enValue": "Overview",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overview.totalMembers",
+    "enValue": "Total Members",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overview.totalOwed",
+    "enValue": "Total Owed",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overview.totalPaid",
+    "enValue": "Total Paid",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overview.collectionRate",
+    "enValue": "Collection Rate",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overview.pendingApproval",
+    "enValue": "Pending Approval",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overview.memberDuesStatus",
+    "enValue": "Member Dues Status",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overview.autoInvoiceLabel",
+    "enValue": "Auto Invoice",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overview.noRecordsYet",
+    "enValue": "No dues records yet",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overview.clickAutoInvoice",
+    "enValue": "Click 'Auto Invoice' above to automatically send monthly invoices to all members.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overdue.membersWithOverdue",
+    "enValue": "Members with Overdue Dues",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overdue.amountDue",
+    "enValue": "Amount Due",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "duesManagement.overdue.sendReminder",
+    "enValue": "Send Reminder",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createMeetup.location.homeCourt",
+    "enValue": "🏠 Home Court",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createMeetup.location.otherCourt",
+    "enValue": "🗺️ Other Court",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createMeetup.location.clubHomeCourt",
+    "enValue": "Club Home Court",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createMeetup.location.changeInSettings",
+    "enValue": "Can be changed in club settings",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createMeetup.location.courtLocation",
+    "enValue": "Court Location",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createMeetup.location.searchTennisCourt",
+    "enValue": "Search Tennis Court",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "createMeetup.location.searchHelper",
+    "enValue": "Tap to search for a tennis court.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "clubDuesManagement.status.summary",
+    "enValue": "Payment Summary",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "clubDuesManagement.status.totalMembers",
+    "enValue": "Total Members",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "clubDuesManagement.status.paid",
+    "enValue": "Paid",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "clubDuesManagement.status.unpaid",
+    "enValue": "Unpaid",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "clubDuesManagement.status.overdue",
+    "enValue": "Overdue",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "clubDuesManagement.status.collectionRate",
+    "enValue": "Collection Rate",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "clubDuesManagement.status.memberPaymentStatus",
+    "enValue": "Member Payment Status",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "clubDuesManagement.status.autoInvoice",
+    "enValue": "Auto Invoice",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "clubDuesManagement.status.noMembers",
+    "enValue": "No members found",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "eventParticipation.header.title",
+    "enValue": "Event Participation",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "eventParticipation.participants.list",
+    "enValue": "Participants",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "eventParticipation.participants.waitingList",
+    "enValue": "Waiting List",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "lessonCard.currencySuffix",
+    "enValue": "",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "tournamentDetail.participantsSuffix",
+    "enValue": "",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "hallOfFame.honorBadges.receivedCount",
+    "enValue": "×{{count}}",
+    "targetValue": "×{{count}}"
+  },
+  {
+    "key": "matchRequest.message.title",
+    "enValue": "Message (Optional)",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "matchRequest.message.label",
+    "enValue": "Match Request Message",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "matchRequest.message.placeholder",
+    "enValue": "Write a greeting or your expectations for the match",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "leagueDetail.standings.rank",
+    "enValue": "Rank",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "leagueDetail.standings.player",
+    "enValue": "Player",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "leagueDetail.standings.matches",
+    "enValue": "Matches",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "leagueDetail.standings.wins",
+    "enValue": "Wins",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "leagueDetail.standings.losses",
+    "enValue": "Losses",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "leagueDetail.standings.points",
+    "enValue": "Points",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "leagueDetail.standings.playoffTitle",
+    "enValue": "Playoff Standings",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "leagueDetail.standings.thirdPlace",
+    "enValue": "3rd Place",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "leagueDetail.standings.fourthPlace",
+    "enValue": "4th Place",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.matchStatus.disputed",
+    "enValue": "Disputed",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.matchFormats.singles",
+    "enValue": "Singles",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.matchFormats.doubles",
+    "enValue": "Doubles",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.minOneSet",
+    "enValue": "At least one set must be entered.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.gamesNonNegative",
+    "enValue": "Set {{setNum}}: Games must be 0 or greater.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.gamesExceedMax",
+    "enValue": "Set {{setNum}}: Games cannot exceed {{maxGames}}.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.gamesExceedMaxShort",
+    "enValue": "Set {{setNum}}: In short sets, games cannot exceed {{maxGames}} (max {{gamesPerSet}}-{{minWin}} or {{maxAllowed}}-{{gamesPerSet1}}).",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.tiebreakRequired",
+    "enValue": "Set {{setNum}}: In {{setType}}, tiebreak points are required when score is {{score}}-{{score}}.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.tiebreakMargin",
+    "enValue": "Set {{setNum}}: {{tiebreakType}} must end with a 2-point margin (e.g., 7-5, 8-6, 10-8).",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.tiebreakMinPoints",
+    "enValue": "Set {{setNum}}: {{tiebreakType}} must reach at least {{minPoints}} points (e.g., {{minPoints}}-{{minPoints2}}, {{minPoints1}}-{{minPoints3}}).",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.incompleteSet",
+    "enValue": "Set {{setNum}}: In {{setType}}, set ended with less than {{gamesPerSet}} games. Please verify if this was a retirement or special situation.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.invalidWinScore",
+    "enValue": "Set {{setNum}}: To win with {{gamesPerSet}} games, opponent can have maximum {{maxOppGames}} games.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.invalidWinScoreShort",
+    "enValue": "Set {{setNum}}: In short sets, {{gamesPerSet}}-{{minGames}} is impossible. To win with {{gamesPerSet}} games, opponent can have maximum {{maxOppGames}} games.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.invalidMaxGamesScore",
+    "enValue": "Set {{setNum}}: To win with {{maxGames}} games, opponent must have {{gamesPerSet1}} or {{gamesPerSet}} games.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.invalidMaxGamesScoreShort",
+    "enValue": "Set {{setNum}}: In short sets, {{maxGames}}-{{minGames}} is impossible. Set ends at {{gamesPerSet}}-{{minGames}}.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.regularSet",
+    "enValue": "regular set",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.shortSet",
+    "enValue": "short set",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.tiebreak",
+    "enValue": "tiebreak",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.match.validation.superTiebreak",
+    "enValue": "super tiebreak",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.tournament.validation.singlesNoPartner",
+    "enValue": "Singles tournaments do not require a partner.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.tournament.validation.mensSinglesMaleOnly",
+    "enValue": "Men's singles is only for male players.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.tournament.validation.womensSinglesFemaleOnly",
+    "enValue": "Women's singles is only for female players.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.tournament.validation.doublesPartnerRequired",
+    "enValue": "Doubles tournaments require a partner.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.tournament.validation.mensDoublesMaleOnly",
+    "enValue": "Men's doubles is only for male players.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.tournament.validation.womensDoublesFemaleOnly",
+    "enValue": "Women's doubles is only for female players.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.tournament.validation.mixedDoublesRequirement",
+    "enValue": "Mixed doubles requires one male and one female player.",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.tournament.eventTypes.mens_singles",
+    "enValue": "Men's Singles",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.tournament.eventTypes.womens_singles",
+    "enValue": "Women's Singles",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.tournament.eventTypes.mens_doubles",
+    "enValue": "Men's Doubles",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.tournament.eventTypes.womens_doubles",
+    "enValue": "Women's Doubles",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "types.tournament.eventTypes.mixed_doubles",
+    "enValue": "Mixed Doubles",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "matches.header.title",
+    "enValue": "🎾 Matches & Events",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "matches.header.notificationSettings",
+    "enValue": "Notification Settings",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "matches.header.currentNotificationDistance",
+    "enValue": "Current notification distance: {{distance}} miles",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "matches.createModal.maxParticipants.placeholder",
+    "enValue": "4",
+    "targetValue": "4"
+  },
+  {
+    "key": "performanceDashboard.stats.winRate",
+    "enValue": "Win Rate",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "performanceDashboard.stats.matchQuality",
+    "enValue": "Match Quality",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "performanceDashboard.stats.playingFrequency",
+    "enValue": "Playing Frequency",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "performanceDashboard.stats.totalMatches",
+    "enValue": "Total Matches",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "performanceDashboard.stats.averageSatisfaction",
+    "enValue": "Average Satisfaction",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "performanceDashboard.stats.matchesPerWeek",
+    "enValue": "Matches per Week",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "performanceDashboard.stats.periodRecord",
+    "enValue": "{{period}} Record",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "performanceDashboard.stats.winsLosses",
+    "enValue": "{{wins}}W {{losses}}L",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "performanceDashboard.charts.skillProgress.title",
+    "enValue": "Skill Level Progress",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "performanceDashboard.charts.skillProgress.subtitle",
+    "enValue": "Based on last 10 matches",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "aiMatching.analyzing.title",
+    "enValue": "AI Matching Analysis",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "aiMatching.analyzing.steps.profile",
+    "enValue": "Analyzing profile...",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "aiMatching.analyzing.steps.skillLevel",
+    "enValue": "Matching skill level...",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "aiMatching.analyzing.steps.location",
+    "enValue": "Searching by location...",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "aiMatching.analyzing.steps.schedule",
+    "enValue": "Checking schedule compatibility...",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "aiMatching.analyzing.steps.selection",
+    "enValue": "Selecting optimal matches...",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "aiMatching.analyzing.tip",
+    "enValue": "💡 AI is analyzing your skill level, location, and schedule\nto find the best matching partners",
+    "targetValue": "[MISSING]"
+  }
+]

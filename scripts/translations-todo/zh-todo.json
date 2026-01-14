@@ -1,0 +1,295 @@
+{
+  "profileSettings": {
+    "location": {
+      "permission": {
+        "undetermined": "Not determined",
+        "checking": "Checking...",
+        "grantedDescription": "Can find nearby clubs and matches",
+        "deniedDescription": "Please enable location permission in Settings",
+        "undeterminedDescription": "Please set location permission",
+        "checkingDescription": "Checking permission status"
+      },
+      "alerts": {
+        "permissionGrantedTitle": "Location Permission Granted",
+        "permissionGrantedMessage": "Location permission is already granted. You can find nearby clubs and matches.",
+        "permissionTitle": "Location Permission",
+        "permissionMessage": "Location permission is needed to find nearby clubs and matches. Please enable it in Settings.",
+        "errorMessage": "An error occurred while checking location permission.",
+        "openSettings": "Open Settings"
+      },
+      "update": {
+        "checkingPermission": "Checking location permission...",
+        "permissionRequiredTitle": "Location Permission Required",
+        "permissionRequiredMessage": "Location permission is needed to get your current location.",
+        "gettingLocation": "Getting current location...",
+        "savingLocation": "Saving location...",
+        "gettingAddress": "Getting address information...",
+        "successMessage": "Location updated: {{city}}",
+        "partialSuccessTitle": "Partial Success",
+        "partialSuccessMessage": "Location saved (no address information)",
+        "errorMessage": "An error occurred while updating location."
+      }
+    },
+    "theme": {
+      "lightMode": "Light Mode",
+      "darkMode": "Dark Mode",
+      "followSystem": "Follow System",
+      "settingsTitle": "Theme Settings",
+      "settingsMessage": "Choose your preferred theme",
+      "lightModeSubtitle": "Use light theme",
+      "darkModeSubtitle": "Use dark theme",
+      "followSystemSubtitle": "Automatic based on device settings"
+    },
+    "privacy": {
+      "title": "Privacy Settings",
+      "message": "Navigate to privacy settings.",
+      "comingSoonTitle": "Coming Soon",
+      "comingSoonMessage": "Privacy settings feature coming soon."
+    }
+  },
+  "eventCard": {
+    "labels": {
+      "participants": "{{current}}/{{max}}"
+    }
+  },
+  "createEvent": {
+    "header": {
+      "editEvent": "Edit Event",
+      "createNew": "Create New"
+    },
+    "eventType": {
+      "lightningMatch": "Lightning Match",
+      "lightningMeetup": "Lightning Meetup",
+      "match": "Match",
+      "meetup": "Meetup",
+      "doublesMatch": "Doubles Match",
+      "singlesMatch": "Singles Match"
+    },
+    "languages": {
+      "korean": "한국어",
+      "english": "English",
+      "chinese": "中文",
+      "japanese": "日本語",
+      "spanish": "Español",
+      "french": "Français"
+    }
+  },
+  "hostedEventCard": {
+    "status": {
+      "inProgress": "In Progress",
+      "partnerPending": "Partner Pending",
+      "recruiting": "Recruiting",
+      "full": "Full"
+    }
+  },
+  "duesManagement": {
+    "actions": {
+      "change": "Change",
+      "viewAttachment": "View Attachment",
+      "processPayment": "Process Payment",
+      "markAsPaid": "Mark as Paid"
+    },
+    "settings": {
+      "title": "Dues Settings",
+      "paymentMethods": "Payment Methods",
+      "autoInvoice": "Auto Invoice",
+      "autoInvoiceDesc": "Automatically send monthly invoices",
+      "daysLabel": "days",
+      "dayOfMonth": "Day of month",
+      "addPaymentMethod": "Add Payment Method",
+      "qrCode": "QR Code",
+      "bank": "Bank",
+      "venmo": "Venmo"
+    },
+    "overview": {
+      "title": "Overview",
+      "totalMembers": "Total Members",
+      "totalOwed": "Total Owed",
+      "totalPaid": "Total Paid",
+      "collectionRate": "Collection Rate",
+      "pendingApproval": "Pending Approval",
+      "memberDuesStatus": "Member Dues Status",
+      "autoInvoiceLabel": "Auto Invoice",
+      "noRecordsYet": "No dues records yet",
+      "clickAutoInvoice": "Click 'Auto Invoice' above to automatically send monthly invoices to all members."
+    },
+    "overdue": {
+      "membersWithOverdue": "Members with Overdue Dues",
+      "amountDue": "Amount Due",
+      "sendReminder": "Send Reminder"
+    }
+  },
+  "createMeetup": {
+    "location": {
+      "homeCourt": "🏠 Home Court",
+      "otherCourt": "🗺️ Other Court",
+      "clubHomeCourt": "Club Home Court",
+      "changeInSettings": "Can be changed in club settings",
+      "courtLocation": "Court Location",
+      "searchTennisCourt": "Search Tennis Court",
+      "searchHelper": "Tap to search for a tennis court."
+    }
+  },
+  "clubDuesManagement": {
+    "status": {
+      "summary": "Payment Summary",
+      "totalMembers": "Total Members",
+      "paid": "Paid",
+      "unpaid": "Unpaid",
+      "overdue": "Overdue",
+      "collectionRate": "Collection Rate",
+      "memberPaymentStatus": "Member Payment Status",
+      "autoInvoice": "Auto Invoice",
+      "noMembers": "No members found"
+    }
+  },
+  "eventParticipation": {
+    "header": {
+      "title": "Event Participation"
+    },
+    "participants": {
+      "list": "Participants",
+      "waitingList": "Waiting List"
+    }
+  },
+  "lessonCard": {
+    "currencySuffix": ""
+  },
+  "tournamentDetail": {
+    "participantsSuffix": ""
+  },
+  "hallOfFame": {
+    "honorBadges": {
+      "receivedCount": "×{{count}}"
+    }
+  },
+  "matchRequest": {
+    "message": {
+      "title": "Message (Optional)",
+      "label": "Match Request Message",
+      "placeholder": "Write a greeting or your expectations for the match"
+    }
+  },
+  "leagueDetail": {
+    "standings": {
+      "rank": "Rank",
+      "player": "Player",
+      "wins": "Wins",
+      "losses": "Losses",
+      "points": "Points",
+      "playoffTitle": "Playoff Standings",
+      "thirdPlace": "3rd Place",
+      "fourthPlace": "4th Place"
+    }
+  },
+  "types": {
+    "match": {
+      "matchStatus": {
+        "disputed": "Disputed"
+      },
+      "matchFormats": {
+        "singles": "Singles",
+        "doubles": "Doubles"
+      },
+      "validation": {
+        "minOneSet": "At least one set must be entered.",
+        "gamesNonNegative": "Set {{setNum}}: Games must be 0 or greater.",
+        "gamesExceedMax": "Set {{setNum}}: Games cannot exceed {{maxGames}}.",
+        "gamesExceedMaxShort": "Set {{setNum}}: In short sets, games cannot exceed {{maxGames}} (max {{gamesPerSet}}-{{minWin}} or {{maxAllowed}}-{{gamesPerSet1}}).",
+        "tiebreakRequired": "Set {{setNum}}: In {{setType}}, tiebreak points are required when score is {{score}}-{{score}}.",
+        "tiebreakMargin": "Set {{setNum}}: {{tiebreakType}} must end with a 2-point margin (e.g., 7-5, 8-6, 10-8).",
+        "tiebreakMinPoints": "Set {{setNum}}: {{tiebreakType}} must reach at least {{minPoints}} points (e.g., {{minPoints}}-{{minPoints2}}, {{minPoints1}}-{{minPoints3}}).",
+        "incompleteSet": "Set {{setNum}}: In {{setType}}, set ended with less than {{gamesPerSet}} games. Please verify if this was a retirement or special situation.",
+        "invalidWinScore": "Set {{setNum}}: To win with {{gamesPerSet}} games, opponent can have maximum {{maxOppGames}} games.",
+        "invalidWinScoreShort": "Set {{setNum}}: In short sets, {{gamesPerSet}}-{{minGames}} is impossible. To win with {{gamesPerSet}} games, opponent can have maximum {{maxOppGames}} games.",
+        "invalidMaxGamesScore": "Set {{setNum}}: To win with {{maxGames}} games, opponent must have {{gamesPerSet1}} or {{gamesPerSet}} games.",
+        "invalidMaxGamesScoreShort": "Set {{setNum}}: In short sets, {{maxGames}}-{{minGames}} is impossible. Set ends at {{gamesPerSet}}-{{minGames}}.",
+        "regularSet": "regular set",
+        "shortSet": "short set",
+        "tiebreak": "tiebreak",
+        "superTiebreak": "super tiebreak"
+      }
+    },
+    "tournament": {
+      "validation": {
+        "singlesNoPartner": "Singles tournaments do not require a partner.",
+        "mensSinglesMaleOnly": "Men's singles is only for male players.",
+        "womensSinglesFemaleOnly": "Women's singles is only for female players.",
+        "doublesPartnerRequired": "Doubles tournaments require a partner.",
+        "mensDoublesMaleOnly": "Men's doubles is only for male players.",
+        "womensDoublesFemaleOnly": "Women's doubles is only for female players.",
+        "mixedDoublesRequirement": "Mixed doubles requires one male and one female player."
+      },
+      "eventTypes": {
+        "mens_singles": "Men's Singles",
+        "womens_singles": "Women's Singles",
+        "mens_doubles": "Men's Doubles",
+        "womens_doubles": "Women's Doubles",
+        "mixed_doubles": "Mixed Doubles"
+      }
+    }
+  },
+  "matches": {
+    "header": {
+      "title": "🎾 Matches & Events",
+      "notificationSettings": "Notification Settings",
+      "currentNotificationDistance": "Current notification distance: {{distance}} miles"
+    },
+    "skillLevels": {
+      "2": {
+        "0-3": {
+          "0": "2.0-3.0"
+        }
+      },
+      "3": {
+        "0-4": {
+          "0": "3.0-4.0"
+        }
+      },
+      "4": {
+        "0-5": {
+          "0": "4.0-5.0"
+        }
+      },
+      "5": {
+        "0+": "5.0+"
+      }
+    },
+    "createModal": {
+      "maxParticipants": {
+        "placeholder": "4"
+      }
+    }
+  },
+  "performanceDashboard": {
+    "stats": {
+      "winRate": "Win Rate",
+      "matchQuality": "Match Quality",
+      "playingFrequency": "Playing Frequency",
+      "totalMatches": "Total Matches",
+      "averageSatisfaction": "Average Satisfaction",
+      "matchesPerWeek": "Matches per Week",
+      "periodRecord": "{{period}} Record",
+      "winsLosses": "{{wins}}W {{losses}}L"
+    },
+    "charts": {
+      "skillProgress": {
+        "title": "Skill Level Progress",
+        "subtitle": "Based on last 10 matches"
+      }
+    }
+  },
+  "aiMatching": {
+    "analyzing": {
+      "title": "AI Matching Analysis",
+      "steps": {
+        "profile": "Analyzing profile...",
+        "skillLevel": "Matching skill level...",
+        "location": "Searching by location...",
+        "schedule": "Checking schedule compatibility...",
+        "selection": "Selecting optimal matches..."
+      },
+      "tip": "💡 AI is analyzing your skill level, location, and schedule\nto find the best matching partners"
+    }
+  }
+}

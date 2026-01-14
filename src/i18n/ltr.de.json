@@ -1,0 +1,26 @@
+{
+  "ntrp": {
+    "withRange": {
+      "beginner": "Anfänger (1.0–2.5)",
+      "intermediate": "Mittelstufe (3.0–3.5)",
+      "advanced": "Fortgeschritten (4.0–4.5)",
+      "expert": "Experte (5.0+)"
+    },
+    "range": {
+      "r1": "1.0–2.5",
+      "r2": "3.0–3.5",
+      "r3": "4.0–4.5",
+      "r4": "5.0+"
+    },
+    "label": {
+      "entry": "Einsteiger",
+      "beginner": "Anfänger",
+      "adv_beginner": "Fort. Anfänger",
+      "intermediate": "Mittelstufe",
+      "adv_intermediate": "Fort. Mittelstufe",
+      "advanced": "Fortgeschritten",
+      "expert": "Experte",
+      "pro": "Profi"
+    }
+  }
+}

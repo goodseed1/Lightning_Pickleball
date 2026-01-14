@@ -1,0 +1,10 @@
+src/screens/MyClubsScreen.tsx
+src/navigation/AppNavigator.tsx
+src/i18n/index.ts
+App.tsx
+src/contexts/LanguageContext.tsx
+src/contexts/AuthContext.tsx
+src/contexts/LocationContext.tsx
+.env
+.env.template
+.env.example

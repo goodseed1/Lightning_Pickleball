@@ -1,0 +1,392 @@
+{
+  "services": {
+    "ranking": {
+      "userNotFound": "Utilisateur introuvable.",
+      "invalidRankingData": "Données de classement non valides.",
+      "rankingInfoFailed": "Échec de la récupération des informations de classement de l'utilisateur"
+    },
+    "map": {
+      "cannotOpenApp": "Impossible d'ouvrir {{appName}}.",
+      "appNotInstalled": "{{appName}} non installé",
+      "installPrompt": "{{appName}} n'est pas installé. Souhaitez-vous l'installer depuis l'App Store ?",
+      "install": "Installer"
+    },
+    "clubComms": {
+      "permissionDenied": "Permission refusée",
+      "commentNotFound": "Commentaire introuvable"
+    },
+    "matching": {
+      "perfectMatchTitle": "Match parfait trouvé ! 🎾",
+      "newRequestTitle": "Nouvelle demande de match 📨",
+      "perfectMatchBody": "Vous avez un taux de compatibilité de {{score}}% avec {{name}}.",
+      "newRequestBody": "{{senderName}} vous a envoyé une demande de match de tennis."
+    },
+    "event": {
+      "untitled": "Sans titre",
+      "eventsFound": "{{count}} matchs trouvés !",
+      "searchError": "Une erreur s'est produite pendant la recherche.",
+      "locationTbd": "Lieu à déterminer",
+      "host": "Hôte",
+      "matchesFoundMessage": "🎾 {{count}} matchs trouvés !",
+      "playerCount": "   👥 {{current}}/{{max}} joueurs"
+    },
+    "match": {
+      "participantNotFound": "Informations du participant introuvables.",
+      "invalidEventType": "Le type d'événement {{eventType}} doit utiliser le format {{expectedFormat}}.",
+      "matchNotFound": "Match introuvable.",
+      "onlyParticipantCanSubmit": "Seuls les participants peuvent soumettre les scores.",
+      "noPermissionToConfirm": "Vous n'avez pas la permission de confirmer ce score.",
+      "notDisputed": "Ce match n'est pas en statut contesté."
+    },
+    "activity": {
+      "onlyInvitedUser": "Seuls les utilisateurs invités peuvent répondre",
+      "eventNotFound": "Événement introuvable",
+      "alreadyProcessed": "L'invitation a déjà été traitée",
+      "inviteResponseFailed": "Échec de la réponse à l'invitation. Veuillez réessayer.",
+      "notifications": {
+        "defaultTitle": "Notification",
+        "applicationSubmittedMessage": "{{applicantName}} a demandé à rejoindre \"{{eventTitle}}\".",
+        "playoffsQualifiedMessage": "Félicitations ! Vous êtes qualifié pour les play-offs de \"{{leagueName}}\" !",
+        "defaultMessage": "Vous avez une nouvelle mise à jour d'activité."
+      },
+      "tennisUserFallback": "JoueurTennis{{id}}"
+    },
+    "camera": {
+      "simulatorError": "Un problème est survenu lors de l'accès à la galerie sur le simulateur iOS. Veuillez tester sur un appareil réel.",
+      "galleryPickError": "Une erreur s'est produite lors de la sélection de la photo dans la galerie.",
+      "selectPhotoMessage": "Comment souhaitez-vous sélectionner une photo ?",
+      "camera": "Appareil photo",
+      "gallery": "Galerie",
+      "gallerySaveNotice": "La fonction d'enregistrement dans la galerie est disponible dans la version App Store.",
+      "fileSizeError": "Taille de fichier dépassée",
+      "fileSizeMessage": "Veuillez sélectionner une image de moins de 5 Mo."
+    },
+    "location": {
+      "permissionMessage": "L'autorisation de localisation est nécessaire pour trouver des joueurs à proximité. Veuillez autoriser dans les paramètres.",
+      "later": "Plus tard",
+      "backgroundPermissionTitle": "Autorisation de localisation en arrière-plan",
+      "backgroundPermissionMessage": "L'autorisation de localisation en arrière-plan est nécessaire pour les fonctionnalités telles que les notifications de match.",
+      "serviceDisabledTitle": "Services de localisation désactivés",
+      "serviceDisabledMessage": "Les services de localisation sont désactivés. Veuillez les activer dans les paramètres."
+    },
+    "feed": {
+      "feedNotFound": "Élément du fil introuvable",
+      "deletePermissionDenied": "Vous n'avez pas la permission de supprimer",
+      "reportTitle": "[Signalement de fil] {{contentSummary}}"
+    },
+    "notification": {
+      "matchReminder": "🎾 Rappel de match",
+      "partnerInvite": "🎾 Invitation de partenaire",
+      "newClubEvent": "🏟️ Nouvel événement de club : {{title}}",
+      "newLightningMatch": "⚡ Nouveau match éclair : {{title}}",
+      "matchDetails": "📍 {{location}}\n⏰ {{time}}",
+      "matchReminderBody": "Le match \"{{title}}\" commence dans {{minutes}} minutes !",
+      "partnerInviteBody": "{{inviterName}} vous a invité comme partenaire pour le match en double \"{{eventTitle}}\" !"
+    },
+    "tournament": {
+      "participantNotFound": "Participant introuvable.",
+      "notFound": "Tournoi introuvable.",
+      "minParticipantsRequired": "Nombre minimum de participants non atteint. (Actuel : {{current}}, Requis : {{required}})",
+      "partnerConfirmationRequired": "{{count}} équipe(s) nécessite(nt) une confirmation de partenaire.",
+      "participantCountMismatch": "Le nombre de participants doit être {{required}} ou utiliser des byes pour ce format de tournoi.",
+      "validationError": "Une erreur s'est produite pendant la validation."
+    },
+    "performanceAnalytics": {
+      "insights": {
+        "highWinRate": {
+          "title": "Maintien d'un taux de victoire élevé",
+          "description": "Vous atteignez actuellement un excellent taux de victoire de {{winRate}}%.",
+          "recommendations": {
+            "maintain": "Maintenez votre style de jeu actuel",
+            "challenge": "Essayez de jouer contre des adversaires de niveau supérieur"
+          }
+        },
+        "lowFrequency": {
+          "title": "Besoin d'augmenter la fréquence de jeu",
+          "description": "Avec une moyenne de {{frequency}} parties par semaine, jouer plus fréquemment peut vous aider à améliorer vos compétences.",
+          "recommendations": {
+            "schedule": "Établissez un calendrier d'entraînement régulier",
+            "setGoal": "Fixez des objectifs de jeu hebdomadaires"
+          }
+        },
+        "bestTimeSlot": {
+          "title": "Meilleur créneau horaire",
+          "description": "Votre meilleure performance est pendant les créneaux de {{timeSlot}}.",
+          "recommendations": {
+            "increase": "Planifiez plus de matchs pendant ce créneau",
+            "analyze": "Analysez ce qui rend ce créneau efficace pour vous"
+          }
+        }
+      },
+      "monthlyReport": {
+        "highlights": {
+          "matchesCompleted": "Matchs terminés",
+          "winRateAchieved": "Taux de victoire atteint",
+          "bestStreak": "Meilleure série de victoires"
+        },
+        "improvements": {
+          "serveSpeed": "Vitesse de service",
+          "backhandStability": "Stabilité du revers",
+          "netPlay": "Jeu au filet"
+        },
+        "nextMonthGoals": {
+          "winRateTarget": "Objectif de taux de victoire",
+          "practiceFrequency": "Objectif de fréquence d'entraînement",
+          "newPartner": "Jouer avec de nouveaux partenaires"
+        }
+      }
+    },
+    "leaderboard": {
+      "challenges": {
+        "weeklyMatches": {
+          "title": "Défi de matchs hebdomadaires",
+          "description": "Terminez 5 matchs cette semaine",
+          "reward": "100 points + badge \"Guerrier hebdomadaire\""
+        },
+        "winStreak": {
+          "title": "Défi de série de victoires",
+          "description": "Obtenez 3 victoires consécutives",
+          "reward": "200 points + badge \"Attaquant\""
+        },
+        "monthlyImprovement": {
+          "title": "Amélioration mensuelle",
+          "description": "Améliorez votre niveau de compétence de 5 points",
+          "reward": "500 points + badge \"Roi de l'amélioration\""
+        },
+        "socialPlayer": {
+          "title": "Joueur social",
+          "description": "Affrontez 10 nouveaux adversaires",
+          "reward": "300 points + badge \"Papillon social\""
+        }
+      },
+      "achievements": {
+        "firstWin": {
+          "name": "Première victoire",
+          "description": "Gagnez votre premier match"
+        },
+        "winStreak3": {
+          "name": "Série de 3 victoires",
+          "description": "Gagnez 3 matchs d'affilée"
+        },
+        "winStreak5": {
+          "name": "Série de 5 victoires",
+          "description": "Gagnez 5 matchs d'affilée"
+        },
+        "totalWins10": {
+          "name": "Collectionneur de victoires",
+          "description": "Obtenez 10 victoires au total"
+        },
+        "totalWins50": {
+          "name": "Maître des victoires",
+          "description": "Obtenez 50 victoires au total"
+        },
+        "matchesPlayed10": {
+          "name": "Acquisition d'expérience",
+          "description": "Terminez 10 matchs au total"
+        },
+        "matchesPlayed100": {
+          "name": "Joueur vétéran",
+          "description": "Terminez 100 matchs au total"
+        },
+        "skillLevel70": {
+          "name": "Joueur compétent",
+          "description": "Atteignez le niveau de compétence 70"
+        },
+        "skillLevel85": {
+          "name": "Expert",
+          "description": "Atteignez le niveau de compétence 85"
+        },
+        "socialPlayer": {
+          "name": "Joueur social",
+          "description": "Affrontez 20 joueurs différents"
+        },
+        "monthlyActive": {
+          "name": "Joueur actif du mois",
+          "description": "Jouez 15 matchs ou plus en un mois"
+        },
+        "earlyBird": {
+          "name": "Lève-tôt",
+          "description": "Terminez 10 matchs avant 10h"
+        },
+        "nightOwl": {
+          "name": "Oiseau de nuit",
+          "description": "Terminez 10 matchs après 20h"
+        }
+      },
+      "categories": {
+        "overall": {
+          "name": "Classement général",
+          "description": "Classement basé sur la performance globale"
+        },
+        "skillLevel": {
+          "name": "Classement par niveau de compétence",
+          "description": "Classement basé sur le niveau de compétence"
+        },
+        "winRate": {
+          "name": "Classement par taux de victoire",
+          "description": "Classement basé sur le taux de victoire"
+        },
+        "monthlyActive": {
+          "name": "Classement des actifs mensuels",
+          "description": "Classement basé sur l'activité de matchs mensuelle"
+        },
+        "improvement": {
+          "name": "Classement d'amélioration",
+          "description": "Classement basé sur le taux d'amélioration des compétences"
+        }
+      }
+    }
+  },
+  "createEvent": {
+    "fields": {
+      "description": "Description",
+      "anyLevel": "Tous niveaux",
+      "levelNotSet": "Niveau non défini"
+    },
+    "placeholders": {
+      "titleMatch": "ex. Match de simple en soirée",
+      "titleMeetup": "ex. Rallye amusant du week-end"
+    },
+    "gameTypeOptions": {
+      "rally": "Rallye/Entraînement"
+    },
+    "skillLevelOptions": {
+      "anyLevel": "Tous niveaux",
+      "anyLevelDesc": "Tous les niveaux sont les bienvenus"
+    },
+    "skillDescriptions": {
+      "beginner": "Débutant - Nouveau au tennis ou apprentissage des coups de base",
+      "elementary": "Élémentaire - Peut frapper les coups de base, comprend les bases du double",
+      "intermediate": "Intermédiaire - Coups cohérents, jeu stratégique",
+      "advanced": "Avancé - Expérience de tournoi, compétences avancées"
+    },
+    "warnings": {
+      "matchLevelRestriction": "Les matchs éclair n'autorisent que les niveaux égaux ou supérieurs au niveau de l'hôte"
+    },
+    "autoNtrp": {
+      "hostLevel": "LTR hôte : {{level}} ({{gameType}})",
+      "partnerLevel": "LTR partenaire : {{level}} ({{gameType}})",
+      "combinedLevel": "LTR combiné : {{level}}",
+      "hostLevelWithType": "LTR hôte : {{level}} ({{type}})",
+      "partnerLevelWithType": "LTR partenaire : {{level}} ({{type}})"
+    },
+    "helperText": {
+      "languageSelection": "Sélectionnez les langues dans lesquelles vous pouvez communiquer pour une meilleure expérience de match.",
+      "matchLevelAuto": "Le niveau du match est calculé automatiquement en fonction de {{type}}.",
+      "doublesMatchLevel": "* Le niveau du match en double est automatiquement défini à partir de la somme des LTR de l'hôte et du partenaire.",
+      "singlesMatchLevel": "* Le niveau du match en simple est automatiquement défini à partir du LTR de l'hôte. (tolérance ±0,5)"
+    },
+    "toggleDescriptions": {
+      "autoApproval": "Lorsque activé, les participants sont auto-approuvés selon le principe du premier arrivé, premier servi jusqu'à la capacité. Lorsque désactivé, l'hôte doit approuver manuellement chaque participant.",
+      "autoApprovalDetailed": "Lorsque activé, les demandes sont auto-approuvées selon le principe du premier arrivé, premier servi jusqu'à ce que ce soit complet. Lorsque désactivé, l'hôte doit approuver manuellement chaque demande."
+    },
+    "sms": {
+      "description": "Envoyez des invitations et un lien de téléchargement de l'application à des amis qui n'ont pas installé l'application",
+      "descriptionDetailed": "Envoyez des invitations et des liens de téléchargement de l'application à des amis sans l'application",
+      "invitationMessage": "[Lightning Tennis] {{sender}} vous a invité à \"{{eventTitle}}\" ! Téléchargez l'application : {{link}}",
+      "defaultSender": "Un ami",
+      "numbersToInvite": "Numéros à inviter :"
+    },
+    "infoText": {
+      "inviteFriends": "Invitez des utilisateurs de l'application ou des amis par SMS à votre {{type}}.",
+      "eventTypeNotice": "Avis d'événement {{type}}",
+      "matchInfo": "Les matchs classés sont enregistrés officiellement et ne peuvent pas être annulés.",
+      "meetupInfo": "Les rencontres peuvent être modifiées ou annulées à tout moment."
+    },
+    "modals": {
+      "selectLanguages": "Sélectionner les langues",
+      "selectDateTime": "Sélectionner la date et l'heure",
+      "selectPartner": "Sélectionner un partenaire",
+      "smsInvitation": "Invitation SMS"
+    },
+    "search": {
+      "searchByName": "Rechercher par nom",
+      "searchingUsers": "Recherche d'utilisateurs...",
+      "loadUsers": "Charger les utilisateurs",
+      "searchPrompt": "Veuillez rechercher des utilisateurs"
+    },
+    "selectedFriends": "Sélectionnés ({{count}})",
+    "phone": {
+      "placeholderKR": "Entrez le numéro de téléphone (ex. 010-1234-5678)",
+      "placeholderUS": "Entrez le numéro de téléphone (ex. (555) 123-4567)",
+      "placeholderIntl": "Entrez le numéro de téléphone (ex. +1-234-567-8901)"
+    },
+    "dateFormat": "{{day}}/{{month}}/{{year}} {{hours}}:{{minutes}}",
+    "errors": {
+      "smsErrorMessage": "Impossible d'ouvrir l'application SMS. Veuillez envoyer les invitations manuellement."
+    },
+    "languages": {
+      "korean": "한국어",
+      "chinese": "中文",
+      "japanese": "日本語",
+      "spanish": "Español",
+      "french": "Français"
+    }
+  },
+  "duesManagement": {
+    "alerts": {
+      "reminderSent": "Rappel envoyé",
+      "enableAutoInvoice": "Activer la facturation automatique",
+      "added": "Ajouté",
+      "uploadComplete": "Téléchargement terminé"
+    },
+    "messages": {
+      "exemptionSet": "Membre défini comme exempté.",
+      "imageUploaded": "Code QR téléchargé avec succès.",
+      "uploadError": "Échec du téléchargement. Veuillez réessayer.",
+      "permissionDenied": "L'autorisation est requise pour sélectionner des photos.",
+      "exportFailed": "Échec de l'exportation."
+    },
+    "modals": {
+      "createRecord": "Créer un enregistrement de cotisations",
+      "createRecordPrompt": "Quel type d'enregistrement souhaitez-vous créer pour ce membre ?",
+      "uploadQrCode": "Télécharger le code QR",
+      "tapToUploadQr": "Appuyez pour télécharger l'image du code QR",
+      "qrCodeHelper": "Les membres peuvent utiliser ce code QR pour effectuer des paiements.",
+      "paymentDetails": "Détails de la demande de paiement",
+      "paymentReminder": "Rappel de paiement"
+    },
+    "memberCard": {
+      "joinFeeUnpaid": "Frais d'adhésion impayés",
+      "joinFeeExempt": "Frais d'adhésion exemptés",
+      "lateFeeLabel": "Frais de retard",
+      "lateFeeItems": "éléments",
+      "unpaidCount": "{{count}} impayé(s)"
+    },
+    "report": {
+      "title": "Rapport de paiement annuel",
+      "monthlyTotal": "Total mensuel",
+      "totalColumn": "Total",
+      "reportFileName": "Rapport de cotisations"
+    },
+    "paymentForm": {
+      "paymentMethod": "Méthode de paiement",
+      "transactionId": "ID de transaction (Optionnel)",
+      "transactionPlaceholder": "Entrez l'ID de transaction",
+      "notes": "Notes (Optionnel)",
+      "notesPlaceholder": "Entrez des notes",
+      "markAsPaid": "Marquer comme payé"
+    },
+    "paymentDetails": {
+      "type": "Type",
+      "method": "Méthode",
+      "requested": "Demandé",
+      "notes": "Notes",
+      "paymentProof": "Preuve de paiement"
+    },
+    "types": {
+      "joinFee": "Frais d'adhésion",
+      "lateFee": "Frais de retard",
+      "adminAdded": "Ajouté manuellement par l'administrateur"
+    },
+    "inputs": {
+      "dueDateLabel": "Date d'échéance (1-31)",
+      "gracePeriodLabel": "Période de grâce (jours)",
+      "lateFeeDollar": "Frais de retard ($)",
+      "paymentMethodName": "Nom de la méthode de paiement",
+      "paymentMethodPlaceholder": "ex. PayPal, KakaoPay",
+      "addPaymentPlaceholder": "ex. PayPal, KakaoPay"
+    },
+    "countSuffix": ""
+  }
+}

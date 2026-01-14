@@ -1,0 +1,3282 @@
+[
+  {
+    "path": "units.distanceKm",
+    "en": "{{distance}} km"
+  },
+  {
+    "path": "units.distanceMi",
+    "en": "{{distance}} mi"
+  },
+  {
+    "path": "emailLogin.verification.sentTo",
+    "en": "{{email}}"
+  },
+  {
+    "path": "profileSettings.location.permission.granted",
+    "en": "Granted"
+  },
+  {
+    "path": "profileSettings.location.permission.denied",
+    "en": "Denied"
+  },
+  {
+    "path": "profileSettings.location.permission.undetermined",
+    "en": "Not determined"
+  },
+  {
+    "path": "profileSettings.location.permission.checking",
+    "en": "Checking..."
+  },
+  {
+    "path": "profileSettings.location.permission.grantedDescription",
+    "en": "Can find nearby clubs and matches"
+  },
+  {
+    "path": "profileSettings.location.permission.checkingDescription",
+    "en": "Checking permission status"
+  },
+  {
+    "path": "profileSettings.location.alerts.permissionGrantedTitle",
+    "en": "Location Permission Granted"
+  },
+  {
+    "path": "profileSettings.location.alerts.permissionGrantedMessage",
+    "en": "Location permission is already granted. You can find nearby clubs and matches."
+  },
+  {
+    "path": "profileSettings.location.alerts.permissionTitle",
+    "en": "Location Permission"
+  },
+  {
+    "path": "profileSettings.location.alerts.permissionMessage",
+    "en": "Location permission is needed to find nearby clubs and matches. Please enable it in Settings."
+  },
+  {
+    "path": "profileSettings.location.alerts.errorMessage",
+    "en": "An error occurred while checking location permission."
+  },
+  {
+    "path": "profileSettings.location.update.checkingPermission",
+    "en": "Checking location permission..."
+  },
+  {
+    "path": "profileSettings.location.update.permissionRequiredMessage",
+    "en": "Location permission is needed to get your current location."
+  },
+  {
+    "path": "profileSettings.location.update.gettingLocation",
+    "en": "Getting current location..."
+  },
+  {
+    "path": "profileSettings.location.update.savingLocation",
+    "en": "Saving location..."
+  },
+  {
+    "path": "profileSettings.location.update.gettingAddress",
+    "en": "Getting address information..."
+  },
+  {
+    "path": "profileSettings.location.update.successMessage",
+    "en": "Location updated: {{city}}"
+  },
+  {
+    "path": "profileSettings.location.update.partialSuccessMessage",
+    "en": "Location saved (no address information)"
+  },
+  {
+    "path": "profileSettings.location.update.errorMessage",
+    "en": "An error occurred while updating location."
+  },
+  {
+    "path": "profileSettings.theme.followSystem",
+    "en": "Follow System"
+  },
+  {
+    "path": "profileSettings.theme.settingsMessage",
+    "en": "Choose your preferred theme"
+  },
+  {
+    "path": "profileSettings.theme.lightModeSubtitle",
+    "en": "Use light theme"
+  },
+  {
+    "path": "profileSettings.theme.darkModeSubtitle",
+    "en": "Use dark theme"
+  },
+  {
+    "path": "profileSettings.theme.followSystemSubtitle",
+    "en": "Automatic based on device settings"
+  },
+  {
+    "path": "eventCard.status.approved",
+    "en": "Approved"
+  },
+  {
+    "path": "eventCard.partnerStatus.partnerPending",
+    "en": "Partner Pending"
+  },
+  {
+    "path": "eventCard.partnerStatus.partnerDeclined",
+    "en": "Partner Declined"
+  },
+  {
+    "path": "eventCard.eventTypes.match",
+    "en": "Match"
+  },
+  {
+    "path": "eventCard.eventTypes.practice",
+    "en": "Practice"
+  },
+  {
+    "path": "eventCard.eventTypes.lightning",
+    "en": "Match"
+  },
+  {
+    "path": "eventCard.eventTypes.meetup",
+    "en": "Meetup"
+  },
+  {
+    "path": "eventCard.eventTypes.casual",
+    "en": "Casual"
+  },
+  {
+    "path": "eventCard.eventTypes.ranked",
+    "en": "Ranked"
+  },
+  {
+    "path": "eventCard.eventTypes.general",
+    "en": "General"
+  },
+  {
+    "path": "eventCard.labels.host",
+    "en": "Host"
+  },
+  {
+    "path": "eventCard.labels.participants",
+    "en": "{{current}}/{{max}}"
+  },
+  {
+    "path": "eventCard.labels.friendly",
+    "en": "Friendly"
+  },
+  {
+    "path": "eventCard.labels.waiting",
+    "en": "{{count}} waiting"
+  },
+  {
+    "path": "eventCard.labels.full",
+    "en": "Full"
+  },
+  {
+    "path": "eventCard.buttons.setLocation",
+    "en": "Set Location"
+  },
+  {
+    "path": "eventCard.buttons.applyAsTeam",
+    "en": "Apply as Team"
+  },
+  {
+    "path": "eventCard.buttons.applySolo",
+    "en": "Apply Solo"
+  },
+  {
+    "path": "eventCard.buttons.registrationClosed",
+    "en": "Registration Closed"
+  },
+  {
+    "path": "eventCard.results.hostTeamWins",
+    "en": "Host Team Wins"
+  },
+  {
+    "path": "eventCard.results.guestTeamWins",
+    "en": "Guest Team Wins"
+  },
+  {
+    "path": "eventCard.requirements.levelMismatch",
+    "en": "Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})"
+  },
+  {
+    "path": "eventCard.requirements.genderMismatch",
+    "en": "Gender Mismatch"
+  },
+  {
+    "path": "eventCard.requirements.menOnly",
+    "en": "This is a men's match"
+  },
+  {
+    "path": "eventCard.requirements.womenOnly",
+    "en": "This is a women's match"
+  },
+  {
+    "path": "eventCard.requirements.canApply",
+    "en": "Apply: LTR {{minNtrp}} - {{maxNtrp}}"
+  },
+  {
+    "path": "eventCard.requirements.level",
+    "en": "Level: {{level}}"
+  },
+  {
+    "path": "eventCard.soloApplicants.count",
+    "en": "{{count}} solo"
+  },
+  {
+    "path": "eventCard.soloApplicants.label",
+    "en": "{{count}} solo applicants"
+  },
+  {
+    "path": "createEvent.fields.description",
+    "en": "Description"
+  },
+  {
+    "path": "createEvent.fields.auto",
+    "en": "Auto"
+  },
+  {
+    "path": "createEvent.fields.selectSkillLevelsDesc",
+    "en": "Select all skill levels you welcome"
+  },
+  {
+    "path": "createEvent.fields.matchLevelAuto",
+    "en": "Match Level (Auto-Calculated)"
+  },
+  {
+    "path": "createEvent.fields.recommendedLevel",
+    "en": "Recommended Level"
+  },
+  {
+    "path": "createEvent.fields.anyLevel",
+    "en": "Any Level"
+  },
+  {
+    "path": "createEvent.fields.levelNotSet",
+    "en": "Level not set"
+  },
+  {
+    "path": "createEvent.placeholders.titleMatch",
+    "en": "e.g. Evening Singles Match"
+  },
+  {
+    "path": "createEvent.placeholders.titleMeetup",
+    "en": "e.g. Weekend Fun Rally"
+  },
+  {
+    "path": "createEvent.gameTypeOptions.rally",
+    "en": "Rally/Practice"
+  },
+  {
+    "path": "createEvent.skillLevelOptions.anyLevel",
+    "en": "Any Level"
+  },
+  {
+    "path": "createEvent.skillLevelOptions.anyLevelDesc",
+    "en": "All levels welcome"
+  },
+  {
+    "path": "createEvent.skillDescriptions.beginner",
+    "en": "Beginner - New to tennis or learning basic strokes"
+  },
+  {
+    "path": "createEvent.skillDescriptions.elementary",
+    "en": "Elementary - Can hit basic strokes, understands doubles basics"
+  },
+  {
+    "path": "createEvent.skillDescriptions.intermediate",
+    "en": "Intermediate - Consistent strokes, strategic play"
+  },
+  {
+    "path": "createEvent.skillDescriptions.advanced",
+    "en": "Advanced - Tournament experience, advanced skills"
+  },
+  {
+    "path": "createEvent.warnings.matchLevelRestriction",
+    "en": "Lightning matches only allow levels equal to or higher than host level"
+  },
+  {
+    "path": "createEvent.autoNtrp.hostLevel",
+    "en": "Host LTR: {{level}} ({{gameType}})"
+  },
+  {
+    "path": "createEvent.autoNtrp.partnerLevel",
+    "en": "Partner LTR: {{level}} ({{gameType}})"
+  },
+  {
+    "path": "createEvent.autoNtrp.combinedLevel",
+    "en": "Combined LTR: {{level}}"
+  },
+  {
+    "path": "createEvent.autoNtrp.hostLevelWithType",
+    "en": "Host LTR: {{level}} ({{type}})"
+  },
+  {
+    "path": "createEvent.autoNtrp.partnerLevelWithType",
+    "en": "Partner LTR: {{level}} ({{type}})"
+  },
+  {
+    "path": "createEvent.helperText.languageSelection",
+    "en": "Select languages you can communicate in for a better match experience."
+  },
+  {
+    "path": "createEvent.helperText.matchLevelAuto",
+    "en": "Match level is auto-calculated based on {{type}}."
+  },
+  {
+    "path": "createEvent.helperText.doublesMatchLevel",
+    "en": "* Doubles match level is automatically set from host and partner LTR sum."
+  },
+  {
+    "path": "createEvent.helperText.singlesMatchLevel",
+    "en": "* Singles match level is automatically set from host LTR. (±0.5 tolerance)"
+  },
+  {
+    "path": "createEvent.toggleDescriptions.autoApproval",
+    "en": "When enabled, participants are auto-approved first-come-first-served until capacity. When disabled, host must manually approve each participant."
+  },
+  {
+    "path": "createEvent.toggleDescriptions.autoApprovalDetailed",
+    "en": "When enabled, requests are auto-approved first-come-first-serve until full. When disabled, host must manually approve each request."
+  },
+  {
+    "path": "createEvent.sms.description",
+    "en": "Send invitations and app download link to friends who haven't installed the app"
+  },
+  {
+    "path": "createEvent.sms.descriptionDetailed",
+    "en": "Send invitations and app download links to friends without the app"
+  },
+  {
+    "path": "createEvent.sms.invitationMessage",
+    "en": "[Lightning Tennis] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}"
+  },
+  {
+    "path": "createEvent.sms.defaultSender",
+    "en": "A friend"
+  },
+  {
+    "path": "createEvent.sms.numbersToInvite",
+    "en": "Numbers to invite:"
+  },
+  {
+    "path": "createEvent.infoText.inviteFriends",
+    "en": "Invite app users or friends via SMS to your {{type}}."
+  },
+  {
+    "path": "createEvent.infoText.eventTypeNotice",
+    "en": "{{type}} event notice"
+  },
+  {
+    "path": "createEvent.infoText.matchInfo",
+    "en": "Ranked matches are recorded officially and cannot be cancelled."
+  },
+  {
+    "path": "createEvent.infoText.meetupInfo",
+    "en": "Meetups can be modified or cancelled at any time."
+  },
+  {
+    "path": "createEvent.modals.selectLanguages",
+    "en": "Select Languages"
+  },
+  {
+    "path": "createEvent.modals.selectDateTime",
+    "en": "Select Date & Time"
+  },
+  {
+    "path": "createEvent.modals.selectPartner",
+    "en": "Select Partner"
+  },
+  {
+    "path": "createEvent.modals.smsInvitation",
+    "en": "SMS Invitation"
+  },
+  {
+    "path": "createEvent.search.searchByName",
+    "en": "Search by name"
+  },
+  {
+    "path": "createEvent.search.searchingUsers",
+    "en": "Searching users..."
+  },
+  {
+    "path": "createEvent.search.loadUsers",
+    "en": "Load Users"
+  },
+  {
+    "path": "createEvent.search.searchPrompt",
+    "en": "Please search for users"
+  },
+  {
+    "path": "createEvent.selectedFriends",
+    "en": "Selected ({{count}})"
+  },
+  {
+    "path": "createEvent.phone.placeholderKR",
+    "en": "Enter phone number (e.g., 010-1234-5678)"
+  },
+  {
+    "path": "createEvent.phone.placeholderUS",
+    "en": "Enter phone number (e.g., (555) 123-4567)"
+  },
+  {
+    "path": "createEvent.phone.placeholderIntl",
+    "en": "Enter phone number (e.g., +1-234-567-8901)"
+  },
+  {
+    "path": "createEvent.dateFormat",
+    "en": "{{month}}/{{day}}/{{year}} {{hours}}:{{minutes}}"
+  },
+  {
+    "path": "createEvent.errors.smsErrorMessage",
+    "en": "Cannot open SMS app. Please send invitations manually."
+  },
+  {
+    "path": "createEvent.languages.korean",
+    "en": "한국어"
+  },
+  {
+    "path": "createEvent.languages.chinese",
+    "en": "中文"
+  },
+  {
+    "path": "createEvent.languages.japanese",
+    "en": "日本語"
+  },
+  {
+    "path": "createEvent.languages.spanish",
+    "en": "Español"
+  },
+  {
+    "path": "createEvent.languages.french",
+    "en": "Français"
+  },
+  {
+    "path": "duesManagement.actions.enable",
+    "en": "Enable"
+  },
+  {
+    "path": "duesManagement.actions.activate",
+    "en": "Enable"
+  },
+  {
+    "path": "duesManagement.actions.viewAttachment",
+    "en": "View Attachment"
+  },
+  {
+    "path": "duesManagement.actions.processPayment",
+    "en": "Process Payment"
+  },
+  {
+    "path": "duesManagement.alerts.loadFailed",
+    "en": "Failed to Load Data"
+  },
+  {
+    "path": "duesManagement.alerts.reminderSent",
+    "en": "Reminder Sent"
+  },
+  {
+    "path": "duesManagement.alerts.enableAutoInvoice",
+    "en": "Enable Auto Invoice"
+  },
+  {
+    "path": "duesManagement.alerts.approved",
+    "en": "Approved"
+  },
+  {
+    "path": "duesManagement.alerts.added",
+    "en": "Added"
+  },
+  {
+    "path": "duesManagement.alerts.uploadComplete",
+    "en": "Upload Complete"
+  },
+  {
+    "path": "duesManagement.messages.exemptionSet",
+    "en": "Member set as exempt."
+  },
+  {
+    "path": "duesManagement.messages.imageUploaded",
+    "en": "QR code uploaded successfully."
+  },
+  {
+    "path": "duesManagement.messages.uploadError",
+    "en": "Upload failed. Please try again."
+  },
+  {
+    "path": "duesManagement.messages.permissionDenied",
+    "en": "Permission is required to select photos."
+  },
+  {
+    "path": "duesManagement.messages.exportFailed",
+    "en": "Failed to export."
+  },
+  {
+    "path": "duesManagement.modals.createRecord",
+    "en": "Create Dues Record"
+  },
+  {
+    "path": "duesManagement.modals.createRecordPrompt",
+    "en": "Which type of record would you like to create for this member?"
+  },
+  {
+    "path": "duesManagement.modals.uploadQrCode",
+    "en": "Upload QR Code"
+  },
+  {
+    "path": "duesManagement.modals.tapToUploadQr",
+    "en": "Tap to upload QR code image"
+  },
+  {
+    "path": "duesManagement.modals.qrCodeHelper",
+    "en": "Members can use this QR code to make payments."
+  },
+  {
+    "path": "duesManagement.modals.processPaymentDialog",
+    "en": "Process Payment"
+  },
+  {
+    "path": "duesManagement.modals.paymentDetails",
+    "en": "Payment Request Details"
+  },
+  {
+    "path": "duesManagement.modals.paymentReminder",
+    "en": "Payment Reminder"
+  },
+  {
+    "path": "duesManagement.memberCard.joinFeeUnpaid",
+    "en": "Join Fee Unpaid"
+  },
+  {
+    "path": "duesManagement.memberCard.joinFeeExempt",
+    "en": "Join Fee Exempt"
+  },
+  {
+    "path": "duesManagement.memberCard.lateFeeLabel",
+    "en": "Late Fee"
+  },
+  {
+    "path": "duesManagement.memberCard.lateFeeItems",
+    "en": "items"
+  },
+  {
+    "path": "duesManagement.memberCard.unpaidCount",
+    "en": "{{count}} unpaid"
+  },
+  {
+    "path": "duesManagement.report.title",
+    "en": "Annual Payment Report"
+  },
+  {
+    "path": "duesManagement.report.monthlyTotal",
+    "en": "Monthly Total"
+  },
+  {
+    "path": "duesManagement.report.reportFileName",
+    "en": "Dues Report"
+  },
+  {
+    "path": "duesManagement.paymentForm.paymentMethod",
+    "en": "Payment Method"
+  },
+  {
+    "path": "duesManagement.paymentForm.transactionId",
+    "en": "Transaction ID (Optional)"
+  },
+  {
+    "path": "duesManagement.paymentForm.transactionPlaceholder",
+    "en": "Enter transaction ID"
+  },
+  {
+    "path": "duesManagement.paymentForm.notes",
+    "en": "Notes (Optional)"
+  },
+  {
+    "path": "duesManagement.paymentForm.notesPlaceholder",
+    "en": "Enter notes"
+  },
+  {
+    "path": "duesManagement.paymentForm.markAsPaid",
+    "en": "Mark as Paid"
+  },
+  {
+    "path": "duesManagement.paymentDetails.type",
+    "en": "Type"
+  },
+  {
+    "path": "duesManagement.paymentDetails.amount",
+    "en": "Amount"
+  },
+  {
+    "path": "duesManagement.paymentDetails.method",
+    "en": "Method"
+  },
+  {
+    "path": "duesManagement.paymentDetails.requested",
+    "en": "Requested"
+  },
+  {
+    "path": "duesManagement.paymentDetails.notes",
+    "en": "Notes"
+  },
+  {
+    "path": "duesManagement.paymentDetails.paymentProof",
+    "en": "Payment Proof"
+  },
+  {
+    "path": "duesManagement.types.joinFee",
+    "en": "Join Fee"
+  },
+  {
+    "path": "duesManagement.types.lateFee",
+    "en": "Late Fee"
+  },
+  {
+    "path": "duesManagement.types.adminAdded",
+    "en": "Added manually by admin"
+  },
+  {
+    "path": "duesManagement.inputs.dueDateLabel",
+    "en": "Due Date (1-31)"
+  },
+  {
+    "path": "duesManagement.inputs.gracePeriodLabel",
+    "en": "Grace Period (days)"
+  },
+  {
+    "path": "duesManagement.inputs.lateFeeDollar",
+    "en": "Late Fee ($)"
+  },
+  {
+    "path": "duesManagement.inputs.paymentMethodName",
+    "en": "Payment Method Name"
+  },
+  {
+    "path": "duesManagement.inputs.paymentMethodPlaceholder",
+    "en": "e.g. PayPal, KakaoPay"
+  },
+  {
+    "path": "duesManagement.inputs.addPaymentPlaceholder",
+    "en": "e.g. PayPal, KakaoPay"
+  },
+  {
+    "path": "createMeetup.errors.selectValidDate",
+    "en": "Please select a valid date."
+  },
+  {
+    "path": "createMeetup.errors.minOneCourt",
+    "en": "At least 1 court is required."
+  },
+  {
+    "path": "createMeetup.errors.clubInfoLoading",
+    "en": "Club information is still loading. Please try again in a moment."
+  },
+  {
+    "path": "createMeetup.errors.externalCourtNameRequired",
+    "en": "Please enter external court name."
+  },
+  {
+    "path": "createMeetup.errors.externalCourtAddressRequired",
+    "en": "Please enter external court address."
+  },
+  {
+    "path": "createMeetup.errors.savingError",
+    "en": "An error occurred while saving data. Please contact the developer.\\n\\nError: {{error}}"
+  },
+  {
+    "path": "createMeetup.errors.updateError",
+    "en": "An error occurred while updating the meetup.\\n\\nError: {{error}}"
+  },
+  {
+    "path": "createMeetup.errors.failedToConfirm",
+    "en": "Failed to confirm meetup"
+  },
+  {
+    "path": "createMeetup.success.confirmed",
+    "en": "Meetup confirmed and members have been notified!"
+  },
+  {
+    "path": "createMeetup.notes.dateTimeFixed",
+    "en": "Date and time cannot be changed."
+  },
+  {
+    "path": "createMeetup.notes.copyDateChangeable",
+    "en": "💡 You can change the date for the copied meetup."
+  },
+  {
+    "path": "createMeetup.notes.createNote",
+    "en": "A new meetup will be created and members will be notified."
+  },
+  {
+    "path": "createMeetup.notes.editNote",
+    "en": "The meetup information will be updated."
+  },
+  {
+    "path": "createMeetup.notes.confirmNote",
+    "en": "All club members will receive a push notification."
+  },
+  {
+    "path": "createMeetup.court.availableCourts",
+    "en": "Available Courts"
+  },
+  {
+    "path": "createMeetup.court.autoFilledBadge",
+    "en": "Auto-filled from last meetup"
+  },
+  {
+    "path": "createMeetup.court.courtNumbers",
+    "en": "Court Numbers (Optional)"
+  },
+  {
+    "path": "createMeetup.court.courtNumbersPlaceholder",
+    "en": "e.g., 3, 4, 5"
+  },
+  {
+    "path": "createMeetup.court.lastMeetupHint",
+    "en": "💡 Last meetup: \\\"{{numbers}}\\\""
+  },
+  {
+    "path": "createMeetup.buttons.confirming",
+    "en": "Confirming..."
+  },
+  {
+    "path": "createMeetup.buttons.confirm",
+    "en": "✅ Confirm"
+  },
+  {
+    "path": "createMeetup.picker.selectDate",
+    "en": "Select Date"
+  },
+  {
+    "path": "createMeetup.picker.selectTime",
+    "en": "Select Time"
+  },
+  {
+    "path": "createMeetup.notification.title",
+    "en": "New Meetup Confirmed!"
+  },
+  {
+    "path": "clubScheduleSettings.fields.description",
+    "en": "Description"
+  },
+  {
+    "path": "clubDuesManagement.tabs.unpaid",
+    "en": "Unpaid Members"
+  },
+  {
+    "path": "clubDuesManagement.errors.loadData",
+    "en": "Failed to load data"
+  },
+  {
+    "path": "clubDuesManagement.errors.invalidDueDay",
+    "en": "Due day must be between 1-31"
+  },
+  {
+    "path": "clubDuesManagement.errors.saveError",
+    "en": "Error occurred while saving settings"
+  },
+  {
+    "path": "clubDuesManagement.errors.updatePaymentStatus",
+    "en": "Error occurred while updating payment status"
+  },
+  {
+    "path": "clubDuesManagement.errors.sendRemindersFailed",
+    "en": "Error occurred while sending reminders"
+  },
+  {
+    "path": "clubDuesManagement.errors.autoInvoiceError",
+    "en": "Error occurred while updating auto invoice setting"
+  },
+  {
+    "path": "clubDuesManagement.success.settingsSaved",
+    "en": "Settings Saved"
+  },
+  {
+    "path": "clubDuesManagement.success.settingsSavedMessage",
+    "en": "Dues settings have been saved"
+  },
+  {
+    "path": "clubDuesManagement.success.remindersSent",
+    "en": "Reminders Sent"
+  },
+  {
+    "path": "clubDuesManagement.success.remindersSentMessage",
+    "en": "Payment reminders sent to {{count}} members"
+  },
+  {
+    "path": "clubDuesManagement.settings.gracePeriodPlaceholder",
+    "en": "Days"
+  },
+  {
+    "path": "clubDuesManagement.settings.paymentInstructions",
+    "en": "Payment Instructions"
+  },
+  {
+    "path": "clubDuesManagement.settings.paymentInstructionsPlaceholder",
+    "en": "Instructions shown to members"
+  },
+  {
+    "path": "clubDuesManagement.settings.accountInfo",
+    "en": "Account/ID Info"
+  },
+  {
+    "path": "clubDuesManagement.settings.dayUnit",
+    "en": "th"
+  },
+  {
+    "path": "clubDuesManagement.settings.daysUnit",
+    "en": "days"
+  },
+  {
+    "path": "clubDuesManagement.autoInvoice.settingsUpdated",
+    "en": "Settings Updated"
+  },
+  {
+    "path": "clubDuesManagement.reminder.message",
+    "en": "Payment reminder for {{clubName}} dues"
+  },
+  {
+    "path": "eventParticipation.details.participants",
+    "en": "participants"
+  },
+  {
+    "path": "eventParticipation.statusLabels.approved",
+    "en": "Approved"
+  },
+  {
+    "path": "eventParticipation.statusLabels.waitlisted",
+    "en": "Waitlisted"
+  },
+  {
+    "path": "eventParticipation.statusLabels.confirmed",
+    "en": "Confirmed"
+  },
+  {
+    "path": "eventParticipation.typeLabels.participant",
+    "en": "Participant"
+  },
+  {
+    "path": "eventParticipation.typeLabels.spectator",
+    "en": "Spectator"
+  },
+  {
+    "path": "eventParticipation.typeLabels.helper",
+    "en": "Helper"
+  },
+  {
+    "path": "eventParticipation.messages.autoApprovalTitle",
+    "en": "Regular Meeting Participation Confirmed!"
+  },
+  {
+    "path": "eventParticipation.messages.requestSentTitle",
+    "en": "Event Participation Request Sent"
+  },
+  {
+    "path": "eventParticipation.messages.approvedTitle",
+    "en": "Event Participation Approved!"
+  },
+  {
+    "path": "eventParticipation.messages.rejectedTitle",
+    "en": "Event Participation Rejected"
+  },
+  {
+    "path": "clubAdmin.participation",
+    "en": "Participation"
+  },
+  {
+    "path": "clubAdmin.chatNormal",
+    "en": "Normal"
+  },
+  {
+    "path": "createClubTournament.matchFormat",
+    "en": "Match Format"
+  },
+  {
+    "path": "createClubTournament.shortSets",
+    "en": "Short Sets"
+  },
+  {
+    "path": "createClubTournament.shortSetsDescription",
+    "en": "4-game sets (regular is 6 games)"
+  },
+  {
+    "path": "createClubTournament.seedingMethod",
+    "en": "Seeding Method"
+  },
+  {
+    "path": "createClubTournament.createTournament",
+    "en": "Create Tournament"
+  },
+  {
+    "path": "createClubTournament.matchFormats.best_of_1",
+    "en": "1 Set"
+  },
+  {
+    "path": "createClubTournament.matchFormats.best_of_1_description",
+    "en": "Single set match"
+  },
+  {
+    "path": "createClubTournament.matchFormats.best_of_3",
+    "en": "3 Sets"
+  },
+  {
+    "path": "createClubTournament.matchFormats.best_of_3_description",
+    "en": "Best of 2 sets"
+  },
+  {
+    "path": "createClubTournament.matchFormats.best_of_5",
+    "en": "5 Sets"
+  },
+  {
+    "path": "createClubTournament.matchFormats.best_of_5_description",
+    "en": "Best of 3 sets"
+  },
+  {
+    "path": "createClubTournament.seedingMethods.manual",
+    "en": "Manual"
+  },
+  {
+    "path": "createClubTournament.seedingMethods.manual_description",
+    "en": "Admin assigns seeds manually"
+  },
+  {
+    "path": "createClubTournament.seedingMethods.random",
+    "en": "Random"
+  },
+  {
+    "path": "createClubTournament.seedingMethods.random_description",
+    "en": "Fair random seeding (skill-independent)"
+  },
+  {
+    "path": "createClubTournament.seedingMethods.ranking",
+    "en": "Club Ranking"
+  },
+  {
+    "path": "createClubTournament.seedingMethods.ranking_description",
+    "en": "Seeds based on club ranking and win rate"
+  },
+  {
+    "path": "createClubTournament.seedingMethods.rating",
+    "en": "Personal Rating"
+  },
+  {
+    "path": "createClubTournament.seedingMethods.rating_description",
+    "en": "Seeds based on ELO rating and skill level"
+  },
+  {
+    "path": "createClubTournament.eventTypes.mens_doubles_description",
+    "en": "Male 2v2 match"
+  },
+  {
+    "path": "createClubTournament.eventTypes.womens_doubles_description",
+    "en": "Female 2v2 match"
+  },
+  {
+    "path": "createClubTournament.eventTypes.mixed_doubles_description",
+    "en": "Mixed gender 2v2 match"
+  },
+  {
+    "path": "createClubTournament.errors.loadMembersFailed",
+    "en": "Failed to load club members"
+  },
+  {
+    "path": "createClubTournament.errors.nameRequired",
+    "en": "Please enter a tournament name"
+  },
+  {
+    "path": "createClubTournament.errors.deadlineBeforeStart",
+    "en": "Application deadline must be on or before start date"
+  },
+  {
+    "path": "createClubTournament.errors.endBeforeStart",
+    "en": "End date must be on or after start date"
+  },
+  {
+    "path": "createClubTournament.errors.createFailed",
+    "en": "Failed to create tournament"
+  },
+  {
+    "path": "createClubTournament.errors.maxPlayersInvalid",
+    "en": "Maximum participants must be at least {min} (minimum required to start)"
+  },
+  {
+    "path": "createClubTournament.success.created",
+    "en": "Tournament created successfully"
+  },
+  {
+    "path": "appliedEventCard.eventType.match",
+    "en": "Match"
+  },
+  {
+    "path": "appliedEventCard.teams.participants",
+    "en": "Participants ({{count}})"
+  },
+  {
+    "path": "meetupDetail.errors.notFound",
+    "en": "Meetup not found."
+  },
+  {
+    "path": "meetupDetail.weather.title",
+    "en": "Weather Forecast"
+  },
+  {
+    "path": "meetupDetail.weather.chanceOfRain",
+    "en": "Chance of rain"
+  },
+  {
+    "path": "meetupDetail.weather.windLabel",
+    "en": "Wind"
+  },
+  {
+    "path": "meetupDetail.weather.notAvailable",
+    "en": "Weather Not Available"
+  },
+  {
+    "path": "meetupDetail.weather.unavailableReason",
+    "en": "Location coordinates unavailable or date out of forecast range"
+  },
+  {
+    "path": "meetupDetail.weather.wind.perfect",
+    "en": "Perfect conditions"
+  },
+  {
+    "path": "meetupDetail.weather.wind.playable",
+    "en": "Playable"
+  },
+  {
+    "path": "meetupDetail.weather.wind.affects",
+    "en": "Wind affects play"
+  },
+  {
+    "path": "meetupDetail.weather.wind.difficult",
+    "en": "Difficult to play"
+  },
+  {
+    "path": "meetupDetail.rsvp.title",
+    "en": "RSVP"
+  },
+  {
+    "path": "meetupDetail.rsvp.cannotChangeNearStart",
+    "en": "Cannot change RSVP within 15 minutes of meetup start."
+  },
+  {
+    "path": "meetupDetail.rsvp.attend",
+    "en": "Attend"
+  },
+  {
+    "path": "meetupDetail.rsvp.maybe",
+    "en": "Maybe"
+  },
+  {
+    "path": "meetupDetail.rsvp.attendingConfirm",
+    "en": "✅ RSVP updated to attending!"
+  },
+  {
+    "path": "meetupDetail.rsvp.decliningConfirm",
+    "en": "❌ RSVP updated to declining."
+  },
+  {
+    "path": "meetupDetail.rsvp.maybeConfirm",
+    "en": "❓ RSVP updated to maybe."
+  },
+  {
+    "path": "meetupDetail.rsvp.deadlineNote",
+    "en": "Changes allowed until 15 minutes before start."
+  },
+  {
+    "path": "meetupDetail.chat.title",
+    "en": "Meetup Chat"
+  },
+  {
+    "path": "meetupDetail.chat.emptyMessage",
+    "en": "Be the first to leave a message!"
+  },
+  {
+    "path": "meetupDetail.chat.placeholder",
+    "en": "Type a message..."
+  },
+  {
+    "path": "meetupDetail.chat.sendError",
+    "en": "Failed to send message"
+  },
+  {
+    "path": "meetupDetail.editEvent.labelDescription",
+    "en": "Description"
+  },
+  {
+    "path": "meetupDetail.editEvent.durationUnit",
+    "en": "min"
+  },
+  {
+    "path": "rankingsCard.notAvailable",
+    "en": "N/A"
+  },
+  {
+    "path": "serviceForm.description",
+    "en": "Description"
+  },
+  {
+    "path": "serviceForm.photos",
+    "en": "Photos (max {{max}})"
+  },
+  {
+    "path": "playerCard.notAvailable",
+    "en": "N/A"
+  },
+  {
+    "path": "createModal.lightningMatch.subtitle",
+    "en": "Ranked Match"
+  },
+  {
+    "path": "createModal.lightningMeetup.subtitle",
+    "en": "Casual Meetup"
+  },
+  {
+    "path": "pastEventCard.eventTypes.match",
+    "en": "Match"
+  },
+  {
+    "path": "pastEventCard.challenger",
+    "en": "Challenger"
+  },
+  {
+    "path": "lessonForm.descriptionLabel",
+    "en": "Description *"
+  },
+  {
+    "path": "concludeLeague.stats.points",
+    "en": "{{points}} pts"
+  },
+  {
+    "path": "tournamentDetail.bestFinish.champion",
+    "en": "🥇 Champion"
+  },
+  {
+    "path": "tournamentDetail.bestFinish.runnerUp",
+    "en": "🥈 Runner-up"
+  },
+  {
+    "path": "tournamentDetail.bestFinish.semiFinal",
+    "en": "🥉 Semi-finalist"
+  },
+  {
+    "path": "tournamentDetail.bestFinish.nthPlace",
+    "en": "{position}th place"
+  },
+  {
+    "path": "myProfile.title",
+    "en": "My Profile"
+  },
+  {
+    "path": "clubLeagueManagement.participants",
+    "en": "Participants: {{count}}/{{max}}"
+  },
+  {
+    "path": "clubLeagueManagement.champion",
+    "en": "Champion: {{name}}"
+  },
+  {
+    "path": "eventDetail.participants.label",
+    "en": "participants"
+  },
+  {
+    "path": "eventDetail.sections.description",
+    "en": "Description"
+  },
+  {
+    "path": "eventDetail.sections.participants",
+    "en": "Participants ({{count}})"
+  },
+  {
+    "path": "ntrpLevelDetail.description",
+    "en": "Description"
+  },
+  {
+    "path": "setLocationTimeModal.date",
+    "en": "Date"
+  },
+  {
+    "path": "hallOfFame.badges",
+    "en": "badges"
+  },
+  {
+    "path": "badgeGallery.titleOwn",
+    "en": "My Badges"
+  },
+  {
+    "path": "badgeGallery.emptyHint",
+    "en": "Play matches and achieve milestones to earn badges!"
+  },
+  {
+    "path": "badgeGallery.modal.earned",
+    "en": "Earned: "
+  },
+  {
+    "path": "badgeGallery.modal.category",
+    "en": "Category: "
+  },
+  {
+    "path": "badgeGallery.badges.first_victory.name",
+    "en": "First Victory"
+  },
+  {
+    "path": "badgeGallery.badges.first_victory.description",
+    "en": "You won your first match! 🎾"
+  },
+  {
+    "path": "badgeGallery.badges.first_club_join.name",
+    "en": "First Club Member"
+  },
+  {
+    "path": "badgeGallery.badges.first_club_join.description",
+    "en": "You joined your first tennis club! 🏟️"
+  },
+  {
+    "path": "badgeGallery.badges.streak_5.name",
+    "en": "5 Win Streak"
+  },
+  {
+    "path": "badgeGallery.badges.streak_5.description",
+    "en": "You won 5 matches in a row!"
+  },
+  {
+    "path": "badgeGallery.badges.social_butterfly.name",
+    "en": "Social Butterfly"
+  },
+  {
+    "path": "badgeGallery.badges.social_butterfly.description",
+    "en": "You became friends with 10+ players!"
+  },
+  {
+    "path": "badgeGallery.badges.tournament_champion.name",
+    "en": "Tournament Champion"
+  },
+  {
+    "path": "badgeGallery.badges.tournament_champion.description",
+    "en": "You won a tournament!"
+  },
+  {
+    "path": "badgeGallery.badges.league_master.name",
+    "en": "League Master"
+  },
+  {
+    "path": "badgeGallery.badges.league_master.description",
+    "en": "You finished 1st in a league!"
+  },
+  {
+    "path": "badgeGallery.badges.league_champion.name",
+    "en": "League Champion"
+  },
+  {
+    "path": "badgeGallery.badges.league_champion.description",
+    "en": "You won a league! 👑"
+  },
+  {
+    "path": "badgeGallery.badges.perfect_season.name",
+    "en": "Perfect Season"
+  },
+  {
+    "path": "badgeGallery.badges.perfect_season.description",
+    "en": "You finished a season undefeated!"
+  },
+  {
+    "path": "badgeGallery.badges.community_leader.name",
+    "en": "Community Leader"
+  },
+  {
+    "path": "badgeGallery.badges.community_leader.description",
+    "en": "You are an active club administrator!"
+  },
+  {
+    "path": "badgeGallery.badges.unknown.name",
+    "en": "Special Badge"
+  },
+  {
+    "path": "badgeGallery.badges.unknown.description",
+    "en": "Special badge"
+  },
+  {
+    "path": "badgeGallery.alerts.timeoutTitle",
+    "en": "Timeout"
+  },
+  {
+    "path": "badgeGallery.alerts.permissionTitle",
+    "en": "Permission Denied"
+  },
+  {
+    "path": "badgeGallery.alerts.permissionMessage",
+    "en": "You don't have permission to access badge information."
+  },
+  {
+    "path": "badgeGallery.alerts.unavailableTitle",
+    "en": "Service Unavailable"
+  },
+  {
+    "path": "badgeGallery.alerts.unavailableMessage",
+    "en": "Firebase service is currently unavailable. Please try again later."
+  },
+  {
+    "path": "ltrLevelDetail.description",
+    "en": "Description"
+  },
+  {
+    "path": "recordScore.set",
+    "en": "Set"
+  },
+  {
+    "path": "recordScore.setN",
+    "en": "Set {{n}}"
+  },
+  {
+    "path": "recordScore.selectWinner",
+    "en": "Select Winner"
+  },
+  {
+    "path": "recordScore.selectWinnerRequired",
+    "en": "Select Winner (Required)"
+  },
+  {
+    "path": "recordScore.selectPlayerWhoDidNotRetire",
+    "en": "Select the player who did not retire"
+  },
+  {
+    "path": "recordScore.selectPlayerWhoShowedUp",
+    "en": "Select the player who showed up"
+  },
+  {
+    "path": "recordScore.pleaseSelectWinner",
+    "en": "Please select a winner."
+  },
+  {
+    "path": "recordScore.alerts.globalRanking",
+    "en": "Global"
+  },
+  {
+    "path": "scoreConfirmation.matchType.league",
+    "en": "League Match"
+  },
+  {
+    "path": "scoreConfirmation.matchType.lightning",
+    "en": "Lightning Match"
+  },
+  {
+    "path": "scoreConfirmation.reasonLabel",
+    "en": "Reason for disagreement"
+  },
+  {
+    "path": "scoreConfirmation.reasonPlaceholder",
+    "en": "Please explain why the score is incorrect or what the issue is..."
+  },
+  {
+    "path": "scoreConfirmation.reasonHelper",
+    "en": "An administrator will review your reason and finalize the score."
+  },
+  {
+    "path": "scoreConfirmation.warningTitle",
+    "en": "Important Notes"
+  },
+  {
+    "path": "scoreConfirmation.warningText",
+    "en": "• Agreeing to the score will finalize the match result\n• Disagreeing will escalate the issue to an administrator\n• False reports or malicious disputes may result in sanctions"
+  },
+  {
+    "path": "scoreConfirmation.submitAgree",
+    "en": "Confirm Score"
+  },
+  {
+    "path": "scoreConfirmation.submitDisagree",
+    "en": "Submit Dispute"
+  },
+  {
+    "path": "scoreConfirmation.submitDefault",
+    "en": "Please select"
+  },
+  {
+    "path": "scoreConfirmation.alerts.pleaseSelect",
+    "en": "Please select whether you agree with the score."
+  },
+  {
+    "path": "scoreConfirmation.alerts.pleaseProvideReason",
+    "en": "Please provide a reason for disagreeing with the score."
+  },
+  {
+    "path": "scoreConfirmation.alerts.confirmationError",
+    "en": "An error occurred while processing your confirmation."
+  },
+  {
+    "path": "directChat.headerTitle",
+    "en": "Messages"
+  },
+  {
+    "path": "directChat.tabs.conversations",
+    "en": "Conversations"
+  },
+  {
+    "path": "matchDetail.defaultMessage",
+    "en": "Looking forward to a great match!"
+  },
+  {
+    "path": "matchRequest.alerts.selectTime",
+    "en": "Please select a match time."
+  },
+  {
+    "path": "matchRequest.alerts.selectCourt",
+    "en": "Please select a court."
+  },
+  {
+    "path": "matchRequest.alerts.requestComplete",
+    "en": "Match Request Sent"
+  },
+  {
+    "path": "matchRequest.alerts.requestCompleteMessage",
+    "en": "Match request sent to {{name}}."
+  },
+  {
+    "path": "matchRequest.alerts.requestError",
+    "en": "An error occurred while sending the match request."
+  },
+  {
+    "path": "matchRequest.playerCard.winRate",
+    "en": "win rate"
+  },
+  {
+    "path": "matchRequest.playerCard.recentMatches",
+    "en": "Recent Matches"
+  },
+  {
+    "path": "matchRequest.schedule.title",
+    "en": "Match Schedule"
+  },
+  {
+    "path": "matchRequest.schedule.selectTime",
+    "en": "Select Time"
+  },
+  {
+    "path": "matchRequest.schedule.duration",
+    "en": "Match Duration"
+  },
+  {
+    "path": "matchRequest.schedule.oneHour",
+    "en": "1 hour"
+  },
+  {
+    "path": "matchRequest.schedule.twoHours",
+    "en": "2 hours"
+  },
+  {
+    "path": "matchRequest.schedule.threeHours",
+    "en": "3 hours"
+  },
+  {
+    "path": "matchRequest.court.title",
+    "en": "Select Court"
+  },
+  {
+    "path": "matchRequest.court.perHour",
+    "en": "/hour"
+  },
+  {
+    "path": "matchRequest.message.title",
+    "en": "Message (Optional)"
+  },
+  {
+    "path": "matchRequest.message.placeholder",
+    "en": "Write a greeting or your expectations for the match"
+  },
+  {
+    "path": "matchRequest.summary.title",
+    "en": "Match Summary"
+  },
+  {
+    "path": "matchRequest.sendButton",
+    "en": "Send Match Request"
+  },
+  {
+    "path": "leagueDetail.notification",
+    "en": "Notification"
+  },
+  {
+    "path": "leagueDetail.adminCorrection",
+    "en": "Admin Correction"
+  },
+  {
+    "path": "leagueDetail.adminScheduleChange",
+    "en": "Admin Schedule Change"
+  },
+  {
+    "path": "leagueDetail.adminWalkover",
+    "en": "Admin Walkover"
+  },
+  {
+    "path": "leagueDetail.champion",
+    "en": "Champion"
+  },
+  {
+    "path": "leagueDetail.finalMatch",
+    "en": "Final Match"
+  },
+  {
+    "path": "leagueDetail.qualifiedTeams",
+    "en": "Qualified Teams:"
+  },
+  {
+    "path": "leagueDetail.qualifiedPlayers",
+    "en": "Qualified Players:"
+  },
+  {
+    "path": "leagueDetail.participantsStatus",
+    "en": "Participants Status"
+  },
+  {
+    "path": "leagueDetail.participantsTeamStatus",
+    "en": "Teams Status"
+  },
+  {
+    "path": "leagueDetail.participantsTeams",
+    "en": "Teams"
+  },
+  {
+    "path": "leagueDetail.maxParticipants",
+    "en": "Max Participants"
+  },
+  {
+    "path": "leagueDetail.maxTeams",
+    "en": "Max Teams"
+  },
+  {
+    "path": "leagueDetail.startAcceptingApplications",
+    "en": "Start Accepting Applications"
+  },
+  {
+    "path": "leagueDetail.startApplicationsMessage",
+    "en": "Click \"Start Accepting Applications\" in Management tab"
+  },
+  {
+    "path": "leagueDetail.waitingForApplications",
+    "en": "Applications will appear here in real-time"
+  },
+  {
+    "path": "leagueDetail.newDateLabel",
+    "en": "New Date (YYYY-MM-DD)"
+  },
+  {
+    "path": "leagueDetail.reasonLabel",
+    "en": "Reason for Change"
+  },
+  {
+    "path": "leagueDetail.walkoverReasonLabel",
+    "en": "Walkover Reason"
+  },
+  {
+    "path": "leagueDetail.league",
+    "en": "League"
+  },
+  {
+    "path": "leagueDetail.applyingToLeague",
+    "en": "Applying to league."
+  },
+  {
+    "path": "leagueDetail.user",
+    "en": "User"
+  },
+  {
+    "path": "leagueDetail.validation.mensOnly",
+    "en": " is only available for male players."
+  },
+  {
+    "path": "leagueDetail.validation.womensOnly",
+    "en": " is only available for female players."
+  },
+  {
+    "path": "leagueDetail.validation.doublesNeedPartner",
+    "en": "Doubles requires a partner."
+  },
+  {
+    "path": "leagueDetail.validation.mixedDoublesRequirement",
+    "en": "Mixed doubles requires one male and one female player."
+  },
+  {
+    "path": "leagueDetail.validation.genderRestriction",
+    "en": " is only available for {gender} players."
+  },
+  {
+    "path": "leagueDetail.genderLabels.male",
+    "en": "male"
+  },
+  {
+    "path": "leagueDetail.genderLabels.female",
+    "en": "female"
+  },
+  {
+    "path": "cards.hostedEvent.weather.showers",
+    "en": "Showers"
+  },
+  {
+    "path": "cards.hostedEvent.weather.lightsnow",
+    "en": "Light Snow"
+  },
+  {
+    "path": "cards.hostedEvent.weather.heavysnow",
+    "en": "Heavy Snow"
+  },
+  {
+    "path": "mapAppSelector.appNotInstalled",
+    "en": "App Not Installed"
+  },
+  {
+    "path": "mapAppSelector.appNotInstalledMessage",
+    "en": "{{appName}} is not installed on your device."
+  },
+  {
+    "path": "mapAppSelector.install",
+    "en": "Install"
+  },
+  {
+    "path": "mapAppSelector.installed",
+    "en": "Installed"
+  },
+  {
+    "path": "mapAppSelector.errorOpeningApp",
+    "en": "Failed to open map app. Please try again."
+  },
+  {
+    "path": "mapAppSelector.checkingApps",
+    "en": "Checking available apps..."
+  },
+  {
+    "path": "mapAppSelector.setAsDefault",
+    "en": "Set as default"
+  },
+  {
+    "path": "mapAppSelector.autoOpenDescription",
+    "en": "Automatically open with this app next time"
+  },
+  {
+    "path": "participantSelector.maxParticipants",
+    "en": "Maximum Participants"
+  },
+  {
+    "path": "participantSelector.peopleSuffix",
+    "en": " people"
+  },
+  {
+    "path": "participantSelector.customInput",
+    "en": "Or enter a custom number:"
+  },
+  {
+    "path": "participantSelector.placeholder",
+    "en": "e.g., 16"
+  },
+  {
+    "path": "participantSelector.selected",
+    "en": "Selected: {{count}} people"
+  },
+  {
+    "path": "ntrpSelector.levels.beginner.label",
+    "en": "1.0-2.5 (Beginner)"
+  },
+  {
+    "path": "ntrpSelector.levels.beginner.description",
+    "en": "Just started playing tennis"
+  },
+  {
+    "path": "ntrpSelector.levels.intermediate.label",
+    "en": "3.0-3.5 (Intermediate)"
+  },
+  {
+    "path": "ntrpSelector.levels.intermediate.description",
+    "en": "Can rally and play basic matches"
+  },
+  {
+    "path": "ntrpSelector.levels.advanced.label",
+    "en": "4.0-4.5 (Advanced)"
+  },
+  {
+    "path": "ntrpSelector.levels.advanced.description",
+    "en": "Consistent and competitive player"
+  },
+  {
+    "path": "ntrpSelector.levels.expert.label",
+    "en": "5.0+ (Expert)"
+  },
+  {
+    "path": "ntrpSelector.levels.expert.description",
+    "en": "Tournament level player"
+  },
+  {
+    "path": "ntrpSelector.levels.any.label",
+    "en": "Any Level"
+  },
+  {
+    "path": "ntrpSelector.levels.any.description",
+    "en": "All skill levels welcome"
+  },
+  {
+    "path": "clubHallOfFame.tabs.trophies",
+    "en": "🏆 Trophies"
+  },
+  {
+    "path": "clubHallOfFame.tabs.rankings",
+    "en": "📊 ELO Rankings"
+  },
+  {
+    "path": "contexts.chatNotification.messageFrom",
+    "en": "Message from {{senderName}}: {{message}}"
+  },
+  {
+    "path": "contexts.location.permissionMessage",
+    "en": "Location permission is required to find nearby players."
+  },
+  {
+    "path": "contexts.location.permissionRequired",
+    "en": "Location permission is required."
+  },
+  {
+    "path": "contexts.location.serviceDisabled",
+    "en": "Location services are disabled."
+  },
+  {
+    "path": "contexts.location.locationUnavailable",
+    "en": "Location is unavailable."
+  },
+  {
+    "path": "contexts.location.locationTimeout",
+    "en": "Location request timed out."
+  },
+  {
+    "path": "contexts.location.cannotGetLocation",
+    "en": "Cannot get location."
+  },
+  {
+    "path": "contexts.location.watchLocationFailed",
+    "en": "Failed to watch location in real-time."
+  },
+  {
+    "path": "contexts.notification.permissionMessage",
+    "en": "Please allow notification permission in settings to receive match notifications."
+  },
+  {
+    "path": "contexts.notification.later",
+    "en": "Later"
+  },
+  {
+    "path": "contexts.notification.matchNotificationTitle",
+    "en": "Match Notification"
+  },
+  {
+    "path": "contexts.notification.matchNotificationBody",
+    "en": "You have a tennis match scheduled in 30 minutes."
+  },
+  {
+    "path": "roleManagement.statsTitle",
+    "en": "Role Statistics"
+  },
+  {
+    "path": "roleManagement.managerDescription",
+    "en": "💡 Managers have access to all management features except club deletion."
+  },
+  {
+    "path": "roleManagement.transferSection.title",
+    "en": "🔄 Transfer Admin"
+  },
+  {
+    "path": "roleManagement.transferSection.description",
+    "en": "Transfer club admin privileges to another manager."
+  },
+  {
+    "path": "roleManagement.transferSection.button",
+    "en": "Transfer Admin"
+  },
+  {
+    "path": "roleManagement.roleChangeTitle",
+    "en": "Change Roles"
+  },
+  {
+    "path": "roleManagement.modal.title",
+    "en": "🔄 Select New Admin"
+  },
+  {
+    "path": "roleManagement.modal.noCandidates",
+    "en": "No eligible managers available.\nPlease assign managers first."
+  },
+  {
+    "path": "roleManagement.modal.confirm",
+    "en": "Confirm Transfer"
+  },
+  {
+    "path": "roleManagement.alerts.loadError.message",
+    "en": "Failed to load eligible admin candidates."
+  },
+  {
+    "path": "roleManagement.alerts.transferConfirm.title",
+    "en": "Confirm Admin Transfer"
+  },
+  {
+    "path": "roleManagement.alerts.transferConfirm.message",
+    "en": "Transfer club admin privileges to '{{name}}'?\n\n⚠️ You will be changed to a manager after transfer."
+  },
+  {
+    "path": "roleManagement.alerts.transferSuccess.message",
+    "en": "'{{name}}' is now the new club admin."
+  },
+  {
+    "path": "roleManagement.alerts.transferError.message",
+    "en": "An error occurred during admin transfer."
+  },
+  {
+    "path": "appNavigator.screens.manageLeagueParticipants",
+    "en": "Manage League Matches"
+  },
+  {
+    "path": "appNavigator.screens.createMeetup",
+    "en": "Create New Recurring Meetup"
+  },
+  {
+    "path": "appNavigator.screens.concludeLeague",
+    "en": "Select Winner"
+  },
+  {
+    "path": "appNavigator.screens.clubMemberInvitation",
+    "en": "Invite Members"
+  },
+  {
+    "path": "appNavigator.screens.chatScreen",
+    "en": "Lightning Coach"
+  },
+  {
+    "path": "appNavigator.screens.achievementsGuide",
+    "en": "Achievements Guide"
+  },
+  {
+    "path": "clubOverviewScreen.emptyStateGuestTitleDefault",
+    "en": "🎾 Welcome to the club!"
+  },
+  {
+    "path": "clubOverviewScreen.emptyStateGuestAction1",
+    "en": "Apply for membership"
+  },
+  {
+    "path": "clubOverviewScreen.emptyStateGuestAction2",
+    "en": "Check club information"
+  },
+  {
+    "path": "clubOverviewScreen.aiHelperHint",
+    "en": "Not sure what to do?"
+  },
+  {
+    "path": "clubOverviewScreen.aiHelperButton",
+    "en": "Chat with AI Assistant"
+  },
+  {
+    "path": "clubOverviewScreen.aiHelperSubtext",
+    "en": "Ask questions about tennis or how to use the app!"
+  },
+  {
+    "path": "types.match.matchTypes.league",
+    "en": "League Match"
+  },
+  {
+    "path": "types.match.matchTypes.lightning_match",
+    "en": "Lightning Match"
+  },
+  {
+    "path": "types.match.matchTypes.practice",
+    "en": "Practice Match"
+  },
+  {
+    "path": "types.match.matchStatus.partner_pending",
+    "en": "Partner Pending"
+  },
+  {
+    "path": "types.match.matchStatus.pending_confirmation",
+    "en": "Pending Confirmation"
+  },
+  {
+    "path": "types.match.matchStatus.confirmed",
+    "en": "Confirmed"
+  },
+  {
+    "path": "types.match.matchStatus.disputed",
+    "en": "Disputed"
+  },
+  {
+    "path": "types.match.validation.invalidMaxGamesScore",
+    "en": "Set {{setNum}}: To win with {{maxGames}} games, opponent must have {{gamesPerSet1}} or {{gamesPerSet}} games."
+  },
+  {
+    "path": "types.match.validation.invalidMaxGamesScoreShort",
+    "en": "Set {{setNum}}: In short sets, {{maxGames}}-{{minGames}} is impossible. Set ends at {{gamesPerSet}}-{{minGames}}."
+  },
+  {
+    "path": "types.match.validation.regularSet",
+    "en": "regular set"
+  },
+  {
+    "path": "types.match.validation.shortSet",
+    "en": "short set"
+  },
+  {
+    "path": "types.match.validation.tiebreak",
+    "en": "tiebreak"
+  },
+  {
+    "path": "types.clubSchedule.scheduleTypes.practice",
+    "en": "Practice Session"
+  },
+  {
+    "path": "types.clubSchedule.scheduleTypes.social",
+    "en": "Social Tennis"
+  },
+  {
+    "path": "types.clubSchedule.scheduleTypes.league_match",
+    "en": "League Match"
+  },
+  {
+    "path": "types.clubSchedule.scheduleTypes.clinic",
+    "en": "Training Clinic"
+  },
+  {
+    "path": "types.clubSchedule.scheduleTypes.meeting",
+    "en": "Club Meeting"
+  },
+  {
+    "path": "types.clubSchedule.scheduleTypes.beginner_friendly",
+    "en": "Beginner Friendly"
+  },
+  {
+    "path": "types.clubSchedule.scheduleTypes.advanced_only",
+    "en": "Advanced Only"
+  },
+  {
+    "path": "types.clubSchedule.scheduleTypes.custom",
+    "en": "Custom Event"
+  },
+  {
+    "path": "types.clubSchedule.recurrence.weekly",
+    "en": "Every week"
+  },
+  {
+    "path": "types.clubSchedule.recurrence.biweekly",
+    "en": "Every two weeks"
+  },
+  {
+    "path": "types.clubSchedule.recurrence.monthly",
+    "en": "Every month"
+  },
+  {
+    "path": "types.clubSchedule.recurrence.custom",
+    "en": "Custom schedule"
+  },
+  {
+    "path": "types.clubSchedule.timePeriod.am",
+    "en": "AM"
+  },
+  {
+    "path": "types.clubSchedule.timePeriod.pm",
+    "en": "PM"
+  },
+  {
+    "path": "types.dues.duesTypes.join",
+    "en": "Join Fee"
+  },
+  {
+    "path": "types.dues.duesTypes.monthly",
+    "en": "Monthly Dues"
+  },
+  {
+    "path": "types.dues.duesTypes.quarterly",
+    "en": "Quarterly Dues"
+  },
+  {
+    "path": "types.dues.duesTypes.yearly",
+    "en": "Yearly Dues"
+  },
+  {
+    "path": "types.dues.duesTypes.late_fee",
+    "en": "Late Fee"
+  },
+  {
+    "path": "types.dues.paymentStatus.pending_approval",
+    "en": "Pending Approval"
+  },
+  {
+    "path": "types.dues.paymentStatus.exempt",
+    "en": "Exempt"
+  },
+  {
+    "path": "types.dues.period.year",
+    "en": "{{year}}"
+  },
+  {
+    "path": "types.dues.period.yearMonth",
+    "en": "{{month}}/{{year}}"
+  },
+  {
+    "path": "types.tournament.validation.singlesNoPartner",
+    "en": "Singles tournaments do not require a partner."
+  },
+  {
+    "path": "types.tournament.validation.mensSinglesMaleOnly",
+    "en": "Men's singles is only for male players."
+  },
+  {
+    "path": "types.tournament.validation.womensSinglesFemaleOnly",
+    "en": "Women's singles is only for female players."
+  },
+  {
+    "path": "types.tournament.validation.doublesPartnerRequired",
+    "en": "Doubles tournaments require a partner."
+  },
+  {
+    "path": "types.tournament.validation.mensDoublesMaleOnly",
+    "en": "Men's doubles is only for male players."
+  },
+  {
+    "path": "types.tournament.validation.womensDoublesFemaleOnly",
+    "en": "Women's doubles is only for female players."
+  },
+  {
+    "path": "types.tournament.validation.mixedDoublesRequirement",
+    "en": "Mixed doubles requires one male and one female player."
+  },
+  {
+    "path": "league.validation.mensOnly",
+    "en": " is only available for male players."
+  },
+  {
+    "path": "league.validation.womensOnly",
+    "en": " is only available for female players."
+  },
+  {
+    "path": "league.validation.doublesNeedPartner",
+    "en": "Doubles requires a partner."
+  },
+  {
+    "path": "league.validation.mixedDoublesRequirement",
+    "en": "Mixed doubles requires one male and one female player."
+  },
+  {
+    "path": "league.validation.genderRestriction",
+    "en": " is only available for {gender} players."
+  },
+  {
+    "path": "league.genderLabels.male",
+    "en": "male"
+  },
+  {
+    "path": "league.genderLabels.female",
+    "en": "female"
+  },
+  {
+    "path": "tournament.bestFinish.champion",
+    "en": "🥇 Champion"
+  },
+  {
+    "path": "tournament.bestFinish.runnerUp",
+    "en": "🥈 Runner-up"
+  },
+  {
+    "path": "tournament.bestFinish.semiFinal",
+    "en": "🥉 Semi-finalist"
+  },
+  {
+    "path": "tournament.bestFinish.nthPlace",
+    "en": "{position}th place"
+  },
+  {
+    "path": "clubCommunication.timeAgo.justNow",
+    "en": "just now"
+  },
+  {
+    "path": "clubCommunication.timeAgo.minutesAgo",
+    "en": "{count} minutes ago"
+  },
+  {
+    "path": "clubCommunication.timeAgo.hoursAgo",
+    "en": "{count} hours ago"
+  },
+  {
+    "path": "clubCommunication.timeAgo.daysAgo",
+    "en": "{count} days ago"
+  },
+  {
+    "path": "clubCommunication.timeAgo.monthsAgo",
+    "en": "{count} months ago"
+  },
+  {
+    "path": "clubCommunication.timeAgo.yearsAgo",
+    "en": "{count} years ago"
+  },
+  {
+    "path": "clubCommunication.validation.contentRequired",
+    "en": "Please enter content"
+  },
+  {
+    "path": "clubCommunication.validation.contentTooLong",
+    "en": "Content cannot exceed 5,000 characters"
+  },
+  {
+    "path": "clubCommunication.validation.commentRequired",
+    "en": "Please enter a comment"
+  },
+  {
+    "path": "clubCommunication.validation.commentTooLong",
+    "en": "Comment cannot exceed 1,000 characters"
+  },
+  {
+    "path": "clubCommunication.validation.messageRequired",
+    "en": "Please enter a message"
+  },
+  {
+    "path": "clubCommunication.validation.messageTooLong",
+    "en": "Message cannot exceed 1,000 characters"
+  },
+  {
+    "path": "clubPoliciesScreen.lateFee",
+    "en": "Late Fee"
+  },
+  {
+    "path": "clubPoliciesScreen.qrHint",
+    "en": "Tap payment methods with QR icon to view QR code"
+  },
+  {
+    "path": "clubPoliciesScreen.qrCodeTitle",
+    "en": "{{method}} QR Code"
+  },
+  {
+    "path": "clubPoliciesScreen.myDuesButton",
+    "en": "View & Pay My Dues"
+  },
+  {
+    "path": "clubPoliciesScreen.memberOnlyButton",
+    "en": "Member Only Feature"
+  },
+  {
+    "path": "clubPoliciesScreen.emptyMessage",
+    "en": "Club rules, regular meeting times, and cost information have not been set up yet."
+  },
+  {
+    "path": "policyEditScreen.section",
+    "en": "Section"
+  },
+  {
+    "path": "policyEditScreen.unsavedChangesMessage",
+    "en": "You have unsaved changes. What would you like to do?"
+  },
+  {
+    "path": "policyEditScreen.dontSave",
+    "en": "Don't Save"
+  },
+  {
+    "path": "policyEditScreen.saveSuccessMessage",
+    "en": "Policy saved successfully."
+  },
+  {
+    "path": "policyEditScreen.saveFailedMessage",
+    "en": "An error occurred while saving the policy."
+  },
+  {
+    "path": "policyEditScreen.loadFailedMessage",
+    "en": "An error occurred while loading the policy."
+  },
+  {
+    "path": "policyEditScreen.emptyContentError",
+    "en": "Please enter policy content."
+  },
+  {
+    "path": "findClubScreen.joinRequestButton",
+    "en": "Request"
+  },
+  {
+    "path": "findClubScreen.joinRequestSuccessMessage",
+    "en": "Join request submitted successfully. Please wait for club admin approval."
+  },
+  {
+    "path": "findClubScreen.joinRequestErrorMessage",
+    "en": "An error occurred while submitting join request."
+  },
+  {
+    "path": "findClubScreen.loginRequiredMessage",
+    "en": "Login is required."
+  },
+  {
+    "path": "findClubScreen.alreadyPending",
+    "en": "Join request already pending."
+  },
+  {
+    "path": "clubDetailScreen.notFound",
+    "en": "Club Not Found"
+  },
+  {
+    "path": "clubDetailScreen.joinWaiting",
+    "en": "Awaiting Approval"
+  },
+  {
+    "path": "clubDetailScreen.reapply",
+    "en": "Reapply"
+  },
+  {
+    "path": "clubDetailScreen.joinApply",
+    "en": "Request to Join"
+  },
+  {
+    "path": "clubDetailScreen.joinModalTitle",
+    "en": "Join Club"
+  },
+  {
+    "path": "clubDetailScreen.joinModalMessage",
+    "en": "Requesting to join {{name}}. Please leave a brief message."
+  },
+  {
+    "path": "clubDetailScreen.joinMessageLabel",
+    "en": "Join Message (Optional)"
+  },
+  {
+    "path": "clubDetailScreen.joinMessagePlaceholder",
+    "en": "Briefly introduce yourself or explain why you want to join."
+  },
+  {
+    "path": "matches.header.currentNotificationDistance",
+    "en": "Current notification distance: {{distance}} miles"
+  },
+  {
+    "path": "matches.tabs.personal",
+    "en": "Personal Matches"
+  },
+  {
+    "path": "matches.tabs.club",
+    "en": "Club Events"
+  },
+  {
+    "path": "matches.createButton.newMatch",
+    "en": "Create New Match"
+  },
+  {
+    "path": "matches.createButton.newEvent",
+    "en": "Create New Event"
+  },
+  {
+    "path": "matches.createButton.template",
+    "en": "Create New {{type}}"
+  },
+  {
+    "path": "matches.card.recurring",
+    "en": "Recurring"
+  },
+  {
+    "path": "matches.card.participants",
+    "en": "Participants: {{count}}/{{max}}"
+  },
+  {
+    "path": "matches.card.organizer",
+    "en": "Organizer: {{name}}"
+  },
+  {
+    "path": "matches.card.pending",
+    "en": " (Pending)"
+  },
+  {
+    "path": "matches.card.moreParticipants",
+    "en": "+{{count}} more"
+  },
+  {
+    "path": "matches.skillLevels.all",
+    "en": "All Levels"
+  },
+  {
+    "path": "matches.skillLevels.2.0-3.0",
+    "en": "2.0-3.0"
+  },
+  {
+    "path": "matches.skillLevels.3.0-4.0",
+    "en": "3.0-4.0"
+  },
+  {
+    "path": "matches.skillLevels.4.0-5.0",
+    "en": "4.0-5.0"
+  },
+  {
+    "path": "matches.skillLevels.5.0+",
+    "en": "5.0+"
+  },
+  {
+    "path": "matches.recurringPatterns.weekly",
+    "en": "Weekly"
+  },
+  {
+    "path": "matches.recurringPatterns.biweekly",
+    "en": "Bi-weekly"
+  },
+  {
+    "path": "matches.recurringPatterns.monthly",
+    "en": "Monthly"
+  },
+  {
+    "path": "matches.recurringPatterns.weeklyMonday",
+    "en": "Every Monday"
+  },
+  {
+    "path": "matches.createModal.title.label",
+    "en": "Title *"
+  },
+  {
+    "path": "matches.createModal.title.placeholder",
+    "en": "e.g., Weekend Doubles Game"
+  },
+  {
+    "path": "matches.createModal.matchType.label",
+    "en": "Match Type"
+  },
+  {
+    "path": "matches.createModal.matchType.personal",
+    "en": "Personal Match"
+  },
+  {
+    "path": "matches.createModal.matchType.club",
+    "en": "Club Event"
+  },
+  {
+    "path": "matches.createModal.clubSelection.label",
+    "en": "Select Club"
+  },
+  {
+    "path": "matches.createModal.location.label",
+    "en": "Location *"
+  },
+  {
+    "path": "matches.createModal.location.placeholder",
+    "en": "e.g., Central Park Tennis Courts"
+  },
+  {
+    "path": "matches.createModal.dateTime.label",
+    "en": "Date & Time"
+  },
+  {
+    "path": "matches.createModal.recurring.label",
+    "en": "Recurring"
+  },
+  {
+    "path": "matches.createModal.maxParticipants.label",
+    "en": "Max Participants"
+  },
+  {
+    "path": "matches.createModal.maxParticipants.placeholder",
+    "en": "4"
+  },
+  {
+    "path": "matches.createModal.skillLevel.label",
+    "en": "Skill Level"
+  },
+  {
+    "path": "matches.createModal.description.label",
+    "en": "Description"
+  },
+  {
+    "path": "matches.createModal.description.placeholder",
+    "en": "Enter additional information about the match"
+  },
+  {
+    "path": "matches.createModal.createButton",
+    "en": "Create Match"
+  },
+  {
+    "path": "matches.alerts.inputError.message",
+    "en": "Title and location are required"
+  },
+  {
+    "path": "matches.alerts.createSuccess.title",
+    "en": "Match Created Successfully!"
+  },
+  {
+    "path": "matches.alerts.joinMatch.title",
+    "en": "Join Match"
+  },
+  {
+    "path": "matches.alerts.joinMatch.message",
+    "en": "Would you like to join this match?"
+  },
+  {
+    "path": "matches.alerts.joinMatch.success",
+    "en": "Joined Successfully!"
+  },
+  {
+    "path": "matches.mockData.me",
+    "en": "Me"
+  },
+  {
+    "path": "matches.mockData.weekendDoubles",
+    "en": "Weekend Doubles Match"
+  },
+  {
+    "path": "matches.mockData.weekendDescription",
+    "en": "Relaxed doubles match"
+  },
+  {
+    "path": "matches.mockData.mondayTraining",
+    "en": "Monday Regular Training"
+  },
+  {
+    "path": "matches.mockData.mondayDescription",
+    "en": "Weekly Monday evening training"
+  },
+  {
+    "path": "leagues.admin.participantStatus",
+    "en": "Participant Status"
+  },
+  {
+    "path": "leagues.admin.maxParticipants",
+    "en": "Max"
+  },
+  {
+    "path": "leagues.admin.applicationDate",
+    "en": "Applied"
+  },
+  {
+    "path": "leagues.admin.applicantsWillAppear",
+    "en": "Applicants will appear here in real-time"
+  },
+  {
+    "path": "leagues.admin.leaguePrivateTitle",
+    "en": "League is Private"
+  },
+  {
+    "path": "leagues.admin.leaguePrivateMessage",
+    "en": "The league is currently being prepared and is not visible to members. Start accepting applications when ready."
+  },
+  {
+    "path": "leagues.admin.opening",
+    "en": "Opening..."
+  },
+  {
+    "path": "leagues.admin.startAcceptingApplications",
+    "en": "🎭 Start Accepting Applications"
+  },
+  {
+    "path": "leagues.match.status.walkover",
+    "en": "Walkover"
+  },
+  {
+    "path": "leagues.match.matchNumber",
+    "en": "Match #{{number}}"
+  },
+  {
+    "path": "leagues.match.court",
+    "en": "Court"
+  },
+  {
+    "path": "leagues.match.result",
+    "en": "Result"
+  },
+  {
+    "path": "leagues.match.winner",
+    "en": "Winner"
+  },
+  {
+    "path": "leagues.match.submittedResult",
+    "en": "Submitted Result (Pending Approval)"
+  },
+  {
+    "path": "leagues.match.submitResult",
+    "en": "Submit Result"
+  },
+  {
+    "path": "leagues.match.submitResultAdmin",
+    "en": "Submit Result (Admin)"
+  },
+  {
+    "path": "leagues.match.matchesWillAppear",
+    "en": "Matches will appear here once created."
+  },
+  {
+    "path": "schedules.form.description",
+    "en": "Description"
+  },
+  {
+    "path": "schedules.form.directions",
+    "en": "Directions"
+  },
+  {
+    "path": "schedules.form.directionsPlaceholder",
+    "en": "Parking info, entrance location, etc."
+  },
+  {
+    "path": "schedules.form.courtType",
+    "en": "Court Type"
+  },
+  {
+    "path": "schedules.form.both",
+    "en": "Both"
+  },
+  {
+    "path": "schedules.form.participationInfo",
+    "en": "Participation Information"
+  },
+  {
+    "path": "schedules.form.minParticipants",
+    "en": "Min Participants"
+  },
+  {
+    "path": "schedules.form.skillLevelPlaceholder",
+    "en": "e.g., 3.5+"
+  },
+  {
+    "path": "schedules.form.registrationDeadline",
+    "en": "Registration Deadline (hours before)"
+  },
+  {
+    "path": "services.league.matchNotFound",
+    "en": "Match not found"
+  },
+  {
+    "path": "services.team.inviteAlreadyPending",
+    "en": "A team invitation is already pending with this partner."
+  },
+  {
+    "path": "services.team.teamAlreadyConfirmed",
+    "en": "You already have a confirmed team with this partner."
+  },
+  {
+    "path": "services.team.playerHasTeam",
+    "en": "This player already has a confirmed team for this tournament."
+  },
+  {
+    "path": "services.team.inviterAlreadyHasTeam",
+    "en": "You already have a confirmed team for this tournament."
+  },
+  {
+    "path": "services.ranking.userNotFound",
+    "en": "User not found."
+  },
+  {
+    "path": "services.ranking.invalidRankingData",
+    "en": "Invalid ranking update data."
+  },
+  {
+    "path": "services.ranking.rankingInfoFailed",
+    "en": "Failed to retrieve user ranking information"
+  },
+  {
+    "path": "services.map.cannotOpenApp",
+    "en": "Cannot open {{appName}}."
+  },
+  {
+    "path": "services.map.appNotInstalled",
+    "en": "{{appName}} Not Installed"
+  },
+  {
+    "path": "services.map.installPrompt",
+    "en": "{{appName}} is not installed. Would you like to install it from the App Store?"
+  },
+  {
+    "path": "services.map.install",
+    "en": "Install"
+  },
+  {
+    "path": "services.clubComms.permissionDenied",
+    "en": "Permission denied"
+  },
+  {
+    "path": "services.clubComms.commentNotFound",
+    "en": "Comment not found"
+  },
+  {
+    "path": "services.matching.perfectMatchTitle",
+    "en": "Found the perfect match! 🎾"
+  },
+  {
+    "path": "services.matching.newRequestTitle",
+    "en": "New match request 📨"
+  },
+  {
+    "path": "services.matching.perfectMatchBody",
+    "en": "You have a {{score}}% match rate with {{name}}."
+  },
+  {
+    "path": "services.matching.newRequestBody",
+    "en": "{{senderName}} has requested a tennis match with you."
+  },
+  {
+    "path": "services.event.untitled",
+    "en": "Untitled"
+  },
+  {
+    "path": "services.event.eventsFound",
+    "en": "Found {{count}} matches!"
+  },
+  {
+    "path": "services.event.searchError",
+    "en": "An error occurred during search."
+  },
+  {
+    "path": "services.event.locationTbd",
+    "en": "Location TBD"
+  },
+  {
+    "path": "services.event.host",
+    "en": "Host"
+  },
+  {
+    "path": "services.event.matchesFoundMessage",
+    "en": "🎾 Found {{count}} matches!"
+  },
+  {
+    "path": "services.event.playerCount",
+    "en": "   👥 {{current}}/{{max}} players"
+  },
+  {
+    "path": "services.match.participantNotFound",
+    "en": "Participant information not found."
+  },
+  {
+    "path": "services.match.invalidEventType",
+    "en": "Event type {{eventType}} must use {{expectedFormat}} format."
+  },
+  {
+    "path": "services.match.matchNotFound",
+    "en": "Match not found."
+  },
+  {
+    "path": "services.match.onlyParticipantCanSubmit",
+    "en": "Only match participants can submit scores."
+  },
+  {
+    "path": "services.match.noPermissionToConfirm",
+    "en": "You do not have permission to confirm this score."
+  },
+  {
+    "path": "services.match.notDisputed",
+    "en": "This match is not in disputed status."
+  },
+  {
+    "path": "services.activity.onlyInvitedUser",
+    "en": "Only invited users can respond"
+  },
+  {
+    "path": "services.activity.eventNotFound",
+    "en": "Event not found"
+  },
+  {
+    "path": "services.activity.alreadyProcessed",
+    "en": "Invitation has already been processed"
+  },
+  {
+    "path": "services.activity.inviteResponseFailed",
+    "en": "Failed to respond to invitation. Please try again."
+  },
+  {
+    "path": "services.activity.notifications.defaultTitle",
+    "en": "Notification"
+  },
+  {
+    "path": "services.activity.notifications.applicationSubmittedMessage",
+    "en": "{{applicantName}} has requested to join \"{{eventTitle}}\"."
+  },
+  {
+    "path": "services.activity.notifications.playoffsQualifiedMessage",
+    "en": "Congratulations! You have qualified for the \"{{leagueName}}\" playoffs!"
+  },
+  {
+    "path": "services.activity.notifications.defaultMessage",
+    "en": "You have a new activity update."
+  },
+  {
+    "path": "services.activity.notifications.defaultLeagueName",
+    "en": "League"
+  },
+  {
+    "path": "services.activity.tennisUserFallback",
+    "en": "TennisUser{{id}}"
+  },
+  {
+    "path": "services.camera.simulatorError",
+    "en": "There was a problem accessing gallery on iOS simulator. Please test on a real device."
+  },
+  {
+    "path": "services.camera.galleryPickError",
+    "en": "An error occurred while selecting photo from gallery."
+  },
+  {
+    "path": "services.camera.selectPhotoMessage",
+    "en": "How would you like to select a photo?"
+  },
+  {
+    "path": "services.camera.camera",
+    "en": "Camera"
+  },
+  {
+    "path": "services.camera.gallery",
+    "en": "Gallery"
+  },
+  {
+    "path": "services.camera.gallerySaveNotice",
+    "en": "Gallery save feature is available in the App Store version."
+  },
+  {
+    "path": "services.camera.fileSizeError",
+    "en": "File Size Exceeded"
+  },
+  {
+    "path": "services.camera.fileSizeMessage",
+    "en": "Please select an image under 5MB."
+  },
+  {
+    "path": "services.location.permissionMessage",
+    "en": "Location permission is needed to find nearby players. Please allow permission in settings."
+  },
+  {
+    "path": "services.location.later",
+    "en": "Later"
+  },
+  {
+    "path": "services.location.backgroundPermissionTitle",
+    "en": "Background Location Permission"
+  },
+  {
+    "path": "services.location.backgroundPermissionMessage",
+    "en": "Background location permission is needed for features such as match notifications."
+  },
+  {
+    "path": "services.location.serviceDisabledTitle",
+    "en": "Location Services Disabled"
+  },
+  {
+    "path": "services.location.serviceDisabledMessage",
+    "en": "Location services are disabled. Please enable them in settings."
+  },
+  {
+    "path": "services.feed.feedNotFound",
+    "en": "Feed item not found"
+  },
+  {
+    "path": "services.feed.deletePermissionDenied",
+    "en": "You don't have permission to delete"
+  },
+  {
+    "path": "services.feed.reportTitle",
+    "en": "[Feed Report] {{contentSummary}}"
+  },
+  {
+    "path": "services.notification.matchReminder",
+    "en": "🎾 Match Reminder"
+  },
+  {
+    "path": "services.notification.partnerInvite",
+    "en": "🎾 Partner Invitation"
+  },
+  {
+    "path": "services.notification.newClubEvent",
+    "en": "🏟️ New Club Event: {{title}}"
+  },
+  {
+    "path": "services.notification.newLightningMatch",
+    "en": "⚡ New Lightning Match: {{title}}"
+  },
+  {
+    "path": "services.notification.matchDetails",
+    "en": "📍 {{location}}\n🕒 {{dateTime}}\n📏 {{distance}} miles away"
+  },
+  {
+    "path": "services.notification.matchReminderBody",
+    "en": "\"{{title}}\" match starts in {{minutes}} minutes!"
+  },
+  {
+    "path": "services.notification.partnerInviteBody",
+    "en": "{{inviterName}} invited you as a partner for \"{{eventTitle}}\" doubles match!"
+  },
+  {
+    "path": "services.tournament.participantNotFound",
+    "en": "Participant not found."
+  },
+  {
+    "path": "services.tournament.notFound",
+    "en": "Tournament not found."
+  },
+  {
+    "path": "services.tournament.minParticipantsRequired",
+    "en": "Minimum participants not met. (Current: {{current}}, Required: {{required}})"
+  },
+  {
+    "path": "services.tournament.partnerConfirmationRequired",
+    "en": "{{count}} team(s) need partner confirmation."
+  },
+  {
+    "path": "services.tournament.participantCountMismatch",
+    "en": "Participant count must be {{required}} or use byes for this tournament format."
+  },
+  {
+    "path": "services.tournament.validationError",
+    "en": "An error occurred during validation."
+  },
+  {
+    "path": "services.performanceAnalytics.insights.highWinRate.title",
+    "en": "Maintaining High Win Rate"
+  },
+  {
+    "path": "services.performanceAnalytics.insights.highWinRate.description",
+    "en": "You are currently achieving an excellent win rate of {{winRate}}%."
+  },
+  {
+    "path": "services.performanceAnalytics.insights.highWinRate.recommendations.maintain",
+    "en": "Maintain your current playing style"
+  },
+  {
+    "path": "services.performanceAnalytics.insights.highWinRate.recommendations.challenge",
+    "en": "Try playing against higher-level opponents"
+  },
+  {
+    "path": "services.performanceAnalytics.insights.lowFrequency.title",
+    "en": "Need to Increase Playing Frequency"
+  },
+  {
+    "path": "services.performanceAnalytics.insights.lowFrequency.description",
+    "en": "With an average of {{frequency}} plays per week, playing more frequently can help improve your skills."
+  },
+  {
+    "path": "services.performanceAnalytics.insights.lowFrequency.recommendations.schedule",
+    "en": "Set a regular practice schedule"
+  },
+  {
+    "path": "services.performanceAnalytics.insights.lowFrequency.recommendations.setGoal",
+    "en": "Set weekly playing goals"
+  },
+  {
+    "path": "services.performanceAnalytics.insights.bestTimeSlot.title",
+    "en": "Best Playing Time"
+  },
+  {
+    "path": "services.performanceAnalytics.insights.bestTimeSlot.description",
+    "en": "Your best performance is during {{timeSlot}} time slots."
+  },
+  {
+    "path": "services.performanceAnalytics.insights.bestTimeSlot.recommendations.increase",
+    "en": "Schedule more matches during this time"
+  },
+  {
+    "path": "services.performanceAnalytics.insights.bestTimeSlot.recommendations.analyze",
+    "en": "Analyze what makes this time slot work for you"
+  },
+  {
+    "path": "services.performanceAnalytics.monthlyReport.highlights.matchesCompleted",
+    "en": "Matches Completed"
+  },
+  {
+    "path": "services.performanceAnalytics.monthlyReport.highlights.winRateAchieved",
+    "en": "Win Rate Achieved"
+  },
+  {
+    "path": "services.performanceAnalytics.monthlyReport.highlights.bestStreak",
+    "en": "Best Win Streak"
+  },
+  {
+    "path": "services.performanceAnalytics.monthlyReport.improvements.serveSpeed",
+    "en": "Serve Speed"
+  },
+  {
+    "path": "services.performanceAnalytics.monthlyReport.improvements.backhandStability",
+    "en": "Backhand Stability"
+  },
+  {
+    "path": "services.performanceAnalytics.monthlyReport.improvements.netPlay",
+    "en": "Net Play"
+  },
+  {
+    "path": "services.performanceAnalytics.monthlyReport.nextMonthGoals.winRateTarget",
+    "en": "Target Win Rate"
+  },
+  {
+    "path": "services.performanceAnalytics.monthlyReport.nextMonthGoals.practiceFrequency",
+    "en": "Practice Frequency Goal"
+  },
+  {
+    "path": "services.performanceAnalytics.monthlyReport.nextMonthGoals.newPartner",
+    "en": "Play with New Partners"
+  },
+  {
+    "path": "services.leaderboard.challenges.weeklyMatches.title",
+    "en": "Weekly Match Challenge"
+  },
+  {
+    "path": "services.leaderboard.challenges.weeklyMatches.description",
+    "en": "Complete 5 matches this week"
+  },
+  {
+    "path": "services.leaderboard.challenges.weeklyMatches.reward",
+    "en": "100 points + \"Weekly Warrior\" badge"
+  },
+  {
+    "path": "services.leaderboard.challenges.winStreak.title",
+    "en": "Win Streak Challenge"
+  },
+  {
+    "path": "services.leaderboard.challenges.winStreak.description",
+    "en": "Achieve 3 consecutive wins"
+  },
+  {
+    "path": "services.leaderboard.challenges.winStreak.reward",
+    "en": "200 points + \"Striker\" badge"
+  },
+  {
+    "path": "services.leaderboard.challenges.monthlyImprovement.title",
+    "en": "Monthly Improvement"
+  },
+  {
+    "path": "services.leaderboard.challenges.monthlyImprovement.description",
+    "en": "Improve skill level by 5 points"
+  },
+  {
+    "path": "services.leaderboard.challenges.monthlyImprovement.reward",
+    "en": "500 points + \"Improvement King\" badge"
+  },
+  {
+    "path": "services.leaderboard.challenges.socialPlayer.title",
+    "en": "Social Player"
+  },
+  {
+    "path": "services.leaderboard.challenges.socialPlayer.description",
+    "en": "Match with 10 new opponents"
+  },
+  {
+    "path": "services.leaderboard.challenges.socialPlayer.reward",
+    "en": "300 points + \"Social Butterfly\" badge"
+  },
+  {
+    "path": "services.leaderboard.achievements.firstWin.name",
+    "en": "First Win"
+  },
+  {
+    "path": "services.leaderboard.achievements.firstWin.description",
+    "en": "Win your first match"
+  },
+  {
+    "path": "services.leaderboard.achievements.winStreak3.name",
+    "en": "3-Win Streak"
+  },
+  {
+    "path": "services.leaderboard.achievements.winStreak3.description",
+    "en": "Win 3 matches in a row"
+  },
+  {
+    "path": "services.leaderboard.achievements.winStreak5.name",
+    "en": "5-Win Streak"
+  },
+  {
+    "path": "services.leaderboard.achievements.winStreak5.description",
+    "en": "Win 5 matches in a row"
+  },
+  {
+    "path": "services.leaderboard.achievements.totalWins10.name",
+    "en": "Win Collector"
+  },
+  {
+    "path": "services.leaderboard.achievements.totalWins10.description",
+    "en": "Achieve 10 total wins"
+  },
+  {
+    "path": "services.leaderboard.achievements.totalWins50.name",
+    "en": "Win Master"
+  },
+  {
+    "path": "services.leaderboard.achievements.totalWins50.description",
+    "en": "Achieve 50 total wins"
+  },
+  {
+    "path": "services.leaderboard.achievements.matchesPlayed10.name",
+    "en": "Getting Experience"
+  },
+  {
+    "path": "services.leaderboard.achievements.matchesPlayed10.description",
+    "en": "Complete 10 total matches"
+  },
+  {
+    "path": "services.leaderboard.achievements.matchesPlayed100.name",
+    "en": "Veteran Player"
+  },
+  {
+    "path": "services.leaderboard.achievements.matchesPlayed100.description",
+    "en": "Complete 100 total matches"
+  },
+  {
+    "path": "services.leaderboard.achievements.skillLevel70.name",
+    "en": "Skilled Player"
+  },
+  {
+    "path": "services.leaderboard.achievements.skillLevel70.description",
+    "en": "Reach skill level 70"
+  },
+  {
+    "path": "services.leaderboard.achievements.skillLevel85.description",
+    "en": "Reach skill level 85"
+  },
+  {
+    "path": "services.leaderboard.achievements.socialPlayer.name",
+    "en": "Social Player"
+  },
+  {
+    "path": "services.leaderboard.achievements.socialPlayer.description",
+    "en": "Match with 20 different players"
+  },
+  {
+    "path": "services.leaderboard.achievements.monthlyActive.name",
+    "en": "Monthly Active Player"
+  },
+  {
+    "path": "services.leaderboard.achievements.monthlyActive.description",
+    "en": "Play 15 or more matches in a month"
+  },
+  {
+    "path": "services.leaderboard.achievements.earlyBird.name",
+    "en": "Early Bird"
+  },
+  {
+    "path": "services.leaderboard.achievements.earlyBird.description",
+    "en": "Complete 10 matches before 10 AM"
+  },
+  {
+    "path": "services.leaderboard.achievements.nightOwl.name",
+    "en": "Night Owl"
+  },
+  {
+    "path": "services.leaderboard.achievements.nightOwl.description",
+    "en": "Complete 10 matches after 8 PM"
+  },
+  {
+    "path": "services.leaderboard.categories.overall.name",
+    "en": "Overall Ranking"
+  },
+  {
+    "path": "services.leaderboard.categories.overall.description",
+    "en": "Ranking based on total performance"
+  },
+  {
+    "path": "services.leaderboard.categories.skillLevel.name",
+    "en": "Skill Level Ranking"
+  },
+  {
+    "path": "services.leaderboard.categories.skillLevel.description",
+    "en": "Ranking based on skill level"
+  },
+  {
+    "path": "services.leaderboard.categories.winRate.name",
+    "en": "Win Rate Ranking"
+  },
+  {
+    "path": "services.leaderboard.categories.winRate.description",
+    "en": "Ranking based on win rate"
+  },
+  {
+    "path": "services.leaderboard.categories.monthlyActive.name",
+    "en": "Monthly Active Ranking"
+  },
+  {
+    "path": "services.leaderboard.categories.monthlyActive.description",
+    "en": "Ranking based on monthly match activity"
+  },
+  {
+    "path": "services.leaderboard.categories.improvement.name",
+    "en": "Improvement Ranking"
+  },
+  {
+    "path": "services.leaderboard.categories.improvement.description",
+    "en": "Ranking based on skill improvement rate"
+  },
+  {
+    "path": "aiMatching.results.title",
+    "en": "AI Matching Results"
+  },
+  {
+    "path": "aiMatching.results.subtitle",
+    "en": "Found {{count}} players that match you best"
+  },
+  {
+    "path": "aiMatching.results.tipsTitle",
+    "en": "AI Matching Tips"
+  },
+  {
+    "path": "aiMatching.results.tipsText",
+    "en": "Higher match scores indicate better skill and schedule compatibility"
+  },
+  {
+    "path": "aiMatching.results.refreshButton",
+    "en": "Search Again"
+  },
+  {
+    "path": "aiMatching.candidate.matchScore",
+    "en": "Match Score"
+  },
+  {
+    "path": "aiMatching.candidate.skillLevel.beginner",
+    "en": "Beginner"
+  },
+  {
+    "path": "aiMatching.candidate.skillLevel.elementary",
+    "en": "Elementary"
+  },
+  {
+    "path": "aiMatching.candidate.skillLevel.intermediate",
+    "en": "Intermediate"
+  },
+  {
+    "path": "aiMatching.candidate.skillLevel.advanced",
+    "en": "Advanced"
+  },
+  {
+    "path": "aiMatching.candidate.attributes.strengths",
+    "en": "Key Strengths"
+  },
+  {
+    "path": "aiMatching.candidate.attributes.availableTime",
+    "en": "Available Time"
+  },
+  {
+    "path": "aiMatching.candidate.attributes.playStyle",
+    "en": "Play Style"
+  },
+  {
+    "path": "aiMatching.candidate.playStyles.aggressive",
+    "en": "Aggressive"
+  },
+  {
+    "path": "aiMatching.candidate.playStyles.defensive",
+    "en": "Defensive"
+  },
+  {
+    "path": "aiMatching.candidate.playStyles.allRound",
+    "en": "All-Round"
+  },
+  {
+    "path": "aiMatching.candidate.strengths.serve",
+    "en": "Serve"
+  },
+  {
+    "path": "aiMatching.candidate.strengths.volley",
+    "en": "Volley"
+  },
+  {
+    "path": "aiMatching.candidate.strengths.strategic",
+    "en": "Strategic Play"
+  },
+  {
+    "path": "aiMatching.candidate.strengths.backhand",
+    "en": "Backhand"
+  },
+  {
+    "path": "aiMatching.candidate.strengths.defense",
+    "en": "Defense"
+  },
+  {
+    "path": "aiMatching.candidate.strengths.endurance",
+    "en": "Endurance"
+  },
+  {
+    "path": "aiMatching.candidate.strengths.forehand",
+    "en": "Forehand"
+  },
+  {
+    "path": "aiMatching.candidate.strengths.netPlay",
+    "en": "Net Play"
+  },
+  {
+    "path": "aiMatching.candidate.strengths.mental",
+    "en": "Mental"
+  },
+  {
+    "path": "aiMatching.candidate.availability.morning",
+    "en": "Morning (6-12)"
+  },
+  {
+    "path": "aiMatching.candidate.availability.afternoon",
+    "en": "Afternoon (12-18)"
+  },
+  {
+    "path": "aiMatching.candidate.availability.evening",
+    "en": "Evening (18-22)"
+  },
+  {
+    "path": "aiMatching.candidate.availability.weekend",
+    "en": "Weekend"
+  },
+  {
+    "path": "aiMatching.candidate.selected",
+    "en": "Selected"
+  },
+  {
+    "path": "aiMatching.mockData.candidate1.name",
+    "en": "Junsu Kim"
+  },
+  {
+    "path": "aiMatching.mockData.candidate1.bio",
+    "en": "Passionate player continuously improving skills."
+  },
+  {
+    "path": "aiMatching.mockData.candidate2.name",
+    "en": "Seoyeon Lee"
+  },
+  {
+    "path": "aiMatching.mockData.candidate2.bio",
+    "en": "Looking for partners to grow together."
+  },
+  {
+    "path": "aiMatching.mockData.candidate3.name",
+    "en": "Minjae Park"
+  },
+  {
+    "path": "aiMatching.mockData.candidate3.bio",
+    "en": "Seeks competitive yet enjoyable matches."
+  },
+  {
+    "path": "aiMatching.bottomBar.selectedName",
+    "en": "To {{name}}"
+  },
+  {
+    "path": "aiMatching.bottomBar.selectedAction",
+    "en": "Would you like to send a match request?"
+  },
+  {
+    "path": "aiMatching.bottomBar.requestButton",
+    "en": "Send Request"
+  },
+  {
+    "path": "feedCard.leagueCreated",
+    "en": "{{actorName}} created {{leagueName}}"
+  },
+  {
+    "path": "feedCard.league",
+    "en": "League"
+  },
+  {
+    "path": "feedCard.leaguePlayoffs.finals",
+    "en": "{{actorName}} advanced to Finals in {{leagueName}}"
+  },
+  {
+    "path": "feedCard.leaguePlayoffs.semifinals",
+    "en": "{{actorName}} advanced to Semifinals in {{leagueName}}"
+  },
+  {
+    "path": "feedCard.leaguePlayoffs.quarterfinals",
+    "en": "{{actorName}} advanced to Quarterfinals in {{leagueName}}"
+  },
+  {
+    "path": "feedCard.leaguePlayoffs.roundOf16",
+    "en": "{{actorName}} advanced to Round of 16 in {{leagueName}}"
+  },
+  {
+    "path": "feedCard.leaguePlayoffs.roundOf32",
+    "en": "{{actorName}} advanced to Round of 32 in {{leagueName}}"
+  },
+  {
+    "path": "feedCard.actorActivity",
+    "en": "{{actorName}} had an activity"
+  },
+  {
+    "path": "feedCard.feedTextError",
+    "en": "Unable to load feed"
+  },
+  {
+    "path": "feedCard.viewClub",
+    "en": "View Club"
+  },
+  {
+    "path": "feedCard.notification",
+    "en": "Notification"
+  },
+  {
+    "path": "feedCard.hide",
+    "en": "Hide"
+  }
+]

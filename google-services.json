@@ -1,0 +1,70 @@
+{
+  "project_info": {
+    "project_number": "815594051044",
+    "project_id": "lightning-tennis-community",
+    "storage_bucket": "lightning-tennis-community.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815594051044:android:fdf92d70881a7a3095e3f1",
+        "android_client_info": {
+          "package_name": "com.lightningtennis.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "815594051044-bvoji7ttsqgfpftpl5h5b3ledh9481kc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lightningtennis.app",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "815594051044-dn4f55j3k4i7vg671oskk2enpchu4f00.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lightningtennis.app",
+            "certificate_hash": "da81e106a75dbf87f43b28bb9af876f36ddb8d02"
+          }
+        },
+        {
+          "client_id": "815594051044-p1eulofdcdsplmcflsu3oc7m0fjcauq7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lightningtennis.app",
+            "certificate_hash": "39693ac7ede5ab59853ce6a03c0b7d03f73c0e20"
+          }
+        },
+        {
+          "client_id": "815594051044-n8cda3hlmrcsipnpuk61c3pb20d3v65d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJFr91sAqd32QsFgu-LwYHy7i3Zg_Jdfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "815594051044-n8cda3hlmrcsipnpuk61c3pb20d3v65d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "815594051044-73ah5eiak4klp7ofgj488ih3f4g97kct.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lightningtennis.community"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

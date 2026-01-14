@@ -1,0 +1,92 @@
+# Lightning Tennis Project File Structure Rules
+# This configuration enforces consistent file naming conventions
+# to prevent chaos and maintain clean project structure.
+
+ls:
+  # TypeScript React Components (PascalCase)
+  .tsx: PascalCase
+
+  # TypeScript files (camelCase for services, PascalCase for types/contexts)
+  .ts: camelCase | PascalCase
+
+  # JavaScript files (camelCase)
+  .js: camelCase | PascalCase
+  .jsx: PascalCase
+
+  # Configuration and data files
+  .json: camelCase | kebab-case
+  .yml: kebab-case
+  .yaml: kebab-case
+  .md: SCREAMING_SNAKE_CASE | PascalCase | kebab-case
+
+  # Test files
+  .test.ts: camelCase | PascalCase
+  .test.tsx: PascalCase
+  .spec.ts: camelCase | PascalCase
+  .spec.tsx: PascalCase
+
+# Directory-specific rules
+ignore:
+  # Ignore build and dependency directories
+  - node_modules
+  - .expo
+  - .expo-shared
+  - build
+  - dist
+  - coverage
+  - android
+  - ios
+  - web-build
+  - .git
+  - .husky
+  - functions/node_modules
+  - functions/lib
+  - functions/coverage
+  - .storybook
+  - docs
+  - bundle
+
+  # Ignore specific files
+  - '.eslintrc.js'
+  - '.prettierrc.js'
+  - 'babel.config.js'
+  - 'metro.config.js'
+  - 'jest.config.js'
+  - 'app.json'
+  - 'expo-env.d.ts'
+  - 'react-app-env.d.ts'
+  - 'storybook.requires.ts'
+  - '**/cloud-function-design.md'
+  - '**/E2E-Match-Flow.md'
+
+# Enforce specific patterns for different directories
+dirs:
+  # Screens must be PascalCase (e.g., DiscoverScreen.tsx)
+  src/screens:
+    .tsx: PascalCase
+
+  # Components must be PascalCase (e.g., EventCard.tsx)
+  src/components:
+    .tsx: PascalCase
+
+  # Services must be camelCase (e.g., authService.ts)
+  src/services:
+    .ts: camelCase
+
+  # Contexts must be PascalCase (e.g., AuthContext.tsx)
+  src/contexts:
+    .tsx: PascalCase
+    .ts: PascalCase
+
+  # Hooks must follow useXxx pattern (e.g., useAuth.ts)
+  src/hooks:
+    .ts: camelCase
+    .tsx: camelCase
+
+  # Types can be PascalCase or camelCase
+  src/types:
+    .ts: PascalCase | camelCase
+
+  # Utils must be camelCase (e.g., dateUtils.ts)
+  src/utils:
+    .ts: camelCase

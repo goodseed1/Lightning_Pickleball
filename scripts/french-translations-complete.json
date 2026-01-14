@@ -1,0 +1,673 @@
+{
+  "navigation": {
+    "clubs": "Clubs"
+  },
+  "createClub": {
+    "fields": {
+      "logo": "Logo"
+    }
+  },
+  "clubList": {
+    "clubType": {
+      "social": "Social"
+    }
+  },
+  "profile": {
+    "userProfile": {
+      "timeSlots": {
+        "brunch": "Brunch"
+      }
+    }
+  },
+  "profileSetup": {
+    "miles": "miles"
+  },
+  "units": {
+    "km": "km",
+    "mi": "mi",
+    "distanceKm": "{{distance}} km",
+    "distanceMi": "{{distance}} mi"
+  },
+  "ntrp": {
+    "label": {
+      "expert": "Expert"
+    }
+  },
+  "ntrpResult": {
+    "recommended": "Recommandé"
+  },
+  "admin": {
+    "devTools": {
+      "mile": "mile",
+      "miles": "miles"
+    },
+    "matchManagement": {
+      "total": "Total"
+    }
+  },
+  "clubChat": {
+    "important": "Important"
+  },
+  "clubSelector": {
+    "club": "Club"
+  },
+  "alert": {
+    "tournamentBracket": {
+      "info": "Info",
+      "participants": "Participants",
+      "participantsTab": "Participants"
+    }
+  },
+  "discover": {
+    "tabs": {
+      "clubs": "Clubs",
+      "services": "Services"
+    },
+    "skillFilters": {
+      "expert": "Expert"
+    }
+  },
+  "emailLogin": {
+    "verification": {
+      "sentTo": "{{email}}"
+    }
+  },
+  "clubLeaguesTournaments": {
+    "labels": {
+      "participants": "Participants",
+      "format": "Format"
+    },
+    "memberPreLeagueStatus": {
+      "participantsStatus": "Participants",
+      "peopleUnit": "",
+      "format": "Format"
+    }
+  },
+  "clubTournamentManagement": {
+    "detailTabs": {
+      "participants": "Participants"
+    },
+    "participants": {
+      "label": "Participants"
+    }
+  },
+  "eventCard": {
+    "matchTypeSelector": {
+      "doubles": "Double"
+    },
+    "eventTypes": {
+      "match": "Match",
+      "lightning": "Match"
+    },
+    "labels": {
+      "host": "Hôte",
+      "participants": "{{current}}/{{max}}",
+      "friendly": "Amical",
+      "waiting": "{{count}} en attente",
+      "full": "Complet"
+    },
+    "buttons": {
+      "setLocation": "Définir le lieu",
+      "applyAsTeam": "Candidater en équipe",
+      "applySolo": "Candidater seul(e)",
+      "registrationClosed": "Inscriptions closes"
+    },
+    "results": {
+      "hostTeamWins": "Victoire de l'équipe hôte",
+      "guestTeamWins": "Victoire de l'équipe invitée"
+    },
+    "requirements": {
+      "levelMismatch": "Niveau incompatible (Votre LTR : {{userNtrp}}, Autorisé : {{minNtrp}}~{{maxNtrp}})",
+      "genderMismatch": "Genre incompatible",
+      "menOnly": "Ceci est un match masculin",
+      "womenOnly": "Ceci est un match féminin",
+      "canApply": "Candidater : LTR {{minNtrp}} - {{maxNtrp}}",
+      "level": "Niveau : {{level}}"
+    },
+    "soloApplicants": {
+      "count": "{{count}} solo",
+      "label": "{{count}} candidat(e)s solo"
+    }
+  },
+  "createEvent": {
+    "fields": {
+      "description": "Description"
+    },
+    "languages": {
+      "korean": "한국어",
+      "chinese": "中文",
+      "japanese": "日本語",
+      "spanish": "Español",
+      "french": "Français"
+    }
+  },
+  "duesManagement": {
+    "report": {
+      "totalColumn": "Total"
+    },
+    "paymentDetails": {
+      "type": "Type",
+      "notes": "Notes"
+    },
+    "countSuffix": ""
+  },
+  "clubScheduleSettings": {
+    "fields": {
+      "description": "Description"
+    }
+  },
+  "eventParticipation": {
+    "tabs": {
+      "participants": "Participants"
+    },
+    "details": {
+      "participants": "participants"
+    },
+    "participants": {
+      "list": "Participants"
+    },
+    "statusLabels": {
+      "waitlisted": "Liste d'attente",
+      "confirmed": "Confirmé"
+    },
+    "typeLabels": {
+      "participant": "Participant",
+      "spectator": "Spectateur",
+      "helper": "Aide"
+    },
+    "messages": {
+      "autoApprovalTitle": "Participation à la réunion régulière confirmée !",
+      "requestSentTitle": "Demande de participation à l'événement envoyée",
+      "approvedTitle": "Participation à l'événement approuvée !",
+      "rejectedTitle": "Participation à l'événement refusée"
+    }
+  },
+  "clubAdmin": {
+    "participation": "Participation",
+    "chatNormal": "Normal"
+  },
+  "createClubTournament": {
+    "matchFormats": {
+      "best_of_1": "1 Set",
+      "best_of_3": "3 Sets",
+      "best_of_5": "5 Sets"
+    }
+  },
+  "appliedEventCard": {
+    "eventType": {
+      "match": "Match"
+    },
+    "teams": {
+      "participants": "Participants ({{count}})"
+    }
+  },
+  "meetupDetail": {
+    "rsvp": {
+      "title": "RSVP"
+    },
+    "editEvent": {
+      "labelDescription": "Description",
+      "durationUnit": "min"
+    }
+  },
+  "rankingsCard": {
+    "notAvailable": "N/D"
+  },
+  "serviceForm": {
+    "description": "Description",
+    "photos": "Photos (max {{max}})"
+  },
+  "playerCard": {
+    "expert": "Expert",
+    "notAvailable": "N/D"
+  },
+  "createModal": {
+    "lightningMatch": {
+      "subtitle": "Match classé"
+    },
+    "lightningMeetup": {
+      "subtitle": "Rencontre décontractée"
+    }
+  },
+  "pastEventCard": {
+    "eventTypes": {
+      "match": "Match"
+    },
+    "challenger": "Challenger"
+  },
+  "weeklySchedule": {
+    "total": "Total"
+  },
+  "lessonForm": {
+    "descriptionLabel": "Description *"
+  },
+  "concludeLeague": {
+    "stats": {
+      "points": "{{points}} pts"
+    }
+  },
+  "tournamentDetail": {
+    "info": "Info",
+    "participants": "Participants",
+    "participantsSuffix": "",
+    "bestFinish": {
+      "champion": "🥇 Champion",
+      "runnerUp": "🥈 Finaliste",
+      "semiFinal": "🥉 Demi-finaliste",
+      "nthPlace": "{position}e place"
+    }
+  },
+  "myProfile": {
+    "title": "Mon profil"
+  },
+  "clubLeagueManagement": {
+    "participants": "Participants : {{count}}/{{max}}",
+    "champion": "Champion : {{name}}"
+  },
+  "eventDetail": {
+    "participants": {
+      "label": "participants",
+      "count": ""
+    },
+    "sections": {
+      "description": "Description",
+      "participants": "Participants ({{count}})"
+    }
+  },
+  "ntrpLevelDetail": {
+    "description": "Description"
+  },
+  "setLocationTimeModal": {
+    "date": "Date"
+  },
+  "hallOfFame": {
+    "badges": "badges"
+  },
+  "ltrLevelDetail": {
+    "description": "Description"
+  },
+  "recordScore": {
+    "set": "Set",
+    "setN": "Set {{n}}",
+    "selectWinner": "Sélectionner le gagnant",
+    "selectWinnerRequired": "Sélectionner le gagnant (Obligatoire)",
+    "selectPlayerWhoDidNotRetire": "Sélectionner le joueur qui n'a pas abandonné",
+    "selectPlayerWhoShowedUp": "Sélectionner le joueur qui s'est présenté",
+    "pleaseSelectWinner": "Veuillez sélectionner un gagnant.",
+    "alerts": {
+      "globalRanking": "Global"
+    }
+  },
+  "scoreConfirmation": {
+    "reasonLabel": "Raison du désaccord",
+    "reasonPlaceholder": "Veuillez expliquer pourquoi le score est incorrect ou quel est le problème...",
+    "reasonHelper": "Un administrateur examinera votre raison et finalisera le score.",
+    "warningTitle": "Notes importantes",
+    "warningText": "• Accepter le score finalisera le résultat du match\n• Refuser fera remonter le problème à un administrateur\n• Les faux rapports ou litiges malveillants peuvent entraîner des sanctions",
+    "submitAgree": "Confirmer le score",
+    "submitDisagree": "Soumettre un litige",
+    "submitDefault": "Veuillez sélectionner",
+    "alerts": {
+      "pleaseSelect": "Veuillez sélectionner si vous acceptez le score.",
+      "pleaseProvideReason": "Veuillez fournir une raison pour votre désaccord avec le score.",
+      "confirmationError": "Une erreur s'est produite lors du traitement de votre confirmation."
+    }
+  },
+  "directChat": {
+    "club": "Club",
+    "headerTitle": "Messages",
+    "tabs": {
+      "conversations": "Conversations"
+    }
+  },
+  "matchDetail": {
+    "defaultMessage": "J'ai hâte de faire un super match !"
+  },
+  "matchRequest": {
+    "alerts": {
+      "selectTime": "Veuillez sélectionner une heure de match.",
+      "selectCourt": "Veuillez sélectionner un terrain.",
+      "requestComplete": "Demande de match envoyée",
+      "requestCompleteMessage": "Demande de match envoyée à {{name}}.",
+      "requestError": "Une erreur s'est produite lors de l'envoi de la demande de match."
+    },
+    "playerCard": {
+      "winRate": "taux de victoire",
+      "recentMatches": "Matchs récents"
+    },
+    "schedule": {
+      "title": "Programme du match",
+      "selectTime": "Sélectionner l'heure",
+      "duration": "Durée du match",
+      "oneHour": "1 heure",
+      "twoHours": "2 heures",
+      "threeHours": "3 heures"
+    },
+    "court": {
+      "title": "Sélectionner le terrain",
+      "perHour": "/heure"
+    },
+    "message": {
+      "title": "Message (Optionnel)",
+      "placeholder": "Écrivez un message d'accueil ou vos attentes pour le match"
+    },
+    "summary": {
+      "title": "Résumé du match"
+    },
+    "sendButton": "Envoyer la demande de match"
+  },
+  "leagueDetail": {
+    "notification": "Notification",
+    "champion": "Champion",
+    "tabs": {
+      "participants": "Participants"
+    }
+  },
+  "cards": {
+    "hostedEvent": {
+      "weather": {
+        "showers": "Averses",
+        "lightsnow": "Neige légère",
+        "heavysnow": "Neige forte"
+      }
+    }
+  },
+  "mapAppSelector": {
+    "appNotInstalled": "Application non installée",
+    "appNotInstalledMessage": "{{appName}} n'est pas installé sur votre appareil.",
+    "install": "Installer",
+    "installed": "Installé",
+    "errorOpeningApp": "Impossible d'ouvrir l'application de carte. Veuillez réessayer.",
+    "checkingApps": "Vérification des applications disponibles...",
+    "setAsDefault": "Définir par défaut",
+    "autoOpenDescription": "Ouvrir automatiquement avec cette application la prochaine fois"
+  },
+  "participantSelector": {
+    "maxParticipants": "Participants maximum",
+    "peopleSuffix": " personnes",
+    "customInput": "Ou entrez un nombre personnalisé :",
+    "placeholder": "par ex., 16",
+    "selected": "Sélectionné : {{count}} personnes"
+  },
+  "ntrpSelector": {
+    "levels": {
+      "beginner": {
+        "label": "1.0-2.5 (Débutant)",
+        "description": "Vient de commencer à jouer au tennis"
+      },
+      "intermediate": {
+        "label": "3.0-3.5 (Intermédiaire)",
+        "description": "Peut faire des échanges et jouer des matchs de base"
+      },
+      "advanced": {
+        "label": "4.0-4.5 (Avancé)",
+        "description": "Joueur régulier et compétitif"
+      },
+      "expert": {
+        "label": "5.0+ (Expert)",
+        "description": "Joueur de niveau tournoi"
+      },
+      "any": {
+        "label": "Tous niveaux",
+        "description": "Tous les niveaux de compétence sont les bienvenus"
+      }
+    }
+  },
+  "clubHallOfFame": {
+    "tabs": {
+      "trophies": "🏆 Trophées",
+      "rankings": "📊 Classements ELO"
+    }
+  },
+  "contexts": {
+    "chatNotification": {
+      "messageFrom": "Message de {{senderName}} : {{message}}"
+    },
+    "location": {
+      "permissionMessage": "L'autorisation de localisation est requise pour trouver des joueurs à proximité.",
+      "permissionRequired": "L'autorisation de localisation est requise.",
+      "serviceDisabled": "Les services de localisation sont désactivés.",
+      "locationUnavailable": "La localisation n'est pas disponible.",
+      "locationTimeout": "La demande de localisation a expiré.",
+      "cannotGetLocation": "Impossible d'obtenir la localisation.",
+      "watchLocationFailed": "Échec du suivi de la localisation en temps réel."
+    },
+    "notification": {
+      "permissionMessage": "Veuillez autoriser la permission de notification dans les paramètres pour recevoir les notifications de match.",
+      "later": "Plus tard",
+      "matchNotificationTitle": "Notification de match",
+      "matchNotificationBody": "Vous avez un match de tennis prévu dans 30 minutes."
+    }
+  },
+  "roleManagement": {
+    "statsTitle": "Statistiques des rôles",
+    "managerDescription": "💡 Les gestionnaires ont accès à toutes les fonctionnalités de gestion sauf la suppression du club.",
+    "transferSection": {
+      "title": "🔄 Transférer l'administration",
+      "description": "Transférer les privilèges d'administrateur du club à un autre gestionnaire.",
+      "button": "Transférer l'administration"
+    },
+    "roleChangeTitle": "Modifier les rôles",
+    "modal": {
+      "title": "🔄 Sélectionner le nouvel administrateur",
+      "noCandidates": "Aucun gestionnaire éligible disponible.\nVeuillez d'abord assigner des gestionnaires.",
+      "confirm": "Confirmer le transfert"
+    },
+    "alerts": {
+      "loadError": {
+        "message": "Échec du chargement des candidats administrateurs éligibles."
+      },
+      "transferConfirm": {
+        "title": "Confirmer le transfert d'administration",
+        "message": "Transférer les privilèges d'administrateur du club à '{{name}}' ?\n\n⚠️ Vous serez changé en gestionnaire après le transfert."
+      },
+      "transferSuccess": {
+        "message": "'{{name}}' est maintenant le nouvel administrateur du club."
+      },
+      "transferError": {
+        "message": "Une erreur s'est produite lors du transfert d'administration."
+      }
+    }
+  },
+  "appNavigator": {
+    "screens": {
+      "manageLeagueParticipants": "Gérer les matchs de ligue",
+      "createMeetup": "Créer une nouvelle rencontre récurrente",
+      "concludeLeague": "Sélectionner le gagnant",
+      "clubMemberInvitation": "Inviter des membres",
+      "chatScreen": "Lightning Coach",
+      "achievementsGuide": "Guide des succès"
+    }
+  },
+  "clubOverviewScreen": {
+    "important": "Important",
+    "emptyStateGuestTitleDefault": "🎾 Bienvenue au club !",
+    "emptyStateGuestAction1": "Demander l'adhésion",
+    "emptyStateGuestAction2": "Consulter les informations du club",
+    "aiHelperHint": "Vous ne savez pas quoi faire ?",
+    "aiHelperButton": "Discuter avec l'assistant IA",
+    "aiHelperSubtext": "Posez des questions sur le tennis ou comment utiliser l'application !"
+  },
+  "types": {
+    "dues": {
+      "period": {
+        "year": "{{year}}",
+        "yearMonth": "{{month}}/{{year}}"
+      }
+    }
+  },
+  "league": {
+    "validation": {
+      "mensOnly": " est réservé aux joueurs masculins.",
+      "womensOnly": " est réservé aux joueurs féminins.",
+      "doublesNeedPartner": "Le double nécessite un partenaire.",
+      "mixedDoublesRequirement": "Le double mixte nécessite un joueur masculin et un joueur féminin.",
+      "genderRestriction": " est réservé aux joueurs {gender}."
+    },
+    "genderLabels": {
+      "male": "masculins",
+      "female": "féminins"
+    }
+  },
+  "tournament": {
+    "bestFinish": {
+      "champion": "🥇 Champion",
+      "runnerUp": "🥈 Finaliste",
+      "semiFinal": "🥉 Demi-finaliste",
+      "nthPlace": "{position}e place"
+    }
+  },
+  "clubCommunication": {
+    "timeAgo": {
+      "justNow": "à l'instant",
+      "minutesAgo": "il y a {count} minutes",
+      "hoursAgo": "il y a {count} heures",
+      "daysAgo": "il y a {count} jours",
+      "monthsAgo": "il y a {count} mois",
+      "yearsAgo": "il y a {count} ans"
+    },
+    "validation": {
+      "contentRequired": "Veuillez saisir le contenu",
+      "contentTooLong": "Le contenu ne peut pas dépasser 5 000 caractères",
+      "commentRequired": "Veuillez saisir un commentaire",
+      "commentTooLong": "Le commentaire ne peut pas dépasser 1 000 caractères",
+      "messageRequired": "Veuillez saisir un message",
+      "messageTooLong": "Le message ne peut pas dépasser 1 000 caractères"
+    }
+  },
+  "clubPoliciesScreen": {
+    "lateFee": "Frais de retard",
+    "qrHint": "Appuyez sur les méthodes de paiement avec l'icône QR pour voir le code QR",
+    "qrCodeTitle": "Code QR {{method}}",
+    "myDuesButton": "Voir et payer mes cotisations",
+    "memberOnlyButton": "Fonctionnalité réservée aux membres",
+    "emptyMessage": "Les règles du club, les horaires de réunion réguliers et les informations de coût n'ont pas encore été configurés."
+  },
+  "policyEditScreen": {
+    "section": "Section",
+    "unsavedChangesMessage": "Vous avez des modifications non enregistrées. Que souhaitez-vous faire ?",
+    "dontSave": "Ne pas enregistrer",
+    "saveSuccessMessage": "Politique enregistrée avec succès.",
+    "saveFailedMessage": "Une erreur s'est produite lors de l'enregistrement de la politique.",
+    "loadFailedMessage": "Une erreur s'est produite lors du chargement de la politique.",
+    "emptyContentError": "Veuillez saisir le contenu de la politique."
+  },
+  "findClubScreen": {
+    "joinRequestButton": "Demander",
+    "joinRequestSuccessMessage": "Demande d'adhésion soumise avec succès. Veuillez attendre l'approbation de l'administrateur du club.",
+    "joinRequestErrorMessage": "Une erreur s'est produite lors de la soumission de la demande d'adhésion.",
+    "loginRequiredMessage": "Connexion requise.",
+    "alreadyPending": "Demande d'adhésion déjà en attente."
+  },
+  "clubDetailScreen": {
+    "notFound": "Club non trouvé",
+    "joinWaiting": "En attente d'approbation",
+    "reapply": "Repostuler",
+    "joinApply": "Demander à rejoindre",
+    "joinModalTitle": "Rejoindre le club",
+    "joinModalMessage": "Demande pour rejoindre {{name}}. Veuillez laisser un bref message.",
+    "joinMessageLabel": "Message d'adhésion (Optionnel)",
+    "joinMessagePlaceholder": "Présentez-vous brièvement ou expliquez pourquoi vous souhaitez rejoindre."
+  },
+  "matches": {
+    "skillLevels": {
+      "2.0-3.0": "2.0-3.0",
+      "3.0-4.0": "3.0-4.0",
+      "4.0-5.0": "4.0-5.0",
+      "5.0+": "5.0+"
+    },
+    "createModal": {
+      "maxParticipants": {
+        "placeholder": "4"
+      },
+      "description": {
+        "label": "Description"
+      }
+    }
+  },
+  "leagues": {
+    "admin": {
+      "participantStatus": "Statut des participants",
+      "maxParticipants": "Max",
+      "applicationDate": "Postulé",
+      "applicantsWillAppear": "Les candidats apparaîtront ici en temps réel",
+      "leaguePrivateTitle": "La ligue est privée",
+      "leaguePrivateMessage": "La ligue est actuellement en préparation et n'est pas visible par les membres. Commencez à accepter les candidatures lorsque vous êtes prêt.",
+      "opening": "Ouverture...",
+      "startAcceptingApplications": "🎭 Commencer à accepter les candidatures"
+    },
+    "match": {
+      "status": {
+        "walkover": "Forfait"
+      },
+      "matchNumber": "Match #{{number}}",
+      "court": "Court",
+      "result": "Résultat",
+      "submittedResult": "Résultat soumis (En attente d'approbation)",
+      "submitResult": "Soumettre le résultat",
+      "submitResultAdmin": "Soumettre le résultat (Admin)",
+      "matchesWillAppear": "Les matchs apparaîtront ici une fois créés."
+    }
+  },
+  "schedules": {
+    "form": {
+      "description": "Description",
+      "directions": "Indications",
+      "directionsPlaceholder": "Infos parking, emplacement de l'entrée, etc.",
+      "courtType": "Type de terrain",
+      "both": "Les deux",
+      "participationInfo": "Informations de participation",
+      "minParticipants": "Min Participants",
+      "skillLevelPlaceholder": "par ex., 3.5+",
+      "registrationDeadline": "Date limite d'inscription (heures avant)"
+    }
+  },
+  "services": {
+    "activity": {
+      "notifications": {
+        "defaultTitle": "Notification"
+      }
+    },
+    "leaderboard": {
+      "achievements": {
+        "skillLevel85": {
+          "name": "Expert"
+        }
+      }
+    }
+  },
+  "aiMatching": {
+    "candidate": {
+      "strengths": {
+        "endurance": "Endurance",
+        "mental": "Mental"
+      }
+    },
+    "mockData": {
+      "candidate1": {
+        "name": "Junsu Kim"
+      },
+      "candidate2": {
+        "name": "Seoyeon Lee"
+      },
+      "candidate3": {
+        "name": "Minjae Park"
+      }
+    }
+  },
+  "feedCard": {
+    "leagueCreated": "{{actorName}} a créé {{leagueName}}",
+    "leaguePlayoffs": {
+      "finals": "{{actorName}} s'est qualifié(e) pour la Finale de {{leagueName}}",
+      "semifinals": "{{actorName}} s'est qualifié(e) pour les Demi-finales de {{leagueName}}",
+      "quarterfinals": "{{actorName}} s'est qualifié(e) pour les Quarts de finale de {{leagueName}}",
+      "roundOf16": "{{actorName}} s'est qualifié(e) pour les Huitièmes de finale de {{leagueName}}",
+      "roundOf32": "{{actorName}} s'est qualifié(e) pour les Seizièmes de finale de {{leagueName}}"
+    },
+    "actorActivity": "{{actorName}} a eu une activité",
+    "feedTextError": "Impossible de charger le fil",
+    "viewClub": "Voir le club",
+    "notification": "Notification",
+    "hide": "Masquer"
+  }
+}

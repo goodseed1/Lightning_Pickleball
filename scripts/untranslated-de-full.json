@@ -1,0 +1,437 @@
+[
+  {
+    "key": "common.ok",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "auth.register.displayName",
+    "enValue": "Name",
+    "targetValue": "Name"
+  },
+  {
+    "key": "auth.register.success.ok",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "createClub.fields.logo",
+    "enValue": "Logo",
+    "targetValue": "Logo"
+  },
+  {
+    "key": "profile.settingsTab.administrator",
+    "enValue": "Administrator",
+    "targetValue": "Administrator"
+  },
+  {
+    "key": "profile.userProfile.timeSlots.brunch",
+    "enValue": "Brunch",
+    "targetValue": "Brunch"
+  },
+  {
+    "key": "onboarding.maxDistance",
+    "enValue": "Max {{distance}}km",
+    "targetValue": "Max {{distance}}km"
+  },
+  {
+    "key": "units.km",
+    "enValue": "km",
+    "targetValue": "km"
+  },
+  {
+    "key": "units.mi",
+    "enValue": "mi",
+    "targetValue": "mi"
+  },
+  {
+    "key": "units.distanceKm",
+    "enValue": "{{distance}} km",
+    "targetValue": "{{distance}} km"
+  },
+  {
+    "key": "units.distanceMi",
+    "enValue": "{{distance}} mi",
+    "targetValue": "{{distance}} mi"
+  },
+  {
+    "key": "roles.manager",
+    "enValue": "Manager",
+    "targetValue": "Manager"
+  },
+  {
+    "key": "terms.optional",
+    "enValue": "Optional",
+    "targetValue": "Optional"
+  },
+  {
+    "key": "club.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "club.clubMembers.roles.manager",
+    "enValue": "Manager",
+    "targetValue": "Manager"
+  },
+  {
+    "key": "alert.tournamentBracket.info",
+    "enValue": "Info",
+    "targetValue": "Info"
+  },
+  {
+    "key": "editProfile.common.ok",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "clubLeaguesTournaments.status.playoffs",
+    "enValue": "Playoffs",
+    "targetValue": "Playoffs"
+  },
+  {
+    "key": "clubLeaguesTournaments.labels.status",
+    "enValue": "Status",
+    "targetValue": "Status"
+  },
+  {
+    "key": "clubLeaguesTournaments.labels.format",
+    "enValue": "Format",
+    "targetValue": "Format"
+  },
+  {
+    "key": "clubLeaguesTournaments.memberPreLeagueStatus.format",
+    "enValue": "Format",
+    "targetValue": "Format"
+  },
+  {
+    "key": "clubLeaguesTournaments.memberPreLeagueStatus.status",
+    "enValue": "Status",
+    "targetValue": "Status"
+  },
+  {
+    "key": "clubTournamentManagement.stats.champion",
+    "enValue": "Champion: ",
+    "targetValue": "Champion: "
+  },
+  {
+    "key": "clubTournamentManagement.common.confirm",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "eventCard.matchTypeSelector.mixed",
+    "enValue": "Mixed",
+    "targetValue": "Mixed"
+  },
+  {
+    "key": "eventCard.buttons.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "createEvent.eventType.match",
+    "enValue": "Match",
+    "targetValue": "Match"
+  },
+  {
+    "key": "createEvent.fields.partner",
+    "enValue": "Partner",
+    "targetValue": "Partner"
+  },
+  {
+    "key": "createEvent.gameTypes.mixed",
+    "enValue": "Mixed",
+    "targetValue": "Mixed"
+  },
+  {
+    "key": "createEvent.alerts.confirm",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "createEvent.languages.korean",
+    "enValue": "한국어",
+    "targetValue": "한국어"
+  },
+  {
+    "key": "createEvent.languages.english",
+    "enValue": "English",
+    "targetValue": "English"
+  },
+  {
+    "key": "createEvent.languages.chinese",
+    "enValue": "中文",
+    "targetValue": "中文"
+  },
+  {
+    "key": "createEvent.languages.japanese",
+    "enValue": "日本語",
+    "targetValue": "日本語"
+  },
+  {
+    "key": "createEvent.languages.spanish",
+    "enValue": "Español",
+    "targetValue": "Español"
+  },
+  {
+    "key": "createEvent.languages.french",
+    "enValue": "Français",
+    "targetValue": "Français"
+  },
+  {
+    "key": "hostedEventCard.buttons.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "hostedEventCard.partner",
+    "enValue": "Partner: ",
+    "targetValue": "Partner: "
+  },
+  {
+    "key": "duesManagement.tabs.status",
+    "enValue": "Status",
+    "targetValue": "Status"
+  },
+  {
+    "key": "duesManagement.alerts.ok",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "duesManagement.settings.bank",
+    "enValue": "Bank",
+    "targetValue": "Bank"
+  },
+  {
+    "key": "duesManagement.settings.venmo",
+    "enValue": "Venmo",
+    "targetValue": "Venmo"
+  },
+  {
+    "key": "feed.title",
+    "enValue": "Feed",
+    "targetValue": "Feed"
+  },
+  {
+    "key": "regularMeetup.crowdOk",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "eventParticipation.tabs.details",
+    "enValue": "Details",
+    "targetValue": "Details"
+  },
+  {
+    "key": "clubAdmin.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "clubAdmin.chatNormal",
+    "enValue": "Normal",
+    "targetValue": "Normal"
+  },
+  {
+    "key": "editClubPolicy.ok",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "appliedEventCard.actions.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "meetupDetail.weather.windLabel",
+    "enValue": "Wind",
+    "targetValue": "Wind"
+  },
+  {
+    "key": "teamInvitations.ok",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "createClubLeague.ok",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "manageAnnouncement.ok",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "playerCard.online",
+    "enValue": "Online",
+    "targetValue": "Online"
+  },
+  {
+    "key": "pastEventCard.chat",
+    "enValue": "Chat",
+    "targetValue": "Chat"
+  },
+  {
+    "key": "myClubSettings.alerts.ok",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "tournamentDetail.info",
+    "enValue": "Info",
+    "targetValue": "Info"
+  },
+  {
+    "key": "tournamentDetail.bestFinish.champion",
+    "enValue": "🥇 Champion",
+    "targetValue": "🥇 Champion"
+  },
+  {
+    "key": "clubLeagueManagement.status.playoffs",
+    "enValue": "Playoffs",
+    "targetValue": "Playoffs"
+  },
+  {
+    "key": "teamPairing.teamLabel",
+    "enValue": "Team {{number}}",
+    "targetValue": "Team {{number}}"
+  },
+  {
+    "key": "recordScore.tiebreak",
+    "enValue": "Tiebreak",
+    "targetValue": "Tiebreak"
+  },
+  {
+    "key": "recordScore.tiebreakLabel",
+    "enValue": "Tiebreak ({{placeholder}})",
+    "targetValue": "Tiebreak ({{placeholder}})"
+  },
+  {
+    "key": "recordScore.walkover",
+    "enValue": "Walkover",
+    "targetValue": "Walkover"
+  },
+  {
+    "key": "recordScore.alerts.confirm",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "recordScore.alerts.standardTiebreak",
+    "enValue": "Tiebreak",
+    "targetValue": "Tiebreak"
+  },
+  {
+    "key": "recordScore.alerts.globalRanking",
+    "enValue": "Global",
+    "targetValue": "Global"
+  },
+  {
+    "key": "scoreConfirmation.walkover",
+    "enValue": "Walkover",
+    "targetValue": "Walkover"
+  },
+  {
+    "key": "leagueDetail.champion",
+    "enValue": "Champion",
+    "targetValue": "Champion"
+  },
+  {
+    "key": "leagueDetail.standings.matches",
+    "enValue": "Matches",
+    "targetValue": "Matches"
+  },
+  {
+    "key": "leagueDetail.standings.playoffTitle",
+    "enValue": "Playoff Standings",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "leagueDetail.standings.thirdPlace",
+    "enValue": "3rd Place",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "leagueDetail.standings.fourthPlace",
+    "enValue": "4th Place",
+    "targetValue": "[MISSING]"
+  },
+  {
+    "key": "leagueDetail.playoffs.format",
+    "enValue": "Format:",
+    "targetValue": "Format:"
+  },
+  {
+    "key": "roleManagement.roles.manager",
+    "enValue": "Manager",
+    "targetValue": "Manager"
+  },
+  {
+    "key": "appNavigator.screens.chatScreen",
+    "enValue": "Lightning Coach",
+    "targetValue": "Lightning Coach"
+  },
+  {
+    "key": "tournament.bestFinish.champion",
+    "enValue": "🥇 Champion",
+    "targetValue": "🥇 Champion"
+  },
+  {
+    "key": "matches.createModal.maxParticipants.placeholder",
+    "enValue": "4",
+    "targetValue": "4"
+  },
+  {
+    "key": "matches.alerts.createSuccess.confirm",
+    "enValue": "OK",
+    "targetValue": "OK"
+  },
+  {
+    "key": "leagues.admin.maxParticipants",
+    "enValue": "Max",
+    "targetValue": "Max"
+  },
+  {
+    "key": "leagues.match.status.walkover",
+    "enValue": "Walkover",
+    "targetValue": "Walkover"
+  },
+  {
+    "key": "leagues.match.walkover",
+    "enValue": "Walkover",
+    "targetValue": "Walkover"
+  },
+  {
+    "key": "services.activity.tennisUserFallback",
+    "enValue": "TennisUser{{id}}",
+    "targetValue": "TennisUser{{id}}"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.volley",
+    "enValue": "Volley",
+    "targetValue": "Volley"
+  },
+  {
+    "key": "aiMatching.candidate.strengths.mental",
+    "enValue": "Mental",
+    "targetValue": "Mental"
+  },
+  {
+    "key": "aiMatching.mockData.candidate1.name",
+    "enValue": "Junsu Kim",
+    "targetValue": "Junsu Kim"
+  },
+  {
+    "key": "aiMatching.mockData.candidate2.name",
+    "enValue": "Seoyeon Lee",
+    "targetValue": "Seoyeon Lee"
+  },
+  {
+    "key": "aiMatching.mockData.candidate3.name",
+    "enValue": "Minjae Park",
+    "targetValue": "Minjae Park"
+  }
+]

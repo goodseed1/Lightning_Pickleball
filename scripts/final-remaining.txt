@@ -1,0 +1,272 @@
+Total untranslated: 306
+
+=== TOP 10 SECTIONS WITH ALL UNTRANSLATED KEYS ===
+
+
+services (87 keys):
+  services.map.error: "Error"
+  services.location.backgroundPermissionTitle: "Background Location Permission"
+  services.location.backgroundPermissionMessage: "Background location permission is needed for features such as match notifications."
+  services.location.serviceDisabledTitle: "Location Services Disabled"
+  services.location.serviceDisabledMessage: "Location services are disabled. Please enable them in settings."
+  services.feed.deletePermissionDenied: "You don't have permission to delete"
+  services.feed.reportTitle: "[Feed Report] {{contentSummary}}"
+  services.notification.matchReminder: "🎾 Match Reminder"
+  services.notification.partnerInvite: "🎾 Partner Invitation"
+  services.notification.newClubEvent: "🏟️ New Club Event: {{title}}"
+  services.notification.newLightningMatch: "⚡ New Lightning Match: {{title}}"
+  services.notification.matchDetails: "📍 {{location}}
+🕒 {{dateTime}}
+📏 {{distance}} miles away"
+  services.notification.matchReminderBody: ""{{title}}" match starts in {{minutes}} minutes!"
+  services.notification.partnerInviteBody: "{{inviterName}} invited you as a partner for "{{eventTitle}}" doubles match!"
+  services.tournament.minParticipantsRequired: "Minimum participants not met. (Current: {{current}}, Required: {{required}})"
+  services.tournament.partnerConfirmationRequired: "{{count}} team(s) need partner confirmation."
+  services.tournament.participantCountMismatch: "Participant count must be {{required}} or use byes for this tournament format."
+  services.tournament.validationError: "An error occurred during validation."
+  services.performanceAnalytics.insights.highWinRate.title: "Maintaining High Win Rate"
+  services.performanceAnalytics.insights.highWinRate.description: "You are currently achieving an excellent win rate of {{winRate}}%."
+  ... and 67 more
+
+duesManagement (50 keys):
+  duesManagement.alerts.error: "Error"
+  duesManagement.alerts.ok: "OK"
+  duesManagement.settings.venmo: "Venmo"
+  duesManagement.modals.rejectPayment: "Reject Payment"
+  duesManagement.modals.rejectPaymentConfirm: "Reject this payment?"
+  duesManagement.modals.addLateFee: "Add Late Fee"
+  duesManagement.modals.manageLateFeesTitle: "Manage Late Fees"
+  duesManagement.modals.manageLateFeesMessage: "Total Late Fees: ${{amount}}"
+  duesManagement.modals.deleteLateFee: "Delete Late Fee"
+  duesManagement.modals.deleteLateFeeConfirm: "Delete this late fee?"
+  duesManagement.modals.manageJoinFee: "Manage Join Fee"
+  duesManagement.modals.deleteJoinFee: "Delete Join Fee"
+  duesManagement.modals.deleteJoinFeeConfirm: "Delete this join fee record?"
+  duesManagement.modals.exemptionTitle: "Set Exemption"
+  duesManagement.modals.exemptionConfirm: "Set this member as dues exempt?"
+  duesManagement.modals.removeExemption: "Remove Exemption"
+  duesManagement.modals.removeExemptionConfirm: "Remove exemption for this member?"
+  duesManagement.modals.createRecord: "Create Dues Record"
+  duesManagement.modals.createRecordPrompt: "Which type of record would you like to create for this member?"
+  duesManagement.modals.editDuesSettings: "Edit Dues Settings"
+  ... and 30 more
+
+leagues (9 keys):
+  leagues.admin.startAcceptingApplications: "🎭 Start Accepting Applications"
+  leagues.match.correctResult: "Correct Result"
+  leagues.match.reschedule: "Reschedule"
+  leagues.match.court: "Court"
+  leagues.match.submittedResult: "Submitted Result (Pending Approval)"
+  leagues.match.submitResult: "Submit Result"
+  leagues.match.submitResultAdmin: "Submit Result (Admin)"
+  leagues.match.noMatches: "No matches yet"
+  leagues.match.matchesWillAppear: "Matches will appear here once created."
+
+clubTournamentManagement (8 keys):
+  clubTournamentManagement.roundGeneration.errorTitle: "Error"
+  clubTournamentManagement.tournamentStart.errorTitle: "Error"
+  clubTournamentManagement.seedAssignment.errorTitle: "Error"
+  clubTournamentManagement.deletion.errorTitle: "Error"
+  clubTournamentManagement.participantRemoval.errorTitle: "Error"
+  clubTournamentManagement.participantAdd.errorTitle: "Error"
+  clubTournamentManagement.common.confirm: "OK"
+  clubTournamentManagement.common.error: "Error"
+
+clubDuesManagement (8 keys):
+  clubDuesManagement.settings.displayName: "Display Name"
+  clubDuesManagement.settings.accountInfo: "Account/ID Info"
+  clubDuesManagement.settings.addPaymentMethods: "Add payment methods"
+  clubDuesManagement.settings.dayUnit: "th"
+  clubDuesManagement.autoInvoice.enabled: "Auto invoice has been enabled"
+  clubDuesManagement.autoInvoice.disabled: "Auto invoice has been disabled"
+  clubDuesManagement.autoInvoice.settingsUpdated: "Settings Updated"
+  clubDuesManagement.reminder.message: "Payment reminder for {{clubName}} dues"
+
+createEvent (7 keys):
+  createEvent.fields.auto: "Auto"
+  createEvent.alerts.confirm: "OK"
+  createEvent.languages.english: "English"
+  createEvent.languages.chinese: "中文"
+  createEvent.languages.japanese: "日本語"
+  createEvent.languages.spanish: "Español"
+  createEvent.languages.french: "Français"
+
+terms (6 keys):
+  terms.details.serviceTerms.content: "Lightning Tennis Terms of Service
+
+⚠️ Important Notice
+Lightning Tennis is a platform that connects tennis players. Responsibility for safety incidents or disputes during actual matches lies with the participants, and we do not assume legal liability for these matters.
+
+1. Service Usage
+- This app is a platform service connecting tennis players.
+- Users can utilize features such as match creation, participation, and club activities.
+- Please maintain mutual respect and sportsmanship when using the service.
+
+2. User Obligations
+- Must provide accurate information.
+- Must not infringe on others' rights.
+- Must not post illegal or inappropriate content.
+
+3. AI Chatbot Service Terms
+3.1 AI Answer Limitations (Disclaimer)
+- Tennis-related information provided by the chatbot is generated by AI.
+- Information provided by AI may be inaccurate or outdated.
+- The company does not guarantee the accuracy, completeness, or reliability of AI chatbot information.
+- The company is not liable for any damages arising from AI chatbot information.
+
+3.2 User Conduct Rules
+- Prohibited to use the chatbot to generate or ask illegal content.
+- Prohibited to generate or ask offensive or discriminatory content.
+- Prohibited to generate or ask content that infringes on others' rights.
+- Prohibited to intentionally share personal or sensitive information.
+
+3.3 Service Changes and Discontinuation
+- The company may change AI chatbot functionality at any time.
+- The company may temporarily or permanently discontinue chatbot service for technical or operational reasons.
+- The company is not liable for damages from service changes or discontinuation.
+
+4. Service Provider Rights
+- May update the service for quality improvement.
+- May take disciplinary action against inappropriate users."
+  terms.details.privacyPolicy.content: "Privacy Policy
+
+1. Personal Information We Collect
+- Basic info: Nickname, gender, age range
+- Tennis info: NTRP level, preferred playing style
+- Location info: Activity areas, GPS location (for match finding)
+- Contact info: Email address
+- AI Chatbot conversation data: User questions and conversation logs
+
+2. Purpose of Personal Information Use
+- Providing matchmaking services
+- Providing personalized recommendations
+- Supporting user communication
+- Service improvement and statistical analysis
+- AI Chatbot service: Generate responses to user questions
+- Chatbot service quality improvement and user inquiry trend analysis
+
+3. Third-Party Information Sharing (Important)
+3.1 Google AI Service Integration
+- User conversation content is transmitted to Google (Alphabet Inc.) for AI chatbot response generation.
+- Google processes this data solely for generating responses through AI models (Gemini).
+- Google Privacy Policy: https://policies.google.com/privacy
+- Users may opt out of AI chatbot features without limiting other service usage.
+
+3.2 Third-Party Sharing Protections
+- Personal identifying information is minimized before transmission.
+- Data is securely transmitted through encrypted communication.
+
+4. Data Storage Period
+- Basic personal information: Stored during service usage period
+- AI chatbot conversation logs: Stored for up to 2 years for service improvement, then automatically deleted
+- All personal information immediately deleted upon account withdrawal (except for legal retention requirements)
+
+5. Personal Information Protection and User Rights
+- Collected personal information is encrypted and securely stored
+- Users may request cessation of personal information processing at any time
+- Users may request access, correction, or deletion of personal information
+
+⚠️ 6. Personal Information Security Disclaimer (Important)
+- In the event of personal information leakage due to hacking, malware, system errors, or other external attacks or program errors, the company is not legally liable.
+- Users are advised NOT to expose or store sensitive personal information such as social security numbers, financial information, or passwords within the app.
+- The company is not responsible for damages arising from entering sensitive information in profiles, posts, chats, etc.
+- Users are encouraged to use strong passwords and change them periodically for account security."
+  terms.details.locationServices.content: "Location-Based Services Terms
+
+1. Location Information Collection and Use
+- Providing nearby match finding services
+- Providing tennis court search services
+- Providing distance-based notification services
+
+2. Consent for Location Information
+- Users may refuse location information provision at any time
+- Refusing location information may limit some service features
+
+3. Location Information Protection
+- Collected location information is encrypted and securely stored
+- Not provided to third parties without user consent"
+  terms.details.liabilityDisclaimer.content: "⚠️ IMPORTANT LEGAL NOTICE ⚠️
+
+Lightning Tennis app serves as a platform to connect individual tennis players.
+
+WE DO NOT ASSUME ANY LEGAL LIABILITY for:
+
+1. Safety Incidents Disclaimer
+- Injuries or accidents during tennis matches
+- Personal disputes between match participants
+- Safety incidents at tennis court facilities
+
+2. Financial Disputes Disclaimer
+- Disputes related to match costs
+- Issues related to court rental fees
+- Financial transactions between users
+
+3. User Responsibility
+- All safety and responsibility for matches belong to hosts and participants
+- Users must verify their health condition before participating
+- Appropriate insurance coverage is recommended
+
+By using this service, you agree to these disclaimer terms."
+  terms.details.marketingCommunications.content: "Marketing Communications Consent (Optional)
+
+1. Content
+- New features and service updates
+- Special events and promotion announcements
+- Useful tennis-related information and tips
+- Partnership benefits and discount information
+
+2. Delivery Methods
+- Push notifications
+- Email
+- In-app notifications
+
+3. Opt-out
+- You can opt-out anytime in settings
+- Selective opt-out available for individual notifications
+
+This consent is optional and refusing won't limit your service usage."
+  terms.details.inclusivityPolicy.content: "🌈 Diversity & Inclusion Policy and Disclaimer
+
+Lightning Tennis is a platform open to all users.
+
+1. Inclusivity Principles
+- All users have equal access to our services regardless of gender, sexual orientation, or gender identity.
+- LGBTQ+ users can participate in all activities (match creation, participation, club activities, etc.) without restrictions.
+- All users must adhere to principles of mutual respect.
+
+2. Program Error Disclaimer
+- Program errors may occasionally cause unintended restrictions on some features.
+- Such errors are not intentional discrimination and will be corrected upon discovery.
+- You agree not to file legal lawsuits for feature restrictions caused by program errors.
+
+3. Anti-Discrimination
+- Discriminatory speech or behavior based on gender, sexual orientation, or gender identity is prohibited.
+- Discriminatory behavior may result in service restrictions.
+
+By agreeing to this policy, you acknowledge understanding and acceptance of these terms."
+
+emailLogin (6 keys):
+  emailLogin.verification.sentTo: "{{email}}"
+  emailLogin.alerts.genericError.title: "Error"
+  emailLogin.alerts.resendError.title: "Error"
+  emailLogin.alerts.missingInfo.title: "Error"
+  emailLogin.alerts.loginInfoMissing.title: "Error"
+  emailLogin.alerts.forgotPassword.sendError.title: "Error"
+
+matches (6 keys):
+  matches.skillLevels.2.0-3.0: "2.0-3.0"
+  matches.skillLevels.3.0-4.0: "3.0-4.0"
+  matches.skillLevels.4.0-5.0: "4.0-5.0"
+  matches.skillLevels.5.0+: "5.0+"
+  matches.createModal.maxParticipants.placeholder: "4"
+  matches.alerts.createSuccess.confirm: "OK"
+
+eventCard (5 keys):
+  eventCard.eventTypes.casual: "Casual"
+  eventCard.eventTypes.general: "General"
+  eventCard.labels.participants: "{{current}}/{{max}}"
+  eventCard.buttons.chat: "Chat"
+  eventCard.soloApplicants.count: "{{count}} solo"
+
+
+💾 Full untranslated structure saved to: scripts/untranslated-keys.json

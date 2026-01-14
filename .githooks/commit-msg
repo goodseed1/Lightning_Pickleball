@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+msgfile="$1"
+msg="$(head -n1 "$msgfile")"
+regex='^(feat|fix|chore|docs|style|refactor|perf|test|build|ci|revert)(\([a-z0-9._-]+\))?: .+'
+if [[ "$msg" =~ ^Merge ]]; then
+  exit 0
+fi
+if ! [[ "$msg" =~ $regex ]]; then
+  echo "✖ Commit message must follow Conventional Commits, e.g.:"
+  echo "  feat(profile): add ELO chart"
+  echo "  fix(feed): handle undefined author"
+  echo "Your message: $msg"
+  exit 1
+fi

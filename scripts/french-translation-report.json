@@ -1,0 +1,122 @@
+{
+  "date": "2025-12-30T12:26:23.164Z",
+  "summary": {
+    "total": 4479,
+    "translated": 4457,
+    "identical": 99,
+    "needsReview": 22,
+    "percentComplete": 99.5
+  },
+  "needsReview": [
+    {
+      "path": "units.distanceKm",
+      "en": "{{distance}} km",
+      "fr": "{{distance}} km"
+    },
+    {
+      "path": "units.distanceMi",
+      "en": "{{distance}} mi",
+      "fr": "{{distance}} mi"
+    },
+    {
+      "path": "emailLogin.verification.sentTo",
+      "en": "{{email}}",
+      "fr": "{{email}}"
+    },
+    {
+      "path": "eventCard.labels.participants",
+      "en": "{{current}}/{{max}}",
+      "fr": "{{current}}/{{max}}"
+    },
+    {
+      "path": "eventCard.soloApplicants.count",
+      "en": "{{count}} solo",
+      "fr": "{{count}} solo"
+    },
+    {
+      "path": "hostedEventCard.participants",
+      "en": "{{current}}/{{max}}",
+      "fr": "{{current}}/{{max}}"
+    },
+    {
+      "path": "eventParticipation.details.participants",
+      "en": "participants",
+      "fr": "participants"
+    },
+    {
+      "path": "appliedEventCard.teams.participants",
+      "en": "Participants ({{count}})",
+      "fr": "Participants ({{count}})"
+    },
+    {
+      "path": "serviceForm.photos",
+      "en": "Photos (max {{max}})",
+      "fr": "Photos (max {{max}})"
+    },
+    {
+      "path": "lessonForm.descriptionLabel",
+      "en": "Description *",
+      "fr": "Description *"
+    },
+    {
+      "path": "concludeLeague.stats.points",
+      "en": "{{points}} pts",
+      "fr": "{{points}} pts"
+    },
+    {
+      "path": "tournamentDetail.bestFinish.champion",
+      "en": "🥇 Champion",
+      "fr": "🥇 Champion"
+    },
+    {
+      "path": "eventDetail.participants.label",
+      "en": "participants",
+      "fr": "participants"
+    },
+    {
+      "path": "eventDetail.sections.participants",
+      "en": "Participants ({{count}})",
+      "fr": "Participants ({{count}})"
+    },
+    {
+      "path": "hallOfFame.counts.badges",
+      "en": "{{count}} badges",
+      "fr": "{{count}} badges"
+    },
+    {
+      "path": "hallOfFame.honorBadges.receivedCount",
+      "en": "×{{count}}",
+      "fr": "×{{count}}"
+    },
+    {
+      "path": "hallOfFame.badges",
+      "en": "badges",
+      "fr": "badges"
+    },
+    {
+      "path": "recordScore.setN",
+      "en": "Set {{n}}",
+      "fr": "Set {{n}}"
+    },
+    {
+      "path": "ntrpSelector.levels.expert.label",
+      "en": "5.0+ (Expert)",
+      "fr": "5.0+ (Expert)"
+    },
+    {
+      "path": "types.dues.period.year",
+      "en": "{{year}}",
+      "fr": "{{year}}"
+    },
+    {
+      "path": "types.dues.period.yearMonth",
+      "en": "{{month}}/{{year}}",
+      "fr": "{{month}}/{{year}}"
+    },
+    {
+      "path": "tournament.bestFinish.champion",
+      "en": "🥇 Champion",
+      "fr": "🥇 Champion"
+    }
+  ]
+}

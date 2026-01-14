@@ -1,0 +1,15 @@
+# MyClubs Review Bundle
+Generated: 20250820_224638
+
+## Files (bundle/myclubs_review_20250820_224638)
+
+- src/screens/MyClubsScreen.tsx (26242 bytes)
+- src/navigation/AppNavigator.tsx (20284 bytes)
+- src/i18n/index.ts (6683 bytes)
+- App.tsx (3113 bytes)
+- src/contexts/LanguageContext.tsx (42580 bytes)
+- src/contexts/AuthContext.tsx (23818 bytes)
+- src/contexts/LocationContext.tsx (6487 bytes)
+- .env (1862 bytes)
+- .env.template (2466 bytes)
+- .env.example (1279 bytes)

@@ -1,0 +1,392 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+const ruPath = path.join(__dirname, '../src/locales/ru.json');
+const ru = JSON.parse(fs.readFileSync(ruPath, 'utf8'));
+
+// ULTRA COMPREHENSIVE - targeting all visible untranslated keys
+const translations = {
+  services: {
+    activity: {
+      onlyOwnApplication: 'Вы можете принять только свою заявку',
+      applicationNotFound: 'Заявка не найдена',
+      invalidApplication: 'Неверная заявка',
+      teamMergeFailed: 'Не удалось объединить команду. Попробуйте снова.',
+      onlyInvitedUser: 'Только приглашенные пользователи могут ответить',
+      eventNotFound: 'Событие не найдено',
+      alreadyProcessed: 'Приглашение уже обработано',
+      inviteResponseFailed: 'Не удалось ответить на приглашение. Попробуйте снова.',
+      invalidStatus: 'Неверный статус',
+      updateFailed: 'Не удалось обновить',
+      deleteFailed: 'Не удалось удалить',
+    },
+  },
+
+  duesManagement: {
+    alerts: {
+      approved: 'Одобрено',
+      rejected: 'Отклонено',
+      deleted: 'Удалено',
+      added: 'Добавлено',
+      done: 'Готово',
+      notice: 'Уведомление',
+      uploadComplete: 'Загрузка завершена',
+      uploadFailed: 'Загрузка не удалась',
+      processing: 'Обработка',
+      pending: 'Ожидает',
+      verified: 'Проверено',
+      cancelled: 'Отменено',
+    },
+  },
+
+  clubLeaguesTournaments: {
+    modals: {
+      searchPartner: 'Поиск партнера...',
+      loadingPartners: 'Загрузка партнеров...',
+      noMembersFound: 'Участники не найдены.',
+      applyToLeague: 'Подать заявку на лигу',
+      confirmApplication: 'Подтвердить заявку',
+      withdrawApplication: 'Отозвать заявку',
+    },
+
+    memberPreLeagueStatus: {
+      statusPending: 'Ожидает',
+      statusPendingSubtitle: 'Ожидание одобрения администратора лиги',
+      statusApproved: 'Подтверждено',
+      statusApprovedSubtitle: 'Ваше участие в лиге подтверждено! Матчи начнутся скоро',
+      statusRejected: 'Отклонено',
+      statusRejectedSubtitle: 'Ваша заявка была отклонена',
+      statusWithdrawn: 'Отозвано',
+      statusWithdrawnSubtitle: 'Вы отозвали заявку',
+    },
+  },
+
+  leagueDetail: {
+    generateBracket: 'Создать сетку',
+    generateBracketMessage:
+      'Управляйте заявками на вкладке Участники, затем создайте сетку на вкладке Управление',
+    generateBracketMessageSimple: 'Расписание матчей появится здесь после создания сетки',
+    bracketGeneratedSuccess: 'Сетка успешно создана!\n\nСписок матчей появится в ближайшее время.',
+    bracketGenerateError: 'Ошибка создания сетки.',
+    bracketDeletedSuccess: 'Сетка успешно удалена.\n\nТеперь вы можете создать новую сетку.',
+    bracketDeleteError: 'Ошибка удаления сетки.',
+    startPlayoffs: 'Начать плей-офф',
+    viewBracket: 'Просмотреть сетку',
+    editBracket: 'Редактировать сетку',
+    deleteBracket: 'Удалить сетку',
+    bracketSettings: 'Настройки сетки',
+  },
+
+  clubTournamentManagement: {
+    buttons: {
+      create: 'Создать турнир',
+      delete: 'Удалить турнир',
+      openRegistration: 'Открыть регистрацию',
+      closeRegistration: 'Закрыть регистрацию',
+      assignSeeds: 'Назначить посевы',
+      completeAssignment: 'Завершить назначение',
+      crownWinner: 'Наградить победителя',
+      viewDetails: 'Просмотреть детали',
+      editDetails: 'Редактировать детали',
+    },
+
+    stats: {
+      champion: 'Чемпион: ',
+      runnerUp: 'Финалист: ',
+      roundInProgress: 'Раунд в процессе...',
+      totalParticipants: 'Всего участников: ',
+      matchesPlayed: 'Сыграно матчей: ',
+      matchesRemaining: 'Осталось матчей: ',
+    },
+
+    status: {
+      draft: 'Черновик',
+      registration: 'Регистрация',
+      ready: 'Готов',
+      started: 'Начат',
+      completed: 'Завершен',
+    },
+  },
+
+  emailLogin: {
+    verifyEmail: 'Проверить email',
+    emailSent: 'Email отправлен',
+    checkYourEmail: 'Проверьте ваш email',
+    resendEmail: 'Отправить email повторно',
+    emailVerified: 'Email подтвержден',
+    emailNotVerified: 'Email не подтвержден',
+  },
+
+  club: {
+    membership: {
+      monthly: 'Ежемесячно',
+      quarterly: 'Ежеквартально',
+      yearly: 'Ежегодно',
+      lifetime: 'Пожизненно',
+      trial: 'Пробный',
+    },
+  },
+
+  createEvent: {
+    steps: {
+      basics: 'Основы',
+      details: 'Детали',
+      participants: 'Участники',
+      review: 'Проверка',
+      publish: 'Опубликовать',
+    },
+  },
+
+  types: {
+    scoring: {
+      traditional: 'Традиционный',
+      noAd: 'Без преимуществ',
+      proSet: 'Про-сет',
+      shortSet: 'Короткий сет',
+      matchTiebreak: 'Матч тай-брейк',
+    },
+  },
+
+  myActivities: {
+    filters: {
+      won: 'Победы',
+      lost: 'Поражения',
+      singles: 'Одиночные',
+      doubles: 'Парные',
+    },
+  },
+
+  matches: {
+    filters: {
+      singles: 'Одиночные',
+      doubles: 'Парные',
+      mixed: 'Смешанные',
+    },
+  },
+
+  profile: {
+    tabs: {
+      overview: 'Обзор',
+      stats: 'Статистика',
+      matches: 'Матчи',
+      achievements: 'Достижения',
+      friends: 'Друзья',
+    },
+  },
+
+  discover: {
+    emptyStates: {
+      noResults: 'Результатов не найдено',
+      tryAdjustingFilters: 'Попробуйте изменить фильтры',
+      noNearbyPlayers: 'Нет игроков рядом',
+      expandSearchRadius: 'Расширить радиус поиска',
+    },
+  },
+
+  eventCard: {
+    actions: {
+      rsvp: 'Откликнуться',
+      unrsvp: 'Отменить отклик',
+      invite: 'Пригласить',
+      edit: 'Редактировать',
+      delete: 'Удалить',
+      share: 'Поделиться',
+    },
+  },
+
+  aiMatching: {
+    results: {
+      noMatches: 'Партнеры не найдены',
+      tryAgain: 'Попробовать снова',
+      adjustPreferences: 'Настроить предпочтения',
+      expandSearch: 'Расширить поиск',
+    },
+  },
+
+  createMeetup: {
+    privacy: {
+      public: 'Публичная',
+      private: 'Приватная',
+      inviteOnly: 'Только по приглашению',
+    },
+  },
+
+  scheduleMeetup: {
+    conflicts: {
+      detected: 'Обнаружен конфликт',
+      resolve: 'Разрешить',
+      ignore: 'Игнорировать',
+      alternative: 'Альтернатива',
+    },
+  },
+
+  clubOverviewScreen: {
+    contact: {
+      phone: 'Телефон',
+      email: 'Email',
+      website: 'Веб-сайт',
+      address: 'Адрес',
+      socialMedia: 'Соцсети',
+    },
+  },
+
+  badgeGallery: {
+    sort: {
+      recent: 'Недавние',
+      rarity: 'Редкость',
+      category: 'Категория',
+      earned: 'Полученные',
+    },
+  },
+
+  leagues: {
+    sort: {
+      newest: 'Новейшие',
+      popular: 'Популярные',
+      starting: 'Начинающиеся',
+      ending: 'Заканчивающиеся',
+    },
+  },
+
+  // Additional comprehensive sections
+  dashboard: {
+    welcome: 'Добро пожаловать',
+    quickActions: 'Быстрые действия',
+    recentActivity: 'Недавняя активность',
+    upcomingEvents: 'Предстоящие события',
+    recommendations: 'Рекомендации',
+    statistics: 'Статистика',
+  },
+
+  search: {
+    placeholder: 'Поиск...',
+    searching: 'Поиск...',
+    results: 'Результаты',
+    noResults: 'Результатов не найдено',
+    tryAgain: 'Попробовать снова',
+    filters: 'Фильтры',
+    sortBy: 'Сортировать по',
+    clearFilters: 'Очистить фильтры',
+  },
+
+  filters: {
+    apply: 'Применить',
+    reset: 'Сбросить',
+    clear: 'Очистить',
+    distance: 'Расстояние',
+    date: 'Дата',
+    time: 'Время',
+    level: 'Уровень',
+    type: 'Тип',
+    status: 'Статус',
+  },
+
+  sort: {
+    relevance: 'Релевантность',
+    newest: 'Новейшие',
+    oldest: 'Старейшие',
+    nameAZ: 'Имя (А-Я)',
+    nameZA: 'Имя (Я-А)',
+    rating: 'Рейтинг',
+    distance: 'Расстояние',
+  },
+
+  messages: {
+    loading: 'Загрузка...',
+    saving: 'Сохранение...',
+    deleting: 'Удаление...',
+    updating: 'Обновление...',
+    processing: 'Обработка...',
+    sending: 'Отправка...',
+    success: 'Успешно!',
+    error: 'Ошибка!',
+    warning: 'Предупреждение!',
+    info: 'Информация',
+    confirm: 'Подтвердить',
+    areYouSure: 'Вы уверены?',
+    cannotBeUndone: 'Это действие нельзя отменить',
+    proceed: 'Продолжить',
+    goBack: 'Вернуться',
+  },
+
+  validation: {
+    required: 'Обязательное поле',
+    invalid: 'Неверное значение',
+    tooShort: 'Слишком короткое',
+    tooLong: 'Слишком длинное',
+    mustMatch: 'Должно совпадать',
+    invalidEmail: 'Неверный email',
+    invalidPhone: 'Неверный телефон',
+    invalidUrl: 'Неверный URL',
+    minLength: 'Минимальная длина: {{min}}',
+    maxLength: 'Максимальная длина: {{max}}',
+    minValue: 'Минимальное значение: {{min}}',
+    maxValue: 'Максимальное значение: {{max}}',
+  },
+
+  permissions: {
+    camera: 'Камера',
+    location: 'Местоположение',
+    notifications: 'Уведомления',
+    contacts: 'Контакты',
+    storage: 'Хранилище',
+    microphone: 'Микрофон',
+    granted: 'Разрешено',
+    denied: 'Отклонено',
+    requestAccess: 'Запросить доступ',
+    openSettings: 'Открыть настройки',
+  },
+
+  sharing: {
+    share: 'Поделиться',
+    shareVia: 'Поделиться через',
+    copyLink: 'Копировать ссылку',
+    linkCopied: 'Ссылка скопирована',
+    shareOnFacebook: 'Поделиться в Facebook',
+    shareOnTwitter: 'Поделиться в Twitter',
+    shareOnInstagram: 'Поделиться в Instagram',
+    shareOnWhatsApp: 'Поделиться в WhatsApp',
+    shareViaEmail: 'Поделиться по email',
+    shareViaSMS: 'Поделиться по SMS',
+  },
+};
+
+// Deep merge
+function deepMerge(target, source) {
+  const output = { ...target };
+  for (const key in source) {
+    if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+      output[key] = deepMerge(target[key] || {}, source[key]);
+    } else {
+      output[key] = source[key];
+    }
+  }
+  return output;
+}
+
+// Count keys
+function countKeys(obj) {
+  let count = 0;
+  for (const key in obj) {
+    if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+      count += countKeys(obj[key]);
+    } else {
+      count++;
+    }
+  }
+  return count;
+}
+
+const updatedRu = deepMerge(ru, translations);
+const translatedCount = countKeys(translations);
+
+fs.writeFileSync(ruPath, JSON.stringify(updatedRu, null, 2) + '\n', 'utf8');
+
+console.log('✅ Russian translation ULTRA batch completed!');
+console.log(`📊 Translated ${translatedCount} keys in this batch`);
+
+// Calculate grand total
+const grandTotal = 401 + 337 + 334 + 311 + 270 + 188 + translatedCount;
+console.log(`\n🎯 GRAND TOTAL: ${grandTotal} keys translated across ALL batches`);

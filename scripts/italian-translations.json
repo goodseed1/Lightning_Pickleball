@@ -1,0 +1,175 @@
+{
+  "common": {
+    "no": "No",
+    "ok": "OK"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "register": {
+      "success": {
+        "ok": "OK"
+      }
+    }
+  },
+  "createClub": {
+    "facility": {
+      "proshop": "Negozio Pro"
+    },
+    "fields": {
+      "logo": "Logo"
+    }
+  },
+  "profile": {
+    "userProfile": {
+      "timeSlots": {
+        "brunch": "Brunch"
+      }
+    }
+  },
+  "profileSetup": {
+    "nickname": "Nickname"
+  },
+  "units": {
+    "km": "km",
+    "mi": "mi",
+    "distanceKm": "{{distance}} km",
+    "distanceMi": "{{distance}} mi"
+  },
+  "roles": {
+    "manager": "Manager"
+  },
+  "terms": {
+    "details": {
+      "privacyPolicy": {
+        "title": "Informativa sulla Privacy"
+      },
+      "locationServices": {
+        "title": "Termini dei Servizi di Localizzazione",
+        "content": "Termini dei Servizi di Localizzazione\n\n1. Raccolta e Utilizzo delle Informazioni di Localizzazione\n- Fornire servizi di ricerca partite nelle vicinanze\n- Fornire servizi di ricerca campi da tennis\n- Fornire servizi di notifica basati sulla distanza\n\n2. Consenso per le Informazioni di Localizzazione\n- Gli utenti possono rifiutare la fornitura delle informazioni di localizzazione in qualsiasi momento\n- Il rifiuto delle informazioni di localizzazione potrebbe limitare alcune funzionalità del servizio\n\n3. Protezione delle Informazioni di Localizzazione\n- Le informazioni di localizzazione raccolte vengono crittografate e archiviate in modo sicuro\n- Non vengono fornite a terze parti senza il consenso dell'utente"
+      },
+      "liabilityDisclaimer": {
+        "title": "Esclusione di Responsabilità",
+        "content": "⚠️ AVVISO LEGALE IMPORTANTE ⚠️\n\nL'app Lightning Tennis funge da piattaforma per collegare singoli giocatori di tennis.\n\nNON CI ASSUMIAMO ALCUNA RESPONSABILITÀ LEGALE per:\n\n1. Esclusione di Incidenti di Sicurezza\n- Lesioni o incidenti durante le partite di tennis\n- Controversie personali tra i partecipanti alle partite\n- Incidenti di sicurezza nelle strutture dei campi da tennis\n\n2. Esclusione di Controversie Finanziarie\n- Controversie relative ai costi delle partite\n- Problemi relativi ai costi di affitto dei campi\n- Transazioni finanziarie tra utenti\n\n3. Responsabilità dell'Utente\n- Tutta la sicurezza e responsabilità per le partite appartengono agli organizzatori e ai partecipanti\n- Gli utenti devono verificare le proprie condizioni di salute prima di partecipare\n- Si raccomanda una copertura assicurativa adeguata\n\nUtilizzando questo servizio, accetti questi termini di esclusione di responsabilità."
+      },
+      "marketingCommunications": {
+        "title": "Consenso alle Comunicazioni di Marketing",
+        "content": "Consenso alle Comunicazioni di Marketing (Facoltativo)\n\n1. Contenuto\n- Nuove funzionalità e aggiornamenti del servizio\n- Annunci di eventi speciali e promozioni\n- Informazioni e suggerimenti utili relativi al tennis\n- Vantaggi delle partnership e informazioni sugli sconti\n\n2. Metodi di Consegna\n- Notifiche push\n- Email\n- Notifiche in-app\n\n3. Rinuncia\n- Puoi rinunciare in qualsiasi momento nelle impostazioni\n- Rinuncia selettiva disponibile per le singole notifiche\n\nQuesto consenso è facoltativo e il rifiuto non limiterà l'utilizzo del servizio."
+      },
+      "inclusivityPolicy": {
+        "title": "Politica di Diversità e Inclusione",
+        "content": "🌈 Politica di Diversità e Inclusione ed Esclusione di Responsabilità\n\nLightning Tennis è una piattaforma aperta a tutti gli utenti.\n\n1. Principi di Inclusività\n- Tutti gli utenti hanno accesso paritario ai nostri servizi indipendentemente da genere, orientamento sessuale o identità di genere.\n- Gli utenti LGBTQ+ possono partecipare a tutte le attività (creazione di partite, partecipazione, attività di club, ecc.) senza restrizioni.\n- Tutti gli utenti devono aderire ai principi di rispetto reciproco.\n\n2. Esclusione di Responsabilità per Errori del Programma\n- Gli errori del programma possono occasionalmente causare restrizioni non intenzionali su alcune funzionalità.\n- Tali errori non sono discriminazione intenzionale e verranno corretti alla scoperta.\n- Accetti di non avviare cause legali per restrizioni di funzionalità causate da errori del programma.\n\n3. Anti-Discriminazione\n- È vietato il linguaggio o il comportamento discriminatorio basato su genere, orientamento sessuale o identità di genere.\n- Il comportamento discriminatorio può comportare restrizioni del servizio.\n\nAccettando questa politica, riconosci di aver compreso e accettato questi termini."
+      }
+    }
+  },
+  "club": {
+    "chat": "Chat",
+    "clubMembers": {
+      "roles": {
+        "manager": "Manager"
+      },
+      "alerts": {
+        "removeMember": {
+          "success": "{{userName}} è stato rimosso dal club.",
+          "error": "Impossibile rimuovere il membro."
+        },
+        "approveRequest": {
+          "title": "Approva Richiesta",
+          "message": "Approvare la richiesta di adesione di {{userName}}?",
+          "success": "La richiesta di {{userName}} è stata approvata.",
+          "error": "Impossibile approvare la richiesta di adesione."
+        },
+        "declineRequest": {
+          "title": "Rifiuta Richiesta",
+          "message": "Rifiutare la richiesta di adesione di {{userName}}?",
+          "success": "La richiesta di {{userName}} è stata rifiutata.",
+          "error": "Impossibile rifiutare la richiesta di adesione.",
+          "invalidData": "Dati della richiesta non validi."
+        },
+        "loadError": {
+          "title": "Errore",
+          "message": "Impossibile caricare le richieste di adesione."
+        },
+        "promoteSuccess": "Promosso a manager con successo.",
+        "demoteSuccess": "Retrocesso a membro con successo.",
+        "removeSuccess": "Il membro è stato rimosso.",
+        "actionError": "Si è verificato un errore durante l'esecuzione dell'azione.",
+        "memberNotFound": "Membro non trovato. Potrebbe essere già stato rimosso.",
+        "permissionDenied": "Permesso negato. Solo gli amministratori possono eseguire questa azione.",
+        "cannotRemoveSelf": "Non puoi rimuovere te stesso.",
+        "cannotRemoveOwner": "Non è possibile rimuovere il proprietario del club."
+      },
+      "loading": "Caricamento membri...",
+      "memberCount": "{{count}} membro/i",
+      "requestCount": "{{count}} richiesta/e",
+      "dateFormats": {
+        "joinedAt": "Iscritto il {{date}}",
+        "requestedAt": "Richiesto il {{date}}"
+      },
+      "emptyStates": {
+        "noMembers": {
+          "title": "Nessun Membro",
+          "description": "Nessun membro si è ancora unito a questo club."
+        },
+        "noRequests": {
+          "title": "Nessuna Richiesta di Adesione",
+          "description": "Nessuna nuova richiesta di adesione"
+        }
+      },
+      "profileHint": "Visualizza Profilo →",
+      "removalReason": {
+        "label": "Motivo della Rimozione (Facoltativo)",
+        "placeholder": "Inserisci il motivo della rimozione...",
+        "defaultReason": "Rimosso dall'amministratore"
+      },
+      "modal": {
+        "promoteTitle": "Promuovi a Manager",
+        "demoteTitle": "Retrocedi a Membro",
+        "removeTitle": "Rimuovi dal Club",
+        "promoteMessage": "Promuovere {{userName}} a manager?",
+        "demoteMessage": "Retrocedere {{userName}} a membro?",
+        "removeMessage": "Rimuovere {{userName}} dal club?"
+      }
+    }
+  },
+  "clubSelector": {
+    "club": "Club"
+  },
+  "alert": {
+    "tournamentBracket": {
+      "info": "Info"
+    }
+  },
+  "discover": {
+    "alerts": {
+      "soloApplication": {
+        "error": "Si è verificato un errore: {{error}}"
+      }
+    },
+    "partnerInvitation": {
+      "banner": "Hai {{count}} invito/i di partnership",
+      "bannerSingle": "Hai 1 invito di partnership"
+    },
+    "pendingApplications": {
+      "banner": "Hai {{count}} candidatura/e in sospeso. Tocca per rivedere.",
+      "bannerSingle": "Hai 1 candidatura in sospeso. Tocca per rivedere."
+    }
+  },
+  "emailLogin": {
+    "labels": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "verification": {
+      "sentTo": "{{email}}"
+    },
+    "alerts": {
+      "forgotPassword": {
+        "notRegistered": {
+          "title": "Email Non Registrata",
+          "message": "Nessun account trovato con questa email.\nVuoi registrarti?"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+# Legacy backup files
+legacy-backup/
+legacy-backup/**/*
+
+# Generated files
+.expo/
+node_modules/
+dist/
+build/
+
+# Storybook generated files
+.storybook/storybook.requires.ts
+.storybook/**/*
+
+# Functions compiled files
+functions/lib/
+
+# Temporarily disabled functions
+functions/temp_disabled/
+functions/temp_disabled/**/*

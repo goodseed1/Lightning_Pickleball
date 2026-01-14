@@ -1,0 +1,622 @@
+const fs = require('fs');
+const path = require('path');
+
+// Deep merge function
+function deepMerge(target, source) {
+  const output = { ...target };
+
+  if (isObject(target) && isObject(source)) {
+    Object.keys(source).forEach(key => {
+      if (isObject(source[key])) {
+        if (!(key in target)) {
+          Object.assign(output, { [key]: source[key] });
+        } else {
+          output[key] = deepMerge(target[key], source[key]);
+        }
+      } else {
+        Object.assign(output, { [key]: source[key] });
+      }
+    });
+  }
+
+  return output;
+}
+
+function isObject(item) {
+  return item && typeof item === 'object' && !Array.isArray(item);
+}
+
+// Part 2: Additional Chinese (Simplified) translations
+const chineseTranslations = {
+  // clubLeaguesTournaments.memberPreLeagueStatus (26 keys)
+  clubLeaguesTournaments: {
+    memberPreLeagueStatus: {
+      statusPending: '待审批',
+      statusPendingSubtitle: '您的申请正在审核中',
+      statusApproved: '已批准',
+      statusApprovedSubtitle: '您已被批准参加此联赛',
+      statusRejected: '已拒绝',
+      statusRejectedSubtitle: '您的申请未被接受',
+      statusNotApplied: '未申请',
+      statusNotAppliedSubtitle: '您还未申请此联赛',
+      leagueInfo: '联赛信息',
+      period: '期间',
+      participantsStatus: '参与者状态',
+      peopleUnit: '人',
+      format: '格式',
+      formatTournament: '锦标赛',
+      status: '状态',
+      statusOpen: '开放',
+      statusPreparing: '准备中',
+      applySection: '申请',
+      applyDescription: '申请参加此联赛',
+      applying: '申请中...',
+      applyButton: '申请',
+      notOpenWarning: '此联赛尚未开放申请',
+      applicationDetails: '申请详情',
+      applicationDate: '申请日期',
+      approvalDate: '批准日期',
+      currentStatus: '当前状态',
+    },
+  },
+
+  // createClub (68 keys)
+  createClub: {
+    title: '创建俱乐部',
+    stepBasicInfo: '基本信息',
+    stepDetails: '详细信息',
+    stepSettings: '设置',
+    stepReview: '审核',
+    basicInfo: {
+      clubName: '俱乐部名称',
+      tagline: '宣传语',
+      description: '描述',
+      clubType: '俱乐部类型',
+      category: '类别',
+      logo: '标志',
+      coverImage: '封面图片',
+      uploadLogo: '上传标志',
+      uploadCover: '上传封面',
+      changeLogo: '更改标志',
+      changeCover: '更改封面',
+    },
+    location: {
+      title: '位置',
+      address: '地址',
+      city: '城市',
+      state: '州/省',
+      country: '国家',
+      zipCode: '邮政编码',
+      searchAddress: '搜索地址',
+      useCurrentLocation: '使用当前位置',
+      selectOnMap: '在地图上选择',
+    },
+    contact: {
+      title: '联系信息',
+      email: '电子邮件',
+      phone: '电话',
+      website: '网站',
+      socialMedia: '社交媒体',
+      facebook: 'Facebook',
+      instagram: 'Instagram',
+      twitter: 'Twitter',
+    },
+    facilities: {
+      title: '设施',
+      numberOfCourts: '球场数量',
+      courtType: '球场类型',
+      indoor: '室内',
+      outdoor: '室外',
+      covered: '有顶',
+      surfaceType: '场地类型',
+      hardCourt: '硬地',
+      clayCourt: '红土',
+      grassCourt: '草地',
+      amenities: '设施服务',
+      parking: '停车',
+      locker: '更衣室',
+      shower: '淋浴',
+      proShop: '专业商店',
+      restaurant: '餐厅',
+      lounge: '休息室',
+    },
+    membership: {
+      title: '会员资格',
+      membershipType: '会员类型',
+      open: '开放',
+      private: '私人',
+      inviteOnly: '仅邀请',
+      fees: '费用',
+      monthly: '月费',
+      yearly: '年费',
+      oneTime: '一次性',
+      requireApproval: '需要审批',
+      autoApprove: '自动批准',
+      trialPeriod: '试用期',
+      guestPolicy: '访客政策',
+    },
+    rules: {
+      title: '规则和政策',
+      codeOfConduct: '行为准则',
+      dresscode: '着装要求',
+      reservationPolicy: '预订政策',
+      cancellationPolicy: '取消政策',
+      guestRules: '访客规则',
+      childrenPolicy: '儿童政策',
+    },
+    validation: {
+      nameRequired: '请输入俱乐部名称',
+      descriptionRequired: '请输入描述',
+      addressRequired: '请输入地址',
+      emailInvalid: '电子邮件格式无效',
+      phoneInvalid: '电话号码格式无效',
+      websiteInvalid: '网站URL无效',
+    },
+    actions: {
+      next: '下一步',
+      back: '返回',
+      save: '保存',
+      saveDraft: '保存草稿',
+      publish: '发布',
+      cancel: '取消',
+      preview: '预览',
+    },
+    success: {
+      created: '俱乐部已创建',
+      updated: '俱乐部已更新',
+      published: '俱乐部已发布',
+    },
+    error: {
+      createFailed: '创建俱乐部失败',
+      updateFailed: '更新俱乐部失败',
+      publishFailed: '发布俱乐部失败',
+    },
+  },
+
+  // myActivities (64 keys)
+  myActivities: {
+    title: '我的活动',
+    upcoming: '即将进行',
+    past: '过去',
+    all: '全部',
+    matches: '比赛',
+    events: '活动',
+    meetups: '聚会',
+    practices: '训练',
+    tournaments: '锦标赛',
+    leagues: '联赛',
+    filters: {
+      type: '类型',
+      date: '日期',
+      status: '状态',
+      location: '位置',
+      apply: '应用',
+      clear: '清除',
+    },
+    sort: {
+      newest: '最新',
+      oldest: '最早',
+      soonest: '最近',
+      relevant: '相关',
+    },
+    card: {
+      date: '日期',
+      time: '时间',
+      location: '位置',
+      participants: '参与者',
+      organizer: '组织者',
+      status: '状态',
+      viewDetails: '查看详情',
+      cancel: '取消',
+      reschedule: '改期',
+      invite: '邀请',
+    },
+    status: {
+      confirmed: '已确认',
+      pending: '待定',
+      cancelled: '已取消',
+      completed: '已完成',
+      inProgress: '进行中',
+      rescheduled: '已改期',
+    },
+    actions: {
+      viewAll: '查看全部',
+      createNew: '创建新活动',
+      filterBy: '筛选',
+      sortBy: '排序',
+      export: '导出',
+      share: '分享',
+    },
+    empty: {
+      noUpcoming: '暂无即将进行的活动',
+      noPast: '暂无过去的活动',
+      noMatches: '暂无比赛',
+      noEvents: '暂无活动',
+      noMeetups: '暂无聚会',
+      createFirst: '创建您的第一个活动',
+      browseEvents: '浏览可用活动',
+    },
+    stats: {
+      total: '总计',
+      thisWeek: '本周',
+      thisMonth: '本月',
+      participated: '已参与',
+      organized: '已组织',
+      upcoming: '即将进行',
+      completed: '已完成',
+    },
+    notifications: {
+      newActivity: '新活动',
+      activityCancelled: '活动已取消',
+      activityRescheduled: '活动已改期',
+      reminder: '提醒',
+      inviteAccepted: '邀请已接受',
+      inviteDeclined: '邀请已拒绝',
+    },
+  },
+
+  // clubDuesManagement (59 keys)
+  clubDuesManagement: {
+    title: '俱乐部会费管理',
+    overview: '概览',
+    members: '成员',
+    payments: '付款',
+    settings: '设置',
+    reports: '报告',
+    statistics: {
+      totalDues: '总会费',
+      collected: '已收集',
+      pending: '待处理',
+      overdue: '逾期',
+      exempted: '免除',
+      refunded: '已退款',
+    },
+    memberList: {
+      name: '姓名',
+      status: '状态',
+      amount: '金额',
+      dueDate: '到期日',
+      paidDate: '付款日期',
+      actions: '操作',
+    },
+    paymentHistory: {
+      date: '日期',
+      member: '成员',
+      amount: '金额',
+      method: '方式',
+      reference: '参考',
+      receipt: '收据',
+    },
+    actions: {
+      recordPayment: '记录付款',
+      sendReminder: '发送提醒',
+      grantExemption: '授予免除',
+      issueRefund: '发放退款',
+      exportData: '导出数据',
+      viewReceipt: '查看收据',
+      printReceipt: '打印收据',
+      downloadReport: '下载报告',
+    },
+    filters: {
+      all: '全部',
+      paid: '已付款',
+      pending: '待处理',
+      overdue: '逾期',
+      exempted: '免除',
+      thisMonth: '本月',
+      lastMonth: '上月',
+      custom: '自定义',
+    },
+    recordPayment: {
+      title: '记录付款',
+      member: '成员',
+      amount: '金额',
+      date: '日期',
+      method: '付款方式',
+      reference: '参考编号',
+      notes: '备注',
+      submit: '提交',
+      success: '付款已记录',
+      error: '记录失败',
+    },
+    reminder: {
+      title: '发送提醒',
+      selectRecipients: '选择收件人',
+      message: '消息',
+      send: '发送',
+      success: '提醒已发送',
+      error: '发送失败',
+    },
+    exemption: {
+      title: '会费免除',
+      member: '成员',
+      reason: '原因',
+      period: '期间',
+      grant: '授予',
+      revoke: '撤销',
+      success: '免除已授予',
+      error: '操作失败',
+    },
+    settings: {
+      dueAmount: '应付金额',
+      frequency: '频率',
+      dueDate: '到期日',
+      lateFee: '滞纳金',
+      gracePeriod: '宽限期',
+      autoReminders: '自动提醒',
+      save: '保存',
+      success: '设置已保存',
+    },
+  },
+
+  // matches (54 keys)
+  matches: {
+    title: '比赛',
+    upcoming: '即将进行',
+    past: '过去',
+    invitations: '邀请',
+    myMatches: '我的比赛',
+    findMatch: '找比赛',
+    createMatch: '创建比赛',
+    matchType: {
+      singles: '单打',
+      doubles: '双打',
+      mixed: '混合双打',
+      practice: '练习',
+      friendly: '友谊赛',
+      competitive: '竞技赛',
+    },
+    status: {
+      pending: '待定',
+      confirmed: '已确认',
+      inProgress: '进行中',
+      completed: '已完成',
+      cancelled: '已取消',
+      disputed: '有争议',
+    },
+    card: {
+      date: '日期',
+      time: '时间',
+      location: '位置',
+      opponent: '对手',
+      partner: '搭档',
+      score: '比分',
+      result: '结果',
+      viewDetails: '查看详情',
+      acceptInvite: '接受邀请',
+      declineInvite: '拒绝邀请',
+      cancel: '取消',
+      reportScore: '报告比分',
+    },
+    details: {
+      overview: '概览',
+      players: '选手',
+      location: '位置',
+      time: '时间',
+      score: '比分',
+      statistics: '统计',
+      chat: '聊天',
+    },
+    actions: {
+      accept: '接受',
+      decline: '拒绝',
+      cancel: '取消',
+      reschedule: '改期',
+      confirmScore: '确认比分',
+      disputeScore: '质疑比分',
+      invite: '邀请',
+      share: '分享',
+      report: '报告',
+    },
+    filters: {
+      all: '全部',
+      singles: '单打',
+      doubles: '双打',
+      upcoming: '即将进行',
+      past: '过去',
+      won: '获胜',
+      lost: '失败',
+    },
+    empty: {
+      noMatches: '暂无比赛',
+      noInvitations: '暂无邀请',
+      noUpcoming: '暂无即将进行的比赛',
+      noPast: '暂无过去的比赛',
+      findPlayers: '寻找选手',
+      createMatch: '创建比赛',
+    },
+    notifications: {
+      matchInvite: '比赛邀请',
+      matchConfirmed: '比赛已确认',
+      matchCancelled: '比赛已取消',
+      matchRescheduled: '比赛已改期',
+      scoreReported: '比分已报告',
+      scoreDisputed: '比分有争议',
+      matchReminder: '比赛提醒',
+    },
+  },
+
+  // profileSettings (53 keys)
+  profileSettings: {
+    title: '个人资料设置',
+    profile: '个人资料',
+    account: '账户',
+    privacy: '隐私',
+    notifications: '通知',
+    preferences: '偏好',
+    profileInfo: {
+      displayName: '显示名称',
+      bio: '简介',
+      location: '位置',
+      playingSince: '打球年限',
+      favoriteShot: '最喜欢的击球',
+      playingStyle: '打球风格',
+      availability: '空闲时间',
+      goals: '目标',
+    },
+    skillLevel: {
+      title: '技能等级',
+      ltr: 'LTR评级',
+      selfRated: '自我评级',
+      verified: '已验证',
+      updateRating: '更新评级',
+    },
+    accountSettings: {
+      email: '电子邮件',
+      phone: '电话',
+      password: '密码',
+      changeEmail: '更改电子邮件',
+      changePassword: '更改密码',
+      verifyEmail: '验证电子邮件',
+      verifyPhone: '验证电话',
+      twoFactor: '双因素认证',
+      linkedAccounts: '关联账户',
+    },
+    privacySettings: {
+      profileVisibility: '个人资料可见性',
+      showEmail: '显示电子邮件',
+      showPhone: '显示电话',
+      showLocation: '显示位置',
+      showStats: '显示统计',
+      allowMessages: '允许消息',
+      allowInvites: '允许邀请',
+      blockList: '黑名单',
+    },
+    notificationSettings: {
+      pushNotifications: '推送通知',
+      emailNotifications: '电子邮件通知',
+      matchInvites: '比赛邀请',
+      friendRequests: '好友请求',
+      clubUpdates: '俱乐部更新',
+      eventReminders: '活动提醒',
+      achievements: '成就',
+      newsletter: '新闻通讯',
+    },
+    preferenceSettings: {
+      language: '语言',
+      theme: '主题',
+      units: '单位',
+      dateFormat: '日期格式',
+      timeFormat: '时间格式',
+      timezone: '时区',
+    },
+    actions: {
+      save: '保存',
+      cancel: '取消',
+      reset: '重置',
+      deactivate: '停用账户',
+      delete: '删除账户',
+    },
+    validation: {
+      displayNameRequired: '请输入显示名称',
+      emailInvalid: '电子邮件格式无效',
+      phoneInvalid: '电话号码格式无效',
+      passwordTooShort: '密码过短',
+      passwordsNoMatch: '密码不匹配',
+    },
+    success: {
+      profileUpdated: '个人资料已更新',
+      emailChanged: '电子邮件已更改',
+      passwordChanged: '密码已更改',
+      settingsSaved: '设置已保存',
+    },
+  },
+
+  // discover (49 keys)
+  discover: {
+    title: '发现',
+    players: '选手',
+    clubs: '俱乐部',
+    events: '活动',
+    courts: '球场',
+    coaches: '教练',
+    nearby: '附近',
+    recommended: '推荐',
+    trending: '热门',
+    new: '新',
+    search: {
+      placeholder: '搜索...',
+      players: '搜索选手',
+      clubs: '搜索俱乐部',
+      events: '搜索活动',
+      courts: '搜索球场',
+      noResults: '未找到结果',
+      tryAgain: '尝试其他搜索词',
+    },
+    filters: {
+      location: '位置',
+      distance: '距离',
+      skillLevel: '技能等级',
+      availability: '空闲时间',
+      rating: '评分',
+      price: '价格',
+      amenities: '设施',
+      apply: '应用',
+      clear: '清除',
+    },
+    sort: {
+      relevance: '相关性',
+      distance: '距离',
+      rating: '评分',
+      newest: '最新',
+      popular: '热门',
+    },
+    distance: {
+      within1km: '1公里内',
+      within5km: '5公里内',
+      within10km: '10公里内',
+      within25km: '25公里内',
+      within50km: '50公里内',
+      anywhere: '任何地方',
+    },
+    playerCard: {
+      skillLevel: '技能等级',
+      location: '位置',
+      playingStyle: '打球风格',
+      availability: '空闲时间',
+      matchesPlayed: '已进行比赛',
+      winRate: '胜率',
+      connect: '联系',
+      challenge: '挑战',
+      follow: '关注',
+    },
+    clubCard: {
+      members: '成员',
+      courts: '球场',
+      location: '位置',
+      rating: '评分',
+      membership: '会员资格',
+      view: '查看',
+      join: '加入',
+      follow: '关注',
+    },
+    empty: {
+      noPlayers: '未找到选手',
+      noClubs: '未找到俱乐部',
+      noEvents: '未找到活动',
+      noCourts: '未找到球场',
+      expandSearch: '扩大搜索范围',
+      tryFilters: '尝试调整筛选',
+    },
+  },
+};
+
+// Read existing translations
+const zhPath = path.join(__dirname, '..', 'src', 'locales', 'zh.json');
+const existingZh = JSON.parse(fs.readFileSync(zhPath, 'utf8'));
+
+// Merge translations
+const updatedZh = deepMerge(existingZh, chineseTranslations);
+
+// Write back
+fs.writeFileSync(zhPath, JSON.stringify(updatedZh, null, 2) + '\n', 'utf8');
+
+console.log('✅ Chinese translations Part 2 updated successfully!');
+console.log('📊 Sections translated:');
+console.log('  - clubLeaguesTournaments.memberPreLeagueStatus (26 keys)');
+console.log('  - createClub (68 keys)');
+console.log('  - myActivities (64 keys)');
+console.log('  - clubDuesManagement (59 keys)');
+console.log('  - matches (54 keys)');
+console.log('  - profileSettings (53 keys)');
+console.log('  - discover (49 keys)');

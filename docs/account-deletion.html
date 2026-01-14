@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion - Lightning Tennis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            color: #1976d2;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+        h2 {
+            color: #333;
+            font-size: 20px;
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1976d2;
+        }
+        p {
+            margin-bottom: 16px;
+            color: #555;
+        }
+        .steps {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .step:last-child {
+            margin-bottom: 0;
+        }
+        .step-number {
+            background: #1976d2;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        .step-content h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .step-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+        .data-table th,
+        .data-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .data-table th {
+            background: #f5f5f5;
+            font-weight: 600;
+            color: #333;
+        }
+        .data-table td {
+            color: #555;
+        }
+        .contact-box {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .contact-box h3 {
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .contact-box a {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        .contact-box p {
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
+            margin-top: 12px;
+            margin-bottom: 0;
+        }
+        .warning {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+        .warning p {
+            color: #e65100;
+            margin-bottom: 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid #e0e0e0;
+            color: #999;
+            font-size: 14px;
+        }
+        @media (max-width: 600px) {
+            .card {
+                padding: 24px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .step {
+                flex-direction: column;
+            }
+            .step-number {
+                margin-bottom: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <div class="logo">🎾</div>
+                <h1>Lightning Tennis</h1>
+                <p class="subtitle">Account Deletion Request</p>
+            </div>
+
+            <h2>How to Delete Your Account</h2>
+            <p>We respect your privacy and make it easy to delete your Lightning Tennis account and associated data. You can request account deletion through the following methods:</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>In-App Deletion (Recommended)</h3>
+                        <p>Open Lightning Tennis app → Profile → Settings → Delete Account → Confirm deletion</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Email Request</h3>
+                        <p>Send an email to <strong>lightningtennisapp@gmail.com</strong> with subject "Account Deletion Request" and include your registered email address.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Data That Will Be Deleted</h2>
+            <p>When you delete your account, the following data will be permanently removed:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Deletion Timeline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Profile information (name, email, photo)</td>
+                        <td>Immediately</td>
+                    </tr>
+                    <tr>
+                        <td>Match history and statistics</td>
+                        <td>Immediately</td>
+                    </tr>
+                    <tr>
+                        <td>Club memberships</td>
+                        <td>Immediately</td>
+                    </tr>
+                    <tr>
+                        <td>Friend connections</td>
+                        <td>Immediately</td>
+                    </tr>
+                    <tr>
+                        <td>Chat messages</td>
+                        <td>Within 30 days</td>
+                    </tr>
+                    <tr>
+                        <td>Authentication credentials</td>
+                        <td>Immediately</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Data Retention</h2>
+            <p>Some anonymized data may be retained for legal, security, or analytical purposes:</p>
+            <ul style="margin-left: 24px; color: #555;">
+                <li>Aggregated match statistics (anonymized)</li>
+                <li>Transaction records (retained for 7 years for legal compliance)</li>
+            </ul>
+
+            <div class="warning">
+                <p><strong>Important:</strong> Account deletion is permanent and cannot be undone. You will lose access to all your match history, rankings, trophies, and club memberships.</p>
+            </div>
+
+            <div class="contact-box">
+                <h3>Contact Us</h3>
+                <a href="mailto:lightningtennisapp@gmail.com">lightningtennisapp@gmail.com</a>
+                <p>We typically respond to deletion requests within 48 hours.</p>
+            </div>
+
+            <h2>Processing Time</h2>
+            <p>Account deletion requests are processed as follows:</p>
+            <ul style="margin-left: 24px; color: #555;">
+                <li><strong>In-app deletion:</strong> Immediate</li>
+                <li><strong>Email requests:</strong> Within 7 business days</li>
+            </ul>
+
+            <div class="footer">
+                <p>Lightning Tennis © 2025. All rights reserved.</p>
+                <p style="margin-top: 8px;">Last updated: December 2025</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

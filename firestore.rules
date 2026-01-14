@@ -1,0 +1,1314 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ==== Users ====
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && (
+        // 본인 프로필 수정
+        request.auth.uid == userId ||
+        // ELO 업데이트: 매치 결과 처리 시 상대방 ELO 업데이트 허용
+        // stats, skillLevel, updatedAt 필드만 수정 가능
+        (request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'stats', 'skillLevel', 'sportsmanshipTags', 'updatedAt'
+        ]) &&
+        // ELO 또는 스포츠맨십 태그 관련 필드 업데이트인지 확인
+        (request.resource.data.keys().hasAny(['stats']) ||
+         request.resource.data.keys().hasAny(['skillLevel']) ||
+         request.resource.data.keys().hasAny(['sportsmanshipTags'])))
+      );
+
+      // ==== Club Memberships Subcollection ====
+      match /clubMemberships/{clubId} {
+        allow read: if request.auth != null;
+
+        // CREATE: Allow creating new membership with only clubStats field
+        allow create: if request.auth != null && (
+          request.auth.uid == userId ||
+          // Tournament participants can create membership with only clubStats
+          request.resource.data.keys().hasOnly(['clubStats'])
+        );
+
+        // UPDATE: Allow updating existing membership
+        allow update: if request.auth != null && (
+          request.auth.uid == userId ||
+          // Tournament participants can update only clubStats field
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['clubStats'])
+        );
+
+        // DELETE: Only user themselves can delete
+        allow delete: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // ==== Profile Stats Subcollection ====
+      // Tournament participants can update opponent's stats
+      match /profile/stats {
+        allow read: if request.auth != null;
+        allow write: if request.auth != null && (
+          // User can update their own stats
+          request.auth.uid == userId ||
+          // Tournament participants can update opponent's stats
+          // Only allow updating tournament-related fields
+          (request.resource.data.keys().hasAny(['tournamentWins', 'tournamentLosses', 'matchesPlayed']) &&
+           // No other fields being modified (except these three)
+           !request.resource.data.keys().hasAny(['email', 'phoneNumber', 'bio', 'avatar', 'displayName']))
+        );
+      }
+
+      // ==== Meetup Chat Unread Counts ====
+      // Cloud Function writes, user reads/deletes
+      match /unreadMeetupChats/{meetupId} {
+        // Only the user can read their own unread counts
+        allow read: if request.auth != null && request.auth.uid == userId;
+        // User can delete (mark as read)
+        allow delete: if request.auth != null && request.auth.uid == userId;
+        // Cloud Function writes via Admin SDK (bypasses rules)
+        // But allow authenticated users to create/update for fallback
+        allow write: if request.auth != null;
+      }
+
+      match /{subcollection=**} {
+        allow read: if request.auth != null;
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    // ==== Lightning Matches ====
+    match /lightning_matches/{matchId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null &&
+        (request.auth.uid == resource.data.hostId ||
+         request.auth.uid in resource.data.guestIds);
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.hostId;
+    }
+
+    // ==== Events ====
+    match /events/{eventId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.hostId;
+      allow update: if request.auth != null &&
+        request.auth.uid == resource.data.hostId;
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.hostId;
+    }
+
+    // ==== Events Archive ====
+    // 🗄️ [DATA ARCHIVING] Read-only archive collection
+    // Only Cloud Functions can write (Admin SDK bypasses rules)
+    match /events_archive/{eventId} {
+      // Authenticated users can read archived events
+      allow read: if request.auth != null;
+
+      // Only Cloud Functions can create/update/delete (Admin SDK)
+      allow create, update, delete: if false;
+    }
+
+    // ==== Participation Applications ====
+    match /participation_applications/{applicationId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.applicantId;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.applicantId;
+    }
+
+    // ==== Participation Applications Archive ====
+    // 🗄️ [DATA ARCHIVING] Read-only archive collection
+    // Only Cloud Functions can write (Admin SDK bypasses rules)
+    match /participation_applications_archive/{applicationId} {
+      // Authenticated users can read archived applications
+      allow read: if request.auth != null;
+
+      // Only Cloud Functions can create/update/delete (Admin SDK)
+      allow create, update, delete: if false;
+    }
+
+    // ==== Event Chat Rooms ====
+    match /event_chat_rooms/{chatRoomId} {
+      // Allow read for authenticated users to discover existing chat rooms
+      allow read: if request.auth != null;
+
+      // Allow creation by any authenticated user
+      allow create: if request.auth != null;
+
+      // Allow updates for authenticated users (app logic will handle validation)
+      // This allows users to join chat rooms, and the app will verify they're legitimate participants
+      allow update: if request.auth != null;
+
+      // Chat Messages Subcollection
+      match /messages/{messageId} {
+        // Allow reading messages if user is chat participant
+        allow read: if request.auth != null &&
+          request.auth.uid in get(/databases/$(database)/documents/event_chat_rooms/$(chatRoomId)).data.participants;
+
+        // Allow creating messages if user is a chat participant AND either:
+        // 1. User is the sender (regular messages)
+        // 2. It's a system message (welcome messages, notifications, etc.)
+        allow create: if request.auth != null &&
+          request.auth.uid in get(/databases/$(database)/documents/event_chat_rooms/$(chatRoomId)).data.participants &&
+          (
+            request.auth.uid == request.resource.data.senderId ||
+            request.resource.data.senderId == 'system'
+          );
+
+        // Allow updating/deleting own messages (not system messages)
+        allow update: if request.auth != null &&
+          request.auth.uid == resource.data.senderId &&
+          resource.data.senderId != 'system';
+        allow delete: if request.auth != null &&
+          request.auth.uid == resource.data.senderId &&
+          resource.data.senderId != 'system';
+      }
+    }
+
+    // ==== Activity Notifications ====
+    match /activity_notifications/{notificationId} {
+      allow read: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+    }
+
+    // ==== Clubs (원래 규칙) ====
+    match /clubs/{clubId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null &&
+        (request.auth.uid in resource.data.adminIds ||
+         request.auth.uid in resource.data.managerIds);
+      allow delete: if request.auth != null &&
+        request.auth.uid in resource.data.adminIds;
+    }
+
+    // ==== Clubs (앱이 실제 사용하는 컬렉션: tennis_clubs) ====
+    match /tennis_clubs/{clubId} {
+      // Read: All club members can read club details (including public clubs for discovery)
+      allow read: if request.auth != null && (
+        // Public clubs can be read by anyone (for discovery screen)
+        resource.data.settings.isPublic == true ||
+        // Private clubs only by members
+        exists(/databases/$(database)/documents/clubMembers/$(clubId + '_' + request.auth.uid))
+      );
+
+      // 생성은 로그인 사용자만, createdBy 필드와 본인 uid가 일치해야 함
+      allow create: if request.auth != null &&
+        request.resource.data.createdBy == request.auth.uid;
+
+      // 수정: 생성자, 클럽 관리자/운영진, 또는 가입 시 통계 업데이트
+      allow update: if request.auth != null && (
+        // 생성자
+        resource.data.createdBy == request.auth.uid ||
+        // 클럽 관리자 (admin)
+        (exists(/databases/$(database)/documents/clubMembers/$(clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(clubId + '_' + request.auth.uid)).data.role == 'admin') ||
+        // 🎯 [KIM FIX] 클럽 운영진 (manager)도 클럽 설정 업데이트 가능
+        (exists(/databases/$(database)/documents/clubMembers/$(clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(clubId + '_' + request.auth.uid)).data.role == 'manager') ||
+        // 새 회원 가입 시 통계만 업데이트 가능 (statistics와 updatedAt 필드만)
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['statistics', 'updatedAt'])
+      );
+      
+      // 삭제는 생성자만 가능
+      allow delete: if request.auth != null &&
+        resource.data.createdBy == request.auth.uid;
+    }
+
+    // ==== Club Events ====
+    match /club_events/{eventId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null &&
+        request.auth.uid == resource.data.createdBy;
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.createdBy;
+    }
+
+    // ==== Club Members (앱이 실제 사용하는 컬렉션: clubMembers) ====
+    match /clubMembers/{docId} {
+      allow read: if request.auth != null;
+
+      // 생성: 본인이 직접 가입하거나, 클럽 관리자가 승인하여 추가 가능
+      allow create: if request.auth != null && (
+        // 본인이 직접 가입
+        request.resource.data.userId == request.auth.uid ||
+        // 관리자가 다른 사용자를 추가 (가입 승인 시)
+        (exists(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid)).data.role == 'admin')
+      );
+
+      // 수정: 본인 또는 클럽 관리자/운영진이 가능
+      allow update: if request.auth != null && (
+        resource.data.userId == request.auth.uid ||
+        (exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)).data.role in ['admin', 'manager'])
+      );
+      
+      // 삭제: 본인 또는 클럽 관리자가 가능
+      allow delete: if request.auth != null && (
+        resource.data.userId == request.auth.uid ||
+        (exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)).data.role == 'admin')
+      );
+    }
+
+    // ==== Friendships ====
+    match /friendships/{friendshipId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null &&
+        (request.auth.uid == resource.data.requesterId ||
+         request.auth.uid == resource.data.receiverId);
+      allow delete: if request.auth != null &&
+        (request.auth.uid == resource.data.requesterId ||
+         request.auth.uid == resource.data.receiverId);
+    }
+
+    // ==== Feed (Main Feed Collection) ====
+    match /feed/{feedId} {
+      allow read: if request.auth != null;
+
+      // 💥 Allow creation by:
+      // 1. The user creating their own feed item (via userId or actorId)
+      // 2. Club admins creating club activity feed items
+      allow create: if request.auth != null && (
+        // User's own feed item (legacy userId field)
+        request.auth.uid == request.resource.data.userId ||
+        // User's own feed item (actorId field - current standard)
+        request.auth.uid == request.resource.data.actorId ||
+        // Club admin creating club activity feed
+        (request.resource.data.clubId != null &&
+         exists(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid)).data.role == 'admin')
+      );
+
+      // Allow update/delete by:
+      // 1. The owner of the feed item (actorId for feed items, userId for legacy)
+      // 2. Club admins for club-related feed items
+      allow update, delete: if request.auth != null && (
+        request.auth.uid == resource.data.actorId ||
+        request.auth.uid == resource.data.userId ||
+        (resource.data.clubId != null &&
+         exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)).data.role == 'admin')
+      );
+    }
+
+    // ==== Social Feed ====
+    match /social_feed/{feedId} {
+      allow read: if request.auth != null;
+
+      // Allow creation by:
+      // 1. The user creating their own feed item (via userId or actorId)
+      // 2. Club admins creating club activity feed items
+      allow create: if request.auth != null && (
+        // User's own feed item (legacy userId field)
+        request.auth.uid == request.resource.data.userId ||
+        // User's own feed item (actorId field - current standard)
+        request.auth.uid == request.resource.data.actorId ||
+        // Club admin creating club activity feed
+        (request.resource.data.clubId != null &&
+         exists(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid)).data.role == 'admin')
+      );
+
+      // Allow update/delete by:
+      // 1. The owner of the feed item (actorId or legacy userId)
+      // 2. Club admins for club-related feed items
+      allow update, delete: if request.auth != null && (
+        request.auth.uid == resource.data.actorId ||
+        request.auth.uid == resource.data.userId ||
+        (resource.data.clubId != null &&
+         exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)).data.role == 'admin')
+      );
+    }
+
+    // ==== Community Groups ====
+    match /community_groups/{groupId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null &&
+        request.auth.uid in resource.data.moderators;
+      allow delete: if request.auth != null &&
+        request.auth.uid in resource.data.moderators;
+    }
+
+    // ==== Tournaments ====
+    // 🌉 [HEIMDALL] SERVER-SIDE MIGRATION Phase 4: Security Rules
+    // All tournament operations must go through Cloud Functions for validation
+    match /tournaments/{tournamentId} {
+      // ✅ Read: Any authenticated user can read tournaments
+      allow read: if request.auth != null;
+
+      // 🔒 Create: ONLY Cloud Functions (Admin SDK bypasses rules)
+      // Clients MUST use createTournament Cloud Function
+      allow create: if false;
+
+      // 🔒 Update: ONLY Cloud Functions (Admin SDK bypasses rules)
+      // Clients MUST use updateTournamentStatus, registerForTournament, etc.
+      allow update: if false;
+
+      // 🔒 Delete: ONLY Cloud Functions (Admin SDK bypasses rules)
+      // Future: implement deleteTournament Cloud Function if needed
+      allow delete: if false;
+
+      // Tournament Participants Subcollection
+      // 🌉 [HEIMDALL] SERVER-SIDE MIGRATION Phase 4: Participants Security
+      match /participants/{participantId} {
+        // ✅ Read: Any authenticated user can read participants
+        allow read: if request.auth != null;
+
+        // 🔒 Create: ONLY Cloud Functions
+        // Clients MUST use registerForTournament or registerTeamForTournament
+        allow create: if false;
+
+        // 🔒 Update: ONLY Cloud Functions
+        // Future: implement updateParticipantInfo Cloud Function if needed
+        allow update: if false;
+
+        // 🔒 Delete: ONLY Cloud Functions
+        // Future: implement withdrawFromTournament Cloud Function if needed
+        allow delete: if false;
+      }
+
+      // Tournament Matches Subcollection
+      // 🌉 [HEIMDALL] SERVER-SIDE MIGRATION Phase 4: Matches Security
+      match /matches/{matchId} {
+        // ✅ Read: Any authenticated user can read matches
+        allow read: if request.auth != null;
+
+        // 🔒 Create: ONLY Cloud Functions
+        // Cloud Functions: generateBracket
+        allow create: if false;
+
+        // 🔒 Update: ONLY Cloud Functions
+        // Cloud Functions: submitScoreAndAdvanceWinner
+        allow update: if false;
+
+        // 🔒 Delete: ONLY Cloud Functions
+        // Future: implement deleteMatch Cloud Function if needed
+        allow delete: if false;
+      }
+    }
+
+    // ==== Tournament Matches (Top-level Collection) ====
+    // 🌉 [HEIMDALL] SERVER-SIDE MIGRATION Phase 5: Complete Lockdown
+    // All match operations must go through Cloud Functions for validation
+    match /tournament_matches/{matchId} {
+      // ✅ Read: Any authenticated user can read matches
+      allow read: if request.auth != null;
+
+      // 🔒 Create: ONLY Cloud Functions (Admin SDK bypasses rules)
+      // Clients MUST use generateBracket or generateNextRound Cloud Functions
+      allow create: if false;
+
+      // 🔒 Update: ONLY Cloud Functions (Admin SDK bypasses rules)
+      // Clients MUST use submitMatchResult Cloud Function
+      allow update: if false;
+
+      // 🔒 Delete: ONLY Cloud Functions (Admin SDK bypasses rules)
+      // Clients MUST use deleteTournament Cloud Function
+      allow delete: if false;
+    }
+
+    // ==== Tournament Registrations ====
+    match /tournamentRegistrations/{registrationId} {
+      allow read: if request.auth != null;
+      // Users can create their own registration
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.userId;
+      // Users can update their own registration, tournament creators can manage
+      allow update: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        request.auth.uid == get(/databases/$(database)/documents/leagues/$(resource.data.tournamentId)).data.createdBy
+      );
+      allow delete: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        request.auth.uid == get(/databases/$(database)/documents/leagues/$(resource.data.tournamentId)).data.createdBy
+      );
+    }
+
+
+    // ==== League Participants ====
+    match /league_participants/{participantId} {
+      // Read: Any authenticated user can read league participants
+      allow read: if request.auth != null;
+
+      // Create: Any authenticated user can apply to join a league
+      // Also allow admin/system to create participants (for repair scripts)
+      allow create: if request.auth != null && (
+        // User applying for themselves
+        request.auth.uid == request.resource.data.userId ||
+        // Admin can create participants (for repair/admin functions)
+        request.resource.data.processedBy == 'admin-repair-script'
+      );
+
+      // Update: User can update their own application, admins can approve/reject
+      allow update: if request.auth != null && (
+        // User updating their own application
+        request.auth.uid == resource.data.userId ||
+        // Admin functions (approval, rejection, etc.)
+        request.resource.data.keys().hasAny(['status', 'processedAt', 'processedBy', 'processingNote'])
+      );
+
+      // Delete: Only admins can delete participants (for cleanup/repair)
+      allow delete: if request.auth != null;
+    }
+
+    // ==== Leagues & Tournaments (통합 컬렉션) ====
+    // 💥 CRITICAL: This collection was missing from security rules! 💥
+    // App uses 'leagues' but rules were not defined
+    match /leagues/{leagueId} {
+      // Anyone authenticated can read leagues
+      allow read: if request.auth != null;
+
+      // Create: Only club admins can create leagues for their club
+      allow create: if request.auth != null && (
+        // Check if user is admin in the clubMembers collection
+        exists(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid)) &&
+        get(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid)).data.role == 'admin'
+      );
+
+      // 🔒 LAYERED LOCKDOWN: Different permissions for members vs admins
+      allow update: if request.auth != null && (
+        // 🔹 Layer 1: Club members can register (participants only)
+        (exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)) &&
+         request.resource.data.diff(resource.data).affectedKeys().hasOnly(['participants', 'updatedAt'])) ||
+
+        // 🔹 Layer 2: Admins can manage league (bracket generation, status changes)
+        // BUT cannot complete league (status→'completed', winnerId, champion, runnerUp)
+        ((request.auth.uid == resource.data.createdBy ||
+          (exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)) &&
+           get(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)).data.role == 'admin')) &&
+         // 🚫 BLOCK status change to 'completed' (Cloud Function only)
+         !(request.resource.data.status == 'completed' && resource.data.status != 'completed') &&
+         // 🚫 BLOCK winner/completion fields (Cloud Function only)
+         !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+           'winnerId', 'champion', 'runnerUp', 'completedAt'
+         ]))
+      );
+
+      // 🚨 SECURITY NOTE: League completion, status changes, and all other updates
+      // MUST go through Cloud Functions (completeLeague, etc.)
+      // This prevents client manipulation of winner/champion/status fields
+
+      // Delete: Only creator or club admin can delete (EXCEPT completed leagues)
+      allow delete: if request.auth != null && (
+        // League creator can delete
+        request.auth.uid == resource.data.createdBy ||
+        // Club admin can delete
+        (exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)).data.role == 'admin')
+      ) &&
+      // 🚫 CANNOT delete completed leagues (protect historical data)
+      resource.data.status != 'completed';
+
+      // ==== League Matches Subcollection ====
+      match /matches/{matchId} {
+        // Read: Any authenticated user can read league matches
+        allow read: if request.auth != null;
+
+        // Create: Only club admins can create matches (during bracket generation)
+        allow create: if request.auth != null && (
+          // Club admin can create matches
+          (exists(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)) &&
+           get(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)).data.role == 'admin') ||
+          // League creator can create matches
+          request.auth.uid == get(/databases/$(database)/documents/leagues/$(leagueId)).data.createdBy
+        );
+
+        // Update: Participants can submit match results, admins can approve/manage
+        allow update: if request.auth != null && (
+          // Participants can submit scores (player1Id or player2Id)
+          (request.auth.uid == resource.data.player1Id ||
+           request.auth.uid == resource.data.player2Id) ||
+          // Club admin can approve/manage matches
+          (exists(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)) &&
+           get(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)).data.role == 'admin') ||
+          // League creator can manage matches
+          request.auth.uid == get(/databases/$(database)/documents/leagues/$(leagueId)).data.createdBy
+        );
+
+        // Delete: Only club admins can delete matches
+        allow delete: if request.auth != null && (
+          (exists(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)) &&
+           get(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)).data.role == 'admin') ||
+          request.auth.uid == get(/databases/$(database)/documents/leagues/$(leagueId)).data.createdBy
+        );
+      }
+
+      // ==== Playoff Matches Subcollection ====
+      match /playoff_matches/{matchId} {
+        // Read: Any authenticated user can read playoff matches
+        allow read: if request.auth != null;
+
+        // Create: Only club admins or league creator can create playoff matches
+        allow create: if request.auth != null && (
+          // Club admin can create playoff matches
+          (exists(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)) &&
+           get(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)).data.role == 'admin') ||
+          // League creator can create playoff matches
+          request.auth.uid == get(/databases/$(database)/documents/leagues/$(leagueId)).data.createdBy
+        );
+
+        // Update: Participants can submit match results, admins can approve/manage
+        allow update: if request.auth != null && (
+          // Participants can submit scores (player1Id or player2Id)
+          (request.auth.uid == resource.data.player1Id ||
+           request.auth.uid == resource.data.player2Id) ||
+          // Club admin can approve/manage playoff matches
+          (exists(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)) &&
+           get(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)).data.role == 'admin') ||
+          // League creator can manage playoff matches
+          request.auth.uid == get(/databases/$(database)/documents/leagues/$(leagueId)).data.createdBy
+        );
+
+        // Delete: Only club admins or league creator can delete playoff matches
+        allow delete: if request.auth != null && (
+          (exists(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)) &&
+           get(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)).data.role == 'admin') ||
+          request.auth.uid == get(/databases/$(database)/documents/leagues/$(leagueId)).data.createdBy
+        );
+      }
+
+      // ==== Tournament Participants Subcollection ====
+      match /participants/{participantId} {
+        // Read: Any authenticated user can read tournament participants
+        allow read: if request.auth != null;
+
+        // Create: Users can register themselves, admins can add participants
+        allow create: if request.auth != null && (
+          // User registering themselves
+          request.auth.uid == request.resource.data.playerId ||
+          // Club admin can add participants
+          (exists(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)) &&
+           get(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)).data.role == 'admin') ||
+          // Tournament creator can add participants
+          request.auth.uid == get(/databases/$(database)/documents/leagues/$(leagueId)).data.createdBy
+        );
+
+        // Update: Users can update their own registration, admins can manage
+        allow update: if request.auth != null && (
+          // User updating their own registration
+          request.auth.uid == resource.data.playerId ||
+          // Club admin can update participants
+          (exists(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)) &&
+           get(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)).data.role == 'admin') ||
+          // Tournament creator can update participants
+          request.auth.uid == get(/databases/$(database)/documents/leagues/$(leagueId)).data.createdBy
+        );
+
+        // Delete: Users can withdraw, admins can remove participants
+        allow delete: if request.auth != null && (
+          // User withdrawing themselves
+          request.auth.uid == resource.data.playerId ||
+          // Club admin can remove participants
+          (exists(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)) &&
+           get(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/leagues/$(leagueId)).data.clubId + '_' + request.auth.uid)).data.role == 'admin') ||
+          // Tournament creator can remove participants
+          request.auth.uid == get(/databases/$(database)/documents/leagues/$(leagueId)).data.createdBy
+        );
+      }
+    }
+
+    // ==== Teams (TEAM-FIRST 2.0) ====
+    match /teams/{teamId} {
+      // Read: Team members can read their own team
+      allow read: if request.auth != null && (
+        request.auth.uid == resource.data.player1.userId ||
+        request.auth.uid == resource.data.player2.userId
+      );
+
+      // Create: Tournament participants can create team invitations
+      allow create: if request.auth != null && (
+        // Inviter creates the team
+        request.auth.uid == request.resource.data.invitedBy &&
+        request.auth.uid == request.resource.data.player1.userId
+      );
+
+      // Update: Invitee can accept/reject, participants can update team
+      allow update: if request.auth != null && (
+        // Invitee can accept/reject (status change from pending)
+        (request.auth.uid == resource.data.player2.userId &&
+         resource.data.status == 'pending') ||
+        // Team members can update confirmed teams
+        (request.auth.uid == resource.data.player1.userId ||
+         request.auth.uid == resource.data.player2.userId)
+      );
+
+      // Delete: Inviter can cancel pending invitations
+      allow delete: if request.auth != null && (
+        request.auth.uid == resource.data.invitedBy &&
+        resource.data.status == 'pending'
+      );
+    }
+
+    // ==== Player Stats ====
+    match /player_stats/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ==== Achievements ====
+    match /achievements/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ==== Match History ====
+    match /match_history/{matchId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null &&
+        request.auth.uid in resource.data.participantIds;
+    }
+
+    // ==== Tennis Courts ====
+    match /tennis_courts/{courtId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+    }
+
+    // ==== Notifications ====
+    match /notifications/{notificationId} {
+      // Users can read their own notifications
+      allow read: if request.auth != null &&
+        request.auth.uid == resource.data.recipientId;
+
+      // Cloud Functions or admins can create notifications
+      allow create: if request.auth != null;
+
+      // Users can update their own notifications (mark as read/dismissed)
+      allow update: if request.auth != null &&
+        request.auth.uid == resource.data.recipientId;
+
+      // Users can delete their own notifications
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.recipientId;
+    }
+
+    // ==== Chat Messages ====
+    match /chat_messages/{messageId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null &&
+        request.auth.uid == resource.data.senderId;
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.senderId;
+    }
+
+    // ==== Knowledge Base (AI 챗봇 RAG) ====
+    match /knowledge_base/{documentId} {
+      allow read: if request.auth != null;
+      allow write: if false; // 시스템/관리자만 Firebase Console에서 직접 관리
+    }
+
+    // ==== Coach Lessons (레슨 게시판) ====
+    match /coach_lessons/{lessonId} {
+      // 누구나 읽기 가능
+      allow read: if request.auth != null;
+      // 로그인한 사용자 누구나 생성 가능
+      allow create: if request.auth != null &&
+        request.resource.data.authorId == request.auth.uid;
+      // 작성자만 수정/삭제 가능
+      allow update, delete: if request.auth != null &&
+        resource.data.authorId == request.auth.uid;
+    }
+
+    // ==== Tennis Services (서비스 게시판 - 줄 교체, 중고거래 등) ====
+    match /tennis_services/{serviceId} {
+      // 누구나 읽기 가능
+      allow read: if request.auth != null;
+      // 로그인한 사용자 누구나 생성 가능
+      allow create: if request.auth != null &&
+        request.resource.data.authorId == request.auth.uid;
+      // 작성자만 수정/삭제 가능
+      allow update, delete: if request.auth != null &&
+        resource.data.authorId == request.auth.uid;
+    }
+
+    // ==== System Settings (read-only) ====
+    match /system_settings/{settingId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // ========================================
+    // REGULAR MEETUP SYSTEM - NEW COLLECTIONS
+    // ========================================
+    
+    // Helper function to check if user is club admin or manager
+    function isClubAdminOrManager(clubId) {
+      return request.auth != null && (
+        request.auth.uid in get(/databases/$(database)/documents/tennis_clubs/$(clubId)).data.adminIds ||
+        request.auth.uid in get(/databases/$(database)/documents/tennis_clubs/$(clubId)).data.managerIds ||
+        request.auth.uid == get(/databases/$(database)/documents/tennis_clubs/$(clubId)).data.createdBy
+      );
+    }
+    
+    // Helper function to check if user is club member
+    function isClubMember(clubId) {
+      return request.auth != null && (
+        request.auth.uid in get(/databases/$(database)/documents/tennis_clubs/$(clubId)).data.memberIds ||
+        isClubAdminOrManager(clubId)
+      );
+    }
+    
+    // Club Meetups Collection - handles regular recurring meetups
+    match /club_meetups/{meetupId} {
+      // All club members can read meetups
+      allow read: if request.auth != null && isClubMember(resource.data.clubId);
+      
+      // Only admins and managers can create and manage meetups
+      allow create: if request.auth != null && 
+        isClubAdminOrManager(request.resource.data.clubId) &&
+        request.auth.uid == request.resource.data.createdBy;
+      
+      // Admins/managers can update meetup details and status
+      // Members can only update their RSVP status in participants array
+      allow update: if request.auth != null && (
+        isClubAdminOrManager(resource.data.clubId) ||
+        isClubMember(resource.data.clubId)
+      );
+      
+      // Only admins can delete meetups
+      allow delete: if request.auth != null && isClubAdminOrManager(resource.data.clubId);
+    }
+    
+    // Regular Meetups Collection - individual meetup instances
+    match /regular_meetups/{meetupId} {
+      //
+      // READ: Club members can read meetups
+      //
+      allow read: if request.auth != null &&
+        exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid));
+
+      //
+      // 💥 CREATE: Club admin OR manager can create meetups 💥
+      // 🎯 [KIM FIX] Added 'manager' role to allow managers to create meetups
+      //
+      allow create: if request.auth != null &&
+        get(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid)).data.role in ['admin', 'manager'];
+
+      //
+      // UPDATE: Admin/Manager can update meetups, members can update RSVP-related fields
+      // 🎯 [KIM FIX] Added 'manager' role to allow managers to update meetups
+      //
+      allow update: if request.auth != null && (
+        // Admin or Manager can update anything
+        get(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)).data.role in ['admin', 'manager'] ||
+        // Members can update RSVP-related fields (participants, counts, updatedAt)
+        // 🗑️ [KIM 2025-01-10] Removed weatherSnapshot - snapshot feature removed per user request
+        (exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)) &&
+         request.resource.data.diff(resource.data).affectedKeys().hasOnly(['participants', 'attendingCount', 'maybeCount', 'decliningCount', 'updatedAt']))
+      );
+
+      //
+      // 💥 DELETE: Club admin OR manager can delete meetups 💥
+      // 🎯 [KIM FIX] Added 'manager' role to allow managers to delete meetups
+      //
+      allow delete: if request.auth != null &&
+        get(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)).data.role in ['admin', 'manager'];
+
+      // 💬 Chat Messages Subcollection - for meetup-specific conversations
+      // 🎯 [KIM FIX] Added subcollection rules for real-time chat
+      match /chat_messages/{messageId} {
+        // All club members can read chat messages
+        allow read: if request.auth != null &&
+          exists(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/regular_meetups/$(meetupId)).data.clubId + '_' + request.auth.uid));
+
+        // Club members can create messages
+        allow create: if request.auth != null &&
+          request.auth.uid == request.resource.data.userId &&
+          exists(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/regular_meetups/$(meetupId)).data.clubId + '_' + request.auth.uid));
+
+        // Users can delete their own messages, admins can moderate
+        allow update, delete: if request.auth != null && (
+          request.auth.uid == resource.data.userId ||
+          get(/databases/$(database)/documents/clubMembers/$(get(/databases/$(database)/documents/regular_meetups/$(meetupId)).data.clubId + '_' + request.auth.uid)).data.role in ['admin', 'manager']
+        );
+      }
+    }
+
+    // Meetup Participants Collection - for detailed participant tracking
+    match /meetup_participants/{participantId} {
+      // Participants can read their own data, club members can read all
+      allow read: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        isClubMember(resource.data.clubId)
+      );
+      
+      // Users can create their own participation record
+      allow create: if request.auth != null && 
+        request.auth.uid == request.resource.data.userId &&
+        isClubMember(request.resource.data.clubId);
+      
+      // Users can update their own RSVP, admins can update any
+      allow update: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        isClubAdminOrManager(resource.data.clubId)
+      );
+      
+      // Users can delete their own participation, admins can delete any
+      allow delete: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        isClubAdminOrManager(resource.data.clubId)
+      );
+    }
+    
+    // Meetup Chat Messages - for meetup-specific conversations
+    match /meetup_chat/{chatId}/messages/{messageId} {
+      // All meetup participants can read messages
+      allow read: if request.auth != null && (
+        request.auth.uid in get(/databases/$(database)/documents/regular_meetups/$(chatId)).data.participantIds ||
+        isClubAdminOrManager(get(/databases/$(database)/documents/regular_meetups/$(chatId)).data.clubId)
+      );
+      
+      // Participants can create messages
+      allow create: if request.auth != null && 
+        request.auth.uid == request.resource.data.senderId &&
+        (request.auth.uid in get(/databases/$(database)/documents/regular_meetups/$(chatId)).data.participantIds ||
+         isClubAdminOrManager(get(/databases/$(database)/documents/regular_meetups/$(chatId)).data.clubId));
+      
+      // Users can edit/delete their own messages, admins can moderate
+      allow update, delete: if request.auth != null && (
+        request.auth.uid == resource.data.senderId ||
+        isClubAdminOrManager(get(/databases/$(database)/documents/regular_meetups/$(chatId)).data.clubId)
+      );
+    }
+
+    // ==== Club Join Requests (snake_case - legacy) ====
+    match /club_join_requests/{requestId} {
+      // Any authenticated user can read join requests
+      allow read: if request.auth != null;
+
+      // Any authenticated user can create a join request for themselves
+      allow create: if request.auth != null &&
+        request.resource.data.userId == request.auth.uid;
+
+      // Users can update/delete their own requests, club admins can manage all
+      allow update, delete: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        isClubAdminOrManager(resource.data.clubId)
+      );
+    }
+
+    // ==== Club Join Requests (camelCase - current) ====
+    // 🔧 [FIX] App uses camelCase collection name, Cloud Functions use this too
+    match /clubJoinRequests/{requestId} {
+      // Any authenticated user can read join requests
+      allow read: if request.auth != null;
+
+      // Any authenticated user can create a join request for themselves
+      allow create: if request.auth != null &&
+        request.resource.data.userId == request.auth.uid;
+
+      // Users can update/delete their own requests, club admins can manage all
+      allow update, delete: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        isClubAdminOrManager(resource.data.clubId)
+      );
+    }
+
+    // ==== Club Invitations (In-App User Invitations) ====
+    match /clubInvitations/{invitationId} {
+      // Read: Inviter or invitee can read the invitation
+      allow read: if request.auth != null && (
+        request.auth.uid == resource.data.inviterId ||
+        request.auth.uid == resource.data.inviteeUserId
+      );
+
+      // Create: Club admin/manager can create invitations for their club
+      allow create: if request.auth != null && (
+        request.auth.uid == request.resource.data.inviterId &&
+        (exists(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid)).data.role in ['admin', 'manager'])
+      );
+
+      // Update: Invitee can accept/decline, inviter can cancel
+      allow update: if request.auth != null && (
+        // Invitee can accept or decline
+        request.auth.uid == resource.data.inviteeUserId ||
+        // Inviter can cancel/update
+        request.auth.uid == resource.data.inviterId
+      );
+
+      // Delete: Inviter can delete their invitation
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.inviterId;
+    }
+
+    // ==== Notification Logs ====
+    match /notification_logs/{logId} {
+      // Allow creating notification logs for system tracking
+      allow create: if request.auth != null;
+
+      // Allow reading logs (for admin/analytics purposes)
+      allow read: if request.auth != null;
+
+      // No updates or deletes for logs
+      allow update, delete: if false;
+    }
+
+    // ==== Sportsmanship History ====
+    match /sportsmanship_history/{historyId} {
+      // 인증된 사용자는 히스토리 읽기 가능
+      allow read: if request.auth != null;
+
+      // 태그 수여 기록 생성 허용 (수여자가 직접 생성)
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.awarderId;
+
+      // 히스토리는 수정/삭제 불가 (무결성 보장)
+      allow update, delete: if false;
+    }
+
+    // ==== Tournament Events (Hybrid Architecture Phase 1-B) ====
+    // Background event system for Cloud Function triggers
+    match /tournament_events/{eventId} {
+      // ✅ Authenticated users can create events (match_completed)
+      allow create: if
+        request.auth != null &&
+        request.resource.data.type == 'match_completed' &&
+        request.resource.data.tournamentId != null;
+        // processed 조건 제거 (Cloud Function이 관리)
+
+      // ❌ Updates/deletes only via Cloud Functions (Admin SDK bypasses rules)
+      allow update, delete: if false;
+
+      // ❌ No reads for security (Cloud Functions access via Admin SDK)
+      allow read: if false;
+    }
+
+    // ==== Club Posts (게시판) ====
+    // 🎯 [KIM FIX] 클럽 게시판 Security Rules 추가
+    match /club_posts/{postId} {
+      // Read: 클럽 멤버만 게시글 읽기 가능
+      allow read: if request.auth != null &&
+        exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid));
+
+      // Create: 클럽 멤버(admin, manager, member)가 게시글 작성 가능
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.authorId &&
+        exists(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid));
+
+      // Update: 작성자만 수정 가능, 또는 admin/manager가 관리 가능
+      allow update: if request.auth != null && (
+        request.auth.uid == resource.data.authorId ||
+        (exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)).data.role in ['admin', 'manager'])
+      );
+
+      // Delete: 작성자만 삭제 가능, 또는 admin/manager가 관리 가능
+      allow delete: if request.auth != null && (
+        request.auth.uid == resource.data.authorId ||
+        (exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)) &&
+         get(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)).data.role in ['admin', 'manager'])
+      );
+    }
+
+    // ==== Club Chat ====
+    match /clubChat/{messageId} {
+      // Read: Club members can read chat messages
+      allow read: if request.auth != null &&
+        exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid));
+
+      // Create: Club members can send messages
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.senderId &&
+        exists(/databases/$(database)/documents/clubMembers/$(request.resource.data.clubId + '_' + request.auth.uid));
+
+      // Update: Users can mark messages as read (readBy array)
+      allow update: if request.auth != null &&
+        exists(/databases/$(database)/documents/clubMembers/$(resource.data.clubId + '_' + request.auth.uid)) &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['readBy']);
+
+      // Delete: Sender can soft-delete their own messages
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.senderId;
+    }
+
+    // ==== Direct Chat (1:1 Personal Chat) ====
+    match /directChat/{messageId} {
+      // Helper function to check if user is a participant in this conversation
+      function isParticipant() {
+        return request.auth.uid in resource.data.conversationId.split('_');
+      }
+
+      function isParticipantInNewMessage() {
+        return request.auth.uid in request.resource.data.conversationId.split('_');
+      }
+
+      // Read: Only conversation participants can read messages
+      allow read: if request.auth != null && isParticipant();
+
+      // Create: Users can send messages to any conversation they're part of
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.senderId &&
+        isParticipantInNewMessage();
+
+      // Update: Participants can mark messages as read (readBy array) or update metadata (for invitation status)
+      allow update: if request.auth != null &&
+        isParticipant() &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['readBy', 'metadata']);
+
+      // Delete: Sender can soft-delete their own messages
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.senderId;
+    }
+
+    // ==== Conversations (Direct Chat Metadata) ====
+    match /conversations/{conversationId} {
+      // Helper function to check if user is a participant
+      function isParticipant() {
+        return request.auth.uid in resource.data.participants;
+      }
+
+      function isParticipantInNewConversation() {
+        return request.auth.uid in request.resource.data.participants;
+      }
+
+      // Read: Only conversation participants can read metadata
+      allow read: if request.auth != null && isParticipant();
+
+      // Create: Users can create conversations with other users
+      allow create: if request.auth != null &&
+        isParticipantInNewConversation() &&
+        request.resource.data.participants.size() == 2;
+
+      // Update: Participants can update conversation metadata (last message, unread count)
+      allow update: if request.auth != null && isParticipant();
+
+      // Delete: Not allowed (preserve conversation history)
+      allow delete: if false;
+    }
+
+    // ========================================
+    // 💰 [HEIMDALL] CLUB DUES MANAGEMENT SYSTEM
+    // ========================================
+
+    // Helper function to check if user is club admin or manager (via clubMembers role)
+    function isDuesAdminOrManager(clubId) {
+      let memberDoc = get(/databases/$(database)/documents/clubMembers/$(clubId + '_' + request.auth.uid));
+      return request.auth != null && memberDoc != null && (
+        memberDoc.data.role == 'admin' || memberDoc.data.role == 'manager'
+      );
+    }
+
+    // Helper function to check if user is club member (any status)
+    function isActiveClubMember(clubId) {
+      return request.auth != null &&
+        exists(/databases/$(database)/documents/clubMembers/$(clubId + '_' + request.auth.uid)) &&
+        get(/databases/$(database)/documents/clubMembers/$(clubId + '_' + request.auth.uid)).data.status == 'active';
+    }
+
+    // ==== Club Dues Settings ====
+    // Settings for club dues (monthly fee, due day, etc.)
+    match /club_dues_settings/{settingId} {
+      // Read: Club members can read dues settings
+      allow read: if request.auth != null &&
+        isActiveClubMember(resource.data.clubId);
+
+      // Create/Update/Delete: Only admin or manager
+      allow create: if request.auth != null &&
+        isDuesAdminOrManager(request.resource.data.clubId);
+
+      allow update: if request.auth != null &&
+        isDuesAdminOrManager(resource.data.clubId);
+
+      allow delete: if request.auth != null &&
+        isDuesAdminOrManager(resource.data.clubId);
+    }
+
+    // ==== Member Dues Records ====
+    // Individual dues records for each member
+    match /member_dues_records/{recordId} {
+      // Read: Member can read their own records, admin/manager can read all club records
+      allow read: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        isDuesAdminOrManager(resource.data.clubId)
+      );
+
+      // Create: Admin/manager can create dues records for club members
+      allow create: if request.auth != null &&
+        isDuesAdminOrManager(request.resource.data.clubId);
+
+      // Update: Admin/manager can update all fields
+      // Members can only update payment request fields for their own records
+      allow update: if request.auth != null && (
+        // Admin/manager can update anything
+        isDuesAdminOrManager(resource.data.clubId) ||
+        // Member can request payment approval for their own record
+        (request.auth.uid == resource.data.userId &&
+         request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+           'status', 'paymentRequestedAt', 'paymentRequestedMethod',
+           'paymentProofImageUrl', 'requestNotes', 'requestedAmount',
+           'requestedPaymentType', 'updatedAt'
+         ]) &&
+         // Only allow changing status to 'pending_approval'
+         request.resource.data.status == 'pending_approval')
+      );
+
+      // Delete: Only admin/manager can delete records
+      allow delete: if request.auth != null &&
+        isDuesAdminOrManager(resource.data.clubId);
+    }
+
+    // ==== Member Yearly Exemptions ====
+    // Records of members exempted from monthly dues due to yearly payment
+    match /member_yearly_exemptions/{exemptionId} {
+      // Read: Member can see their own exemptions, admin/manager can see all
+      allow read: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        isDuesAdminOrManager(resource.data.clubId)
+      );
+
+      // Create/Update/Delete: Only admin/manager
+      allow create: if request.auth != null &&
+        isDuesAdminOrManager(request.resource.data.clubId);
+
+      allow update: if request.auth != null &&
+        isDuesAdminOrManager(resource.data.clubId);
+
+      allow delete: if request.auth != null &&
+        isDuesAdminOrManager(resource.data.clubId);
+    }
+
+    // ==== Member Quarterly Exemptions ====
+    // Records of members exempted from monthly dues due to quarterly payment
+    match /member_quarterly_exemptions/{exemptionId} {
+      // Read: Member can see their own exemptions, admin/manager can see all
+      allow read: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        isDuesAdminOrManager(resource.data.clubId)
+      );
+
+      // Create/Update/Delete: Only admin/manager
+      allow create: if request.auth != null &&
+        isDuesAdminOrManager(request.resource.data.clubId);
+
+      allow update: if request.auth != null &&
+        isDuesAdminOrManager(resource.data.clubId);
+
+      allow delete: if request.auth != null &&
+        isDuesAdminOrManager(resource.data.clubId);
+    }
+
+    // ==== Annual Dues Reports ====
+    // Yearly summary reports of dues collection
+    match /annual_dues_reports/{reportId} {
+      // Read: Only admin/manager can view reports
+      allow read: if request.auth != null &&
+        isDuesAdminOrManager(resource.data.clubId);
+
+      // Create/Update/Delete: Only Cloud Functions (Admin SDK bypasses rules)
+      // Reports are generated by scheduled Cloud Functions
+      allow create, update, delete: if false;
+    }
+
+    // ==== User Feedback (AI Chatbot Unknown Feature Reports) ====
+    match /user_feedback/{feedbackId} {
+      // Read: Admins can read feedback (for admin panel)
+      // Note: Admin check is done at app level; here we allow authenticated users
+      // who have access to the admin screen to read feedback
+      allow read: if request.auth != null;
+
+      // Create: Authenticated users can submit feedback
+      // userId field must match auth.uid OR be 'anonymous' for logged-in users
+      allow create: if request.auth != null;
+
+      // Update: Two scenarios
+      // 💬 [KIM] Enhanced security: separate user and admin update rules
+      allow update: if request.auth != null && (
+        // 1. User can only update their OWN feedback (for replies)
+        (resource.data.userId == request.auth.uid &&
+         request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+           'conversation', 'lastMessageAt', 'lastMessageBy', 'status', 'updatedAt'
+         ]))
+        ||
+        // 2. Admin update (admin check at app level, fields restricted here)
+        // Note: For stronger security, add get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'adminResponse', 'respondedAt', 'respondedBy',
+          'status', 'updatedAt', 'resolvedAt', 'adminNotes',
+          'conversation', 'lastMessageAt', 'lastMessageBy'
+        ])
+      );
+
+      // Delete: Not allowed (preserve feedback history)
+      allow delete: if false;
+    }
+
+    // ==== User Settings (Notification Preferences) ====
+    // 🔔 [NOTIFICATION SETTINGS 2025-01-08] User-specific settings for notifications
+    // Document ID = userId, users can only access their own settings
+    match /userSettings/{userId} {
+      // Read: Users can read their own settings
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      // Create: Users can create their own settings document
+      allow create: if request.auth != null && request.auth.uid == userId;
+
+      // Update: Users can update their own settings
+      allow update: if request.auth != null && request.auth.uid == userId;
+
+      // Delete: Users can delete their own settings (rare, but allowed)
+      allow delete: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ==== Nickname Index (Unique Nickname Enforcement) ====
+    // 🏷️ [NICKNAME SYSTEM] Stores normalized nicknames for uniqueness checking
+    // Only Cloud Functions can write (via Admin SDK)
+    match /nickname_index/{nicknameId} {
+      // Read: Authenticated users can check nickname availability
+      allow read: if request.auth != null;
+
+      // Write: ONLY Cloud Functions (Admin SDK bypasses rules)
+      // Prevents client-side manipulation of nickname reservations
+      allow create, update, delete: if false;
+    }
+
+    // ==== Internal Admin Data (CRITICAL SECURITY) ====
+    // 🔒 [SECURITY AUDIT 2025-01-08] Protect admin configuration
+    // Only Cloud Functions can access via Admin SDK
+    match /_internal/{docId} {
+      allow read, write: if false;
+    }
+
+    // ==== User FCM Tokens (Push Notification Tokens) ====
+    // 🔒 [SECURITY AUDIT 2025-01-08] Protect FCM tokens
+    // Users can only access their own tokens
+    match /user_fcm_tokens/{tokenId} {
+      // Read: User can read their own tokens
+      allow read: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+
+      // Create: User can register their own tokens
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.userId;
+
+      // Update: User can update their own tokens (e.g., mark as inactive)
+      allow update: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+
+      // Delete: User can delete their own tokens
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+    }
+
+    // ==== Default catch-all deny ====
+    match /{document=**} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "clubLeaguesTournaments": {
+    "memberPreLeagueStatus": {
+      "peopleUnit": ""
+    }
+  },
+  "eventCard": {
+    "labels": {
+      "participants": "{{current}}/{{max}}"
+    }
+  },
+  "createEvent": {
+    "languages": {
+      "korean": "한국어",
+      "chinese": "中文",
+      "japanese": "日本語",
+      "spanish": "Español",
+      "french": "Français"
+    }
+  },
+  "duesManagement": {
+    "settings": {
+      "venmo": "Venmo"
+    },
+    "countSuffix": ""
+  },
+  "meetupDetail": {
+    "rsvp": {
+      "title": "RSVP"
+    }
+  },
+  "lessonCard": {
+    "currencySuffix": ""
+  },
+  "tournamentDetail": {
+    "participantsSuffix": ""
+  },
+  "myProfile": {
+    "title": "My Profile"
+  },
+  "eventDetail": {
+    "participants": {
+      "label": "participants",
+      "waiting": "waiting",
+      "count": "",
+      "host": "Host",
+      "me": "(Me)"
+    }
+  },
+  "hallOfFame": {
+    "honorBadges": {
+      "receivedCount": "×{{count}}"
+    }
+  },
+  "matchDetail": {
+    "defaultMessage": "Looking forward to a great match!"
+  },
+  "appNavigator": {
+    "screens": {
+      "chatScreen": "Lightning Coach"
+    }
+  },
+  "matches": {
+    "skillLevels": {
+      "2": {
+        "0-3": {
+          "0": "2.0-3.0"
+        }
+      },
+      "3": {
+        "0-4": {
+          "0": "3.0-4.0"
+        }
+      },
+      "4": {
+        "0-5": {
+          "0": "4.0-5.0"
+        }
+      },
+      "5": {
+        "0+": "5.0+"
+      }
+    },
+    "createModal": {
+      "maxParticipants": {
+        "placeholder": "4"
+      }
+    }
+  },
+  "screens": {
+    "rateSportsmanship": {
+      "eventNotFound": "Event not found"
+    }
+  }
+}

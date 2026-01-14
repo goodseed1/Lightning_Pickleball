@@ -1,0 +1,3185 @@
+{
+  "total": 578,
+  "sections": [
+    {
+      "name": "duesManagement",
+      "count": 37
+    },
+    {
+      "name": "services",
+      "count": 30
+    },
+    {
+      "name": "editProfile",
+      "count": 29
+    },
+    {
+      "name": "leagueDetail",
+      "count": 25
+    },
+    {
+      "name": "aiMatching",
+      "count": 25
+    },
+    {
+      "name": "createEvent",
+      "count": 22
+    },
+    {
+      "name": "hostedEventCard",
+      "count": 22
+    },
+    {
+      "name": "performanceDashboard",
+      "count": 22
+    },
+    {
+      "name": "cards",
+      "count": 20
+    },
+    {
+      "name": "clubTournamentManagement",
+      "count": 18
+    },
+    {
+      "name": "matches",
+      "count": 17
+    },
+    {
+      "name": "eventCard",
+      "count": 14
+    },
+    {
+      "name": "badgeGallery",
+      "count": 14
+    },
+    {
+      "name": "clubLeaguesTournaments",
+      "count": 13
+    },
+    {
+      "name": "clubDuesManagement",
+      "count": 12
+    },
+    {
+      "name": "meetupDetail",
+      "count": 12
+    },
+    {
+      "name": "types",
+      "count": 12
+    },
+    {
+      "name": "club",
+      "count": 11
+    },
+    {
+      "name": "discover",
+      "count": 11
+    },
+    {
+      "name": "leagues",
+      "count": 11
+    },
+    {
+      "name": "clubCommunication",
+      "count": 10
+    },
+    {
+      "name": "rateSportsmanship",
+      "count": 9
+    },
+    {
+      "name": "hallOfFame",
+      "count": 9
+    },
+    {
+      "name": "emailLogin",
+      "count": 8
+    },
+    {
+      "name": "scoreConfirmation",
+      "count": 8
+    },
+    {
+      "name": "myActivities",
+      "count": 7
+    },
+    {
+      "name": "profileSettings",
+      "count": 7
+    },
+    {
+      "name": "clubOverviewScreen",
+      "count": 7
+    },
+    {
+      "name": "createClubTournament",
+      "count": 6
+    },
+    {
+      "name": "manageAnnouncement",
+      "count": 6
+    },
+    {
+      "name": "policyEditScreen",
+      "count": 6
+    },
+    {
+      "name": "feedCard",
+      "count": 6
+    },
+    {
+      "name": "editClubPolicy",
+      "count": 5
+    },
+    {
+      "name": "tournamentDetail",
+      "count": 5
+    },
+    {
+      "name": "matchRequest",
+      "count": 5
+    },
+    {
+      "name": "mapAppSelector",
+      "count": 5
+    },
+    {
+      "name": "schedules",
+      "count": 5
+    },
+    {
+      "name": "clubChat",
+      "count": 4
+    },
+    {
+      "name": "createMeetup",
+      "count": 4
+    },
+    {
+      "name": "activityTab",
+      "count": 4
+    },
+    {
+      "name": "eventParticipation",
+      "count": 4
+    },
+    {
+      "name": "recordScore",
+      "count": 4
+    },
+    {
+      "name": "tournament",
+      "count": 4
+    },
+    {
+      "name": "clubPoliciesScreen",
+      "count": 4
+    },
+    {
+      "name": "modals",
+      "count": 4
+    },
+    {
+      "name": "createClubLeague",
+      "count": 3
+    },
+    {
+      "name": "lessonCard",
+      "count": 3
+    },
+    {
+      "name": "playerCard",
+      "count": 3
+    },
+    {
+      "name": "aiChat",
+      "count": 3
+    },
+    {
+      "name": "eloTrend",
+      "count": 3
+    },
+    {
+      "name": "participantSelector",
+      "count": 3
+    },
+    {
+      "name": "clubDetailScreen",
+      "count": 3
+    },
+    {
+      "name": "clubPolicies",
+      "count": 3
+    },
+    {
+      "name": "findClub",
+      "count": 3
+    },
+    {
+      "name": "units",
+      "count": 2
+    },
+    {
+      "name": "regularMeetup",
+      "count": 2
+    },
+    {
+      "name": "manageLeagueParticipants",
+      "count": 2
+    },
+    {
+      "name": "eventChat",
+      "count": 2
+    },
+    {
+      "name": "achievementsGuide",
+      "count": 2
+    },
+    {
+      "name": "ntrpSelector",
+      "count": 2
+    },
+    {
+      "name": "clubHallOfFame",
+      "count": 2
+    },
+    {
+      "name": "league",
+      "count": 2
+    },
+    {
+      "name": "findClubScreen",
+      "count": 2
+    },
+    {
+      "name": "utils",
+      "count": 2
+    },
+    {
+      "name": "common",
+      "count": 1
+    },
+    {
+      "name": "auth",
+      "count": 1
+    },
+    {
+      "name": "teamInvitations",
+      "count": 1
+    },
+    {
+      "name": "createModal",
+      "count": 1
+    },
+    {
+      "name": "myClubSettings",
+      "count": 1
+    },
+    {
+      "name": "contexts",
+      "count": 1
+    },
+    {
+      "name": "roleManagement",
+      "count": 1
+    },
+    {
+      "name": "appNavigator",
+      "count": 1
+    }
+  ],
+  "keys": [
+    {
+      "path": "common.ok",
+      "enValue": "OK",
+      "section": "common"
+    },
+    {
+      "path": "auth.register.success.ok",
+      "enValue": "OK",
+      "section": "auth"
+    },
+    {
+      "path": "units.km",
+      "enValue": "km",
+      "section": "units"
+    },
+    {
+      "path": "units.distanceKm",
+      "enValue": "{{distance}} km",
+      "section": "units"
+    },
+    {
+      "path": "club.clubMembers.roles.manager",
+      "enValue": "Manager",
+      "section": "club"
+    },
+    {
+      "path": "club.clubMembers.actions.manage",
+      "enValue": "Manage",
+      "section": "club"
+    },
+    {
+      "path": "club.clubMembers.actions.promoteToManager",
+      "enValue": "Promote to Manager",
+      "section": "club"
+    },
+    {
+      "path": "club.clubMembers.alerts.roleChange.title",
+      "enValue": "Change Role",
+      "section": "club"
+    },
+    {
+      "path": "club.clubMembers.alerts.roleChange.confirm",
+      "enValue": "Change",
+      "section": "club"
+    },
+    {
+      "path": "club.clubMembers.alerts.roleChange.message",
+      "enValue": "Change {{userName}} to {{role}}?",
+      "section": "club"
+    },
+    {
+      "path": "club.clubMembers.alerts.roleChange.success",
+      "enValue": "{{userName}} has been changed to {{role}}.",
+      "section": "club"
+    },
+    {
+      "path": "club.clubMembers.alerts.promoteSuccess",
+      "enValue": "Successfully promoted to manager.",
+      "section": "club"
+    },
+    {
+      "path": "club.clubMembers.removalReason.placeholder",
+      "enValue": "Enter removal reason...",
+      "section": "club"
+    },
+    {
+      "path": "club.clubMembers.modal.promoteTitle",
+      "enValue": "Promote to Manager",
+      "section": "club"
+    },
+    {
+      "path": "club.clubMembers.modal.promoteMessage",
+      "enValue": "Promote {{userName}} to manager?",
+      "section": "club"
+    },
+    {
+      "path": "clubChat.timeHoursAgo",
+      "enValue": "{{hours}}h ago",
+      "section": "clubChat"
+    },
+    {
+      "path": "clubChat.timeMinutesAgo",
+      "enValue": "{{minutes}}m ago",
+      "section": "clubChat"
+    },
+    {
+      "path": "clubChat.roleStaff",
+      "enValue": "Staff",
+      "section": "clubChat"
+    },
+    {
+      "path": "clubChat.announcement",
+      "enValue": "Announcement",
+      "section": "clubChat"
+    },
+    {
+      "path": "rateSportsmanship.selectedCount",
+      "enValue": "Selected tags: {{count}}",
+      "section": "rateSportsmanship"
+    },
+    {
+      "path": "rateSportsmanship.submitting",
+      "enValue": "Submitting...",
+      "section": "rateSportsmanship"
+    },
+    {
+      "path": "rateSportsmanship.submitNote",
+      "enValue": "Tags are processed anonymously and help build a positive community culture.",
+      "section": "rateSportsmanship"
+    },
+    {
+      "path": "rateSportsmanship.honorTags.sharpEyed",
+      "enValue": "#SharpEyed",
+      "section": "rateSportsmanship"
+    },
+    {
+      "path": "rateSportsmanship.honorTags.fullOfEnergy",
+      "enValue": "#FullOfEnergy",
+      "section": "rateSportsmanship"
+    },
+    {
+      "path": "rateSportsmanship.honorTags.mrManner",
+      "enValue": "#MrManner",
+      "section": "rateSportsmanship"
+    },
+    {
+      "path": "rateSportsmanship.honorTags.punctualPro",
+      "enValue": "#PunctualPro",
+      "section": "rateSportsmanship"
+    },
+    {
+      "path": "rateSportsmanship.honorTags.mentalFortress",
+      "enValue": "#MentalFortress",
+      "section": "rateSportsmanship"
+    },
+    {
+      "path": "rateSportsmanship.honorTags.courtJester",
+      "enValue": "#CourtJester",
+      "section": "rateSportsmanship"
+    },
+    {
+      "path": "editProfile.photoHint",
+      "enValue": "Tap to change photo",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.nickname.label",
+      "enValue": "Nickname *",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.nickname.placeholder",
+      "enValue": "Enter your nickname",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.nickname.available",
+      "enValue": "Nickname is available!",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.nickname.checking",
+      "enValue": "Checking",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.nickname.checkingMessage",
+      "enValue": "Checking nickname availability. Please wait.",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.nickname.unavailable",
+      "enValue": "Nickname Unavailable",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.gender.notSpecified",
+      "enValue": "Not specified",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.gender.hint",
+      "enValue": "💡 Gender is set during onboarding and cannot be changed.",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.skillLevel.label",
+      "enValue": "NTRP Skill Level",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.skillLevel.beginner",
+      "enValue": "Beginner",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.skillLevel.intermediate",
+      "enValue": "Intermediate",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.skillLevel.expert",
+      "enValue": "Expert",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.skillLevel.hint",
+      "enValue": "After your first match, your skill level will be automatically calculated based on your match results.",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.playingStyle.aggressive",
+      "enValue": "Aggressive",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.playingStyle.defensive",
+      "enValue": "Defensive",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.playingStyle.allCourt",
+      "enValue": "All-Court",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.playingStyle.baseline",
+      "enValue": "Baseline",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.playingStyle.netPlayer",
+      "enValue": "Net Player",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.travelDistance.label",
+      "enValue": "Max Travel Distance ({{unit}})",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.goals.label",
+      "enValue": "Goals",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.goals.placeholder",
+      "enValue": "Enter your tennis goals...",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.activityTime.earlyMorning",
+      "enValue": "Early Morning (6-9am)",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.activityTime.morning",
+      "enValue": "Morning (9am-12pm)",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.activityTime.lunch",
+      "enValue": "Lunch (12-2pm)",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.activityTime.afternoon",
+      "enValue": "Afternoon (2-6pm)",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.activityTime.evening",
+      "enValue": "Evening (6-9pm)",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.activityTime.night",
+      "enValue": "Night (9pm-12am)",
+      "section": "editProfile"
+    },
+    {
+      "path": "editProfile.common.ok",
+      "enValue": "OK",
+      "section": "editProfile"
+    },
+    {
+      "path": "discover.alerts.cannotApply",
+      "enValue": "Cannot Apply",
+      "section": "discover"
+    },
+    {
+      "path": "discover.alerts.canceled",
+      "enValue": "Canceled",
+      "section": "discover"
+    },
+    {
+      "path": "discover.alerts.deleted",
+      "enValue": "Deleted",
+      "section": "discover"
+    },
+    {
+      "path": "discover.alerts.chatError",
+      "enValue": "Cannot open chat room.",
+      "section": "discover"
+    },
+    {
+      "path": "discover.alerts.chatAccessDenied",
+      "enValue": "Chat Room Notice",
+      "section": "discover"
+    },
+    {
+      "path": "discover.alerts.quickMatch.cannotChallenge",
+      "enValue": "Cannot Challenge",
+      "section": "discover"
+    },
+    {
+      "path": "discover.alerts.quickMatch.ntrpOutOfRange",
+      "enValue": "LTR {{ntrp}} is beyond your challenge range. (max +1.0)",
+      "section": "discover"
+    },
+    {
+      "path": "discover.alerts.quickMatch.challenge",
+      "enValue": "Challenge",
+      "section": "discover"
+    },
+    {
+      "path": "discover.alerts.quickMatch.success",
+      "enValue": "Challenge Sent!",
+      "section": "discover"
+    },
+    {
+      "path": "discover.alerts.teamApplication.submitted",
+      "enValue": "Application Submitted",
+      "section": "discover"
+    },
+    {
+      "path": "discover.alerts.soloApplication.title",
+      "enValue": "Solo Application Submitted!",
+      "section": "discover"
+    },
+    {
+      "path": "emailLogin.title.login",
+      "enValue": "Login",
+      "section": "emailLogin"
+    },
+    {
+      "path": "emailLogin.buttons.loginAfterVerification",
+      "enValue": "Login After Verification",
+      "section": "emailLogin"
+    },
+    {
+      "path": "emailLogin.buttons.goToLogin",
+      "enValue": "Go to Login",
+      "section": "emailLogin"
+    },
+    {
+      "path": "emailLogin.toggle.loginLink",
+      "enValue": "Login",
+      "section": "emailLogin"
+    },
+    {
+      "path": "emailLogin.emailStatus.accountFound",
+      "enValue": "Account found",
+      "section": "emailLogin"
+    },
+    {
+      "path": "emailLogin.verification.loginButton",
+      "enValue": "Login After Verification",
+      "section": "emailLogin"
+    },
+    {
+      "path": "emailLogin.alerts.tooManyAttempts.title",
+      "enValue": "Too Many Attempts",
+      "section": "emailLogin"
+    },
+    {
+      "path": "emailLogin.alerts.tooManyAttempts.message",
+      "enValue": "Login is temporarily restricted for security.\n\n☕ Please take a break and try again later.",
+      "section": "emailLogin"
+    },
+    {
+      "path": "myActivities.profile.style",
+      "enValue": "Style: ",
+      "section": "myActivities"
+    },
+    {
+      "path": "myActivities.profile.goals",
+      "enValue": "Goals",
+      "section": "myActivities"
+    },
+    {
+      "path": "myActivities.stats.eloRatingTrend",
+      "enValue": "ELO Rating Trend",
+      "section": "myActivities"
+    },
+    {
+      "path": "myActivities.settings.languageChangeComingSoon",
+      "enValue": "Language change feature coming soon.",
+      "section": "myActivities"
+    },
+    {
+      "path": "myActivities.settings.currentLanguage",
+      "enValue": "English",
+      "section": "myActivities"
+    },
+    {
+      "path": "myActivities.alerts.signOut.message",
+      "enValue": "Are you sure you want to sign out?",
+      "section": "myActivities"
+    },
+    {
+      "path": "myActivities.alerts.friendInvitation.accepted.title",
+      "enValue": "Accepted",
+      "section": "myActivities"
+    },
+    {
+      "path": "clubLeaguesTournaments.labels.format",
+      "enValue": "Format",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubLeaguesTournaments.labels.expiresIn",
+      "enValue": "Expires in {{hours}}h",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubLeaguesTournaments.memberPreLeagueStatus.period",
+      "enValue": "Period",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubLeaguesTournaments.memberPreLeagueStatus.peopleUnit",
+      "enValue": "",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubLeaguesTournaments.memberPreLeagueStatus.format",
+      "enValue": "Format",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubLeaguesTournaments.memberPreLeagueStatus.statusPreparing",
+      "enValue": "Preparing",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubLeaguesTournaments.memberPreLeagueStatus.applying",
+      "enValue": "Applying...",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubLeaguesTournaments.memberPreLeagueStatus.notOpenWarning",
+      "enValue": "Registration is currently closed",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubLeaguesTournaments.memberPreLeagueStatus.applicationDate",
+      "enValue": "Applied:",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubLeaguesTournaments.alerts.alreadyParticipant.title",
+      "enValue": "Already Participating",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubLeaguesTournaments.alerts.applicationComplete.title",
+      "enValue": "Registration Complete",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubLeaguesTournaments.alerts.registrationComplete.title",
+      "enValue": "Registration Complete",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubLeaguesTournaments.alerts.teamConfirmed.titleTournament",
+      "enValue": "🎉 Registration Complete!",
+      "section": "clubLeaguesTournaments"
+    },
+    {
+      "path": "clubTournamentManagement.buttons.openRegistration",
+      "enValue": "Open Registration",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.buttons.assignSeeds",
+      "enValue": "Assign Seeds",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.buttons.completeAssignment",
+      "enValue": "Complete Assignment",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.buttons.closeRegistration",
+      "enValue": "Close Registration",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.stats.champion",
+      "enValue": "Champion: ",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.matchInfo.skill",
+      "enValue": "Skill",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.matchInfo.seed",
+      "enValue": "Seed",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.roundGeneration.generating",
+      "enValue": "Generating...",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.seedAssignment.title",
+      "enValue": "Assign Seed",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.seedAssignment.duplicateTitle",
+      "enValue": "Duplicate Seed",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.seedAssignment.incompleteTitle",
+      "enValue": "Seed Assignment Incomplete",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.seedAssignment.completeTitle",
+      "enValue": "Seed Assignment Complete",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.seedAssignment.seedRangeError",
+      "enValue": "Seed number must be between 1 and {{max}}",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.deletion.successTitle",
+      "enValue": "Deleted",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.management.registrationFullMessage",
+      "enValue": "Registration is full. You can now close registration.",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.common.confirm",
+      "enValue": "OK",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.common.generate",
+      "enValue": "Generate",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "clubTournamentManagement.common.assign",
+      "enValue": "Assign",
+      "section": "clubTournamentManagement"
+    },
+    {
+      "path": "profileSettings.theme.lightModeSubtitle",
+      "enValue": "Use light theme",
+      "section": "profileSettings"
+    },
+    {
+      "path": "profileSettings.theme.darkModeSubtitle",
+      "enValue": "Use dark theme",
+      "section": "profileSettings"
+    },
+    {
+      "path": "profileSettings.logout.message",
+      "enValue": "Are you sure you want to sign out?",
+      "section": "profileSettings"
+    },
+    {
+      "path": "profileSettings.deleteAccount.finalConfirmationTitle",
+      "enValue": "Final Confirmation",
+      "section": "profileSettings"
+    },
+    {
+      "path": "profileSettings.deleteAccount.nicknameRequiredMessage",
+      "enValue": "Please enter your nickname to proceed with account deletion.",
+      "section": "profileSettings"
+    },
+    {
+      "path": "profileSettings.deleteAccount.completeTitle",
+      "enValue": "Complete",
+      "section": "profileSettings"
+    },
+    {
+      "path": "profileSettings.deleteAccount.noticeMessage",
+      "enValue": "There was an issue deleting your account. Please try again.",
+      "section": "profileSettings"
+    },
+    {
+      "path": "eventCard.eventTypes.meetup",
+      "enValue": "Meetup",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.eventTypes.ranked",
+      "enValue": "Ranked",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.labels.almostFull",
+      "enValue": "Almost Full",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.labels.participants",
+      "enValue": "{{current}}/{{max}}",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.labels.friendly",
+      "enValue": "Friendly",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.labels.waiting",
+      "enValue": "{{count}} waiting",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.buttons.chat",
+      "enValue": "Chat",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.buttons.applySolo",
+      "enValue": "Apply Solo",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.requirements.levelMismatch",
+      "enValue": "Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.requirements.genderMismatch",
+      "enValue": "Gender Mismatch",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.requirements.canApply",
+      "enValue": "Apply: LTR {{minNtrp}} - {{maxNtrp}}",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.requirements.level",
+      "enValue": "Level: {{level}}",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.soloApplicants.count",
+      "enValue": "{{count}} solo",
+      "section": "eventCard"
+    },
+    {
+      "path": "eventCard.soloApplicants.label",
+      "enValue": "{{count}} solo applicants",
+      "section": "eventCard"
+    },
+    {
+      "path": "createEvent.fields.feePlaceholder",
+      "enValue": "e.g. 20",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.fields.skillLevelMultiple",
+      "enValue": "NTRP Skill Level * (Multiple Selection)",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.fields.anyLevel",
+      "enValue": "Any Level",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.placeholders.titleMeetup",
+      "enValue": "e.g. Weekend Fun Rally",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.skillLevelOptions.anyLevel",
+      "enValue": "Any Level",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.autoNtrp.hostLevel",
+      "enValue": "Host LTR: {{level}} ({{gameType}})",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.autoNtrp.combinedLevel",
+      "enValue": "Combined LTR: {{level}}",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.sms.invitationMessage",
+      "enValue": "[Lightning Tennis] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.sms.defaultSender",
+      "enValue": "A friend",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.sms.numbersToInvite",
+      "enValue": "Numbers to invite:",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.selectedFriends",
+      "enValue": "Selected ({{count}})",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.phone.placeholderKR",
+      "enValue": "Enter phone number (e.g., 010-1234-5678)",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.phone.placeholderUS",
+      "enValue": "Enter phone number (e.g., (555) 123-4567)",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.phone.placeholderIntl",
+      "enValue": "Enter phone number (e.g., +1-234-567-8901)",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.dateFormat",
+      "enValue": "{{month}}/{{day}}/{{year}} {{hours}}:{{minutes}}",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.alerts.confirm",
+      "enValue": "OK",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.languages.korean",
+      "enValue": "한국어",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.languages.english",
+      "enValue": "English",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.languages.chinese",
+      "enValue": "中文",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.languages.japanese",
+      "enValue": "日本語",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.languages.spanish",
+      "enValue": "Español",
+      "section": "createEvent"
+    },
+    {
+      "path": "createEvent.languages.french",
+      "enValue": "Français",
+      "section": "createEvent"
+    },
+    {
+      "path": "hostedEventCard.eventTypes.meetup",
+      "enValue": "Meetup",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.eventTypes.ranked",
+      "enValue": "Ranked",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Sunny",
+      "enValue": "Sunny",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Partly Cloudy",
+      "enValue": "Partly Cloudy",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Mostly Cloudy",
+      "enValue": "Mostly Cloudy",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Cloudy",
+      "enValue": "Cloudy",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Overcast",
+      "enValue": "Overcast",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Fog",
+      "enValue": "Fog",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Light Rain",
+      "enValue": "Light Rain",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Rain",
+      "enValue": "Rain",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Heavy Rain",
+      "enValue": "Heavy Rain",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Drizzle",
+      "enValue": "Drizzle",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Thunderstorm",
+      "enValue": "Thunderstorm",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Snow",
+      "enValue": "Snow",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Light Snow",
+      "enValue": "Light Snow",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Heavy Snow",
+      "enValue": "Heavy Snow",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Sleet",
+      "enValue": "Sleet",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Hail",
+      "enValue": "Hail",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Windy",
+      "enValue": "Windy",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Humid",
+      "enValue": "Humid",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Hot",
+      "enValue": "Hot",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "hostedEventCard.weather.conditions.Cold",
+      "enValue": "Cold",
+      "section": "hostedEventCard"
+    },
+    {
+      "path": "duesManagement.status.exempt",
+      "enValue": "Exempt",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.actions.change",
+      "enValue": "Change",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.alerts.ok",
+      "enValue": "OK",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.alerts.saved",
+      "enValue": "Saved",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.alerts.reminderSent",
+      "enValue": "Reminder Sent",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.alerts.deleted",
+      "enValue": "Deleted",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.alerts.added",
+      "enValue": "Added",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.alerts.uploadComplete",
+      "enValue": "Upload Complete",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.messages.exemptionRemoved",
+      "enValue": "Exemption has been removed.",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.settings.title",
+      "enValue": "Dues Settings",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.settings.autoInvoice",
+      "enValue": "Auto Invoice",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.settings.autoInvoiceDesc",
+      "enValue": "Automatically send monthly invoices",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.settings.addPaymentMethod",
+      "enValue": "Add Payment Method",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.settings.qrCode",
+      "enValue": "QR Code",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.settings.bank",
+      "enValue": "Bank",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.settings.venmo",
+      "enValue": "Venmo",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.settings.none",
+      "enValue": "None",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.modals.qrCodeDialog",
+      "enValue": "QR Code",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.modals.uploadQrCode",
+      "enValue": "Upload QR Code",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.modals.tapToUploadQr",
+      "enValue": "Tap to upload QR code image",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.overview.autoInvoiceLabel",
+      "enValue": "Auto Invoice",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.memberCard.exempt",
+      "enValue": "Exempt",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.memberCard.owed",
+      "enValue": "Owed",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.memberCard.lateFeeItems",
+      "enValue": "items",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.memberCard.unpaidCount",
+      "enValue": "{{count}} unpaid",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.overdue.membersWithOverdue",
+      "enValue": "Members with Overdue Dues",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.overdue.amountDue",
+      "enValue": "Amount Due",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.paymentForm.transactionPlaceholder",
+      "enValue": "Enter transaction ID",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.paymentForm.notesPlaceholder",
+      "enValue": "Enter notes",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.paymentDetails.method",
+      "enValue": "Method",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.paymentDetails.requested",
+      "enValue": "Requested",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.types.monthly",
+      "enValue": "Monthly",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.types.quarterly",
+      "enValue": "Quarterly",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.types.custom",
+      "enValue": "Custom",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.inputs.gracePeriodLabel",
+      "enValue": "Grace Period (days)",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.inputs.paymentMethodPlaceholder",
+      "enValue": "e.g. PayPal, KakaoPay",
+      "section": "duesManagement"
+    },
+    {
+      "path": "duesManagement.inputs.addPaymentPlaceholder",
+      "enValue": "e.g. PayPal, KakaoPay",
+      "section": "duesManagement"
+    },
+    {
+      "path": "createMeetup.success.copied",
+      "enValue": "Meetup has been copied!",
+      "section": "createMeetup"
+    },
+    {
+      "path": "createMeetup.court.courtNumbersPlaceholder",
+      "enValue": "e.g., 3, 4, 5",
+      "section": "createMeetup"
+    },
+    {
+      "path": "createMeetup.buttons.confirming",
+      "enValue": "Confirming...",
+      "section": "createMeetup"
+    },
+    {
+      "path": "createMeetup.buttons.confirm",
+      "enValue": "✅ Confirm",
+      "section": "createMeetup"
+    },
+    {
+      "path": "clubDuesManagement.errors.invalidDueDay",
+      "enValue": "Due day must be between 1-31",
+      "section": "clubDuesManagement"
+    },
+    {
+      "path": "clubDuesManagement.success.remindersSent",
+      "enValue": "Reminders Sent",
+      "section": "clubDuesManagement"
+    },
+    {
+      "path": "clubDuesManagement.settings.monthly",
+      "enValue": "Monthly",
+      "section": "clubDuesManagement"
+    },
+    {
+      "path": "clubDuesManagement.settings.yearly",
+      "enValue": "Yearly",
+      "section": "clubDuesManagement"
+    },
+    {
+      "path": "clubDuesManagement.settings.dueDay",
+      "enValue": "Due Day",
+      "section": "clubDuesManagement"
+    },
+    {
+      "path": "clubDuesManagement.settings.gracePeriod",
+      "enValue": "Grace Period",
+      "section": "clubDuesManagement"
+    },
+    {
+      "path": "clubDuesManagement.settings.gracePeriodPlaceholder",
+      "enValue": "Days",
+      "section": "clubDuesManagement"
+    },
+    {
+      "path": "clubDuesManagement.settings.dayUnit",
+      "enValue": "th",
+      "section": "clubDuesManagement"
+    },
+    {
+      "path": "clubDuesManagement.status.autoInvoice",
+      "enValue": "Auto Invoice",
+      "section": "clubDuesManagement"
+    },
+    {
+      "path": "clubDuesManagement.unpaid.reminderCount",
+      "enValue": "{{count}} reminders sent",
+      "section": "clubDuesManagement"
+    },
+    {
+      "path": "clubDuesManagement.autoInvoice.enabled",
+      "enValue": "Auto invoice has been enabled",
+      "section": "clubDuesManagement"
+    },
+    {
+      "path": "clubDuesManagement.autoInvoice.disabled",
+      "enValue": "Auto invoice has been disabled",
+      "section": "clubDuesManagement"
+    },
+    {
+      "path": "activityTab.chatRoomNotice",
+      "enValue": "Chat Room Notice",
+      "section": "activityTab"
+    },
+    {
+      "path": "activityTab.cannotOpenChat",
+      "enValue": "Cannot open chat room.",
+      "section": "activityTab"
+    },
+    {
+      "path": "activityTab.appliedTab",
+      "enValue": "Applied Activities",
+      "section": "activityTab"
+    },
+    {
+      "path": "activityTab.hostedTab",
+      "enValue": "Hosted Activities",
+      "section": "activityTab"
+    },
+    {
+      "path": "regularMeetup.regularMeetupTitle",
+      "enValue": "{{day}} Regular Meetup",
+      "section": "regularMeetup"
+    },
+    {
+      "path": "regularMeetup.crowdOk",
+      "enValue": "OK",
+      "section": "regularMeetup"
+    },
+    {
+      "path": "eventParticipation.statusLabels.waitlisted",
+      "enValue": "Waitlisted",
+      "section": "eventParticipation"
+    },
+    {
+      "path": "eventParticipation.typeLabels.spectator",
+      "enValue": "Spectator",
+      "section": "eventParticipation"
+    },
+    {
+      "path": "eventParticipation.typeLabels.helper",
+      "enValue": "Helper",
+      "section": "eventParticipation"
+    },
+    {
+      "path": "eventParticipation.messages.autoApprovalTitle",
+      "enValue": "Regular Meeting Participation Confirmed!",
+      "section": "eventParticipation"
+    },
+    {
+      "path": "editClubPolicy.saved",
+      "enValue": "Saved",
+      "section": "editClubPolicy"
+    },
+    {
+      "path": "editClubPolicy.ok",
+      "enValue": "OK",
+      "section": "editClubPolicy"
+    },
+    {
+      "path": "editClubPolicy.unsavedChangesMessage",
+      "enValue": "You have unsaved changes. Are you sure you want to leave?",
+      "section": "editClubPolicy"
+    },
+    {
+      "path": "editClubPolicy.recurring",
+      "enValue": "Recurring",
+      "section": "editClubPolicy"
+    },
+    {
+      "path": "editClubPolicy.unsavedChangesWarning",
+      "enValue": "You have unsaved changes",
+      "section": "editClubPolicy"
+    },
+    {
+      "path": "manageLeagueParticipants.enterResult",
+      "enValue": "Enter Result",
+      "section": "manageLeagueParticipants"
+    },
+    {
+      "path": "manageLeagueParticipants.resultPreview",
+      "enValue": "Result Preview",
+      "section": "manageLeagueParticipants"
+    },
+    {
+      "path": "createClubTournament.seedingMethod",
+      "enValue": "Seeding Method",
+      "section": "createClubTournament"
+    },
+    {
+      "path": "createClubTournament.seedingMethods.manual",
+      "enValue": "Manual",
+      "section": "createClubTournament"
+    },
+    {
+      "path": "createClubTournament.seedingMethods.random",
+      "enValue": "Random",
+      "section": "createClubTournament"
+    },
+    {
+      "path": "createClubTournament.seedingMethods.random_description",
+      "enValue": "Fair random seeding (skill-independent)",
+      "section": "createClubTournament"
+    },
+    {
+      "path": "createClubTournament.seedingMethods.rating",
+      "enValue": "Personal Rating",
+      "section": "createClubTournament"
+    },
+    {
+      "path": "createClubTournament.seedingMethods.rating_description",
+      "enValue": "Seeds based on ELO rating and skill level",
+      "section": "createClubTournament"
+    },
+    {
+      "path": "meetupDetail.weather.title",
+      "enValue": "Weather Forecast",
+      "section": "meetupDetail"
+    },
+    {
+      "path": "meetupDetail.weather.chanceOfRain",
+      "enValue": "Chance of rain",
+      "section": "meetupDetail"
+    },
+    {
+      "path": "meetupDetail.weather.windLabel",
+      "enValue": "Wind",
+      "section": "meetupDetail"
+    },
+    {
+      "path": "meetupDetail.weather.notAvailable",
+      "enValue": "Weather Not Available",
+      "section": "meetupDetail"
+    },
+    {
+      "path": "meetupDetail.weather.wind.perfect",
+      "enValue": "Perfect conditions",
+      "section": "meetupDetail"
+    },
+    {
+      "path": "meetupDetail.weather.wind.playable",
+      "enValue": "Playable",
+      "section": "meetupDetail"
+    },
+    {
+      "path": "meetupDetail.weather.wind.affects",
+      "enValue": "Wind affects play",
+      "section": "meetupDetail"
+    },
+    {
+      "path": "meetupDetail.weather.wind.difficult",
+      "enValue": "Difficult to play",
+      "section": "meetupDetail"
+    },
+    {
+      "path": "meetupDetail.rsvp.cannotChangeNearStart",
+      "enValue": "Cannot change RSVP within 15 minutes of meetup start.",
+      "section": "meetupDetail"
+    },
+    {
+      "path": "meetupDetail.rsvp.attend",
+      "enValue": "Attend",
+      "section": "meetupDetail"
+    },
+    {
+      "path": "meetupDetail.rsvp.deadlineNote",
+      "enValue": "Changes allowed until 15 minutes before start.",
+      "section": "meetupDetail"
+    },
+    {
+      "path": "meetupDetail.chat.title",
+      "enValue": "Meetup Chat",
+      "section": "meetupDetail"
+    },
+    {
+      "path": "teamInvitations.ok",
+      "enValue": "OK",
+      "section": "teamInvitations"
+    },
+    {
+      "path": "createClubLeague.selectedInfo",
+      "enValue": "Selected",
+      "section": "createClubLeague"
+    },
+    {
+      "path": "createClubLeague.applicationDeadline",
+      "enValue": "Application Deadline *",
+      "section": "createClubLeague"
+    },
+    {
+      "path": "createClubLeague.ok",
+      "enValue": "OK",
+      "section": "createClubLeague"
+    },
+    {
+      "path": "manageAnnouncement.title",
+      "enValue": "Manage Announcement",
+      "section": "manageAnnouncement"
+    },
+    {
+      "path": "manageAnnouncement.ok",
+      "enValue": "OK",
+      "section": "manageAnnouncement"
+    },
+    {
+      "path": "manageAnnouncement.savedSuccess",
+      "enValue": "Announcement has been saved.",
+      "section": "manageAnnouncement"
+    },
+    {
+      "path": "manageAnnouncement.contentLabel",
+      "enValue": "Content",
+      "section": "manageAnnouncement"
+    },
+    {
+      "path": "manageAnnouncement.importantNotice",
+      "enValue": "Important Notice",
+      "section": "manageAnnouncement"
+    },
+    {
+      "path": "manageAnnouncement.importantNoticeDescription",
+      "enValue": "Important notices are displayed more prominently",
+      "section": "manageAnnouncement"
+    },
+    {
+      "path": "lessonCard.consultButton",
+      "enValue": "Consult",
+      "section": "lessonCard"
+    },
+    {
+      "path": "lessonCard.currencySuffix",
+      "enValue": "",
+      "section": "lessonCard"
+    },
+    {
+      "path": "lessonCard.capacity",
+      "enValue": "Capacity: {{count}}",
+      "section": "lessonCard"
+    },
+    {
+      "path": "playerCard.notAvailable",
+      "enValue": "N/A",
+      "section": "playerCard"
+    },
+    {
+      "path": "playerCard.online",
+      "enValue": "Online",
+      "section": "playerCard"
+    },
+    {
+      "path": "playerCard.skilled",
+      "enValue": "Skilled",
+      "section": "playerCard"
+    },
+    {
+      "path": "createModal.lightningMeetup.subtitle",
+      "enValue": "Casual Meetup",
+      "section": "createModal"
+    },
+    {
+      "path": "aiChat.navigation.Discover",
+      "enValue": "🔍 Taking you to discover!",
+      "section": "aiChat"
+    },
+    {
+      "path": "aiChat.navigation.default",
+      "enValue": "Taking you to {{screen}}!",
+      "section": "aiChat"
+    },
+    {
+      "path": "aiChat.loginRequired",
+      "enValue": "Please log in to receive personalized advice.",
+      "section": "aiChat"
+    },
+    {
+      "path": "myClubSettings.alerts.ok",
+      "enValue": "OK",
+      "section": "myClubSettings"
+    },
+    {
+      "path": "tournamentDetail.participantsSuffix",
+      "enValue": "",
+      "section": "tournamentDetail"
+    },
+    {
+      "path": "tournamentDetail.bestFinish.champion",
+      "enValue": "🥇 Champion",
+      "section": "tournamentDetail"
+    },
+    {
+      "path": "tournamentDetail.bestFinish.runnerUp",
+      "enValue": "🥈 Runner-up",
+      "section": "tournamentDetail"
+    },
+    {
+      "path": "tournamentDetail.bestFinish.semiFinal",
+      "enValue": "🥉 Semi-finalist",
+      "section": "tournamentDetail"
+    },
+    {
+      "path": "tournamentDetail.bestFinish.nthPlace",
+      "enValue": "{position}th place",
+      "section": "tournamentDetail"
+    },
+    {
+      "path": "eventChat.errors.networkError",
+      "enValue": "Please check your network connection and try again.",
+      "section": "eventChat"
+    },
+    {
+      "path": "eventChat.errors.chatRoomNotice",
+      "enValue": "Chat Room Notice",
+      "section": "eventChat"
+    },
+    {
+      "path": "eloTrend.titleBase",
+      "enValue": "Applied",
+      "section": "eloTrend"
+    },
+    {
+      "path": "eloTrend.soloLobby",
+      "enValue": "solo lobby",
+      "section": "eloTrend"
+    },
+    {
+      "path": "eloTrend.friendInvite",
+      "enValue": "friend",
+      "section": "eloTrend"
+    },
+    {
+      "path": "hallOfFame.counts.trophies",
+      "enValue": "{{count}} trophies",
+      "section": "hallOfFame"
+    },
+    {
+      "path": "hallOfFame.counts.honors",
+      "enValue": "{{count}} honors",
+      "section": "hallOfFame"
+    },
+    {
+      "path": "hallOfFame.honorBadges.receivedCount",
+      "enValue": "×{{count}}",
+      "section": "hallOfFame"
+    },
+    {
+      "path": "hallOfFame.honorTags.sharp_eyed",
+      "enValue": "#SharpEyed",
+      "section": "hallOfFame"
+    },
+    {
+      "path": "hallOfFame.honorTags.full_of_energy",
+      "enValue": "#FullOfEnergy",
+      "section": "hallOfFame"
+    },
+    {
+      "path": "hallOfFame.honorTags.mr_manner",
+      "enValue": "#MrManner",
+      "section": "hallOfFame"
+    },
+    {
+      "path": "hallOfFame.honorTags.punctual_pro",
+      "enValue": "#PunctualPro",
+      "section": "hallOfFame"
+    },
+    {
+      "path": "hallOfFame.honorTags.mental_fortress",
+      "enValue": "#MentalFortress",
+      "section": "hallOfFame"
+    },
+    {
+      "path": "hallOfFame.honorTags.court_jester",
+      "enValue": "#CourtJester",
+      "section": "hallOfFame"
+    },
+    {
+      "path": "achievementsGuide.seasonTrophies",
+      "enValue": "Season Trophies",
+      "section": "achievementsGuide"
+    },
+    {
+      "path": "achievementsGuide.notYetEarned",
+      "enValue": "Not yet earned",
+      "section": "achievementsGuide"
+    },
+    {
+      "path": "badgeGallery.modal.earned",
+      "enValue": "Earned: ",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.modal.category",
+      "enValue": "Category: ",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.badges.social_butterfly.name",
+      "enValue": "Social Butterfly",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.badges.perfect_season.name",
+      "enValue": "Perfect Season",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.badges.perfect_season.description",
+      "enValue": "You finished a season undefeated!",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.badges.community_leader.name",
+      "enValue": "Community Leader",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.badges.winning_streak_3.name",
+      "enValue": "Hot Streak",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.badges.winning_streak_5.name",
+      "enValue": "On Fire",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.badges.winning_streak_10.name",
+      "enValue": "Unstoppable",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.badges.match_milestone_10.name",
+      "enValue": "Getting Started",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.alerts.timeoutTitle",
+      "enValue": "Timeout",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.alerts.permissionTitle",
+      "enValue": "Permission Denied",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.alerts.unavailableTitle",
+      "enValue": "Service Unavailable",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "badgeGallery.alerts.unavailableMessage",
+      "enValue": "Firebase service is currently unavailable. Please try again later.",
+      "section": "badgeGallery"
+    },
+    {
+      "path": "recordScore.specialCases",
+      "enValue": "Special Cases",
+      "section": "recordScore"
+    },
+    {
+      "path": "recordScore.retired",
+      "enValue": "Retired",
+      "section": "recordScore"
+    },
+    {
+      "path": "recordScore.walkover",
+      "enValue": "Walkover",
+      "section": "recordScore"
+    },
+    {
+      "path": "recordScore.alerts.confirm",
+      "enValue": "OK",
+      "section": "recordScore"
+    },
+    {
+      "path": "scoreConfirmation.submittedAt",
+      "enValue": "Submitted At",
+      "section": "scoreConfirmation"
+    },
+    {
+      "path": "scoreConfirmation.walkover",
+      "enValue": "Walkover",
+      "section": "scoreConfirmation"
+    },
+    {
+      "path": "scoreConfirmation.agree",
+      "enValue": "I agree",
+      "section": "scoreConfirmation"
+    },
+    {
+      "path": "scoreConfirmation.disagree",
+      "enValue": "I disagree",
+      "section": "scoreConfirmation"
+    },
+    {
+      "path": "scoreConfirmation.reasonLabel",
+      "enValue": "Reason for disagreement",
+      "section": "scoreConfirmation"
+    },
+    {
+      "path": "scoreConfirmation.warningTitle",
+      "enValue": "Important Notes",
+      "section": "scoreConfirmation"
+    },
+    {
+      "path": "scoreConfirmation.submitDisagree",
+      "enValue": "Submit Dispute",
+      "section": "scoreConfirmation"
+    },
+    {
+      "path": "scoreConfirmation.submitDefault",
+      "enValue": "Please select",
+      "section": "scoreConfirmation"
+    },
+    {
+      "path": "matchRequest.skillLevel.elementary",
+      "enValue": "Elementary",
+      "section": "matchRequest"
+    },
+    {
+      "path": "matchRequest.schedule.oneHour",
+      "enValue": "1 hour",
+      "section": "matchRequest"
+    },
+    {
+      "path": "matchRequest.schedule.twoHours",
+      "enValue": "2 hours",
+      "section": "matchRequest"
+    },
+    {
+      "path": "matchRequest.schedule.threeHours",
+      "enValue": "3 hours",
+      "section": "matchRequest"
+    },
+    {
+      "path": "matchRequest.court.perHour",
+      "enValue": "/hour",
+      "section": "matchRequest"
+    },
+    {
+      "path": "leagueDetail.alreadyAppliedOrJoined",
+      "enValue": "Already applied or participating.",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.applicationComplete",
+      "enValue": "Application Complete",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.startPlayoffs",
+      "enValue": "Start Playoffs",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.fourthPlace",
+      "enValue": "4th",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.resultSubmitSuccess",
+      "enValue": "Result Submitted",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.checkNetwork",
+      "enValue": "Please check your network connection.",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.bulkApprovalSuccess",
+      "enValue": "Bulk Approval Complete",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.bulkApprovalPartial",
+      "enValue": "Bulk Approval Partially Complete",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.champion",
+      "enValue": "Champion",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.startAcceptingApplications",
+      "enValue": "Start Accepting Applications",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.reasonLabel",
+      "enValue": "Reason for Change",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.walkoverReasonLabel",
+      "enValue": "Walkover Reason",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.standings.thirdPlace",
+      "enValue": "3rd Place",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.standings.fourthPlace",
+      "enValue": "4th Place",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.adminDashboard.fillRate",
+      "enValue": "Fill Rate",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.adminDashboard.fullCapacityNotice",
+      "enValue": "Applications complete, ready to close registration.",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.leagueManagement.dangerZoneTitle",
+      "enValue": "Danger Zone",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.playoffs.inProgress",
+      "enValue": "Playoffs In Progress",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.playoffs.format",
+      "enValue": "Format:",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.playoffs.seasonComplete",
+      "enValue": "Regular Season Complete!",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.playoffs.startButton",
+      "enValue": "Start Playoffs",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.dialogs.walkoverTitle",
+      "enValue": "Process Walkover",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.dialogs.approveAll",
+      "enValue": "Approve All",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.genderLabels.male",
+      "enValue": "male",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "leagueDetail.genderLabels.female",
+      "enValue": "female",
+      "section": "leagueDetail"
+    },
+    {
+      "path": "cards.hostedEvent.weather.sunny",
+      "enValue": "Sunny",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.partlycloudy",
+      "enValue": "Partly Cloudy",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.mostlycloudy",
+      "enValue": "Mostly Cloudy",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.cloudy",
+      "enValue": "Cloudy",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.overcast",
+      "enValue": "Overcast",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.fog",
+      "enValue": "Fog",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.lightrain",
+      "enValue": "Light Rain",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.rain",
+      "enValue": "Rain",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.heavyrain",
+      "enValue": "Heavy Rain",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.drizzle",
+      "enValue": "Drizzle",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.thunderstorm",
+      "enValue": "Thunderstorm",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.snow",
+      "enValue": "Snow",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.lightsnow",
+      "enValue": "Light Snow",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.heavysnow",
+      "enValue": "Heavy Snow",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.sleet",
+      "enValue": "Sleet",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.hail",
+      "enValue": "Hail",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.windy",
+      "enValue": "Windy",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.humid",
+      "enValue": "Humid",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.hot",
+      "enValue": "Hot",
+      "section": "cards"
+    },
+    {
+      "path": "cards.hostedEvent.weather.cold",
+      "enValue": "Cold",
+      "section": "cards"
+    },
+    {
+      "path": "mapAppSelector.appNotInstalled",
+      "enValue": "App Not Installed",
+      "section": "mapAppSelector"
+    },
+    {
+      "path": "mapAppSelector.appNotInstalledMessage",
+      "enValue": "{{appName}} is not installed on your device.",
+      "section": "mapAppSelector"
+    },
+    {
+      "path": "mapAppSelector.install",
+      "enValue": "Install",
+      "section": "mapAppSelector"
+    },
+    {
+      "path": "mapAppSelector.installed",
+      "enValue": "Installed",
+      "section": "mapAppSelector"
+    },
+    {
+      "path": "mapAppSelector.checkingApps",
+      "enValue": "Checking available apps...",
+      "section": "mapAppSelector"
+    },
+    {
+      "path": "participantSelector.peopleSuffix",
+      "enValue": " people",
+      "section": "participantSelector"
+    },
+    {
+      "path": "participantSelector.customInput",
+      "enValue": "Or enter a custom number:",
+      "section": "participantSelector"
+    },
+    {
+      "path": "participantSelector.placeholder",
+      "enValue": "e.g., 16",
+      "section": "participantSelector"
+    },
+    {
+      "path": "ntrpSelector.levels.beginner.description",
+      "enValue": "Just started playing tennis",
+      "section": "ntrpSelector"
+    },
+    {
+      "path": "ntrpSelector.levels.any.label",
+      "enValue": "Any Level",
+      "section": "ntrpSelector"
+    },
+    {
+      "path": "clubHallOfFame.tabs.trophies",
+      "enValue": "🏆 Trophies",
+      "section": "clubHallOfFame"
+    },
+    {
+      "path": "clubHallOfFame.tabs.rankings",
+      "enValue": "📊 ELO Rankings",
+      "section": "clubHallOfFame"
+    },
+    {
+      "path": "contexts.notification.later",
+      "enValue": "Later",
+      "section": "contexts"
+    },
+    {
+      "path": "roleManagement.roleChangeTitle",
+      "enValue": "Change Roles",
+      "section": "roleManagement"
+    },
+    {
+      "path": "appNavigator.screens.chatScreen",
+      "enValue": "Lightning Coach",
+      "section": "appNavigator"
+    },
+    {
+      "path": "clubOverviewScreen.playoffsInProgress",
+      "enValue": "Playoffs in Progress",
+      "section": "clubOverviewScreen"
+    },
+    {
+      "path": "clubOverviewScreen.emptyStateMemberTitle",
+      "enValue": "🎾 No upcoming activities yet",
+      "section": "clubOverviewScreen"
+    },
+    {
+      "path": "clubOverviewScreen.emptyStateGuestTitle",
+      "enValue": "🎾 Welcome to {{clubName}}!",
+      "section": "clubOverviewScreen"
+    },
+    {
+      "path": "clubOverviewScreen.emptyStateGuestAction1",
+      "enValue": "Apply for membership",
+      "section": "clubOverviewScreen"
+    },
+    {
+      "path": "clubOverviewScreen.aiHelperHint",
+      "enValue": "Not sure what to do?",
+      "section": "clubOverviewScreen"
+    },
+    {
+      "path": "clubOverviewScreen.aiHelperButton",
+      "enValue": "Chat with AI Assistant",
+      "section": "clubOverviewScreen"
+    },
+    {
+      "path": "clubOverviewScreen.aiHelperSubtext",
+      "enValue": "Ask questions about tennis or how to use the app!",
+      "section": "clubOverviewScreen"
+    },
+    {
+      "path": "types.match.validation.tiebreak",
+      "enValue": "tiebreak",
+      "section": "types"
+    },
+    {
+      "path": "types.match.validation.superTiebreak",
+      "enValue": "super tiebreak",
+      "section": "types"
+    },
+    {
+      "path": "types.clubSchedule.scheduleTypes.social",
+      "enValue": "Social Tennis",
+      "section": "types"
+    },
+    {
+      "path": "types.clubSchedule.scheduleTypes.clinic",
+      "enValue": "Training Clinic",
+      "section": "types"
+    },
+    {
+      "path": "types.clubSchedule.recurrence.weekly",
+      "enValue": "Every week",
+      "section": "types"
+    },
+    {
+      "path": "types.clubSchedule.recurrence.biweekly",
+      "enValue": "Every two weeks",
+      "section": "types"
+    },
+    {
+      "path": "types.clubSchedule.recurrence.monthly",
+      "enValue": "Every month",
+      "section": "types"
+    },
+    {
+      "path": "types.clubSchedule.timePeriod.am",
+      "enValue": "AM",
+      "section": "types"
+    },
+    {
+      "path": "types.clubSchedule.timePeriod.pm",
+      "enValue": "PM",
+      "section": "types"
+    },
+    {
+      "path": "types.dues.paymentStatus.exempt",
+      "enValue": "Exempt",
+      "section": "types"
+    },
+    {
+      "path": "types.dues.period.year",
+      "enValue": "{{year}}",
+      "section": "types"
+    },
+    {
+      "path": "types.dues.period.yearMonth",
+      "enValue": "{{month}}/{{year}}",
+      "section": "types"
+    },
+    {
+      "path": "league.genderLabels.male",
+      "enValue": "male",
+      "section": "league"
+    },
+    {
+      "path": "league.genderLabels.female",
+      "enValue": "female",
+      "section": "league"
+    },
+    {
+      "path": "tournament.bestFinish.champion",
+      "enValue": "🥇 Champion",
+      "section": "tournament"
+    },
+    {
+      "path": "tournament.bestFinish.runnerUp",
+      "enValue": "🥈 Runner-up",
+      "section": "tournament"
+    },
+    {
+      "path": "tournament.bestFinish.semiFinal",
+      "enValue": "🥉 Semi-finalist",
+      "section": "tournament"
+    },
+    {
+      "path": "tournament.bestFinish.nthPlace",
+      "enValue": "{position}th place",
+      "section": "tournament"
+    },
+    {
+      "path": "clubCommunication.timeAgo.justNow",
+      "enValue": "just now",
+      "section": "clubCommunication"
+    },
+    {
+      "path": "clubCommunication.timeAgo.minutesAgo",
+      "enValue": "{count} minutes ago",
+      "section": "clubCommunication"
+    },
+    {
+      "path": "clubCommunication.timeAgo.hoursAgo",
+      "enValue": "{count} hours ago",
+      "section": "clubCommunication"
+    },
+    {
+      "path": "clubCommunication.timeAgo.daysAgo",
+      "enValue": "{count} days ago",
+      "section": "clubCommunication"
+    },
+    {
+      "path": "clubCommunication.timeAgo.monthsAgo",
+      "enValue": "{count} months ago",
+      "section": "clubCommunication"
+    },
+    {
+      "path": "clubCommunication.timeAgo.yearsAgo",
+      "enValue": "{count} years ago",
+      "section": "clubCommunication"
+    },
+    {
+      "path": "clubCommunication.validation.contentRequired",
+      "enValue": "Please enter content",
+      "section": "clubCommunication"
+    },
+    {
+      "path": "clubCommunication.validation.contentTooLong",
+      "enValue": "Content cannot exceed 5,000 characters",
+      "section": "clubCommunication"
+    },
+    {
+      "path": "clubCommunication.validation.commentRequired",
+      "enValue": "Please enter a comment",
+      "section": "clubCommunication"
+    },
+    {
+      "path": "clubCommunication.validation.commentTooLong",
+      "enValue": "Comment cannot exceed 1,000 characters",
+      "section": "clubCommunication"
+    },
+    {
+      "path": "clubPoliciesScreen.regularMeetings",
+      "enValue": "Regular Meetings",
+      "section": "clubPoliciesScreen"
+    },
+    {
+      "path": "clubPoliciesScreen.recurring",
+      "enValue": "Recurring",
+      "section": "clubPoliciesScreen"
+    },
+    {
+      "path": "clubPoliciesScreen.dueDateValue",
+      "enValue": "{{day}}th of each month",
+      "section": "clubPoliciesScreen"
+    },
+    {
+      "path": "clubPoliciesScreen.qrCodeTitle",
+      "enValue": "{{method}} QR Code",
+      "section": "clubPoliciesScreen"
+    },
+    {
+      "path": "policyEditScreen.quickInsert",
+      "enValue": "Quick Insert",
+      "section": "policyEditScreen"
+    },
+    {
+      "path": "policyEditScreen.section",
+      "enValue": "Section",
+      "section": "policyEditScreen"
+    },
+    {
+      "path": "policyEditScreen.characters",
+      "enValue": "characters",
+      "section": "policyEditScreen"
+    },
+    {
+      "path": "policyEditScreen.modified",
+      "enValue": "Modified",
+      "section": "policyEditScreen"
+    },
+    {
+      "path": "policyEditScreen.unsavedChangesMessage",
+      "enValue": "You have unsaved changes. What would you like to do?",
+      "section": "policyEditScreen"
+    },
+    {
+      "path": "policyEditScreen.dontSave",
+      "enValue": "Don't Save",
+      "section": "policyEditScreen"
+    },
+    {
+      "path": "findClubScreen.joinComplete",
+      "enValue": "Joined",
+      "section": "findClubScreen"
+    },
+    {
+      "path": "findClubScreen.joinDeclined",
+      "enValue": "Declined",
+      "section": "findClubScreen"
+    },
+    {
+      "path": "clubDetailScreen.joinWaiting",
+      "enValue": "Awaiting Approval",
+      "section": "clubDetailScreen"
+    },
+    {
+      "path": "clubDetailScreen.reapply",
+      "enValue": "Reapply",
+      "section": "clubDetailScreen"
+    },
+    {
+      "path": "clubDetailScreen.joinMessagePlaceholder",
+      "enValue": "Briefly introduce yourself or explain why you want to join.",
+      "section": "clubDetailScreen"
+    },
+    {
+      "path": "matches.card.recurring",
+      "enValue": "Recurring",
+      "section": "matches"
+    },
+    {
+      "path": "matches.card.moreParticipants",
+      "enValue": "+{{count}} more",
+      "section": "matches"
+    },
+    {
+      "path": "matches.card.manageButton",
+      "enValue": "Manage",
+      "section": "matches"
+    },
+    {
+      "path": "matches.skillLevels.2.0-3.0",
+      "enValue": "2.0-3.0",
+      "section": "matches"
+    },
+    {
+      "path": "matches.skillLevels.3.0-4.0",
+      "enValue": "3.0-4.0",
+      "section": "matches"
+    },
+    {
+      "path": "matches.skillLevels.4.0-5.0",
+      "enValue": "4.0-5.0",
+      "section": "matches"
+    },
+    {
+      "path": "matches.skillLevels.5.0+",
+      "enValue": "5.0+",
+      "section": "matches"
+    },
+    {
+      "path": "matches.recurringPatterns.weekly",
+      "enValue": "Weekly",
+      "section": "matches"
+    },
+    {
+      "path": "matches.recurringPatterns.biweekly",
+      "enValue": "Bi-weekly",
+      "section": "matches"
+    },
+    {
+      "path": "matches.recurringPatterns.monthly",
+      "enValue": "Monthly",
+      "section": "matches"
+    },
+    {
+      "path": "matches.recurringPatterns.weeklyMonday",
+      "enValue": "Every Monday",
+      "section": "matches"
+    },
+    {
+      "path": "matches.createModal.recurring.label",
+      "enValue": "Recurring",
+      "section": "matches"
+    },
+    {
+      "path": "matches.createModal.maxParticipants.placeholder",
+      "enValue": "4",
+      "section": "matches"
+    },
+    {
+      "path": "matches.alerts.createSuccess.confirm",
+      "enValue": "OK",
+      "section": "matches"
+    },
+    {
+      "path": "matches.mockData.me",
+      "enValue": "Me",
+      "section": "matches"
+    },
+    {
+      "path": "matches.mockData.mondayTraining",
+      "enValue": "Monday Regular Training",
+      "section": "matches"
+    },
+    {
+      "path": "matches.mockData.mondayDescription",
+      "enValue": "Weekly Monday evening training",
+      "section": "matches"
+    },
+    {
+      "path": "leagues.admin.applicant",
+      "enValue": "Applicant",
+      "section": "leagues"
+    },
+    {
+      "path": "leagues.admin.approvalCompleteTitle",
+      "enValue": "✅ Approval Complete",
+      "section": "leagues"
+    },
+    {
+      "path": "leagues.admin.maxParticipants",
+      "enValue": "Max",
+      "section": "leagues"
+    },
+    {
+      "path": "leagues.admin.applicationDate",
+      "enValue": "Applied",
+      "section": "leagues"
+    },
+    {
+      "path": "leagues.admin.opening",
+      "enValue": "Opening...",
+      "section": "leagues"
+    },
+    {
+      "path": "leagues.admin.startAcceptingApplications",
+      "enValue": "🎭 Start Accepting Applications",
+      "section": "leagues"
+    },
+    {
+      "path": "leagues.match.status.walkover",
+      "enValue": "Walkover",
+      "section": "leagues"
+    },
+    {
+      "path": "leagues.match.correctResult",
+      "enValue": "Correct Result",
+      "section": "leagues"
+    },
+    {
+      "path": "leagues.match.reschedule",
+      "enValue": "Reschedule",
+      "section": "leagues"
+    },
+    {
+      "path": "leagues.match.walkover",
+      "enValue": "Walkover",
+      "section": "leagues"
+    },
+    {
+      "path": "leagues.match.submitResult",
+      "enValue": "Submit Result",
+      "section": "leagues"
+    },
+    {
+      "path": "schedules.form.dayOfWeek",
+      "enValue": "Day of Week *",
+      "section": "schedules"
+    },
+    {
+      "path": "schedules.form.duration",
+      "enValue": "Duration (minutes) *",
+      "section": "schedules"
+    },
+    {
+      "path": "schedules.form.both",
+      "enValue": "Both",
+      "section": "schedules"
+    },
+    {
+      "path": "schedules.form.skillLevelPlaceholder",
+      "enValue": "e.g., 3.5+",
+      "section": "schedules"
+    },
+    {
+      "path": "schedules.form.registrationDeadline",
+      "enValue": "Registration Deadline (hours before)",
+      "section": "schedules"
+    },
+    {
+      "path": "performanceDashboard.periods.weekly",
+      "enValue": "Weekly",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.periods.monthly",
+      "enValue": "Monthly",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.periods.yearly",
+      "enValue": "Yearly",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.stats.playingFrequency",
+      "enValue": "Playing Frequency",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.stats.periodRecord",
+      "enValue": "{{period}} Record",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.charts.skillProgress.title",
+      "enValue": "Skill Level Progress",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.weekLabels.week1",
+      "enValue": "Week 1",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.weekLabels.week2",
+      "enValue": "Week 2",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.weekLabels.week3",
+      "enValue": "Week 3",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.weekLabels.week4",
+      "enValue": "Week 4",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.dayLabels.mon",
+      "enValue": "Mon",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.dayLabels.tue",
+      "enValue": "Tue",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.dayLabels.wed",
+      "enValue": "Wed",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.dayLabels.thu",
+      "enValue": "Thu",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.dayLabels.fri",
+      "enValue": "Fri",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.dayLabels.sat",
+      "enValue": "Sat",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.dayLabels.sun",
+      "enValue": "Sun",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.insights.recommendations",
+      "enValue": "Recommendations:",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.monthlyReport.highlights",
+      "enValue": "This Month's Highlights",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.monthlyReport.improvements",
+      "enValue": "Areas for Improvement",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.monthlyReport.nextMonthGoals",
+      "enValue": "Next Month's Goals",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "performanceDashboard.detailedAnalysis.title",
+      "enValue": "Detailed Analysis",
+      "section": "performanceDashboard"
+    },
+    {
+      "path": "services.map.cannotOpenApp",
+      "enValue": "Cannot open {{appName}}.",
+      "section": "services"
+    },
+    {
+      "path": "services.map.appNotInstalled",
+      "enValue": "{{appName}} Not Installed",
+      "section": "services"
+    },
+    {
+      "path": "services.map.install",
+      "enValue": "Install",
+      "section": "services"
+    },
+    {
+      "path": "services.event.untitled",
+      "enValue": "Untitled",
+      "section": "services"
+    },
+    {
+      "path": "services.activity.loginRequired",
+      "enValue": "You must be logged in",
+      "section": "services"
+    },
+    {
+      "path": "services.activity.invalidApplication",
+      "enValue": "Invalid application",
+      "section": "services"
+    },
+    {
+      "path": "services.activity.notifications.playoffsQualifiedTitle",
+      "enValue": "🏆 Playoffs Qualified!",
+      "section": "services"
+    },
+    {
+      "path": "services.activity.notifications.playoffsQualifiedMessage",
+      "enValue": "Congratulations! You have qualified for the \"{{leagueName}}\" playoffs!",
+      "section": "services"
+    },
+    {
+      "path": "services.activity.tennisUserFallback",
+      "enValue": "TennisUser{{id}}",
+      "section": "services"
+    },
+    {
+      "path": "services.camera.simulatorError",
+      "enValue": "There was a problem accessing gallery on iOS simulator. Please test on a real device.",
+      "section": "services"
+    },
+    {
+      "path": "services.camera.camera",
+      "enValue": "Camera",
+      "section": "services"
+    },
+    {
+      "path": "services.camera.gallery",
+      "enValue": "Gallery",
+      "section": "services"
+    },
+    {
+      "path": "services.camera.fileSizeError",
+      "enValue": "File Size Exceeded",
+      "section": "services"
+    },
+    {
+      "path": "services.location.later",
+      "enValue": "Later",
+      "section": "services"
+    },
+    {
+      "path": "services.feed.deletePermissionDenied",
+      "enValue": "You don't have permission to delete",
+      "section": "services"
+    },
+    {
+      "path": "services.feed.reportTitle",
+      "enValue": "[Feed Report] {{contentSummary}}",
+      "section": "services"
+    },
+    {
+      "path": "services.performanceAnalytics.insights.lowFrequency.title",
+      "enValue": "Need to Increase Playing Frequency",
+      "section": "services"
+    },
+    {
+      "path": "services.performanceAnalytics.monthlyReport.improvements.serveSpeed",
+      "enValue": "Serve Speed",
+      "section": "services"
+    },
+    {
+      "path": "services.performanceAnalytics.monthlyReport.improvements.backhandStability",
+      "enValue": "Backhand Stability",
+      "section": "services"
+    },
+    {
+      "path": "services.performanceAnalytics.monthlyReport.improvements.netPlay",
+      "enValue": "Net Play",
+      "section": "services"
+    },
+    {
+      "path": "services.leaderboard.challenges.monthlyImprovement.title",
+      "enValue": "Monthly Improvement",
+      "section": "services"
+    },
+    {
+      "path": "services.leaderboard.achievements.matchesPlayed10.name",
+      "enValue": "Getting Experience",
+      "section": "services"
+    },
+    {
+      "path": "services.leaderboard.achievements.skillLevel70.description",
+      "enValue": "Reach skill level 70",
+      "section": "services"
+    },
+    {
+      "path": "services.leaderboard.achievements.skillLevel85.description",
+      "enValue": "Reach skill level 85",
+      "section": "services"
+    },
+    {
+      "path": "services.leaderboard.achievements.earlyBird.name",
+      "enValue": "Early Bird",
+      "section": "services"
+    },
+    {
+      "path": "services.leaderboard.achievements.nightOwl.name",
+      "enValue": "Night Owl",
+      "section": "services"
+    },
+    {
+      "path": "services.leaderboard.categories.skillLevel.name",
+      "enValue": "Skill Level Ranking",
+      "section": "services"
+    },
+    {
+      "path": "services.leaderboard.categories.skillLevel.description",
+      "enValue": "Ranking based on skill level",
+      "section": "services"
+    },
+    {
+      "path": "services.leaderboard.categories.improvement.name",
+      "enValue": "Improvement Ranking",
+      "section": "services"
+    },
+    {
+      "path": "services.leaderboard.categories.improvement.description",
+      "enValue": "Ranking based on skill improvement rate",
+      "section": "services"
+    },
+    {
+      "path": "aiMatching.results.title",
+      "enValue": "AI Matching Results",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.results.tipsTitle",
+      "enValue": "AI Matching Tips",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.results.refreshButton",
+      "enValue": "Search Again",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.skillLevel.elementary",
+      "enValue": "Elementary",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.attributes.strengths",
+      "enValue": "Key Strengths",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.attributes.playStyle",
+      "enValue": "Play Style",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.playStyles.aggressive",
+      "enValue": "Aggressive",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.playStyles.defensive",
+      "enValue": "Defensive",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.strengths.serve",
+      "enValue": "Serve",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.strengths.volley",
+      "enValue": "Volley",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.strengths.strategic",
+      "enValue": "Strategic Play",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.strengths.backhand",
+      "enValue": "Backhand",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.strengths.defense",
+      "enValue": "Defense",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.strengths.endurance",
+      "enValue": "Endurance",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.strengths.forehand",
+      "enValue": "Forehand",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.strengths.netPlay",
+      "enValue": "Net Play",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.strengths.mental",
+      "enValue": "Mental",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.availability.morning",
+      "enValue": "Morning (6-12)",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.availability.afternoon",
+      "enValue": "Afternoon (12-18)",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.availability.evening",
+      "enValue": "Evening (18-22)",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.availability.weekend",
+      "enValue": "Weekend",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.candidate.selected",
+      "enValue": "Selected",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.mockData.candidate1.name",
+      "enValue": "Junsu Kim",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.mockData.candidate2.name",
+      "enValue": "Seoyeon Lee",
+      "section": "aiMatching"
+    },
+    {
+      "path": "aiMatching.mockData.candidate3.name",
+      "enValue": "Minjae Park",
+      "section": "aiMatching"
+    },
+    {
+      "path": "clubPolicies.recurring",
+      "enValue": "Recurring",
+      "section": "clubPolicies"
+    },
+    {
+      "path": "clubPolicies.fees.dueDateValue",
+      "enValue": "{{day}}th of each month",
+      "section": "clubPolicies"
+    },
+    {
+      "path": "clubPolicies.qrModal.title",
+      "enValue": "{{method}} QR Code",
+      "section": "clubPolicies"
+    },
+    {
+      "path": "findClub.searchResults",
+      "enValue": "Search results for '{{query}}': {{count}}",
+      "section": "findClub"
+    },
+    {
+      "path": "findClub.status.joined",
+      "enValue": "Joined",
+      "section": "findClub"
+    },
+    {
+      "path": "findClub.errors.alreadyRequested",
+      "enValue": "You have already requested to join.",
+      "section": "findClub"
+    },
+    {
+      "path": "modals.leagueCompleted.points",
+      "enValue": "pts",
+      "section": "modals"
+    },
+    {
+      "path": "modals.playoffCreated.playoffType",
+      "enValue": "Playoff Format",
+      "section": "modals"
+    },
+    {
+      "path": "modals.playoffCreated.final",
+      "enValue": "Final",
+      "section": "modals"
+    },
+    {
+      "path": "modals.playoffCreated.semifinals",
+      "enValue": "Semifinals + Final",
+      "section": "modals"
+    },
+    {
+      "path": "utils.ltr.whatIsLtr.title",
+      "enValue": "What is LTR?",
+      "section": "utils"
+    },
+    {
+      "path": "utils.ltr.relationToNtrp.title",
+      "enValue": "Relationship to NTRP",
+      "section": "utils"
+    },
+    {
+      "path": "feedCard.minutesAgo",
+      "enValue": "{{minutes}}m ago",
+      "section": "feedCard"
+    },
+    {
+      "path": "feedCard.hoursAgo",
+      "enValue": "{{hours}}h ago",
+      "section": "feedCard"
+    },
+    {
+      "path": "feedCard.daysAgo",
+      "enValue": "{{days}}d ago",
+      "section": "feedCard"
+    },
+    {
+      "path": "feedCard.newMemberJoined",
+      "enValue": "{{actorName}} joined {{clubName}}",
+      "section": "feedCard"
+    },
+    {
+      "path": "feedCard.actorActivity",
+      "enValue": "{{actorName}} had an activity",
+      "section": "feedCard"
+    },
+    {
+      "path": "feedCard.feedTextError",
+      "enValue": "Unable to load feed",
+      "section": "feedCard"
+    }
+  ]
+}

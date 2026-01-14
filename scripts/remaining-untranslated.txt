@@ -1,0 +1,243 @@
+Total untranslated: 610
+
+=== TOP 10 SECTIONS WITH ALL UNTRANSLATED KEYS ===
+
+
+services (125 keys):
+  services.map.error: "Error"
+  services.event.noMatchesFound: "No matches found for your criteria. Would you like to try different filters?"
+  services.event.matchesFoundMessage: "🎾 Found {{count}} matches!"
+  services.event.playerCount: "   👥 {{current}}/{{max}} players"
+  services.match.invalidEventType: "Event type {{eventType}} must use {{expectedFormat}} format."
+  services.match.onlyParticipantCanSubmit: "Only match participants can submit scores."
+  services.match.noPermissionToConfirm: "You do not have permission to confirm this score."
+  services.match.notDisputed: "This match is not in disputed status."
+  services.activity.loginRequired: "You must be logged in"
+  services.activity.onlyOwnApplication: "You can only accept your own application"
+  services.activity.teamMergeFailed: "Team merge failed. Please try again."
+  services.activity.onlyInvitedUser: "Only invited users can respond"
+  services.activity.alreadyProcessed: "Invitation has already been processed"
+  services.activity.notifications.applicationSubmittedTitle: "New Participation Request"
+  services.activity.notifications.applicationApprovedTitle: "Participation Approved!"
+  services.activity.notifications.applicationDeclinedTitle: "Participation Request Declined"
+  services.activity.notifications.playoffsQualifiedTitle: "🏆 Playoffs Qualified!"
+  services.activity.notifications.applicationSubmittedMessage: "{{applicantName}} has requested to join "{{eventTitle}}"."
+  services.activity.notifications.applicationApprovedMessage: "Your participation in "{{eventTitle}}" has been approved!"
+  services.activity.notifications.applicationDeclinedMessage: "Your participation request for "{{eventTitle}}" has been declined."
+  ... and 105 more
+
+duesManagement (91 keys):
+  duesManagement.actions.viewAttachment: "View Attachment"
+  duesManagement.actions.processPayment: "Process Payment"
+  duesManagement.alerts.error: "Error"
+  duesManagement.alerts.ok: "OK"
+  duesManagement.alerts.saveFailed: "Save Failed"
+  duesManagement.alerts.enableAutoInvoice: "Enable Auto Invoice"
+  duesManagement.alerts.uploadFailed: "Upload Failed"
+  duesManagement.messages.missingSettings: "To enable auto invoice, please configure the following:
+
+• {{items}}
+
+Please set these in the 'Dues Settings' section above."
+  duesManagement.messages.autoInvoiceConfirm: "Invoices will be automatically sent on the {{day}} of each month.
+(Due Date: {{dueDate}} of each month)
+
+Do you want to enable?"
+  duesManagement.messages.loadingData: "Unable to load dues data."
+  duesManagement.messages.paymentReminderConfirm: "Send payment reminder to all members with overdue payments?"
+  duesManagement.messages.paymentReminderSent: "Reminder notification has been sent to {{count}} member(s)."
+  duesManagement.messages.paymentApproved: "Payment has been approved."
+  duesManagement.messages.paymentRejected: "Payment has been rejected."
+  duesManagement.messages.lateFeeAdded: "Late fee has been added."
+  duesManagement.messages.lateFeeDeleted: "Late fee has been deleted."
+  duesManagement.messages.joinFeeDeleted: "Join fee has been deleted."
+  duesManagement.messages.exemptionRemoved: "Exemption has been removed."
+  duesManagement.messages.exemptionSet: "Member set as exempt."
+  duesManagement.messages.recordCreated: "Record has been created."
+  ... and 71 more
+
+clubLeaguesTournaments (39 keys):
+  clubLeaguesTournaments.labels.newTeamInvitations: "🏛️ New Team Invitations"
+  clubLeaguesTournaments.labels.sentInvitation: "sent you a team invitation"
+  clubLeaguesTournaments.labels.expiresIn: "Expires in {{hours}}h"
+  clubLeaguesTournaments.modals.sendTeamInvitation: "🏛️ Send Team Invitation"
+  clubLeaguesTournaments.modals.selectPartner: "🏛️ Select Partner"
+  clubLeaguesTournaments.modals.sendInvitationInstructions: "Send a team invitation to your partner. You can register once they accept."
+  clubLeaguesTournaments.modals.searchPartner: "Search partner..."
+  clubLeaguesTournaments.modals.loadingPartners: "Loading partners..."
+  clubLeaguesTournaments.memberPreLeagueStatus.statusPendingSubtitle: "Waiting for league admin approval"
+  clubLeaguesTournaments.memberPreLeagueStatus.statusApprovedSubtitle: "Your league participation is confirmed! Matches will start soon"
+  clubLeaguesTournaments.memberPreLeagueStatus.statusRejectedSubtitle: "Your league application was rejected"
+  clubLeaguesTournaments.memberPreLeagueStatus.statusNotAppliedSubtitle: "Join this league and compete with other players"
+  clubLeaguesTournaments.memberPreLeagueStatus.leagueInfo: "League Info"
+  clubLeaguesTournaments.memberPreLeagueStatus.peopleUnit: ""
+  clubLeaguesTournaments.memberPreLeagueStatus.applyDescription: "Join the league to compete with other players and improve your tennis skills. You'll need to wait for admin approval after applying."
+  clubLeaguesTournaments.memberPreLeagueStatus.applying: "Applying..."
+  clubLeaguesTournaments.memberPreLeagueStatus.notOpenWarning: "Registration is currently closed"
+  clubLeaguesTournaments.memberPreLeagueStatus.applicationDetails: "Application Details"
+  clubLeaguesTournaments.memberPreLeagueStatus.applicationDate: "Applied:"
+  clubLeaguesTournaments.memberPreLeagueStatus.approvalDate: "Approved:"
+  ... and 19 more
+
+leagueDetail (33 keys):
+  leagueDetail.noPendingMatches: "No pending matches to approve."
+  leagueDetail.bulkApprovalFailed: "Bulk Approval Failed"
+  leagueDetail.bulkApprovalAllFailed: "All match approvals failed. Please try again."
+  leagueDetail.removeParticipant: "Remove Participant"
+  leagueDetail.removeParticipantConfirm: "Remove "{{userName}}" from the league?"
+  leagueDetail.removeParticipantSuccess: "{{userName}} has been removed from the league."
+  leagueDetail.adminCorrection: "Admin Correction"
+  leagueDetail.adminScheduleChange: "Admin Schedule Change"
+  leagueDetail.adminWalkover: "Admin Walkover"
+  leagueDetail.semifinals: "Semifinals Tournament"
+  leagueDetail.qualifiedTeams: "Qualified Teams:"
+  leagueDetail.qualifiedPlayers: "Qualified Players:"
+  leagueDetail.teams: "teams"
+  leagueDetail.players: "players"
+  leagueDetail.noName: "No Name"
+  leagueDetail.participantsStatus: "Participants Status"
+  leagueDetail.participantsTeamStatus: "Teams Status"
+  leagueDetail.participantsTeams: "Teams"
+  leagueDetail.maxTeams: "Max Teams"
+  leagueDetail.startAcceptingApplications: "Start Accepting Applications"
+  ... and 13 more
+
+createEvent (25 keys):
+  createEvent.fields.auto: "Auto"
+  createEvent.sms.description: "Send invitations and app download link to friends who haven't installed the app"
+  createEvent.sms.descriptionDetailed: "Send invitations and app download links to friends without the app"
+  createEvent.sms.invitationMessage: "[Lightning Tennis] {{sender}} invited you to "{{eventTitle}}"! Download app: {{link}}"
+  createEvent.sms.defaultSender: "A friend"
+  createEvent.sms.numbersToInvite: "Numbers to invite:"
+  createEvent.infoText.inviteFriends: "Invite app users or friends via SMS to your {{type}}."
+  createEvent.infoText.eventTypeNotice: "{{type}} event notice"
+  createEvent.infoText.matchInfo: "Ranked matches are recorded officially and cannot be cancelled."
+  createEvent.infoText.meetupInfo: "Meetups can be modified or cancelled at any time."
+  createEvent.modals.smsInvitation: "SMS Invitation"
+  createEvent.search.searchByName: "Search by name"
+  createEvent.search.searchingUsers: "Searching users..."
+  createEvent.search.loadUsers: "Load Users"
+  createEvent.selectedFriends: "Selected ({{count}})"
+  createEvent.dateFormat: "{{month}}/{{day}}/{{year}} {{hours}}:{{minutes}}"
+  createEvent.errors.smsError: "SMS Error"
+  createEvent.errors.smsErrorMessage: "Cannot open SMS app. Please send invitations manually."
+  createEvent.alerts.confirm: "OK"
+  createEvent.languages.korean: "한국어"
+  ... and 5 more
+
+matches (24 keys):
+  matches.skillLevels.2.0-3.0: "2.0-3.0"
+  matches.skillLevels.3.0-4.0: "3.0-4.0"
+  matches.skillLevels.4.0-5.0: "4.0-5.0"
+  matches.skillLevels.5.0+: "5.0+"
+  matches.createModal.title.label: "Title *"
+  matches.createModal.matchType.label: "Match Type"
+  matches.createModal.location.label: "Location *"
+  matches.createModal.dateTime.label: "Date & Time"
+  matches.createModal.maxParticipants.placeholder: "4"
+  matches.createModal.createButton: "Create Match"
+  matches.alerts.inputError.title: "Input Error"
+  matches.alerts.createSuccess.title: "Match Created Successfully!"
+  matches.alerts.createSuccess.messagePersonal: "Personal match has been successfully created.
+
+📱 Notifications will be sent to users within {{distance}} miles."
+  matches.alerts.createSuccess.messageClub: "Club match has been successfully created.
+
+📱 Notifications will be sent to users within {{distance}} miles."
+  matches.alerts.createSuccess.confirm: "OK"
+  matches.alerts.joinMatch.title: "Join Match"
+  matches.alerts.joinMatch.join: "Join"
+  matches.alerts.joinMatch.success: "Joined Successfully!"
+  matches.alerts.joinMatch.successMessage: "Your match participation request has been completed."
+  matches.mockData.me: "Me"
+  ... and 4 more
+
+createClubTournament (21 keys):
+  createClubTournament.createTournament: "Create Tournament"
+  createClubTournament.matchFormats.best_of_1: "1 Set"
+  createClubTournament.matchFormats.best_of_1_description: "Single set match"
+  createClubTournament.matchFormats.best_of_3: "3 Sets"
+  createClubTournament.matchFormats.best_of_3_description: "Best of 2 sets"
+  createClubTournament.matchFormats.best_of_5: "5 Sets"
+  createClubTournament.matchFormats.best_of_5_description: "Best of 3 sets"
+  createClubTournament.seedingMethods.manual: "Manual"
+  createClubTournament.seedingMethods.manual_description: "Admin assigns seeds manually"
+  createClubTournament.seedingMethods.random_description: "Fair random seeding (skill-independent)"
+  createClubTournament.seedingMethods.ranking_description: "Seeds based on club ranking and win rate"
+  createClubTournament.seedingMethods.rating: "Personal Rating"
+  createClubTournament.seedingMethods.rating_description: "Seeds based on ELO rating and skill level"
+  createClubTournament.eventTypes.mens_singles_description: "Male 1v1 match"
+  createClubTournament.eventTypes.womens_singles_description: "Female 1v1 match"
+  createClubTournament.eventTypes.mens_doubles_description: "Male 2v2 match"
+  createClubTournament.eventTypes.womens_doubles_description: "Female 2v2 match"
+  createClubTournament.eventTypes.mixed_doubles_description: "Mixed gender 2v2 match"
+  createClubTournament.errors.deadlineBeforeStart: "Application deadline must be on or before start date"
+  createClubTournament.errors.endBeforeStart: "End date must be on or after start date"
+  ... and 1 more
+
+scoreConfirmation (19 keys):
+  scoreConfirmation.submittedScore: "Submitted Score"
+  scoreConfirmation.submittedBy: "Score submitted by {{name}}"
+  scoreConfirmation.submittedAt: "Submitted At"
+  scoreConfirmation.matchType.league: "League Match"
+  scoreConfirmation.matchType.lightning: "Lightning Match"
+  scoreConfirmation.retiredAt: "Retired in set {{set}}"
+  scoreConfirmation.confirmationTitle: "Is the score accurate?"
+  scoreConfirmation.agree: "I agree"
+  scoreConfirmation.agreeDescription: "The score is accurate and I confirm the match result"
+  scoreConfirmation.disagree: "I disagree"
+  scoreConfirmation.disagreeDescription: "The score is incorrect or there is an issue"
+  scoreConfirmation.reasonLabel: "Reason for disagreement"
+  scoreConfirmation.reasonHelper: "An administrator will review your reason and finalize the score."
+  scoreConfirmation.warningTitle: "Important Notes"
+  scoreConfirmation.warningText: "• Agreeing to the score will finalize the match result
+• Disagreeing will escalate the issue to an administrator
+• False reports or malicious disputes may result in sanctions"
+  scoreConfirmation.submitAgree: "Confirm Score"
+  scoreConfirmation.submitDisagree: "Submit Dispute"
+  scoreConfirmation.alerts.error: "Error"
+  scoreConfirmation.alerts.confirmationError: "An error occurred while processing your confirmation."
+
+schedules (18 keys):
+  schedules.form.title: "Schedule Title *"
+  schedules.form.scheduleType: "Schedule Type"
+  schedules.form.dayOfWeek: "Day of Week *"
+  schedules.form.startTime: "Start Time *"
+  schedules.form.duration: "Duration (minutes) *"
+  schedules.form.locationInfo: "Location Information"
+  schedules.form.locationName: "Location Name *"
+  schedules.form.address: "Address *"
+  schedules.form.directions: "Directions"
+  schedules.form.directionsPlaceholder: "Parking info, entrance location, etc."
+  schedules.form.courtType: "Court Type"
+  schedules.form.indoor: "Indoor"
+  schedules.form.outdoor: "Outdoor"
+  schedules.form.both: "Both"
+  schedules.form.participationInfo: "Participation Information"
+  schedules.form.minParticipants: "Min Participants"
+  schedules.form.membersOnly: "Members Only"
+  schedules.form.registrationDeadline: "Registration Deadline (hours before)"
+
+roleManagement (16 keys):
+  roleManagement.statsTitle: "Role Statistics"
+  roleManagement.managerDescription: "💡 Managers have access to all management features except club deletion."
+  roleManagement.transferSection.title: "🔄 Transfer Admin"
+  roleManagement.transferSection.description: "Transfer club admin privileges to another manager."
+  roleManagement.transferSection.button: "Transfer Admin"
+  roleManagement.roleChangeTitle: "Change Roles"
+  roleManagement.modal.title: "🔄 Select New Admin"
+  roleManagement.modal.loading: "Loading manager list..."
+  roleManagement.modal.noCandidates: "No eligible managers available.
+Please assign managers first."
+  roleManagement.modal.confirm: "Confirm Transfer"
+  roleManagement.alerts.loadError.title: "Error"
+  roleManagement.alerts.transferConfirm.title: "Confirm Admin Transfer"
+  roleManagement.alerts.transferConfirm.message: "Transfer club admin privileges to '{{name}}'?
+
+⚠️ You will be changed to a manager after transfer."
+  roleManagement.alerts.transferSuccess.message: "'{{name}}' is now the new club admin."
+  roleManagement.alerts.transferError.title: "Error"
+  roleManagement.alerts.transferError.message: "An error occurred during admin transfer."
+
+
+💾 Full untranslated structure saved to: scripts/untranslated-keys.json

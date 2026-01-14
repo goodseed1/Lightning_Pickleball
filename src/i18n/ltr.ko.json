@@ -1,0 +1,26 @@
+{
+  "ntrp": {
+    "withRange": {
+      "beginner": "초급 (1.0–2.5)",
+      "intermediate": "중급 (3.0–3.5)",
+      "advanced": "고급 (4.0–4.5)",
+      "expert": "전문가 (5.0+)"
+    },
+    "range": {
+      "r1": "1.0–2.5",
+      "r2": "3.0–3.5",
+      "r3": "4.0–4.5",
+      "r4": "5.0+"
+    },
+    "label": {
+      "entry": "입문",
+      "beginner": "초급",
+      "adv_beginner": "초중급",
+      "intermediate": "중급",
+      "adv_intermediate": "중상급",
+      "advanced": "상급",
+      "expert": "전문가",
+      "pro": "프로"
+    }
+  }
+}

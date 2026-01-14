@@ -1,0 +1,1734 @@
+{
+  "common": {
+    "no": "No",
+    "ok": "OK"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "register": {
+      "success": {
+        "ok": "OK"
+      }
+    }
+  },
+  "createClub": {
+    "facility": {
+      "proshop": "Pro Shop"
+    },
+    "fields": {
+      "logo": "Logo"
+    }
+  },
+  "profile": {
+    "userProfile": {
+      "timeSlots": {
+        "brunch": "Brunch"
+      }
+    }
+  },
+  "profileSetup": {
+    "nickname": "Nickname"
+  },
+  "units": {
+    "km": "km",
+    "mi": "mi",
+    "distanceKm": "{{distance}} km",
+    "distanceMi": "{{distance}} mi"
+  },
+  "roles": {
+    "manager": "Manager"
+  },
+  "terms": {
+    "details": {
+      "privacyPolicy": {
+        "title": "Privacy Policy"
+      },
+      "locationServices": {
+        "title": "Location-Based Services Terms",
+        "content": "Location-Based Services Terms\n\n1. Location Information Collection and Use\n- Providing nearby match finding services\n- Providing tennis court search services\n- Providing distance-based notification services\n\n2. Consent for Location Information\n- Users may refuse location information provision at any time\n- Refusing location information may limit some service features\n\n3. Location Information Protection\n- Collected location information is encrypted and securely stored\n- Not provided to third parties without user consent"
+      },
+      "liabilityDisclaimer": {
+        "title": "Liability Disclaimer",
+        "content": "⚠️ IMPORTANT LEGAL NOTICE ⚠️\n\nLightning Tennis app serves as a platform to connect individual tennis players.\n\nWE DO NOT ASSUME ANY LEGAL LIABILITY for:\n\n1. Safety Incidents Disclaimer\n- Injuries or accidents during tennis matches\n- Personal disputes between match participants\n- Safety incidents at tennis court facilities\n\n2. Financial Disputes Disclaimer\n- Disputes related to match costs\n- Issues related to court rental fees\n- Financial transactions between users\n\n3. User Responsibility\n- All safety and responsibility for matches belong to hosts and participants\n- Users must verify their health condition before participating\n- Appropriate insurance coverage is recommended\n\nBy using this service, you agree to these disclaimer terms."
+      },
+      "marketingCommunications": {
+        "title": "Marketing Communications Consent",
+        "content": "Marketing Communications Consent (Optional)\n\n1. Content\n- New features and service updates\n- Special events and promotion announcements\n- Useful tennis-related information and tips\n- Partnership benefits and discount information\n\n2. Delivery Methods\n- Push notifications\n- Email\n- In-app notifications\n\n3. Opt-out\n- You can opt-out anytime in settings\n- Selective opt-out available for individual notifications\n\nThis consent is optional and refusing won't limit your service usage."
+      },
+      "inclusivityPolicy": {
+        "title": "Diversity & Inclusion Policy",
+        "content": "🌈 Diversity & Inclusion Policy and Disclaimer\n\nLightning Tennis is a platform open to all users.\n\n1. Inclusivity Principles\n- All users have equal access to our services regardless of gender, sexual orientation, or gender identity.\n- LGBTQ+ users can participate in all activities (match creation, participation, club activities, etc.) without restrictions.\n- All users must adhere to principles of mutual respect.\n\n2. Program Error Disclaimer\n- Program errors may occasionally cause unintended restrictions on some features.\n- Such errors are not intentional discrimination and will be corrected upon discovery.\n- You agree not to file legal lawsuits for feature restrictions caused by program errors.\n\n3. Anti-Discrimination\n- Discriminatory speech or behavior based on gender, sexual orientation, or gender identity is prohibited.\n- Discriminatory behavior may result in service restrictions.\n\nBy agreeing to this policy, you acknowledge understanding and acceptance of these terms."
+      }
+    }
+  },
+  "club": {
+    "chat": "Chat",
+    "clubMembers": {
+      "roles": {
+        "manager": "Manager"
+      },
+      "alerts": {
+        "removeMember": {
+          "success": "{{userName}} has been removed from the club.",
+          "error": "Failed to remove member."
+        },
+        "approveRequest": {
+          "title": "Approve Request",
+          "message": "Approve {{userName}}'s join request?",
+          "success": "{{userName}}'s request has been approved.",
+          "error": "Failed to approve join request."
+        },
+        "declineRequest": {
+          "title": "Decline Request",
+          "message": "Decline {{userName}}'s join request?",
+          "success": "{{userName}}'s request has been declined.",
+          "error": "Failed to decline join request.",
+          "invalidData": "Invalid request data."
+        },
+        "loadError": {
+          "title": "Error",
+          "message": "Failed to load join requests."
+        },
+        "promoteSuccess": "Successfully promoted to manager.",
+        "demoteSuccess": "Successfully demoted to member.",
+        "removeSuccess": "Member has been removed.",
+        "actionError": "An error occurred while performing the action.",
+        "memberNotFound": "Member not found. They may have already been removed.",
+        "permissionDenied": "Permission denied. Only admins can perform this action.",
+        "cannotRemoveSelf": "You cannot remove yourself.",
+        "cannotRemoveOwner": "Cannot remove the club owner."
+      },
+      "loading": "Loading members...",
+      "memberCount": "{{count}} member(s)",
+      "requestCount": "{{count}} request(s)",
+      "dateFormats": {
+        "joinedAt": "Joined {{date}}",
+        "requestedAt": "Requested {{date}}"
+      },
+      "emptyStates": {
+        "noMembers": {
+          "title": "No Members",
+          "description": "No members have joined this club yet."
+        },
+        "noRequests": {
+          "title": "No Join Requests",
+          "description": "No new join requests"
+        }
+      },
+      "profileHint": "View Profile →",
+      "removalReason": {
+        "label": "Removal Reason (Optional)",
+        "placeholder": "Enter removal reason...",
+        "defaultReason": "Removed by admin"
+      },
+      "modal": {
+        "promoteTitle": "Promote to Manager",
+        "demoteTitle": "Demote to Member",
+        "removeTitle": "Remove from Club",
+        "promoteMessage": "Promote {{userName}} to manager?",
+        "demoteMessage": "Demote {{userName}} to member?",
+        "removeMessage": "Remove {{userName}} from club?"
+      }
+    }
+  },
+  "clubSelector": {
+    "club": "Club"
+  },
+  "alert": {
+    "tournamentBracket": {
+      "info": "Info"
+    }
+  },
+  "discover": {
+    "alerts": {
+      "soloApplication": {
+        "error": "An error occurred: {{error}}"
+      }
+    },
+    "partnerInvitation": {
+      "banner": "You have {{count}} partner invitation{{plural}}",
+      "bannerSingle": "You have 1 partner invitation"
+    },
+    "pendingApplications": {
+      "banner": "You have {{count}} pending application{{plural}}. Tap to review.",
+      "bannerSingle": "You have 1 pending application. Tap to review."
+    }
+  },
+  "emailLogin": {
+    "labels": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "verification": {
+      "sentTo": "{{email}}"
+    },
+    "alerts": {
+      "forgotPassword": {
+        "notRegistered": {
+          "title": "Email Not Registered",
+          "message": "No account found with this email.\nWould you like to sign up?"
+        }
+      }
+    }
+  },
+  "myActivities": {
+    "settings": {
+      "privacySettingsComingSoon": "Privacy settings feature coming soon.",
+      "privacySettings": "Privacy Settings",
+      "profileVisibilitySettings": "Profile visibility settings",
+      "signOut": "Sign Out"
+    },
+    "alerts": {
+      "signOut": {
+        "title": "Sign Out",
+        "message": "Are you sure you want to sign out?",
+        "cancel": "Cancel",
+        "confirm": "Sign Out"
+      },
+      "partnerInvitation": {
+        "success": {
+          "title": "Success",
+          "message": "Partner invitation accepted!"
+        },
+        "error": {
+          "title": "Error",
+          "acceptMessage": "Error accepting invitation.",
+          "rejectMessage": "Error rejecting invitation."
+        },
+        "rejected": {
+          "title": "Rejected",
+          "message": "Partner invitation rejected. You can re-accept within 24 hours."
+        }
+      },
+      "friendInvitation": {
+        "accepted": {
+          "title": "Accepted",
+          "message": "Friend invitation accepted!"
+        },
+        "rejected": {
+          "title": "Rejected",
+          "message": "Friend invitation rejected."
+        },
+        "error": {
+          "title": "Error",
+          "acceptMessage": "An error occurred while accepting the invitation.",
+          "rejectMessage": "An error occurred while rejecting the invitation."
+        }
+      },
+      "eventEdit": {
+        "title": "Coming Soon",
+        "message": "Event editing feature coming soon."
+      }
+    }
+  },
+  "clubLeaguesTournaments": {
+    "memberPreLeagueStatus": {
+      "peopleUnit": ""
+    },
+    "alerts": {
+      "registrationFailed": {
+        "title": "Registration Failed",
+        "messageLeague": "Error applying to league.",
+        "messageTournament": "Error joining tournament: {{error}}"
+      },
+      "registrationComplete": {
+        "title": "Registration Complete",
+        "messageTournament": "Tournament registration completed!",
+        "messageTeam": "Team {{team}} registered successfully!"
+      },
+      "teamInvitationSent": {
+        "title": "Team Invitation Sent",
+        "message": "Team invitation sent to {{partner}}!\n\nYou can register once your partner accepts."
+      },
+      "notice": {
+        "title": "Notice"
+      },
+      "error": {
+        "title": "Error",
+        "loadingMembers": "Error loading club members.",
+        "checkingTeam": "Error checking team status: {{error}}",
+        "unexpectedError": "An unexpected error occurred: {{error}}"
+      },
+      "teamConfirmed": {
+        "titleTournament": "🎉 Registration Complete!",
+        "messageTournament": "Successfully registered for \"{{tournament}}\" with {{partner}}!",
+        "titleLeague": "🎉 Team Confirmed & League Application Complete!",
+        "messageLeague": "Successfully applied for \"{{league}}\" with {{partner}}!"
+      },
+      "acceptFailed": {
+        "title": "Accept Failed",
+        "message": "Error accepting invitation: {{error}}"
+      },
+      "rejectInvitation": {
+        "title": "Reject Invitation",
+        "message": "Reject team invitation from {{partner}}?",
+        "cancel": "Cancel",
+        "reject": "Reject"
+      },
+      "invitationRejected": {
+        "title": "Invitation Rejected",
+        "message": "Team invitation rejected."
+      },
+      "rejectFailed": {
+        "title": "Reject Failed",
+        "message": "Error rejecting invitation: {{error}}"
+      },
+      "invitationSent": {
+        "title": "Invitation Sent",
+        "message": "Team invitation sent to {{partner}}.\n\nLeague application will be completed automatically when partner accepts."
+      },
+      "applicationFailed": {
+        "title": "Application Failed",
+        "message": "Error during team league application."
+      },
+      "selectPartner": {
+        "title": "Error",
+        "messageNoPartner": "Please select a partner.",
+        "messagePartnerNotFound": "Selected partner not found."
+      }
+    },
+    "loading": "Loading..."
+  },
+  "clubTournamentManagement": {
+    "tournamentStart": {
+      "errorTitle": "Error",
+      "errorMessage": "Failed to start tournament.",
+      "addingParticipants": "Adding Participants"
+    },
+    "seedAssignment": {
+      "title": "Assign Seed",
+      "teamTitle": "Assign Team Seed",
+      "prompt": "Enter seed number (1-{{max}}) for {{name}}:",
+      "duplicateTitle": "Duplicate Seed",
+      "duplicateMessage": "Seed {{seed}} is already assigned to {{name}}. Please choose a different seed number.",
+      "errorTitle": "Error",
+      "errorMessage": "Failed to assign seed.",
+      "incompleteTitle": "Seed Assignment Incomplete",
+      "incompleteMessage": "Please assign seeds to all {{count}} participants.",
+      "completeTitle": "Seed Assignment Complete",
+      "completeMessage": "All participants have been assigned seeds."
+    },
+    "deletion": {
+      "title": "Delete Tournament",
+      "confirmMessage": "All tournament data, including participants and match history, will be permanently deleted.",
+      "successTitle": "Deleted",
+      "errorTitle": "Error",
+      "errorMessage": "Failed to delete tournament.",
+      "deletedByOther": "Tournament has been deleted by another admin. Please create a new one if needed."
+    },
+    "participantRemoval": {
+      "confirmTitle": "Remove Participant",
+      "confirmMessage": "Remove {{name}} from the tournament?",
+      "successTitle": "Success",
+      "successMessage": "Participant has been removed.",
+      "errorTitle": "Error",
+      "errorMessage": "Failed to remove participant.",
+      "notFoundError": "Participant not found."
+    },
+    "participantAdd": {
+      "successTitle": "Success",
+      "successMessage": "{{count}} participant(s) added successfully.",
+      "errorTitle": "Error",
+      "errorMessage": "Failed to add participants.",
+      "partialSuccessTitle": "Partial Success",
+      "partialSuccessMessage": "{{success}} participant(s) added, {{failed}} failed."
+    },
+    "matchResult": {
+      "title": "Match Result",
+      "info": "Match Info",
+      "notFound": "Match information not found.",
+      "submitted": "Score Submitted"
+    },
+    "common": {
+      "cancel": "Cancel",
+      "confirm": "OK",
+      "delete": "Delete",
+      "generate": "Generate",
+      "assign": "Assign",
+      "remove": "Remove",
+      "error": "Error",
+      "success": "Success"
+    }
+  },
+  "eventCard": {
+    "partnerStatus": {
+      "partnerPending": "Partner Pending",
+      "partnerDeclined": "Partner Declined"
+    },
+    "matchType": {
+      "mensSingles": "Men's Singles",
+      "womensSingles": "Women's Singles",
+      "mensDoubles": "Men's Doubles",
+      "womensDoubles": "Women's Doubles",
+      "mixedDoubles": "Mixed Doubles"
+    },
+    "eventTypes": {
+      "match": "Match",
+      "practice": "Practice",
+      "tournament": "Tournament",
+      "lightning": "Match",
+      "meetup": "Meetup",
+      "casual": "Casual",
+      "ranked": "Ranked",
+      "general": "General"
+    },
+    "labels": {
+      "host": "Host",
+      "singles": "Singles",
+      "doubles": "Doubles",
+      "almostFull": "Almost Full",
+      "participants": "{{current}}/{{max}}",
+      "friendly": "Friendly",
+      "waiting": "{{count}} waiting",
+      "full": "Full"
+    },
+    "buttons": {
+      "setLocation": "Set Location",
+      "chat": "Chat",
+      "apply": "Apply",
+      "applyAsTeam": "Apply as Team",
+      "applySolo": "Apply Solo",
+      "cancel": "Cancel",
+      "registrationClosed": "Registration Closed"
+    },
+    "results": {
+      "win": "Win",
+      "loss": "Loss",
+      "noScore": "No Score",
+      "hostTeamWins": "Host Team Wins",
+      "guestTeamWins": "Guest Team Wins"
+    },
+    "requirements": {
+      "levelMismatch": "Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})",
+      "genderMismatch": "Gender Mismatch",
+      "menOnly": "This is a men's match",
+      "womenOnly": "This is a women's match",
+      "canApply": "Apply: LTR {{minNtrp}} - {{maxNtrp}}",
+      "level": "Level: {{level}}"
+    },
+    "soloApplicants": {
+      "count": "{{count}} solo",
+      "label": "{{count}} solo applicants"
+    }
+  },
+  "createEvent": {
+    "fields": {
+      "auto": "Auto",
+      "partner": "Partner"
+    },
+    "autoNtrp": {
+      "partnerLevelWithType": "Partner LTR: {{level}} ({{type}})"
+    },
+    "helperText": {
+      "languageSelection": "Select languages you can communicate in for a better match experience.",
+      "matchLevelAuto": "Match level is auto-calculated based on {{type}}.",
+      "doublesMatchLevel": "* Doubles match level is automatically set from host and partner LTR sum.",
+      "singlesMatchLevel": "* Singles match level is automatically set from host LTR. (±0.5 tolerance)"
+    },
+    "toggleDescriptions": {
+      "autoApproval": "When enabled, participants are auto-approved first-come-first-served until capacity. When disabled, host must manually approve each participant.",
+      "autoApprovalDetailed": "When enabled, requests are auto-approved first-come-first-serve until full. When disabled, host must manually approve each request."
+    },
+    "sms": {
+      "description": "Send invitations and app download link to friends who haven't installed the app",
+      "descriptionDetailed": "Send invitations and app download links to friends without the app",
+      "invitationMessage": "[Lightning Tennis] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}",
+      "defaultSender": "A friend",
+      "numbersToInvite": "Numbers to invite:"
+    },
+    "infoText": {
+      "inviteFriends": "Invite app users or friends via SMS to your {{type}}.",
+      "eventTypeNotice": "{{type}} event notice",
+      "matchInfo": "Ranked matches are recorded officially and cannot be cancelled.",
+      "meetupInfo": "Meetups can be modified or cancelled at any time."
+    },
+    "modals": {
+      "selectLanguages": "Select Languages",
+      "add": "Add",
+      "selectDateTime": "Select Date & Time",
+      "selectPartner": "Select Partner",
+      "smsInvitation": "SMS Invitation"
+    },
+    "search": {
+      "searchByName": "Search by name",
+      "searchingUsers": "Searching users...",
+      "loadUsers": "Load Users",
+      "noResults": "No results found",
+      "searchPrompt": "Please search for users"
+    },
+    "selectedFriends": "Selected ({{count}})",
+    "phone": {
+      "placeholderKR": "Enter phone number (e.g., 010-1234-5678)",
+      "placeholderUS": "Enter phone number (e.g., (555) 123-4567)",
+      "placeholderIntl": "Enter phone number (e.g., +1-234-567-8901)"
+    },
+    "dateFormat": "{{month}}/{{day}}/{{year}} {{hours}}:{{minutes}}",
+    "errors": {
+      "smsError": "SMS Error",
+      "smsErrorMessage": "Cannot open SMS app. Please send invitations manually."
+    },
+    "alerts": {
+      "confirm": "OK"
+    },
+    "languages": {
+      "korean": "한국어",
+      "english": "English",
+      "chinese": "中文",
+      "japanese": "日本語",
+      "spanish": "Español",
+      "french": "Français"
+    }
+  },
+  "hostedEventCard": {
+    "buttons": {
+      "chat": "Chat"
+    },
+    "partner": "Partner: "
+  },
+  "duesManagement": {
+    "alerts": {
+      "ok": "OK"
+    },
+    "settings": {
+      "venmo": "Venmo"
+    },
+    "modals": {
+      "createRecord": "Create Dues Record",
+      "createRecordPrompt": "Which type of record would you like to create for this member?",
+      "editDuesSettings": "Edit Dues Settings",
+      "addPaymentMethodDialog": "Add Payment Method",
+      "qrCodeDialog": "QR Code",
+      "uploadQrCode": "Upload QR Code",
+      "tapToUploadQr": "Tap to upload QR code image",
+      "qrCodeHelper": "Members can use this QR code to make payments.",
+      "noQrCodeYet": "No QR code set yet.",
+      "processPaymentDialog": "Process Payment",
+      "paymentDetails": "Payment Request Details",
+      "paymentReminder": "Payment Reminder"
+    },
+    "memberCard": {
+      "exempt": "Exempt",
+      "duesExempt": "Dues Exempt",
+      "owed": "Owed",
+      "joinFeeLabel": "Join Fee",
+      "joinFeePaid": "Join Fee Paid",
+      "joinFeeUnpaid": "Join Fee Unpaid",
+      "joinFeeExempt": "Join Fee Exempt",
+      "lateFeeLabel": "Late Fee",
+      "lateFeeItems": "items",
+      "unpaidLabel": "Unpaid",
+      "unpaidCount": "{{count}} unpaid",
+      "paidStatus": "Paid"
+    },
+    "report": {
+      "noRecordsFound": "No payment records found for {{year}}.",
+      "memberColumn": "Member",
+      "monthlyTotal": "Monthly Total",
+      "totalColumn": "Total",
+      "reportFileName": "Dues Report"
+    },
+    "paymentForm": {
+      "paymentMethod": "Payment Method",
+      "transactionId": "Transaction ID (Optional)",
+      "transactionPlaceholder": "Enter transaction ID",
+      "notes": "Notes (Optional)",
+      "notesPlaceholder": "Enter notes",
+      "markAsPaid": "Mark as Paid"
+    },
+    "paymentDetails": {
+      "member": "Member",
+      "type": "Type",
+      "amount": "Amount",
+      "method": "Method",
+      "requested": "Requested",
+      "notes": "Notes",
+      "paymentProof": "Payment Proof"
+    },
+    "types": {
+      "joinFee": "Join Fee",
+      "monthly": "Monthly",
+      "lateFee": "Late Fee",
+      "quarterly": "Quarterly",
+      "custom": "Custom",
+      "adminAdded": "Added manually by admin"
+    },
+    "inputs": {
+      "joinFeeDollar": "Join Fee ($)",
+      "monthlyFeeDollar": "Monthly Fee ($)",
+      "quarterlyFeeDollar": "Quarterly Fee ($)",
+      "yearlyFeeDollar": "Yearly Fee ($)",
+      "dueDateLabel": "Due Date (1-31)",
+      "gracePeriodLabel": "Grace Period (days)",
+      "lateFeeDollar": "Late Fee ($)",
+      "paymentMethodName": "Payment Method Name",
+      "paymentMethodPlaceholder": "e.g. PayPal, KakaoPay",
+      "addPaymentPlaceholder": "e.g. PayPal, KakaoPay"
+    },
+    "countSuffix": ""
+  },
+  "feed": {
+    "title": "Feed"
+  },
+  "createMeetup": {
+    "loading": "Loading club information...",
+    "errors": {
+      "errorTitle": "Error",
+      "failedToLoadInfo": "Failed to load initial information",
+      "failedToLoadMeetup": "Could not load meetup information.",
+      "failedToLoadMeetupError": "An error occurred while loading meetup information.",
+      "inputError": "Input Error",
+      "invalidLocationType": "Invalid location type.",
+      "selectValidDate": "Please select a valid date.",
+      "minOneCourt": "At least 1 court is required.",
+      "clubInfoLoading": "Club information is still loading. Please try again in a moment.",
+      "externalCourtNameRequired": "Please enter external court name.",
+      "externalCourtAddressRequired": "Please enter external court address.",
+      "creationFailed": "Creation Failed",
+      "savingError": "An error occurred while saving data. Please contact the developer.\\n\\nError: {{error}}",
+      "updateFailed": "Update Failed",
+      "updateError": "An error occurred while updating the meetup.\\n\\nError: {{error}}",
+      "failedToConfirm": "Failed to confirm meetup"
+    },
+    "success": {
+      "copied": "Meetup has been copied!",
+      "created": "New meetup has been created!",
+      "updated": "Meetup has been updated!",
+      "confirmed": "Meetup confirmed and members have been notified!"
+    },
+    "buttons": {
+      "creating": "Creating...",
+      "updating": "Updating...",
+      "confirming": "Confirming...",
+      "confirm": "✅ Confirm"
+    },
+    "picker": {
+      "selectDate": "Select Date",
+      "selectTime": "Select Time",
+      "done": "Done"
+    },
+    "notification": {
+      "title": "New Meetup Confirmed!",
+      "body": "Meetup on {{date}} has been confirmed."
+    }
+  },
+  "clubDuesManagement": {
+    "loading": "Loading data...",
+    "tabs": {
+      "settings": "Settings",
+      "status": "Payment Status",
+      "unpaid": "Unpaid Members"
+    },
+    "errors": {
+      "loadData": "Failed to load data",
+      "inputError": "Input Error",
+      "invalidAmount": "Please enter valid dues amount",
+      "invalidDueDay": "Due day must be between 1-31",
+      "saveFailed": "Save Failed",
+      "saveError": "Error occurred while saving settings",
+      "updatePaymentStatus": "Error occurred while updating payment status",
+      "sendRemindersFailed": "Error occurred while sending reminders",
+      "autoInvoiceError": "Error occurred while updating auto invoice setting"
+    },
+    "success": {
+      "settingsSaved": "Settings Saved",
+      "settingsSavedMessage": "Dues settings have been saved",
+      "remindersSent": "Reminders Sent",
+      "remindersSentMessage": "Payment reminders sent to {{count}} members"
+    },
+    "autoInvoice": {
+      "enabled": "Auto invoice has been enabled",
+      "disabled": "Auto invoice has been disabled",
+      "settingsUpdated": "Settings Updated"
+    },
+    "reminder": {
+      "message": "Payment reminder for {{clubName}} dues"
+    }
+  },
+  "activityTab": {
+    "no": "No"
+  },
+  "regularMeetup": {
+    "crowdOk": "OK"
+  },
+  "eventParticipation": {
+    "statusLabels": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "waitlisted": "Waitlisted",
+      "cancelled": "Cancelled",
+      "confirmed": "Confirmed",
+      "no_show": "No Show"
+    },
+    "typeLabels": {
+      "participant": "Participant",
+      "spectator": "Spectator",
+      "helper": "Helper"
+    },
+    "messages": {
+      "autoApprovalTitle": "Regular Meeting Participation Confirmed!",
+      "autoApprovalBody": "Your participation in {eventTitle} has been automatically approved.",
+      "requestSentTitle": "Event Participation Request Sent",
+      "requestSentBody": "Your participation request for {eventTitle} has been sent. Please wait for approval.",
+      "approvedTitle": "Event Participation Approved!",
+      "approvedBody": "Your participation in {eventTitle} has been approved.",
+      "rejectedTitle": "Event Participation Rejected",
+      "rejectedBody": "Your participation request for {eventTitle} has been rejected."
+    }
+  },
+  "clubAdmin": {
+    "chat": "Chat"
+  },
+  "createClubTournament": {
+    "loadingMembers": "Loading members...",
+    "headerSubtitle": "Start a tournament with your club members",
+    "matchType": "Match Type",
+    "matchTypeSubtitle": "What type of matches will this tournament feature?",
+    "tournamentNamePlaceholder": "e.g., 2025 {eventType} Tournament",
+    "advancedSettings": "Advanced Settings",
+    "shortSets": "Short Sets",
+    "shortSetsDescription": "4-game sets (regular is 6 games)",
+    "seedingMethod": "Seeding Method",
+    "createTournament": "Create Tournament",
+    "matchFormats": {
+      "best_of_1": "1 Set",
+      "best_of_1_description": "Single set match",
+      "best_of_3": "3 Sets",
+      "best_of_3_description": "Best of 2 sets",
+      "best_of_5": "5 Sets",
+      "best_of_5_description": "Best of 3 sets"
+    },
+    "seedingMethods": {
+      "manual": "Manual",
+      "manual_description": "Admin assigns seeds manually",
+      "random": "Random",
+      "random_description": "Fair random seeding (skill-independent)",
+      "ranking": "Club Ranking",
+      "ranking_description": "Seeds based on club ranking and win rate",
+      "rating": "Personal Rating",
+      "rating_description": "Seeds based on ELO rating and skill level"
+    },
+    "eventTypes": {
+      "mens_singles": "Men's Singles",
+      "mens_singles_description": "Male 1v1 match",
+      "womens_singles": "Women's Singles",
+      "womens_singles_description": "Female 1v1 match",
+      "mens_doubles": "Men's Doubles",
+      "mens_doubles_description": "Male 2v2 match",
+      "womens_doubles": "Women's Doubles",
+      "womens_doubles_description": "Female 2v2 match",
+      "mixed_doubles": "Mixed Doubles",
+      "mixed_doubles_description": "Mixed gender 2v2 match"
+    },
+    "errors": {
+      "loadMembersFailed": "Failed to load club members",
+      "nameRequired": "Please enter a tournament name",
+      "deadlineBeforeStart": "Application deadline must be on or before start date",
+      "endBeforeStart": "End date must be on or after start date",
+      "createFailed": "Failed to create tournament",
+      "maxPlayersInvalid": "Maximum participants must be at least {min} (minimum required to start)"
+    },
+    "success": {
+      "created": "Tournament created successfully"
+    }
+  },
+  "appliedEventCard": {
+    "eventType": {
+      "casual": "Casual"
+    },
+    "actions": {
+      "chat": "Chat"
+    }
+  },
+  "meetupDetail": {
+    "loading": "Loading meetup details...",
+    "goBack": "Go Back",
+    "errors": {
+      "notFound": "Meetup not found."
+    },
+    "weather": {
+      "title": "Weather Forecast",
+      "chanceOfRain": "Chance of rain",
+      "windLabel": "Wind",
+      "notAvailable": "Weather Not Available",
+      "unavailableReason": "Location coordinates unavailable or date out of forecast range",
+      "wind": {
+        "perfect": "Perfect conditions",
+        "playable": "Playable",
+        "affects": "Wind affects play",
+        "difficult": "Difficult to play"
+      }
+    },
+    "rsvp": {
+      "title": "RSVP",
+      "notice": "Notice",
+      "cannotChangeNearStart": "Cannot change RSVP within 15 minutes of meetup start.",
+      "attend": "Attend",
+      "decline": "Decline",
+      "maybe": "Maybe",
+      "attendingConfirm": "✅ RSVP updated to attending!",
+      "decliningConfirm": "❌ RSVP updated to declining.",
+      "maybeConfirm": "❓ RSVP updated to maybe.",
+      "deadlineNote": "Changes allowed until 15 minutes before start."
+    },
+    "editEvent": {
+      "durationUnit": "min"
+    }
+  },
+  "teamInvitations": {
+    "ok": "OK"
+  },
+  "createModal": {
+    "lightningMatch": {
+      "subtitle": "Ranked Match"
+    },
+    "lightningMeetup": {
+      "subtitle": "Casual Meetup"
+    }
+  },
+  "pastEventCard": {
+    "host": "Host",
+    "chat": "Chat"
+  },
+  "aiChat": {
+    "searching": "🔍 Searching for matches...",
+    "navigation": {
+      "ClubDirectory": "🎾 Taking you to club directory!",
+      "CreateEvent": "📝 Taking you to create event!",
+      "PartnerSearch": "🤝 Taking you to partner search!",
+      "Discover": "🔍 Taking you to discover!",
+      "MyProfile": "👤 Taking you to your profile!",
+      "default": "Taking you to {{screen}}!"
+    },
+    "noRecentMatches": "No recent matches to analyze. Please complete a match first.",
+    "loginRequired": "Please log in to receive personalized advice.",
+    "quickPrompts": {
+      "rulesHelp": "Explain basic tennis rules",
+      "techniqueTips": "Give me technique improvement tips for my skill level",
+      "strategyAdvice": "Give me match strategy and tactics advice",
+      "equipmentHelp": "Recommend tennis equipment for my skill level"
+    },
+    "welcome": "Hello! I'm your Lightning Tennis App Helper. 🎾\n\nI'm ready to help you with app usage and all your tennis questions:\n\n📱 App Usage\n• Creating matches/meetups\n• Joining and managing clubs\n• ELO ranking system\n• Doubles participation\n\n🎾 Tennis Knowledge\n• Technique and strategy advice\n• Rules and scoring explanations\n• Equipment recommendations\n\nWhat can I help you with today?\n\nIf you experience any issues while using the app, please let me know. Just mention the 'problem' and we'll fix it.",
+    "adminResponse": "📬 Admin Response:\n\n{{response}}\n\n---\nOriginal Feedback: \"{{title}}\""
+  },
+  "myClubSettings": {
+    "alerts": {
+      "ok": "OK"
+    }
+  },
+  "postDetail": {
+    "post": "Post"
+  },
+  "tournamentDetail": {
+    "info": "Info",
+    "hallOfFame": "Hall of Fame",
+    "participantsSuffix": "",
+    "bestFinish": {
+      "none": "None",
+      "champion": "🥇 Champion",
+      "runnerUp": "🥈 Runner-up",
+      "semiFinal": "🥉 Semi-finalist",
+      "nthPlace": "{position}th place"
+    }
+  },
+  "developerTools": {
+    "errorTitle": "Error",
+    "loginRequired": "Please log in first.",
+    "copiedTitle": "✅ Copied",
+    "copiedMessage": "UID copied to clipboard.",
+    "copyUid": "📋 Copy My UID",
+    "loginRequiredLabel": "Login required",
+    "deleteAllAccounts": "🚨 Delete All Accounts",
+    "deleteAllAccountsSubtitle": "Permanently delete Auth + Firestore users",
+    "deleteActivityData": "🗑️ Delete All Activity Data",
+    "deleteActivityDataSubtitle": "Keep profiles, delete activity only",
+    "setAdminClaim": "🔒 Set Admin Claim",
+    "setAdminClaimSubtitle": "Grant admin access via Custom Claim"
+  },
+  "appliedEvents": {
+    "partnerInvite": "partner"
+  },
+  "badgeGallery": {
+    "badges": {
+      "first_club_join": {
+        "name": "First Club Member",
+        "description": "You joined your first tennis club! 🏟️"
+      },
+      "streak_5": {
+        "name": "5 Win Streak",
+        "description": "You won 5 matches in a row!"
+      },
+      "league_master": {
+        "name": "League Master",
+        "description": "You finished 1st in a league!"
+      },
+      "league_champion": {
+        "name": "League Champion",
+        "description": "You won a league! 👑"
+      },
+      "perfect_season": {
+        "name": "Perfect Season",
+        "description": "You finished a season undefeated!"
+      },
+      "community_leader": {
+        "name": "Community Leader",
+        "description": "You are an active club administrator!"
+      },
+      "unknown": {
+        "name": "Special Badge",
+        "description": "Special badge"
+      }
+    },
+    "alerts": {
+      "timeoutTitle": "Timeout",
+      "timeoutMessage": "Loading badges is taking too long. Please check your network connection and try again.",
+      "permissionTitle": "Permission Denied",
+      "permissionMessage": "You don't have permission to access badge information.",
+      "unavailableTitle": "Service Unavailable",
+      "unavailableMessage": "Firebase service is currently unavailable. Please try again later."
+    }
+  },
+  "recordScore": {
+    "set": "Set",
+    "setN": "Set {{n}}",
+    "tiebreak": "Tiebreak",
+    "tiebreakLabel": "Tiebreak ({{placeholder}})",
+    "submitNoteLeague": "After submission, the league standings will be automatically updated.",
+    "submitNoteLightning": "After submission, the match record will be saved.",
+    "submitNoteTournament": "After submission, the tournament will be automatically updated.",
+    "specialCases": "Special Cases",
+    "specialCasesDescription": "Select if there was a retirement or walkover.",
+    "retiredAtLabel": "Which set did the retirement occur?",
+    "walkover": "Walkover",
+    "selectWinner": "Select Winner",
+    "selectWinnerRequired": "Select Winner (Required)",
+    "selectPlayerWhoDidNotRetire": "Select the player who did not retire",
+    "selectPlayerWhoShowedUp": "Select the player who showed up",
+    "pleaseSelectWinner": "Please select a winner.",
+    "alerts": {
+      "confirm": "OK",
+      "superTiebreak": "Super Tiebreak",
+      "standardTiebreak": "Tiebreak"
+    }
+  },
+  "scoreConfirmation": {
+    "submittedScore": "Submitted Score",
+    "submittedBy": "Score submitted by {{name}}",
+    "submittedAt": "Submitted At",
+    "matchType": {
+      "league": "League Match",
+      "tournament": "Tournament",
+      "lightning": "Lightning Match"
+    },
+    "winner": "🏆 {{name}} wins",
+    "walkover": "Walkover",
+    "retiredAt": "Retired in set {{set}}",
+    "confirmationTitle": "Is the score accurate?",
+    "confirmationSubtitle": "Please verify that the score matches the actual match result.",
+    "agree": "I agree",
+    "agreeDescription": "The score is accurate and I confirm the match result",
+    "disagree": "I disagree",
+    "disagreeDescription": "The score is incorrect or there is an issue",
+    "reasonLabel": "Reason for disagreement",
+    "reasonPlaceholder": "Please explain why the score is incorrect or what the issue is...",
+    "reasonHelper": "An administrator will review your reason and finalize the score.",
+    "warningTitle": "Important Notes",
+    "warningText": "• Agreeing to the score will finalize the match result\n• Disagreeing will escalate the issue to an administrator\n• False reports or malicious disputes may result in sanctions",
+    "submitAgree": "Confirm Score",
+    "submitDisagree": "Submit Dispute",
+    "submitDefault": "Please select",
+    "alerts": {
+      "selectionRequired": "Selection Required",
+      "pleaseSelect": "Please select whether you agree with the score.",
+      "reasonRequired": "Reason Required",
+      "pleaseProvideReason": "Please provide a reason for disagreeing with the score.",
+      "error": "Error",
+      "confirmationError": "An error occurred while processing your confirmation."
+    }
+  },
+  "directChat": {
+    "club": "Club"
+  },
+  "matchDetail": {
+    "defaultMessage": "Looking forward to a great match!"
+  },
+  "matchRequest": {
+    "alerts": {
+      "selectTime": "Please select a match time.",
+      "selectCourt": "Please select a court.",
+      "requestComplete": "Match Request Sent",
+      "requestCompleteMessage": "Match request sent to {{name}}.",
+      "requestError": "An error occurred while sending the match request."
+    },
+    "skillLevel": {
+      "beginner": "Beginner",
+      "elementary": "Elementary",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "playerCard": {
+      "matches": "matches",
+      "winRate": "win rate",
+      "recentMatches": "Recent Matches"
+    },
+    "schedule": {
+      "title": "Match Schedule",
+      "selectTime": "Select Time",
+      "duration": "Match Duration",
+      "oneHour": "1 hour",
+      "twoHours": "2 hours",
+      "threeHours": "3 hours"
+    },
+    "court": {
+      "title": "Select Court",
+      "perHour": "/hour"
+    },
+    "message": {
+      "title": "Message (Optional)",
+      "label": "Match Request Message",
+      "placeholder": "Write a greeting or your expectations for the match"
+    },
+    "summary": {
+      "title": "Match Summary"
+    },
+    "sendButton": "Send Match Request"
+  },
+  "leagueDetail": {
+    "leagueDeleteError": "Error deleting league.",
+    "removeParticipant": "Remove Participant",
+    "removeParticipantConfirm": "Remove \"{{userName}}\" from the league?",
+    "removeParticipantSuccess": "{{userName}} has been removed from the league.",
+    "removeParticipantError": "Error removing participant.",
+    "adminCorrection": "Admin Correction",
+    "adminScheduleChange": "Admin Schedule Change",
+    "adminWalkover": "Admin Walkover",
+    "champion": "Champion",
+    "runnerUp": "Runner-up",
+    "finalMatch": "Final Match",
+    "semifinals": "Semifinals Tournament",
+    "qualifiedTeams": "Qualified Teams:",
+    "qualifiedPlayers": "Qualified Players:",
+    "noName": "No Name",
+    "participantsStatus": "Participants Status",
+    "participantsTeamStatus": "Teams Status",
+    "participantsTeams": "Teams",
+    "maxTeams": "Max Teams",
+    "startAcceptingApplications": "Start Accepting Applications",
+    "startApplicationsMessage": "Click \"Start Accepting Applications\" in Management tab",
+    "waitingForApplications": "Applications will appear here in real-time",
+    "newDateLabel": "New Date (YYYY-MM-DD)",
+    "reasonLabel": "Reason for Change",
+    "walkoverReasonLabel": "Walkover Reason",
+    "league": "League",
+    "applyingToLeague": "Applying to league.",
+    "user": "User",
+    "validation": {
+      "mensOnly": " is only available for male players.",
+      "womensOnly": " is only available for female players.",
+      "doublesNeedPartner": "Doubles requires a partner.",
+      "mixedDoublesRequirement": "Mixed doubles requires one male and one female player.",
+      "genderRestriction": " is only available for {gender} players."
+    },
+    "eventTypes": {
+      "mens_singles": "Men's Singles",
+      "womens_singles": "Women's Singles",
+      "mens_doubles": "Men's Doubles",
+      "womens_doubles": "Women's Doubles",
+      "mixed_doubles": "Mixed Doubles"
+    },
+    "genderLabels": {
+      "male": "male",
+      "female": "female"
+    }
+  },
+  "cards": {
+    "hostedEvent": {
+      "unknown": "Unknown",
+      "doubles": "Doubles",
+      "singles": "Singles",
+      "weather": {
+        "clear": "Clear",
+        "sunny": "Sunny",
+        "partlycloudy": "Partly Cloudy",
+        "mostlycloudy": "Mostly Cloudy",
+        "cloudy": "Cloudy",
+        "overcast": "Overcast",
+        "fog": "Fog",
+        "lightrain": "Light Rain",
+        "rain": "Rain",
+        "heavyrain": "Heavy Rain",
+        "drizzle": "Drizzle",
+        "showers": "Showers",
+        "thunderstorm": "Thunderstorm",
+        "snow": "Snow",
+        "lightsnow": "Light Snow",
+        "heavysnow": "Heavy Snow",
+        "sleet": "Sleet",
+        "hail": "Hail",
+        "windy": "Windy",
+        "humid": "Humid",
+        "hot": "Hot",
+        "cold": "Cold"
+      }
+    }
+  },
+  "mapAppSelector": {
+    "appNotInstalled": "App Not Installed",
+    "appNotInstalledMessage": "{{appName}} is not installed on your device.",
+    "install": "Install",
+    "installed": "Installed",
+    "installationRequired": "Installation Required",
+    "errorOpeningApp": "Failed to open map app. Please try again.",
+    "checkingApps": "Checking available apps...",
+    "setAsDefault": "Set as default",
+    "autoOpenDescription": "Automatically open with this app next time"
+  },
+  "participantSelector": {
+    "maxParticipants": "Maximum Participants",
+    "peopleSuffix": " people",
+    "customInput": "Or enter a custom number:",
+    "placeholder": "e.g., 16"
+  },
+  "ntrpSelector": {
+    "levels": {
+      "beginner": {
+        "label": "1.0-2.5 (Beginner)",
+        "description": "Just started playing tennis"
+      },
+      "intermediate": {
+        "label": "3.0-3.5 (Intermediate)",
+        "description": "Can rally and play basic matches"
+      },
+      "advanced": {
+        "label": "4.0-4.5 (Advanced)",
+        "description": "Consistent and competitive player"
+      },
+      "expert": {
+        "label": "5.0+ (Expert)",
+        "description": "Tournament level player"
+      },
+      "any": {
+        "label": "Any Level",
+        "description": "All skill levels welcome"
+      }
+    }
+  },
+  "clubDetail": {
+    "tabs": {
+      "home": "Home",
+      "admin": "Admin",
+      "hallOfFame": "Hall of Fame"
+    }
+  },
+  "clubHallOfFame": {
+    "tabs": {
+      "trophies": "🏆 Trophies",
+      "rankings": "📊 ELO Rankings"
+    }
+  },
+  "contexts": {
+    "chatNotification": {
+      "viewAction": "View",
+      "messageFrom": "Message from {{senderName}}: {{message}}"
+    },
+    "location": {
+      "permissionTitle": "Location Permission Required",
+      "permissionMessage": "Location permission is required to find nearby players.",
+      "permissionRequired": "Location permission is required.",
+      "serviceDisabled": "Location services are disabled.",
+      "locationUnavailable": "Location is unavailable.",
+      "locationTimeout": "Location request timed out.",
+      "cannotGetLocation": "Cannot get location.",
+      "watchLocationFailed": "Failed to watch location in real-time."
+    },
+    "notification": {
+      "permissionTitle": "Notification Permission Required",
+      "permissionMessage": "Please allow notification permission in settings to receive match notifications.",
+      "later": "Later",
+      "openSettings": "Open Settings",
+      "matchNotificationTitle": "Match Notification",
+      "matchNotificationBody": "You have a tennis match scheduled in 30 minutes."
+    }
+  },
+  "roleManagement": {
+    "statsTitle": "Role Statistics",
+    "managerDescription": "💡 Managers have access to all management features except club deletion.",
+    "transferSection": {
+      "title": "🔄 Transfer Admin",
+      "description": "Transfer club admin privileges to another manager.",
+      "button": "Transfer Admin"
+    },
+    "roleChangeTitle": "Change Roles",
+    "modal": {
+      "title": "🔄 Select New Admin",
+      "loading": "Loading manager list...",
+      "noCandidates": "No eligible managers available.\nPlease assign managers first.",
+      "cancel": "Cancel",
+      "confirm": "Confirm Transfer"
+    },
+    "alerts": {
+      "loadError": {
+        "title": "Error",
+        "message": "Failed to load eligible admin candidates."
+      },
+      "transferConfirm": {
+        "title": "Confirm Admin Transfer",
+        "message": "Transfer club admin privileges to '{{name}}'?\n\n⚠️ You will be changed to a manager after transfer."
+      },
+      "transferSuccess": {
+        "title": "Success",
+        "message": "'{{name}}' is now the new club admin."
+      },
+      "transferError": {
+        "title": "Error",
+        "message": "An error occurred during admin transfer."
+      }
+    }
+  },
+  "appNavigator": {
+    "screens": {
+      "eventChat": "Event Chat",
+      "editEvent": "Edit Event",
+      "eventDetail": "Event Details",
+      "userProfile": "User Profile",
+      "rateSportsmanship": "Rate Sportsmanship",
+      "recordScore": "Record Score",
+      "meetupDetail": "Meetup Info",
+      "leagueDetail": "League Info",
+      "manageLeagueParticipants": "Manage League Matches",
+      "createMeetup": "Create New Recurring Meetup",
+      "myClubSettings": "Club Settings",
+      "concludeLeague": "Select Winner",
+      "clubMemberInvitation": "Invite Members",
+      "chatScreen": "Lightning Coach",
+      "achievementsGuide": "Achievements Guide"
+    }
+  },
+  "clubOverviewScreen": {
+    "confirm": "Confirm",
+    "deleteNotificationError": "An error occurred while deleting the notification.",
+    "deleteError": "Error",
+    "clubActivity": "Club Activity",
+    "recentWinners": "🏆 Recent Winners",
+    "winner": "Winner",
+    "runnerUp": "Runner-up",
+    "emptyStateAdminTitle": "🎾 Ready to start your club?",
+    "emptyStateAdminDescription": "No club activities yet. Let's enjoy tennis with your members!",
+    "emptyStateAdminAction1": "Create regular meetups and invite members",
+    "emptyStateAdminAction2": "Invite new members to grow your club",
+    "emptyStateAdminAction3": "Host a tournament or league",
+    "emptyStateMemberTitle": "🎾 No upcoming activities yet",
+    "emptyStateMemberDescription": "The club admin is preparing new activities. Please wait a moment!",
+    "emptyStateMemberAction1": "Chat with members in club chat",
+    "emptyStateMemberAction2": "Explore other players nearby",
+    "emptyStateGuestTitle": "🎾 Welcome to {{clubName}}!",
+    "emptyStateGuestTitleDefault": "🎾 Welcome to the club!",
+    "emptyStateGuestDescription": "Join this club to enjoy tennis with members.",
+    "emptyStateGuestAction1": "Apply for membership",
+    "emptyStateGuestAction2": "Check club information",
+    "aiHelperHint": "Not sure what to do?",
+    "aiHelperButton": "Chat with AI Assistant",
+    "aiHelperSubtext": "Ask questions about tennis or how to use the app!",
+    "actionRequired": "Action Required"
+  },
+  "types": {
+    "match": {
+      "validation": {
+        "tiebreak": "tiebreak",
+        "superTiebreak": "super tiebreak"
+      }
+    },
+    "clubSchedule": {
+      "scheduleTypes": {
+        "league_match": "League Match",
+        "clinic": "Training Clinic",
+        "tournament": "Tournament",
+        "meeting": "Club Meeting",
+        "mixed_doubles": "Mixed Doubles",
+        "beginner_friendly": "Beginner Friendly",
+        "advanced_only": "Advanced Only",
+        "custom": "Custom Event"
+      },
+      "recurrence": {
+        "weekly": "Every week",
+        "biweekly": "Every two weeks",
+        "monthly": "Every month",
+        "custom": "Custom schedule"
+      },
+      "timePeriod": {
+        "am": "AM",
+        "pm": "PM"
+      }
+    },
+    "dues": {
+      "duesTypes": {
+        "join": "Join Fee",
+        "monthly": "Monthly Dues",
+        "quarterly": "Quarterly Dues",
+        "yearly": "Yearly Dues",
+        "late_fee": "Late Fee"
+      },
+      "paymentStatus": {
+        "paid": "Paid",
+        "unpaid": "Unpaid",
+        "overdue": "Overdue",
+        "pending_approval": "Pending Approval",
+        "exempt": "Exempt"
+      },
+      "period": {
+        "year": "{{year}}",
+        "yearMonth": "{{month}}/{{year}}"
+      }
+    }
+  },
+  "league": {
+    "validation": {
+      "mensOnly": " is only available for male players.",
+      "womensOnly": " is only available for female players.",
+      "doublesNeedPartner": "Doubles requires a partner.",
+      "mixedDoublesRequirement": "Mixed doubles requires one male and one female player.",
+      "genderRestriction": " is only available for {gender} players."
+    },
+    "eventTypes": {
+      "mens_singles": "Men's Singles",
+      "womens_singles": "Women's Singles",
+      "mens_doubles": "Men's Doubles",
+      "womens_doubles": "Women's Doubles",
+      "mixed_doubles": "Mixed Doubles"
+    },
+    "genderLabels": {
+      "male": "male",
+      "female": "female"
+    }
+  },
+  "tournament": {
+    "bestFinish": {
+      "none": "None",
+      "champion": "🥇 Champion",
+      "runnerUp": "🥈 Runner-up",
+      "semiFinal": "🥉 Semi-finalist",
+      "nthPlace": "{position}th place"
+    }
+  },
+  "clubCommunication": {
+    "timeAgo": {
+      "justNow": "just now",
+      "minutesAgo": "{count} minutes ago",
+      "hoursAgo": "{count} hours ago",
+      "daysAgo": "{count} days ago",
+      "monthsAgo": "{count} months ago",
+      "yearsAgo": "{count} years ago",
+      "noTimeInfo": "No time information",
+      "noDateInfo": "No date information"
+    },
+    "validation": {
+      "policyRequired": "Please enter policy content",
+      "policyTooShort": "Policy content must be at least 10 characters",
+      "policyTooLong": "Policy content cannot exceed 10,000 characters",
+      "titleRequired": "Please enter a title",
+      "titleTooLong": "Title cannot exceed 100 characters",
+      "contentRequired": "Please enter content",
+      "contentTooLong": "Content cannot exceed 5,000 characters",
+      "commentRequired": "Please enter a comment",
+      "commentTooLong": "Comment cannot exceed 1,000 characters",
+      "messageRequired": "Please enter a message",
+      "messageTooLong": "Message cannot exceed 1,000 characters"
+    }
+  },
+  "clubPoliciesScreen": {
+    "loading": "Loading club information...",
+    "clubIntro": "Club Introduction",
+    "facilities": "Facilities",
+    "clubRules": "Club Rules",
+    "regularMeetings": "Regular Meetings",
+    "recurring": "Recurring",
+    "costInfo": "Cost Information",
+    "joinFee": "Join Fee",
+    "monthlyFee": "Monthly Dues",
+    "yearlyFee": "Yearly Dues",
+    "dueDate": "Due Date",
+    "dueDateValue": "{{day}}th of each month",
+    "lateFee": "Late Fee",
+    "paymentMethods": "Payment Methods",
+    "qrHint": "Tap payment methods with QR icon to view QR code",
+    "qrCodeTitle": "{{method}} QR Code",
+    "close": "Close",
+    "myDuesButton": "View & Pay My Dues",
+    "memberOnlyButton": "Member Only Feature",
+    "emptyTitle": "No Information Available",
+    "emptyMessage": "Club rules, regular meeting times, and cost information have not been set up yet.",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    }
+  },
+  "policyEditScreen": {
+    "save": "Save",
+    "quickInsert": "Quick Insert",
+    "section": "Section",
+    "rule": "Rule",
+    "notice": "Notice",
+    "placeholder": "Enter policy content...",
+    "characters": "characters",
+    "modified": "Modified",
+    "previewEmpty": "No content",
+    "loadingPolicy": "Loading policy...",
+    "saveChanges": "Save Changes",
+    "unsavedChangesMessage": "You have unsaved changes. What would you like to do?",
+    "dontSave": "Don't Save",
+    "saveSuccess": "Success",
+    "saveSuccessMessage": "Policy saved successfully.",
+    "saveFailed": "Save Failed",
+    "saveFailedMessage": "An error occurred while saving the policy.",
+    "loadFailed": "Load Failed",
+    "loadFailedMessage": "An error occurred while loading the policy.",
+    "inputError": "Input Error",
+    "emptyContentError": "Please enter policy content."
+  },
+  "findClubScreen": {
+    "searching": "Searching for clubs...",
+    "searchResults": "Search results for '{{query}}': {{count}} clubs",
+    "totalClubs": "Total clubs: {{count}}",
+    "public": "Public",
+    "joinRequest": "Join Request",
+    "joinComplete": "Joined",
+    "pendingApproval": "Pending Approval",
+    "joinDeclined": "Declined",
+    "emptySearchTitle": "No results found",
+    "emptySearchMessage": "Try a different search term",
+    "emptyListTitle": "No public clubs available",
+    "emptyListMessage": "Create a new club",
+    "joinRequestTitle": "Join Club",
+    "joinRequestMessage": "Would you like to request to join {{name}}?",
+    "joinRequestButton": "Request",
+    "joinRequestSuccess": "Success",
+    "joinRequestSuccessMessage": "Join request submitted successfully. Please wait for club admin approval.",
+    "joinRequestError": "Error",
+    "joinRequestErrorMessage": "An error occurred while submitting join request.",
+    "loginRequired": "Notice",
+    "loginRequiredMessage": "Login is required.",
+    "alreadyMember": "Already a member of this club.",
+    "alreadyPending": "Join request already pending."
+  },
+  "clubDetailScreen": {
+    "notFoundMessage": "The requested club does not exist or has been deleted.",
+    "goBack": "Go Back",
+    "joinWaiting": "Awaiting Approval",
+    "reapply": "Reapply",
+    "joinApply": "Request to Join",
+    "joinModalTitle": "Join Club",
+    "joinModalMessage": "Requesting to join {{name}}. Please leave a brief message.",
+    "joinMessageLabel": "Join Message (Optional)",
+    "joinMessagePlaceholder": "Briefly introduce yourself or explain why you want to join.",
+    "cancel": "Cancel",
+    "submit": "Submit"
+  },
+  "matches": {
+    "skillLevels": {
+      "2.0-3.0": "2.0-3.0",
+      "3.0-4.0": "3.0-4.0",
+      "4.0-5.0": "4.0-5.0",
+      "5.0+": "5.0+"
+    },
+    "createModal": {
+      "maxParticipants": {
+        "placeholder": "4"
+      },
+      "cancelButton": "Cancel",
+      "createButton": "Create Match"
+    },
+    "alerts": {
+      "inputError": {
+        "title": "Input Error",
+        "message": "Title and location are required"
+      },
+      "joinMatch": {
+        "title": "Join Match",
+        "message": "Would you like to join this match?",
+        "cancel": "Cancel"
+      }
+    },
+    "mockData": {
+      "weekendDoubles": "Weekend Doubles Match",
+      "weekendDescription": "Relaxed doubles match",
+      "mondayTraining": "Monday Regular Training",
+      "mondayDescription": "Weekly Monday evening training"
+    }
+  },
+  "leagues": {
+    "admin": {
+      "approvalError": "An error occurred while approving the application. Please try again.",
+      "participantStatus": "Participant Status",
+      "maxParticipants": "Max",
+      "applicationDate": "Applied",
+      "processing": "Processing...",
+      "noApplicants": "No applicants yet",
+      "applicantsWillAppear": "Applicants will appear here in real-time",
+      "leaguePrivateTitle": "League is Private",
+      "leaguePrivateMessage": "The league is currently being prepared and is not visible to members. Start accepting applications when ready.",
+      "opening": "Opening...",
+      "startAcceptingApplications": "🎭 Start Accepting Applications"
+    },
+    "match": {
+      "status": {
+        "walkover": "Walkover"
+      },
+      "correctResult": "Correct Result",
+      "reschedule": "Reschedule",
+      "walkover": "Walkover",
+      "court": "Court",
+      "result": "Result",
+      "winner": "Winner",
+      "submittedResult": "Submitted Result (Pending Approval)",
+      "submitResult": "Submit Result",
+      "submitResultAdmin": "Submit Result (Admin)",
+      "noMatches": "No matches yet",
+      "matchesWillAppear": "Matches will appear here once created."
+    }
+  },
+  "schedules": {
+    "form": {
+      "title": "Schedule Title *",
+      "titlePlaceholder": "e.g., Wednesday Evening Practice",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter detailed description of the schedule",
+      "scheduleType": "Schedule Type",
+      "dayOfWeek": "Day of Week *",
+      "startTime": "Start Time *",
+      "duration": "Duration (minutes) *",
+      "locationInfo": "Location Information",
+      "locationName": "Location Name *",
+      "locationNamePlaceholder": "e.g., Central Park Tennis Courts",
+      "address": "Address *",
+      "addressPlaceholder": "Enter full address",
+      "directions": "Directions",
+      "directionsPlaceholder": "Parking info, entrance location, etc.",
+      "courtType": "Court Type",
+      "indoor": "Indoor",
+      "outdoor": "Outdoor",
+      "both": "Both",
+      "participationInfo": "Participation Information",
+      "minParticipants": "Min Participants",
+      "maxParticipants": "Max Participants",
+      "skillLevel": "Skill Level Required",
+      "skillLevelPlaceholder": "e.g., 3.5+",
+      "membersOnly": "Members Only",
+      "registrationRequired": "Registration Required",
+      "registrationDeadline": "Registration Deadline (hours before)"
+    }
+  },
+  "services": {
+    "performanceAnalytics": {
+      "monthlyReport": {
+        "nextMonthGoals": {
+          "newPartner": "Play with New Partners"
+        }
+      }
+    },
+    "leaderboard": {
+      "challenges": {
+        "weeklyMatches": {
+          "title": "Weekly Match Challenge",
+          "description": "Complete 5 matches this week",
+          "reward": "100 points + \"Weekly Warrior\" badge"
+        },
+        "winStreak": {
+          "title": "Win Streak Challenge",
+          "description": "Achieve 3 consecutive wins",
+          "reward": "200 points + \"Striker\" badge"
+        },
+        "monthlyImprovement": {
+          "title": "Monthly Improvement",
+          "description": "Improve skill level by 5 points",
+          "reward": "500 points + \"Improvement King\" badge"
+        },
+        "socialPlayer": {
+          "title": "Social Player",
+          "description": "Match with 10 new opponents",
+          "reward": "300 points + \"Social Butterfly\" badge"
+        }
+      },
+      "achievements": {
+        "firstWin": {
+          "name": "First Win",
+          "description": "Win your first match"
+        },
+        "winStreak3": {
+          "name": "3-Win Streak",
+          "description": "Win 3 matches in a row"
+        },
+        "winStreak5": {
+          "name": "5-Win Streak",
+          "description": "Win 5 matches in a row"
+        },
+        "totalWins10": {
+          "name": "Win Collector",
+          "description": "Achieve 10 total wins"
+        },
+        "totalWins50": {
+          "name": "Win Master",
+          "description": "Achieve 50 total wins"
+        },
+        "matchesPlayed10": {
+          "name": "Getting Experience",
+          "description": "Complete 10 total matches"
+        },
+        "matchesPlayed100": {
+          "name": "Veteran Player",
+          "description": "Complete 100 total matches"
+        },
+        "skillLevel70": {
+          "name": "Skilled Player",
+          "description": "Reach skill level 70"
+        },
+        "skillLevel85": {
+          "name": "Expert",
+          "description": "Reach skill level 85"
+        },
+        "socialPlayer": {
+          "name": "Social Player",
+          "description": "Match with 20 different players"
+        },
+        "monthlyActive": {
+          "name": "Monthly Active Player",
+          "description": "Play 15 or more matches in a month"
+        },
+        "earlyBird": {
+          "name": "Early Bird",
+          "description": "Complete 10 matches before 10 AM"
+        },
+        "nightOwl": {
+          "name": "Night Owl",
+          "description": "Complete 10 matches after 8 PM"
+        }
+      },
+      "categories": {
+        "overall": {
+          "name": "Overall Ranking",
+          "description": "Ranking based on total performance"
+        },
+        "skillLevel": {
+          "name": "Skill Level Ranking",
+          "description": "Ranking based on skill level"
+        },
+        "winRate": {
+          "name": "Win Rate Ranking",
+          "description": "Ranking based on win rate"
+        },
+        "monthlyActive": {
+          "name": "Monthly Active Ranking",
+          "description": "Ranking based on monthly match activity"
+        },
+        "improvement": {
+          "name": "Improvement Ranking",
+          "description": "Ranking based on skill improvement rate"
+        }
+      }
+    }
+  },
+  "aiMatching": {
+    "analyzing": {
+      "title": "AI Matching Analysis",
+      "steps": {
+        "profile": "Analyzing profile...",
+        "skillLevel": "Matching skill level...",
+        "location": "Searching by location...",
+        "schedule": "Checking schedule compatibility...",
+        "selection": "Selecting optimal matches..."
+      },
+      "tip": "💡 AI is analyzing your skill level, location, and schedule\nto find the best matching partners"
+    },
+    "results": {
+      "title": "AI Matching Results",
+      "subtitle": "Found {{count}} players that match you best",
+      "tipsTitle": "AI Matching Tips",
+      "tipsText": "Higher match scores indicate better skill and schedule compatibility",
+      "refreshButton": "Search Again"
+    },
+    "candidate": {
+      "matchScore": "Match Score",
+      "skillLevel": {
+        "beginner": "Beginner",
+        "elementary": "Elementary",
+        "intermediate": "Intermediate",
+        "advanced": "Advanced"
+      },
+      "attributes": {
+        "strengths": "Key Strengths",
+        "availableTime": "Available Time",
+        "playStyle": "Play Style"
+      },
+      "playStyles": {
+        "aggressive": "Aggressive",
+        "defensive": "Defensive",
+        "allRound": "All-Round"
+      },
+      "strengths": {
+        "serve": "Serve",
+        "volley": "Volley",
+        "strategic": "Strategic Play",
+        "backhand": "Backhand",
+        "defense": "Defense",
+        "endurance": "Endurance",
+        "forehand": "Forehand",
+        "netPlay": "Net Play",
+        "mental": "Mental"
+      },
+      "availability": {
+        "morning": "Morning (6-12)",
+        "afternoon": "Afternoon (12-18)",
+        "evening": "Evening (18-22)",
+        "weekend": "Weekend"
+      },
+      "selected": "Selected"
+    },
+    "mockData": {
+      "candidate1": {
+        "name": "Junsu Kim",
+        "bio": "Passionate player continuously improving skills."
+      },
+      "candidate2": {
+        "name": "Seoyeon Lee",
+        "bio": "Looking for partners to grow together."
+      },
+      "candidate3": {
+        "name": "Minjae Park",
+        "bio": "Seeks competitive yet enjoyable matches."
+      }
+    },
+    "bottomBar": {
+      "selectedName": "To {{name}}",
+      "selectedAction": "Would you like to send a match request?",
+      "requestButton": "Send Request"
+    }
+  },
+  "feedCard": {
+    "minutesAgo": "{{minutes}}m ago",
+    "hoursAgo": "{{hours}}h ago",
+    "daysAgo": "{{days}}d ago",
+    "matchCompleted": {
+      "win": "{{actorName}} defeated {{targetName}} {{score}}",
+      "played": "{{actorName}} played against {{targetName}} {{score}}"
+    },
+    "newMemberJoined": "{{actorName}} joined {{clubName}}",
+    "leagueCreated": "{{actorName}} created {{leagueName}}",
+    "league": "League",
+    "leaguePlayoffs": {
+      "finals": "{{actorName}} advanced to Finals in {{leagueName}}",
+      "semifinals": "{{actorName}} advanced to Semifinals in {{leagueName}}",
+      "quarterfinals": "{{actorName}} advanced to Quarterfinals in {{leagueName}}",
+      "roundOf16": "{{actorName}} advanced to Round of 16 in {{leagueName}}",
+      "roundOf32": "{{actorName}} advanced to Round of 32 in {{leagueName}}"
+    },
+    "actorActivity": "{{actorName}} had an activity",
+    "feedTextError": "Unable to load feed",
+    "viewClub": "View Club",
+    "notification": "Notification"
+  }
+}

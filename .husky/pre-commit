@@ -1,0 +1,21 @@
+# Lightning Tennis Project Quality Gate
+echo "🏛️ Running Lightning Tennis Quality Gate..."
+
+# 1. Run lint-staged (ESLint, Prettier, ls-lint)
+echo "📏 Checking code style and structure..."
+npx lint-staged
+
+# 2. Check for circular dependencies (excluding navigation patterns)
+echo "🔄 Checking for circular dependencies..."
+madge --circular --extensions ts,tsx --exclude "navigation/*" src/ || {
+  echo "⚠️  Warning: Circular dependencies detected outside navigation."
+  echo "Navigation-screen dependencies are expected, but other circulars should be investigated."
+}
+
+# 3. Check for unused dependencies (quick check)  
+echo "📦 Checking for unused dependencies..."
+npx depcheck --ignores="@types/*,@storybook/*,eslint-*,prettier,husky,lint-staged,@size-limit/*,madge" --skip-missing || {
+  echo "⚠️  Warning: Unused dependencies detected. Run 'npm run dep-check' for details."
+}
+
+echo "✅ Quality gate passed! Proceeding with commit..."

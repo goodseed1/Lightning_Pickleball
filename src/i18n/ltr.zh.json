@@ -1,0 +1,26 @@
+{
+  "ntrp": {
+    "withRange": {
+      "beginner": "初学者 (1.0–2.5)",
+      "intermediate": "中级 (3.0–3.5)",
+      "advanced": "高级 (4.0–4.5)",
+      "expert": "专家 (5.0+)"
+    },
+    "range": {
+      "r1": "1.0–2.5",
+      "r2": "3.0–3.5",
+      "r3": "4.0–4.5",
+      "r4": "5.0+"
+    },
+    "label": {
+      "entry": "入门级",
+      "beginner": "初学者",
+      "adv_beginner": "初级进阶",
+      "intermediate": "中级",
+      "adv_intermediate": "中级进阶",
+      "advanced": "高级",
+      "expert": "专家",
+      "pro": "专业级"
+    }
+  }
+}

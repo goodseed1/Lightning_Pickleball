@@ -1,0 +1,25 @@
+# Compiled output
+lib/
+
+# Dependencies
+node_modules/
+
+# Test coverage
+coverage/
+
+# Firebase logs
+*.log
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
