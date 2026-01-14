@@ -38,7 +38,7 @@ type Story = StoryObj<typeof meta>;
 // Story: 사용자 메시지 (타임스탬프 포함)
 export const UserMessage: Story = {
   args: {
-    message: '테니스 서브 잘 치는 방법 알려줘',
+    message: '피클볼 서브 잘 치는 방법 알려줘',
     sender: 'user',
     timestamp: new Date('2024-12-14T14:30:00'),
   },
@@ -68,7 +68,7 @@ export const LongUserMessage: Story = {
 export const LongAIMessage: Story = {
   args: {
     message:
-      '서브가 네트에 걸리는 이유는 여러 가지가 있을 수 있습니다:\n\n1. 토스 위치가 너무 앞쪽에 있을 수 있습니다\n2. 공을 치는 타이밍이 너무 빠를 수 있습니다\n3. 라켓 스윙의 각도를 확인해보세요\n\n특히 토스는 어깨 약간 앞쪽, 라켓을 완전히 펼 수 있는 높이가 이상적입니다. 천천히 연습해보세요!',
+      '서브가 네트에 걸리는 이유는 여러 가지가 있을 수 있습니다:\n\n1. 토스 위치가 너무 앞쪽에 있을 수 있습니다\n2. 공을 치는 타이밍이 너무 빠를 수 있습니다\n3. 패들 스윙의 각도를 확인해보세요\n\n특히 토스는 어깨 약간 앞쪽, 패들을 완전히 펼 수 있는 높이가 이상적입니다. 천천히 연습해보세요!',
     sender: 'ai',
     timestamp: new Date('2024-12-14T14:35:20'),
   },
@@ -102,7 +102,7 @@ export const AITyping: Story = {
 // Story: 영어 사용자 메시지
 export const EnglishUserMessage: Story = {
   args: {
-    message: 'How can I improve my tennis serve?',
+    message: 'How can I improve my pickleball serve?',
     sender: 'user',
     timestamp: new Date('2024-12-14T14:30:00'),
   },
@@ -123,12 +123,12 @@ export const Conversation: Story = {
   render: () => (
     <View style={{ gap: 4 }}>
       <ChatBubble
-        message='테니스 초보자인데, 어떻게 시작하면 좋을까요?'
+        message='피클볼 초보자인데, 어떻게 시작하면 좋을까요?'
         sender='user'
         timestamp={new Date('2024-12-14T14:00:00')}
       />
       <ChatBubble
-        message='테니스를 시작하신다니 반갑습니다! 먼저 기본적인 그립과 스탠스를 익히는 것이 중요합니다.'
+        message='피클볼를 시작하신다니 반갑습니다! 먼저 기본적인 그립과 스탠스를 익히는 것이 중요합니다.'
         sender='ai'
         timestamp={new Date('2024-12-14T14:00:15')}
       />

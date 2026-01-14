@@ -1,10 +1,10 @@
-# 🧪 Lightning Tennis Testing Strategy
+# 🧪 Lightning Pickleball Testing Strategy
 
 > **다계층 테스트 전략으로 구축된 견고한 테스트 안전망**
 
 ## 📋 테스트 아키텍처 개요
 
-Lightning Tennis는 **3계층 테스트 전략**을 통해 앱의 안정성과 품질을 보장합니다:
+Lightning Pickleball는 **3계층 테스트 전략**을 통해 앱의 안정성과 품질을 보장합니다:
 
 ```
 🏗️ 3-Layer Testing Architecture

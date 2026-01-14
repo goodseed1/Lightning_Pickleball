@@ -63,7 +63,7 @@ const italianTranslations = {
     },
     externalCourt: {
       name: 'Nome Campo',
-      namePlaceholder: 'es., Park Tennis Club',
+      namePlaceholder: 'es., Park Pickleball Club',
       address: 'Indirizzo',
       addressPlaceholder: 'es., 123 Via Principale',
     },

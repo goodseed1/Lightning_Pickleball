@@ -2,11 +2,11 @@
 
 ## Objective
 
-Translate ALL remaining 1135 keys in `/Volumes/DevSSD/development/Projects/lightning-tennis-react/lightning-tennis-simple/src/locales/zh.json` where the value currently equals the English (en.json) value.
+Translate ALL remaining 1135 keys in `/Volumes/DevSSD/development/Projects/lightning-pickleball-react/lightning-pickleball-simple/src/locales/zh.json` where the value currently equals the English (en.json) value.
 
 ## Context
 
-- Lightning Tennis is a tennis community app
+- Lightning Pickleball is a pickleball community app
 - Target language: Simplified Chinese (zh-CN)
 - Translation style: Natural, user-friendly Chinese for mobile app UI
 
@@ -33,7 +33,7 @@ Translate ALL remaining 1135 keys in `/Volumes/DevSSD/development/Projects/light
 
 ## Translation Guidelines
 
-1. **Tennis terminology**: Use standard Chinese tennis terms
+1. **Pickleball terminology**: Use standard Chinese pickleball terms
 2. **UI context**: Translate for mobile app interface (concise)
 3. **Consistency**: Match existing translation style in zh.json
 4. **Placeholders**: Preserve {{variable}} syntax
@@ -67,4 +67,4 @@ Translate ALL remaining 1135 keys in `/Volumes/DevSSD/development/Projects/light
 
 ## File to Update
 
-`/Volumes/DevSSD/development/Projects/lightning-tennis-react/lightning-tennis-simple/src/locales/zh.json`
+`/Volumes/DevSSD/development/Projects/lightning-pickleball-react/lightning-pickleball-simple/src/locales/zh.json`

@@ -12,10 +12,10 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLanguage, SUPPORTED_LANGUAGES, SupportedLanguage } from '../contexts/LanguageContext';
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 
 // Import image as module
-import lightningTennisIcon from '../../assets/images/lightning-tennis-icon.png';
+import lightningPickleballIcon from '../../assets/images/lightning-pickleball-icon.png';
 
 interface LanguageSelectionScreenProps {
   onLanguageSelected: () => void;
@@ -26,7 +26,7 @@ const LanguageSelectionScreen: React.FC<LanguageSelectionScreenProps> = ({
 }) => {
   const { setLanguage } = useLanguage();
   const { theme } = useTheme();
-  const themeColors = getLightningTennisTheme(theme);
+  const themeColors = getLightningPickleballTheme(theme);
   const [selectedLanguage, setSelectedLanguage] = React.useState<SupportedLanguage>('en'); // Default to English
   const fadeAnim = React.useRef(new Animated.Value(0)).current;
   const slideAnim = React.useRef(new Animated.Value(50)).current;
@@ -115,16 +115,16 @@ const LanguageSelectionScreen: React.FC<LanguageSelectionScreenProps> = ({
         <View style={styles.header}>
           <View style={styles.titleContainer}>
             <Image
-              source={lightningTennisIcon as ImageSourcePropType}
+              source={lightningPickleballIcon as ImageSourcePropType}
               style={styles.appIcon}
               resizeMode='contain'
             />
             <Text style={[styles.appTitle, { color: themeColors.colors.primary }]}>
-              Lightning Tennis
+              Lightning Pickleball
             </Text>
           </View>
           <Text style={[styles.tagline, { color: themeColors.colors.onSurfaceVariant }]}>
-            Build your local tennis network and community
+            Build your local pickleball network and community
           </Text>
         </View>
 

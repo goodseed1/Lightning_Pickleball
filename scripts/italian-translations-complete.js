@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Complete Italian Translation Dictionary
- * Professional translations for Lightning Tennis app
+ * Professional translations for Lightning Pickleball app
  */
 
 const fs = require('fs');
@@ -25,7 +25,7 @@ const COMPREHENSIVE_TRANSLATIONS = {
   'Permission Error': 'Errore Permesso',
 
   // Tournament Management
-  'Generating Bracket': 'Generazione Tabellone',
+  'Generating Bpaddle': 'Generazione Tabellone',
   'Participants Overview': 'Panoramica Partecipanti',
   'Current Participants': 'Partecipanti Attuali',
   'Max Participants': 'Partecipanti Massimi',

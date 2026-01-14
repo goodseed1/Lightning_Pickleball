@@ -262,7 +262,7 @@ function qualifiesForBadgeTier(
       return stats.consecutiveLeagueWins >= condition.value;
 
     case 'leagueWinRate': {
-      // Tennis Prodigy: 100% win rate with minimum 5 leagues
+      // Pickleball Prodigy: 100% win rate with minimum 5 leagues
       const minLeagues =
         (condition as unknown as { minLeagues?: number }).minLeagues || 1;
       return (

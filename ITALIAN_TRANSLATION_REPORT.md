@@ -39,7 +39,7 @@ Successfully completed **60+ Italian translations** across 4 priority sections u
 
 | Badge ID          | Italian Name          | Description                                 |
 | ----------------- | --------------------- | ------------------------------------------- |
-| first_club_join   | Primo Membro del Club | Hai aderito al tuo primo club di tennis! 🏟️ |
+| first_club_join   | Primo Membro del Club | Hai aderito al tuo primo club di pickleball! 🏟️ |
 | streak_5          | Serie di 5 Vittorie   | Hai vinto 5 partite di fila!                |
 | social_butterfly  | Farfalla Sociale      | Sei diventato amico di oltre 10 giocatori!  |
 | league_master     | Maestro di Lega       | Hai finito 1° in una lega!                  |

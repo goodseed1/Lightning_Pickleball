@@ -568,7 +568,7 @@ const chineseTranslations = {
     overview: '概览',
     participants: '参与者',
     matches: '比赛',
-    bracket: '对阵图',
+    bpaddle: '对阵图',
     settings: '设置',
     basicInfo: {
       title: '基本信息',
@@ -659,7 +659,7 @@ const chineseTranslations = {
         postponed: '已延期',
       },
     },
-    bracket: {
+    bpaddle: {
       view: '查看对阵图',
       download: '下载',
       print: '打印',
@@ -792,7 +792,7 @@ const chineseTranslations = {
       export: '导出',
       notify: '通知',
       viewStandings: '查看排名',
-      viewBracket: '查看对阵图',
+      viewBpaddle: '查看对阵图',
       viewSchedule: '查看赛程',
     },
     registration: {
@@ -819,7 +819,7 @@ const chineseTranslations = {
       participants: '参与者',
       standings: '排名',
       schedule: '赛程',
-      bracket: '对阵图',
+      bpaddle: '对阵图',
       rules: '规则',
       prizes: '奖品',
       statistics: '统计',

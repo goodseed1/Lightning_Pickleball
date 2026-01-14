@@ -28,7 +28,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useTheme } from '../../../hooks/useTheme';
 import { useLanguage } from '../../../contexts/LanguageContext';
-import { getLightningTennisTheme } from '../../../theme';
+import { getLightningPickleballTheme } from '../../../theme';
 import clubService from '../../../services/clubService';
 
 // ==================== TYPE DEFINITIONS ====================
@@ -71,7 +71,7 @@ const ClubHallOfFameScreen: React.FC<ClubHallOfFameScreenProps> = ({ clubId }) =
   const { theme: currentTheme } = useTheme();
   const { t, language } = useLanguage();
   const paperTheme = usePaperTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
 
   // State
   const [activeTab, setActiveTab] = useState<TabValue>('trophies');

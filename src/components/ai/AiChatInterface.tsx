@@ -1,6 +1,6 @@
 /**
  * AI Chat Interface Component
- * Main chat interface for Lightning Tennis AI assistant
+ * Main chat interface for Lightning Pickleball AI assistant
  */
 
 import React, { useState, useRef, useEffect } from 'react';

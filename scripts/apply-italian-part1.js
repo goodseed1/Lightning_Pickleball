@@ -51,9 +51,9 @@ const translations = {
       proshop: 'Pro Shop',
     },
     fields: {
-      address_label: 'Indirizzo Campo da Tennis',
-      address_search_placeholder: 'Cerca indirizzo campo da tennis',
-      name_placeholder: 'es., Circolo Tennis Duluth Coreano',
+      address_label: 'Indirizzo Campo da Pickleball',
+      address_search_placeholder: 'Cerca indirizzo campo da pickleball',
+      name_placeholder: 'es., Circolo Pickleball Duluth Coreano',
       intro_placeholder:
         "Descrivi gli obiettivi, l'atmosfera e le caratteristiche uniche del tuo club",
       fee_placeholder: 'es., 50',
@@ -163,7 +163,7 @@ Per creare più club, contatta l'amministratore tramite il chatbot assistente AI
       meetingName: 'Nome Incontro *',
       meetingNamePlaceholder: 'es., Pratica Singolare Weekend',
       location: 'Posizione *',
-      locationPlaceholder: 'es., Campi da Tennis Central Park',
+      locationPlaceholder: 'es., Campi da Pickleball Central Park',
       repeatDay: 'Ripeti Giorno',
       startTime: 'Ora Inizio',
       endTime: 'Ora Fine',

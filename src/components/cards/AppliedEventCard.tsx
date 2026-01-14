@@ -2,13 +2,13 @@
  * AppliedEventCard - Reusable component for displaying applied event cards
  * Used in the "My Activities" -> "Applied" tab
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  * Based on HostedEventCard but for applicants/participants
  */
 
@@ -29,7 +29,7 @@ import {
 import * as Localization from 'expo-localization';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { db } from '../../firebase/config';
 import activityService from '../../services/activityService';
 import weatherService from '../../services/weatherService';
@@ -153,7 +153,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
   style,
 }) => {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors, currentTheme);
   const { t } = useLanguage();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -202,13 +202,13 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
     applicantId: string;
     applicantName: string;
     skillLevel?: string; // 🎯 [KIM FIX] Add NTRP for display
-    ltrLevel?: number; // 🎯 [KIM FIX v2] Numeric LTR for team validation (1-10)
+    ltrLevel?: number; // 🎯 [KIM FIX v2] Numeric LPR for team validation (1-10)
     pendingProposalFrom?: string;
     pendingProposalFromName?: string;
   }
   const [soloApplicants, setSoloApplicants] = useState<SoloApplicant[]>([]);
 
-  // 🎯 [KIM FIX v2] Current user's LTR for team validation
+  // 🎯 [KIM FIX v2] Current user's LPR for team validation
   const [myLtrLevel, setMyLtrLevel] = useState<number | undefined>(undefined);
 
   // 🎯 [OPERATION SOLO] Real-time state for pending proposal on current user's application
@@ -234,24 +234,24 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
 
   // 🎯 [KIM FIX] Real-time host NTRP level (fetched from user document)
   const [liveHostNtrp, setLiveHostNtrp] = useState<number | null>(event.hostLtrLevel || null);
-  // 🎯 [KIM FIX] Real-time host partner NTRP level for doubles combined LTR
+  // 🎯 [KIM FIX] Real-time host partner NTRP level for doubles combined LPR
   const [liveHostPartnerNtrp, setLiveHostPartnerNtrp] = useState<number | null>(null);
-  // 🎯 [KIM FIX] Real-time MY TEAM LTR (applicant + partner) for doubles combined display
+  // 🎯 [KIM FIX] Real-time MY TEAM LPR (applicant + partner) for doubles combined display
   const [liveApplicantNtrp, setLiveApplicantNtrp] = useState<number | null>(null);
   const [liveMyPartnerNtrp, setLiveMyPartnerNtrp] = useState<number | null>(null);
-  // 🎯 [KIM FIX v2] Real-time GUEST TEAM LTR (for host viewing guest team)
+  // 🎯 [KIM FIX v2] Real-time GUEST TEAM LPR (for host viewing guest team)
   const [liveGuestApplicantLtr, setLiveGuestApplicantLtr] = useState<number | null>(null);
   const [liveGuestPartnerLtr, setLiveGuestPartnerLtr] = useState<number | null>(null);
 
-  // 🎯 [KIM FIX v18] ALWAYS fetch host's live LTR from ELO
+  // 🎯 [KIM FIX v18] ALWAYS fetch host's live LPR from ELO
   // Don't trust event.hostLtrLevel - it may be stale/incorrect from event creation time
   useEffect(() => {
     // If no hostId, can't fetch
     if (!event.hostId) return;
 
-    console.log('🔍 [AppliedEventCard] Fetching live host LTR for:', event.hostId);
+    console.log('🔍 [AppliedEventCard] Fetching live host LPR for:', event.hostId);
 
-    // Subscribe to host's user document for live LTR
+    // Subscribe to host's user document for live LPR
     const unsubscribe = onSnapshot(
       doc(db, 'users', event.hostId),
       snapshot => {
@@ -265,7 +265,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
 
           if (gameTypeElo && gameTypeElo > 0) {
             ltr = convertEloToLtr(gameTypeElo);
-            console.log(`🎾 [AppliedEventCard] Host ${eloKey} ELO ${gameTypeElo} → LTR ${ltr}`);
+            console.log(`🎾 [AppliedEventCard] Host ${eloKey} ELO ${gameTypeElo} → LPR ${ltr}`);
           } else if (userData?.profile?.ltrLevel) {
             // Fallback: Use profile.ltrLevel directly (already 1-10 scale from onboarding)
             const profileLtr = userData.profile.ltrLevel;
@@ -274,32 +274,32 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
             } else if (typeof profileLtr === 'string') {
               ltr = parseInt(profileLtr, 10);
             }
-            console.log(`📋 [AppliedEventCard] Host Profile LTR ${ltr} (no ELO)`);
+            console.log(`📋 [AppliedEventCard] Host Profile LPR ${ltr} (no ELO)`);
           }
 
           if (ltr && !isNaN(ltr) && ltr >= 1 && ltr <= 10) {
-            console.log('✅ [AppliedEventCard] Live host LTR fetched:', ltr);
+            console.log('✅ [AppliedEventCard] Live host LPR fetched:', ltr);
             setLiveHostNtrp(ltr);
           } else {
-            console.log('⚠️ [AppliedEventCard] No LTR found in userData!');
+            console.log('⚠️ [AppliedEventCard] No LPR found in userData!');
           }
         }
       },
       error => {
-        console.error('❌ [AppliedEventCard] Error fetching host LTR:', error);
+        console.error('❌ [AppliedEventCard] Error fetching host LPR:', error);
       }
     );
 
     return () => unsubscribe();
   }, [event.hostId, event.gameType]); // 🎯 [KIM FIX v26] Include gameType for correct ELO key
 
-  // 🎯 [KIM FIX] Fetch host partner's LTR for doubles combined display
+  // 🎯 [KIM FIX] Fetch host partner's LPR for doubles combined display
   useEffect(() => {
     // Only fetch if it's doubles and has a host partner
     const isDoubles = event.gameType?.toLowerCase().includes('doubles');
     if (!isDoubles || !event.hostPartnerId) return;
 
-    console.log('🔍 [AppliedEventCard] Fetching host partner LTR for:', event.hostPartnerId);
+    console.log('🔍 [AppliedEventCard] Fetching host partner LPR for:', event.hostPartnerId);
 
     const unsubscribe = onSnapshot(
       doc(db, 'users', event.hostPartnerId),
@@ -315,7 +315,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
           if (gameTypeElo && gameTypeElo > 0) {
             ltr = convertEloToLtr(gameTypeElo);
             console.log(
-              `🎾 [AppliedEventCard] Host Partner ${eloKey} ELO ${gameTypeElo} → LTR ${ltr}`
+              `🎾 [AppliedEventCard] Host Partner ${eloKey} ELO ${gameTypeElo} → LPR ${ltr}`
             );
           } else if (userData?.profile?.ltrLevel) {
             const profileLtr = userData.profile.ltrLevel;
@@ -324,24 +324,24 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
             } else if (typeof profileLtr === 'string') {
               ltr = parseInt(profileLtr, 10);
             }
-            console.log(`📋 [AppliedEventCard] Host Partner Profile LTR ${ltr}`);
+            console.log(`📋 [AppliedEventCard] Host Partner Profile LPR ${ltr}`);
           }
 
           if (ltr && !isNaN(ltr) && ltr >= 1 && ltr <= 10) {
-            console.log('✅ [AppliedEventCard] Live host partner LTR fetched:', ltr);
+            console.log('✅ [AppliedEventCard] Live host partner LPR fetched:', ltr);
             setLiveHostPartnerNtrp(ltr);
           }
         }
       },
       error => {
-        console.error('❌ [AppliedEventCard] Error fetching host partner LTR:', error);
+        console.error('❌ [AppliedEventCard] Error fetching host partner LPR:', error);
       }
     );
 
     return () => unsubscribe();
   }, [event.hostPartnerId, event.gameType]);
 
-  // 🎯 [KIM FIX] Real-time MY TEAM LTR - Fetch applicant and my partner's LTR for combined display
+  // 🎯 [KIM FIX] Real-time MY TEAM LPR - Fetch applicant and my partner's LPR for combined display
   useEffect(() => {
     const isDoubles = event.gameType?.toLowerCase().includes('doubles');
     const hasTeamPartner = event.partnerName && event.partnerId;
@@ -354,10 +354,10 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
     }
 
     const unsubscribes: (() => void)[] = [];
-    // 🎯 [KIM FIX v26] Use game-type specific ELO for correct LTR calculation
+    // 🎯 [KIM FIX v26] Use game-type specific ELO for correct LPR calculation
     const eloKey = getEloKeyForGameType(event.gameType);
 
-    // Fetch applicant (me) LTR
+    // Fetch applicant (me) LPR
     if (event.applicantId) {
       const unsubscribeApplicant = onSnapshot(doc(db, 'users', event.applicantId), snapshot => {
         if (snapshot.exists()) {
@@ -382,7 +382,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
       unsubscribes.push(unsubscribeApplicant);
     }
 
-    // Fetch my partner's LTR
+    // Fetch my partner's LPR
     if (event.partnerId) {
       const unsubscribePartner = onSnapshot(doc(db, 'users', event.partnerId), snapshot => {
         if (snapshot.exists()) {
@@ -412,7 +412,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
     };
   }, [event.applicantId, event.partnerId, event.partnerName, event.gameType]);
 
-  // 🎯 [KIM FIX v2] Real-time GUEST TEAM LTR - Fetch guest applicant and partner's LTR for host view
+  // 🎯 [KIM FIX v2] Real-time GUEST TEAM LPR - Fetch guest applicant and partner's LPR for host view
   useEffect(() => {
     const isDoubles = event.gameType?.toLowerCase().includes('doubles');
 
@@ -426,12 +426,12 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
     // Find the guest team application (not partner_invitation, has both members)
     // 🎯 [KIM FIX] Only include team leader's document (invitedBy === applicantId)
     // This prevents duplicate display when both team members have applications
-    // 🎯 [KIM FIX v28] Must have partnerId to correctly calculate team LTR
+    // 🎯 [KIM FIX v28] Must have partnerId to correctly calculate team LPR
     const guestTeamApp = event.approvedApplications.find(
       app =>
         app.applicantName &&
         app.partnerName &&
-        app.partnerId && // 🎯 [KIM FIX v28] Must have partnerId for LTR calculation!
+        app.partnerId && // 🎯 [KIM FIX v28] Must have partnerId for LPR calculation!
         app.type !== 'partner_invitation' &&
         app.status === 'approved' &&
         // 🎯 [ROOT CAUSE FIX] Team leader's document has invitedBy === applicantId
@@ -446,7 +446,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
 
     const unsubscribes: (() => void)[] = [];
 
-    // Fetch guest applicant LTR
+    // Fetch guest applicant LPR
     const unsubscribeApplicant = onSnapshot(
       doc(db, 'users', guestTeamApp.applicantId),
       snapshot => {
@@ -472,7 +472,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
     );
     unsubscribes.push(unsubscribeApplicant);
 
-    // Fetch guest partner LTR
+    // Fetch guest partner LPR
     if (guestTeamApp.partnerId) {
       const unsubscribePartner = onSnapshot(doc(db, 'users', guestTeamApp.partnerId), snapshot => {
         if (snapshot.exists()) {
@@ -864,7 +864,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
     return 'singles';
   };
 
-  // 🎯 [KIM FIX v2] Fetch current user's LTR for team validation
+  // 🎯 [KIM FIX v2] Fetch current user's LPR for team validation
   useEffect(() => {
     if (!currentUserId || event.applicationStatus !== 'looking_for_partner') {
       setMyLtrLevel(undefined);
@@ -879,11 +879,11 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
           const eloKey = getEloKeyForGameType(event.gameType);
           const elo = userData.eloRatings?.[eloKey]?.current || 1200;
           const ltr = convertEloToLtr(elo);
-          console.log(`🎯 [SOLO LOBBY] My LTR for ${eloKey}: ${ltr} (ELO: ${elo})`);
+          console.log(`🎯 [SOLO LOBBY] My LPR for ${eloKey}: ${ltr} (ELO: ${elo})`);
           setMyLtrLevel(ltr);
         }
       } catch (error) {
-        console.warn('Failed to fetch my LTR:', error);
+        console.warn('Failed to fetch my LPR:', error);
       }
     };
 
@@ -925,7 +925,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
               applicationId: docSnapshot.id,
               applicantId: data.applicantId,
               applicantName: data.applicantName || 'Unknown',
-              // 🎯 [KIM FIX] Try multiple fields for LTR/NTRP
+              // 🎯 [KIM FIX] Try multiple fields for LPR/NTRP
               skillLevel:
                 data.applicantNtrp || data.applicantSkillLevel || data.skillLevel || data.ntrp,
               pendingProposalFrom: data.pendingProposalFrom,
@@ -934,7 +934,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
           }
         });
 
-        // 🎯 [KIM FIX v2] Fetch game-type specific LTR from eloRatings
+        // 🎯 [KIM FIX v2] Fetch game-type specific LPR from eloRatings
         const eloKey = event.gameType?.toLowerCase().includes('mixed')
           ? 'mixed'
           : event.gameType?.toLowerCase().includes('doubles')
@@ -948,22 +948,22 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
                 const userDoc = await getDoc(doc(db, 'users', applicant.applicantId));
                 if (userDoc.exists()) {
                   const userData = userDoc.data();
-                  // 🎯 [KIM FIX v2] Get game-type specific ELO and convert to LTR
+                  // 🎯 [KIM FIX v2] Get game-type specific ELO and convert to LPR
                   const elo = userData.eloRatings?.[eloKey]?.current || 1200;
                   const ltrLevel = convertEloToLtr(elo);
 
                   console.log(
-                    `🎯 [SOLO LOBBY] Applicant ${applicant.applicantName}: ${eloKey} ELO=${elo}, LTR=${ltrLevel}`
+                    `🎯 [SOLO LOBBY] Applicant ${applicant.applicantName}: ${eloKey} ELO=${elo}, LPR=${ltrLevel}`
                   );
 
                   return {
                     ...applicant,
-                    skillLevel: `LTR ${ltrLevel}`,
-                    ltrLevel, // 🎯 Numeric LTR for team validation
+                    skillLevel: `LPR ${ltrLevel}`,
+                    ltrLevel, // 🎯 Numeric LPR for team validation
                   };
                 }
               } catch (error) {
-                console.warn('Failed to fetch LTR for applicant:', applicant.applicantId, error);
+                console.warn('Failed to fetch LPR for applicant:', applicant.applicantId, error);
               }
             }
             return applicant;
@@ -1254,9 +1254,9 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
     }
   }, []);
 
-  // 🎾 Get tennis wind condition based on wind speed (mph)
-  // Shows actual impact on tennis play instead of status labels
-  const getTennisWindCondition = (windSpeedMph: number) => {
+  // 🎾 Get pickleball wind condition based on wind speed (mph)
+  // Shows actual impact on pickleball play instead of status labels
+  const getPickleballWindCondition = (windSpeedMph: number) => {
     if (windSpeedMph <= 5) {
       return {
         label: t('appliedEventCard.wind.noEffect'),
@@ -1302,9 +1302,9 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
           : `${Math.round(windSpeedMph * 1.60934)} km/h`
         : null;
 
-    // 🎾 Get tennis wind condition (based on mph)
-    const tennisWindCondition =
-      weather.windSpeed !== undefined ? getTennisWindCondition(windSpeedMph) : null;
+    // 🎾 Get pickleball wind condition (based on mph)
+    const pickleballWindCondition =
+      weather.windSpeed !== undefined ? getPickleballWindCondition(windSpeedMph) : null;
 
     // 🌧️❄️ [KIM FIX] High rain/snow chance should override weather icon and condition
     const rainChance = weather.chanceOfRain || 0;
@@ -1339,8 +1339,8 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
     // 🌫️ [KIM FIX v2] Check if condition is fog-related
     const isFogCondition = conditionLower.includes('fog');
 
-    // 🎾 [KIM FIX v2] Tennis play condition based on fog/snow/rain first, then wind
-    const getTennisPlayCondition = () => {
+    // 🎾 [KIM FIX v2] Pickleball play condition based on fog/snow/rain first, then wind
+    const getPickleballPlayCondition = () => {
       // 🚫 Fog, Thunderstorm, Heavy Rain/Snow = Unplayable
       if (
         conditionLower.includes('thunderstorm') ||
@@ -1348,26 +1348,26 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
         conditionLower.includes('heavy snow') ||
         conditionLower.includes('violent')
       ) {
-        return { label: t('meetupDetail.weather.tennis.unplayable'), color: '#F44336' };
+        return { label: t('meetupDetail.weather.pickleball.unplayable'), color: '#F44336' };
       }
       // ⚠️ Fog, moderate rain/snow = Not recommended
       if (isFogCondition || conditionLower.includes('freezing')) {
-        return { label: t('meetupDetail.weather.tennis.notRecommended'), color: '#FF9800' };
+        return { label: t('meetupDetail.weather.pickleball.notRecommended'), color: '#FF9800' };
       }
-      // ❄️ Snow conditions are bad for tennis
+      // ❄️ Snow conditions are bad for pickleball
       if (isSnowCondition) {
-        return { label: t('meetupDetail.weather.tennis.unplayable'), color: '#F44336' };
+        return { label: t('meetupDetail.weather.pickleball.unplayable'), color: '#F44336' };
       }
       if (rainChance >= 80) {
-        return { label: t('meetupDetail.weather.tennis.unplayable'), color: '#F44336' }; // 경기 불가
+        return { label: t('meetupDetail.weather.pickleball.unplayable'), color: '#F44336' }; // 경기 불가
       } else if (rainChance >= 50) {
-        return { label: t('meetupDetail.weather.tennis.caution'), color: '#FF9800' }; // 주의 필요
+        return { label: t('meetupDetail.weather.pickleball.caution'), color: '#FF9800' }; // 주의 필요
       }
       // Return wind condition if weather is OK
-      return tennisWindCondition;
+      return pickleballWindCondition;
     };
 
-    const tennisPlayCondition = getTennisPlayCondition();
+    const pickleballPlayCondition = getPickleballPlayCondition();
     const isPrecipitationWarning = isHighRainChance || isSnowCondition;
 
     return (
@@ -1377,16 +1377,16 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
           <Text style={styles.weatherTemp}>{displayTemp}</Text>
           <Text style={styles.weatherCondition}>{displayCondition}</Text>
         </View>
-        {/* 💨 Wind Speed with Tennis Condition - but show precipitation warning if needed */}
+        {/* 💨 Wind Speed with Pickleball Condition - but show precipitation warning if needed */}
         {displayWindSpeed && (
           <View style={styles.windSpeed}>
             <Text style={styles.windIcon}>{isPrecipitationWarning ? displayIcon : '💨'}</Text>
             <Text style={styles.windSpeedText}>
               {isPrecipitationWarning ? `${rainChance}%` : displayWindSpeed}
             </Text>
-            {tennisPlayCondition && (
-              <Text style={[styles.windCondition, { color: tennisPlayCondition.color }]}>
-                {tennisPlayCondition.label}
+            {pickleballPlayCondition && (
+              <Text style={[styles.windCondition, { color: pickleballPlayCondition.color }]}>
+                {pickleballPlayCondition.label}
               </Text>
             )}
           </View>
@@ -1622,7 +1622,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
                     </View>
                   ) : (
                     (() => {
-                      // 🎯 [KIM FIX v3] LTR 범위 검증 - 내 팀 LTR이 호스트팀 LTR ± 2 범위 안에 있어야 팀 제안 가능
+                      // 🎯 [KIM FIX v3] LPR 범위 검증 - 내 팀 LPR이 호스트팀 LPR ± 2 범위 안에 있어야 팀 제안 가능
                       const hostTeamLtr =
                         liveHostNtrp && liveHostPartnerNtrp
                           ? liveHostNtrp + liveHostPartnerNtrp
@@ -1639,20 +1639,20 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
                         (myTeamLtr >= hostTeamLtr - 2 && myTeamLtr <= hostTeamLtr + 2);
 
                       if (!isWithinRange) {
-                        // 🚫 LTR 범위 밖 - 비활성화된 버튼 표시
+                        // 🚫 LPR 범위 밖 - 비활성화된 버튼 표시
                         return (
                           <View style={[styles.proposeButton, styles.proposeButtonDisabled]}>
                             <Ionicons name='ban-outline' size={16} color='#999999' />
                             <Text style={styles.proposeButtonDisabledText}>
                               {t('appliedEventCard.soloLobby.ltrOutOfRange', {
-                                defaultValue: 'LTR 범위 초과',
+                                defaultValue: 'LPR 범위 초과',
                               })}
                             </Text>
                           </View>
                         );
                       }
 
-                      // ✅ LTR 범위 안 - 활성화된 버튼
+                      // ✅ LPR 범위 안 - 활성화된 버튼
                       return (
                         <TouchableOpacity
                           style={styles.proposeButton}
@@ -1981,22 +1981,22 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
                       <Ionicons name='checkmark-circle' size={18} color='#4CAF50' />
                       <Text style={styles.teamCardName}>
                         {hostDisplay}
-                        {/* 🎯 [KIM FIX] For doubles: show combined LTR (host + partner), for singles: show host LTR */}
+                        {/* 🎯 [KIM FIX] For doubles: show combined LPR (host + partner), for singles: show host LPR */}
                         {(() => {
                           const isDoublesMatch = event.gameType?.toLowerCase().includes('doubles');
                           if (isDoublesMatch && liveHostNtrp && liveHostPartnerNtrp) {
-                            // Doubles: show combined LTR with "복식팀" label
+                            // Doubles: show combined LPR with "복식팀" label
                             const combinedLtr = liveHostNtrp + liveHostPartnerNtrp;
                             return (
                               <Text style={styles.teamNtrpText}>
-                                {` (${t('appliedEventCard.teams.doublesTeam')} LTR ${combinedLtr})`}
+                                {` (${t('appliedEventCard.teams.doublesTeam')} LPR ${combinedLtr})`}
                               </Text>
                             );
                           } else if (liveHostNtrp) {
-                            // Singles or doubles without partner LTR yet
+                            // Singles or doubles without partner LPR yet
                             return (
                               <Text style={styles.teamNtrpText}>
-                                {` (${isDoublesMatch ? t('appliedEventCard.teams.doubles') : t('appliedEventCard.teams.singles')} LTR ${liveHostNtrp})`}
+                                {` (${isDoublesMatch ? t('appliedEventCard.teams.doubles') : t('appliedEventCard.teams.singles')} LPR ${liveHostNtrp})`}
                               </Text>
                             );
                           }
@@ -2023,22 +2023,22 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
                       <Ionicons name='checkmark-circle' size={18} color='#4CAF50' />
                       <Text style={styles.teamCardName}>
                         {hostDisplay}
-                        {/* 🎯 [KIM FIX] For doubles: show combined LTR (host + partner), for singles: show host LTR */}
+                        {/* 🎯 [KIM FIX] For doubles: show combined LPR (host + partner), for singles: show host LPR */}
                         {(() => {
                           const isDoublesMatch = event.gameType?.toLowerCase().includes('doubles');
                           if (isDoublesMatch && liveHostNtrp && liveHostPartnerNtrp) {
-                            // Doubles: show combined LTR with "복식팀" label
+                            // Doubles: show combined LPR with "복식팀" label
                             const combinedLtr = liveHostNtrp + liveHostPartnerNtrp;
                             return (
                               <Text style={styles.teamNtrpText}>
-                                {` (${t('appliedEventCard.teams.doublesTeam')} LTR ${combinedLtr})`}
+                                {` (${t('appliedEventCard.teams.doublesTeam')} LPR ${combinedLtr})`}
                               </Text>
                             );
                           } else if (liveHostNtrp) {
-                            // Singles or doubles without partner LTR yet
+                            // Singles or doubles without partner LPR yet
                             return (
                               <Text style={styles.teamNtrpText}>
-                                {` (${isDoublesMatch ? t('appliedEventCard.teams.doubles') : t('appliedEventCard.teams.singles')} LTR ${liveHostNtrp})`}
+                                {` (${isDoublesMatch ? t('appliedEventCard.teams.doubles') : t('appliedEventCard.teams.singles')} LPR ${liveHostNtrp})`}
                               </Text>
                             );
                           }
@@ -2059,19 +2059,19 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
                         <Text style={styles.teamCardName}>
                           {event.applicantName || t('appliedEventCard.teams.me')} &{' '}
                           {event.partnerName}
-                          {/* 🎯 [KIM FIX] Show combined LTR for my team (applicant + partner) */}
+                          {/* 🎯 [KIM FIX] Show combined LPR for my team (applicant + partner) */}
                           {(() => {
                             if (liveApplicantNtrp && liveMyPartnerNtrp) {
                               const combinedLtr = liveApplicantNtrp + liveMyPartnerNtrp;
                               return (
                                 <Text style={styles.teamNtrpText}>
-                                  {` (${t('appliedEventCard.teams.doublesTeam')} LTR ${combinedLtr})`}
+                                  {` (${t('appliedEventCard.teams.doublesTeam')} LPR ${combinedLtr})`}
                                 </Text>
                               );
                             } else if (liveApplicantNtrp) {
                               return (
                                 <Text style={styles.teamNtrpText}>
-                                  {` (LTR ${liveApplicantNtrp})`}
+                                  {` (LPR ${liveApplicantNtrp})`}
                                 </Text>
                               );
                             }
@@ -2149,7 +2149,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
               const partnerDisplayName =
                 (event.partnerId && userNameMap[event.partnerId]) || event.partnerName;
               challengerTeam = `${applicantDisplayName} & ${partnerDisplayName}`;
-              // 🎯 [KIM FIX] Get challenger team LTR from live state (my team)
+              // 🎯 [KIM FIX] Get challenger team LPR from live state (my team)
               if (liveApplicantNtrp && liveMyPartnerNtrp) {
                 challengerTeamLtr = liveApplicantNtrp + liveMyPartnerNtrp;
               }
@@ -2157,13 +2157,13 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
             // Then try from approvedApplications (for host team members OR if direct props not available)
             // 🎯 [KIM FIX] Only show guest team if application is APPROVED (status === 'approved')
             // 🎯 [ROOT CAUSE FIX] Only include team leader's document (invitedBy === applicantId)
-            // 🎯 [KIM FIX v28] Must have partnerId for correct team display and LTR calculation
+            // 🎯 [KIM FIX v28] Must have partnerId for correct team display and LPR calculation
             else if (event.approvedApplications && event.approvedApplications.length > 0) {
               const guestTeamApp = event.approvedApplications.find(
                 app =>
                   app.applicantName &&
                   app.partnerName &&
-                  app.partnerId && // 🎯 [KIM FIX v28] Must have partnerId for LTR calculation!
+                  app.partnerId && // 🎯 [KIM FIX v28] Must have partnerId for LPR calculation!
                   app.type !== 'partner_invitation' &&
                   app.status === 'approved' && // 🎯 Must be approved!
                   // 🎯 [ROOT CAUSE FIX] Team leader's document has invitedBy === applicantId
@@ -2178,14 +2178,14 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
                   (guestTeamApp.partnerId && userNameMap[guestTeamApp.partnerId]) ||
                   guestTeamApp.partnerName;
                 challengerTeam = `${guestApplicantName} & ${guestPartnerName}`;
-                // 🎯 [KIM FIX v2] Get challenger team LTR from live state (real-time from user documents)
+                // 🎯 [KIM FIX v2] Get challenger team LPR from live state (real-time from user documents)
                 if (liveGuestApplicantLtr && liveGuestPartnerLtr) {
                   challengerTeamLtr = liveGuestApplicantLtr + liveGuestPartnerLtr;
                 }
               }
             }
 
-            // 🎯 [KIM FIX] Calculate host team LTR
+            // 🎯 [KIM FIX] Calculate host team LPR
             const hostTeamLtr =
               isDoubles && liveHostNtrp && liveHostPartnerNtrp
                 ? liveHostNtrp + liveHostPartnerNtrp
@@ -2204,12 +2204,12 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
                     <Ionicons name='checkmark-circle' size={18} color='#4CAF50' />
                     <View style={styles.teamCardNameContainer}>
                       <Text style={styles.teamCardName}>{hostDisplay}</Text>
-                      {/* 🎯 [2026-01-12] Show team LTR on separate line */}
+                      {/* 🎯 [2026-01-12] Show team LPR on separate line */}
                       {hostTeamLtr && (
                         <Text style={styles.teamLtrText}>
                           {isDoubles
-                            ? `(${t('appliedEventCard.teams.doublesTeam')} LTR ${hostTeamLtr})`
-                            : `(LTR ${hostTeamLtr})`}
+                            ? `(${t('appliedEventCard.teams.doublesTeam')} LPR ${hostTeamLtr})`
+                            : `(LPR ${hostTeamLtr})`}
                         </Text>
                       )}
                     </View>
@@ -2226,10 +2226,10 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
                       <Ionicons name='checkmark-circle' size={18} color='#4CAF50' />
                       <View style={styles.teamCardNameContainer}>
                         <Text style={styles.teamCardName}>{challengerTeam}</Text>
-                        {/* 🎯 [2026-01-12] Show challenger team LTR on separate line */}
+                        {/* 🎯 [2026-01-12] Show challenger team LPR on separate line */}
                         {challengerTeamLtr && (
                           <Text style={styles.teamLtrText}>
-                            {`(${t('appliedEventCard.teams.doublesTeam')} LTR ${challengerTeamLtr})`}
+                            {`(${t('appliedEventCard.teams.doublesTeam')} LPR ${challengerTeamLtr})`}
                           </Text>
                         )}
                       </View>
@@ -2572,7 +2572,7 @@ const createStyles = (colors: any, theme: 'light' | 'dark') =>
       alignItems: 'center',
       gap: 8,
     },
-    // 🎯 [2026-01-12] Container for team name + LTR text (vertical layout)
+    // 🎯 [2026-01-12] Container for team name + LPR text (vertical layout)
     teamCardNameContainer: {
       flex: 1,
       flexDirection: 'column',
@@ -2582,7 +2582,7 @@ const createStyles = (colors: any, theme: 'light' | 'dark') =>
       fontWeight: '600',
       color: theme === 'dark' ? '#FFFFFF' : '#1F2937',
     },
-    // 🎯 [KIM FIX] Team LTR text style
+    // 🎯 [KIM FIX] Team LPR text style
     teamLtrText: {
       fontSize: 12,
       fontWeight: '400',
@@ -2722,7 +2722,7 @@ const createStyles = (colors: any, theme: 'light' | 'dark') =>
       fontSize: 12,
       fontWeight: '600',
     },
-    // 🎯 [KIM FIX v3] LTR 범위 밖일 때 비활성화 스타일
+    // 🎯 [KIM FIX v3] LPR 범위 밖일 때 비활성화 스타일
     proposeButtonDisabled: {
       backgroundColor: theme === 'dark' ? '#2C2C2C' : '#F5F5F5',
       opacity: 0.7,
@@ -2811,7 +2811,7 @@ const createStyles = (colors: any, theme: 'light' | 'dark') =>
       color: colors.onSurfaceVariant,
       fontWeight: '500',
     },
-    // 🎾 Tennis wind condition label
+    // 🎾 Pickleball wind condition label
     windCondition: {
       fontSize: 10,
       fontWeight: '600',

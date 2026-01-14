@@ -47,13 +47,13 @@
       "retry": "Intentar de nuevo",
       "debugTitle": "Modo Dev - Información del error:",
       "detailedTitle": "Se produjo un error en la app",
-      "detailedMessage": "Lo sentimos, se produjo un error inesperado. Reinicie la app o contacte a Entrenador Relámpago o lightningtennisapp@gmail.com si el problema persiste.",
+      "detailedMessage": "Lo sentimos, se produjo un error inesperado. Reinicie la app o contacte a Entrenador Relámpago o lightningpickleballapp@gmail.com si el problema persiste.",
       "reportSent": "✅ El informe de error se ha enviado automáticamente",
       "reportPending": "📤 Enviando informe de error...",
       "errorDetails": "Detalles del error (Modo Dev):",
       "componentStack": "Pila de componentes:",
       "restart": "Reiniciar App",
-      "supportText": "Si el problema persiste, contacte a Entrenador Relámpago o lightningtennisapp@gmail.com con la siguiente info:",
+      "supportText": "Si el problema persiste, contacte a Entrenador Relámpago o lightningpickleballapp@gmail.com con la siguiente info:",
       "errorTime": "Hora del error",
       "appVersion": "Versión de la app",
       "errorCode": "Código de error"
@@ -175,7 +175,7 @@
     "alreadyHaveAccount": "¿Ya tienes una cuenta?",
     "dontHaveAccount": "¿No tienes una cuenta?",
     "loginDescription": "Construye tu red local de tenis y comunidad",
-    "welcomeTitle": "¡Bienvenido a Lightning Tennis!",
+    "welcomeTitle": "¡Bienvenido a Lightning Pickleball!",
     "welcomeSubtitle": "Conecta con jugadores de tenis en tu área y únete a la comunidad",
     "continueWithEmail": "Continuar con correo",
     "whatYouGet": "Lo que obtendrás:",
@@ -188,7 +188,7 @@
     "emailLoginSetup": "La navegación de inicio de sesión con correo está siendo configurada. Por favor, intenta de nuevo.",
     "register": {
       "title": "Registrarse",
-      "subtitle": "Únete a Lightning Tennis",
+      "subtitle": "Únete a Lightning Pickleball",
       "displayName": "Nombre",
       "signingUp": "Registrando...",
       "passwordHint": "La contraseña debe tener al menos 8 caracteres e incluir mayúsculas, minúsculas y números.",
@@ -237,7 +237,7 @@
     "create": "Crear",
     "myClubs": "Mis Clubes",
     "myProfile": "Mi Perfil",
-    "ltrAssessment": "LTR Assessment"
+    "ltrAssessment": "LPR Assessment"
   },
   "createClub": {
     "title": "Crear Club",
@@ -580,7 +580,7 @@
     "stats": "Estadísticas",
     "sections": {
       "personal": "Información Personal",
-      "tennis": "Información de Tenis",
+      "pickleball": "Información de Tenis",
       "preferences": "Preferencias",
       "privacy": "Privacidad",
       "security": "Seguridad"
@@ -710,9 +710,9 @@
     },
     "skillLevels": {
       "beginner": "Princ.",
-      "beginnerDesc": "Empezando a aprender tenis (LTR 2.5)",
+      "beginnerDesc": "Empezando a aprender tenis (LPR 2.5)",
       "elementary": "Elemental",
-      "elementaryDesc": "He aprendido lo básico (LTR 3.5)"
+      "elementaryDesc": "He aprendido lo básico (LPR 3.5)"
     },
     "timeSlots": {
       "morning": "Mañana (6-12)",
@@ -736,7 +736,7 @@
       "locationError": "Error de Ubicación",
       "locationErrorMessage": "No se pudo obtener la ubicación. Inténtalo de nuevo.",
       "profileComplete": "Perfil Configurado",
-      "profileCompleteMessage": "¡Tu perfil está listo! ¡Comienza Lightning Tennis!",
+      "profileCompleteMessage": "¡Tu perfil está listo! ¡Comienza Lightning Pickleball!",
       "error": "Error",
       "errorMessage": "Ocurrió un error durante la configuración del perfil."
     },
@@ -791,11 +791,11 @@
     }
   },
   "ltrAssessment": {
-    "title": "Evaluación LTR",
+    "title": "Evaluación LPR",
     "back": "Atrás",
     "next": "Siguiente",
     "viewResult": "Ver resultado",
-    "recommendedLevel": "Nivel LTR recomendado",
+    "recommendedLevel": "Nivel LPR recomendado",
     "confidence": "Confianza",
     "confidenceHigh": "alta",
     "confidenceMedium": "media",
@@ -810,23 +810,23 @@
     "complete": "Completar"
   },
   "ltrResult": {
-    "title": "Resultado LTR",
-    "recommendedLevel": "Nivel LTR Recomendado",
+    "title": "Resultado LPR",
+    "recommendedLevel": "Nivel LPR Recomendado",
     "initialElo": "ELO Inicial",
     "recommended": "Rec",
     "confirmSkillLevel": "Confirmar Nivel de Habilidad",
     "confirmMessage": "¿Desea seleccionar {{level}}?\n\nSu perfil se establecerá en este nivel.",
     "chooseSkillLevel": "Elegir Nivel de Habilidad",
     "manualSelectionHint": "Seleccione manualmente si cree que la recomendación es diferente",
-    "highLevelNotice": "Su evaluación indica nivel LTR {{level}}. Sin embargo, los nuevos miembros solo pueden seleccionar hasta 3.5. Puede alcanzar niveles más altos a través de partidos reales.",
-    "policyNotice": "LTR 6 y superiores solo se pueden lograr a través de resultados de partidos en la aplicación. Durante la incorporación, puede seleccionar hasta LTR 5.",
+    "highLevelNotice": "Su evaluación indica nivel LPR {{level}}. Sin embargo, los nuevos miembros solo pueden seleccionar hasta 3.5. Puede alcanzar niveles más altos a través de partidos reales.",
+    "policyNotice": "LPR 6 y superiores solo se pueden lograr a través de resultados de partidos en la aplicación. Durante la incorporación, puede seleccionar hasta LPR 5.",
     "eloInfo": {
       "title": "¿Qué es la Clasificación ELO?",
-      "description": "ELO es una clasificación que representa el nivel de habilidad relativo. Cambia según los resultados de los partidos y se establece inicialmente según su nivel LTR."
+      "description": "ELO es una clasificación que representa el nivel de habilidad relativo. Cambia según los resultados de los partidos y se establece inicialmente según su nivel LPR."
     },
     "confidenceInfo": {
       "title": "¿Qué es la Confianza?",
-      "description": "El Nivel de Confianza indica qué tan consistentes son los resultados de su evaluación LTR."
+      "description": "El Nivel de Confianza indica qué tan consistentes son los resultados de su evaluación LPR."
     },
     "confidence": {
       "label": "Confianza: {{level}}",
@@ -871,7 +871,7 @@
     "stepProgress": "Paso {{current}} de {{total}}",
     "agreeAll": "Aceptar todos los términos",
     "importantNotice": "Aviso importante",
-    "noticeContent": "Lightning Tennis es una plataforma que conecta jugadores de tenis. La responsabilidad por incidentes de seguridad o disputas durante partidos reales recae en los participantes, y no asumimos responsabilidad legal por estos asuntos.",
+    "noticeContent": "Lightning Pickleball es una plataforma que conecta jugadores de tenis. La responsabilidad por incidentes de seguridad o disputas durante partidos reales recae en los participantes, y no asumimos responsabilidad legal por estos asuntos.",
     "requiredTermsTitle": "Términos requeridos",
     "requiredTermsMessage": "Por favor, acepte todos los términos requeridos para continuar.",
     "serviceTerms": "Términos de servicio",
@@ -885,11 +885,11 @@
     "details": {
       "serviceTerms": {
         "title": "Términos de servicio",
-        "content": "Términos de servicio de Lightning Tennis\n\n⚠️ Aviso importante\nLightning Tennis es una plataforma que conecta jugadores de tenis. La responsabilidad por incidentes de seguridad o disputas durante partidos reales recae en los participantes, y no asumimos responsabilidad legal por estos asuntos.\n\n1. Uso del servicio\n- Esta aplicación es un servicio de plataforma que conecta jugadores de tenis.\n- Los usuarios pueden utilizar funciones como creación de partidos, participación y actividades de club.\n- Por favor, mantenga el respeto mutuo y el espíritu deportivo al usar el servicio.\n\n2. Obligaciones del usuario\n- Debe proporcionar información precisa.\n- No debe infringir los derechos de otros.\n- No debe publicar contenido ilegal o inapropiado.\n\n3. Términos del servicio de chatbot de IA\n3.1 Limitaciones de respuestas de IA (Descargo de responsabilidad)\n- La información relacionada con el tenis proporcionada por el chatbot es generada por IA.\n- La información proporcionada por IA puede ser inexacta o desactualizada.\n- La empresa no garantiza la precisión, integridad o confiabilidad de la información del chatbot de IA.\n- La empresa no es responsable de ningún daño derivado de la información del chatbot de IA.\n\n3.2 Reglas de conducta del usuario\n- Está prohibido usar el chatbot para generar o solicitar contenido ilegal.\n- Está prohibido generar o solicitar contenido ofensivo o discriminatorio.\n- Está prohibido generar o solicitar contenido que infrinja los derechos de otros.\n- Está prohibido compartir intencionalmente información personal o sensible.\n\n3.3 Cambios y discontinuación del servicio\n- La empresa puede cambiar la funcionalidad del chatbot de IA en cualquier momento.\n- La empresa puede suspender temporal o permanentemente el servicio de chatbot por razones técnicas u operativas.\n- La empresa no es responsable de daños por cambios o discontinuación del servicio.\n\n4. Derechos del proveedor de servicios\n- Puede realizar actualizaciones para mejorar la calidad.\n- Puede tomar medidas disciplinarias contra usuarios inapropiados."
+        "content": "Términos de servicio de Lightning Pickleball\n\n⚠️ Aviso importante\nLightning Pickleball es una plataforma que conecta jugadores de tenis. La responsabilidad por incidentes de seguridad o disputas durante partidos reales recae en los participantes, y no asumimos responsabilidad legal por estos asuntos.\n\n1. Uso del servicio\n- Esta aplicación es un servicio de plataforma que conecta jugadores de tenis.\n- Los usuarios pueden utilizar funciones como creación de partidos, participación y actividades de club.\n- Por favor, mantenga el respeto mutuo y el espíritu deportivo al usar el servicio.\n\n2. Obligaciones del usuario\n- Debe proporcionar información precisa.\n- No debe infringir los derechos de otros.\n- No debe publicar contenido ilegal o inapropiado.\n\n3. Términos del servicio de chatbot de IA\n3.1 Limitaciones de respuestas de IA (Descargo de responsabilidad)\n- La información relacionada con el tenis proporcionada por el chatbot es generada por IA.\n- La información proporcionada por IA puede ser inexacta o desactualizada.\n- La empresa no garantiza la precisión, integridad o confiabilidad de la información del chatbot de IA.\n- La empresa no es responsable de ningún daño derivado de la información del chatbot de IA.\n\n3.2 Reglas de conducta del usuario\n- Está prohibido usar el chatbot para generar o solicitar contenido ilegal.\n- Está prohibido generar o solicitar contenido ofensivo o discriminatorio.\n- Está prohibido generar o solicitar contenido que infrinja los derechos de otros.\n- Está prohibido compartir intencionalmente información personal o sensible.\n\n3.3 Cambios y discontinuación del servicio\n- La empresa puede cambiar la funcionalidad del chatbot de IA en cualquier momento.\n- La empresa puede suspender temporal o permanentemente el servicio de chatbot por razones técnicas u operativas.\n- La empresa no es responsable de daños por cambios o discontinuación del servicio.\n\n4. Derechos del proveedor de servicios\n- Puede realizar actualizaciones para mejorar la calidad.\n- Puede tomar medidas disciplinarias contra usuarios inapropiados."
       },
       "privacyPolicy": {
         "title": "Política de privacidad",
-        "content": "Política de privacidad\n\n1. Información personal que recopilamos\n- Información básica: Apodo, género, rango de edad\n- Información de tenis: Nivel LTR, estilo de juego preferido\n- Información de ubicación: Áreas de actividad, ubicación GPS (para búsqueda de partidos)\n- Información de contacto: Dirección de correo electrónico\n- Datos de conversación del chatbot de IA: Preguntas de usuarios y registros de conversación\n\n2. Propósito del uso de información personal\n- Proporcionar servicios de emparejamiento\n- Proporcionar recomendaciones personalizadas\n- Apoyar la comunicación entre usuarios\n- Mejora del servicio y análisis estadístico\n- Servicio de chatbot de IA: Generar respuestas a preguntas de usuarios\n- Mejora de calidad del servicio de chatbot y análisis de tendencias de consultas de usuarios\n\n3. Compartir información con terceros (Importante)\n3.1 Integración del servicio de IA de Google\n- El contenido de la conversación del usuario se transmite a Google (Alphabet Inc.) para la generación de respuestas del chatbot de IA.\n- Google procesa estos datos únicamente para generar respuestas a través de modelos de IA (Gemini).\n- Política de privacidad de Google: https://policies.google.com/privacy\n- Los usuarios pueden optar por no usar las funciones del chatbot de IA sin limitar el uso de otros servicios.\n\n3.2 Protecciones al compartir con terceros\n- La información de identificación personal se minimiza antes de la transmisión.\n- Los datos se transmiten de forma segura a través de comunicación encriptada.\n\n4. Período de almacenamiento de datos\n- Información personal básica: Almacenada durante el período de uso del servicio\n- Registros de conversación del chatbot de IA: Almacenados hasta 2 años para mejora del servicio, luego eliminados automáticamente\n- Toda la información personal se elimina inmediatamente al eliminar la cuenta (excepto requisitos legales de retención)\n\n5. Protección de información personal y derechos del usuario\n- La información personal recopilada se encripta y almacena de forma segura\n- Los usuarios pueden solicitar el cese del procesamiento de información personal en cualquier momento\n- Los usuarios pueden solicitar acceso, corrección o eliminación de información personal\n\n⚠️ 6. Descargo de responsabilidad de seguridad de información personal (Importante)\n- En caso de fuga de información personal debido a hackeo, malware, errores del sistema u otros ataques externos o errores de programa, la empresa no es legalmente responsable.\n- Se aconseja a los usuarios NO exponer ni almacenar información personal sensible como números de seguro social, información financiera o contraseñas dentro de la aplicación.\n- La empresa no es responsable de daños derivados de ingresar información sensible en perfiles, publicaciones, chats, etc.\n- Se alienta a los usuarios a usar contraseñas seguras y cambiarlas periódicamente para la seguridad de su cuenta.\n\n⚠️ 7. Aviso de privacidad de salas de chat y Descargo de responsabilidad (Importante)\n- Los mensajes en las salas de chat de eventos/clubes son visibles para TODOS los participantes de esa sala.\n- Los mensajes directos 1:1 solo pueden ser vistos por los participantes de la conversación.\n- Los usuarios son los únicos responsables de la información personal (números de teléfono, direcciones, etc.) que comparten en las salas de chat.\n- Otros participantes pueden capturar, copiar o compartir contenido del chat externamente; la empresa NO es responsable de los daños resultantes.\n- La empresa puede acceder al contenido del chat para la operación del servicio, resolución de disputas y prevención de actividades ilegales."
+        "content": "Política de privacidad\n\n1. Información personal que recopilamos\n- Información básica: Apodo, género, rango de edad\n- Información de tenis: Nivel LPR, estilo de juego preferido\n- Información de ubicación: Áreas de actividad, ubicación GPS (para búsqueda de partidos)\n- Información de contacto: Dirección de correo electrónico\n- Datos de conversación del chatbot de IA: Preguntas de usuarios y registros de conversación\n\n2. Propósito del uso de información personal\n- Proporcionar servicios de emparejamiento\n- Proporcionar recomendaciones personalizadas\n- Apoyar la comunicación entre usuarios\n- Mejora del servicio y análisis estadístico\n- Servicio de chatbot de IA: Generar respuestas a preguntas de usuarios\n- Mejora de calidad del servicio de chatbot y análisis de tendencias de consultas de usuarios\n\n3. Compartir información con terceros (Importante)\n3.1 Integración del servicio de IA de Google\n- El contenido de la conversación del usuario se transmite a Google (Alphabet Inc.) para la generación de respuestas del chatbot de IA.\n- Google procesa estos datos únicamente para generar respuestas a través de modelos de IA (Gemini).\n- Política de privacidad de Google: https://policies.google.com/privacy\n- Los usuarios pueden optar por no usar las funciones del chatbot de IA sin limitar el uso de otros servicios.\n\n3.2 Protecciones al compartir con terceros\n- La información de identificación personal se minimiza antes de la transmisión.\n- Los datos se transmiten de forma segura a través de comunicación encriptada.\n\n4. Período de almacenamiento de datos\n- Información personal básica: Almacenada durante el período de uso del servicio\n- Registros de conversación del chatbot de IA: Almacenados hasta 2 años para mejora del servicio, luego eliminados automáticamente\n- Toda la información personal se elimina inmediatamente al eliminar la cuenta (excepto requisitos legales de retención)\n\n5. Protección de información personal y derechos del usuario\n- La información personal recopilada se encripta y almacena de forma segura\n- Los usuarios pueden solicitar el cese del procesamiento de información personal en cualquier momento\n- Los usuarios pueden solicitar acceso, corrección o eliminación de información personal\n\n⚠️ 6. Descargo de responsabilidad de seguridad de información personal (Importante)\n- En caso de fuga de información personal debido a hackeo, malware, errores del sistema u otros ataques externos o errores de programa, la empresa no es legalmente responsable.\n- Se aconseja a los usuarios NO exponer ni almacenar información personal sensible como números de seguro social, información financiera o contraseñas dentro de la aplicación.\n- La empresa no es responsable de daños derivados de ingresar información sensible en perfiles, publicaciones, chats, etc.\n- Se alienta a los usuarios a usar contraseñas seguras y cambiarlas periódicamente para la seguridad de su cuenta.\n\n⚠️ 7. Aviso de privacidad de salas de chat y Descargo de responsabilidad (Importante)\n- Los mensajes en las salas de chat de eventos/clubes son visibles para TODOS los participantes de esa sala.\n- Los mensajes directos 1:1 solo pueden ser vistos por los participantes de la conversación.\n- Los usuarios son los únicos responsables de la información personal (números de teléfono, direcciones, etc.) que comparten en las salas de chat.\n- Otros participantes pueden capturar, copiar o compartir contenido del chat externamente; la empresa NO es responsable de los daños resultantes.\n- La empresa puede acceder al contenido del chat para la operación del servicio, resolución de disputas y prevención de actividades ilegales."
       },
       "locationServices": {
         "title": "Términos de servicios de ubicación",
@@ -897,7 +897,7 @@
       },
       "liabilityDisclaimer": {
         "title": "Exención de responsabilidad",
-        "content": "⚠️ AVISO LEGAL IMPORTANTE ⚠️\n\nLa aplicación Lightning Tennis sirve como plataforma para conectar jugadores de tenis individuales.\n\nNO ASUMIMOS NINGUNA RESPONSABILIDAD LEGAL por:\n\n1. Exención de responsabilidad por incidentes de seguridad\n- Lesiones o accidentes durante partidos de tenis\n- Disputas personales entre participantes del partido\n- Incidentes de seguridad en instalaciones de canchas de tenis\n\n2. Exención de responsabilidad por disputas financieras\n- Disputas relacionadas con costos de partidos\n- Problemas relacionados con tarifas de alquiler de canchas\n- Transacciones financieras entre usuarios\n\n3. Responsabilidad del usuario\n- Toda la seguridad y responsabilidad de los partidos recae en los anfitriones y participantes\n- Los usuarios deben verificar su estado de salud antes de participar\n- Se recomienda una cobertura de seguro adecuada\n\nAl usar este servicio, acepta estos términos de exención de responsabilidad."
+        "content": "⚠️ AVISO LEGAL IMPORTANTE ⚠️\n\nLa aplicación Lightning Pickleball sirve como plataforma para conectar jugadores de tenis individuales.\n\nNO ASUMIMOS NINGUNA RESPONSABILIDAD LEGAL por:\n\n1. Exención de responsabilidad por incidentes de seguridad\n- Lesiones o accidentes durante partidos de tenis\n- Disputas personales entre participantes del partido\n- Incidentes de seguridad en instalaciones de canchas de tenis\n\n2. Exención de responsabilidad por disputas financieras\n- Disputas relacionadas con costos de partidos\n- Problemas relacionados con tarifas de alquiler de canchas\n- Transacciones financieras entre usuarios\n\n3. Responsabilidad del usuario\n- Toda la seguridad y responsabilidad de los partidos recae en los anfitriones y participantes\n- Los usuarios deben verificar su estado de salud antes de participar\n- Se recomienda una cobertura de seguro adecuada\n\nAl usar este servicio, acepta estos términos de exención de responsabilidad."
       },
       "marketingCommunications": {
         "title": "Consentimiento de comunicaciones de marketing",
@@ -905,7 +905,7 @@
       },
       "inclusivityPolicy": {
         "title": "Política de diversidad e inclusión",
-        "content": "🌈 Política de diversidad e inclusión y descargo de responsabilidad\n\nLightning Tennis es una plataforma abierta a todos los usuarios.\n\n1. Principios de inclusividad\n- Todos los usuarios tienen igual acceso a nuestros servicios independientemente de su género, orientación sexual o identidad de género.\n- Los usuarios LGBTQ+ pueden participar en todas las actividades (creación de partidos, participación, actividades de club, etc.) sin restricciones.\n- Todos los usuarios deben adherirse a los principios de respeto mutuo.\n\n2. Descargo de responsabilidad por errores de programa\n- Los errores de programa pueden ocasionalmente causar restricciones no intencionadas en algunas funciones.\n- Tales errores no son discriminación intencional y se corregirán al descubrirse.\n- Acepta no presentar demandas legales por restricciones de funciones causadas por errores de programa.\n\n3. Anti-discriminación\n- El discurso o comportamiento discriminatorio basado en género, orientación sexual o identidad de género está prohibido.\n- El comportamiento discriminatorio puede resultar en restricciones del servicio.\n\nAl aceptar esta política, reconoce que comprende y acepta estos términos."
+        "content": "🌈 Política de diversidad e inclusión y descargo de responsabilidad\n\nLightning Pickleball es una plataforma abierta a todos los usuarios.\n\n1. Principios de inclusividad\n- Todos los usuarios tienen igual acceso a nuestros servicios independientemente de su género, orientación sexual o identidad de género.\n- Los usuarios LGBTQ+ pueden participar en todas las actividades (creación de partidos, participación, actividades de club, etc.) sin restricciones.\n- Todos los usuarios deben adherirse a los principios de respeto mutuo.\n\n2. Descargo de responsabilidad por errores de programa\n- Los errores de programa pueden ocasionalmente causar restricciones no intencionadas en algunas funciones.\n- Tales errores no son discriminación intencional y se corregirán al descubrirse.\n- Acepta no presentar demandas legales por restricciones de funciones causadas por errores de programa.\n\n3. Anti-discriminación\n- El discurso o comportamiento discriminatorio basado en género, orientación sexual o identidad de género está prohibido.\n- El comportamiento discriminatorio puede resultar en restricciones del servicio.\n\nAl aceptar esta política, reconoce que comprende y acepta estos términos."
       }
     },
     "accept": "Aceptar",
@@ -966,7 +966,7 @@
     },
     "devTools": {
       "loading": "Cargando...",
-      "tennisStats": "📊 Estadísticas de Tenis",
+      "pickleballStats": "📊 Estadísticas de Tenis",
       "matchesPlayed": "Partidos Jugados",
       "wins": "Victorias",
       "winRate": "Tasa de Victoria",
@@ -1261,7 +1261,7 @@
       "messageFailed": "Error al enviar mensaje"
     },
     "confirm": "Confirmar",
-    "tournamentBracket": {
+    "tournamentBpaddle": {
       "errorLoadingData": "Error al cargar datos del torneo",
       "matchNotFound": "Partido no encontrado",
       "matchResult": "Resultado del Partido",
@@ -1271,11 +1271,11 @@
       "scoreSubmitted": "Marcador Enviado",
       "scoreSubmittedSuccess": "El resultado del partido ha sido enviado exitosamente.",
       "errorSubmittingScore": "Error al enviar marcador del partido.",
-      "loadingBracket": "Cargando cuadro...",
+      "loadingBpaddle": "Cargando cuadro...",
       "tournamentNotFound": "Torneo no encontrado",
-      "bracketNotGenerated": "Cuadro aún no generado",
-      "bracketWillBeGenerated": "El cuadro se generará después de cerrar la inscripción",
-      "generatingBracket": "Generando Cuadro",
+      "bpaddleNotGenerated": "Cuadro aún no generado",
+      "bpaddleWillBeGenerated": "El cuadro se generará después de cerrar la inscripción",
+      "generatingBpaddle": "Generando Cuadro",
       "inProgress": "En Progreso",
       "completed": "Completado",
       "participants": "Participantes",
@@ -1772,7 +1772,7 @@
     },
     "buttons": {
       "joinTournament": "Unirse",
-      "viewBracket": "Ver Cuadro",
+      "viewBpaddle": "Ver Cuadro",
       "joining": "Uniéndose...",
       "participating": "Participando",
       "applyToLeague": "Inscribirse",
@@ -1987,7 +1987,7 @@
       "registrationClosed": "Inscripción cerrada"
     },
     "tournament": {
-      "bracket": "Bracket",
+      "bpaddle": "Bpaddle",
       "round": "Ronda",
       "quarterfinal": "Cuartos de Final",
       "semifinal": "Semifinal",
@@ -2200,8 +2200,8 @@
     "finished": "Finalizado",
     "cancelled": "Cancelado",
     "postponed": "Pospuesto",
-    "bracket": "Cuadro",
-    "viewBracket": "Ver Cuadro",
+    "bpaddle": "Cuadro",
+    "viewBpaddle": "Ver Cuadro",
     "updateScore": "Actualizar Puntuación",
     "reportScore": "Reportar Puntuación",
     "confirmScore": "Confirmar Puntuación",
@@ -2243,7 +2243,7 @@
       "delete": "Eliminar",
       "share": "Compartir",
       "create": "Crear Torneo/Liga",
-      "viewBracket": "Ver Cuadro",
+      "viewBpaddle": "Ver Cuadro",
       "viewStandings": "Ver Clasificación",
       "reportScore": "Reportar Resultado",
       "editDetails": "Editar Detalles",
@@ -2445,7 +2445,7 @@
     "state": "Estado",
     "country": "País",
     "zipCode": "Código Postal",
-    "tennisInfo": "Información de Tenis",
+    "pickleballInfo": "Información de Tenis",
     "skillLevel": "Nivel de Habilidad",
     "playingStyle": "Estilo de Juego",
     "dominantHand": "Mano Dominante",
@@ -2503,7 +2503,7 @@
       "management": "Administrador"
     },
     "status": {
-      "bracketGeneration": "Generando Cuadro",
+      "bpaddleGeneration": "Generando Cuadro",
       "inProgress": "En Progreso",
       "completed": "Completado",
       "draft": "Draft",
@@ -2542,7 +2542,7 @@
       "crownWinner": "Coronar Ganador",
       "closeRegistration": "Cerrar Inscripción",
       "addParticipantManually": "Agregar Participante Manualmente",
-      "generateBracket": "Generando Cuadro..."
+      "generateBpaddle": "Generando Cuadro..."
     },
     "stats": {
       "champion": "Campeón: ",
@@ -2581,9 +2581,9 @@
       "addingParticipants": "Agregando Participantes",
       "manualSeedingMessage": "El sembrado manual está habilitado. Por favor asigna los cabezas de serie en la pestaña Participantes, luego presiona \"Generar Cuadro e Iniciar\".",
       "registrationClosedMessage": "¡Inscripción cerrada y cuadro generado. El torneo ha comenzado!",
-      "bracketGeneratedMessage": "¡Cuadro generado. El torneo ha comenzado!",
+      "bpaddleGeneratedMessage": "¡Cuadro generado. El torneo ha comenzado!",
       "waitForParticipantAddition": "Por favor espera hasta que se complete la adición de participantes.",
-      "bracketGenerationError": "Ocurrió un error al generar el cuadro del torneo.",
+      "bpaddleGenerationError": "Ocurrió un error al generar el cuadro del torneo.",
       "roundCheckError": "Error al verificar la posibilidad de generación de ronda."
     },
     "seedAssignment": {
@@ -2602,7 +2602,7 @@
       "errorAssigning": "Ocurrió un error al asignar cabeza de serie",
       "errorRemoving": "Ocurrió un error al eliminar cabeza de serie",
       "seedRangeError": "El número de cabeza de serie debe estar entre 1 y {{max}}",
-      "completeMessageWithBracket": "Todos los participantes han sido asignados cabezas de serie.\nAhora puedes generar el cuadro del torneo."
+      "completeMessageWithBpaddle": "Todos los participantes han sido asignados cabezas de serie.\nAhora puedes generar el cuadro del torneo."
     },
     "deletion": {
       "title": "Eliminar Torneo",
@@ -2675,8 +2675,8 @@
       "deleteAllParticipantsWarning": "Eliminar todos los datos de participantes. Esta acción no se puede deshacer.",
       "evenParticipantsRequired": "Los dobles requieren un número par de participantes (actual: {{count}})",
       "assignSeedsManually": "Asignar cabezas de serie manualmente en la pestaña Participantes",
-      "generateBracketAndStart": "Generar Cuadro e Iniciar Torneo",
-      "generateBracketInstructions": "Generar cuadro usando sembrado {{method}} e iniciar el torneo",
+      "generateBpaddleAndStart": "Generar Cuadro e Iniciar Torneo",
+      "generateBpaddleInstructions": "Generar cuadro usando sembrado {{method}} e iniciar el torneo",
       "addingParticipantsWait": "Agregando participantes... Por favor espera hasta que se complete.",
       "cancelAndDeleteWarning": "Cancelar generación del cuadro y eliminar torneo. Esta acción no se puede deshacer.",
       "tournamentInProgress": "El torneo está en progreso. Verifica los resultados de los partidos en la pestaña Partidos.",
@@ -2697,8 +2697,8 @@
       "noActiveTournaments": "No hay torneos activos",
       "noCompletedTournaments": "No hay torneos completados",
       "createNewMessage": "Crea un nuevo torneo para competir con miembros del club",
-      "bracketNotGenerated": "Cuadro aún no generado",
-      "bracketAfterRegistration": "El cuadro se generará después de cerrar la inscripción",
+      "bpaddleNotGenerated": "Cuadro aún no generado",
+      "bpaddleAfterRegistration": "El cuadro se generará después de cerrar la inscripción",
       "clickMatchesForDetails": "Haz clic en los partidos para ver detalles",
       "cannotLoadTeamInfo": "No se puede cargar información del equipo",
       "participantsCannotFormTeams": "Los participantes no pueden formar equipos. Por favor verifica la información de compañeros para cada participante.",
@@ -2716,7 +2716,7 @@
     "viewMatches": "Ver Partidos",
     "matchesCount": "partidos",
     "updateScores": "Actualizar Marcadores",
-    "viewBracket": "Ver Cuadro",
+    "viewBpaddle": "Ver Cuadro",
     "tournamentNotFound": "Torneo no encontrado",
     "errorLoadingTournament": "Error al cargar el torneo"
   },
@@ -2782,15 +2782,15 @@
       "guestTeamWins": "Equipo Visitante Gana"
     },
     "requirements": {
-      "levelMismatch": "Nivel no coincide (Tu LTR: {{userLtr}}, Permitido: {{minLtr}}~{{maxLtr}})",
+      "levelMismatch": "Nivel no coincide (Tu LPR: {{userLtr}}, Permitido: {{minLtr}}~{{maxLtr}})",
       "genderMismatch": "Género no coincide",
       "menOnly": "Este es un partido masculino",
       "womenOnly": "Este es un partido femenino",
-      "canApply": "Aplicar: LTR {{minLtr}} - {{maxLtr}}",
+      "canApply": "Aplicar: LPR {{minLtr}} - {{maxLtr}}",
       "level": "Nivel: {{level}}",
       "alreadyApplied": "Ya aplicaste",
       "eventFull": "Evento lleno",
-      "canApplyDoublesTeam": "Aplicar: Equipo LTR {{minLtr}} - {{maxLtr}}"
+      "canApplyDoublesTeam": "Aplicar: Equipo LPR {{minLtr}} - {{maxLtr}}"
     },
     "soloApplicants": {
       "count": "{{count}} solo",
@@ -2884,7 +2884,7 @@
       "inviteAppUsers": "Invitar Usuarios de la App",
       "smsFriendInvitations": "Invitaciones SMS a Amigos",
       "sendSmsInvitations": "Enviar Invitaciones SMS",
-      "skillLevelMultiple": "Nivel de Habilidad LTR * (Selección Múltiple)",
+      "skillLevelMultiple": "Nivel de Habilidad LPR * (Selección Múltiple)",
       "selectSkillLevelsDesc": "Selecciona todos los niveles de habilidad que aceptas",
       "matchLevelAuto": "Nivel de Partido (Auto-Calculado)",
       "skillLevel": "Nivel de Habilidad",
@@ -2892,7 +2892,7 @@
       "anyLevel": "Cualquier Nivel",
       "selectLanguages": "Seleccionar Idiomas",
       "levelNotSet": "Nivel no establecido",
-      "ntrpRange": "Rango LTR",
+      "ntrpRange": "Rango LPR",
       "message": "Mensaje",
       "messagePlaceholder": "Escribe un mensaje para los participantes",
       "eventName": "Nombre del Evento",
@@ -2954,17 +2954,17 @@
       "matchLevelRestriction": "Los partidos Lightning solo permiten niveles iguales o superiores al nivel del anfitrión"
     },
     "autoNtrp": {
-      "hostLevel": "LTR Anfitrión: {{level}} ({{gameType}})",
-      "partnerLevel": "LTR Compañero: {{level}} ({{gameType}})",
-      "combinedLevel": "LTR Combinado: {{level}}",
-      "hostLevelWithType": "LTR Anfitrión: {{level}} ({{type}})",
-      "partnerLevelWithType": "LTR Compañero: {{level}} ({{type}})"
+      "hostLevel": "LPR Anfitrión: {{level}} ({{gameType}})",
+      "partnerLevel": "LPR Compañero: {{level}} ({{gameType}})",
+      "combinedLevel": "LPR Combinado: {{level}}",
+      "hostLevelWithType": "LPR Anfitrión: {{level}} ({{type}})",
+      "partnerLevelWithType": "LPR Compañero: {{level}} ({{type}})"
     },
     "helperText": {
       "languageSelection": "Selecciona idiomas en los que puedes comunicarte para una mejor experiencia de partido.",
       "matchLevelAuto": "El nivel de partido se calcula automáticamente basado en {{type}}.",
-      "doublesMatchLevel": "* El nivel de partido de dobles se establece automáticamente a partir de la suma de LTR del anfitrión y compañero. El compañero debe estar dentro de ±2 LTR del anfitrión.",
-      "singlesMatchLevel": "* El nivel de partido individual se establece automáticamente desde el LTR del anfitrión. (solo 0 a +1)"
+      "doublesMatchLevel": "* El nivel de partido de dobles se establece automáticamente a partir de la suma de LPR del anfitrión y compañero. El compañero debe estar dentro de ±2 LPR del anfitrión.",
+      "singlesMatchLevel": "* El nivel de partido individual se establece automáticamente desde el LPR del anfitrión. (solo 0 a +1)"
     },
     "friendInviteFilter": {
       "description": "Solo puedes invitar mismo nivel o hasta 1 nivel superior"
@@ -2976,7 +2976,7 @@
     "sms": {
       "description": "Envía invitaciones y enlace de descarga de la app a amigos que no han instalado la aplicación",
       "descriptionDetailed": "Envía invitaciones y enlaces de descarga de la app a amigos sin la aplicación",
-      "invitationMessage": "[Lightning Tennis] ¡{{sender}} te invitó a \"{{eventTitle}}\"! Descarga la app: {{link}}",
+      "invitationMessage": "[Lightning Pickleball] ¡{{sender}} te invitó a \"{{eventTitle}}\"! Descarga la app: {{link}}",
       "defaultSender": "Un amigo",
       "numbersToInvite": "Números para invitar:"
     },
@@ -2999,7 +2999,7 @@
       "loadUsers": "Cargar 20 más cercanos",
       "noResults": "No se encontró results.",
       "searchPrompt": "Por favor search for users",
-      "partnerLevelFilter": "Mostrando compañeros dentro de ±2 LTR de tu nivel",
+      "partnerLevelFilter": "Mostrando compañeros dentro de ±2 LPR de tu nivel",
       "partnerInviteExplanation": "Cuando selecciones un compañero, se enviará una invitación. Una vez que tu compañero acepte, el partido se publicará en Descubrir.",
       "noLocationInfo": "Sin info de ubicación"
     },
@@ -3032,14 +3032,14 @@
       "userSearchError": "Ocurrió un error al buscar usuarios.",
       "userListError": "Ocurrió un error al cargar la lista de usuarios.",
       "partnerSelectionFailed": "No se puede seleccionar pareja",
-      "partnerLevelGap": "La diferencia de nivel LTR con la pareja es demasiado grande.\n\nTu LTR: {{hostNtrp}}\nLTR de pareja: {{partnerNtrp}}\nDiferencia: {{gap}} (Máx 1,0)\n\nPor favor selecciona una pareja con nivel similar.",
+      "partnerLevelGap": "La diferencia de nivel LPR con la pareja es demasiado grande.\n\nTu LPR: {{hostNtrp}}\nLPR de pareja: {{partnerNtrp}}\nDiferencia: {{gap}} (Máx 1,0)\n\nPor favor selecciona una pareja con nivel similar.",
       "partnerSelected": "Pareja seleccionada",
       "partnerSelectedMessage": "Seleccionaste a {{displayName}} como pareja.",
       "titleRequired": "Por favor ingresa un título.",
       "locationRequired": "Por favor selecciona una ubicación",
       "gameTypeRequired": "Por favor selecciona un tipo de juego.",
       "doublesRequiresPartner": "Los dobles requieren seleccionar una pareja.",
-      "skillLevelRequired": "Por favor selecciona el nivel de habilidad LTR.",
+      "skillLevelRequired": "Por favor selecciona el nivel de habilidad LPR.",
       "eventUpdated": "¡{{typeLabel}} ha sido actualizado!",
       "eventCreated": "¡{{typeLabel}} ha sido creado!",
       "partnerInvited": "\nInvitación enviada a la pareja.",
@@ -3090,7 +3090,7 @@
     },
     "success": "Evento creado exitosamente",
     "ntrpFilter": {
-      "title": "Filtro de Nivel LTR",
+      "title": "Filtro de Nivel LPR",
       "minLevel": "Nivel Mínimo",
       "maxLevel": "Nivel Máximo",
       "noRestriction": "Sin Restricción"
@@ -3127,7 +3127,7 @@
     "matchType": {
       "title": "Tipo de Partido",
       "ranked": "Clasificatorio",
-      "rankedDescription": "Afecta tu ranking LTR",
+      "rankedDescription": "Afecta tu ranking LPR",
       "friendly": "Amistoso",
       "friendlyDescription": "Sin afectar ranking",
       "practice": "Práctica",
@@ -4663,8 +4663,8 @@
       "25": "e",
       "created": "Torneo creado exitosamente"
     },
-    "bracketType": "Tipo de Bracket",
-    "bracketTypes": {
+    "bpaddleType": "Tipo de Bpaddle",
+    "bpaddleTypes": {
       "singleElimination": "Eliminación Simple",
       "doubleElimination": "Eliminación Doble",
       "roundRobin": "Todos contra Todos"
@@ -4870,7 +4870,7 @@
       "sent": "Enviado",
       "hasProposal": "Tiene propuesta",
       "proposeTeam": "Proponer equipo",
-      "ltrOutOfRange": "LTR Fuera de Rango"
+      "ltrOutOfRange": "LPR Fuera de Rango"
     },
     "matchResult": {
       "ourTeamWon": "Victoria",
@@ -5026,7 +5026,7 @@
     "form": {
       "title": "Formulario de inscripción",
       "skillLevelConfirmation": "Confirmación de nivel de habilidad",
-      "skillLevelPlaceholder": "ej. LTR 5",
+      "skillLevelPlaceholder": "ej. LPR 5",
       "emergencyContact": "Contacto de emergencia",
       "emergencyPlaceholder": "Ingrese número de teléfono",
       "preferredPartner": "Compañero preferido (Opcional)",
@@ -5168,7 +5168,7 @@
         "Thunderstorm with Heavy Hail": "Tormenta severa",
         "Unknown": "Desconocido"
       },
-      "tennis": {
+      "pickleball": {
         "unplayable": "No jugable",
         "notRecommended": "No recomendado",
         "caution": "Precaución"
@@ -5480,7 +5480,7 @@
     "shortSetsMaxGamesExceeded": "En sets cortos, los juegos no pueden exceder {{max}}.",
     "gamesMustBeBetween": "Los juegos deben estar entre 0-7.",
     "invalidScore": "Marcador inválido",
-    "invalidTennisScore": "Marcador de tenis inválido.",
+    "invalidPickleballScore": "Marcador de tenis inválido.",
     "pleaseCheckScore": "Por favor, verifique el marcador.",
     "winnerSelectionRequired": "Selección de ganador requerida",
     "pleaseSelectWinner": "Por favor, seleccione el ganador.",
@@ -5639,7 +5639,7 @@
     "category": "Categoría",
     "categoryStringing": "Encordado",
     "categoryRepair": "Reparación",
-    "categoryUsedRacket": "Raqueta Usada",
+    "categoryUsedPaddle": "Raqueta Usada",
     "categoryUsedEquipment": "Equipo",
     "categoryOther": "Otro",
     "description": "Descripción",
@@ -5771,7 +5771,7 @@
       "strategyAdvice": "Dame consejos de estrategia y tácticas de partido",
       "equipmentHelp": "Recomienda equipo de tenis para mi nivel"
     },
-    "welcome": "¡Hola! Soy tu asistente de Lightning Tennis. 🎾\n\nEstoy listo para ayudarte con el uso de la app y todas tus preguntas sobre tenis:\n\n📱 Uso de la App\n• Crear partidos/reuniones\n• Unirse y gestionar clubes\n• Sistema de ranking ELO\n• Participación en dobles\n\n🎾 Conocimiento de Tenis\n• Consejos de técnica y estrategia\n• Explicaciones de reglas y puntuación\n• Recomendaciones de equipo\n\n¿En qué puedo ayudarte hoy?\n\nSi experimentas algún problema al usar la app, házmelo saber. Solo menciona el 'problema' y lo arreglaremos.\n\n⚠️ Este asistente de IA puede proporcionar información inexacta.",
+    "welcome": "¡Hola! Soy tu asistente de Lightning Pickleball. 🎾\n\nEstoy listo para ayudarte con el uso de la app y todas tus preguntas sobre tenis:\n\n📱 Uso de la App\n• Crear partidos/reuniones\n• Unirse y gestionar clubes\n• Sistema de ranking ELO\n• Participación en dobles\n\n🎾 Conocimiento de Tenis\n• Consejos de técnica y estrategia\n• Explicaciones de reglas y puntuación\n• Recomendaciones de equipo\n\n¿En qué puedo ayudarte hoy?\n\nSi experimentas algún problema al usar la app, házmelo saber. Solo menciona el 'problema' y lo arreglaremos.\n\n⚠️ Este asistente de IA puede proporcionar información inexacta.",
     "adminResponse": "📬 Respuesta del Equipo de Soporte:\n\n{{response}}",
     "userReply": "💬 Mi respuesta: {{message}}",
     "originalQuestion": "📝 Mi pregunta: {{question}}",
@@ -5956,7 +5956,7 @@
       "clubHomeCourt": "Cancha Local del Club",
       "changeInSettings": "Se puede cambiar en configuración del club",
       "courtLocation": "Ubicación de la Cancha",
-      "searchTennisCourt": "Buscar Cancha de Tenis",
+      "searchPickleballCourt": "Buscar Cancha de Tenis",
       "searchHelper": "Toca para buscar una cancha de tenis."
     },
     "court": {
@@ -6202,9 +6202,9 @@
     "selected": "{{count}} seleccionados",
     "add": "Agregar",
     "noName": "Sin Nombre",
-    "clubLtr": "Club LTR {{value}}",
-    "ltr": "LTR {{value}}",
-    "noLtr": "Sin LTR",
+    "clubLtr": "Club LPR {{value}}",
+    "ltr": "LPR {{value}}",
+    "noLtr": "Sin LPR",
     "required": "Requerido",
     "error": "Error",
     "ok": "OK",
@@ -6270,11 +6270,11 @@
     "scoreSubmissionFailed": "Error al Enviar Puntaje",
     "loadingTournament": "Cargando torneo...",
     "tournamentNotFound": "Torneo no encontrado",
-    "bracket": "Cuadro",
+    "bpaddle": "Cuadro",
     "hallOfFame": "Salón de la Fama",
-    "bracketNotGenerated": "Cuadro aún no generado",
-    "bracketWillBeGenerated": "El cuadro se generará después del cierre de inscripciones",
-    "statusGeneratingBracket": "Generando Cuadro",
+    "bpaddleNotGenerated": "Cuadro aún no generado",
+    "bpaddleWillBeGenerated": "El cuadro se generará después del cierre de inscripciones",
+    "statusGeneratingBpaddle": "Generando Cuadro",
     "statusInProgress": "En Progreso",
     "statusCompleted": "Completado",
     "participants": "Participantes",
@@ -6292,12 +6292,12 @@
     "rules": "Reglas",
     "tabs": {
       "overview": "Resumen",
-      "bracket": "Cuadro",
+      "bpaddle": "Cuadro",
       "participants": "Participantes",
       "rules": "Reglas"
     }
   },
-  "tournamentBracket": {
+  "tournamentBpaddle": {
     "errorLoadingData": "Error al cargar los datos del torneo",
     "matchNotFound": "Partido no encontrado",
     "matchResult": "Resultado del Partido",
@@ -6307,11 +6307,11 @@
     "scoreSubmitted": "Puntaje Enviado",
     "scoreSubmittedSuccess": "El resultado del partido se ha enviado exitosamente.",
     "errorSubmittingScore": "Error al enviar el puntaje del partido.",
-    "loadingBracket": "Cargando cuadro...",
+    "loadingBpaddle": "Cargando cuadro...",
     "tournamentNotFound": "Torneo no encontrado",
-    "bracketNotGenerated": "Cuadro aún no generado",
-    "bracketWillBeGenerated": "El cuadro se generará después del cierre de inscripciones",
-    "generatingBracket": "Generando Cuadro",
+    "bpaddleNotGenerated": "Cuadro aún no generado",
+    "bpaddleWillBeGenerated": "El cuadro se generará después del cierre de inscripciones",
+    "generatingBpaddle": "Generando Cuadro",
     "inProgress": "En Progreso",
     "completed": "Completado",
     "participants": "Jugadores",
@@ -6455,12 +6455,12 @@
     }
   },
   "ntrpLevelSelect": {
-    "headerTitle": "Selección de nivel LTR",
+    "headerTitle": "Selección de nivel LPR",
     "mainTitle": "Selecciona tu nivel de tenis",
     "subtitle": "Elige el nivel que coincida con tus habilidades",
     "confirmTitle": "Confirmar nivel de habilidad",
     "confirmMessage": "¿Quieres seleccionar {{level}}?\n\nTu perfil se configurará en este nivel.",
-    "policyNotice": "LTR 6 y superiores solo se pueden lograr a través de resultados de partidos en la aplicación. Durante la incorporación, puede seleccionar hasta LTR 5.",
+    "policyNotice": "LPR 6 y superiores solo se pueden lograr a través de resultados de partidos en la aplicación. Durante la incorporación, puede seleccionar hasta LPR 5.",
     "assessmentTitle": "🤔 ¿No conoces tu nivel?",
     "assessmentSubtitle": "Responde algunas preguntas para obtener un nivel recomendado",
     "assessmentButton": "Realizar evaluación de nivel",
@@ -6646,7 +6646,7 @@
     "select": "Seleccionar"
   },
   "ltrQuestion": {
-    "title": "Evaluación LTR",
+    "title": "Evaluación LPR",
     "back": "Atrás",
     "next": "Siguiente",
     "viewResult": "Ver Resultado"
@@ -6753,9 +6753,9 @@
   },
   "ltrLevelSelect": {
     "headerTitle": "Selecciona tu nivel",
-    "mainTitle": "¿Cuál es tu nivel LTR?",
+    "mainTitle": "¿Cuál es tu nivel LPR?",
     "subtitle": "Selecciona el nivel que mejor describe tu habilidad actual",
-    "policyNotice": "LTR 6 y superiores solo se pueden lograr a través de resultados de partidos",
+    "policyNotice": "LPR 6 y superiores solo se pueden lograr a través de resultados de partidos",
     "assessmentTitle": "¿No estás seguro?",
     "assessmentSubtitle": "Realiza la evaluación para encontrar tu nivel",
     "assessmentButton": "Iniciar evaluación",
@@ -6772,11 +6772,11 @@
     "close": "Cerrar"
   },
   "ltrExplanation": {
-    "title": "¿Qué es LTR?",
-    "description": "LTR (Lightning Tennis Rating) es nuestro sistema de clasificación único de 1-10 basado en el algoritmo ELO. Tu clasificación se calcula a partir de los resultados de partidos.",
+    "title": "¿Qué es LPR?",
+    "description": "LPR (Lightning Pickleball Rating) es nuestro sistema de clasificación único de 1-10 basado en el algoritmo ELO. Tu clasificación se calcula a partir de los resultados de partidos.",
     "tierSystem": "Sistema de 10 niveles",
     "keyPoints": "Puntos clave",
-    "point1": "Límite de incorporación en LTR 5 - Niveles superiores ganados en partidos",
+    "point1": "Límite de incorporación en LPR 5 - Niveles superiores ganados en partidos",
     "point2": "Cálculo de clasificación justo y preciso basado en ELO",
     "point3": "Clasificaciones separadas para Individual, Dobles y Dobles Mixtos"
   },
@@ -6832,7 +6832,7 @@
       "equalScoresInvalid": "Set {{set}}: Empates distintos a 6-6 no están permitidos.",
       "needTiebreakAt66": "Set {{set}}: 6-6 requiere un tiebreak.",
       "needTiebreakAt76": "Set {{set}}: 7-6 requiere puntos de tiebreak.",
-      "invalidTennisScore": "Set {{set}}: Puntuación de tenis inválida.",
+      "invalidPickleballScore": "Set {{set}}: Puntuación de tenis inválida.",
       "needSixGames": "Set {{set}}: Se necesitan al menos 6 juegos para ganar un set.",
       "enterAtLeastOneSet": "Ingrese al menos una puntuación de set.",
       "needMoreSets": "Se deben completar al menos {{count}} sets.",
@@ -7065,14 +7065,14 @@
   "leagueDetail": {
     "playoffInProgress": "Playoffs en Progreso",
     "tournamentFormat": "Formato:",
-    "tapToViewBracket": "Toque para ver el cuadro",
-    "generatingBracket": "Generando Cuadro",
+    "tapToViewBpaddle": "Toque para ver el cuadro",
+    "generatingBpaddle": "Generando Cuadro",
     "leagueSoonStarts": "La liga comenzará pronto",
     "roundRobinInProgress": "Todos contra Todos en Progreso",
     "roundRobinProgress": "{{completed}}/{{total}} partidos completados",
     "roundRobinRequirement": "Todos los participantes deben jugar entre sí antes de los playoffs",
-    "deleteBracket": "Eliminar Cuadro",
-    "deleteBracketWarning": "Eliminar todos los partidos y reiniciar a inscripción. Esta acción no se puede deshacer.",
+    "deleteBpaddle": "Eliminar Cuadro",
+    "deleteBpaddleWarning": "Eliminar todos los partidos y reiniciar a inscripción. Esta acción no se puede deshacer.",
     "leagueDeleted": "Liga Eliminada",
     "leagueDeletedByAdmin": "Esta liga ha sido eliminada por otro administrador. Por favor crea una nueva si es necesario.",
     "unknownUser": "Usuario Desconocido",
@@ -7097,13 +7097,13 @@
     "applicationPending": "Tu aplicación a la liga está pendiente.",
     "applicationApproved": "¡Has sido aprobado para unirte a la liga!",
     "applicationRejected": "Tu aplicación a la liga ha sido rechazada.",
-    "generateBracket": "Generar Bracket",
-    "generateBracketMessage": "Gestiona aplicaciones en la pestaña Participantes, luego genera el bracket en la pestaña Gestión",
-    "generateBracketMessageSimple": "El calendario de partidos aparecerá aquí una vez generado el bracket",
-    "bracketGeneratedSuccess": "¡Bracket generado exitosamente!\n\nLa lista de partidos aparecerá pronto.",
-    "bracketGenerateError": "Error al generar bracket.",
-    "bracketDeletedSuccess": "Bracket eliminado exitosamente.\n\nAhora puedes generar un nuevo bracket.",
-    "bracketDeleteError": "Error al eliminar bracket.",
+    "generateBpaddle": "Generar Bpaddle",
+    "generateBpaddleMessage": "Gestiona aplicaciones en la pestaña Participantes, luego genera el bpaddle en la pestaña Gestión",
+    "generateBpaddleMessageSimple": "El calendario de partidos aparecerá aquí una vez generado el bpaddle",
+    "bpaddleGeneratedSuccess": "¡Bpaddle generado exitosamente!\n\nLa lista de partidos aparecerá pronto.",
+    "bpaddleGenerateError": "Error al generar bpaddle.",
+    "bpaddleDeletedSuccess": "Bpaddle eliminado exitosamente.\n\nAhora puedes generar un nuevo bpaddle.",
+    "bpaddleDeleteError": "Error al eliminar bpaddle.",
     "startPlayoffs": "Iniciar Playoffs",
     "playoffsStartedSuccess": "¡Playoffs iniciados exitosamente!\n\nLos partidos de playoff aparecerán pronto.",
     "playoffsStartError": "Error al iniciar playoffs. Por favor intenta de nuevo.",
@@ -7316,8 +7316,8 @@
       "9": ".",
       "10": ".",
       "league": "Cargando información de la liga...",
-      "generatingBracket": "Generando cuadro...",
-      "generatingBracketSubtitle": "La liga comenzará pronto"
+      "generatingBpaddle": "Generando cuadro...",
+      "generatingBpaddleSubtitle": "La liga comenzará pronto"
     },
     "error": "Error al cargar los detalles de la liga",
     "actions": {
@@ -7392,7 +7392,7 @@
       "seasonComplete": "¡Temporada Regular Completa!",
       "seasonCompleteDescription": "Todos los partidos están terminados. Inicia los playoffs para determinar el campeón final.",
       "startButton": "Iniciar Playoffs",
-      "bracketToggle": "Cuadro de Playoffs",
+      "bpaddleToggle": "Cuadro de Playoffs",
       "standingsToggle": "Clasificación"
     },
     "matchApproval": {
@@ -7412,9 +7412,9 @@
       "bulkApprovalMessage": "¿Aprobar todos los {{count}} resultados de partidos pendientes?",
       "bulkApprovalWarning": "Los resultados aprobados se reflejarán en la clasificación y no se pueden deshacer.",
       "approveAll": "Aprobar Todos",
-      "deleteBracketTitle": "⚠️ Eliminar Cuadro",
-      "deleteBracketConfirm": "¿Eliminar todos los partidos en {{leagueName}}?\n\nEsta acción no se puede deshacer y la liga se restablecerá al estado de solicitud.",
-      "generateBracketConfirm": "¿Generar cuadro para {{leagueName}}?\n\nEsta acción no se puede deshacer y la liga comenzará.",
+      "deleteBpaddleTitle": "⚠️ Eliminar Cuadro",
+      "deleteBpaddleConfirm": "¿Eliminar todos los partidos en {{leagueName}}?\n\nEsta acción no se puede deshacer y la liga se restablecerá al estado de solicitud.",
+      "generateBpaddleConfirm": "¿Generar cuadro para {{leagueName}}?\n\nEsta acción no se puede deshacer y la liga comenzará.",
       "startPlayoffsConfirm": "Todos los partidos de temporada regular están completos.\n\n¿Iniciar playoffs para {{leagueName}}?",
       "deleteLeagueTitle": "⚠️ Eliminar Liga",
       "deleteLeagueConfirm": "¿Estás seguro de que quieres eliminar \"{{leagueName}}\"?\n\nEsta acción no se puede deshacer y todos los datos de partidos e información de participantes se eliminarán."
@@ -7424,7 +7424,7 @@
     "matchProgress": "Progreso de Partidos",
     "fillRate": "Llenado",
     "playoffRankings": "Clasificación Playoff",
-    "playoffBracket": "Cuadro",
+    "playoffBpaddle": "Cuadro",
     "wins": "V",
     "losses": "D",
     "ranking": "Ranking",
@@ -7432,7 +7432,7 @@
     "winsLosses": "{{wins}}V {{losses}}D",
     "pointsHeader": "Pts",
     "dangerZone": "Zona de Peligro",
-    "generateBracketAndStartLeague": "Generar cuadro e iniciar liga",
+    "generateBpaddleAndStartLeague": "Generar cuadro e iniciar liga",
     "deleteLeague": "Eliminar liga",
     "deleteLeagueConfirm": "¿Está seguro de que desea eliminar «{{leagueName}}»?\n\nEsta acción no se puede deshacer y se eliminarán todos los datos de partidos e información de participantes.",
     "minParticipantsRequired": "Se requieren mínimo {{min}} participantes para iniciar. Actual: {{current}}",
@@ -7758,7 +7758,7 @@
       "locationSearch": "Buscar Ubicación",
       "leagueManagement": "Gestión de Liga",
       "tournamentManagement": "Gestión de Torneo",
-      "tournamentBracket": "Cuadro del Torneo",
+      "tournamentBpaddle": "Cuadro del Torneo",
       "tournamentDetail": "Detalles del Torneo",
       "teamInvitations": "Invitaciones de Equipo",
       "scheduleSettings": "Configuración de Horarios",
@@ -8114,7 +8114,7 @@
     "activitiesInProgress": "Actividades en Progreso",
     "registrationOpen": "Registro Abierto",
     "inProgress": "En Progreso",
-    "bracketGeneration": "Generación de Llaves",
+    "bpaddleGeneration": "Generación de Llaves",
     "roundRobinInProgress": "Round Robin en Progreso",
     "playoffsInProgress": "Playoffs en Progreso",
     "clubNotifications": "Notificaciones del Club",
@@ -8628,7 +8628,7 @@
     "title": "Torneo",
     "register": "Registrarse",
     "withdraw": "Retirarse",
-    "viewBracket": "Ver Cuadro",
+    "viewBpaddle": "Ver Cuadro",
     "viewSchedule": "Ver Calendario",
     "loading": "Cargando..."
   },
@@ -9758,8 +9758,8 @@
       "applyFailed": "Error al aplicar",
       "withdrawSuccess": "Te has retirado",
       "withdrawFailed": "Error al retirarse",
-      "bracketGenerated": "Bracket generado",
-      "bracketFailed": "Error al generar bracket",
+      "bpaddleGenerated": "Bpaddle generado",
+      "bpaddleFailed": "Error al generar bpaddle",
       "fetchError": "Error al cargar liga",
       "createError": "Error al crear liga",
       "updateError": "Error al actualizar liga",
@@ -9913,7 +9913,7 @@
         "defaultMessage": "Tienes una nueva actualización de actividad.",
         "defaultLeagueName": "Liga"
       },
-      "tennisUserFallback": "UsuarioTenis{{id}}"
+      "pickleballUserFallback": "UsuarioTenis{{id}}"
     },
     "camera": {
       "permissionTitle": "Camera Permission requerido",
@@ -10026,7 +10026,7 @@
       "registrationClosed": "Inscripción cerrada",
       "registrationFull": "Inscripción completa",
       "registrationSuccess": "Inscripción exitosa",
-      "invalidBracket": "Cuadro inválido",
+      "invalidBpaddle": "Cuadro inválido",
       "scoreSubmitted": "Resultado enviado",
       "tournamentStarted": "Torneo iniciado",
       "tournamentCompleted": "Torneo completado"
@@ -10398,10 +10398,10 @@
       "encouragement": {
         "events": "Be the first to create a Lightning Partido or Meetup! ⚡",
         "eventsSubtext": "Tap the \"Create\" tab to start an event.",
-        "players": "Invite friends nearby and enjoy tennis together! 🎾",
+        "players": "Invite friends nearby and enjoy pickleball together! 🎾",
         "playersSubtext": "Start a Lightning Partido, meetup, or club with friends.",
         "clubs": "No clubs nearby yet. Be the first to create one! 🏆",
-        "clubsSubtext": "Tap the \"Create\" tab to start your own tennis club.",
+        "clubsSubtext": "Tap the \"Create\" tab to start your own pickleball club.",
         "coaches": "No coaches registered in this area yet 🔍",
         "coachesSubtext": "Try expanding your search distance to find more coaches.",
         "services": "No services registered in this area yet 🔧",
@@ -10428,7 +10428,7 @@
     },
     "locationRequired": {
       "title": "Ubicación requerida",
-      "description": "Lightning Tennis es un servicio basado en ubicación. Para ver eventos, jugadores, clubes, entrenadores y servicios cercanos, por favor activa la ubicación en Mi Perfil > Configuración.",
+      "description": "Lightning Pickleball es un servicio basado en ubicación. Para ver eventos, jugadores, clubes, entrenadores y servicios cercanos, por favor activa la ubicación en Mi Perfil > Configuración.",
       "setupButton": "Configurar ubicación"
     },
     "skillFilters": {
@@ -10443,7 +10443,7 @@
         "title": "⚡ Partido Rápido",
         "cannotChallenge": "No se Puede Desafiar",
         "sameGenderOnly": "Solo puedes desafiar jugadores del mismo género.",
-        "ntrpOutOfRange": "LTR {{ntrp}} está fuera de tu rango de desafío. (máx +1.0)",
+        "ntrpOutOfRange": "LPR {{ntrp}} está fuera de tu rango de desafío. (máx +1.0)",
         "challengeMessage": "¿Desafiar a {{name}} a un partido?\n\nUbicación y hora se discutirán por chat después de la aceptación.",
         "cancel": "Cancelar",
         "challenge": "Desafiar",
@@ -10508,7 +10508,7 @@
     "lightningMeetup": "Encuentro Relámpago",
     "casualMeetup": "Encuentro Casual",
     "createClub": "Crear Club",
-    "tennisCommunity": "Comunidad de Tenis"
+    "pickleballCommunity": "Comunidad de Tenis"
   },
   "clubMembersScreen": {
     "tabs": {
@@ -10913,13 +10913,13 @@
     "notYetEarned": "Aún no ganado",
     "seasonTrophyItems": {
       "seasonChampion": "Campeón de Temporada",
-      "seasonChampionDesc": "Logró el 1er lugar en su grupo de grado LTR",
+      "seasonChampionDesc": "Logró el 1er lugar en su grupo de grado LPR",
       "seasonRunnerUp": "Subcampeón de Temporada",
-      "seasonRunnerUpDesc": "Logró el 2do lugar en su grupo de grado LTR",
+      "seasonRunnerUpDesc": "Logró el 2do lugar en su grupo de grado LPR",
       "season3rdPlace": "3er Lugar de Temporada",
-      "season3rdPlaceDesc": "Logró el 3er lugar en su grupo de grado LTR",
+      "season3rdPlaceDesc": "Logró el 3er lugar en su grupo de grado LPR",
       "rankUp": "Subir de Rango",
-      "rankUpDesc": "Mejoró su grado LTR durante la temporada",
+      "rankUpDesc": "Mejoró su grado LPR durante la temporada",
       "ironMan": "Hombre de Hierro",
       "ironManDesc": "Top 10% en partidos jugados esta temporada",
       "ace": "As",
@@ -10974,7 +10974,7 @@
         "name": "Racha Caliente",
         "desc": "Gana 3 torneos consecutivos"
       },
-      "tennis_prodigy": {
+      "pickleball_prodigy": {
         "name": "Prodigio del Tenis",
         "desc": "Mantén 100% de victorias (mínimo 5 torneos)"
       },
@@ -11000,7 +11000,7 @@
       },
       "early_adopter": {
         "name": "Pionero",
-        "desc": "Únete a Lightning Tennis en sus primeros días"
+        "desc": "Únete a Lightning Pickleball en sus primeros días"
       },
       "conditions": {
         "wins": "Gana {{count}} partido(s)",
@@ -11020,7 +11020,7 @@
         "singlesTournamentWins": "Gana {{count}} torneo(s) de singles",
         "doublesTournamentWins": "Gana {{count}} torneo(s) de dobles",
         "perfectMatches": "Gana {{count}} partido(s) sin perder un set",
-        "joinDate": "Únete a Lightning Tennis en sus primeros días",
+        "joinDate": "Únete a Lightning Pickleball en sus primeros días",
         "lightningMatchesHosted": "Organiza {{count}} partido(s) relámpago"
       },
       "lightning_host": {
@@ -11242,12 +11242,12 @@
   "utils": {
     "ltr": {
       "whatIsLtr": {
-        "title": "¿Qué es LTR?",
-        "content": "LTR (Lightning Tennis Rating) es un sistema de evaluación de habilidad propietario desarrollado exclusivamente para la comunidad Lightning Tennis. LTR se calcula basándose en el algoritmo ELO aplicado a todos los resultados de partidos lightning públicos, mostrando tu trayectoria de crecimiento en una escala intuitiva de 1 a 10. Es un indicador honorable de cuánto has crecido dentro de nuestro ecosistema."
+        "title": "¿Qué es LPR?",
+        "content": "LPR (Lightning Pickleball Rating) es un sistema de evaluación de habilidad propietario desarrollado exclusivamente para la comunidad Lightning Pickleball. LPR se calcula basándose en el algoritmo ELO aplicado a todos los resultados de partidos lightning públicos, mostrando tu trayectoria de crecimiento en una escala intuitiva de 1 a 10. Es un indicador honorable de cuánto has crecido dentro de nuestro ecosistema."
       },
       "relationToNtrp": {
         "title": "Relación con NTRP",
-        "content": "LTR es un sistema único distinto del NTRP de la USTA. Para la comodidad de usuarios familiarizados con las calificaciones NTRP, puedes seleccionar tu nivel de habilidad en un rango similar a NTRP al registrarte, pero todos los niveles oficiales calculados y mostrados dentro de la app se basan en LTR."
+        "content": "LPR es un sistema único distinto del NTRP de la USTA. Para la comodidad de usuarios familiarizados con las calificaciones NTRP, puedes seleccionar tu nivel de habilidad en un rango similar a NTRP al registrarte, pero todos los niveles oficiales calculados y mostrados dentro de la app se basan en LPR."
       },
       "unknownLevel": "Unknown level",
       "eloAbove": "ELO ≥{{min}}"
@@ -11308,7 +11308,7 @@
   },
   "inviteFriends": {
     "title": "Invitar Amigos",
-    "shareMessage": "¡Únete a mí en Lightning Tennis!",
+    "shareMessage": "¡Únete a mí en Lightning Pickleball!",
     "share": "Compartir",
     "copied": "Link copiado"
   },
@@ -11692,7 +11692,7 @@
       "mixedDoubles": "Dobles Mixto"
     },
     "inviter": "Invitador",
-    "combinedLtr": "LTR Combinado",
+    "combinedLtr": "LPR Combinado",
     "date": "Fecha",
     "time": "Hora",
     "location": "Lugar",
@@ -11902,7 +11902,7 @@
     "requestLesson": "Solicitar Lección"
   },
   "equipmentShop": {
-    "shopRackets": "Comprar Raquetas",
+    "shopPaddles": "Comprar Raquetas",
     "shopBalls": "Comprar Pelotas"
   },
   "videoAnalysis": {
@@ -12030,7 +12030,7 @@
     "category": {
       "stringing": "Encordado",
       "repair": "Reparación de raqueta",
-      "used_racket": "Raqueta usada",
+      "used_paddle": "Raqueta usada",
       "used_equipment": "Equipo usado",
       "other": "Otro"
     }
@@ -12211,7 +12211,7 @@
   "clubMemberInvitation": {
     "headerTitle": "Invite Miembros",
     "inviteAppUsers": "Invite App Users",
-    "inviteAppUsersDescription": "Buscar and invite Lightning Tennis app users to your club.",
+    "inviteAppUsersDescription": "Buscar and invite Lightning Pickleball app users to your club.",
     "searchUsers": "Buscar Users",
     "selectedUsers": "Selected Users ({{count}})",
     "sendInvitationWithLink": "Enviar Invitation Message",
@@ -12222,7 +12222,7 @@
     "phonePlaceholderIntl": "Enter phone number (e.g., +1-404-555-1234)",
     "sendSMSInvitation": "Enviar SMS Invitation",
     "infoNote": "Invited users can accept or decline the invitation within the app.",
-    "invitationMessage": "Would you like to join {{clubName}}? Check your invitation in the Lightning Tennis app!",
+    "invitationMessage": "Would you like to join {{clubName}}? Check your invitation in the Lightning Pickleball app!",
     "invitationsSentTitle": "Invitations Sent",
     "invitationsSentMessage": "Sent invitation messages to {{count}} users.",
     "viewChat": "Ver Chat",
@@ -12230,7 +12230,7 @@
     "notice": "Notice",
     "enterPhoneNumbers": "Please enter phone numbers.",
     "enterValidNumbers": "Please enter valid phone numbers.",
-    "smsMessage": "You're invited to {{clubName}} tennis club! Download the Lightning Tennis app and join us!",
+    "smsMessage": "You're invited to {{clubName}} pickleball club! Download the Lightning Pickleball app and join us!",
     "smsCancelledTitle": "SMS Cancelled",
     "smsCancelledMessage": "{{remaining}} users haven't received SMS yet. Continue?",
     "stop": "Stop",

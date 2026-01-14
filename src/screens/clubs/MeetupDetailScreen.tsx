@@ -34,7 +34,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../contexts/AuthContext';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme as useLTTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import meetupService from '../../services/meetupService';
 import weatherService from '../../services/weatherService';
 import userService from '../../services/userService';
@@ -55,7 +55,7 @@ const MeetupDetailScreen = () => {
   const { currentUser } = useAuth();
   const { currentLanguage, t } = useLanguage();
   const { theme: currentTheme } = useLTTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors as unknown as ThemeColors);
 
   const {
@@ -107,9 +107,9 @@ const MeetupDetailScreen = () => {
     return translated !== translationKey ? translated : condition;
   };
 
-  // 🎾 [KIM FIX v3] Analyze tennis playability - FULLY aligned with RegularMeetupTab.tsx
+  // 🎾 [KIM FIX v3] Analyze pickleball playability - FULLY aligned with RegularMeetupTab.tsx
   // Priority: 1) Snow/Sleet 2) Fog 3) Rain chance 4) Condition text 5) Wind
-  const getTennisConditions = (
+  const getPickleballConditions = (
     windSpeedMph: number,
     condition?: string,
     chanceOfRain?: number
@@ -159,7 +159,7 @@ const MeetupDetailScreen = () => {
       lowerCondition.includes('violent')
     ) {
       return {
-        text: t('meetupDetail.weather.tennis.unplayable'),
+        text: t('meetupDetail.weather.pickleball.unplayable'),
         color: '#F44336', // Red
         icon: '🚫',
       };
@@ -168,7 +168,7 @@ const MeetupDetailScreen = () => {
     // ⚠️ Not recommended conditions - moderate rain, freezing
     if (lowerCondition.includes('moderate rain') || lowerCondition.includes('freezing')) {
       return {
-        text: t('meetupDetail.weather.tennis.notRecommended'),
+        text: t('meetupDetail.weather.pickleball.notRecommended'),
         color: '#FF9800', // Orange
         icon: '⚠️',
       };
@@ -181,7 +181,7 @@ const MeetupDetailScreen = () => {
       lowerCondition.includes('shower')
     ) {
       return {
-        text: t('meetupDetail.weather.tennis.caution'),
+        text: t('meetupDetail.weather.pickleball.caution'),
         color: '#FF9800', // Orange
         icon: '⚠️',
       };
@@ -653,7 +653,7 @@ const MeetupDetailScreen = () => {
                       <View style={styles.windImpactRow}>
                         <Text style={styles.windImpactIcon}>
                           {
-                            getTennisConditions(
+                            getPickleballConditions(
                               weather.windSpeedMph,
                               weather.condition,
                               weather.chanceOfRain
@@ -664,7 +664,7 @@ const MeetupDetailScreen = () => {
                           style={[
                             styles.windImpactText,
                             {
-                              color: getTennisConditions(
+                              color: getPickleballConditions(
                                 weather.windSpeedMph,
                                 weather.condition,
                                 weather.chanceOfRain
@@ -673,7 +673,7 @@ const MeetupDetailScreen = () => {
                           ]}
                         >
                           {
-                            getTennisConditions(
+                            getPickleballConditions(
                               weather.windSpeedMph,
                               weather.condition,
                               weather.chanceOfRain

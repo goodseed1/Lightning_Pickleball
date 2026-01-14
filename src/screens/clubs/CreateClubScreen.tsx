@@ -17,7 +17,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import clubService from '../../services/clubService';
 import { normalizeMultiline, normalizeArray } from '../../utils/text';
 import { getCurrencyByCountry } from '../../utils/currencyUtils';
@@ -53,7 +53,7 @@ function isNonEmpty(v: unknown) {
 
 export default function CreateClubScreen() {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const colors = themeColors.colors;
 
   const navigation = useNavigation<NavigationProp>();

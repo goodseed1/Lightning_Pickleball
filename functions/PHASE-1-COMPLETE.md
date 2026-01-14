@@ -84,7 +84,7 @@ const result = await createTournament({
     },
     matchDuration: 90,
     thirdPlaceMatch: false,
-    consolationBracket: false,
+    consolationBpaddle: false,
     allowWalkovers: true,
   },
   startDate: '2025-06-01T09:00:00Z',
@@ -209,8 +209,8 @@ Updates tournament status with state machine validation.
 
 ```
 draft → registration | cancelled
-registration → bracket_generation | cancelled
-bracket_generation → in_progress | registration | cancelled
+registration → bpaddle_generation | cancelled
+bpaddle_generation → in_progress | registration | cancelled
 in_progress → completed | cancelled
 completed → (terminal)
 cancelled → (terminal)
@@ -251,7 +251,7 @@ await updateTournamentStatus({
 
 Shared type definitions between client and server:
 
-- `TournamentStatus`, `TournamentFormat`, `TennisEventType`
+- `TournamentStatus`, `TournamentFormat`, `PickleballEventType`
 - Request/Response interfaces for all Cloud Functions
 - `TournamentSettings`, `TournamentParticipantData`
 
@@ -267,7 +267,7 @@ Reusable validation functions:
 - `validateParticipantSettings()` - Participant count validation
 - `validateCanRegister()` - Registration eligibility
 - `validateCanStartTournament()` - Start conditions
-- `calculateTotalRounds()`, `calculateTotalMatches()` - Bracket utilities
+- `calculateTotalRounds()`, `calculateTotalMatches()` - Bpaddle utilities
 
 ### State Machine
 
@@ -292,7 +292,7 @@ Push notification utilities:
 - `sendRegistrationConfirmation()` - Confirm participant registration
 - `sendNewParticipantNotification()` - Notify tournament host
 - `sendTournamentStatusChangeNotification()` - Status change alerts
-- `sendBracketPublishedNotification()` - Bracket ready alerts
+- `sendBpaddlePublishedNotification()` - Bpaddle ready alerts
 
 ### Test Infrastructure
 
@@ -432,7 +432,7 @@ firebase deploy --only functions:updateTournamentStatus
 ### Additional Functions
 
 - `withdrawFromTournament` - Cancel participant registration
-- `generateBracket` - Server-side bracket generation
+- `generateBpaddle` - Server-side bpaddle generation
 - `updateMatchScore` - Atomic match score updates
 - `advanceWinner` - Move winner to next round
 

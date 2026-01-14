@@ -17,8 +17,8 @@ import { TournamentStatus } from '../types/tournament';
  *
  * State Machine Definition:
  * - draft → registration | cancelled
- * - registration → bracket_generation | cancelled
- * - bracket_generation → in_progress | registration (allow going back) | cancelled
+ * - registration → bpaddle_generation | cancelled
+ * - bpaddle_generation → in_progress | registration (allow going back) | cancelled
  * - in_progress → completed | cancelled
  * - completed → (terminal state, no transitions)
  * - cancelled → (terminal state, no transitions)
@@ -27,7 +27,7 @@ import { TournamentStatus } from '../types/tournament';
  *
  *   draft
  *     ├─→ registration
- *     │     ├─→ bracket_generation
+ *     │     ├─→ bpaddle_generation
  *     │     │     ├─→ in_progress
  *     │     │     │     └─→ completed ✓
  *     │     │     ├─→ registration (rollback)
@@ -37,8 +37,8 @@ import { TournamentStatus } from '../types/tournament';
  */
 export const VALID_STATE_TRANSITIONS: Record<TournamentStatus, TournamentStatus[]> = {
   draft: ['registration', 'cancelled'],
-  registration: ['bracket_generation', 'cancelled'],
-  bracket_generation: ['in_progress', 'registration', 'cancelled'],
+  registration: ['bpaddle_generation', 'cancelled'],
+  bpaddle_generation: ['in_progress', 'registration', 'cancelled'],
   in_progress: ['completed', 'cancelled'],
   completed: [], // Terminal state
   cancelled: [], // Terminal state
@@ -74,7 +74,7 @@ export function isValidStateTransition(
  * @returns Array of valid next states
  *
  * @example
- * getValidNextStates('registration') // ['bracket_generation', 'cancelled']
+ * getValidNextStates('registration') // ['bpaddle_generation', 'cancelled']
  * getValidNextStates('completed') // []
  */
 export function getValidNextStates(currentStatus: TournamentStatus): TournamentStatus[] {
@@ -107,7 +107,7 @@ export function getStatusDescription(status: TournamentStatus): string {
   const descriptions: Record<TournamentStatus, string> = {
     draft: '준비 중',
     registration: '참가 신청 중',
-    bracket_generation: '대진표 생성 중',
+    bpaddle_generation: '대진표 생성 중',
     in_progress: '진행 중',
     completed: '완료됨',
     cancelled: '취소됨',
@@ -180,7 +180,7 @@ export function validateStateTransition(
  *
  * @example
  * getTransitionPath('draft', 'completed')
- * // ['draft', 'registration', 'bracket_generation', 'in_progress', 'completed']
+ * // ['draft', 'registration', 'bpaddle_generation', 'in_progress', 'completed']
  *
  * getTransitionPath('completed', 'draft')
  * // null (impossible)

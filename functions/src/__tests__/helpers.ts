@@ -6,7 +6,7 @@
  */
 
 import * as admin from 'firebase-admin';
-import { TournamentStatus, TennisEventType, TournamentFormat } from '../types/tournament';
+import { TournamentStatus, PickleballEventType, TournamentFormat } from '../types/tournament';
 
 const db = admin.firestore();
 
@@ -22,7 +22,7 @@ export function createMockTournament(overrides?: Partial<Record<string, unknown>
     tournamentName: 'Test Tournament',
     title: 'Test Tournament 2025',
     clubId: 'test-club-id',
-    eventType: 'mens_singles' as TennisEventType,
+    eventType: 'mens_singles' as PickleballEventType,
     format: 'single_elimination' as TournamentFormat,
     status: 'draft' as TournamentStatus,
     startDate: admin.firestore.Timestamp.fromDate(new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)),
@@ -46,7 +46,7 @@ export function createMockTournament(overrides?: Partial<Record<string, unknown>
       },
       matchDuration: 90,
       thirdPlaceMatch: false,
-      consolationBracket: false,
+      consolationBpaddle: false,
       allowWalkovers: true,
     },
     participantCount: 0,
@@ -95,10 +95,10 @@ export function createMockClubMembership(overrides?: Partial<Record<string, unkn
  */
 export function createMockClub(overrides?: Partial<Record<string, unknown>>) {
   return {
-    name: 'Test Tennis Club',
+    name: 'Test Pickleball Club',
     profile: {
-      name: 'Test Tennis Club',
-      description: 'A test tennis club',
+      name: 'Test Pickleball Club',
+      description: 'A test pickleball club',
     },
     status: 'active',
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
@@ -140,7 +140,7 @@ export async function seedFirestore(data: {
   if (data.clubs) {
     data.clubs.forEach((club, index) => {
       const clubId = (club.id as string | undefined) || `club-${index}`;
-      const clubRef = db.collection('tennis_clubs').doc(clubId);
+      const clubRef = db.collection('pickleball_clubs').doc(clubId);
       batch.set(clubRef, club);
     });
   }
@@ -259,11 +259,11 @@ export function createMockContext(uid: string = 'test-user-id') {
         uid,
         email: 'test@example.com',
         // Required DecodedIdToken fields
-        aud: 'test-lightning-tennis',
+        aud: 'test-lightning-pickleball',
         auth_time: now - 3600,
         exp: now + 3600,
         iat: now - 3600,
-        iss: `https://securetoken.google.com/test-lightning-tennis`,
+        iss: `https://securetoken.google.com/test-lightning-pickleball`,
         sub: uid,
         firebase: {
           identities: {

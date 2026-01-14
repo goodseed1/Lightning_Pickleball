@@ -3,9 +3,9 @@ const { getFirestore, doc, getDoc } = require('firebase/firestore');
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBbk9vWMEy5l5k5WZ5l5l5l5l5l5l5l5l5',
-  authDomain: 'lightning-tennis.firebaseapp.com',
-  projectId: 'lightning-tennis-simple',
-  storageBucket: 'lightning-tennis-simple.appspot.com',
+  authDomain: 'lightning-pickleball.firebaseapp.com',
+  projectId: 'lightning-pickleball-simple',
+  storageBucket: 'lightning-pickleball-simple.appspot.com',
   messagingSenderId: '123456789',
   appId: '1:123456789:web:abcdef',
 };

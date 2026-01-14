@@ -47,7 +47,7 @@ const translations = {
       alreadyRegistered: 'Ya estás inscrito',
       registrationSuccess: 'Inscripción exitosa',
       withdrawSuccess: 'Retiro exitoso',
-      invalidBracket: 'Cuadro inválido',
+      invalidBpaddle: 'Cuadro inválido',
       scoreSubmitted: 'Resultado enviado',
       tournamentStarted: 'Torneo iniciado',
       tournamentCompleted: 'Torneo completado',
@@ -212,7 +212,7 @@ const translations = {
       decline: 'Rechazar',
       register: 'Inscribirse',
       withdraw: 'Retirarse',
-      viewBracket: 'Ver Cuadro',
+      viewBpaddle: 'Ver Cuadro',
       viewStandings: 'Ver Clasificación',
       joinTeam: 'Unirse al Equipo',
       createTeam: 'Crear Equipo',
@@ -699,7 +699,7 @@ function countUntranslated(enObj, esObj, prefix = '') {
 }
 
 // Main execution
-console.log('🌍 Lightning Tennis - Comprehensive Spanish Translation');
+console.log('🌍 Lightning Pickleball - Comprehensive Spanish Translation');
 console.log('=====================================================\n');
 
 const beforeCount = countUntranslated(en, es);

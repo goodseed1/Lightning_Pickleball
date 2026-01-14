@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 
 interface StatusChipProps {
   text: string;
@@ -21,7 +21,7 @@ const StatusChip: React.FC<StatusChipProps> = ({
   size = 'medium',
 }) => {
   const { theme } = useTheme();
-  const themeColors = getLightningTennisTheme(theme);
+  const themeColors = getLightningPickleballTheme(theme);
   const isDark = theme === 'dark';
 
   const getVariantColors = () => {

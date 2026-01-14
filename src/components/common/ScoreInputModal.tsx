@@ -1,6 +1,6 @@
 /**
  * Score Input Modal Component
- * Modal for entering tennis match scores with validation
+ * Modal for entering pickleball match scores with validation
  */
 
 import React, { useState } from 'react';

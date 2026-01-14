@@ -46,7 +46,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useTranslation } from 'react-i18next';
 import { useTheme as useLTTheme } from '../../hooks/useTheme';
 import { useMeetupChatUnreadCount } from '../../hooks/clubs/useMeetupChatUnreadCount';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { RootStackParamList } from '../../navigation/AppNavigator';
 import clubService from '../../services/clubService';
 import { Club, ClubMemberRole } from '../../types/club';
@@ -87,7 +87,7 @@ import ClubHallOfFameScreen from './tabs/ClubHallOfFameScreen';
 
 // Import default images
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const defaultClubImage = require('../../../assets/images/lightning-tennis-icon.png');
+const defaultClubImage = require('../../../assets/images/lightning-pickleball-icon.png');
 
 // Import custom tab bar component for Operation Voyager
 import { ScrollableTabBar } from '../../components/clubs/ScrollableTabBar';
@@ -131,7 +131,7 @@ export default function ClubDetailScreen() {
   const { t } = useLanguage();
   const { t: translate } = useTranslation();
   const { theme: currentTheme } = useLTTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   /* eslint-disable @typescript-eslint/no-explicit-any */
   const styles = createStyles(themeColors.colors as any);
   /* eslint-enable @typescript-eslint/no-explicit-any */
@@ -495,7 +495,7 @@ export default function ClubDetailScreen() {
       return;
     }
 
-    const clubRef = doc(db, 'tennis_clubs', clubId);
+    const clubRef = doc(db, 'pickleball_clubs', clubId);
     const unsubscribe = onSnapshot(
       clubRef,
       async snapshot => {
@@ -1149,7 +1149,7 @@ export default function ClubDetailScreen() {
                 }}
                 // 🎨 Highlight admin tab with orange color for better visibility
                 tabColors={{
-                  admin: '#FF6B35', // Tennis Orange - secondary brand color
+                  admin: '#FF6B35', // Pickleball Orange - secondary brand color
                 }}
                 // 🎯 Add settings icon to admin tab
                 tabIcons={{

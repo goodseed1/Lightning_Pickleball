@@ -1,6 +1,6 @@
 /**
  * Club Communications Service
- * Lightning Tennis 클럽 커뮤니케이션 서비스
+ * Lightning Pickleball 클럽 커뮤니케이션 서비스
  */
 
 import {

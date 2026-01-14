@@ -18,7 +18,7 @@ try {
 
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    projectId: 'lightning-tennis-community',
+    projectId: 'lightning-pickleball-community',
   });
 } catch (error) {
   console.error('❌ service-account-key.json 파일을 찾을 수 없습니다.');
@@ -41,7 +41,7 @@ async function updateAppVersion(newVersion) {
     process.exit(1);
   }
 
-  console.log(`\n🎾 Lightning Tennis 앱 버전 업데이트`);
+  console.log(`\n🎾 Lightning Pickleball 앱 버전 업데이트`);
   console.log(`================================================`);
 
   try {

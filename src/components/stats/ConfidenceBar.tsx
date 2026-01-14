@@ -20,7 +20,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text as PaperText } from 'react-native-paper';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { getRankingConfidenceLevel } from '../../utils/rankingConfidenceUtils';
 
@@ -37,7 +37,7 @@ const ConfidenceBar: React.FC<ConfidenceBarProps> = ({
 }) => {
   // 🎨 [DARK GLASS] Theme setup
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors, currentTheme, compact);
   const { t } = useLanguage();
 

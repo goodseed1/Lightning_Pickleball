@@ -109,8 +109,8 @@ const translations = {
   'All levels welcome': 'Tous les niveaux sont les bienvenus',
 
   // Skill levels
-  'Beginner - New to tennis or learning basic strokes':
-    'Débutant - Nouveau au tennis ou apprentissage des coups de base',
+  'Beginner - New to pickleball or learning basic strokes':
+    'Débutant - Nouveau au pickleball ou apprentissage des coups de base',
   'Elementary - Can hit basic strokes, understands doubles basics':
     'Élémentaire - Peut frapper des coups de base, comprend les bases du double',
   'Intermediate - Consistent strokes, strategic play':
@@ -211,7 +211,7 @@ const translations = {
   'First Victory': 'Première Victoire',
   'You won your first match! 🎾': 'Vous avez gagné votre premier match ! 🎾',
   'First Club Member': 'Premier Membre du Club',
-  'You joined your first tennis club! 🏟️': 'Vous avez rejoint votre premier club de tennis ! 🏟️',
+  'You joined your first pickleball club! 🏟️': 'Vous avez rejoint votre premier club de pickleball ! 🏟️',
   '5 Win Streak': 'Série de 5 Victoires',
   'You won 5 matches in a row!': "Vous avez gagné 5 matchs d'affilée !",
   'Social Butterfly': 'Papillon Social',
@@ -266,13 +266,13 @@ function autoTranslate(obj) {
     if (obj.includes('{{')) {
       return obj
         .replace(
-          /Level mismatch \(Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}}\)/,
-          'Niveau incompatible (Votre LTR : {{userNtrp}}, Autorisé : {{minNtrp}}~{{maxNtrp}})'
+          /Level mismatch \(Your LPR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}}\)/,
+          'Niveau incompatible (Votre LPR : {{userNtrp}}, Autorisé : {{minNtrp}}~{{maxNtrp}})'
         )
         .replace(/Gender Mismatch/, 'Incompatibilité de Genre')
         .replace(
-          /Apply: LTR {{minNtrp}} - {{maxNtrp}}/,
-          'Candidater : LTR {{minNtrp}} - {{maxNtrp}}'
+          /Apply: LPR {{minNtrp}} - {{maxNtrp}}/,
+          'Candidater : LPR {{minNtrp}} - {{maxNtrp}}'
         )
         .replace(/Level: {{level}}/, 'Niveau : {{level}}')
         .replace(/{{count}} solo/, '{{count}} solo')
@@ -295,14 +295,14 @@ function autoTranslate(obj) {
           /{{success}} participant\(s\) added, {{failed}} failed\./,
           '{{success}} participant(s) ajouté(s), {{failed}} échoué(s).'
         )
-        .replace(/Host LTR: {{level}} \({{gameType}}\)/, 'LTR Hôte : {{level}} ({{gameType}})')
+        .replace(/Host LPR: {{level}} \({{gameType}}\)/, 'LPR Hôte : {{level}} ({{gameType}})')
         .replace(
-          /Partner LTR: {{level}} \({{gameType}}\)/,
-          'LTR Partenaire : {{level}} ({{gameType}})'
+          /Partner LPR: {{level}} \({{gameType}}\)/,
+          'LPR Partenaire : {{level}} ({{gameType}})'
         )
-        .replace(/Combined LTR: {{level}}/, 'LTR Combiné : {{level}}')
-        .replace(/Host LTR: {{level}} \({{type}}\)/, 'LTR Hôte : {{level}} ({{type}})')
-        .replace(/Partner LTR: {{level}} \({{type}}\)/, 'LTR Partenaire : {{level}} ({{type}})')
+        .replace(/Combined LPR: {{level}}/, 'LPR Combiné : {{level}}')
+        .replace(/Host LPR: {{level}} \({{type}}\)/, 'LPR Hôte : {{level}} ({{type}})')
+        .replace(/Partner LPR: {{level}} \({{type}}\)/, 'LPR Partenaire : {{level}} ({{type}})')
         .replace(/{{sender}}/, '{{sender}}')
         .replace(/{{eventTitle}}/, '{{eventTitle}}')
         .replace(/{{link}}/, '{{link}}')

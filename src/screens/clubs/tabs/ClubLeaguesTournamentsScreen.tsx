@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import React, { useState, useEffect } from 'react';
 import {
@@ -25,7 +25,7 @@ import { useActivities } from '../../../contexts/ActivityContext';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import { useTheme as useLTTheme } from '../../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../../theme';
+import { getLightningPickleballTheme } from '../../../theme';
 import leagueService from '../../../services/leagueService';
 import tournamentService from '../../../services/tournamentService';
 import clubService from '../../../services/clubService';
@@ -56,9 +56,9 @@ const ClubLeaguesTournamentsScreen: React.FC<ClubLeaguesTournamentsScreenProps> 
   const { currentLanguage, t } = useLanguage();
   const { myApplications, isLoadingApplications, getMyApplicationStatus } = useActivities();
 
-  // Lightning Tennis theme
+  // Lightning Pickleball theme
   const { theme: currentTheme } = useLTTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   /* eslint-disable @typescript-eslint/no-explicit-any */
   const styles = createStyles(themeColors.colors as any);
   /* eslint-enable @typescript-eslint/no-explicit-any */
@@ -710,30 +710,30 @@ const ClubLeaguesTournamentsScreen: React.FC<ClubLeaguesTournamentsScreenProps> 
     // (Gender mismatch only blocks registration, not viewing!)
     if (
       tournament.status === 'in_progress' ||
-      tournament.status === 'bracket_generation' ||
+      tournament.status === 'bpaddle_generation' ||
       tournament.status === 'completed'
     ) {
       // Participants get primary styled button
       if (isParticipant) {
         return {
-          text: t('clubLeaguesTournaments.buttons.viewBracket'),
+          text: t('clubLeaguesTournaments.buttons.viewBpaddle'),
           disabled: false,
           mode: 'contained' as const,
           icon: 'trophy',
           color: theme.colors.primary,
           loading: false,
-          action: 'view_bracket',
+          action: 'view_bpaddle',
         };
       }
       // Non-participants can still view (white style)
       return {
-        text: t('clubLeaguesTournaments.buttons.viewBracket'),
+        text: t('clubLeaguesTournaments.buttons.viewBpaddle'),
         disabled: false,
         mode: 'contained' as const,
         icon: 'trophy-outline',
         color: '#FFFFFF', // White color
         loading: false,
-        action: 'view_bracket',
+        action: 'view_bpaddle',
       };
     }
 
@@ -986,10 +986,10 @@ const ClubLeaguesTournamentsScreen: React.FC<ClubLeaguesTournamentsScreenProps> 
     const handlePress = () => {
       if (buttonConfig.action === 'apply') {
         handleJoinTournament(tournament.id);
-      } else if (buttonConfig.action === 'view_bracket') {
-        // Navigate to tournament bracket view
+      } else if (buttonConfig.action === 'view_bpaddle') {
+        // Navigate to tournament bpaddle view
         /* eslint-disable @typescript-eslint/no-explicit-any */
-        (navigation.navigate as any)('TournamentBracket', {
+        (navigation.navigate as any)('TournamentBpaddle', {
           tournamentId: tournament.id,
           tournamentName: tournament.tournamentName || tournament.title,
           clubId,

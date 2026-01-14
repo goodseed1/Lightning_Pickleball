@@ -29,7 +29,7 @@
 ### Key Achievements:
 
 ✅ Translated all common UI patterns (buttons, status messages, actions)
-✅ Translated tennis-specific terminology
+✅ Translated pickleball-specific terminology
 ✅ Translated time-related phrases
 ✅ Translated common messages and notifications
 

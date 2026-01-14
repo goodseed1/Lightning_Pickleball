@@ -781,7 +781,7 @@ const ptTranslations = {
 
   tournamentDetail: {
     overview: 'Visão Geral',
-    bracket: 'Chaveamento',
+    bpaddle: 'Chaveamento',
     schedule: 'Calendário',
     participants: 'Participantes',
     rules: 'Regras',
@@ -800,7 +800,7 @@ const ptTranslations = {
     title: 'Torneio',
     register: 'Inscrever-se',
     withdraw: 'Desistir',
-    bracket: 'Chaveamento',
+    bpaddle: 'Chaveamento',
     participants: 'Participantes',
   },
 

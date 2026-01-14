@@ -1,5 +1,5 @@
 /**
- * Social Context for Lightning Tennis
+ * Social Context for Lightning Pickleball
  * Provides social network state and methods throughout the app
  */
 

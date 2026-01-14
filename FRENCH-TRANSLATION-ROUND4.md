@@ -133,7 +133,7 @@ Many translations didn't merge because:
 
 - Proper nouns (club names, features)
 - International terms (WiFi, parking, email)
-- Shared French/English words (sport, tennis, club)
+- Shared French/English words (sport, pickleball, club)
 
 ### 3. Context Ambiguity
 
@@ -141,7 +141,7 @@ Some English terms have multiple French translations:
 
 - "Create" → "Créer" (new entity) vs "Créer" (general action)
 - "Match" → "Match" (game) vs "Correspondance" (pairing)
-- "Court" → "Court" (tennis) vs "Tribunal" (legal)
+- "Court" → "Court" (pickleball) vs "Tribunal" (legal)
 
 ## Recommended Next Steps
 
@@ -171,7 +171,7 @@ Create smarter detection:
 // Ignore these patterns:
 - Single uppercase words (OK, URL, API)
 - Technical terms (WiFi, Bluetooth, GPS)
-- Proper nouns (Lightning Tennis, Firebase)
+- Proper nouns (Lightning Pickleball, Firebase)
 - Error codes (400, 404, 500)
 ```
 

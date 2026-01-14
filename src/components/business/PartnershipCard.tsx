@@ -82,7 +82,7 @@ const PartnershipCard: React.FC<PartnershipCardProps> = ({
       case 'academy':
         return 'school';
       case 'court_rental':
-        return 'tennisball';
+        return 'pickleballball';
       default:
         return 'business';
     }
@@ -91,15 +91,15 @@ const PartnershipCard: React.FC<PartnershipCardProps> = ({
   const getBusinessTypeLabel = (type: string) => {
     switch (type) {
       case 'coach':
-        return 'Tennis Coach';
+        return 'Pickleball Coach';
       case 'pro_shop':
         return 'Pro Shop';
       case 'academy':
-        return 'Tennis Academy';
+        return 'Pickleball Academy';
       case 'court_rental':
         return 'Court Rental';
       default:
-        return 'Tennis Business';
+        return 'Pickleball Business';
     }
   };
 

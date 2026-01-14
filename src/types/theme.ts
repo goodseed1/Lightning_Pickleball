@@ -1,5 +1,5 @@
 /**
- * Theme-related types for Lightning Tennis
+ * Theme-related types for Lightning Pickleball
  * Separated from ThemeContext to satisfy ESLint fast-refresh requirements
  */
 

@@ -127,7 +127,7 @@ const translations = {
 
   tournamentDetail: {
     overview: 'Обзор',
-    bracket: 'Сетка',
+    bpaddle: 'Сетка',
     participants: 'Участники',
     schedule: 'Расписание',
     results: 'Результаты',

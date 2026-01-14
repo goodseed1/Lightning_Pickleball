@@ -126,8 +126,8 @@
       "clubHomeCourt": "Club Home Court",
       "changeInSettings": "Can be changed in club settings",
       "courtLocation": "Court Location",
-      "searchTennisCourt": "Search Tennis Court",
-      "searchHelper": "Tap to search for a tennis court."
+      "searchPickleballCourt": "Search Pickleball Court",
+      "searchHelper": "Tap to search for a pickleball court."
     }
   },
   "clubDuesManagement": {

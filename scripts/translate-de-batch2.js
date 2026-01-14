@@ -276,8 +276,8 @@ const germanTranslations = {
     registrationOpen: 'Anmeldung offen',
     registrationClosed: 'Anmeldung geschlossen',
     participants: 'Teilnehmer',
-    bracket: 'Turnierbaum',
-    manageBracket: 'Turnierbaum verwalten',
+    bpaddle: 'Turnierbaum',
+    manageBpaddle: 'Turnierbaum verwalten',
     seeds: 'Setzliste',
   },
 
@@ -331,7 +331,7 @@ const germanTranslations = {
     title: 'Ausrüstung',
     myGear: 'Meine Ausrüstung',
     addEquipment: 'Ausrüstung hinzufügen',
-    racket: 'Schläger',
+    paddle: 'Schläger',
     shoes: 'Schuhe',
     balls: 'Bälle',
     accessories: 'Zubehör',
@@ -354,7 +354,7 @@ const germanTranslations = {
     precipitation: 'Niederschlag',
     uv: 'UV-Index',
     playableConditions: 'Spielbare Bedingungen',
-    idealForTennis: 'Ideal für Tennis',
+    idealForPickleball: 'Ideal für Pickleball',
   },
 
   courtBooking: {

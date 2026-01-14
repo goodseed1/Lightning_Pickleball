@@ -1,6 +1,6 @@
 /**
  * Tournament CRUD Operations
- * Lightning Tennis 클럽 토너먼트 기본 CRUD 및 쿼리 서비스
+ * Lightning Pickleball 클럽 토너먼트 기본 CRUD 및 쿼리 서비스
  */
 
 import {
@@ -17,7 +17,7 @@ import {
 import { httpsCallable } from 'firebase/functions';
 import { db, functions } from '../../firebase/config';
 import { Tournament, TournamentStatus, CreateTournamentRequest } from '../../types/tournament';
-import { TennisEventType } from '../../types/league';
+import { PickleballEventType } from '../../types/league';
 
 /**
  * 토너먼트 생성 (Cloud Function)
@@ -120,7 +120,7 @@ export const subscribeToClubTournaments = (
         'draft',
         'registration',
         'in_progress',
-        'bracket_generation',
+        'bpaddle_generation',
         'completed',
       ]),
       orderBy('createdAt', 'desc')
@@ -238,7 +238,7 @@ export const subscribeToTournament = (
  */
 export const getTournamentsByEventType = async (
   clubId: string,
-  eventType: TennisEventType
+  eventType: PickleballEventType
 ): Promise<Tournament[]> => {
   try {
     const tournamentsRef = collection(db, 'tournaments');

@@ -59,7 +59,7 @@ export const leaveClub = functions.https.onCall(async (data: { clubId: string },
     });
 
     // Define other document references
-    const clubRef = db.doc(`tennis_clubs/${clubId}`);
+    const clubRef = db.doc(`pickleball_clubs/${clubId}`);
     const userRef = db.doc(`users/${userId}`);
 
     // Execute all operations in a transaction for data consistency

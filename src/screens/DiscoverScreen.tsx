@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import React from 'react';
 import {
@@ -32,7 +32,7 @@ import { useLocation } from '../contexts/LocationContext';
 import { useActivities } from '../contexts/ActivityContext';
 import activityService from '../services/activityService';
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import { getDistanceUnit } from '../utils/unitUtils';
 import {
   RootStackParamList,
@@ -51,11 +51,11 @@ import { NotificationBanner } from '../components/common/NotificationBanner';
 // 🎯 [KIM FIX v3] 위치 필수 모달
 import { LocationValueModal } from '../components/modals/LocationValueModal';
 import { CoachLesson } from '../types/coachLesson';
-import { TennisService } from '../types/tennisService';
+import { PickleballService } from '../types/pickleballService';
 import coachLessonService from '../services/coachLessonService';
-import tennisServiceService from '../services/tennisServiceService';
+import pickleballServiceService from '../services/pickleballServiceService';
 import { collection, query, where, onSnapshot, doc, getDoc } from 'firebase/firestore';
-import { convertEloToLtr } from '../utils/eloUtils'; // 🎯 [LTR FIX v4] Real-time ELO → LTR conversion
+import { convertEloToLtr } from '../utils/eloUtils'; // 🎯 [LPR FIX v4] Real-time ELO → LPR conversion
 import { httpsCallable } from 'firebase/functions';
 import { db, functions } from '../firebase/config';
 
@@ -93,7 +93,7 @@ export default function DiscoverScreen() {
     pendingHostedApplicationsCount,
   } = useActivities();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
 
   // 🎯 [KIM UPDATE] 위치 권한 선택 - 위치 컨텍스트 및 모달 상태
   // isLocationEnabled: 권한 허용 여부 (true = 허용됨, false = 미허용)
@@ -152,11 +152,11 @@ export default function DiscoverScreen() {
   const [showPartnerModal, setShowPartnerModal] = React.useState(false);
   const [selectedEventId, setSelectedEventId] = React.useState<string | null>(null);
   const [selectedEvent, setSelectedEvent] = React.useState<Record<string, unknown> | null>(null);
-  // 🎯 [LTR FIX v4] Real-time host LTR for partner selection (current user's LTR, not event host)
+  // 🎯 [LPR FIX v4] Real-time host LPR for partner selection (current user's LPR, not event host)
   const [partnerModalHostLtr, setPartnerModalHostLtr] = React.useState<number | undefined>(
     undefined
   );
-  // 🎯 [LTR FIX v6] Host team's combined LTR for display (e.g., 영철3 + 회장3 = 6)
+  // 🎯 [LPR FIX v6] Host team's combined LPR for display (e.g., 영철3 + 회장3 = 6)
   const [partnerModalHostTeamLtr, setPartnerModalHostTeamLtr] = React.useState<number | undefined>(
     undefined
   );
@@ -170,7 +170,7 @@ export default function DiscoverScreen() {
 
   // 🛠️ [TENNIS SERVICES] Service form modal state
   const [showServiceFormModal, setShowServiceFormModal] = React.useState(false);
-  const [editingService, setEditingService] = React.useState<TennisService | undefined>(undefined);
+  const [editingService, setEditingService] = React.useState<PickleballService | undefined>(undefined);
 
   // ⚡ Quick Match: NTRP 추출 함수
   const getNumericNtrp = (skillLevel: unknown): number => {
@@ -184,7 +184,7 @@ export default function DiscoverScreen() {
         return sl.calculated;
       }
     }
-    return 5; // 기본값 (LTR 5 = Default)
+    return 5; // 기본값 (LPR 5 = Default)
   };
 
   // ⚡ Quick Match: 매치 신청 핸들러
@@ -473,8 +473,8 @@ export default function DiscoverScreen() {
       setSelectedEventId(null);
       setSelectedEvent(null);
       setShowPartnerModal(false);
-      setPartnerModalHostLtr(undefined); // 🎯 [LTR FIX v4] Reset LTR state
-      setPartnerModalHostTeamLtr(undefined); // 🎯 [LTR FIX v6] Reset team LTR state
+      setPartnerModalHostLtr(undefined); // 🎯 [LPR FIX v4] Reset LPR state
+      setPartnerModalHostTeamLtr(undefined); // 🎯 [LPR FIX v6] Reset team LPR state
 
       // 🎯 [KIM FIX] Navigate to MyProfile > Activity > Applied tab
       /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -581,8 +581,8 @@ export default function DiscoverScreen() {
         hostPartnerName: event.hostPartnerName,
       });
 
-      // 🎯 [LTR FIX v4] Fetch CURRENT USER's real-time ELO for partner selection range
-      // - 철수(지원자)가 파트너를 선택할 때, 철수의 LTR 기준으로 ±2 범위 적용
+      // 🎯 [LPR FIX v4] Fetch CURRENT USER's real-time ELO for partner selection range
+      // - 철수(지원자)가 파트너를 선택할 때, 철수의 LPR 기준으로 ±2 범위 적용
       // - event.hostLtrLevel은 이벤트 호스트의 값이므로 사용하면 안됨!
       const gameType = event.gameType as string | undefined;
       let currentUserLtr: number | undefined;
@@ -605,7 +605,7 @@ export default function DiscoverScreen() {
 
           if (elo !== undefined) {
             currentUserLtr = convertEloToLtr(elo);
-            console.log('📊 [LTR FIX v4] Current user LTR from ELO:', {
+            console.log('📊 [LPR FIX v4] Current user LPR from ELO:', {
               userId: currentUser.uid,
               gameType,
               elo,
@@ -614,23 +614,23 @@ export default function DiscoverScreen() {
           }
         }
       } catch (error) {
-        console.error('❌ [LTR FIX v4] Error fetching current user ELO:', error);
+        console.error('❌ [LPR FIX v4] Error fetching current user ELO:', error);
       }
 
       // Fallback to stored skillLevel if ELO lookup fails
       if (currentUserLtr === undefined) {
         currentUserLtr = getNumericNtrp(currentUser?.skillLevel);
-        console.log('⚠️ [LTR FIX v4] Using stored skillLevel as fallback:', currentUserLtr);
+        console.log('⚠️ [LPR FIX v4] Using stored skillLevel as fallback:', currentUserLtr);
       }
 
-      // 🎯 [LTR FIX v6] Calculate host team's combined LTR for display
-      // minLtr = maxLtr = average team LTR, so sum = minLtr + maxLtr = teamLtr
+      // 🎯 [LPR FIX v6] Calculate host team's combined LPR for display
+      // minLtr = maxLtr = average team LPR, so sum = minLtr + maxLtr = teamLtr
       const hostTeamLtr =
         event.minLtr && event.maxLtr
           ? (event.minLtr as number) + (event.maxLtr as number)
           : undefined;
 
-      console.log('📊 [LTR FIX v6] Partner modal data:', {
+      console.log('📊 [LPR FIX v6] Partner modal data:', {
         currentUserLtr,
         hostTeamLtr,
         eventMinLtr: event.minLtr,
@@ -639,8 +639,8 @@ export default function DiscoverScreen() {
 
       setSelectedEventId(event.id as string);
       setSelectedEvent(event); // Store event for clubId lookup
-      setPartnerModalHostLtr(currentUserLtr); // 🎯 [LTR FIX v4] Set current user's LTR
-      setPartnerModalHostTeamLtr(hostTeamLtr); // 🎯 [LTR FIX v6] Set host team's combined LTR
+      setPartnerModalHostLtr(currentUserLtr); // 🎯 [LPR FIX v4] Set current user's LPR
+      setPartnerModalHostTeamLtr(hostTeamLtr); // 🎯 [LPR FIX v6] Set host team's combined LPR
       setShowPartnerModal(true);
       return;
     }
@@ -782,14 +782,14 @@ export default function DiscoverScreen() {
   );
 
   // 🛠️ [TENNIS SERVICES] Service card handlers
-  const handleEditService = (service: TennisService) => {
+  const handleEditService = (service: PickleballService) => {
     setEditingService(service);
     setShowServiceFormModal(true);
   };
 
   const handleDeleteService = async (serviceId: string) => {
     try {
-      await tennisServiceService.deleteService(serviceId);
+      await pickleballServiceService.deleteService(serviceId);
       Alert.alert(t('discover.alerts.deleted'), t('discover.alerts.serviceDeleted'));
     } catch (error) {
       console.error('Error deleting service:', error);
@@ -805,7 +805,7 @@ export default function DiscoverScreen() {
     );
   };
 
-  const renderServiceCard = (service: TennisService) => (
+  const renderServiceCard = (service: PickleballService) => (
     <ServiceCard
       key={service.id}
       service={service}
@@ -962,7 +962,7 @@ export default function DiscoverScreen() {
         );
       }
       if (filterType === 'coaches') return renderLessonCard(item as CoachLesson);
-      if (filterType === 'services') return renderServiceCard(item as TennisService);
+      if (filterType === 'services') return renderServiceCard(item as PickleballService);
       return null;
     });
     /* eslint-enable @typescript-eslint/no-explicit-any */
@@ -1360,8 +1360,8 @@ export default function DiscoverScreen() {
               setShowPartnerModal(false);
               setSelectedEventId(null);
               setSelectedEvent(null);
-              setPartnerModalHostLtr(undefined); // 🎯 [LTR FIX v4] Reset LTR state
-              setPartnerModalHostTeamLtr(undefined); // 🎯 [LTR FIX v6] Reset team LTR state
+              setPartnerModalHostLtr(undefined); // 🎯 [LPR FIX v4] Reset LPR state
+              setPartnerModalHostTeamLtr(undefined); // 🎯 [LPR FIX v6] Reset team LPR state
             }}
             onUserSelect={handlePartnerSelected}
             excludeUserIds={
@@ -1391,9 +1391,9 @@ export default function DiscoverScreen() {
             }
             // 🎯 [KIM FIX] Pass game type and host NTRP for partner selection
             gameType={selectedEvent?.gameType as string | undefined}
-            // 🎯 [LTR FIX v4] Use current user's real-time LTR, not event host's stored value
+            // 🎯 [LPR FIX v4] Use current user's real-time LPR, not event host's stored value
             hostLtr={partnerModalHostLtr}
-            // 🎯 [LTR FIX v6] Pass host team's combined LTR for display
+            // 🎯 [LPR FIX v6] Pass host team's combined LPR for display
             hostTeamLtr={partnerModalHostTeamLtr}
             // 🎯 [PARTNER FIX] Enable single-select mode for team application partner
             isPartnerSelection={true}

@@ -1,5 +1,5 @@
 /**
- * useTheme Hook for Lightning Tennis
+ * useTheme Hook for Lightning Pickleball
  * Provides access to theme context throughout the app
  */
 

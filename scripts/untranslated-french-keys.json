@@ -53,7 +53,7 @@
     "club": "Club"
   },
   "alert": {
-    "tournamentBracket": {
+    "tournamentBpaddle": {
       "info": "Info",
       "participants": "Participants",
       "participantsTab": "Participants"
@@ -209,11 +209,11 @@
       "guestTeamWins": "Guest Team Wins"
     },
     "requirements": {
-      "levelMismatch": "Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})",
+      "levelMismatch": "Level mismatch (Your LPR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})",
       "genderMismatch": "Gender Mismatch",
       "menOnly": "This is a men's match",
       "womenOnly": "This is a women's match",
-      "canApply": "Apply: LTR {{minNtrp}} - {{maxNtrp}}",
+      "canApply": "Apply: LPR {{minNtrp}} - {{maxNtrp}}",
       "level": "Level: {{level}}"
     },
     "soloApplicants": {
@@ -243,7 +243,7 @@
       "anyLevelDesc": "All levels welcome"
     },
     "skillDescriptions": {
-      "beginner": "Beginner - New to tennis or learning basic strokes",
+      "beginner": "Beginner - New to pickleball or learning basic strokes",
       "elementary": "Elementary - Can hit basic strokes, understands doubles basics",
       "intermediate": "Intermediate - Consistent strokes, strategic play",
       "advanced": "Advanced - Tournament experience, advanced skills"
@@ -252,17 +252,17 @@
       "matchLevelRestriction": "Lightning matches only allow levels equal to or higher than host level"
     },
     "autoNtrp": {
-      "hostLevel": "Host LTR: {{level}} ({{gameType}})",
-      "partnerLevel": "Partner LTR: {{level}} ({{gameType}})",
-      "combinedLevel": "Combined LTR: {{level}}",
-      "hostLevelWithType": "Host LTR: {{level}} ({{type}})",
-      "partnerLevelWithType": "Partner LTR: {{level}} ({{type}})"
+      "hostLevel": "Host LPR: {{level}} ({{gameType}})",
+      "partnerLevel": "Partner LPR: {{level}} ({{gameType}})",
+      "combinedLevel": "Combined LPR: {{level}}",
+      "hostLevelWithType": "Host LPR: {{level}} ({{type}})",
+      "partnerLevelWithType": "Partner LPR: {{level}} ({{type}})"
     },
     "helperText": {
       "languageSelection": "Select languages you can communicate in for a better match experience.",
       "matchLevelAuto": "Match level is auto-calculated based on {{type}}.",
-      "doublesMatchLevel": "* Doubles match level is automatically set from host and partner LTR sum.",
-      "singlesMatchLevel": "* Singles match level is automatically set from host LTR. (±0.5 tolerance)"
+      "doublesMatchLevel": "* Doubles match level is automatically set from host and partner LPR sum.",
+      "singlesMatchLevel": "* Singles match level is automatically set from host LPR. (±0.5 tolerance)"
     },
     "toggleDescriptions": {
       "autoApproval": "When enabled, participants are auto-approved first-come-first-served until capacity. When disabled, host must manually approve each participant.",
@@ -271,7 +271,7 @@
     "sms": {
       "description": "Send invitations and app download link to friends who haven't installed the app",
       "descriptionDetailed": "Send invitations and app download links to friends without the app",
-      "invitationMessage": "[Lightning Tennis] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}",
+      "invitationMessage": "[Lightning Pickleball] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}",
       "defaultSender": "A friend",
       "numbersToInvite": "Numbers to invite:"
     },
@@ -670,7 +670,7 @@
       },
       "first_club_join": {
         "name": "First Club Member",
-        "description": "You joined your first tennis club! 🏟️"
+        "description": "You joined your first pickleball club! 🏟️"
       },
       "streak_5": {
         "name": "5 Win Streak",
@@ -858,7 +858,7 @@
     "levels": {
       "beginner": {
         "label": "1.0-2.5 (Beginner)",
-        "description": "Just started playing tennis"
+        "description": "Just started playing pickleball"
       },
       "intermediate": {
         "label": "3.0-3.5 (Intermediate)",
@@ -901,7 +901,7 @@
       "permissionMessage": "Please allow notification permission in settings to receive match notifications.",
       "later": "Later",
       "matchNotificationTitle": "Match Notification",
-      "matchNotificationBody": "You have a tennis match scheduled in 30 minutes."
+      "matchNotificationBody": "You have a pickleball match scheduled in 30 minutes."
     }
   },
   "roleManagement": {
@@ -951,7 +951,7 @@
     "emptyStateGuestAction2": "Check club information",
     "aiHelperHint": "Not sure what to do?",
     "aiHelperButton": "Chat with AI Assistant",
-    "aiHelperSubtext": "Ask questions about tennis or how to use the app!"
+    "aiHelperSubtext": "Ask questions about pickleball or how to use the app!"
   },
   "types": {
     "match": {
@@ -977,7 +977,7 @@
     "clubSchedule": {
       "scheduleTypes": {
         "practice": "Practice Session",
-        "social": "Social Tennis",
+        "social": "Social Pickleball",
         "league_match": "League Match",
         "clinic": "Training Clinic",
         "meeting": "Club Meeting",
@@ -1147,7 +1147,7 @@
       },
       "location": {
         "label": "Location *",
-        "placeholder": "e.g., Central Park Tennis Courts"
+        "placeholder": "e.g., Central Park Pickleball Courts"
       },
       "dateTime": {
         "label": "Date & Time"
@@ -1256,7 +1256,7 @@
       "perfectMatchTitle": "Found the perfect match! 🎾",
       "newRequestTitle": "New match request 📨",
       "perfectMatchBody": "You have a {{score}}% match rate with {{name}}.",
-      "newRequestBody": "{{senderName}} has requested a tennis match with you."
+      "newRequestBody": "{{senderName}} has requested a pickleball match with you."
     },
     "event": {
       "untitled": "Untitled",
@@ -1287,7 +1287,7 @@
         "defaultMessage": "You have a new activity update.",
         "defaultLeagueName": "League"
       },
-      "tennisUserFallback": "TennisUser{{id}}"
+      "pickleballUserFallback": "PickleballUser{{id}}"
     },
     "camera": {
       "simulatorError": "There was a problem accessing gallery on iOS simulator. Please test on a real device.",

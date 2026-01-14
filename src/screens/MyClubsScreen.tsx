@@ -15,7 +15,7 @@ import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import clubService from '../services/clubService';
 import SafeText from '../components/common/SafeText';
 import { useClubChatUnreadCount } from '../hooks/clubs/useClubChatUnreadCount';
@@ -60,7 +60,7 @@ const MyClubsScreenSimple = () => {
   const currentUser = authCtx?.currentUser || null;
 
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   /* eslint-disable @typescript-eslint/no-explicit-any */
   const styles = createStyles(themeColors.colors as any);
   /* eslint-enable @typescript-eslint/no-explicit-any */
@@ -88,8 +88,8 @@ const MyClubsScreenSimple = () => {
         {
           id: 'mock-1',
           clubId: 'club-1',
-          clubName: 'Atlanta Tennis Club',
-          clubDescription: 'Weekly tennis matches and practice sessions',
+          clubName: 'Atlanta Pickleball Club',
+          clubDescription: 'Weekly pickleball matches and practice sessions',
           clubLocation: 'Atlanta, GA',
           role: 'admin',
           status: 'active',
@@ -101,8 +101,8 @@ const MyClubsScreenSimple = () => {
         {
           id: 'mock-2',
           clubId: 'club-2',
-          clubName: 'Duluth Tennis Group',
-          clubDescription: 'Friendly tennis community in Duluth',
+          clubName: 'Duluth Pickleball Group',
+          clubDescription: 'Friendly pickleball community in Duluth',
           clubLocation: 'Duluth, GA',
           role: 'member',
           status: 'active',
@@ -421,7 +421,7 @@ const MyClubsScreenSimple = () => {
             />
           ) : (
             <View style={styles.clubLogoPlaceholder}>
-              <MaterialCommunityIcons name='tennis' size={28} color='white' />
+              <MaterialCommunityIcons name='pickleball' size={28} color='white' />
             </View>
           )}
         </View>

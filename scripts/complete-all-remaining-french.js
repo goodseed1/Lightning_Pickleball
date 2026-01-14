@@ -65,7 +65,7 @@ const remainingTranslations = {
   },
 
   manageLeagueParticipants: {
-    set: 'Set', // Terme tennis universel
+    set: 'Set', // Terme pickleball universel
   },
 
   appliedEventCard: {

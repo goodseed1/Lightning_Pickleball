@@ -67,7 +67,7 @@ const italianDictionary = {
 
   // Tournament terms
   Seed: 'Testa di Serie',
-  Bracket: 'Tabellone',
+  Bpaddle: 'Tabellone',
   Tournament: 'Torneo',
   League: 'Lega',
   Generate: 'Genera',
@@ -148,8 +148,8 @@ const italianDictionary = {
   Time: 'Ora',
   Duration: 'Durata',
   Level: 'Livello',
-  LTR: 'LTR',
-  NTRP: 'LTR',
+  LPR: 'LPR',
+  NTRP: 'LPR',
   'Skill Level': 'Livello Abilità',
   Analyzing: 'Analisi in corso',
   Checking: 'Verifica in corso',
@@ -284,7 +284,7 @@ function smartTranslate(enText) {
     application: 'candidatura',
     registration: 'iscrizione',
     seed: 'testa di serie',
-    bracket: 'tabellone',
+    bpaddle: 'tabellone',
     notification: 'notifica',
     message: 'messaggio',
   };

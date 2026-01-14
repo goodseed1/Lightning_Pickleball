@@ -1,12 +1,12 @@
 /**
  * 🛡️ [CAPTAIN AMERICA] Create Match Cloud Function
  *
- * Server-side match creation with LTR validation and atomic batch writes.
- * Prevents "양학" (skill exploitation) by validating combined LTR for doubles.
+ * Server-side match creation with LPR validation and atomic batch writes.
+ * Prevents "양학" (skill exploitation) by validating combined LPR for doubles.
  *
  * @author Captain America
  * @date 2025-11-27
- * @updated 2025-12-30 - NTRP → LTR migration
+ * @updated 2025-12-30 - NTRP → LPR migration
  */
 
 import * as admin from 'firebase-admin';
@@ -31,8 +31,8 @@ export interface CreateMatchRequest {
   hostPartnerId?: string; // Required for doubles
   hostPartnerName?: string; // Required for doubles
   maxParticipants: number;
-  minLTR?: number; // Only for rankedMatch
-  maxLTR?: number; // Only for rankedMatch
+  minLPR?: number; // Only for rankedMatch
+  maxLPR?: number; // Only for rankedMatch
   // Backward compatibility: Accept legacy NTRP fields
   minNTRP?: number;
   maxNTRP?: number;
@@ -54,14 +54,14 @@ export interface CreateMatchResponse {
  *
  * Security:
  * - Must be authenticated
- * - LTR validation for ranked matches
+ * - LPR validation for ranked matches
  * - Atomic creation of event + partner invitation
  *
  * Operations:
  * 1. Authentication check
  * 2. Input validation
  * 3. Verify doubles partner (if applicable)
- * 4. LTR validation (ranked matches only)
+ * 4. LPR validation (ranked matches only)
  * 5. Fetch user profiles for hostName/partnerName
  * 6. Batch write: Event + PartnerInvitation
  * 7. Return success with eventId and invitationId
@@ -117,31 +117,31 @@ export const createMatch = onCall<CreateMatchRequest, Promise<CreateMatchRespons
       throw new HttpsError('invalid-argument', 'Singles match cannot have a partner');
     }
 
-    // Step 4: LTR validation (ranked matches only)
+    // Step 4: LPR validation (ranked matches only)
     if (data.type === 'rankedMatch') {
-      // 🎯 [BACKWARD COMPATIBILITY] Support both minLTR/maxLTR and legacy minNTRP/maxNTRP
-      const minLTR = data.minLTR ?? data.minNTRP;
-      const maxLTR = data.maxLTR ?? data.maxNTRP;
+      // 🎯 [BACKWARD COMPATIBILITY] Support both minLPR/maxLPR and legacy minNTRP/maxNTRP
+      const minLPR = data.minLPR ?? data.minNTRP;
+      const maxLPR = data.maxLPR ?? data.maxNTRP;
 
-      if (minLTR === undefined || maxLTR === undefined) {
-        throw new HttpsError('invalid-argument', 'Ranked match requires minLTR and maxLTR');
+      if (minLPR === undefined || maxLPR === undefined) {
+        throw new HttpsError('invalid-argument', 'Ranked match requires minLPR and maxLPR');
       }
 
-      if (minLTR >= maxLTR) {
-        throw new HttpsError('invalid-argument', 'maxLTR must be greater than minLTR');
+      if (minLPR >= maxLPR) {
+        throw new HttpsError('invalid-argument', 'maxLPR must be greater than minLPR');
       }
 
-      // Validate host + partner LTR
+      // Validate host + partner LPR
       const validation = await validateMatchLtr(
         userId,
         data.hostPartnerId,
         data.gameType,
-        minLTR,
-        maxLTR
+        minLPR,
+        maxLPR
       );
 
       if (!validation.isValid) {
-        logger.warn('⚠️ [CREATE_MATCH] LTR validation failed', {
+        logger.warn('⚠️ [CREATE_MATCH] LPR validation failed', {
           userId,
           hostLtr: validation.hostLtr,
           partnerLtr: validation.partnerLtr,
@@ -152,7 +152,7 @@ export const createMatch = onCall<CreateMatchRequest, Promise<CreateMatchRespons
         throw new HttpsError('failed-precondition', validation.errors.join(' '));
       }
 
-      logger.info('✅ [CREATE_MATCH] LTR validation passed', {
+      logger.info('✅ [CREATE_MATCH] LPR validation passed', {
         userId,
         hostLtr: validation.hostLtr,
         partnerLtr: validation.partnerLtr,
@@ -192,9 +192,9 @@ export const createMatch = onCall<CreateMatchRequest, Promise<CreateMatchRespons
       // Create Event document
       const eventRef = db.collection('events').doc();
 
-      // 🎯 [BACKWARD COMPATIBILITY] Support both minLTR/maxLTR and legacy minNTRP/maxNTRP
-      const minLTR = data.minLTR ?? data.minNTRP ?? 1;
-      const maxLTR = data.maxLTR ?? data.maxNTRP ?? 10;
+      // 🎯 [BACKWARD COMPATIBILITY] Support both minLPR/maxLPR and legacy minNTRP/maxNTRP
+      const minLPR = data.minLPR ?? data.minNTRP ?? 1;
+      const maxLPR = data.maxLPR ?? data.maxNTRP ?? 10;
 
       const eventData = {
         title: data.title.trim(),
@@ -222,11 +222,11 @@ export const createMatch = onCall<CreateMatchRequest, Promise<CreateMatchRespons
         // For public matches, cooldown check happens when opponent joins/accepts
         isRankedMatch: true,
         ...(data.type === 'rankedMatch' && {
-          minLtr: minLTR,
-          maxLtr: maxLTR,
+          minLtr: minLPR,
+          maxLtr: maxLPR,
           // Legacy fields for backward compatibility during migration
-          minNTRP: minLTR,
-          maxNTRP: maxLTR,
+          minNTRP: minLPR,
+          maxNTRP: maxLPR,
         }),
         ...(isDoubles &&
           data.hostPartnerId && {

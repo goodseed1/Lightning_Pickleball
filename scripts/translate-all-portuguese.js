@@ -214,7 +214,7 @@ function smartTranslate(text) {
     .replace(/every week/gi, 'toda semana')
     .replace(/Add Your First Regular Meeting/gi, 'Adicione Sua Primeira Reunião Regular')
     .replace(/User Profile/gi, 'Perfil do Usuário')
-    .replace(/Tennis Player/gi, 'Jogador de Tênis')
+    .replace(/Pickleball Player/gi, 'Jogador de Tênis')
     .replace(/No location info/gi, 'Sem informação de localização')
     .replace(/No information/gi, 'Sem informação')
     .replace(/Cannot send friend request/gi, 'Não é possível enviar solicitação de amizade')

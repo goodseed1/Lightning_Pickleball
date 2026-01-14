@@ -1,8 +1,8 @@
-# Lightning Tennis Club System - Firestore Database Design
+# Lightning Pickleball Club System - Firestore Database Design
 
 ## 📊 Database Architecture Overview
 
-Lightning Tennis 클럽 시스템은 개인용 번개 매치와 클럽용 운영 허브를 동시에 지원하는 데이터베이스 구조를 가집니다.
+Lightning Pickleball 클럽 시스템은 개인용 번개 매치와 클럽용 운영 허브를 동시에 지원하는 데이터베이스 구조를 가집니다.
 
 ## 🗂️ Core Collections Structure
 
@@ -12,7 +12,7 @@ Lightning Tennis 클럽 시스템은 개인용 번개 매치와 클럽용 운영
 // Document ID: auto-generated unique ID
 clubs/{clubId} {
   // 기본 클럽 정보
-  name: string,                    // 클럽 이름 (예: "Atlanta Korean Tennis Club")
+  name: string,                    // 클럽 이름 (예: "Atlanta Korean Pickleball Club")
   description: string,             // 클럽 소개 (최대 500자)
   logoUrl?: string,               // 클럽 로고 이미지 URL
   coverImageUrl?: string,         // 클럽 커버 이미지 URL
@@ -473,4 +473,4 @@ lightning_matches/{matchId} {
 }
 ```
 
-이 데이터베이스 설계는 확장성, 성능, 보안을 모두 고려하여 Lightning Tennis의 개인용 번개 매치와 클럽용 운영 허브를 효과적으로 지원합니다.
+이 데이터베이스 설계는 확장성, 성능, 보안을 모두 고려하여 Lightning Pickleball의 개인용 번개 매치와 클럽용 운영 허브를 효과적으로 지원합니다.

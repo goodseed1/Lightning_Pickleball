@@ -53,7 +53,7 @@ All user-facing text has been translated to Latin American Spanish:
 
 ### Participants & Teams
 
-- `alert.tournamentBracket.participants`: Participants → **Participantes**
+- `alert.tournamentBpaddle.participants`: Participants → **Participantes**
 - `clubLeaguesTournaments.labels.participants`: Participants → **Participantes**
 - `clubTournamentManagement.participants.label`: Participants → **Participantes**
 - `eventParticipation.tabs.participants`: Participants → **Participantes**

@@ -52,7 +52,7 @@ const translations = {
     loadingClubInfo: 'Загрузка информации о клубе...',
     loadingAnnouncements: 'Загрузка объявлений...',
     noDateInfo: 'Нет информации о дате',
-    bracketGeneration: 'Генерация сетки',
+    bpaddleGeneration: 'Генерация сетки',
     playoffsInProgress: 'Плей-офф в процессе',
     clubNotifications: 'Уведомления клуба',
     teamInviteTitle: 'Приглашение в команду',

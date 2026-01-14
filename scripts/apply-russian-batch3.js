@@ -220,7 +220,7 @@ const translations = {
       clubHomeCourt: 'Домашний корт клуба',
       changeInSettings: 'Можно изменить в настройках клуба',
       courtLocation: 'Местоположение корта',
-      searchTennisCourt: 'Поиск теннисного корта',
+      searchPickleballCourt: 'Поиск теннисного корта',
       searchHelper: 'Нажмите для поиска теннисного корта.',
     },
     court: {

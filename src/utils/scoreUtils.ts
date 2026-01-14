@@ -1,6 +1,6 @@
 /**
- * Tennis Score Utility Functions
- * Utilities for formatting and displaying tennis match scores
+ * Pickleball Score Utility Functions
+ * Utilities for formatting and displaying pickleball match scores
  */
 
 import { MatchScore } from '../types/match';
@@ -114,7 +114,7 @@ export const isValidMatchScore = (score: MatchScore): boolean => {
       return false;
     }
 
-    // Basic tennis scoring validation
+    // Basic pickleball scoring validation
     const maxGames = Math.max(set.player1Games, set.player2Games);
     const minGames = Math.min(set.player1Games, set.player2Games);
 

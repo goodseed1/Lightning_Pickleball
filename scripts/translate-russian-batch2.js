@@ -357,7 +357,7 @@ const translations = {
   editProfile: {
     title: 'Редактировать профиль',
     personalInfo: 'Личная информация',
-    tennisInfo: 'Теннисная информация',
+    pickleballInfo: 'Теннисная информация',
     preferences: 'Предпочтения',
     photo: 'Фото',
     changePhoto: 'Изменить фото',

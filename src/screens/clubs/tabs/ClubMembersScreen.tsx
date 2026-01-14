@@ -13,7 +13,7 @@ import { TabView, TabBar } from 'react-native-tab-view';
 import { useTheme, useNavigation, NavigationProp } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme as useLTTheme } from '../../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../../theme';
+import { getLightningPickleballTheme } from '../../../theme';
 import clubService from '../../../services/clubService';
 import { RoleManagementContainer } from '../../../containers/RoleManagementContainer';
 import { useLanguage } from '../../../contexts/LanguageContext';
@@ -41,7 +41,7 @@ interface JoinRequest {
   profile?: {
     photoURL?: string;
   };
-  // 🎯 [KIM FIX v19] Include LTR values (1-10 scale) for accurate display
+  // 🎯 [KIM FIX v19] Include LPR values (1-10 scale) for accurate display
   singlesLtr?: number;
   doublesLtr?: number;
   mixedLtr?: number;
@@ -68,7 +68,7 @@ const ClubMembersScreen: React.FC<ClubMembersScreenProps> = ({
   const { t } = useLanguage();
   // 🎯 [KIM FIX] 탐색/이벤트 화면과 동일한 테마 사용
   const { theme: currentTheme } = useLTTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const isDark = currentTheme === 'dark';
   const [memberTabIndex, setMemberTabIndex] = useState(0);
   const [memberRoutes, setMemberRoutes] = useState<TabRoute[]>([
@@ -327,7 +327,7 @@ const ClubMembersScreen: React.FC<ClubMembersScreenProps> = ({
                     {request.displayName}
                   </Text>
                   {(() => {
-                    // 🎯 [KIM FIX v19] Use actual LTR values (1-10 scale)
+                    // 🎯 [KIM FIX v19] Use actual LPR values (1-10 scale)
                     const ltrValue = request.singlesLtr || request.doublesLtr || request.mixedLtr;
                     return ltrValue ? (
                       <View
@@ -342,7 +342,7 @@ const ClubMembersScreen: React.FC<ClubMembersScreenProps> = ({
                             { color: themeColors.colors.onPrimaryContainer },
                           ]}
                         >
-                          LTR {Math.round(ltrValue)}
+                          LPR {Math.round(ltrValue)}
                         </Text>
                       </View>
                     ) : null;

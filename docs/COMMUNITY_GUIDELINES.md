@@ -1,6 +1,6 @@
 # 커뮤니티 가이드라인 (Community Guidelines)
 
-**목적**: '번개 테니스'가 즐겁고, 공정하며, 안전한 커뮤니티가 되기 위해 모든 멤버가 지켜야 할 약속을 규정합니다.
+**목적**: '번개 피클볼'가 즐겁고, 공정하며, 안전한 커뮤니티가 되기 위해 모든 멤버가 지켜야 할 약속을 규정합니다.
 
 ---
 
@@ -67,7 +67,7 @@
 
 - 모든 사용자는 자신의 프로필(특히 경기 시작 전의 자체 평가 레벨)과 경기 결과를 **최대한 정확하게 기록**할 의무가 있습니다.
 - 의도적인 실력 속이기(**샌드배깅**)나 스코어 조작은 커뮤니티의 신뢰를 해치는 **심각한 행위**로 간주됩니다.
-- **LTR(Lightning Tennis Rating)**은 이 기록된 결과들을 바탕으로 시스템에 의해 **공정하게 자동 계산**됩니다.
+- **LPR(Lightning Pickleball Rating)**은 이 기록된 결과들을 바탕으로 시스템에 의해 **공정하게 자동 계산**됩니다.
 
 ### 불법 콘텐츠 금지
 
@@ -89,7 +89,7 @@
 
 # Community Guidelines (English)
 
-**Purpose**: To define the promises all members must keep for Lightning Tennis to be a fun, fair, and safe community.
+**Purpose**: To define the promises all members must keep for Lightning Pickleball to be a fun, fair, and safe community.
 
 ---
 
@@ -156,7 +156,7 @@ All matches follow USTA's "The Code."
 
 - All users must record their profile (especially self-assessed skill level before matches) and match results **as accurately as possible**.
 - Intentional skill misrepresentation (**sandbagging**) or score manipulation is considered a **serious violation** of community trust.
-- **LTR (Lightning Tennis Rating)** is **fairly auto-calculated** by the system based on these recorded results.
+- **LPR (Lightning Pickleball Rating)** is **fairly auto-calculated** by the system based on these recorded results.
 
 ### Prohibited Content
 
@@ -176,6 +176,6 @@ All matches follow USTA's "The Code."
 
 ---
 
-_Lightning Tennis strives to be an inclusive community where all tennis players feel welcome!_
+_Lightning Pickleball strives to be an inclusive community where all pickleball players feel welcome!_
 
 _Last Updated: December 2025_

@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, Alert, TouchableOpacity } from 'react-native';
@@ -445,7 +445,7 @@ export default function EventDetailScreen() {
             </View>
             {event.isRanked && event.minNTRP && event.maxNTRP && (
               <Chip compact style={styles.ntrpChip} textStyle={styles.ntrpText}>
-                LTR {event.minNTRP}-{event.maxNTRP}
+                LPR {event.minNTRP}-{event.maxNTRP}
               </Chip>
             )}
           </View>
@@ -552,7 +552,7 @@ export default function EventDetailScreen() {
                         ` (${t('eventDetail.participants.host')})`}
                     </Text>
                     {participant.ltrLevel && (
-                      <Text style={styles.participantNTRP}>LTR {participant.ltrLevel}</Text>
+                      <Text style={styles.participantNTRP}>LPR {participant.ltrLevel}</Text>
                     )}
                   </View>
                 </View>

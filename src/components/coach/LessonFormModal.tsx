@@ -21,7 +21,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../hooks/useTheme';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useAuth } from '../../contexts/AuthContext';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { getCurrencyByCountry } from '../../utils/currencyUtils';
 import { CoachLesson, CreateLessonRequest, LessonLocation } from '../../types/coachLesson';
 import coachLessonService from '../../services/coachLessonService';
@@ -42,7 +42,7 @@ const LessonFormModal: React.FC<LessonFormModalProps> = ({
   const { theme: currentTheme } = useTheme();
   const { t } = useLanguage();
   const { currentUser } = useAuth();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const colors = themeColors.colors as unknown as Record<string, string>;
 
   // Form state

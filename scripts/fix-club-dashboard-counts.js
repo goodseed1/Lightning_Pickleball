@@ -20,7 +20,7 @@ const db = admin.firestore();
 async function fixClubDashboardCounts() {
   console.log('🔧 클럽 대시보드 카운트 데이터 확인...\n');
 
-  // Lightning Tennis Club ID
+  // Lightning Pickleball Club ID
   const clubId = 'WsetxkWODywjt0BBcqrs';
 
   console.log('='.repeat(60));

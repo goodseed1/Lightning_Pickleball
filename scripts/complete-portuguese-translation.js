@@ -28,7 +28,7 @@ function translatePt(text) {
     .replace(/^Sign Up$/i, 'Cadastrar')
     .replace(/^Sign In$/i, 'Entrar')
     .replace(/^Signing up\.\.\.$/i, 'Cadastrando...')
-    .replace(/Join Lightning Tennis/i, 'Junte-se ao Lightning Tennis')
+    .replace(/Join Lightning Pickleball/i, 'Junte-se ao Lightning Pickleball')
     .replace(/Sign Up Complete/i, 'Cadastro Concluído')
     .replace(
       /Sign up completed\. Please set up your profile through onboarding\./i,
@@ -64,7 +64,7 @@ function translatePt(text) {
       /via the AI assistant chatbot at the bottom of the app\./i,
       'através do chatbot assistente de IA na parte inferior do aplicativo.'
     )
-    .replace(/e\.g\., Duluth Korean Tennis Club/i, 'ex: Clube de Tênis Coreano de Duluth')
+    .replace(/e\.g\., Duluth Korean Pickleball Club/i, 'ex: Clube de Tênis Coreano de Duluth')
     .replace(
       /Describe your club's goals, atmosphere, and unique features/i,
       'Descreva os objetivos, atmosfera e características únicas do seu clube'
@@ -82,7 +82,7 @@ function translatePt(text) {
     .replace(/^Repeat Day$/i, 'Repetir Dia')
     .replace(/Add New Regular Meeting/i, 'Adicionar Nova Reunião Regular')
     .replace(/e\.g\., Weekend Singles Practice/i, 'ex: Treino de Simples de Fim de Semana')
-    .replace(/e\.g\., Central Park Tennis Courts/i, 'ex: Quadras de Tênis do Parque Central')
+    .replace(/e\.g\., Central Park Pickleball Courts/i, 'ex: Quadras de Tênis do Parque Central')
     .replace(/Select Day/i, 'Selecionar Dia')
     .replace(
       /Please enter meeting name and location\./i,
@@ -127,7 +127,7 @@ function translatePt(text) {
     .replace(/Failed to load profile/i, 'Falha ao carregar perfil')
     .replace(/Profile not found/i, 'Perfil não encontrado')
     .replace(/Go Back/i, 'Voltar')
-    .replace(/Tennis Player/i, 'Jogador de Tênis')
+    .replace(/Pickleball Player/i, 'Jogador de Tênis')
     .replace(/No location info/i, 'Sem informação de localização')
     .replace(/Joined/i, 'Entrou em')
     .replace(/Friend Request/i, 'Solicitação de Amizade')

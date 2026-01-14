@@ -66,7 +66,7 @@ exports.onSoloProposalCreated = onDocumentUpdated(
       }
 
       const eventData = eventSnap.data();
-      const eventTitle = eventData.title || eventData.name || 'Tennis Match';
+      const eventTitle = eventData.title || eventData.name || 'Pickleball Match';
 
       // 💥 PHASE 1: Create NOTIFICATION for recipient 💥
       try {

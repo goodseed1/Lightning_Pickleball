@@ -377,7 +377,7 @@ async function sendCancellationNotification(
           icon: 'ic_notification',
           color: '#f44336',
           sound: 'default',
-          channelId: 'lightning_tennis_events',
+          channelId: 'lightning_pickleball_events',
         },
       },
       apns: {

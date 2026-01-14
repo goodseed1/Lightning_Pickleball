@@ -264,7 +264,7 @@ const zhTranslations = {
     female: '女',
     other: '其他',
     preferNotToSay: '不愿透露',
-    tennisInfo: '网球信息',
+    pickleballInfo: '网球信息',
     skillLevel: '技能等级',
     playingStyle: '打法风格',
     preferredHand: '惯用手',

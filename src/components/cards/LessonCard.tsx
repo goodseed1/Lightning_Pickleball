@@ -14,7 +14,7 @@ import { ko, enUS } from 'date-fns/locale';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
 import { useAuth } from '../../contexts/AuthContext';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { CoachLesson } from '../../types/coachLesson';
 import { formatDistance } from '../../utils/unitUtils';
 import { formatPriceByCountry } from '../../utils/currencyUtils';
@@ -31,7 +31,7 @@ const LessonCard: React.FC<LessonCardProps> = ({ lesson, onEdit, onDelete }) => 
   const { theme: currentTheme } = useTheme();
   const { currentUser } = useAuth();
   const navigation = useNavigation();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const colors = themeColors.colors as unknown as Record<string, string>;
 
   const isOwner = currentUser?.uid === lesson.authorId;

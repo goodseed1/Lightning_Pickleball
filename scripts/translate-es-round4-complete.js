@@ -68,7 +68,7 @@ const translations = {
       clubHomeCourt: 'Cancha Local del Club',
       changeInSettings: 'Se puede cambiar en configuración del club',
       courtLocation: 'Ubicación de la Cancha',
-      searchTennisCourt: 'Buscar Cancha de Tenis',
+      searchPickleballCourt: 'Buscar Cancha de Tenis',
       searchHelper: 'Toca para buscar una cancha de tenis.',
     },
     court: {
@@ -391,7 +391,7 @@ const translations = {
 
   inviteFriends: {
     title: 'Invitar Amigos',
-    shareMessage: '¡Únete a mí en Lightning Tennis!',
+    shareMessage: '¡Únete a mí en Lightning Pickleball!',
     share: 'Compartir',
     copied: 'Link copiado',
   },
@@ -430,7 +430,7 @@ const translations = {
     description: 'Descripción',
   },
 
-  tournamentBracket: {
+  tournamentBpaddle: {
     title: 'Cuadro del Torneo',
     round: 'Ronda {{number}}',
     finals: 'Final',

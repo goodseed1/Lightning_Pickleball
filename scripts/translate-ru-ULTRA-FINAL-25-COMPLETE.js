@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 /**
- * ULTRA FINAL - Last 25 Russian translations with special handling
+ * ULPRA FINAL - Last 25 Russian translations with special handling
  * This is the absolute final batch for 100% completion
  */
 const translations = {
@@ -115,7 +115,7 @@ const updatedRu = deepMerge(existingRu, translations);
 
 fs.writeFileSync(ruPath, JSON.stringify(updatedRu, null, 2) + '\n', 'utf8');
 
-console.log('✅ ULTRA FINAL 25 Russian translations applied!');
+console.log('✅ ULPRA FINAL 25 Russian translations applied!');
 console.log('\n📊 Final batch details:');
 console.log('  ✓ clubLeaguesTournaments (peopleUnit, empty): 5 keys');
 console.log('  ✓ createEvent.languages: 5 keys (한국어, 中文, 日本語, Español, Français)');

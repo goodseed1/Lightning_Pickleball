@@ -26,7 +26,7 @@ async function listAllCollections() {
     // 클럽 관련 컬렉션이면 상세 출력
     if (
       collection.id.toLowerCase().includes('club') ||
-      collection.id.toLowerCase().includes('tennis')
+      collection.id.toLowerCase().includes('pickleball')
     ) {
       console.log('     ⬇️ 클럽 관련 컬렉션 - 상세 내용:');
       snapshot.forEach(doc => {

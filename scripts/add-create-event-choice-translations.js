@@ -43,8 +43,8 @@ const translations = {
       },
       createClub: {
         title: 'Club erstellen',
-        subtitle: 'Tennis-Community',
-        description: 'Starte deine eigene Tennis-Community.',
+        subtitle: 'Pickleball-Community',
+        description: 'Starte deine eigene Pickleball-Community.',
       },
       infoNotice: 'Der ausgewählte Typ kann später nicht geändert werden.',
     },
@@ -66,8 +66,8 @@ const translations = {
       },
       createClub: {
         title: 'Créer un Club',
-        subtitle: 'Communauté Tennis',
-        description: 'Créez votre propre communauté de tennis.',
+        subtitle: 'Communauté Pickleball',
+        description: 'Créez votre propre communauté de pickleball.',
       },
       infoNotice: 'Le type sélectionné ne peut pas être modifié ultérieurement.',
     },
@@ -89,8 +89,8 @@ const translations = {
       },
       createClub: {
         title: 'Crea Club',
-        subtitle: 'Comunità Tennis',
-        description: 'Avvia la tua comunità di tennis.',
+        subtitle: 'Comunità Pickleball',
+        description: 'Avvia la tua comunità di pickleball.',
       },
       infoNotice: 'Il tipo selezionato non può essere modificato successivamente.',
     },

@@ -137,7 +137,7 @@ const allTranslations = {
   'leagueDetail.finalMatch': 'Finale',
   'leagueDetail.qualifiedTeams': 'Qualifizierte Teams:',
   'leagueDetail.teams': 'Teams',
-  'leagueDetail.playoffBracket': 'Playoff-Turnierbaum',
+  'leagueDetail.playoffBpaddle': 'Playoff-Turnierbaum',
   'leagueDetail.semifinals': 'Halbfinale',
   'leagueDetail.finals': 'Finale',
   'leagueDetail.thirdPlaceMatch': 'Spiel um Platz 3',

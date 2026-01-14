@@ -4,7 +4,7 @@ import { TextInput } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { useTheme } from '../../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../../theme';
+import { getLightningPickleballTheme } from '../../../theme';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import Section from '../../layout/Section';
 
@@ -21,7 +21,7 @@ interface FeesSectionProps {
 
 export default function FeesSection({ formData, onFormChange }: FeesSectionProps) {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const colors = themeColors.colors;
   const { t } = useLanguage();
 

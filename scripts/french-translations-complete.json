@@ -52,7 +52,7 @@
     "club": "Club"
   },
   "alert": {
-    "tournamentBracket": {
+    "tournamentBpaddle": {
       "info": "Info",
       "participants": "Participants",
       "participantsTab": "Participants"
@@ -117,11 +117,11 @@
       "guestTeamWins": "Victoire de l'équipe invitée"
     },
     "requirements": {
-      "levelMismatch": "Niveau incompatible (Votre LTR : {{userNtrp}}, Autorisé : {{minNtrp}}~{{maxNtrp}})",
+      "levelMismatch": "Niveau incompatible (Votre LPR : {{userNtrp}}, Autorisé : {{minNtrp}}~{{maxNtrp}})",
       "genderMismatch": "Genre incompatible",
       "menOnly": "Ceci est un match masculin",
       "womenOnly": "Ceci est un match féminin",
-      "canApply": "Candidater : LTR {{minNtrp}} - {{maxNtrp}}",
+      "canApply": "Candidater : LPR {{minNtrp}} - {{maxNtrp}}",
       "level": "Niveau : {{level}}"
     },
     "soloApplicants": {
@@ -393,7 +393,7 @@
     "levels": {
       "beginner": {
         "label": "1.0-2.5 (Débutant)",
-        "description": "Vient de commencer à jouer au tennis"
+        "description": "Vient de commencer à jouer au pickleball"
       },
       "intermediate": {
         "label": "3.0-3.5 (Intermédiaire)",
@@ -436,7 +436,7 @@
       "permissionMessage": "Veuillez autoriser la permission de notification dans les paramètres pour recevoir les notifications de match.",
       "later": "Plus tard",
       "matchNotificationTitle": "Notification de match",
-      "matchNotificationBody": "Vous avez un match de tennis prévu dans 30 minutes."
+      "matchNotificationBody": "Vous avez un match de pickleball prévu dans 30 minutes."
     }
   },
   "roleManagement": {
@@ -486,7 +486,7 @@
     "emptyStateGuestAction2": "Consulter les informations du club",
     "aiHelperHint": "Vous ne savez pas quoi faire ?",
     "aiHelperButton": "Discuter avec l'assistant IA",
-    "aiHelperSubtext": "Posez des questions sur le tennis ou comment utiliser l'application !"
+    "aiHelperSubtext": "Posez des questions sur le pickleball ou comment utiliser l'application !"
   },
   "types": {
     "dues": {

@@ -14,14 +14,14 @@ import { onCall, HttpsError } from 'firebase-functions/v2/https';
 import {
   GenerateNextRoundRequest,
   GenerateNextRoundResponse,
-  BracketMatch,
+  BpaddleMatch,
 } from './types/tournament';
 import { logger } from 'firebase-functions/v2';
 
 const db = admin.firestore();
 
 // Extended match type with internal _winner field
-interface MatchWithWinner extends BracketMatch {
+interface MatchWithWinner extends BpaddleMatch {
   _winner?: string;
 }
 
@@ -91,7 +91,7 @@ export const generateNextRound = onCall<
     // Check if user is club admin (if tournament belongs to a club)
     let isClubAdmin = false;
     if (tournamentData.clubId) {
-      const clubRef = db.collection('tennis_clubs').doc(tournamentData.clubId);
+      const clubRef = db.collection('pickleball_clubs').doc(tournamentData.clubId);
       const clubSnap = await clubRef.get();
 
       if (clubSnap.exists) {

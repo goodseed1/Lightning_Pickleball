@@ -370,7 +370,7 @@ const DirectChatRoomScreen: React.FC = () => {
         >
           {/* Club Name Header */}
           <View style={styles.invitationHeader}>
-            <Ionicons name='tennisball' size={20} color={theme.colors.primary} />
+            <Ionicons name='pickleballball' size={20} color={theme.colors.primary} />
             <Text style={styles.invitationClubName}>
               {metadata?.clubName || t('directChat.club')}
             </Text>

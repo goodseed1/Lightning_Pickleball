@@ -447,10 +447,10 @@ const RegularMeetupTab: React.FC<MeetupTabProps> = ({
       try {
         console.log('🗓️ [loadClubSchedules] Loading schedules for clubId:', clubId);
 
-        // Parallel fetch: clubSchedules collection AND tennis_clubs document
+        // Parallel fetch: clubSchedules collection AND pickleball_clubs document
         const [schedules, clubSnap] = await Promise.all([
           clubScheduleService.getClubSchedules(clubId, true),
-          getDoc(doc(db, 'tennis_clubs', clubId)),
+          getDoc(doc(db, 'pickleball_clubs', clubId)),
         ]);
 
         console.log(
@@ -484,10 +484,10 @@ const RegularMeetupTab: React.FC<MeetupTabProps> = ({
           return;
         }
 
-        // Priority 2: Fallback to tennis_clubs.settings.meetings
+        // Priority 2: Fallback to pickleball_clubs.settings.meetings
         if (clubSnap.exists()) {
           const meetings = clubSnap.data()?.settings?.meetings;
-          console.log('🗓️ [loadClubSchedules] Fallback: tennis_clubs.settings.meetings:', meetings);
+          console.log('🗓️ [loadClubSchedules] Fallback: pickleball_clubs.settings.meetings:', meetings);
 
           if (meetings && Array.isArray(meetings) && meetings.length > 0) {
             console.log('🗓️ [loadClubSchedules] Converting meetings to schedules');
@@ -894,7 +894,7 @@ const RegularMeetupTab: React.FC<MeetupTabProps> = ({
                 <View style={styles.avatarWithBadge}>
                   <Avatar.Icon
                     {...props}
-                    icon='tennis'
+                    icon='pickleball'
                     size={40}
                     style={{
                       backgroundColor: isPending
@@ -1033,7 +1033,7 @@ const RegularMeetupTab: React.FC<MeetupTabProps> = ({
                         ? '🌧️'
                         : weather.icon;
 
-                  // Tennis play condition message
+                  // Pickleball play condition message
                   const getPrecipitationWarning = () => {
                     if (isSnowCondition) {
                       return { text: t('regularMeetup.snowCancelLikely'), color: '#F44336' };

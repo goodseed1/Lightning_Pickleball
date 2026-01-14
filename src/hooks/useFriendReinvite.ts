@@ -2,7 +2,7 @@
  * 🎯 [SINGLES REINVITE] useFriendReinvite Hook
  *
  * Reusable hook for friend re-invitation functionality (SINGLES matches only)
- * Handles modal state, Cloud Function calls, and LTR filtering
+ * Handles modal state, Cloud Function calls, and LPR filtering
  *
  * This is the singles counterpart to usePartnerReinvite (doubles)
  *
@@ -102,7 +102,7 @@ export const useFriendReinvite = ({
   const [excludedUserIds, setExcludedUserIds] = useState<string[]>([]);
 
   /**
-   * Fetch host's ELO from Firestore and convert to LTR
+   * Fetch host's ELO from Firestore and convert to LPR
    */
   const fetchHostLtrFromElo = useCallback(
     async (hostId: string, gameType?: string): Promise<number | undefined> => {
@@ -123,7 +123,7 @@ export const useFriendReinvite = ({
         }
 
         const ltr = convertEloToLtr(elo);
-        console.log('📊 [useFriendReinvite] Host LTR calculated from ELO:', {
+        console.log('📊 [useFriendReinvite] Host LPR calculated from ELO:', {
           hostId,
           elo,
           ltr,
@@ -151,13 +151,13 @@ export const useFriendReinvite = ({
 
       const effectiveGameType = gameType || event.gameType;
 
-      // 🎯 [LTR FIX v3] ALWAYS fetch host's current LTR from ELO (Single Source of Truth)
+      // 🎯 [LPR FIX v3] ALWAYS fetch host's current LPR from ELO (Single Source of Truth)
       // - Firestore에 저장된 hostLtr는 이벤트 생성 시점의 값이라 outdated될 수 있음
-      // - 실시간 ELO 조회로 항상 최신 LTR 사용
+      // - 실시간 ELO 조회로 항상 최신 LPR 사용
       let effectiveHostLtr: number | undefined;
 
       if (event.hostId) {
-        console.log('🔄 [useFriendReinvite] Fetching current host LTR from ELO...');
+        console.log('🔄 [useFriendReinvite] Fetching current host LPR from ELO...');
         effectiveHostLtr = await fetchHostLtrFromElo(event.hostId, effectiveGameType);
       }
 
@@ -178,7 +178,7 @@ export const useFriendReinvite = ({
         effectiveHostLtr,
         gameType: effectiveGameType,
         excludedUserIds: excludeIds.length,
-        source: 'ELO lookup (real-time)', // 🎯 [LTR FIX v3] Always use real-time ELO
+        source: 'ELO lookup (real-time)', // 🎯 [LPR FIX v3] Always use real-time ELO
       });
 
       setReinviteEventId(eventId);

@@ -43,7 +43,7 @@ const italianTranslations = {
   auth: {
     register: {
       title: 'Registrati',
-      subtitle: 'Unisciti a Lightning Tennis',
+      subtitle: 'Unisciti a Lightning Pickleball',
       displayName: 'Nome',
       signingUp: 'Registrazione...',
       passwordHint:
@@ -108,7 +108,7 @@ const italianTranslations = {
     weakPassword: 'La password è troppo debole',
     login: {
       title: 'Accedi al tuo account',
-      subtitle: 'Bentornato su Lightning Tennis',
+      subtitle: 'Bentornato su Lightning Pickleball',
       emailLabel: 'Email',
       passwordLabel: 'Password',
       loginButton: 'Accedi',
@@ -127,7 +127,7 @@ const italianTranslations = {
     },
     register: {
       title: 'Crea il tuo account',
-      subtitle: 'Unisciti a Lightning Tennis oggi',
+      subtitle: 'Unisciti a Lightning Pickleball oggi',
       displayNameLabel: 'Nome visualizzato',
       emailLabel: 'Email',
       passwordLabel: 'Password',
@@ -1083,7 +1083,7 @@ const italianTranslations = {
     schedule: 'Programma',
     standings: 'Classifica',
     results: 'Risultati',
-    bracket: 'Tabellone',
+    bpaddle: 'Tabellone',
     matches: 'Partite',
     rounds: 'Round',
     finals: 'Finale',
@@ -1107,7 +1107,7 @@ const italianTranslations = {
     results: 'Risultati',
     matchResults: 'Risultati partite',
     leagueStandings: 'Classifica lega',
-    tournamentBracket: 'Tabellone torneo',
+    tournamentBpaddle: 'Tabellone torneo',
     playerStats: 'Statistiche giocatori',
     teamStats: 'Statistiche squadre',
     awards: 'Premi',
@@ -1162,7 +1162,7 @@ const italianTranslations = {
     schedule: 'Programma',
     participants: 'Partecipanti',
     matches: 'Partite',
-    bracket: 'Tabellone',
+    bpaddle: 'Tabellone',
     standings: 'Classifica',
     results: 'Risultati',
     awards: 'Premi',
@@ -1193,7 +1193,7 @@ const italianTranslations = {
     addParticipant: 'Aggiungi partecipante',
     removeParticipant: 'Rimuovi partecipante',
     seedParticipants: 'Testa di serie partecipanti',
-    generateBracket: 'Genera tabellone',
+    generateBpaddle: 'Genera tabellone',
     assignCourts: 'Assegna campi',
     assignReferees: 'Assegna arbitri',
     recordScore: 'Registra punteggio',
@@ -1434,12 +1434,12 @@ const italianTranslations = {
     format: 'Formato',
     participants: 'Partecipanti',
     rounds: 'Round',
-    bracket: 'Tabellone',
+    bpaddle: 'Tabellone',
   },
 
   tournamentDetail: {
     overview: 'Panoramica',
-    bracket: 'Tabellone',
+    bpaddle: 'Tabellone',
     participants: 'Partecipanti',
     schedule: 'Programma',
     results: 'Risultati',

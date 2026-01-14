@@ -21,7 +21,7 @@ const ultimateDict = {
   'Congratulations! You have qualified for the "{{leagueName}}" playoffs!':
     '¡Felicidades! ¡Te has clasificado para las eliminatorias de "{{leagueName}}"!',
   'You have a new activity update.': 'Tienes una nueva actualización de actividad.',
-  'TennisUser{{id}}': 'UsuarioTenis{{id}}',
+  'PickleballUser{{id}}': 'UsuarioTenis{{id}}',
   'Camera permission is needed to take profile photos.':
     'Se necesita permiso de cámara para tomar fotos de perfil.',
   'Gallery access permission is needed to select photos.':
@@ -165,7 +165,7 @@ const ultimateDict = {
   'Meetup on {{date}} has been confirmed.': 'Encuentro el {{date}} ha sido confirmado.',
 
   // Types
-  'Social Tennis': 'Tenis Social',
+  'Social Pickleball': 'Tenis Social',
   AM: 'AM',
   PM: 'PM',
   Paid: 'Pagado',

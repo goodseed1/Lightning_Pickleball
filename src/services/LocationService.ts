@@ -35,7 +35,7 @@ interface GoogleAddressComponent {
 class LocationService {
   private static instance: LocationService;
   private watchPositionSubscription: Location.LocationSubscription | null = null;
-  private geofencingTaskName = 'lightning-tennis-geofencing';
+  private geofencingTaskName = 'lightning-pickleball-geofencing';
 
   public static getInstance(): LocationService {
     if (!LocationService.instance) {
@@ -531,7 +531,7 @@ class LocationService {
   }
 
   /**
-   * 근처 테니스장 찾기 (Mock implementation)
+   * 근처 피클볼장 찾기 (Mock implementation)
    */
   async findNearbyCourts(
     latitude: number,
@@ -547,25 +547,25 @@ class LocationService {
       address: string;
     }>
   > {
-    // Mock data - 실제 구현에서는 테니스장 API 호출
+    // Mock data - 실제 구현에서는 피클볼장 API 호출
     const mockCourts = [
       {
         id: '1',
-        name: '올림픽공원 테니스장',
+        name: '올림픽공원 피클볼장',
         latitude: 37.5219,
         longitude: 127.1267,
         address: '서울특별시 송파구 올림픽로 424',
       },
       {
         id: '2',
-        name: '한강공원 테니스코트',
+        name: '한강공원 피클볼코트',
         latitude: 37.5299,
         longitude: 126.9343,
         address: '서울특별시 영등포구 여의동로 330',
       },
       {
         id: '3',
-        name: '잠실 테니스장',
+        name: '잠실 피클볼장',
         latitude: 37.5133,
         longitude: 127.1003,
         address: '서울특별시 송파구 잠실동',

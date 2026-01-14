@@ -10,12 +10,12 @@ if (!admin.apps.length) {
 const db = admin.firestore();
 
 async function checkTournament() {
-  // Lightning Tennis Club의 토너먼트 확인
+  // Lightning Pickleball Club의 토너먼트 확인
   const clubId = 'WsetxkWODywjt0BBcqrs';
 
   const tournamentsSnap = await db.collection('tournaments').where('clubId', '==', clubId).get();
 
-  console.log('=== Tournaments in Lightning Tennis Club ===\n');
+  console.log('=== Tournaments in Lightning Pickleball Club ===\n');
 
   for (const doc of tournamentsSnap.docs) {
     const data = doc.data();

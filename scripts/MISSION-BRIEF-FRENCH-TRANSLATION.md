@@ -8,8 +8,8 @@ Translate ALL remaining 1481 untranslated French keys in `fr.json` where French 
 
 ### Target File
 
-- **Input**: `/Volumes/DevSSD/development/Projects/lightning-tennis-react/lightning-tennis-simple/src/locales/fr.json`
-- **Reference**: `/Volumes/DevSSD/development/Projects/lightning-tennis-react/lightning-tennis-simple/src/locales/en.json`
+- **Input**: `/Volumes/DevSSD/development/Projects/lightning-pickleball-react/lightning-pickleball-simple/src/locales/fr.json`
+- **Reference**: `/Volumes/DevSSD/development/Projects/lightning-pickleball-react/lightning-pickleball-simple/src/locales/en.json`
 - **Untranslated Keys Report**: `scripts/untranslated-french-keys.json`
 
 ### Priority Sections (Translate First)
@@ -30,7 +30,7 @@ Translate ALL remaining 1481 untranslated French keys in `fr.json` where French 
 ### French Translation Standards
 
 1. **Natural French**: Use proper French expressions, not literal translations
-2. **Tennis Terminology**: Use standard French tennis terms
+2. **Pickleball Terminology**: Use standard French pickleball terms
 3. **Formality Level**: Use "vous" (formal) for app UI
 4. **Consistency**: Match existing translated keys in fr.json
 

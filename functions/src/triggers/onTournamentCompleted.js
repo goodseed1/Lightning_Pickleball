@@ -46,7 +46,7 @@ exports.onTournamentCompleted = onDocumentUpdated('tournaments/{tournamentId}', 
 
     try {
       const db = admin.firestore();
-      const clubRef = db.doc(`tennis_clubs/${after.clubId}`);
+      const clubRef = db.doc(`pickleball_clubs/${after.clubId}`);
 
       // 🏆 Prepare winner data
       const winnerData = {

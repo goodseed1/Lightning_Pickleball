@@ -10,12 +10,12 @@ const translations = {
     details: {
       serviceTerms: {
         title: 'Termini di Servizio',
-        content: `Termini di Servizio di Lightning Tennis
+        content: `Termini di Servizio di Lightning Pickleball
 
 Ultima modifica: 1 gennaio 2025
 
 1. Accettazione dei Termini
-Accedendo e utilizzando Lightning Tennis, accetti di essere vincolato da questi Termini di Servizio.
+Accedendo e utilizzando Lightning Pickleball, accetti di essere vincolato da questi Termini di Servizio.
 
 2. Utilizzo del Servizio
 - Devi avere almeno 13 anni per utilizzare questo servizio
@@ -29,14 +29,14 @@ La tua privacy è importante per noi. Consulta la nostra Privacy Policy per info
 Ci riserviamo il diritto di modificare o interrompere il servizio in qualsiasi momento.
 
 5. Limitazione di Responsabilità
-Lightning Tennis è fornito "così com'è" senza garanzie di alcun tipo.
+Lightning Pickleball è fornito "così com'è" senza garanzie di alcun tipo.
 
 6. Contattaci
-Per domande su questi termini, contattaci all'indirizzo support@lightningtennis.com`,
+Per domande su questi termini, contattaci all'indirizzo support@lightningpickleball.com`,
       },
       privacyPolicy: {
         title: 'Privacy Policy',
-        content: `Privacy Policy di Lightning Tennis
+        content: `Privacy Policy di Lightning Pickleball
 
 Ultima modifica: 1 gennaio 2025
 
@@ -66,7 +66,7 @@ Hai il diritto di:
 - Eliminare il tuo account
 
 6. Contattaci
-Per domande sulla privacy, contattaci all'indirizzo privacy@lightningtennis.com`,
+Per domande sulla privacy, contattaci all'indirizzo privacy@lightningpickleball.com`,
       },
     },
   },

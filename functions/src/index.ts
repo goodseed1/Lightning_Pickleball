@@ -98,8 +98,8 @@ export { registerForTournament } from './registerForTournament';
 export { registerTeamForTournament } from './registerTeamForTournament';
 export { updateTournamentStatus } from './updateTournamentStatus';
 
-// 🌉 [HEIMDALL] SERVER-SIDE MIGRATION Phase 5.2: Bracket Generation
-export { generateBracket } from './generateBracket';
+// 🌉 [HEIMDALL] SERVER-SIDE MIGRATION Phase 5.2: Bpaddle Generation
+export { generateBpaddle } from './generateBpaddle';
 
 // 🌉 [HEIMDALL] SERVER-SIDE MIGRATION Phase 5.3: Critical Security Functions
 export { deleteTournament } from './deleteTournament';
@@ -250,7 +250,7 @@ export { checkEmailAvailability } from './checkEmailAvailability';
 // 🗑️ [ACCOUNT MANAGEMENT] Complete account deletion with Admin SDK
 export { deleteUserAccount } from './deleteUserAccount';
 
-// ⚡ [THOR] LTR MIGRATION: Migrate ELO data to LTR (Lightning Tennis Rating) system
+// ⚡ [THOR] LPR MIGRATION: Migrate ELO data to LPR (Lightning Pickleball Rating) system
 export { migrateLtrFromElo, getUserLtrLevel } from './migrateLtrFromElo';
 
 // 💬 [MEETUP CHAT] Push notifications and unread badge updates for meetup chat

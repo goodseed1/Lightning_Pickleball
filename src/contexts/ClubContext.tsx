@@ -1,5 +1,5 @@
 /**
- * Club Context for Lightning Tennis
+ * Club Context for Lightning Pickleball
  * Provides club management state and methods throughout the app
  */
 

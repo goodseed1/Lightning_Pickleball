@@ -141,11 +141,11 @@ export const onSeasonEnd = functions.https.onCall(
         if (matchesPlayed >= 50) {
           trophiesToAward.push({
             type: 'participation',
-            name: 'Tennis Enthusiast',
+            name: 'Pickleball Enthusiast',
             description: 'Played 50+ matches this season',
             icon: {
               set: 'MaterialCommunityIcons',
-              name: 'tennis-ball',
+              name: 'pickleball-ball',
               color: '#8BC34A',
               tier: 'gold',
               season: currentSeason,
@@ -160,7 +160,7 @@ export const onSeasonEnd = functions.https.onCall(
             description: 'Played 25+ matches this season',
             icon: {
               set: 'MaterialCommunityIcons',
-              name: 'tennis',
+              name: 'pickleball',
               color: '#FFC107',
               tier: 'silver',
               season: currentSeason,

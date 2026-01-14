@@ -1,8 +1,8 @@
-# 🏛️ Lightning Tennis Project Constitution
+# 🏛️ Lightning Pickleball Project Constitution
 
 ## 📜 Project Structure Charter
 
-This document serves as the **constitutional law** for Lightning Tennis project structure. All developers (human and AI) MUST adhere to these principles to maintain code quality and prevent structural chaos.
+This document serves as the **constitutional law** for Lightning Pickleball project structure. All developers (human and AI) MUST adhere to these principles to maintain code quality and prevent structural chaos.
 
 > **Golden Rule**: "_One Screen = One File. No Duplicates. Ever._"
 
@@ -169,7 +169,7 @@ Before creating a PR, ensure:
 1. This `CONTRIBUTING.md` document
 2. `start.md` - Daily development checklist
 3. `PROJECT_BLUEPRINT.md` - Overall project vision
-4. `ECOSYSTEM_CHARTER.md` - Tennis app philosophy
+4. `ECOSYSTEM_CHARTER.md` - Pickleball app philosophy
 
 ### Setup Commands:
 

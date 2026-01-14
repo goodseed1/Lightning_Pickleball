@@ -538,7 +538,7 @@
     },
     {
       "path": "editProfile.goals.placeholder",
-      "enValue": "Enter your tennis goals...",
+      "enValue": "Enter your pickleball goals...",
       "section": "editProfile"
     },
     {
@@ -608,7 +608,7 @@
     },
     {
       "path": "discover.alerts.quickMatch.ntrpOutOfRange",
-      "enValue": "LTR {{ntrp}} is beyond your challenge range. (max +1.0)",
+      "enValue": "LPR {{ntrp}} is beyond your challenge range. (max +1.0)",
       "section": "discover"
     },
     {
@@ -938,7 +938,7 @@
     },
     {
       "path": "eventCard.requirements.levelMismatch",
-      "enValue": "Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})",
+      "enValue": "Level mismatch (Your LPR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})",
       "section": "eventCard"
     },
     {
@@ -948,7 +948,7 @@
     },
     {
       "path": "eventCard.requirements.canApply",
-      "enValue": "Apply: LTR {{minNtrp}} - {{maxNtrp}}",
+      "enValue": "Apply: LPR {{minNtrp}} - {{maxNtrp}}",
       "section": "eventCard"
     },
     {
@@ -993,17 +993,17 @@
     },
     {
       "path": "createEvent.autoNtrp.hostLevel",
-      "enValue": "Host LTR: {{level}} ({{gameType}})",
+      "enValue": "Host LPR: {{level}} ({{gameType}})",
       "section": "createEvent"
     },
     {
       "path": "createEvent.autoNtrp.combinedLevel",
-      "enValue": "Combined LTR: {{level}}",
+      "enValue": "Combined LPR: {{level}}",
       "section": "createEvent"
     },
     {
       "path": "createEvent.sms.invitationMessage",
-      "enValue": "[Lightning Tennis] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}",
+      "enValue": "[Lightning Pickleball] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}",
       "section": "createEvent"
     },
     {
@@ -2258,7 +2258,7 @@
     },
     {
       "path": "ntrpSelector.levels.beginner.description",
-      "enValue": "Just started playing tennis",
+      "enValue": "Just started playing pickleball",
       "section": "ntrpSelector"
     },
     {
@@ -2323,7 +2323,7 @@
     },
     {
       "path": "clubOverviewScreen.aiHelperSubtext",
-      "enValue": "Ask questions about tennis or how to use the app!",
+      "enValue": "Ask questions about pickleball or how to use the app!",
       "section": "clubOverviewScreen"
     },
     {
@@ -2338,7 +2338,7 @@
     },
     {
       "path": "types.clubSchedule.scheduleTypes.social",
-      "enValue": "Social Tennis",
+      "enValue": "Social Pickleball",
       "section": "types"
     },
     {
@@ -2857,8 +2857,8 @@
       "section": "services"
     },
     {
-      "path": "services.activity.tennisUserFallback",
-      "enValue": "TennisUser{{id}}",
+      "path": "services.activity.pickleballUserFallback",
+      "enValue": "PickleballUser{{id}}",
       "section": "services"
     },
     {
@@ -3143,7 +3143,7 @@
     },
     {
       "path": "utils.ltr.whatIsLtr.title",
-      "enValue": "What is LTR?",
+      "enValue": "What is LPR?",
       "section": "utils"
     },
     {

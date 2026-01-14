@@ -7,7 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useLocation } from '../contexts/LocationContext';
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import { CreationStackParamList } from '../navigation/CreationNavigator';
 
 type NavigationProp = NativeStackNavigationProp<CreationStackParamList, 'CreateEventChoice'>;
@@ -16,7 +16,7 @@ const CreateEventChoiceScreen = () => {
   const navigation = useNavigation<NavigationProp>();
   const { t } = useLanguage();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const colors = themeColors.colors;
 
   // 📍 Location permission check for creating events

@@ -1,13 +1,13 @@
 /**
- * 🌉 [HEIMDALL] Generate Tournament Bracket Cloud Function
+ * 🌉 [HEIMDALL] Generate Tournament Bpaddle Cloud Function
  *
- * Phase 5.2: Server-Side Bracket Generation
+ * Phase 5.2: Server-Side Bpaddle Generation
  *
- * This Cloud Function generates tournament brackets on the server side,
+ * This Cloud Function generates tournament bpaddles on the server side,
  * ensuring data consistency and security.
  *
  * Features:
- * - Single Elimination bracket generation
+ * - Single Elimination bpaddle generation
  * - Doubles (Team-First 2.0) and Singles support
  * - BYE allocation (ATP/WTA standard)
  * - GPS Engine for dynamic match connections
@@ -17,9 +17,9 @@
 import { onCall, CallableRequest, HttpsError } from 'firebase-functions/v2/https';
 import { getFirestore, Timestamp, FieldValue } from 'firebase-admin/firestore';
 import {
-  BracketMatch,
-  BracketRound,
-  BracketPositionStatus,
+  BpaddleMatch,
+  BpaddleRound,
+  BpaddlePositionStatus,
   TournamentParticipant,
   DoublesTeam,
   TournamentStatus,
@@ -30,18 +30,18 @@ import {
 // Request/Response Types
 // ============================================================================
 
-export interface GenerateBracketRequest {
+export interface GenerateBpaddleRequest {
   tournamentId: string;
 }
 
-export interface GenerateBracketResponse {
+export interface GenerateBpaddleResponse {
   success: boolean;
   message: string;
   data?: {
     tournamentId: string;
     totalMatches: number;
     totalRounds: number;
-    bracketType: 'singles' | 'doubles';
+    bpaddleType: 'singles' | 'doubles';
     generatedAt: string;
   };
 }
@@ -157,13 +157,13 @@ function createEmptyMatch(
   matchId: number,
   roundNumber: number,
   matchNumber: number
-): BracketMatch {
+): BpaddleMatch {
   return {
     id: `${tournamentId}_match_${matchId}`,
     tournamentId,
     roundNumber,
     matchNumber,
-    bracketPosition: matchId,
+    bpaddlePosition: matchId,
     status: 'scheduled',
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
@@ -174,12 +174,12 @@ function createEmptyMatch(
  * 🗺️ GPS 엔진: 현재 매치의 다음 매치 동적 계산
  */
 function calculateNextMatchDynamically(
-  currentMatch: BracketMatch,
-  bracket: BracketRound[]
+  currentMatch: BpaddleMatch,
+  bpaddle: BpaddleRound[]
 ): { matchId: string; position: 'player1' | 'player2' } | null {
   const currentRound = currentMatch.roundNumber;
   const currentMatchInRound = currentMatch.matchNumber;
-  const totalRounds = bracket.length;
+  const totalRounds = bpaddle.length;
 
   console.log('🗺️ [GPS ENGINE] Calculating route for:', {
     matchId: currentMatch.id,
@@ -195,14 +195,14 @@ function calculateNextMatchDynamically(
   }
 
   // 🧮 수학적 계산 공식 적용
-  const nextRoundIndex = currentRound; // bracket array는 0-based: 라운드2는 index[1]
+  const nextRoundIndex = currentRound; // bpaddle array는 0-based: 라운드2는 index[1]
 
   // 🏆 특별 케이스 감지: 부전승이 포함된 토너먼트
-  const currentRoundMatches = bracket[currentRound - 1]?.matches.length || 0;
-  const nextRoundMatches = bracket[currentRound]?.matches.length || 0;
+  const currentRoundMatches = bpaddle[currentRound - 1]?.matches.length || 0;
+  const nextRoundMatches = bpaddle[currentRound]?.matches.length || 0;
 
   // 🔍 개선된 BYE 구조 감지: Round 2에 BYE players가 있는지 확인
-  const nextRound = bracket[currentRound];
+  const nextRound = bpaddle[currentRound];
   const byePlayerCount =
     nextRound?.matches.filter(
       match =>
@@ -264,7 +264,7 @@ function calculateNextMatchDynamically(
   });
 
   // 다음 라운드에서 해당 매치 찾기
-  if (nextRoundIndex >= bracket.length) {
+  if (nextRoundIndex >= bpaddle.length) {
     console.warn('⚠️ [GPS] Next round index out of bounds');
     return null;
   }
@@ -277,7 +277,7 @@ function calculateNextMatchDynamically(
       nextRoundIndex,
       nextMatchNumber,
       availableMatches: nextRound.matches.map(m => ({ id: m.id, matchNumber: m.matchNumber })),
-      possibleCause: 'Match numbering mismatch or bracket structure issue',
+      possibleCause: 'Match numbering mismatch or bpaddle structure issue',
     });
     return null;
   }
@@ -303,7 +303,7 @@ function calculateNextMatchDynamically(
 /**
  * 🔗 이전 매치 참조 설정 (GPS 엔진 기반)
  */
-function setupPreviousMatchReferences(matches: BracketMatch[], bracket: BracketRound[]): void {
+function setupPreviousMatchReferences(matches: BpaddleMatch[], bpaddle: BpaddleRound[]): void {
   console.log('🔗 [GPS] Setting up previous match references...');
 
   matches.forEach(match => {
@@ -320,7 +320,7 @@ function setupPreviousMatchReferences(matches: BracketMatch[], bracket: BracketR
     const prevMatch1Number = (currentMatchInRound - 1) * 2 + 1; // 홀수 매치
     const prevMatch2Number = (currentMatchInRound - 1) * 2 + 2; // 짝수 매치
 
-    const previousRound = bracket[currentRound - 2]; // 0-based index
+    const previousRound = bpaddle[currentRound - 2]; // 0-based index
 
     if (previousRound) {
       const prevMatch1 = previousRound.matches.find(m => m.matchNumber === prevMatch1Number);
@@ -344,9 +344,9 @@ function setupPreviousMatchReferences(matches: BracketMatch[], bracket: BracketR
 }
 
 /**
- * Perfect Bracket 매치 연결 설정 (GPS 엔진 기반)
+ * Perfect Bpaddle 매치 연결 설정 (GPS 엔진 기반)
  */
-function setupPerfectBracketConnections(matches: BracketMatch[], bracket: BracketRound[]): void {
+function setupPerfectBpaddleConnections(matches: BpaddleMatch[], bpaddle: BpaddleRound[]): void {
   console.log('🚀 [GPS ENGINE] Setting up dynamic match connections...');
 
   // ✅ Ghost Match 필터링 (Round-based)
@@ -382,8 +382,8 @@ function setupPerfectBracketConnections(matches: BracketMatch[], bracket: Bracke
 
   console.log('🎯 [TOURNAMENT ANALYSIS]', {
     totalMatches: activeMatches.length,
-    totalRounds: bracket.length,
-    roundBreakdown: bracket.map((round, idx) => ({
+    totalRounds: bpaddle.length,
+    roundBreakdown: bpaddle.map((round, idx) => ({
       round: idx + 1,
       matches: round.matches.length,
       matchIds: round.matches.map(m => m.id),
@@ -401,7 +401,7 @@ function setupPerfectBracketConnections(matches: BracketMatch[], bracket: Bracke
     }
 
     // GPS 엔진 호출하여 다음 매치 정보 계산
-    const nextMatchInfo = calculateNextMatchDynamically(match, bracket);
+    const nextMatchInfo = calculateNextMatchDynamically(match, bpaddle);
 
     if (nextMatchInfo) {
       match.nextMatchId = nextMatchInfo.matchId;
@@ -416,7 +416,7 @@ function setupPerfectBracketConnections(matches: BracketMatch[], bracket: Bracke
   });
 
   // 🔗 이전 매치 참조도 GPS 원리로 설정
-  setupPreviousMatchReferences(activeMatches, bracket);
+  setupPreviousMatchReferences(activeMatches, bpaddle);
 
   console.log('✅ [GPS ENGINE] All connections established dynamically!');
 }
@@ -424,21 +424,21 @@ function setupPerfectBracketConnections(matches: BracketMatch[], bracket: Bracke
 /**
  * 🏆 선수 기반 브래킷 생성 (Singles Tournaments)
  */
-function generatePlayerBasedBracket(
+function generatePlayerBasedBpaddle(
   tournamentId: string,
   players: TournamentParticipant[],
   playerCount: number
-): { bracket: BracketRound[]; matches: BracketMatch[] } {
-  console.log(`⚡ [THOR] Starting player-based bracket generation for ${playerCount} players`);
+): { bpaddle: BpaddleRound[]; matches: BpaddleMatch[] } {
+  console.log(`⚡ [THOR] Starting player-based bpaddle generation for ${playerCount} players`);
 
-  // Bracket Size 계산 (5명 → 8, 6명 → 8, 9명 → 16)
+  // Bpaddle Size 계산 (5명 → 8, 6명 → 8, 9명 → 16)
   const M = Math.pow(2, Math.ceil(Math.log2(playerCount)));
   const totalRounds = Math.ceil(Math.log2(M));
   const numByes = M - playerCount;
 
-  console.log(`⚡ [THOR] Bracket parameters:`, {
+  console.log(`⚡ [THOR] Bpaddle parameters:`, {
     playerCount,
-    bracketSize: M,
+    bpaddleSize: M,
     totalRounds,
     byes: numByes,
   });
@@ -451,8 +451,8 @@ function generatePlayerBasedBracket(
     sortedPlayers.map(p => `${p.playerName}(seed:${p.seed})`).join(', ')
   );
 
-  const allMatches: BracketMatch[] = [];
-  const bracket: BracketRound[] = [];
+  const allMatches: BpaddleMatch[] = [];
+  const bpaddle: BpaddleRound[] = [];
   let matchIdCounter = 1;
 
   // 🏆 BYE를 가진 선수와 첫 라운드에서 경기하는 선수 분리
@@ -467,7 +467,7 @@ function generatePlayerBasedBracket(
   // Round 1 생성 (BYE가 아닌 선수들끼리 경기)
   if (playersInFirstRound.length > 0) {
     console.log(`⚡ [THOR Round 1] Creating matches for ${playersInFirstRound.length} players`);
-    const round1Matches: BracketMatch[] = [];
+    const round1Matches: BpaddleMatch[] = [];
     const firstRoundPairs = playersInFirstRound.length / 2;
 
     for (let i = 0; i < firstRoundPairs; i++) {
@@ -480,7 +480,7 @@ function generatePlayerBasedBracket(
         playerId: higherSeedPlayer.playerId,
         playerName: higherSeedPlayer.playerName,
         seed: higherSeedPlayer.seed,
-        status: 'filled' as BracketPositionStatus,
+        status: 'filled' as BpaddlePositionStatus,
         profileImage: higherSeedPlayer.profileImage,
         skillLevel: higherSeedPlayer.skillLevel,
       };
@@ -489,7 +489,7 @@ function generatePlayerBasedBracket(
         playerId: lowerSeedPlayer.playerId,
         playerName: lowerSeedPlayer.playerName,
         seed: lowerSeedPlayer.seed,
-        status: 'filled' as BracketPositionStatus,
+        status: 'filled' as BpaddlePositionStatus,
         profileImage: lowerSeedPlayer.profileImage,
         skillLevel: lowerSeedPlayer.skillLevel,
       };
@@ -503,7 +503,7 @@ function generatePlayerBasedBracket(
       );
     }
 
-    bracket.push({
+    bpaddle.push({
       roundNumber: 1,
       matches: round1Matches,
       roundName: getRoundName(1, totalRounds, round1Matches.length),
@@ -514,7 +514,7 @@ function generatePlayerBasedBracket(
   // Round 2+ 생성 (빈 슬롯 + BYE 선수 배치)
   for (let round = 2; round <= totalRounds; round++) {
     const matchesInRound = M / Math.pow(2, round);
-    const roundMatches: BracketMatch[] = [];
+    const roundMatches: BpaddleMatch[] = [];
 
     console.log(`⚡ [THOR Round ${round}] Creating ${matchesInRound} match slots`);
 
@@ -530,7 +530,7 @@ function generatePlayerBasedBracket(
             playerId: byePlayer.playerId,
             playerName: byePlayer.playerName,
             seed: byePlayer.seed,
-            status: 'bye' as BracketPositionStatus,
+            status: 'bye' as BpaddlePositionStatus,
             profileImage: byePlayer.profileImage,
             skillLevel: byePlayer.skillLevel,
           };
@@ -548,7 +548,7 @@ function generatePlayerBasedBracket(
             playerId: byePlayer.playerId,
             playerName: byePlayer.playerName,
             seed: byePlayer.seed,
-            status: 'bye' as BracketPositionStatus,
+            status: 'bye' as BpaddlePositionStatus,
             profileImage: byePlayer.profileImage,
             skillLevel: byePlayer.skillLevel,
           };
@@ -562,7 +562,7 @@ function generatePlayerBasedBracket(
       allMatches.push(match);
     }
 
-    bracket.push({
+    bpaddle.push({
       roundNumber: round,
       matches: roundMatches,
       roundName: getRoundName(round, totalRounds, roundMatches.length),
@@ -571,33 +571,33 @@ function generatePlayerBasedBracket(
   }
 
   console.log(
-    `✅ [THOR] Player-based bracket complete: ${allMatches.length} matches, ${totalRounds} rounds`
+    `✅ [THOR] Player-based bpaddle complete: ${allMatches.length} matches, ${totalRounds} rounds`
   );
 
   // 🔧 FIX: Set nextMatch connections using GPS engine
-  setupPerfectBracketConnections(allMatches, bracket);
+  setupPerfectBpaddleConnections(allMatches, bpaddle);
 
-  return { bracket, matches: allMatches };
+  return { bpaddle, matches: allMatches };
 }
 
 /**
  * 🏆 팀 기반 브래킷 생성 (Doubles Tournaments)
  */
-function generateTeamBasedBracket(
+function generateTeamBasedBpaddle(
   tournamentId: string,
   teams: DoublesTeam[],
   teamCount: number
-): { bracket: BracketRound[]; matches: BracketMatch[] } {
-  console.log(`⚡ [THOR] Starting team-based bracket generation for ${teamCount} teams`);
+): { bpaddle: BpaddleRound[]; matches: BpaddleMatch[] } {
+  console.log(`⚡ [THOR] Starting team-based bpaddle generation for ${teamCount} teams`);
 
-  // Bracket Size 계산 (3팀 → 4, 5팀 → 8, 6팀 → 8)
+  // Bpaddle Size 계산 (3팀 → 4, 5팀 → 8, 6팀 → 8)
   const M = Math.pow(2, Math.ceil(Math.log2(teamCount)));
   const totalRounds = Math.ceil(Math.log2(M));
   const numByes = M - teamCount;
 
-  console.log(`⚡ [THOR] Bracket parameters:`, {
+  console.log(`⚡ [THOR] Bpaddle parameters:`, {
     teamCount,
-    bracketSize: M,
+    bpaddleSize: M,
     totalRounds,
     byes: numByes,
   });
@@ -610,8 +610,8 @@ function generateTeamBasedBracket(
     sortedTeams.map(t => `${t.teamName}(seed:${t.seed})`).join(', ')
   );
 
-  const allMatches: BracketMatch[] = [];
-  const bracket: BracketRound[] = [];
+  const allMatches: BpaddleMatch[] = [];
+  const bpaddle: BpaddleRound[] = [];
   let matchIdCounter = 1;
 
   // 🏆 BYE를 가진 팀과 첫 라운드에서 경기하는 팀 분리
@@ -624,7 +624,7 @@ function generateTeamBasedBracket(
   // Round 1 생성 (BYE가 아닌 팀들끼리 경기)
   if (teamsInFirstRound.length > 0) {
     console.log(`⚡ [THOR Round 1] Creating matches for ${teamsInFirstRound.length} teams`);
-    const round1Matches: BracketMatch[] = [];
+    const round1Matches: BpaddleMatch[] = [];
     const firstRoundPairs = teamsInFirstRound.length / 2;
 
     for (let i = 0; i < firstRoundPairs; i++) {
@@ -638,14 +638,14 @@ function generateTeamBasedBracket(
         playerId: higherSeedTeam.teamId,
         playerName: higherSeedTeam.teamName || '',
         seed: higherSeedTeam.seed,
-        status: 'filled' as BracketPositionStatus,
+        status: 'filled' as BpaddlePositionStatus,
       };
 
       match.player2 = {
         playerId: lowerSeedTeam.teamId,
         playerName: lowerSeedTeam.teamName || '',
         seed: lowerSeedTeam.seed,
-        status: 'filled' as BracketPositionStatus,
+        status: 'filled' as BpaddlePositionStatus,
       };
 
       match.status = 'scheduled';
@@ -657,7 +657,7 @@ function generateTeamBasedBracket(
       );
     }
 
-    bracket.push({
+    bpaddle.push({
       roundNumber: 1,
       matches: round1Matches,
       roundName: getRoundName(1, totalRounds, round1Matches.length),
@@ -668,7 +668,7 @@ function generateTeamBasedBracket(
   // Round 2+ 생성 (빈 슬롯 + BYE 팀 배치)
   for (let round = 2; round <= totalRounds; round++) {
     const matchesInRound = M / Math.pow(2, round);
-    const roundMatches: BracketMatch[] = [];
+    const roundMatches: BpaddleMatch[] = [];
 
     console.log(`⚡ [THOR Round ${round}] Creating ${matchesInRound} match slots`);
 
@@ -685,7 +685,7 @@ function generateTeamBasedBracket(
             playerId: byeTeam.teamId,
             playerName: byeTeam.teamName || '',
             seed: byeTeam.seed,
-            status: 'bye' as BracketPositionStatus,
+            status: 'bye' as BpaddlePositionStatus,
           };
           console.log(
             `  ⚡ R2M${i + 1}: ${byeTeam.teamName}(seed:${byeTeam.seed}) gets BYE (player1)`
@@ -702,7 +702,7 @@ function generateTeamBasedBracket(
             playerId: byeTeam.teamId,
             playerName: byeTeam.teamName || '',
             seed: byeTeam.seed,
-            status: 'bye' as BracketPositionStatus,
+            status: 'bye' as BpaddlePositionStatus,
           };
           console.log(
             `  ⚡ R2M${i + 1}: ${byeTeam.teamName}(seed:${byeTeam.seed}) gets BYE (player2)`
@@ -714,7 +714,7 @@ function generateTeamBasedBracket(
       allMatches.push(match);
     }
 
-    bracket.push({
+    bpaddle.push({
       roundNumber: round,
       matches: roundMatches,
       roundName: getRoundName(round, totalRounds, roundMatches.length),
@@ -723,13 +723,13 @@ function generateTeamBasedBracket(
   }
 
   console.log(
-    `✅ [THOR] Team-based bracket complete: ${allMatches.length} matches, ${totalRounds} rounds`
+    `✅ [THOR] Team-based bpaddle complete: ${allMatches.length} matches, ${totalRounds} rounds`
   );
 
   // 🔧 FIX: Set nextMatch connections using GPS engine
-  setupPerfectBracketConnections(allMatches, bracket);
+  setupPerfectBpaddleConnections(allMatches, bpaddle);
 
-  return { bracket, matches: allMatches };
+  return { bpaddle, matches: allMatches };
 }
 
 // ============================================================================
@@ -737,19 +737,19 @@ function generateTeamBasedBracket(
 // ============================================================================
 
 /**
- * 🚀 Generate Tournament Bracket (Cloud Function)
+ * 🚀 Generate Tournament Bpaddle (Cloud Function)
  *
- * This function generates a tournament bracket on the server side.
+ * This function generates a tournament bpaddle on the server side.
  *
- * @param request - GenerateBracketRequest
- * @returns GenerateBracketResponse
+ * @param request - GenerateBpaddleRequest
+ * @returns GenerateBpaddleResponse
  */
-export const generateBracket = onCall<GenerateBracketRequest>(
-  async (request: CallableRequest<GenerateBracketRequest>): Promise<GenerateBracketResponse> => {
+export const generateBpaddle = onCall<GenerateBpaddleRequest>(
+  async (request: CallableRequest<GenerateBpaddleRequest>): Promise<GenerateBpaddleResponse> => {
     const db = getFirestore();
     const { tournamentId } = request.data;
 
-    console.log('🌉 [HEIMDALL] generateBracket called:', { tournamentId });
+    console.log('🌉 [HEIMDALL] generateBpaddle called:', { tournamentId });
 
     // Validate request
     if (!tournamentId) {
@@ -778,10 +778,10 @@ export const generateBracket = onCall<GenerateBracketRequest>(
       });
 
       // Check if tournament is in correct status
-      if (tournament.status !== 'registration' && tournament.status !== 'bracket_generation') {
+      if (tournament.status !== 'registration' && tournament.status !== 'bpaddle_generation') {
         throw new HttpsError(
           'failed-precondition',
-          `Cannot generate bracket for tournament in status: ${tournament.status}`
+          `Cannot generate bpaddle for tournament in status: ${tournament.status}`
         );
       }
 
@@ -793,21 +793,21 @@ export const generateBracket = onCall<GenerateBracketRequest>(
       console.log('📊 [HEIMDALL] Participants loaded:', participants.length);
 
       if (participants.length === 0) {
-        throw new HttpsError('failed-precondition', 'Cannot generate bracket with 0 participants');
+        throw new HttpsError('failed-precondition', 'Cannot generate bpaddle with 0 participants');
       }
 
-      // Determine bracket type (singles vs doubles)
+      // Determine bpaddle type (singles vs doubles)
       const isDoubles = tournament.eventType.includes('doubles');
-      const bracketType = isDoubles ? 'doubles' : 'singles';
+      const bpaddleType = isDoubles ? 'doubles' : 'singles';
 
-      console.log('🎯 [HEIMDALL] Bracket type:', bracketType);
+      console.log('🎯 [HEIMDALL] Bpaddle type:', bpaddleType);
 
-      let bracket: BracketRound[];
-      let matches: BracketMatch[];
+      let bpaddle: BpaddleRound[];
+      let matches: BpaddleMatch[];
 
       if (isDoubles) {
         // 🏆 Doubles: Team-First 2.0 Architecture
-        console.log('🎾 [HEIMDALL] Generating doubles (team-based) bracket...');
+        console.log('🎾 [HEIMDALL] Generating doubles (team-based) bpaddle...');
 
         const teams = groupParticipantsIntoTeams(participants);
         const teamCount = teams.length;
@@ -815,33 +815,33 @@ export const generateBracket = onCall<GenerateBracketRequest>(
         if (teamCount === 0) {
           throw new HttpsError(
             'failed-precondition',
-            'Cannot generate bracket: no valid teams found'
+            'Cannot generate bpaddle: no valid teams found'
           );
         }
 
-        const result = generateTeamBasedBracket(tournamentId, teams, teamCount);
-        bracket = result.bracket;
+        const result = generateTeamBasedBpaddle(tournamentId, teams, teamCount);
+        bpaddle = result.bpaddle;
         matches = result.matches;
       } else {
-        // 🏆 Singles: Player-based bracket
-        console.log('🎾 [HEIMDALL] Generating singles (player-based) bracket...');
+        // 🏆 Singles: Player-based bpaddle
+        console.log('🎾 [HEIMDALL] Generating singles (player-based) bpaddle...');
 
-        const result = generatePlayerBasedBracket(tournamentId, participants, participants.length);
-        bracket = result.bracket;
+        const result = generatePlayerBasedBpaddle(tournamentId, participants, participants.length);
+        bpaddle = result.bpaddle;
         matches = result.matches;
       }
 
-      console.log('✅ [HEIMDALL] Bracket generated:', {
-        totalRounds: bracket.length,
+      console.log('✅ [HEIMDALL] Bpaddle generated:', {
+        totalRounds: bpaddle.length,
         totalMatches: matches.length,
       });
 
-      // Save bracket to Firestore
-      console.log('💾 [HEIMDALL] Saving bracket to Firestore...');
+      // Save bpaddle to Firestore
+      console.log('💾 [HEIMDALL] Saving bpaddle to Firestore...');
 
       // Remove undefined values (Firestore doesn't allow undefined)
-      const cleanedBracket = removeUndefinedFields(
-        bracket.map(round => ({
+      const cleanedBpaddle = removeUndefinedFields(
+        bpaddle.map(round => ({
           roundNumber: round.roundNumber,
           roundName: round.roundName,
           matches: round.matches,
@@ -849,9 +849,9 @@ export const generateBracket = onCall<GenerateBracketRequest>(
         }))
       );
 
-      // Update tournament with bracket
+      // Update tournament with bpaddle
       await tournamentRef.update({
-        bracket: cleanedBracket,
+        bpaddle: cleanedBpaddle,
         status: 'in_progress' as TournamentStatus,
         updatedAt: FieldValue.serverTimestamp(),
       });
@@ -865,27 +865,27 @@ export const generateBracket = onCall<GenerateBracketRequest>(
       });
       await batch.commit();
 
-      console.log('✅ [HEIMDALL] Bracket saved to Firestore!');
+      console.log('✅ [HEIMDALL] Bpaddle saved to Firestore!');
 
       return {
         success: true,
-        message: 'Bracket generated successfully',
+        message: 'Bpaddle generated successfully',
         data: {
           tournamentId,
           totalMatches: matches.length,
-          totalRounds: bracket.length,
-          bracketType,
+          totalRounds: bpaddle.length,
+          bpaddleType,
           generatedAt: new Date().toISOString(),
         },
       };
     } catch (error) {
-      console.error('❌ [HEIMDALL] Error generating bracket:', error);
+      console.error('❌ [HEIMDALL] Error generating bpaddle:', error);
 
       if (error instanceof HttpsError) {
         throw error;
       }
 
-      throw new HttpsError('internal', `Failed to generate bracket: ${(error as Error).message}`);
+      throw new HttpsError('internal', `Failed to generate bpaddle: ${(error as Error).message}`);
     }
   }
 );

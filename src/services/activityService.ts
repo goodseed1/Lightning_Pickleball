@@ -1,14 +1,14 @@
 /**
- * Activity Service for Lightning Tennis App
+ * Activity Service for Lightning Pickleball App
  * Handles all event-related operations including applications, hosting, and participation
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 
 import {
@@ -174,7 +174,7 @@ class ActivityService {
 
     // Otherwise, estimate completion time using scheduled time + duration
     const scheduledTime = new Date(event.scheduledTime);
-    const estimatedDurationMinutes = event.duration || 120; // Default 120 minutes (2 hours) for tennis events
+    const estimatedDurationMinutes = event.duration || 120; // Default 120 minutes (2 hours) for pickleball events
     return new Date(scheduledTime.getTime() + estimatedDurationMinutes * 60 * 1000);
   }
 
@@ -3158,7 +3158,7 @@ class ActivityService {
         type: 'match',
         hostId: 'host1',
         hostName: 'Sarah Kim',
-        location: 'Grant Park Tennis Courts',
+        location: 'Grant Park Pickleball Courts',
         scheduledTime: new Date(now.getTime() + 2 * 24 * 60 * 60 * 1000),
         duration: 90,
         maxParticipants: 2,
@@ -3183,7 +3183,7 @@ class ActivityService {
       {
         id: 'applied2',
         title: '초보자 환영 랠리',
-        description: '부담없이 즐기는 테니스 랠리',
+        description: '부담없이 즐기는 피클볼 랠리',
         type: 'meetup',
         hostId: 'host2',
         hostName: 'David Park',
@@ -3217,8 +3217,8 @@ class ActivityService {
     return [
       {
         id: 'hosted1',
-        title: '주말 테니스 모임',
-        description: '즐거운 주말 테니스 모임입니다',
+        title: '주말 피클볼 모임',
+        description: '즐거운 주말 피클볼 모임입니다',
         type: 'meetup',
         hostId: userId,
         hostName: 'Current User',
@@ -3404,14 +3404,14 @@ class ActivityService {
       }
 
       // 3. 폴백: 친근한 이름 생성
-      const fallbackName = i18n.t('services.activity.tennisUserFallback', {
+      const fallbackName = i18n.t('services.activity.pickleballUserFallback', {
         id: userId.substring(0, 4),
       });
       console.warn(`⚠️ Using fallback name for ${userId}: ${fallbackName}`);
       return fallbackName;
     } catch (error) {
       console.error(`Error getting display name for user ${userId}:`, error);
-      return i18n.t('services.activity.tennisUserFallback', {
+      return i18n.t('services.activity.pickleballUserFallback', {
         id: userId.substring(0, 4),
       });
     }
@@ -3574,7 +3574,7 @@ class ActivityService {
               profileData.name ||
               profileData.firstName ||
               profileData.username ||
-              i18n.t('services.activity.tennisUserFallback', { id: applicantId.substring(0, 4) });
+              i18n.t('services.activity.pickleballUserFallback', { id: applicantId.substring(0, 4) });
 
             return {
               userId: applicantId,
@@ -3583,7 +3583,7 @@ class ActivityService {
           }
           return {
             userId: applicantId,
-            displayName: i18n.t('services.activity.tennisUserFallback', {
+            displayName: i18n.t('services.activity.pickleballUserFallback', {
               id: applicantId.substring(0, 4),
             }),
           };
@@ -3591,7 +3591,7 @@ class ActivityService {
           console.error(`Error loading profile for ${applicantId}:`, error);
           return {
             userId: applicantId,
-            displayName: i18n.t('services.activity.tennisUserFallback', {
+            displayName: i18n.t('services.activity.pickleballUserFallback', {
               id: applicantId.substring(0, 4),
             }),
           };
@@ -3621,7 +3621,7 @@ class ActivityService {
               applicantName:
                 userProfileMap.get(typedApp.applicantId || '') ||
                 typedApp.applicantName ||
-                i18n.t('services.activity.tennisUserFallback', {
+                i18n.t('services.activity.pickleballUserFallback', {
                   id: typedApp.applicantId?.substring(0, 4) || 'XXXX',
                 }),
             };
@@ -3977,14 +3977,14 @@ class ActivityService {
               userData.firstName ||
               userData.username ||
               (userData.email ? userData.email.split('@')[0] : null) ||
-              i18n.t('services.activity.tennisUserFallback', {
+              i18n.t('services.activity.pickleballUserFallback', {
                 id: appData.applicantId.substring(0, 4),
               });
 
             console.log(`✅ Found user profile for ${appData.applicantId}: ${realName}`);
           } else {
             // 사용자 프로필이 없는 경우 친근한 이름 사용
-            realName = i18n.t('services.activity.tennisUserFallback', {
+            realName = i18n.t('services.activity.pickleballUserFallback', {
               id: appData.applicantId.substring(0, 4),
             });
             console.warn(
@@ -4004,7 +4004,7 @@ class ActivityService {
           console.error(`Error fetching user profile for ${appData.applicantId}:`, userError);
 
           // 에러 발생 시 기본 이름 사용
-          const fallbackName = i18n.t('services.activity.tennisUserFallback', {
+          const fallbackName = i18n.t('services.activity.pickleballUserFallback', {
             id: appData.applicantId.substring(0, 4),
           });
           batch.update(appDoc.ref, {
@@ -4593,13 +4593,13 @@ class ActivityService {
           eventLocation?: string;
           hostId: string;
           hostName: string;
-          hostLtr?: number; // 🎾 [KIM FIX] Host's LTR level
+          hostLtr?: number; // 🎾 [KIM FIX] Host's LPR level
           gameType?: string;
           status: 'pending' | 'accepted' | 'rejected';
           invitedAt: string;
         }> = [];
 
-        // 🎾 [KIM FIX] Cache host LTR values to avoid redundant fetches
+        // 🎾 [KIM FIX] Cache host LPR values to avoid redundant fetches
         const hostLtrCache: Record<string, number | undefined> = {};
 
         for (const eventDoc of snapshot.docs) {
@@ -4663,7 +4663,7 @@ class ActivityService {
           // FriendInvitationCard has its own formatDate/formatTime functions
           const eventDateISO = scheduledTime.toISOString();
 
-          // 🎾 [KIM FIX] Get host LTR - check event data first, then fetch from user doc
+          // 🎾 [KIM FIX] Get host LPR - check event data first, then fetch from user doc
           const hostId = eventData.hostId as string;
           let hostLtr: number | undefined;
 
@@ -4680,12 +4680,12 @@ class ActivityService {
                 const hostDoc = await getDoc(doc(db, 'users', hostId));
                 if (hostDoc.exists()) {
                   const hostData = hostDoc.data();
-                  // LTR is stored in skillLevel.calculated (NTRP format)
+                  // LPR is stored in skillLevel.calculated (NTRP format)
                   hostLtr = hostData?.skillLevel?.calculated as number | undefined;
                   hostLtrCache[hostId] = hostLtr;
                 }
               } catch (fetchError) {
-                console.warn('🎾 [FRIEND_INVITE] Failed to fetch host LTR:', fetchError);
+                console.warn('🎾 [FRIEND_INVITE] Failed to fetch host LPR:', fetchError);
               }
             }
           }
@@ -4698,7 +4698,7 @@ class ActivityService {
             eventLocation: eventData.location || '',
             hostId: hostId || '',
             hostName: eventData.hostName || 'Unknown Host',
-            hostLtr, // 🎾 [KIM FIX] Include host LTR
+            hostLtr, // 🎾 [KIM FIX] Include host LPR
             gameType: eventData.gameType || '',
             status: userInvitation.status as 'pending' | 'accepted' | 'rejected',
             invitedAt: userInvitation.invitedAt || new Date().toISOString(),

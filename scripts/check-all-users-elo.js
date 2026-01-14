@@ -1,5 +1,5 @@
 /**
- * 🔍 전체 사용자 ELO/LTR 상태 확인
+ * 🔍 전체 사용자 ELO/LPR 상태 확인
  */
 
 const admin = require('firebase-admin');
@@ -12,7 +12,7 @@ admin.initializeApp({
 const db = admin.firestore();
 
 async function checkAllUsersElo() {
-  console.log('🔍 전체 사용자 ELO/LTR 상태 확인...\n');
+  console.log('🔍 전체 사용자 ELO/LPR 상태 확인...\n');
 
   const usersRef = db.collection('users');
   const snapshot = await usersRef.get();

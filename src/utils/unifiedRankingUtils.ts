@@ -6,8 +6,8 @@ import { UnifiedStats, SkillLevel, ClubStats } from '../types/user';
  * This replaces the dual ranking system with a single, weighted ELO approach.
  * All matches contribute to one unified ELO rating with context-based weighting.
  *
- * 📝 LTR vs NTRP 네이밍 규칙
- * UI 표시: "LTR" (Lightning Tennis Rating)
+ * 📝 LPR vs NTRP 네이밍 규칙
+ * UI 표시: "LPR" (Lightning Pickleball Rating)
  * 코드/DB: "ntrp" (아래 모든 함수명, 특히 convertEloToLtr)
  * 이유: Firestore 필드명 변경 위험 방지
  */
@@ -120,8 +120,8 @@ export function updateSkillLevelFromUnified(
 }
 
 /**
- * Convert ELO rating to LTR value (1-10 scale)
- * 🎯 [KIM FIX v16] Use proper LTR scale (1-10) instead of NTRP (2.5-5.5)
+ * Convert ELO rating to LPR value (1-10 scale)
+ * 🎯 [KIM FIX v16] Use proper LPR scale (1-10) instead of NTRP (2.5-5.5)
  * Import from constants/ltr.ts for single source of truth
  */
 export function convertEloToLtr(elo: number): number {

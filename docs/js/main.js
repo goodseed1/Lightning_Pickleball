@@ -1,5 +1,5 @@
 /**
- * Lightning Tennis Landing Page
+ * Lightning Pickleball Landing Page
  * Simple scroll animations and interactions
  */
 
@@ -54,6 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Console greeting
-  console.log('%c⚡ Lightning Tennis', 'color: #FFD700; font-size: 24px; font-weight: bold;');
+  console.log('%c⚡ Lightning Pickleball', 'color: #FFD700; font-size: 24px; font-weight: bold;');
   console.log('%c당신이 바로 커뮤니티의 중심입니다.', 'color: #B3B3B3; font-size: 14px;');
 });

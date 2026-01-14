@@ -1,5 +1,5 @@
 /**
- * Theme Context for Lightning Tennis
+ * Theme Context for Lightning Pickleball
  * Project Midnight - Phase 1: Dark Mode Management System
  *
  * Provides centralized theme management with support for:
@@ -32,7 +32,7 @@ const defaultContextValue: ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType>(defaultContextValue);
 
 // AsyncStorage key for theme preference
-const THEME_STORAGE_KEY = '@lightning_tennis_theme_preference';
+const THEME_STORAGE_KEY = '@lightning_pickleball_theme_preference';
 
 // Provider component interface
 interface ThemeProviderProps {

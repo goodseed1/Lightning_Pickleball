@@ -397,8 +397,8 @@ const frenchTranslations = {
     state: 'État/Province',
     country: 'Pays',
 
-    // Tennis info
-    tennisInfo: 'Informations tennis',
+    // Pickleball info
+    pickleballInfo: 'Informations pickleball',
     skillLevel: 'Niveau de compétence',
     playingStyle: 'Style de jeu',
     preferredHand: 'Main préférée',

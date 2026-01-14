@@ -2,7 +2,7 @@
  * 🌉 [HEIMDALL] Tournament End-to-End Integration Tests
  *
  * Tests complete tournament workflows from creation to completion
- * - Full tournament lifecycle (creation → registration → bracket → in progress → completed)
+ * - Full tournament lifecycle (creation → registration → bpaddle → in progress → completed)
  * - Doubles tournament with teams
  * - Tournament cancellation scenarios
  * - Notification flows
@@ -109,7 +109,7 @@ describe('🌉 [HEIMDALL] Tournament E2E Integration Tests', () => {
             },
             matchDuration: 90,
             thirdPlaceMatch: false,
-            consolationBracket: false,
+            consolationBpaddle: false,
             allowWalkovers: true,
           },
           startDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
@@ -173,22 +173,22 @@ describe('🌉 [HEIMDALL] Tournament E2E Integration Tests', () => {
       expect(tournamentDoc?.participantCount).toBe(4);
 
       // ======================================================================
-      // Step 4: Close Registration & Generate Bracket (registration → bracket_generation)
+      // Step 4: Close Registration & Generate Bpaddle (registration → bpaddle_generation)
       // ======================================================================
       console.log('🎯 [E2E] Step 4: Closing registration...');
 
       const closRegResult = await wrappedUpdateStatus({
-        data: { tournamentId, newStatus: 'bracket_generation' },
+        data: { tournamentId, newStatus: 'bpaddle_generation' },
         auth: { uid: hostUserId },
       });
 
       expect(closRegResult.success).toBe(true);
-      expect(closRegResult.data.newStatus).toBe('bracket_generation');
+      expect(closRegResult.data.newStatus).toBe('bpaddle_generation');
 
-      console.log('✅ [E2E] Registration closed, bracket generation started');
+      console.log('✅ [E2E] Registration closed, bpaddle generation started');
 
       // ======================================================================
-      // Step 5: Start Tournament (bracket_generation → in_progress)
+      // Step 5: Start Tournament (bpaddle_generation → in_progress)
       // ======================================================================
       console.log('🎯 [E2E] Step 5: Starting tournament...');
 
@@ -322,7 +322,7 @@ describe('🌉 [HEIMDALL] Tournament E2E Integration Tests', () => {
             },
             matchDuration: 90,
             thirdPlaceMatch: false,
-            consolationBracket: false,
+            consolationBpaddle: false,
             allowWalkovers: true,
           },
           startDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
@@ -382,13 +382,13 @@ describe('🌉 [HEIMDALL] Tournament E2E Integration Tests', () => {
       // ======================================================================
       console.log('🎯 [E2E DOUBLES] Step 4: Completing lifecycle...');
 
-      // registration → bracket_generation
+      // registration → bpaddle_generation
       await wrappedUpdateStatus({
-        data: { tournamentId, newStatus: 'bracket_generation' },
+        data: { tournamentId, newStatus: 'bpaddle_generation' },
         auth: { uid: hostUserId },
       });
 
-      // bracket_generation → in_progress
+      // bpaddle_generation → in_progress
       await wrappedUpdateStatus({
         data: { tournamentId, newStatus: 'in_progress' },
         auth: { uid: hostUserId },
@@ -460,7 +460,7 @@ describe('🌉 [HEIMDALL] Tournament E2E Integration Tests', () => {
             },
             matchDuration: 90,
             thirdPlaceMatch: false,
-            consolationBracket: false,
+            consolationBpaddle: false,
             allowWalkovers: true,
           },
           startDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),

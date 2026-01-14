@@ -2,7 +2,7 @@
 
 /**
  * Complete French Translation - Final Production Version
- * Professional French translations for Lightning Tennis mobile app
+ * Professional French translations for Lightning Pickleball mobile app
  */
 
 const fs = require('fs');
@@ -38,7 +38,7 @@ const FR_TRANSLATIONS = {
   'Description cannot exceed 200 characters': 'La description ne peut pas dépasser 200 caractères',
   'Great description! ✅': 'Excellente description ! ✅',
   'Sign Up': "S'inscrire",
-  'Join Lightning Tennis': 'Rejoindre Lightning Tennis',
+  'Join Lightning Pickleball': 'Rejoindre Lightning Pickleball',
   Name: 'Nom',
   'Signing up...': 'Inscription en cours...',
   'Password must be at least 8 characters and include uppercase, lowercase, and numbers.':
@@ -79,7 +79,7 @@ const FR_TRANSLATIONS = {
   'Create Club': 'Créer un club',
   'Court Address': 'Adresse du court',
   'Loading club information...': 'Chargement des informations du club...',
-  'Search Tennis Court Address': "Rechercher l'adresse du court de tennis",
+  'Search Pickleball Court Address': "Rechercher l'adresse du court de pickleball",
   'Add Regular Meeting Time': 'Ajouter un horaire de rencontre régulier',
   'Day Selection': 'Sélection du jour',
   'Meeting Time': 'Horaire de rencontre',
@@ -90,9 +90,9 @@ const FR_TRANSLATIONS = {
   'Address is required.': "L'adresse est requise.",
   'Club Name': 'Nom du club',
   'Search court address (EN/US/Atlanta bias)': "Rechercher l'adresse du court (EN/US/Atlanta)",
-  'Tennis Court Address': 'Adresse du court de tennis',
-  'Search for tennis court address': 'Rechercher une adresse de court de tennis',
-  'e.g., Duluth Korean Tennis Club': 'ex: Club de Tennis Coréen de Duluth',
+  'Pickleball Court Address': 'Adresse du court de pickleball',
+  'Search for pickleball court address': 'Rechercher une adresse de court de pickleball',
+  'e.g., Duluth Korean Pickleball Club': 'ex: Club de Pickleball Coréen de Duluth',
   "Describe your club's goals, atmosphere, and unique features":
     "Décrivez les objectifs, l'ambiance et les caractéristiques uniques de votre club",
   'e.g.:\n• Maintain 70%+ attendance for regular meetings\n• Show mutual respect and courtesy\n• Clean up after using facilities':
@@ -131,7 +131,7 @@ const FR_TRANSLATIONS = {
   'Failed to load profile': 'Échec du chargement du profil',
   'Profile not found': 'Profil introuvable',
   'Go Back': 'Retour',
-  'Tennis Player': 'Joueur de tennis',
+  'Pickleball Player': 'Joueur de pickleball',
   'No location info': 'Aucune information de localisation',
   'Joined {{date}}': 'Inscrit le {{date}}',
   'Friend Request': "Demande d'ami",

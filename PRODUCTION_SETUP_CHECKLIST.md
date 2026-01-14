@@ -119,7 +119,7 @@
 ```bash
 # Via Firebase Console (Recommended)
 1. Go to https://console.firebase.google.com
-2. Select: lightning-tennis-community
+2. Select: lightning-pickleball-community
 3. Navigate: Firestore Database > Rules
 4. Copy contents from ./firestore.rules
 5. Click: Publish

@@ -79,7 +79,7 @@ function appearsEnglish(value, locale) {
     'match',
     'meetup',
     'community',
-    'tennis',
+    'pickleball',
     'found',
     'nearby',
     'try',

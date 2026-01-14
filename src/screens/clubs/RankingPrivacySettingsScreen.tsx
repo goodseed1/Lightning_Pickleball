@@ -7,7 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { RootStackParamList } from '../../navigation/AppNavigator';
 import { ClubVisibility, CLUB_VISIBILITY_OPTIONS } from '../../types/club';
 import clubService from '../../services/clubService';
@@ -28,7 +28,7 @@ const RankingPrivacySettingsScreen: React.FC = () => {
   const route = useRoute<RankingPrivacySettingsScreenRouteProp>();
   const { t } = useLanguage();
   const { theme } = useTheme();
-  const themeColors = getLightningTennisTheme(theme);
+  const themeColors = getLightningPickleballTheme(theme);
 
   const { clubId, clubName, currentVisibility } =
     route.params as RankingPrivacySettingsScreenParams;

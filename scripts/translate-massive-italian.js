@@ -42,7 +42,7 @@ const translations = {
       perfectMatchTitle: 'Trovata la corrispondenza perfetta! 🎾',
       newRequestTitle: 'Nuova richiesta di partita 📨',
       perfectMatchBody: 'Hai un tasso di corrispondenza del {{score}}% con {{name}}.',
-      newRequestBody: '{{senderName}} ti ha richiesto una partita di tennis.',
+      newRequestBody: '{{senderName}} ti ha richiesto una partita di pickleball.',
     },
     event: {
       noEventsFound:
@@ -90,7 +90,7 @@ const translations = {
         defaultMessage: 'Hai un nuovo aggiornamento.',
         defaultLeagueName: 'Lega',
       },
-      tennisUserFallback: 'UtenTennis{{id}}',
+      pickleballUserFallback: 'UtenPickleball{{id}}',
     },
     camera: {
       permissionTitle: 'Permesso Fotocamera Richiesto',
@@ -183,17 +183,17 @@ const translations = {
     applicationPending: 'La candidatura alla lega è in attesa.',
     applicationApproved: 'Sei stato approvato per unirti alla lega!',
     applicationRejected: 'La tua candidatura alla lega è stata rifiutata.',
-    generateBracket: 'Genera Tabellone',
-    generateBracketMessage:
+    generateBpaddle: 'Genera Tabellone',
+    generateBpaddleMessage:
       'Gestisci le candidature nella scheda Partecipanti, poi genera il tabellone nella scheda Gestione',
-    generateBracketMessageSimple:
+    generateBpaddleMessageSimple:
       'Il calendario delle partite apparirà qui una volta generato il tabellone',
-    bracketGeneratedSuccess:
+    bpaddleGeneratedSuccess:
       "Tabellone generato con successo!\n\nL'elenco delle partite apparirà a breve.",
-    bracketGenerateError: 'Errore nella generazione del tabellone.',
-    bracketDeletedSuccess:
+    bpaddleGenerateError: 'Errore nella generazione del tabellone.',
+    bpaddleDeletedSuccess:
       'Tabellone eliminato con successo.\n\nOra puoi generare un nuovo tabellone.',
-    bracketDeleteError: "Errore nell'eliminazione del tabellone.",
+    bpaddleDeleteError: "Errore nell'eliminazione del tabellone.",
     startPlayoffs: 'Inizia Playoff',
     playoffsStartedSuccess:
       'Playoff iniziati con successo!\n\nLe partite dei playoff appariranno a breve.',
@@ -264,7 +264,7 @@ const translations = {
       statusPreparing: 'Preparazione',
       applySection: 'Candidati',
       applyDescription:
-        "Unisciti alla lega per competere con altri giocatori e migliorare le tue abilità tennistiche. Dovrai attendere l'approvazione dell'amministratore dopo la candidatura.",
+        "Unisciti alla lega per competere con altri giocatori e migliorare le tue abilità pickleballtiche. Dovrai attendere l'approvazione dell'amministratore dopo la candidatura.",
       applying: 'Candidatura...',
       applyButton: 'Candidati alla Lega',
       notOpenWarning: 'Le iscrizioni sono attualmente chiuse',
@@ -299,7 +299,7 @@ const translations = {
       management: 'Gestione',
     },
     status: {
-      bracketGeneration: 'Generazione Tabellone',
+      bpaddleGeneration: 'Generazione Tabellone',
       inProgress: 'In Corso',
       completed: 'Completato',
     },
@@ -322,7 +322,7 @@ const translations = {
       crownWinner: 'Incorona Vincitore',
       closeRegistration: 'Chiudi Iscrizioni',
       addParticipantManually: 'Aggiungi Partecipante Manualmente',
-      generateBracket: 'Generazione Tabellone...',
+      generateBpaddle: 'Generazione Tabellone...',
     },
     stats: {
       champion: 'Campione: ',
@@ -361,7 +361,7 @@ const translations = {
       successTitle: 'Torneo Iniziato',
       successMessage: 'Il torneo è iniziato con successo! Il tabellone è stato generato.',
       registrationClosedMessage: 'Iscrizioni chiuse e tabellone generato. Il torneo è iniziato!',
-      bracketGeneratedMessage: 'Tabellone generato. Il torneo è iniziato!',
+      bpaddleGeneratedMessage: 'Tabellone generato. Il torneo è iniziato!',
       waitForParticipantAddition: "Attendi il completamento dell'aggiunta dei partecipanti.",
     },
   },
@@ -408,7 +408,7 @@ const translations = {
     },
     devTools: {
       loading: 'Caricamento...',
-      tennisStats: '📊 Statistiche Tennis',
+      pickleballStats: '📊 Statistiche Pickleball',
       matchesPlayed: 'Partite Giocate',
       wins: 'Vittorie',
       winRate: '% Vittorie',
@@ -478,7 +478,7 @@ const translations = {
       anyLevelDesc: 'Tutti i livelli benvenuti',
     },
     skillDescriptions: {
-      beginner: 'Principiante - Nuovo al tennis o apprendimento colpi base',
+      beginner: 'Principiante - Nuovo al pickleball o apprendimento colpi base',
       elementary: 'Elementare - Sa colpire colpi base, comprende basi del doppio',
       intermediate: 'Intermedio - Colpi coerenti, gioco strategico',
       advanced: 'Avanzato - Esperienza torneo, abilità avanzate',
@@ -488,10 +488,10 @@ const translations = {
         "Le partite lampo consentono solo livelli pari o superiori al livello dell'organizzatore",
     },
     autoNtrp: {
-      hostLevel: 'LTR Organizzatore: {{level}} ({{gameType}})',
-      partnerLevel: 'LTR Partner: {{level}} ({{gameType}})',
-      combinedLevel: 'LTR Combinato: {{level}}',
-      hostLevelWithType: 'LTR Organizzatore: {{level}} ({{type}})',
+      hostLevel: 'LPR Organizzatore: {{level}} ({{gameType}})',
+      partnerLevel: 'LPR Partner: {{level}} ({{gameType}})',
+      combinedLevel: 'LPR Combinato: {{level}}',
+      hostLevelWithType: 'LPR Organizzatore: {{level}} ({{type}})',
     },
   },
 

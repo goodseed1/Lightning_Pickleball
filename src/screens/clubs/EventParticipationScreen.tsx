@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import React, { useState, useEffect } from 'react';
 import {
@@ -126,7 +126,7 @@ const EventParticipationScreen: React.FC = () => {
       '매월 진행되는 클럽 내 복식 토너먼트입니다. 실력별 조편성으로 공정한 경기를 진행합니다.',
     date: new Date('2025-02-15'),
     time: '14:00 - 18:00',
-    location: '강남구민체육센터 테니스장',
+    location: '강남구민체육센터 피클볼장',
     maxParticipants: 16,
     currentParticipants: 12,
     cost: 10000,
@@ -146,7 +146,7 @@ const EventParticipationScreen: React.FC = () => {
     participantList: [
       {
         id: '1',
-        name: '김테니스',
+        name: '김피클볼',
         skillLevel: 'NTRP 4.0',
         joinDate: new Date('2025-01-20'),
         status: 'confirmed',

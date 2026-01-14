@@ -77,7 +77,7 @@ const esTranslations = {
     lightningMeetup: 'Encuentro Relámpago',
     casualMeetup: 'Encuentro Casual',
     createClub: 'Crear Club',
-    tennisCommunity: 'Comunidad de Tenis',
+    pickleballCommunity: 'Comunidad de Tenis',
   },
 
   // Members Tabs
@@ -207,7 +207,7 @@ const deTranslations = {
     lightningMeetup: 'Blitz-Treffen',
     casualMeetup: 'Lockeres Treffen',
     createClub: 'Club erstellen',
-    tennisCommunity: 'Tennis-Community',
+    pickleballCommunity: 'Pickleball-Community',
   },
   clubMembersScreen: {
     tabs: {
@@ -331,7 +331,7 @@ const frTranslations = {
     lightningMeetup: 'Rencontre Éclair',
     casualMeetup: 'Rencontre Décontractée',
     createClub: 'Créer un Club',
-    tennisCommunity: 'Communauté Tennis',
+    pickleballCommunity: 'Communauté Pickleball',
   },
   clubMembersScreen: {
     tabs: {
@@ -455,7 +455,7 @@ const itTranslations = {
     lightningMeetup: 'Incontro Lampo',
     casualMeetup: 'Incontro Informale',
     createClub: 'Crea Club',
-    tennisCommunity: 'Comunità Tennis',
+    pickleballCommunity: 'Comunità Pickleball',
   },
   clubMembersScreen: {
     tabs: {
@@ -579,7 +579,7 @@ const jaTranslations = {
     lightningMeetup: 'ライトニングミートアップ',
     casualMeetup: 'カジュアルミートアップ',
     createClub: 'クラブを作成',
-    tennisCommunity: 'テニスコミュニティ',
+    pickleballCommunity: 'テニスコミュニティ',
   },
   clubMembersScreen: {
     tabs: {
@@ -703,7 +703,7 @@ const ptTranslations = {
     lightningMeetup: 'Encontro Relâmpago',
     casualMeetup: 'Encontro Casual',
     createClub: 'Criar Clube',
-    tennisCommunity: 'Comunidade de Tênis',
+    pickleballCommunity: 'Comunidade de Tênis',
   },
   clubMembersScreen: {
     tabs: {
@@ -827,7 +827,7 @@ const ruTranslations = {
     lightningMeetup: 'Молниеносная Встреча',
     casualMeetup: 'Неформальная Встреча',
     createClub: 'Создать Клуб',
-    tennisCommunity: 'Теннисное Сообщество',
+    pickleballCommunity: 'Теннисное Сообщество',
   },
   clubMembersScreen: {
     tabs: {
@@ -951,7 +951,7 @@ const zhTranslations = {
     lightningMeetup: '闪电聚会',
     casualMeetup: '休闲聚会',
     createClub: '创建俱乐部',
-    tennisCommunity: '网球社区',
+    pickleballCommunity: '网球社区',
   },
   clubMembersScreen: {
     tabs: {
@@ -1075,7 +1075,7 @@ const koTranslations = {
     lightningMeetup: '번개 모임',
     casualMeetup: '자유 모임',
     createClub: '클럽 만들기',
-    tennisCommunity: '테니스 커뮤니티',
+    pickleballCommunity: '피클볼 커뮤니티',
   },
   clubMembersScreen: {
     tabs: {

@@ -1,8 +1,8 @@
-# 📋 Lightning Tennis - Complete Manual Regression Test Plan
+# 📋 Lightning Pickleball - Complete Manual Regression Test Plan
 
 ## 🎯 Objective
 
-Verify that all core functionalities of the Lightning Tennis app are working correctly after the **"Project: Perfection"** major refactoring effort. This comprehensive testing plan ensures no regressions were introduced during the extensive codebase improvements.
+Verify that all core functionalities of the Lightning Pickleball app are working correctly after the **"Project: Perfection"** major refactoring effort. This comprehensive testing plan ensures no regressions were introduced during the extensive codebase improvements.
 
 ---
 
@@ -51,7 +51,7 @@ Verify that all core functionalities of the Lightning Tennis app are working cor
   - Profile creation form displays all fields
   - Photo upload functionality works
   - Nickname/Display name validation
-  - LTR level selection (2.0-5.5 range)
+  - LPR level selection (2.0-5.5 range)
   - Gender selection functional
   - Location selection with GPS/manual entry
 
@@ -97,7 +97,7 @@ Verify that all core functionalities of the Lightning Tennis app are working cor
   - Player cards show:
     - Profile photo
     - Display name/nickname
-    - LTR level
+    - LPR level
     - Location/distance
   - Search functionality works
   - Tap on player card navigates to public profile
@@ -187,7 +187,7 @@ Verify that all core functionalities of the Lightning Tennis app are working cor
   - All user data displays correctly:
     - Profile photo
     - Display name/nickname
-    - LTR level (both self-assessed and calculated)
+    - LPR level (both self-assessed and calculated)
     - Location
     - Join date
     - Language preference
@@ -206,7 +206,7 @@ Verify that all core functionalities of the Lightning Tennis app are working cor
   - All fields editable
   - Photo upload/change works
   - Changes save and persist
-  - Validation works (e.g., LTR level ranges)
+  - Validation works (e.g., LPR level ranges)
 
 #### Public Profile Viewing
 
@@ -578,4 +578,4 @@ Verify that all core functionalities of the Lightning Tennis app are working cor
 
 ---
 
-_This comprehensive test plan ensures the Lightning Tennis app maintains its quality and functionality after major refactoring efforts. Each test should be executed methodically with results documented for future reference._
+_This comprehensive test plan ensures the Lightning Pickleball app maintains its quality and functionality after major refactoring efforts. Each test should be executed methodically with results documented for future reference._

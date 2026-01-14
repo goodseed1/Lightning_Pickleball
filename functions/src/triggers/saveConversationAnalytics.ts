@@ -10,7 +10,7 @@
  *   userMessage: string,
  *   aiResponse: string,
  *   analysis: {
- *     topic: string,     // app_usage, tennis_rules, tennis_technique, etc.
+ *     topic: string,     // app_usage, pickleball_rules, pickleball_technique, etc.
  *     sentiment: string, // positive, neutral, negative
  *     intent: string,    // question, feedback, complaint, praise, etc.
  *     keywords: string[]
@@ -76,14 +76,14 @@ export const saveConversationAnalytics = onCall<
     // 유효한 토픽 목록
     const validTopics = [
       'app_usage',
-      'tennis_rules',
-      'tennis_technique',
-      'tennis_equipment',
+      'pickleball_rules',
+      'pickleball_technique',
+      'pickleball_equipment',
       'club_features',
       'match_features',
       'ranking_system',
-      'tennis_fitness',
-      'general_tennis',
+      'pickleball_fitness',
+      'general_pickleball',
       'feedback_positive',
       'feedback_negative',
       'off_topic',

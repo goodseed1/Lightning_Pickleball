@@ -127,7 +127,7 @@ const dictionary = {
   'New match request 📨': 'Nueva solicitud de partido 📨',
   'You have a {{score}}% match rate with {{name}}.':
     'Tienes un {{score}}% de compatibilidad con {{name}}.',
-  '{{senderName}} has requested a tennis match with you.':
+  '{{senderName}} has requested a pickleball match with you.':
     '{{senderName}} ha solicitado un partido de tenis contigo.',
   'No events found matching your criteria. Try searching with different filters!':
     'No se encontraron eventos que coincidan con tus criterios. ¡Intenta buscar con diferentes filtros!',
@@ -183,7 +183,7 @@ const dictionary = {
   // Event Card
   "This is a men's match": 'Este es un partido masculino',
   "This is a women's match": 'Este es un partido femenino',
-  'Apply: LTR {{minNtrp}} - {{maxNtrp}}': 'Aplicar: LTR {{minNtrp}} - {{maxNtrp}}',
+  'Apply: LPR {{minNtrp}} - {{maxNtrp}}': 'Aplicar: LPR {{minNtrp}} - {{maxNtrp}}',
   'Level: {{level}}': 'Nivel: {{level}}',
   '{{count}} solo': '{{count}} solo',
   '{{count}} solo applicants': '{{count}} aplicantes solos',
@@ -214,7 +214,7 @@ const dictionary = {
   "Women's Doubles": 'Dobles Femenino',
   'Rally/Practice': 'Rally/Práctica',
   'All levels welcome': 'Todos los niveles bienvenidos',
-  'Beginner - New to tennis or learning basic strokes':
+  'Beginner - New to pickleball or learning basic strokes':
     'Principiante - Nuevo en tenis o aprendiendo golpes básicos',
   'Elementary - Can hit basic strokes, understands doubles basics':
     'Elemental - Puede hacer golpes básicos, entiende bases de dobles',
@@ -224,19 +224,19 @@ const dictionary = {
     'Avanzado - Experiencia en torneos, habilidades avanzadas',
   'Lightning matches only allow levels equal to or higher than host level':
     'Los partidos Lightning solo permiten niveles iguales o superiores al nivel del anfitrión',
-  'Host LTR: {{level}} ({{gameType}})': 'LTR Anfitrión: {{level}} ({{gameType}})',
-  'Partner LTR: {{level}} ({{gameType}})': 'LTR Compañero: {{level}} ({{gameType}})',
-  'Combined LTR: {{level}}': 'LTR Combinado: {{level}}',
-  'Host LTR: {{level}} ({{type}})': 'LTR Anfitrión: {{level}} ({{type}})',
-  'Partner LTR: {{level}} ({{type}})': 'LTR Compañero: {{level}} ({{type}})',
+  'Host LPR: {{level}} ({{gameType}})': 'LPR Anfitrión: {{level}} ({{gameType}})',
+  'Partner LPR: {{level}} ({{gameType}})': 'LPR Compañero: {{level}} ({{gameType}})',
+  'Combined LPR: {{level}}': 'LPR Combinado: {{level}}',
+  'Host LPR: {{level}} ({{type}})': 'LPR Anfitrión: {{level}} ({{type}})',
+  'Partner LPR: {{level}} ({{type}})': 'LPR Compañero: {{level}} ({{type}})',
   'Select languages you can communicate in for a better match experience.':
     'Selecciona idiomas en los que puedes comunicarte para una mejor experiencia de partido.',
   'Match level is auto-calculated based on {{type}}.':
     'El nivel de partido se calcula automáticamente basado en {{type}}.',
-  '* Doubles match level is automatically set from host and partner LTR sum.':
-    '* El nivel de partido de dobles se establece automáticamente a partir de la suma de LTR del anfitrión y compañero.',
-  '* Singles match level is automatically set from host LTR. (±0.5 tolerance)':
-    '* El nivel de partido individual se establece automáticamente desde el LTR del anfitrión. (±0.5 tolerancia)',
+  '* Doubles match level is automatically set from host and partner LPR sum.':
+    '* El nivel de partido de dobles se establece automáticamente a partir de la suma de LPR del anfitrión y compañero.',
+  '* Singles match level is automatically set from host LPR. (±0.5 tolerance)':
+    '* El nivel de partido individual se establece automáticamente desde el LPR del anfitrión. (±0.5 tolerancia)',
   'When enabled, participants are auto-approved first-come-first-served until capacity. When disabled, host must manually approve each participant.':
     'Cuando está activado, los participantes se aprueban automáticamente por orden de llegada hasta la capacidad. Cuando está desactivado, el anfitrión debe aprobar manualmente a cada participante.',
   'When enabled, requests are auto-approved first-come-first-serve until full. When disabled, host must manually approve each request.':

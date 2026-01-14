@@ -99,7 +99,7 @@ const translations = {
     detailTabs: {
       matches: '試合',
       participants: '参加者',
-      bracket: 'トーナメント表',
+      bpaddle: 'トーナメント表',
       schedule: 'スケジュール',
       rules: 'ルール',
       prizes: '賞品',
@@ -640,7 +640,7 @@ const translations = {
   },
 
   ntrpSelector: {
-    title: 'LTRを選択',
+    title: 'LPRを選択',
     beginner: '初心者',
     intermediate: '中級',
     advanced: '上級',
@@ -650,7 +650,7 @@ const translations = {
 
   tournamentDetail: {
     title: 'トーナメント詳細',
-    bracket: 'トーナメント表',
+    bpaddle: 'トーナメント表',
     participants: '参加者',
     schedule: 'スケジュール',
     rules: 'ルール',
@@ -669,7 +669,7 @@ const translations = {
     title: 'トーナメント',
     join: '参加',
     withdraw: '辞退',
-    bracket: 'トーナメント表',
+    bpaddle: 'トーナメント表',
     schedule: 'スケジュール',
   },
 

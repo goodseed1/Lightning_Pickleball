@@ -114,7 +114,7 @@ describe('approveApplicationLogic', () => {
       mockDocRef.get.mockResolvedValueOnce({
         exists: true,
         data: () => ({
-          title: 'Tennis Match',
+          title: 'Pickleball Match',
           location: 'Central Park',
           hostId: 'host123',
         }),
@@ -154,7 +154,7 @@ describe('approveApplicationLogic', () => {
       mockDocRef.get.mockResolvedValueOnce({
         exists: true,
         data: () => ({
-          title: 'Tennis Match',
+          title: 'Pickleball Match',
           hostId: 'host123',
           createdBy: 'host123',
         }),
@@ -291,7 +291,7 @@ describe('approveApplicationLogic', () => {
         .mockResolvedValueOnce({
           exists: true,
           data: () => ({
-            title: 'Tennis Match',
+            title: 'Pickleball Match',
             location: 'Central Park',
             hostId: 'host123',
           }),
@@ -342,7 +342,7 @@ describe('approveApplicationLogic', () => {
         .mockResolvedValueOnce({
           exists: true,
           data: () => ({
-            title: 'Tennis Match',
+            title: 'Pickleball Match',
             location: 'Central Park',
             hostId: 'host123',
           }),

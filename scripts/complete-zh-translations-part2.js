@@ -302,7 +302,7 @@ const translations = {
     sections: {
       basic: '基本信息',
       contact: '联系方式',
-      tennis: '网球信息',
+      pickleball: '网球信息',
       preferences: '偏好设置',
       privacy: '隐私设置',
     },
@@ -473,8 +473,8 @@ const translations = {
     actions: {
       register: '报名',
       withdraw: '退出',
-      viewBracket: '查看对阵表',
-      manageBracket: '管理对阵表',
+      viewBpaddle: '查看对阵表',
+      manageBpaddle: '管理对阵表',
       recordScore: '记录比分',
       cancel: '取消',
     },

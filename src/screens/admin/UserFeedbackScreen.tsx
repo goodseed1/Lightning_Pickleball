@@ -17,7 +17,7 @@ import {
 import { Appbar } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
 import FeedbackCard from '../../components/admin/FeedbackCard';
 import {
@@ -33,7 +33,7 @@ type FilterType = 'all' | 'new' | 'in_progress' | 'resolved';
 
 const UserFeedbackScreen: React.FC = () => {
   const { theme } = useTheme();
-  const themeColors = getLightningTennisTheme(theme);
+  const themeColors = getLightningPickleballTheme(theme);
   const styles = createStyles(themeColors.colors);
   const navigation = useNavigation();
   const { t } = useLanguage();

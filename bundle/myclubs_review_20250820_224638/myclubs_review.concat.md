@@ -151,7 +151,7 @@ const MyClubsScreen = () => {
 
         // 실제 클럽 생성 여부 확인을 위한 추가 체크
         try {
-          console.log('🔍 Attempting to check tennis_clubs collection for user-created clubs...');
+          console.log('🔍 Attempting to check pickleball_clubs collection for user-created clubs...');
           const userCreatedClubs = await clubService.checkUserCreatedClubs(user.uid);
           console.log('🔍 User created clubs check result:', userCreatedClubs);
         } catch (checkError) {
@@ -164,15 +164,15 @@ const MyClubsScreen = () => {
                 {
                   id: 'mock-membership-1',
                   clubId: 'mock-club-1',
-                  clubName: '[샘플] 애틀랜타 둘루스 테니스 클럽',
+                  clubName: '[샘플] 애틀랜타 둘루스 피클볼 클럽',
                   clubDescription:
-                    '주중 저녁·주말 오전 정기 랠리/매치가 있는 한인 테니스 동호회입니다.',
+                    '주중 저녁·주말 오전 정기 랠리/매치가 있는 한인 피클볼 동호회입니다.',
                   clubLocation: '조지아주 둘루스 (Duluth, GA)',
                   role: 'admin',
                   status: 'active',
                   joinedAt: new Date('2024-01-15'),
                   memberCount: 120,
-                  clubTags: ['테니스', '동호회'],
+                  clubTags: ['피클볼', '동호회'],
                   clubContactInfo: null,
                   clubIsPublic: true,
                   clubMaxMembers: 200,
@@ -182,14 +182,14 @@ const MyClubsScreen = () => {
                 {
                   id: 'mock-membership-2',
                   clubId: 'mock-club-2',
-                  clubName: '[샘플] 스와니 한인 테니스 클럽',
-                  clubDescription: '스와니·슈거힐·버퍼드 인근 한인 테니스 모임입니다!',
+                  clubName: '[샘플] 스와니 한인 피클볼 클럽',
+                  clubDescription: '스와니·슈거힐·버퍼드 인근 한인 피클볼 모임입니다!',
                   clubLocation: '조지아주 스와니 (Suwanee, GA)',
                   role: 'member',
                   status: 'active',
                   joinedAt: new Date('2024-02-01'),
                   memberCount: 85,
-                  clubTags: ['테니스', '한인'],
+                  clubTags: ['피클볼', '한인'],
                   clubContactInfo: null,
                   clubIsPublic: true,
                   clubMaxMembers: 150,
@@ -201,15 +201,15 @@ const MyClubsScreen = () => {
                 {
                   id: 'mock-membership-1',
                   clubId: 'mock-club-1',
-                  clubName: '[Sample] Atlanta Duluth Tennis Club',
+                  clubName: '[Sample] Atlanta Duluth Pickleball Club',
                   clubDescription:
-                    'Weekly evening rallies and weekend morning matches for Korean-American tennis community.',
+                    'Weekly evening rallies and weekend morning matches for Korean-American pickleball community.',
                   clubLocation: 'Duluth, GA',
                   role: 'admin',
                   status: 'active',
                   joinedAt: new Date('2024-01-15'),
                   memberCount: 120,
-                  clubTags: ['Tennis', 'Community'],
+                  clubTags: ['Pickleball', 'Community'],
                   clubContactInfo: null,
                   clubIsPublic: true,
                   clubMaxMembers: 200,
@@ -219,15 +219,15 @@ const MyClubsScreen = () => {
                 {
                   id: 'mock-membership-2',
                   clubId: 'mock-club-2',
-                  clubName: '[Sample] Suwanee Korean Tennis Club',
+                  clubName: '[Sample] Suwanee Korean Pickleball Club',
                   clubDescription:
-                    'Tennis group for Suwanee, Sugar Hill, and Buford area Korean community!',
+                    'Pickleball group for Suwanee, Sugar Hill, and Buford area Korean community!',
                   clubLocation: 'Suwanee, GA',
                   role: 'member',
                   status: 'active',
                   joinedAt: new Date('2024-02-01'),
                   memberCount: 85,
-                  clubTags: ['Tennis', 'Korean'],
+                  clubTags: ['Pickleball', 'Korean'],
                   clubContactInfo: null,
                   clubIsPublic: true,
                   clubMaxMembers: 150,
@@ -268,15 +268,15 @@ const MyClubsScreen = () => {
               {
                 id: 'mock-membership-1',
                 clubId: 'mock-club-1',
-                clubName: '[샘플] 애틀랜타 둘루스 테니스 클럽',
+                clubName: '[샘플] 애틀랜타 둘루스 피클볼 클럽',
                 clubDescription:
-                  '주중 저녁·주말 오전 정기 랠리/매치가 있는 한인 테니스 동호회입니다.',
+                  '주중 저녁·주말 오전 정기 랠리/매치가 있는 한인 피클볼 동호회입니다.',
                 clubLocation: '조지아주 둘루스 (Duluth, GA)',
                 role: 'admin',
                 status: 'active',
                 joinedAt: new Date('2024-01-15'),
                 memberCount: 120,
-                clubTags: ['한인', '테니스'],
+                clubTags: ['한인', '피클볼'],
                 clubContactInfo: null,
                 clubIsPublic: true,
                 clubMaxMembers: 200,
@@ -287,15 +287,15 @@ const MyClubsScreen = () => {
               {
                 id: 'mock-membership-1',
                 clubId: 'mock-club-1',
-                clubName: '[Sample] Atlanta Duluth Tennis Club',
+                clubName: '[Sample] Atlanta Duluth Pickleball Club',
                 clubDescription:
-                  'Weekly evening rallies and weekend morning matches for Korean-American tennis community.',
+                  'Weekly evening rallies and weekend morning matches for Korean-American pickleball community.',
                 clubLocation: 'Duluth, GA',
                 role: 'admin',
                 status: 'active',
                 joinedAt: new Date('2024-01-15'),
                 memberCount: 120,
-                clubTags: ['Korean', 'Tennis'],
+                clubTags: ['Korean', 'Pickleball'],
                 clubContactInfo: null,
                 clubIsPublic: true,
                 clubMaxMembers: 200,
@@ -601,8 +601,8 @@ const MyClubsScreen = () => {
                   </Text>
                   <Text style={styles.createDescription}>
                     {currentLanguage === 'ko'
-                      ? '나만의 테니스 클럽을 시작해보세요'
-                      : 'Start your own tennis club'}
+                      ? '나만의 피클볼 클럽을 시작해보세요'
+                      : 'Start your own pickleball club'}
                   </Text>
                 </View>
                 <Ionicons name='chevron-forward' size={20} color='#1976d2' />
@@ -1517,7 +1517,7 @@ export const resources = {
         facilities: 'Facilities',
         rules: 'Club Rules',
         loading: 'Loading club information...',
-        address_search_title: 'Search Tennis Court Address',
+        address_search_title: 'Search Pickleball Court Address',
         meeting_modal_title: 'Add Regular Meeting Time',
         day_selection: 'Day Selection',
         meeting_time: 'Meeting Time',
@@ -1542,9 +1542,9 @@ export const resources = {
           name: 'Club Name',
           intro: 'Introduction',
           address_placeholder: 'Search court address (EN/US/Atlanta bias)',
-          address_label: 'Tennis Court Address',
-          address_search_placeholder: 'Search for tennis court address',
-          name_placeholder: 'e.g., Duluth Korean Tennis Club',
+          address_label: 'Pickleball Court Address',
+          address_search_placeholder: 'Search for pickleball court address',
+          name_placeholder: 'e.g., Duluth Korean Pickleball Club',
           intro_placeholder: "Describe your club's goals, atmosphere, and unique features",
           fee_placeholder: 'e.g., 50',
           rules_placeholder:
@@ -1582,7 +1582,7 @@ export const resources = {
         facilities: '시설 정보',
         rules: '클럽 규칙',
         loading: '클럽 정보를 불러오는 중...',
-        address_search_title: '테니스 코트 주소 검색',
+        address_search_title: '피클볼 코트 주소 검색',
         meeting_modal_title: '정기 모임 시간 추가',
         day_selection: '요일 선택',
         meeting_time: '모임 시간',
@@ -1607,11 +1607,11 @@ export const resources = {
           name: '클럽 이름',
           intro: '소개',
           address_placeholder: '코트 주소 검색 (영어/미국/애틀랜타 우선)',
-          address_label: '테니스 코트 주소',
-          address_search_placeholder: '테니스 코트 주소를 검색하세요',
-          name_placeholder: '예: 둘루스 한인 테니스 클럽',
+          address_label: '피클볼 코트 주소',
+          address_search_placeholder: '피클볼 코트 주소를 검색하세요',
+          name_placeholder: '예: 둘루스 한인 피클볼 클럽',
           intro_placeholder:
-            '아틀란타 메트로 한인 테니스 클럽의 목표, 분위기, 특징 등을 소개해주세요',
+            '아틀란타 메트로 한인 피클볼 클럽의 목표, 분위기, 특징 등을 소개해주세요',
           fee_placeholder: '예: 50',
           rules_placeholder:
             '예:\n• 정기 모임 참석률 70% 이상 유지\n• 상호 예의와 배려\n• 시설 이용 후 정리정돈',
@@ -1970,7 +1970,7 @@ export interface TranslationStrings {
     hostedBy: string;
     manage: string;
     // New translations for HomeScreen
-    weekendTennisMatch: string;
+    weekendPickleballMatch: string;
     eveningSinglesGame: string;
     todayAfternoon3: string;
     tomorrowEvening6: string;
@@ -1979,8 +1979,8 @@ export interface TranslationStrings {
     beginner2030: string;
     createLightningMatch: string;
     createNewMatchQuestion: string;
-    newTennisMatch: string;
-    nearbyTennisCourt: string;
+    newPickleballMatch: string;
+    nearbyPickleballCourt: string;
     me: string;
     matchCreatedSuccessfully: string;
     joinMatchQuestion: string;
@@ -2288,7 +2288,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
     profileSetup: {
       title: 'Profile Setup',
       step1: 'Step 1: Basic Info',
-      step2: 'Step 2: Tennis Details',
+      step2: 'Step 2: Pickleball Details',
       step3: 'Step 3: Location',
       step4: 'Step 4: Preferences',
       nickname: 'Nickname',
@@ -2336,8 +2336,8 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       myProfile: 'My Profile',
     },
     home: {
-      welcomeTitle: '⚡️ Lightning Tennis',
-      subtitle: 'Find tennis partners instantly!',
+      welcomeTitle: '⚡️ Lightning Pickleball',
+      subtitle: 'Find pickleball partners instantly!',
       createNewMatch: 'Create New Lightning Match',
       activeMatches: 'Active Matches',
       todayStats: "Today's Stats",
@@ -2368,7 +2368,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       hostedBy: 'Hosted by',
       manage: 'Manage',
       // New translations for HomeScreen
-      weekendTennisMatch: 'Weekend Tennis Match',
+      weekendPickleballMatch: 'Weekend Pickleball Match',
       eveningSinglesGame: 'Evening Singles Game',
       todayAfternoon3: 'Today 3:00 PM',
       tomorrowEvening6: 'Tomorrow 6:00 PM',
@@ -2376,9 +2376,9 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       intermediate3040: 'Intermediate (3.0-4.0)',
       beginner2030: 'Beginner (2.0-3.0)',
       createLightningMatch: 'Create Lightning Match',
-      createNewMatchQuestion: 'Would you like to create a new tennis match?',
-      newTennisMatch: 'New Tennis Match',
-      nearbyTennisCourt: 'Nearby Tennis Court',
+      createNewMatchQuestion: 'Would you like to create a new pickleball match?',
+      newPickleballMatch: 'New Pickleball Match',
+      nearbyPickleballCourt: 'Nearby Pickleball Court',
       me: 'Me',
       matchCreatedSuccessfully: 'Lightning Match has been created successfully!',
       joinMatchQuestion: 'Would you like to join this Lightning Match?',
@@ -2392,7 +2392,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
     },
     profile: {
       title: 'Profile',
-      statistics: 'Tennis Statistics',
+      statistics: 'Pickleball Statistics',
       matches: 'Matches',
       wins: 'Wins',
       losses: 'Losses',
@@ -2460,7 +2460,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       noActivityYet: 'No activity yet',
       activityWillAppearHere: 'Friend activities and club updates will appear here',
       noFriendsYet: 'No friends yet',
-      findPlayersToConnect: 'Find players to connect and build your tennis network',
+      findPlayersToConnect: 'Find players to connect and build your pickleball network',
       noFriendRequests: 'No friend requests',
       requestsWillAppearHere: 'Friend requests will appear here when you receive them',
       removeFriend: 'Remove Friend',
@@ -2473,7 +2473,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       sendFriendRequest: 'Send Friend Request',
       sendRequestTo: 'Send friend request to {{name}}?',
       friendRequestSent: 'Friend request sent successfully',
-      defaultFriendMessage: "Hi! I'd like to connect and play tennis together.",
+      defaultFriendMessage: "Hi! I'd like to connect and play pickleball together.",
       playerRecommendations: 'Player Recommendations',
       findCompatiblePlayers: 'Find compatible players near you',
     },
@@ -2504,7 +2504,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       facilities: 'Facilities',
       rules: 'Club Rules',
       loading: 'Loading club information...',
-      address_search_title: 'Search Tennis Court Address',
+      address_search_title: 'Search Pickleball Court Address',
       meeting_modal_title: 'Add Regular Meeting Time',
       day_selection: 'Day Selection',
       meeting_time: 'Meeting Time',
@@ -2529,9 +2529,9 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
         name: 'Club Name',
         intro: 'Introduction',
         address_placeholder: 'Search court address (EN/US/Atlanta bias)',
-        address_label: 'Tennis Court Address',
-        address_search_placeholder: 'Search for tennis court address',
-        name_placeholder: 'e.g., Duluth Korean Tennis Club',
+        address_label: 'Pickleball Court Address',
+        address_search_placeholder: 'Search for pickleball court address',
+        name_placeholder: 'e.g., Duluth Korean Pickleball Club',
         intro_placeholder: "Describe your club's goals, atmosphere, and unique features",
         fee_placeholder: 'e.g., 50',
         rules_placeholder:
@@ -2583,9 +2583,9 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
     },
     ai: {
       emptyState: {
-        title: 'Welcome to Lightning Tennis AI!',
+        title: 'Welcome to Lightning Pickleball AI!',
         subtitle:
-          'Ask me anything about tennis - rules, techniques, strategy, or equipment recommendations.',
+          'Ask me anything about pickleball - rules, techniques, strategy, or equipment recommendations.',
       },
       status: {
         online: 'Online',
@@ -2593,11 +2593,11 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
         thinking: 'Thinking...',
       },
       input: {
-        placeholder: 'Ask about tennis rules, techniques, or strategy...',
+        placeholder: 'Ask about pickleball rules, techniques, or strategy...',
       },
       messageTypes: {
-        message: 'Tennis Chat',
-        tip: 'Tennis Tips',
+        message: 'Pickleball Chat',
+        tip: 'Pickleball Tips',
         analysis: 'Match Analysis',
         advice: 'Personal Advice',
       },
@@ -2661,7 +2661,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
     profileSetup: {
       title: '프로필 설정',
       step1: '1단계: 기본 정보',
-      step2: '2단계: 테니스 정보',
+      step2: '2단계: 피클볼 정보',
       step3: '3단계: 위치 정보',
       step4: '4단계: 설정',
       nickname: '닉네임',
@@ -2709,8 +2709,8 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       myProfile: '내 프로필',
     },
     home: {
-      welcomeTitle: '⚡️ Lightning Tennis',
-      subtitle: '즉시 참여 가능한 번개 테니스 찾기',
+      welcomeTitle: '⚡️ Lightning Pickleball',
+      subtitle: '즉시 참여 가능한 번개 피클볼 찾기',
       createNewMatch: '새 Lightning Match 생성',
       activeMatches: '근처 활성 매치',
       todayStats: '오늘의 통계',
@@ -2741,7 +2741,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       hostedBy: '주최',
       manage: '관리',
       // Korean translations for HomeScreen
-      weekendTennisMatch: '주말 테니스 매치',
+      weekendPickleballMatch: '주말 피클볼 매치',
       eveningSinglesGame: '저녁 단식 게임',
       todayAfternoon3: '오늘 오후 3:00',
       tomorrowEvening6: '내일 오후 6:00',
@@ -2749,9 +2749,9 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       intermediate3040: '중급 (3.0-4.0)',
       beginner2030: '초급 (2.0-3.0)',
       createLightningMatch: 'Lightning Match 생성',
-      createNewMatchQuestion: '새로운 테니스 매치를 생성하시겠습니까?',
-      newTennisMatch: '새 테니스 매치',
-      nearbyTennisCourt: '가까운 테니스 코트',
+      createNewMatchQuestion: '새로운 피클볼 매치를 생성하시겠습니까?',
+      newPickleballMatch: '새 피클볼 매치',
+      nearbyPickleballCourt: '가까운 피클볼 코트',
       me: '나',
       matchCreatedSuccessfully: 'Lightning Match가 생성되었습니다!',
       joinMatchQuestion: '이 Lightning Match에 참가하시겠습니까?',
@@ -2765,7 +2765,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
     },
     profile: {
       title: '프로필',
-      statistics: '테니스 통계',
+      statistics: '피클볼 통계',
       matches: '경기 수',
       wins: '승리',
       losses: '패배',
@@ -2791,7 +2791,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       players: '플레이어',
       courts: '코트',
       nearbyPlayers: '근처 플레이어',
-      nearbyCourts: '근처 테니스 코트',
+      nearbyCourts: '근처 피클볼 코트',
       connect: '연결하기',
       book: '예약하기',
       online: '온라인',
@@ -2833,7 +2833,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       noActivityYet: '아직 활동이 없습니다',
       activityWillAppearHere: '친구 활동과 클럽 소식이 여기에 표시됩니다',
       noFriendsYet: '아직 친구가 없습니다',
-      findPlayersToConnect: '플레이어를 찾아 연결하고 테니스 네트워크를 구축하세요',
+      findPlayersToConnect: '플레이어를 찾아 연결하고 피클볼 네트워크를 구축하세요',
       noFriendRequests: '친구 요청이 없습니다',
       requestsWillAppearHere: '받은 친구 요청이 여기에 표시됩니다',
       removeFriend: '친구 삭제',
@@ -2846,7 +2846,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       sendFriendRequest: '친구 요청 보내기',
       sendRequestTo: '{{name}}님에게 친구 요청을 보내시겠습니까?',
       friendRequestSent: '친구 요청을 보냈습니다',
-      defaultFriendMessage: '안녕하세요! 함께 테니스를 치며 친구가 되었으면 좋겠습니다.',
+      defaultFriendMessage: '안녕하세요! 함께 피클볼를 치며 친구가 되었으면 좋겠습니다.',
       playerRecommendations: '플레이어 추천',
       findCompatiblePlayers: '근처의 호환되는 플레이어 찾기',
     },
@@ -2877,7 +2877,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       facilities: '시설 정보',
       rules: '클럽 규칙',
       loading: '클럽 정보를 불러오는 중...',
-      address_search_title: '테니스 코트 주소 검색',
+      address_search_title: '피클볼 코트 주소 검색',
       meeting_modal_title: '정기 모임 시간 추가',
       day_selection: '요일 선택',
       meeting_time: '모임 시간',
@@ -2902,11 +2902,11 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
         name: '클럽 이름',
         intro: '소개',
         address_placeholder: '코트 주소 검색 (영어/미국/애틀랜타 우선)',
-        address_label: '테니스 코트 주소',
-        address_search_placeholder: '테니스 코트 주소를 검색하세요',
-        name_placeholder: '예: 둘루스 한인 테니스 클럽',
+        address_label: '피클볼 코트 주소',
+        address_search_placeholder: '피클볼 코트 주소를 검색하세요',
+        name_placeholder: '예: 둘루스 한인 피클볼 클럽',
         intro_placeholder:
-          '아틀란타 메트로 한인 테니스 클럽의 목표, 분위기, 특징 등을 소개해주세요',
+          '아틀란타 메트로 한인 피클볼 클럽의 목표, 분위기, 특징 등을 소개해주세요',
         fee_placeholder: '예: 50',
         rules_placeholder:
           '예:\n• 정기 모임 참석률 70% 이상 유지\n• 상호 예의와 배려\n• 시설 이용 후 정리정돈',
@@ -2985,7 +2985,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       standings: '순위표',
       results: '결과',
       schedule: '일정',
-      bracket: '대진표',
+      bpaddle: '대진표',
       position: '순위',
       points: '점수',
       played: '경기수',
@@ -3040,8 +3040,8 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
     },
     ai: {
       emptyState: {
-        title: 'Lightning Tennis AI에 오신 것을 환영합니다!',
-        subtitle: '테니스에 관한 모든 것을 물어보세요 - 규칙, 기술, 전략, 장비 추천 등.',
+        title: 'Lightning Pickleball AI에 오신 것을 환영합니다!',
+        subtitle: '피클볼에 관한 모든 것을 물어보세요 - 규칙, 기술, 전략, 장비 추천 등.',
       },
       status: {
         online: '온라인',
@@ -3049,11 +3049,11 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
         thinking: '생각 중...',
       },
       input: {
-        placeholder: '테니스 규칙, 기술, 전략에 대해 질문하세요...',
+        placeholder: '피클볼 규칙, 기술, 전략에 대해 질문하세요...',
       },
       messageTypes: {
-        message: '테니스 채팅',
-        tip: '테니스 팁',
+        message: '피클볼 채팅',
+        tip: '피클볼 팁',
         analysis: '경기 분석',
         advice: '개인 조언',
       },
@@ -3075,7 +3075,7 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
   },
 };
 
-const LANGUAGE_STORAGE_KEY = '@lightning_tennis_language';
+const LANGUAGE_STORAGE_KEY = '@lightning_pickleball_language';
 
 // Create Language Context
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -3195,7 +3195,7 @@ export default LanguageProvider;
 
 ```tsx
 /**
- * Auth Context for Lightning Tennis
+ * Auth Context for Lightning Pickleball
  * Manages user authentication state
  */
 
@@ -4034,13 +4034,13 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({ children }) 
 
 ```
 # Firebase Configuration
-# Values copied from Firebase Console > Project Settings > Your apps > Lightning Tennis Web App
+# Values copied from Firebase Console > Project Settings > Your apps > Lightning Pickleball Web App
 
 # Firebase Web App Configuration
 EXPO_PUBLIC_FIREBASE_API_KEY=<REDACTED>
-EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=lightning-tennis-community.firebaseapp.com
-EXPO_PUBLIC_FIREBASE_PROJECT_ID=lightning-tennis-community
-EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=lightning-tennis-community.firebasestorage.app
+EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=lightning-pickleball-community.firebaseapp.com
+EXPO_PUBLIC_FIREBASE_PROJECT_ID=lightning-pickleball-community
+EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=lightning-pickleball-community.firebasestorage.app
 EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=815594051044
 EXPO_PUBLIC_FIREBASE_APP_ID=1:815594051044:ios:2e908e86def2cf1495e3f1
 EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID=G-ZLDPSTT45J
@@ -4059,7 +4059,7 @@ EXPO_PUBLIC_GOOGLE_PLACES_API_KEY_IOS=<REDACTED>
 
 # Instructions:
 # 1. Go to Firebase Console (https://console.firebase.google.com)
-# 2. Select your project: lightning-tennis-community
+# 2. Select your project: lightning-pickleball-community
 # 3. Go to Project Settings (gear icon)
 # 4. Scroll down to "Your apps" section
 # 5. Click on your web app or create a new web app
@@ -4067,9 +4067,9 @@ EXPO_PUBLIC_GOOGLE_PLACES_API_KEY_IOS=<REDACTED>
 #
 # Example:
 # EXPO_PUBLIC_FIREBASE_API_KEY=<REDACTED>
-# EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=lightning-tennis-community.firebaseapp.com
-# EXPO_PUBLIC_FIREBASE_PROJECT_ID=lightning-tennis-community
-# EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=lightning-tennis-community.appspot.com
+# EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=lightning-pickleball-community.firebaseapp.com
+# EXPO_PUBLIC_FIREBASE_PROJECT_ID=lightning-pickleball-community
+# EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=lightning-pickleball-community.appspot.com
 # EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=123456789012
 # EXPO_PUBLIC_FIREBASE_APP_ID=1:123456789012:web:abc123def456ghi789
 ```
@@ -4079,7 +4079,7 @@ EXPO_PUBLIC_GOOGLE_PLACES_API_KEY_IOS=<REDACTED>
 ## .env.template
 
 ```
-# Lightning Tennis Firebase Configuration
+# Lightning Pickleball Firebase Configuration
 # IMPORTANT: Copy this to .env and replace ALL placeholder values with your actual Firebase config
 # Get these values from Firebase Console > Project Settings > General tab > Your apps section
 
@@ -4090,13 +4090,13 @@ EXPO_PUBLIC_GOOGLE_PLACES_API_KEY_IOS=<REDACTED>
 EXPO_PUBLIC_FIREBASE_API_KEY=<REDACTED>
 
 # Auth domain (your_project_id.firebaseapp.com)
-EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=lightning-tennis-community.firebaseapp.com
+EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=lightning-pickleball-community.firebaseapp.com
 
 # Project ID (exactly as shown in Firebase Console)
-EXPO_PUBLIC_FIREBASE_PROJECT_ID=lightning-tennis-community
+EXPO_PUBLIC_FIREBASE_PROJECT_ID=lightning-pickleball-community
 
 # Storage bucket (your_project_id.appspot.com)
-EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=lightning-tennis-community.appspot.com
+EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=lightning-pickleball-community.appspot.com
 
 # Messaging Sender ID (numeric, usually 12 digits)
 EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=123456789012
@@ -4122,7 +4122,7 @@ EXPO_PUBLIC_GEMINI_API_KEY=<REDACTED>
 # ================================================================
 # INSTRUCTIONS:
 # 1. Go to Firebase Console: https://console.firebase.google.com
-# 2. Select your project: "lightning-tennis-community"
+# 2. Select your project: "lightning-pickleball-community"
 # 3. Click the gear icon (⚙️) > "Project settings"
 # 4. Scroll down to "Your apps" section
 # 5. If you don't have a web app, click "Add app" > Web (</>)

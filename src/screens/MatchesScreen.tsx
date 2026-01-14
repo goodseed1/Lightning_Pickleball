@@ -77,7 +77,7 @@ const MatchesScreen = () => {
   useEffect(() => {
     // Mock user clubs
     setUserClubs([
-      { id: '1', name: 'Atlanta Tennis Club', isAdmin: true },
+      { id: '1', name: 'Atlanta Pickleball Club', isAdmin: true },
       { id: '2', name: 'Buckhead Players', isAdmin: false },
     ]);
 
@@ -87,7 +87,7 @@ const MatchesScreen = () => {
         id: '1',
         type: 'personal',
         title: t('matches.mockData.weekendDoubles'),
-        location: 'Central Park Tennis Courts',
+        location: 'Central Park Pickleball Courts',
         dateTime: new Date('2024-01-20 14:00'),
         createdBy: t('matches.mockData.me'),
         createdById: 'user1',
@@ -105,12 +105,12 @@ const MatchesScreen = () => {
         id: '2',
         type: 'club',
         title: t('matches.mockData.mondayTraining'),
-        location: 'Atlanta Tennis Club',
+        location: 'Atlanta Pickleball Club',
         dateTime: new Date('2024-01-22 18:00'),
         createdBy: 'Jennifer Park',
         createdById: 'user2',
         clubId: '1',
-        clubName: 'Atlanta Tennis Club',
+        clubName: 'Atlanta Pickleball Club',
         participants: [
           { id: '1', name: 'Jennifer Park', status: 'confirmed' },
           { id: '2', name: 'David Kim', status: 'confirmed' },

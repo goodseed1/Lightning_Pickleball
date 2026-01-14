@@ -14,7 +14,7 @@
  * - User profiles (displayName, email, photoURL, preferences)
  * - Firebase Auth accounts
  * - Club memberships (role, joinedAt, status)
- * - Tournament/League structures (settings, brackets)
+ * - Tournament/League structures (settings, bpaddles)
  *
  * @author Captain America (Clean Slate Initiative)
  * @date 2025-11-13

@@ -60,7 +60,7 @@ async function transferClubOwnership(
   }
 
   // 3. Update club document's createdBy field
-  const clubRef = db.collection('tennis_clubs').doc(clubId);
+  const clubRef = db.collection('pickleball_clubs').doc(clubId);
   batch.update(clubRef, {
     createdBy: newOwnerId,
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
@@ -196,7 +196,7 @@ export const deleteUserAccount = onCall<DeleteUserAccountRequest>(async request 
         const clubId = clubDoc.data().clubId;
 
         // Get club name
-        const clubSnapshot = await db.collection('tennis_clubs').doc(clubId).get();
+        const clubSnapshot = await db.collection('pickleball_clubs').doc(clubId).get();
         const clubData = clubSnapshot.data();
         const clubName = clubData?.profile?.name || clubData?.name || 'Unknown Club';
 

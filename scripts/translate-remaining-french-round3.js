@@ -196,7 +196,7 @@ const frenchTranslations = {
     carpetCourt: 'Moquette',
 
     // Equipment rental
-    racketRental: 'Location de raquettes',
+    paddleRental: 'Location de raquettes',
     ballPurchase: 'Achat de balles',
     shoeRental: 'Location de chaussures',
     equipmentPackage: 'Pack équipement',
@@ -461,7 +461,7 @@ const frenchTranslations = {
     // Playoffs
     playoffs: 'Séries éliminatoires',
     playoffSchedule: 'Calendrier des séries',
-    playoffBracket: 'Arbre des séries',
+    playoffBpaddle: 'Arbre des séries',
     semifinals: 'Demi-finales',
     finals: 'Finales',
     champion: 'Champion',
@@ -519,7 +519,7 @@ const frenchTranslations = {
     reportScore: 'Rapporter le score',
     viewDetails: 'Voir les détails',
     downloadSchedule: 'Télécharger le calendrier',
-    printBracket: "Imprimer l'arbre",
+    printBpaddle: "Imprimer l'arbre",
   },
 
   createEvent: {

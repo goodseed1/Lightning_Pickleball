@@ -14,7 +14,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
-import lightningIcon from '../../../assets/images/lightning-tennis-icon.png';
+import lightningIcon from '../../../assets/images/lightning-pickleball-icon.png';
 
 interface LoginScreenProps {
   onLogin?: () => void;
@@ -96,7 +96,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({
           <View style={styles.header}>
             <View style={styles.titleContainer}>
               <Image source={lightningIcon} style={styles.appIcon} resizeMode='contain' />
-              <Text style={styles.appTitle}>Lightning Tennis</Text>
+              <Text style={styles.appTitle}>Lightning Pickleball</Text>
             </View>
             <Text style={styles.tagline}>{t('home.subtitle')}</Text>
             <Text style={styles.description}>{t('auth.loginDescription')}</Text>

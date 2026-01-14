@@ -290,7 +290,7 @@ const translations = {
   'clubTournamentManagement.singleElimination': 'Eliminazione Diretta',
   'clubTournamentManagement.doubleElimination': 'Doppia Eliminazione',
   'clubTournamentManagement.roundRobin': "Girone all'Italiana",
-  'clubTournamentManagement.bracket': 'Tabellone',
+  'clubTournamentManagement.bpaddle': 'Tabellone',
   'clubTournamentManagement.matches': 'Partite',
   'clubTournamentManagement.schedule': 'Calendario',
   'clubTournamentManagement.results': 'Risultati',
@@ -583,7 +583,7 @@ const translations = {
   // createClub (38 keys)
   'createClub.title': 'Crea Club',
   'createClub.clubName': 'Nome Club',
-  'createClub.namePlaceholder': 'es. Tennis Club Roma',
+  'createClub.namePlaceholder': 'es. Pickleball Club Roma',
   'createClub.description': 'Descrizione',
   'createClub.descriptionPlaceholder': 'Descrivi il tuo club...',
   'createClub.location': 'Posizione',

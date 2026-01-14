@@ -63,7 +63,7 @@ const translations = {
       management: 'Gerenciamento',
     },
     status: {
-      bracketGeneration: 'Gerando Chaveamento',
+      bpaddleGeneration: 'Gerando Chaveamento',
     },
     participants: {
       label: 'Participantes',
@@ -511,7 +511,7 @@ const translations = {
   },
 
   tournamentDetail: {
-    bracket: 'Chaveamento',
+    bpaddle: 'Chaveamento',
     schedule: 'Calendário',
     participants: 'Participantes',
   },

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 
 interface InteractionBarProps {
   feedId: string;
@@ -26,7 +26,7 @@ const InteractionBar: React.FC<InteractionBarProps> = ({
   onShare,
 }) => {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
 
   return (

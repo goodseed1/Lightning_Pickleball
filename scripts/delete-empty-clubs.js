@@ -15,7 +15,7 @@ async function deleteEmptyClubs() {
   for (const clubId of CLUBS_TO_DELETE) {
     try {
       // Check if club exists
-      const clubDoc = await db.collection('tennis_clubs').doc(clubId).get();
+      const clubDoc = await db.collection('pickleball_clubs').doc(clubId).get();
 
       if (!clubDoc.exists) {
         console.log(`⚠️ Club ${clubId} not found (already deleted?)`);
@@ -28,7 +28,7 @@ async function deleteEmptyClubs() {
       );
 
       // Delete the club document
-      await db.collection('tennis_clubs').doc(clubId).delete();
+      await db.collection('pickleball_clubs').doc(clubId).delete();
       console.log(`✅ Deleted: ${clubId}\n`);
     } catch (error) {
       console.error(`❌ Error deleting ${clubId}:`, error.message);
@@ -39,7 +39,7 @@ async function deleteEmptyClubs() {
 
   // Verify
   console.log('\n📋 Remaining clubs:');
-  const remaining = await db.collection('tennis_clubs').get();
+  const remaining = await db.collection('pickleball_clubs').get();
   if (remaining.empty) {
     console.log('   (no clubs remaining)');
   } else {

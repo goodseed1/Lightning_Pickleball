@@ -1,6 +1,6 @@
 /**
- * ServiceFormModal - 테니스 서비스 생성/수정 모달
- * 줄 교체, 라켓 수리, 중고 거래 등 서비스 등록
+ * ServiceFormModal - 피클볼 서비스 생성/수정 모달
+ * 줄 교체, 패들 수리, 중고 거래 등 서비스 등록
  */
 
 import React, { useState, useEffect } from 'react';
@@ -22,15 +22,15 @@ import * as ImagePicker from 'expo-image-picker';
 import { useTheme } from '../../hooks/useTheme';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useAuth } from '../../contexts/AuthContext';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { getCurrencyByCountry } from '../../utils/currencyUtils';
 import {
-  TennisService,
+  PickleballService,
   CreateServiceRequest,
   ServiceLocation,
   ServiceCategory,
-} from '../../types/tennisService';
-import tennisServiceService from '../../services/tennisServiceService';
+} from '../../types/pickleballService';
+import pickleballServiceService from '../../services/pickleballServiceService';
 
 const MAX_IMAGES = 5;
 
@@ -38,7 +38,7 @@ interface ServiceFormModalProps {
   visible: boolean;
   onClose: () => void;
   onSuccess: () => void;
-  editService?: TennisService;
+  editService?: PickleballService;
 }
 
 const ServiceFormModal: React.FC<ServiceFormModalProps> = ({
@@ -50,7 +50,7 @@ const ServiceFormModal: React.FC<ServiceFormModalProps> = ({
   const { theme: currentTheme } = useTheme();
   const { t } = useLanguage();
   const { currentUser } = useAuth();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const colors = themeColors.colors as unknown as Record<string, string>;
 
   // Form state
@@ -78,7 +78,7 @@ const ServiceFormModal: React.FC<ServiceFormModalProps> = ({
   const categoryOptions: { value: ServiceCategory; labelKey: string }[] = [
     { value: 'stringing', labelKey: 'serviceForm.categoryStringing' },
     { value: 'repair', labelKey: 'serviceForm.categoryRepair' },
-    { value: 'used_racket', labelKey: 'serviceForm.categoryUsedRacket' },
+    { value: 'used_paddle', labelKey: 'serviceForm.categoryUsedPaddle' },
     { value: 'used_equipment', labelKey: 'serviceForm.categoryUsedEquipment' },
     { value: 'other', labelKey: 'serviceForm.categoryOther' },
   ];
@@ -161,7 +161,7 @@ const ServiceFormModal: React.FC<ServiceFormModalProps> = ({
       if (newImageUris.length > 0) {
         setUploadingImages(true);
         const uploadPromises = newImageUris.map(uri =>
-          tennisServiceService.uploadImage(uri, currentUser.uid)
+          pickleballServiceService.uploadImage(uri, currentUser.uid)
         );
         const newUrls = await Promise.all(uploadPromises);
         uploadedImageUrls = [...uploadedImageUrls, ...newUrls];
@@ -192,7 +192,7 @@ const ServiceFormModal: React.FC<ServiceFormModalProps> = ({
 
       if (isEditMode && editService) {
         // 수정
-        await tennisServiceService.updateService(editService.id, {
+        await pickleballServiceService.updateService(editService.id, {
           title: request.title,
           description: request.description,
           category: request.category,
@@ -213,7 +213,7 @@ const ServiceFormModal: React.FC<ServiceFormModalProps> = ({
             }
           : undefined;
 
-        await tennisServiceService.createService(
+        await pickleballServiceService.createService(
           request,
           currentUser.uid,
           displayName,

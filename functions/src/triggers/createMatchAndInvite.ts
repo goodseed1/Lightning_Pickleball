@@ -2,13 +2,13 @@
  * 🎯 [OPERATION DUO] Phase 1: Backend Implementation
  *
  * Callable Cloud Function to handle match creation atomically.
- * - Validates LTR (sum for doubles)
+ * - Validates LPR (sum for doubles)
  * - Sets correct initial status
  * - Creates invitation if needed
  *
  * @author Captain America
  * @date 2025-11-27
- * @updated 2025-12-30 - NTRP → LTR migration
+ * @updated 2025-12-30 - NTRP → LPR migration
  */
 
 // ✅ [v2] Updated imports
@@ -45,7 +45,7 @@ interface MatchData {
   time: string;
   minLtr?: number;
   maxLtr?: number;
-  hostLtr?: number; // 🎯 [LTR FIX] Host's individual LTR for partner selection
+  hostLtr?: number; // 🎯 [LPR FIX] Host's individual LPR for partner selection
   // Backward compatibility: Accept legacy NTRP fields
   minNtrp?: number;
   maxNtrp?: number;
@@ -73,7 +73,7 @@ interface CreateMatchRequest {
 /**
  * 🎯 [OPERATION DUO] createMatchAndInvite Cloud Function
  *
- * Creates a match and partner invitation atomically with LTR validation
+ * Creates a match and partner invitation atomically with LPR validation
  */
 export const createMatchAndInvite = onCall<CreateMatchRequest>(async request => {
   // 1. Auth Check
@@ -114,7 +114,7 @@ export const createMatchAndInvite = onCall<CreateMatchRequest>(async request => 
     });
   }
 
-  // 🎯 [KIM FIX] Fetch host LTR for event display
+  // 🎯 [KIM FIX] Fetch host LPR for event display
   let hostLtrLevel: number = 5; // Default fallback (Platinum I)
   try {
     const hostUserDoc = await db.collection('users').doc(auth.uid).get();
@@ -129,18 +129,18 @@ export const createMatchAndInvite = onCall<CreateMatchRequest>(async request => 
         // 🎯 [KIM FIX] Also pass profile.ltrLevel for users who set it in profile screen
         profile: hostUserData?.profile,
       });
-      logger.info('📊 [CREATE_MATCH] Host LTR extracted', {
+      logger.info('📊 [CREATE_MATCH] Host LPR extracted', {
         hostLtrLevel,
         profileLtrLevel: hostUserData?.profile?.ltrLevel,
       });
     }
   } catch (error) {
-    logger.warn('⚠️ [CREATE_MATCH] Failed to extract host LTR, using default', {
+    logger.warn('⚠️ [CREATE_MATCH] Failed to extract host LPR, using default', {
       error: error instanceof Error ? error.message : String(error),
     });
   }
 
-  // 2. LTR Validation (Server-side enforcement)
+  // 2. LPR Validation (Server-side enforcement)
   // 🛡️ Use matchUtils validation for consistency
   let validation: Awaited<ReturnType<typeof validateMatchLtr>> | null = null; // 🆕 Store validation result
   if (isDoubles && partnerProfile) {
@@ -151,18 +151,18 @@ export const createMatchAndInvite = onCall<CreateMatchRequest>(async request => 
     validation = await validateMatchLtr(auth.uid, partnerProfile.uid, gameType, minLtr, maxLtr);
 
     if (!validation.isValid) {
-      logger.warn('❌ [CREATE_MATCH] LTR validation failed', {
+      logger.warn('❌ [CREATE_MATCH] LPR validation failed', {
         errors: validation.errors,
         hostLtr: validation.hostLtr,
         partnerLtr: validation.partnerLtr,
       });
       throw new HttpsError(
         'invalid-argument',
-        `LTR validation failed: ${validation.errors.join(', ')}`
+        `LPR validation failed: ${validation.errors.join(', ')}`
       );
     }
 
-    logger.info('✅ [CREATE_MATCH] LTR validation passed', {
+    logger.info('✅ [CREATE_MATCH] LPR validation passed', {
       hostLtr: validation.hostLtr,
       partnerLtr: validation.partnerLtr,
       combinedLtr: validation.combinedLtr,
@@ -201,13 +201,13 @@ export const createMatchAndInvite = onCall<CreateMatchRequest>(async request => 
         hostPartnerName: partnerProfile ? partnerProfile.displayName : null,
         partnerAccepted: false,
         currentParticipants: 1, // 호스트 포함
-        // 🎯 [KIM FIX] Add LTR info for EventCard display
-        hostLtrLevel, // Host's LTR level for display
-        hostLtr: matchData.hostLtr ?? hostLtrLevel, // 🎯 [LTR FIX] Host's individual LTR for partner selection (prefer client value)
+        // 🎯 [KIM FIX] Add LPR info for EventCard display
+        hostLtrLevel, // Host's LPR level for display
+        hostLtr: matchData.hostLtr ?? hostLtrLevel, // 🎯 [LPR FIX] Host's individual LPR for partner selection (prefer client value)
         ltrLevel:
           isDoubles && validation
             ? Math.round(validation.combinedLtr! / 2) // Doubles: combined/2 as the level (rounded)
-            : hostLtrLevel, // Singles: host LTR as the level
+            : hostLtrLevel, // Singles: host LPR as the level
         minLtr,
         maxLtr,
         // Legacy fields for backward compatibility during migration
@@ -272,10 +272,10 @@ export const createMatchAndInvite = onCall<CreateMatchRequest>(async request => 
           gameType, // 🆕 [KIM FIX] Add game type
           inviterId: auth.uid,
           inviterName: hostDisplayName, // 🆕 [KIM FIX] Use Firestore-fetched display name
-          inviterLtr: validation.hostLtr, // 🆕 [KIM FIX] Show inviter LTR on invitation card
+          inviterLtr: validation.hostLtr, // 🆕 [KIM FIX] Show inviter LPR on invitation card
           invitedUserId: partnerProfile.uid, // 🆕 [KIM FIX] Fixed field name
           invitedUserName: partnerProfile.displayName, // 🆕 [KIM FIX] Fixed field name
-          combinedLtr: validation.combinedLtr, // 🆕 [KIM FIX] Add combined LTR
+          combinedLtr: validation.combinedLtr, // 🆕 [KIM FIX] Add combined LPR
           // Legacy fields for backward compatibility during migration
           inviterNtrp: validation.hostLtr,
           combinedNtrp: validation.combinedLtr,

@@ -1,6 +1,6 @@
 /**
- * ServiceCard - 테니스 서비스 게시판 카드 컴포넌트
- * 줄 교체, 라켓 수리, 중고 거래 등 서비스 정보를 표시
+ * ServiceCard - 피클볼 서비스 게시판 카드 컴포넌트
+ * 줄 교체, 패들 수리, 중고 거래 등 서비스 정보를 표시
  */
 
 import React, { useState } from 'react';
@@ -12,8 +12,8 @@ import { useNavigation } from '@react-navigation/native';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
 import { useAuth } from '../../contexts/AuthContext';
-import { getLightningTennisTheme } from '../../theme';
-import { TennisService, ServiceCategory } from '../../types/tennisService';
+import { getLightningPickleballTheme } from '../../theme';
+import { PickleballService, ServiceCategory } from '../../types/pickleballService';
 import { formatDistance } from '../../utils/unitUtils';
 import { formatPriceByCountry } from '../../utils/currencyUtils';
 import clubService from '../../services/clubService';
@@ -22,8 +22,8 @@ const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const IMAGE_SIZE = SCREEN_WIDTH - 56; // Card padding + margins
 
 interface ServiceCardProps {
-  service: TennisService;
-  onEdit?: (service: TennisService) => void;
+  service: PickleballService;
+  onEdit?: (service: PickleballService) => void;
   onDelete?: (serviceId: string) => void;
 }
 
@@ -32,7 +32,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, onEdit, onDelete }) 
   const { theme: currentTheme } = useTheme();
   const { currentUser } = useAuth();
   const navigation = useNavigation();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const colors = themeColors.colors as unknown as Record<string, string>;
 
   const isOwner = currentUser?.uid === service.authorId;

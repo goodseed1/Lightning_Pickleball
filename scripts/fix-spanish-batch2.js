@@ -148,7 +148,7 @@ const translations = {
   // Club Leagues & Tournaments (remaining)
   clubLeaguesTournaments: {
     tournament: {
-      bracket: 'Bracket',
+      bpaddle: 'Bpaddle',
       round: 'Ronda',
       quarterfinal: 'Cuartos de Final',
       semifinal: 'Semifinal',
@@ -452,9 +452,9 @@ const translations = {
   leagueDetail: {
     management: {
       title: 'Gestión de Liga',
-      generateBracket: 'Generar Bracket',
-      regenerateBracket: 'Regenerar Bracket',
-      deleteBracket: 'Eliminar Bracket',
+      generateBpaddle: 'Generar Bpaddle',
+      regenerateBpaddle: 'Regenerar Bpaddle',
+      deleteBpaddle: 'Eliminar Bpaddle',
       startLeague: 'Iniciar Liga',
       endLeague: 'Finalizar Liga',
       cancelLeague: 'Cancelar Liga',

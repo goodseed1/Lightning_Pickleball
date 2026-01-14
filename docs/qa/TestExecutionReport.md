@@ -42,7 +42,7 @@
   - Profile creation form displays all fields
   - Photo upload functionality works
   - Nickname/Display name validation
-  - LTR level selection (2.0-5.5 range)
+  - LPR level selection (2.0-5.5 range)
   - Gender selection functional
   - Location selection with GPS/manual entry
   - **Result**: _To be tested_

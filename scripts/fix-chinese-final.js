@@ -680,7 +680,7 @@ const chineseTranslations = {
 
   // ntrpSelector (10 keys)
   ntrpSelector: {
-    title: '选择LTR等级',
+    title: '选择LPR等级',
     beginner: '初学者',
     intermediate: '中级',
     advanced: '高级',
@@ -695,7 +695,7 @@ const chineseTranslations = {
   // tournamentDetail (5 keys)
   tournamentDetail: {
     overview: '概览',
-    bracket: '对阵图',
+    bpaddle: '对阵图',
     participants: '参与者',
     schedule: '赛程',
     rules: '规则',
@@ -715,7 +715,7 @@ const chineseTranslations = {
     title: '锦标赛',
     register: '注册',
     withdraw: '退出',
-    viewBracket: '查看对阵图',
+    viewBpaddle: '查看对阵图',
     viewDetails: '查看详情',
   },
 

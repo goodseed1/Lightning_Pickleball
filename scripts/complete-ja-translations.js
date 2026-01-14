@@ -434,7 +434,7 @@ const jaTranslations = {
   utils: {
     ltr: {
       whatIsLtr: {
-        title: 'LTRとは？',
+        title: 'LPRとは？',
       },
       relationToNtrp: {
         title: 'NTRPとの関係',

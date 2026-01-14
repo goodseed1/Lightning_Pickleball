@@ -16,7 +16,7 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-// ELO → LTR 변환 함수
+// ELO → LPR 변환 함수
 function convertEloToLtr(elo) {
   if (elo >= 1800) return 10;
   if (elo >= 1700) return 9;
@@ -171,7 +171,7 @@ async function restoreEloFromHistory() {
     console.log(
       `   mixed: ELO ${eloRatings.mixed.current} (${eloRatings.mixed.matchCount}경기, ${eloData.mixed.wins}W-${eloData.mixed.losses}L)`
     );
-    console.log(`   → LTR ${ltrLevel}`);
+    console.log(`   → LPR ${ltrLevel}`);
 
     batch.update(userRef, {
       eloRatings,

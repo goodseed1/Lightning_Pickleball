@@ -52,7 +52,7 @@ const translations = {
   'discover.alerts.chatError': 'チャットルームを開けません',
   'discover.alerts.chatAccessDenied': 'チャットルーム通知',
   'discover.alerts.quickMatch.cannotChallenge': 'チャレンジできません',
-  'discover.alerts.quickMatch.ntrpOutOfRange': 'LTR {{ntrp}}はチャレンジ範囲外です (最大 +1.0)',
+  'discover.alerts.quickMatch.ntrpOutOfRange': 'LPR {{ntrp}}はチャレンジ範囲外です (最大 +1.0)',
   'discover.alerts.quickMatch.challenge': 'チャレンジ',
   'discover.alerts.quickMatch.success': 'チャレンジを送信しました!',
   'discover.alerts.teamApplication.submitted': '申請が送信されました',
@@ -68,7 +68,7 @@ const translations = {
   'services.activity.notifications.playoffsQualifiedTitle': 'プレーオフ進出!',
   'services.activity.notifications.playoffsQualifiedMessage':
     'おめでとうございます！"{{leagueName}}"のプレーオフに進出しました！',
-  'services.activity.tennisUserFallback': 'テニスユーザー{{id}}',
+  'services.activity.pickleballUserFallback': 'テニスユーザー{{id}}',
   'services.camera.simulatorError':
     'iOSシミュレーターでギャラリーにアクセス中に問題が発生しました。実機でテストしてください。',
   'services.camera.imageSizeExceeded': '画像サイズが制限を超えています (最大 {{maxSize}}MB)',
@@ -517,8 +517,8 @@ const translations = {
   'findClubScreen.joinDeclined': '参加辞退',
 
   // UTILS
-  'utils.ltr.short': 'LTR',
-  'utils.ltr.full': 'Lightning Tennis Rating',
+  'utils.ltr.short': 'LPR',
+  'utils.ltr.full': 'Lightning Pickleball Rating',
 
   // EVENT CARD
   'eventCard.labels.organizer': '主催者',

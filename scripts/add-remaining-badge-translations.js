@@ -7,15 +7,15 @@ const localesDir = path.join(__dirname, '../src/locales');
 const badgeTranslations = {
   en: {
     perfectionist: { name: 'Perfectionist', desc: 'Win matches without losing a set' },
-    early_adopter: { name: 'Early Adopter', desc: 'Join Lightning Tennis in its early days' },
+    early_adopter: { name: 'Early Adopter', desc: 'Join Lightning Pickleball in its early days' },
   },
   ko: {
     perfectionist: { name: '완벽주의자', desc: '세트를 잃지 않고 경기에서 승리하세요' },
-    early_adopter: { name: '얼리 어답터', desc: '번개 테니스 초기에 가입하세요' },
+    early_adopter: { name: '얼리 어답터', desc: '번개 피클볼 초기에 가입하세요' },
   },
   es: {
     perfectionist: { name: 'Perfeccionista', desc: 'Gana partidos sin perder un set' },
-    early_adopter: { name: 'Pionero', desc: 'Únete a Lightning Tennis en sus primeros días' },
+    early_adopter: { name: 'Pionero', desc: 'Únete a Lightning Pickleball en sus primeros días' },
   },
   zh: {
     perfectionist: { name: '完美主义者', desc: '赢得比赛不失一盘' },
@@ -27,11 +27,11 @@ const badgeTranslations = {
   },
   vi: {
     perfectionist: { name: 'Người cầu toàn', desc: 'Thắng trận không thua set' },
-    early_adopter: { name: 'Người dùng sớm', desc: 'Tham gia Lightning Tennis từ những ngày đầu' },
+    early_adopter: { name: 'Người dùng sớm', desc: 'Tham gia Lightning Pickleball từ những ngày đầu' },
   },
   fr: {
     perfectionist: { name: 'Perfectionniste', desc: 'Gagnez des matchs sans perdre un set' },
-    early_adopter: { name: 'Pionnier', desc: 'Rejoignez Lightning Tennis à ses débuts' },
+    early_adopter: { name: 'Pionnier', desc: 'Rejoignez Lightning Pickleball à ses débuts' },
   },
   de: {
     perfectionist: {
@@ -40,21 +40,21 @@ const badgeTranslations = {
     },
     early_adopter: {
       name: 'Early Adopter',
-      desc: 'Treten Sie Lightning Tennis in seinen Anfängen bei',
+      desc: 'Treten Sie Lightning Pickleball in seinen Anfängen bei',
     },
   },
   it: {
     perfectionist: { name: 'Perfezionista', desc: 'Vinci partite senza perdere un set' },
     early_adopter: {
       name: 'Early Adopter',
-      desc: 'Unisciti a Lightning Tennis nei suoi primi giorni',
+      desc: 'Unisciti a Lightning Pickleball nei suoi primi giorni',
     },
   },
   pt: {
     perfectionist: { name: 'Perfeccionista', desc: 'Vença partidas sem perder um set' },
     early_adopter: {
       name: 'Pioneiro',
-      desc: 'Junte-se ao Lightning Tennis em seus primeiros dias',
+      desc: 'Junte-se ao Lightning Pickleball em seus primeiros dias',
     },
   },
 };

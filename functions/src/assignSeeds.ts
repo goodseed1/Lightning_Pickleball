@@ -23,7 +23,7 @@ const db = admin.firestore();
  * - Must be authenticated
  * - Must be tournament creator OR club admin
  * - Tournament must be in 'registration' or 'draft' status
- * - Cannot change seeds after bracket generation
+ * - Cannot change seeds after bpaddle generation
  *
  * Validations:
  * - Seed numbers must be unique
@@ -81,7 +81,7 @@ export const assignSeeds = onCall<AssignSeedsRequest, Promise<AssignSeedsRespons
       // Check if user is club admin (if tournament belongs to a club)
       let isClubAdmin = false;
       if (tournamentData.clubId) {
-        const clubRef = db.collection('tennis_clubs').doc(tournamentData.clubId);
+        const clubRef = db.collection('pickleball_clubs').doc(tournamentData.clubId);
         const clubSnap = await clubRef.get();
 
         if (clubSnap.exists) {
@@ -106,13 +106,13 @@ export const assignSeeds = onCall<AssignSeedsRequest, Promise<AssignSeedsRespons
       // ========================================================================
       // Step 4: Validate Tournament Status
       // ========================================================================
-      // Can assign seeds during registration, draft, or bracket_generation phase
-      // Note: bracket_generation is needed for automatic seeding during tournament start
-      const allowedStatuses = ['draft', 'registration', 'bracket_generation'];
+      // Can assign seeds during registration, draft, or bpaddle_generation phase
+      // Note: bpaddle_generation is needed for automatic seeding during tournament start
+      const allowedStatuses = ['draft', 'registration', 'bpaddle_generation'];
       if (!allowedStatuses.includes(tournamentData.status)) {
         throw new HttpsError(
           'failed-precondition',
-          `Cannot assign seeds in ${tournamentData.status} status. Seeds can only be assigned during registration, draft, or bracket_generation phase.`
+          `Cannot assign seeds in ${tournamentData.status} status. Seeds can only be assigned during registration, draft, or bpaddle_generation phase.`
         );
       }
 

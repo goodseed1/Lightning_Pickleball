@@ -392,7 +392,7 @@ const zhTranslations = {
   },
 
   tournaments: {
-    bracket: {
+    bpaddle: {
       title: '对阵表',
       round: '轮次',
       finals: '决赛',
@@ -474,7 +474,7 @@ const zhTranslations = {
   },
 
   equipment: {
-    rackets: '球拍',
+    paddles: '球拍',
     balls: '球',
     shoes: '鞋',
     apparel: '服装',

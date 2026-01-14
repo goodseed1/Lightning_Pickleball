@@ -10,7 +10,7 @@ const db = admin.firestore();
 async function removeUnknownMemberships() {
   console.log('🗑️ Removing Unknown Club memberships...\n');
 
-  // The two Unknown Clubs that don't have corresponding tennis_clubs documents
+  // The two Unknown Clubs that don't have corresponding pickleball_clubs documents
   const unknownClubIds = [
     'hT0bQaKvCGeyDxE4mceu', // Club doesn't exist - 3 members
     'wNkDRLXKErzdKHqCzCgg', // Club doesn't exist - 2 members
@@ -40,13 +40,13 @@ async function removeUnknownMemberships() {
     }
   }
 
-  console.log('\n=== Step 2: Delete empty tennis_clubs documents ===\n');
+  console.log('\n=== Step 2: Delete empty pickleball_clubs documents ===\n');
 
-  // Delete the tennis_clubs documents that have no name
+  // Delete the pickleball_clubs documents that have no name
   const emptyClubs = [emptyNameClubId, ...unknownClubIds];
 
   for (const clubId of emptyClubs) {
-    const clubRef = db.collection('tennis_clubs').doc(clubId);
+    const clubRef = db.collection('pickleball_clubs').doc(clubId);
     const clubDoc = await clubRef.get();
 
     if (clubDoc.exists) {
@@ -74,7 +74,7 @@ async function removeUnknownMemberships() {
   }
 
   for (const [clubId, count] of Object.entries(byClub)) {
-    const clubDoc = await db.collection('tennis_clubs').doc(clubId).get();
+    const clubDoc = await db.collection('pickleball_clubs').doc(clubId).get();
     const clubName = clubDoc.exists
       ? clubDoc.data().name || clubDoc.data().profile?.name
       : '(club deleted)';

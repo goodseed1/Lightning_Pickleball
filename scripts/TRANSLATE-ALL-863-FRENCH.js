@@ -65,7 +65,7 @@ const frenchTranslations = {
     miles: 'miles',
   },
 
-  // NTRP/LTR
+  // NTRP/LPR
   ntrp: {
     label: {
       expert: 'Expert',
@@ -99,7 +99,7 @@ const frenchTranslations = {
 
   // Alerts
   alert: {
-    tournamentBracket: {
+    tournamentBpaddle: {
       info: 'Info',
       participants: 'Participants',
       participantsTab: 'Participants',

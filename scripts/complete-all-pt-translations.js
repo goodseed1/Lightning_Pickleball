@@ -2,7 +2,7 @@
 /**
  * Complete ALL Portuguese (pt-BR) Translations Script
  *
- * Comprehensive Brazilian Portuguese translations for Lightning Tennis app
+ * Comprehensive Brazilian Portuguese translations for Lightning Pickleball app
  */
 
 const fs = require('fs');
@@ -152,7 +152,7 @@ const ptTranslations = {
     matches: 'Partidas',
     standings: 'Classificação',
     results: 'Resultados',
-    bracket: 'Chaveamento',
+    bpaddle: 'Chaveamento',
     roundRobin: 'Todos Contra Todos',
     singleElimination: 'Eliminação Simples',
     doubleElimination: 'Eliminação Dupla',
@@ -195,7 +195,7 @@ const ptTranslations = {
     setScore: 'Definir Placar',
     matchResult: 'Resultado da Partida',
     updateStandings: 'Atualizar Classificação',
-    generateBracket: 'Gerar Chaveamento',
+    generateBpaddle: 'Gerar Chaveamento',
     seedPlayers: 'Cabecear Jogadores',
     randomDraw: 'Sorteio Aleatório',
     manualDraw: 'Sorteio Manual',
@@ -204,7 +204,7 @@ const ptTranslations = {
     sendReminders: 'Enviar Lembretes',
     viewSchedule: 'Ver Agenda',
     downloadSchedule: 'Baixar Agenda',
-    printBracket: 'Imprimir Chaveamento',
+    printBpaddle: 'Imprimir Chaveamento',
     exportResults: 'Exportar Resultados',
     tournamentHistory: 'Histórico de Torneios',
     pastTournaments: 'Torneios Passados',
@@ -360,7 +360,7 @@ const ptTranslations = {
     subtitle: 'Atualize suas informações',
     personalInfo: 'Informações Pessoais',
     contactInfo: 'Informações de Contato',
-    tennisInfo: 'Informações de Tênis',
+    pickleballInfo: 'Informações de Tênis',
     preferences: 'Preferências',
     privacy: 'Privacidade',
     displayName: 'Nome de Exibição',
@@ -428,7 +428,7 @@ const ptTranslations = {
     doubles: 'Duplas',
     mixedDoubles: 'Duplas Mistas',
     canadianDoubles: 'Duplas Canadenses',
-    teamTennis: 'Tênis em Equipe',
+    teamPickleball: 'Tênis em Equipe',
     beginner: 'Iniciante',
     intermediate: 'Intermediário',
     advanced: 'Avançado',
@@ -621,7 +621,7 @@ const ptTranslations = {
     linkExpired: 'Link expirado',
     linkExpiredMessage: 'Este link de redefinição expirou. Solicite um novo.',
     createAccountTitle: 'Criar Conta',
-    createAccountSubtitle: 'Junte-se à comunidade Lightning Tennis',
+    createAccountSubtitle: 'Junte-se à comunidade Lightning Pickleball',
     agreeToTerms: 'Concordo com os Termos de Serviço',
     agreeToPrivacy: 'Concordo com a Política de Privacidade',
     receiveUpdates: 'Quero receber atualizações e novidades',

@@ -99,7 +99,7 @@ const megaMap = {
   '': '',
 
   // AI Chat
-  'Explain basic tennis rules': '解释基本网球规则',
+  'Explain basic pickleball rules': '解释基本网球规则',
 
   // Ranking Privacy
   Public: '公开',

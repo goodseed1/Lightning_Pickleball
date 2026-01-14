@@ -275,7 +275,7 @@
   },
   "services": {
     "activity": {
-      "tennisUserFallback": "TennisUser{{id}}"
+      "pickleballUserFallback": "PickleballUser{{id}}"
     }
   },
   "aiMatching": {

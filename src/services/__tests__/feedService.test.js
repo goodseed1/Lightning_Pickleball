@@ -422,7 +422,7 @@ describe.skip('FeedService Unit Tests - TypeScript service needs refactoring', (
       });
     });
 
-    it('should create realistic tennis community scenarios', async () => {
+    it('should create realistic pickleball community scenarios', async () => {
       const mockItems = await getFeedItems(null);
 
       // Check for match results with scores
@@ -430,7 +430,7 @@ describe.skip('FeedService Unit Tests - TypeScript service needs refactoring', (
       matchResults.forEach(match => {
         expect(match.metadata).toBeDefined();
         if (match.metadata.score) {
-          expect(match.metadata.score).toMatch(/\d+-\d+/); // Tennis score pattern
+          expect(match.metadata.score).toMatch(/\d+-\d+/); // Pickleball score pattern
         }
         expect(typeof match.metadata.eloChange).toBe('number');
       });

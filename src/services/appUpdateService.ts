@@ -13,7 +13,7 @@
  *   - update_message_ko: "새로운 기능이 추가되었습니다!"
  *   - update_message_en: "New features are available!"
  *   - app_store_url: "https://apps.apple.com/app/id6749823614"
- *   - play_store_url: "https://play.google.com/store/apps/details?id=com.lightningtennis.community"
+ *   - play_store_url: "https://play.google.com/store/apps/details?id=com.lightningpickleball.community"
  */
 
 import { doc, getDoc } from 'firebase/firestore';
@@ -28,7 +28,7 @@ const DEFAULT_CONFIG = {
   update_message_ko: '새로운 버전이 출시되었습니다. 업데이트하여 최신 기능을 사용해보세요!',
   update_message_en: 'A new version is available. Update now to enjoy the latest features!',
   app_store_url: 'https://apps.apple.com/app/id6749823614',
-  play_store_url: 'https://play.google.com/store/apps/details?id=com.lightningtennis.community',
+  play_store_url: 'https://play.google.com/store/apps/details?id=com.lightningpickleball.community',
 };
 
 export interface UpdateInfo {

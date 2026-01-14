@@ -16,14 +16,14 @@ if (!admin.apps.length) {
   try {
     // 첫 번째 시도: Application Default Credentials
     admin.initializeApp({
-      projectId: 'lightning-tennis-community',
+      projectId: 'lightning-pickleball-community',
       credential: admin.credential.applicationDefault(),
     });
   } catch (error) {
     console.log('⚠️ [Auth] Application Default Credentials 실패, Firebase CLI 토큰 시도...');
     // 두 번째 시도: Firebase 프로젝트 설정만으로 초기화 (Firebase CLI 로그인 사용)
     admin.initializeApp({
-      projectId: 'lightning-tennis-community',
+      projectId: 'lightning-pickleball-community',
     });
   }
 }

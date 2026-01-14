@@ -152,7 +152,7 @@ export function useUnifiedMatchStats({
       };
 
       // 🆕 [KIM v2] 5. Public rankings by matchType with ELO
-      // Extract ELO ratings from userProfile for LTR display
+      // Extract ELO ratings from userProfile for LPR display
       const eloRatings = userProfile?.eloRatings || {};
       const singlesElo = eloRatings?.singles?.current || 1200;
       const doublesElo = eloRatings?.doubles?.current || 1200;

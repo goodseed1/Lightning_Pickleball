@@ -11,7 +11,7 @@ async function fixClubFullData() {
   console.log('🔧 Fixing club data with all required fields...\n');
 
   const clubId = 'WsetxkWODywjt0BBcqrs';
-  const clubRef = db.collection('tennis_clubs').doc(clubId);
+  const clubRef = db.collection('pickleball_clubs').doc(clubId);
 
   // Get current data
   const clubDoc = await clubRef.get();
@@ -22,7 +22,7 @@ async function fixClubFullData() {
   // Full club schema with all required fields
   const fullClubData = {
     // Basic info
-    name: currentData.name || 'Lightning Tennis Club',
+    name: currentData.name || 'Lightning Pickleball Club',
     description: currentData.description || '',
 
     // Location

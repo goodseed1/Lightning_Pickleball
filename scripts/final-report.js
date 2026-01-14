@@ -68,7 +68,7 @@ const SHOULD_BE_IDENTICAL = new Set([
   'Junsu Kim',
   'Seoyeon Lee',
   'Minjae Park',
-  // Termes tennis/sportifs
+  // Termes pickleball/sportifs
   'Endurance',
   'Mental',
   'Showers',

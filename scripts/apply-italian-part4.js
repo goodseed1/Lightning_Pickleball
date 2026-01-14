@@ -11,7 +11,7 @@ const translations = {
     createTournament: 'Crea Torneo',
     editTournament: 'Modifica Torneo',
     deleteTournament: 'Elimina Torneo',
-    viewBracket: 'Visualizza Tabellone',
+    viewBpaddle: 'Visualizza Tabellone',
     registerPlayers: 'Registra Giocatori',
     startTournament: 'Avvia Torneo',
     endTournament: 'Termina Torneo',
@@ -34,7 +34,7 @@ const translations = {
       roundRobin: "Girone All'Italiana",
       swiss: 'Sistema Svizzero',
     },
-    bracket: {
+    bpaddle: {
       round: 'Turno {{number}}',
       finals: 'Finali',
       semiFinals: 'Semifinali',
@@ -48,7 +48,7 @@ const translations = {
       unregister: 'Annulla Iscrizione',
       submitScore: 'Invia Punteggio',
       viewDetails: 'Visualizza Dettagli',
-      downloadBracket: 'Scarica Tabellone',
+      downloadBpaddle: 'Scarica Tabellone',
     },
     alerts: {
       createSuccess: 'Torneo creato con successo',

@@ -345,7 +345,7 @@ const germanTranslations = {
   // AI Matching (46 keys)
   aiMatching: {
     title: 'AI Match-Finder',
-    subtitle: 'Finden Sie Ihren perfekten Tennis-Partner',
+    subtitle: 'Finden Sie Ihren perfekten Pickleball-Partner',
     findMatches: 'Matches finden',
     preferences: 'Einstellungen',
     results: 'Ergebnisse',
@@ -905,7 +905,7 @@ const germanTranslations = {
   },
 
   ntrpSelector: {
-    title: 'LTR-Niveau auswählen',
+    title: 'LPR-Niveau auswählen',
     selectLevel: 'Niveau auswählen',
     current: 'Aktuell',
     target: 'Ziel',
@@ -921,7 +921,7 @@ const germanTranslations = {
     title: 'Turnier-Details',
     register: 'Registrieren',
     withdraw: 'Zurückziehen',
-    bracket: 'Turnierbaum',
+    bpaddle: 'Turnierbaum',
     schedule: 'Spielplan',
     results: 'Ergebnisse',
   },
@@ -937,7 +937,7 @@ const germanTranslations = {
   tournament: {
     title: 'Turnier',
     register: 'Registrieren',
-    bracket: 'Turnierbaum',
+    bpaddle: 'Turnierbaum',
     schedule: 'Spielplan',
     results: 'Ergebnisse',
   },

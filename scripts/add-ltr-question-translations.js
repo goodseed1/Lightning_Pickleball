@@ -512,9 +512,9 @@ const translations = {
   q10_lessons: {
     question: {
       es: '¿Cuánto tiempo llevas jugando tenis?',
-      de: 'Wie lange spielen Sie schon Tennis?',
-      fr: 'Depuis combien de temps jouez-vous au tennis?',
-      it: 'Da quanto tempo giochi a tennis?',
+      de: 'Wie lange spielen Sie schon Pickleball?',
+      fr: 'Depuis combien de temps jouez-vous au pickleball?',
+      it: 'Da quanto tempo giochi a pickleball?',
       pt: 'Há quanto tempo você joga tênis?',
       ja: 'テニス歴はどのくらいですか？',
       zh: '您打网球多长时间了？',
@@ -870,7 +870,7 @@ content = content.replace(/export interface NtrpQuestion \{[\s\S]*?\};/m, newInt
 
 // Rename NtrpQuestion to LtrQuestion in the rest of the file
 content = content.replace(/NtrpQuestion/g, 'LtrQuestion');
-content = content.replace(/NTRP_QUESTIONS/g, 'LTR_QUESTIONS');
+content = content.replace(/NTRP_QUESTIONS/g, 'LPR_QUESTIONS');
 
 // Add translations to each question
 for (const [qId, trans] of Object.entries(translations)) {

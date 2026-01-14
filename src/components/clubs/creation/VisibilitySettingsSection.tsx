@@ -4,7 +4,7 @@ import { HelperText } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { useTheme } from '../../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../../theme';
+import { getLightningPickleballTheme } from '../../../theme';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import Section from '../../layout/Section';
 import TwoColChips from '../../layout/TwoColChips';
@@ -23,7 +23,7 @@ export default function VisibilitySettingsSection({
   onFormChange,
 }: VisibilitySettingsSectionProps) {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const colors = themeColors.colors;
   const { t } = useLanguage();
 

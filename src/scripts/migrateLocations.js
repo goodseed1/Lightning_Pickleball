@@ -14,7 +14,7 @@ const admin = require('firebase-admin');
 // Initialize Firebase Admin for emulator
 // FIRESTORE_EMULATOR_HOST environment variable will be set by npm script
 admin.initializeApp({
-  projectId: 'lightning-tennis-community'
+  projectId: 'lightning-pickleball-community'
 });
 
 console.log('🔥 Firebase Admin initialized for emulator connection');

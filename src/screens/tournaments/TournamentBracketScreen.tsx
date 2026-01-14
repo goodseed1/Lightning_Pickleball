@@ -1,6 +1,6 @@
 /**
- * Tournament Bracket Screen
- * Shows tournament bracket view for members to see matches and progress
+ * Tournament Bpaddle Screen
+ * Shows tournament bpaddle view for members to see matches and progress
  */
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
@@ -20,9 +20,9 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../hooks/useTheme';
 import tournamentService from '../../services/tournamentService';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { Tournament, BracketMatch } from '../../types/tournament';
+import { Tournament, BpaddleMatch } from '../../types/tournament';
 import { ScoreInputForm, Match } from '../../types/match';
-import TournamentBracketView from '../../components/tournaments/TournamentBracketView';
+import TournamentBpaddleView from '../../components/tournaments/TournamentBpaddleView';
 import TournamentRankingsTab from '../../components/tournaments/TournamentRankingsTab';
 import ScoreInputModal from '../../components/match/ScoreInputModal';
 
@@ -33,7 +33,7 @@ interface RouteParams {
   isAdminView?: boolean;
 }
 
-const TournamentBracketScreen = () => {
+const TournamentBpaddleScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const { tournamentId, tournamentName, isAdminView = false } = route.params as RouteParams;
@@ -43,8 +43,8 @@ const TournamentBracketScreen = () => {
 
   const [loading, setLoading] = useState(true);
   const [tournament, setTournament] = useState<Tournament | null>(null);
-  const [matches, setMatches] = useState<BracketMatch[]>([]);
-  const [selectedMatch, setSelectedMatch] = useState<BracketMatch | null>(null);
+  const [matches, setMatches] = useState<BpaddleMatch[]>([]);
+  const [selectedMatch, setSelectedMatch] = useState<BpaddleMatch | null>(null);
   const [showScoreModal, setShowScoreModal] = useState(false);
   const [activeTab, setActiveTab] = useState<'matches' | 'participants' | 'standings'>('matches');
 
@@ -87,7 +87,7 @@ const TournamentBracketScreen = () => {
       );
     } catch (error) {
       console.error('Error loading tournament data:', error);
-      Alert.alert(t('common.error'), t('tournamentBracket.errorLoadingData'));
+      Alert.alert(t('common.error'), t('tournamentBpaddle.errorLoadingData'));
       navigation.goBack();
       setLoading(false);
     }
@@ -106,21 +106,21 @@ const TournamentBracketScreen = () => {
     };
   }, [loadTournamentData]);
 
-  // 🏗️ 아이언맨의 지능형 브라켓 건축사 헬퍼
-  const calculateRoundFromBracketPosition = (position: number): number => {
+  // 🏗️ 아이언맨의 지능형 브패들 건축사 헬퍼
+  const calculateRoundFromBpaddlePosition = (position: number): number => {
     if (!position) return 1;
     // 토너먼트 구조 분석:
-    // bracketPosition 1-2: Round 1 (첫 번째 라운드)
-    // bracketPosition 3-4: Round 2 (준결승)
-    // bracketPosition 5+: Round 3 (결승)
+    // bpaddlePosition 1-2: Round 1 (첫 번째 라운드)
+    // bpaddlePosition 3-4: Round 2 (준결승)
+    // bpaddlePosition 5+: Round 3 (결승)
     if (position <= 2) return 1;
     if (position <= 4) return 2;
     return 3;
   };
 
-  // Convert tournament matches to bracket view format
-  const convertToBracketFormat = (
-    tournamentMatches: BracketMatch[],
+  // Convert tournament matches to bpaddle view format
+  const convertToBpaddleFormat = (
+    tournamentMatches: BpaddleMatch[],
     tournamentData: Tournament
   ) => {
     if (!tournamentMatches || tournamentMatches.length === 0) {
@@ -145,19 +145,19 @@ const TournamentBracketScreen = () => {
     /* eslint-disable @typescript-eslint/no-explicit-any */
     const roundsMap: { [round: number]: ConvertedMatch[] } = {};
 
-    console.log('🏗️ [ARCHITECT] Starting intelligent bracket grouping...');
+    console.log('🏗️ [ARCHITECT] Starting intelligent bpaddle grouping...');
 
     tournamentMatches.forEach(match => {
       // 🎯 다중 소스 라운드 번호 결정 전략
       const roundNum =
         match.round ||
         match.roundNumber ||
-        calculateRoundFromBracketPosition(match.bracketPosition) ||
+        calculateRoundFromBpaddlePosition(match.bpaddlePosition) ||
         1;
 
       console.log('🏗️ [BRACKET GROUPING]', {
         matchId: match.id,
-        bracketPosition: match.bracketPosition,
+        bpaddlePosition: match.bpaddlePosition,
         round: match.round,
         roundNumber: match.roundNumber,
         calculatedRound: roundNum,
@@ -169,9 +169,9 @@ const TournamentBracketScreen = () => {
         (roundsMap as any)[roundNum] = [];
       }
 
-      // Convert BracketMatch to format expected by TournamentBracketView
+      // Convert BpaddleMatch to format expected by TournamentBpaddleView
       // Fix winner display: create winner object from _winner field
-      console.log('🎾 Processing match for bracket display:', {
+      console.log('🎾 Processing match for bpaddle display:', {
         matchId: match.id,
         status: match.status,
         _winner: match._winner,
@@ -184,7 +184,7 @@ const TournamentBracketScreen = () => {
       // Enhanced winner determination with detailed logging
       // Priority: _winner → score.winner → legacy winnerId
       let winnerPlayerId =
-        match._winner || (match as BracketMatch & { winnerId?: string }).winnerId;
+        match._winner || (match as BpaddleMatch & { winnerId?: string }).winnerId;
 
       // If no winner field set but match is completed with score, try to get winner from score
       if (!winnerPlayerId && match.status === 'completed' && match.score?.winner) {
@@ -202,7 +202,7 @@ const TournamentBracketScreen = () => {
         status: match.status,
         _winner: match._winner,
         scoreWinner: match.score?.winner,
-        legacyWinnerId: (match as BracketMatch & { winnerId?: string }).winnerId,
+        legacyWinnerId: (match as BpaddleMatch & { winnerId?: string }).winnerId,
         finalWinnerPlayerId: winnerPlayerId,
         hasScore: !!match.score,
       });
@@ -235,7 +235,7 @@ const TournamentBracketScreen = () => {
 
       const convertedMatch = {
         id: match.id,
-        matchNumber: match.bracketPosition || match.matchNumber || 1,
+        matchNumber: match.bpaddlePosition || match.matchNumber || 1,
         player1: match.player1
           ? {
               playerId: match.player1.playerId,
@@ -269,7 +269,7 @@ const TournamentBracketScreen = () => {
       }));
 
     // 🏗️ 아이언맨의 건축 결과 보고서
-    console.log('🏗️ [ARCHITECT REPORT] Bracket construction completed:');
+    console.log('🏗️ [ARCHITECT REPORT] Bpaddle construction completed:');
     rounds.forEach(round => {
       console.log(`  📍 Round ${round.roundNumber}: ${round.matches.length} matches`);
       round.matches.forEach(match => {
@@ -296,23 +296,23 @@ const TournamentBracketScreen = () => {
     };
   };
 
-  const handleMatchPress = (matchFromBracket: {
+  const handleMatchPress = (matchFromBpaddle: {
     id: string;
     player1?: { playerName: string } | null;
     player2?: { playerName: string } | null;
     status?: string;
   }) => {
     console.log('🎾 Match pressed:', {
-      id: matchFromBracket.id,
-      player1: matchFromBracket.player1?.playerName,
-      player2: matchFromBracket.player2?.playerName,
-      status: matchFromBracket.status,
+      id: matchFromBpaddle.id,
+      player1: matchFromBpaddle.player1?.playerName,
+      player2: matchFromBpaddle.player2?.playerName,
+      status: matchFromBpaddle.status,
     });
 
-    // Find the full BracketMatch object from our matches state
-    const fullMatch = matches.find(m => m.id === matchFromBracket.id);
+    // Find the full BpaddleMatch object from our matches state
+    const fullMatch = matches.find(m => m.id === matchFromBpaddle.id);
     if (!fullMatch) {
-      Alert.alert(t('common.error'), t('tournamentBracket.matchNotFound'));
+      Alert.alert(t('common.error'), t('tournamentBpaddle.matchNotFound'));
       return;
     }
 
@@ -327,8 +327,8 @@ const TournamentBracketScreen = () => {
     const canEnterScore = isParticipant || isTournamentAdmin;
 
     console.log('🎾 Match press validation:', {
-      matchId: matchFromBracket.id,
-      status: matchFromBracket.status,
+      matchId: matchFromBpaddle.id,
+      status: matchFromBpaddle.status,
       currentUserId: currentUser?.uid,
       player1Id: fullMatch.player1?.playerId,
       player2Id: fullMatch.player2?.playerId,
@@ -342,14 +342,14 @@ const TournamentBracketScreen = () => {
 
     // Allow score entry for scheduled/in_progress matches where user is a participant or admin
     if (
-      (matchFromBracket.status === 'scheduled' || matchFromBracket.status === 'in_progress') &&
+      (matchFromBpaddle.status === 'scheduled' || matchFromBpaddle.status === 'in_progress') &&
       canEnterScore &&
       fullMatch.player1 &&
       fullMatch.player2
     ) {
       // 💥 여기가 바로 '진실의 순간'! 💥
       console.log('--- 🕵️‍♂️ TRACING COMPONENT IDENTITY ---');
-      console.log('Attempting to open score input for match:', matchFromBracket.id);
+      console.log('Attempting to open score input for match:', matchFromBpaddle.id);
       console.log('Component being used:', ScoreInputModal.name);
       console.log('Component import path: ../../components/match/ScoreInputModal');
       console.log('About to call setShowScoreModal(true) which will render the modal');
@@ -357,21 +357,21 @@ const TournamentBracketScreen = () => {
 
       setSelectedMatch(fullMatch);
       setShowScoreModal(true);
-    } else if (matchFromBracket.status === 'completed') {
+    } else if (matchFromBpaddle.status === 'completed') {
       // Show match result details
       Alert.alert(
-        t('tournamentBracket.matchResult'),
-        `${matchFromBracket.player1?.playerName || 'TBD'} vs ${matchFromBracket.player2?.playerName || 'TBD'}`
+        t('tournamentBpaddle.matchResult'),
+        `${matchFromBpaddle.player1?.playerName || 'TBD'} vs ${matchFromBpaddle.player2?.playerName || 'TBD'}`
       );
     } else if (!canEnterScore) {
       Alert.alert(
-        t('tournamentBracket.info'),
-        t('tournamentBracket.onlyParticipantsCanEnterScore')
+        t('tournamentBpaddle.info'),
+        t('tournamentBpaddle.onlyParticipantsCanEnterScore')
       );
     } else {
       Alert.alert(
-        t('tournamentBracket.matchInfo'),
-        `${matchFromBracket.player1?.playerName || 'TBD'} vs ${matchFromBracket.player2?.playerName || 'TBD'}`
+        t('tournamentBpaddle.matchInfo'),
+        `${matchFromBpaddle.player1?.playerName || 'TBD'} vs ${matchFromBpaddle.player2?.playerName || 'TBD'}`
       );
     }
   };
@@ -398,7 +398,7 @@ const TournamentBracketScreen = () => {
         status: selectedMatch.status,
         player1: selectedMatch.player1?.playerName,
         player2: selectedMatch.player2?.playerName,
-        bracketPosition: selectedMatch.bracketPosition,
+        bpaddlePosition: selectedMatch.bpaddlePosition,
       });
 
       const tournamentIdForCall = selectedMatch.tournamentId || tournament.id;
@@ -501,13 +501,13 @@ const TournamentBracketScreen = () => {
       console.log('🎾 Score submitted successfully, real-time listener will update the UI');
 
       Alert.alert(
-        t('tournamentBracket.scoreSubmitted'),
-        t('tournamentBracket.scoreSubmittedSuccess'),
+        t('tournamentBpaddle.scoreSubmitted'),
+        t('tournamentBpaddle.scoreSubmittedSuccess'),
         [{ text: t('common.ok') }]
       );
     } catch (error) {
       console.error('Error submitting tournament match score:', error);
-      Alert.alert(t('common.error'), t('tournamentBracket.errorSubmittingScore'));
+      Alert.alert(t('common.error'), t('tournamentBpaddle.errorSubmittingScore'));
     }
   };
 
@@ -516,59 +516,59 @@ const TournamentBracketScreen = () => {
     setSelectedMatch(null);
   };
 
-  // Convert BracketMatch to Match format for ScoreInputModal
-  const convertBracketMatchToMatch = (bracketMatch: BracketMatch): Match | null => {
-    if (!bracketMatch.player1 || !bracketMatch.player2) {
-      console.log('🎾 Cannot convert bracket match - missing players:', {
-        matchId: bracketMatch.id,
-        hasPlayer1: !!bracketMatch.player1,
-        hasPlayer2: !!bracketMatch.player2,
+  // Convert BpaddleMatch to Match format for ScoreInputModal
+  const convertBpaddleMatchToMatch = (bpaddleMatch: BpaddleMatch): Match | null => {
+    if (!bpaddleMatch.player1 || !bpaddleMatch.player2) {
+      console.log('🎾 Cannot convert bpaddle match - missing players:', {
+        matchId: bpaddleMatch.id,
+        hasPlayer1: !!bpaddleMatch.player1,
+        hasPlayer2: !!bpaddleMatch.player2,
       });
       return null;
     }
 
-    console.log('🎾 Converting BracketMatch to Match:', {
-      matchId: bracketMatch.id,
-      player1: bracketMatch.player1,
-      player2: bracketMatch.player2,
+    console.log('🎾 Converting BpaddleMatch to Match:', {
+      matchId: bpaddleMatch.id,
+      player1: bpaddleMatch.player1,
+      player2: bpaddleMatch.player2,
     });
 
     return {
-      id: bracketMatch.id,
+      id: bpaddleMatch.id,
       type: 'tournament',
       format: 'singles', // Default to singles for tournaments
       eventType: 'mens_singles', // Default event type
 
       // Create proper MatchParticipant objects
       player1: {
-        userId: bracketMatch.player1.playerId,
-        userName: bracketMatch.player1.playerName || 'Player 1',
+        userId: bpaddleMatch.player1.playerId,
+        userName: bpaddleMatch.player1.playerName || 'Player 1',
         skillLevel: 'intermediate', // Default skill level
         photoURL: undefined,
       },
       player2: {
-        userId: bracketMatch.player2.playerId,
-        userName: bracketMatch.player2.playerName || 'Player 2',
+        userId: bpaddleMatch.player2.playerId,
+        userName: bpaddleMatch.player2.playerName || 'Player 2',
         skillLevel: 'intermediate', // Default skill level
         photoURL: undefined,
       },
 
       // Match scheduling info
-      scheduledAt: bracketMatch.scheduledTime
-        ? typeof bracketMatch.scheduledTime.toDate === 'function'
-          ? bracketMatch.scheduledTime
+      scheduledAt: bpaddleMatch.scheduledTime
+        ? typeof bpaddleMatch.scheduledTime.toDate === 'function'
+          ? bpaddleMatch.scheduledTime
           : new Date()
         : new Date(),
 
       // Match metadata for compatibility
-      status: bracketMatch.status || 'scheduled',
-      location: bracketMatch.court || '',
+      status: bpaddleMatch.status || 'scheduled',
+      location: bpaddleMatch.court || '',
 
       // Required fields for Match interface
-      clubId: bracketMatch.tournamentId,
+      clubId: bpaddleMatch.tournamentId,
       createdBy: '',
-      createdAt: bracketMatch.createdAt,
-      updatedAt: bracketMatch.updatedAt,
+      createdAt: bpaddleMatch.createdAt,
+      updatedAt: bpaddleMatch.updatedAt,
     } as Match;
   };
 
@@ -592,7 +592,7 @@ const TournamentBracketScreen = () => {
         <View style={styles.loadingContainer}>
           <ActivityIndicator size='large' color={theme.colors.primary} />
           <Text style={[styles.loadingText, { color: theme.colors.onSurface }]}>
-            {t('tournamentBracket.loadingBracket')}
+            {t('tournamentBpaddle.loadingBpaddle')}
           </Text>
         </View>
       </SafeAreaView>
@@ -606,7 +606,7 @@ const TournamentBracketScreen = () => {
         <View style={styles.emptyContainer}>
           <Ionicons name='alert-circle-outline' size={64} color={theme.colors.outline} />
           <Text style={[styles.emptyTitle, { color: theme.colors.onSurface }]}>
-            {t('tournamentBracket.tournamentNotFound')}
+            {t('tournamentBpaddle.tournamentNotFound')}
           </Text>
         </View>
       </SafeAreaView>
@@ -620,19 +620,19 @@ const TournamentBracketScreen = () => {
         <View style={styles.emptyContainer}>
           <Ionicons name='trophy-outline' size={64} color={theme.colors.outline} />
           <Text style={[styles.emptyTitle, { color: theme.colors.onSurface }]}>
-            {t('tournamentBracket.bracketNotGenerated')}
+            {t('tournamentBpaddle.bpaddleNotGenerated')}
           </Text>
           <Text style={[styles.emptySubtitle, { color: theme.colors.onSurfaceVariant }]}>
-            {t('tournamentBracket.bracketWillBeGenerated')}
+            {t('tournamentBpaddle.bpaddleWillBeGenerated')}
           </Text>
         </View>
       </SafeAreaView>
     );
   }
 
-  const bracket = convertToBracketFormat(matches, tournament);
+  const bpaddle = convertToBpaddleFormat(matches, tournament);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const bracketAsAny: any = bracket;
+  const bpaddleAsAny: any = bpaddle;
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: theme.colors.background }]}>
@@ -645,9 +645,9 @@ const TournamentBracketScreen = () => {
           </Text>
           <Text style={[styles.headerSeparator, { color: theme.colors.onSurfaceVariant }]}>•</Text>
           <Text style={[styles.tournamentStatus, { color: theme.colors.onSurfaceVariant }]}>
-            {tournament.status === 'bracket_generation' && t('tournamentBracket.generatingBracket')}
-            {tournament.status === 'in_progress' && t('tournamentBracket.inProgress')}
-            {tournament.status === 'completed' && t('tournamentBracket.completed')}
+            {tournament.status === 'bpaddle_generation' && t('tournamentBpaddle.generatingBpaddle')}
+            {tournament.status === 'in_progress' && t('tournamentBpaddle.inProgress')}
+            {tournament.status === 'completed' && t('tournamentBpaddle.completed')}
           </Text>
           {tournament.participants && (
             <>
@@ -657,7 +657,7 @@ const TournamentBracketScreen = () => {
               <Text
                 style={[styles.headerParticipantInfo, { color: theme.colors.onSurfaceVariant }]}
               >
-                {t('tournamentBracket.participants')}: {tournament.participants.length}
+                {t('tournamentBpaddle.participants')}: {tournament.participants.length}
               </Text>
             </>
           )}
@@ -682,7 +682,7 @@ const TournamentBracketScreen = () => {
               activeTab === 'matches' && [styles.activeTabText, { color: theme.colors.primary }],
             ]}
           >
-            {t('tournamentBracket.matches')}
+            {t('tournamentBpaddle.matches')}
           </Text>
         </TouchableOpacity>
 
@@ -707,7 +707,7 @@ const TournamentBracketScreen = () => {
               ],
             ]}
           >
-            {t('tournamentBracket.participantsTab')}
+            {t('tournamentBpaddle.participantsTab')}
           </Text>
         </TouchableOpacity>
 
@@ -727,7 +727,7 @@ const TournamentBracketScreen = () => {
               activeTab === 'standings' && [styles.activeTabText, { color: theme.colors.primary }],
             ]}
           >
-            {t('tournamentBracket.standings')}
+            {t('tournamentBpaddle.standings')}
           </Text>
         </TouchableOpacity>
       </View>
@@ -735,8 +735,8 @@ const TournamentBracketScreen = () => {
       {/* Tab Content */}
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         {activeTab === 'matches' && (
-          <TournamentBracketView
-            bracket={bracketAsAny}
+          <TournamentBpaddleView
+            bpaddle={bpaddleAsAny}
             currentUserId={currentUser?.uid}
             isTournamentAdmin={
               currentUser && tournament
@@ -750,7 +750,7 @@ const TournamentBracketScreen = () => {
         {activeTab === 'participants' && (
           <View style={styles.participantsContent}>
             <Text style={[styles.sectionTitle, { color: theme.colors.onSurface }]}>
-              {t('tournamentBracket.tournamentParticipants')}
+              {t('tournamentBpaddle.tournamentParticipants')}
             </Text>
             {tournament.participants && tournament.participants.length > 0 ? (
               tournament.participants.map((participant, index) => (
@@ -770,7 +770,7 @@ const TournamentBracketScreen = () => {
                         <Text
                           style={[styles.participantSeed, { color: theme.colors.onSurfaceVariant }]}
                         >
-                          {t('tournamentBracket.seed')} #{participant.seed}
+                          {t('tournamentBpaddle.seed')} #{participant.seed}
                         </Text>
                       )}
                     </View>
@@ -779,7 +779,7 @@ const TournamentBracketScreen = () => {
               ))
             ) : (
               <Text style={[styles.emptyText, { color: theme.colors.onSurfaceVariant }]}>
-                {t('tournamentBracket.noParticipants')}
+                {t('tournamentBpaddle.noParticipants')}
               </Text>
             )}
           </View>
@@ -808,7 +808,7 @@ const TournamentBracketScreen = () => {
           {console.log('--- 🎯 END MODAL TRACE ---')}
           <ScoreInputModal
             visible={showScoreModal}
-            match={convertBracketMatchToMatch(selectedMatch)!}
+            match={convertBpaddleMatchToMatch(selectedMatch)!}
             currentUserId={currentUser.uid}
             onClose={handleScoreModalClose}
             onSubmit={handleScoreSubmit}
@@ -966,4 +966,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TournamentBracketScreen;
+export default TournamentBpaddleScreen;

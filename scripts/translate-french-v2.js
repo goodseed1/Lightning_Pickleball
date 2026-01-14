@@ -156,8 +156,8 @@ const TRANSLATIONS = {
   '': '',
   Open: 'Ouverte',
   Preparing: 'Préparation',
-  "Join the league to compete with other players and improve your tennis skills. You'll need to wait for admin approval after applying.":
-    "Rejoignez la ligue pour affronter d'autres joueurs et améliorer vos compétences en tennis. Vous devrez attendre l'approbation de l'administrateur après avoir postulé.",
+  "Join the league to compete with other players and improve your pickleball skills. You'll need to wait for admin approval after applying.":
+    "Rejoignez la ligue pour affronter d'autres joueurs et améliorer vos compétences en pickleball. Vous devrez attendre l'approbation de l'administrateur après avoir postulé.",
   'Applying...': 'Candidature en cours...',
   'Apply to League': 'Postuler à la ligue',
   'Registration is currently closed': "L'inscription est actuellement fermée",

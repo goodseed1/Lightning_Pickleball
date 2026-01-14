@@ -20,7 +20,7 @@ const getBuildNumber = (): string => {
   return config?.android?.versionCode?.toString() || '';
 };
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useTranslation } from 'react-i18next';
 
 interface LocationPermissionInfo {
@@ -97,7 +97,7 @@ const SettingsTabSection: React.FC<SettingsTabSectionProps> = ({
   getCurrentThemeText,
 }) => {
   const { theme: currentTheme, setThemePreference } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
   const { t } = useTranslation();
 

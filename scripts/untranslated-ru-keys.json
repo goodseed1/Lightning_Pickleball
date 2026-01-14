@@ -161,7 +161,7 @@
     "levels": {
       "beginner": {
         "label": "1.0-2.5 (Beginner)",
-        "description": "Just started playing tennis"
+        "description": "Just started playing pickleball"
       },
       "intermediate": {
         "label": "3.0-3.5 (Intermediate)",
@@ -225,12 +225,12 @@
   },
   "clubOverviewScreen": {
     "emptyStateGuestTitleDefault": "🎾 Welcome to the club!",
-    "emptyStateGuestDescription": "Join this club to enjoy tennis with members.",
+    "emptyStateGuestDescription": "Join this club to enjoy pickleball with members.",
     "emptyStateGuestAction1": "Apply for membership",
     "emptyStateGuestAction2": "Check club information",
     "aiHelperHint": "Not sure what to do?",
     "aiHelperButton": "Chat with AI Assistant",
-    "aiHelperSubtext": "Ask questions about tennis or how to use the app!",
+    "aiHelperSubtext": "Ask questions about pickleball or how to use the app!",
     "actionRequired": "Action Required"
   },
   "league": {
@@ -373,12 +373,12 @@
   "utils": {
     "ltr": {
       "whatIsLtr": {
-        "title": "What is LTR?",
-        "content": "LTR (Lightning Tennis Rating) is a proprietary skill assessment system developed exclusively for the Lightning Tennis community. LTR is calculated based on the ELO algorithm applied to all public lightning match results, showing your growth journey in an intuitive scale from 1 to 10. It's an honorable indicator of how much you've grown within our ecosystem."
+        "title": "What is LPR?",
+        "content": "LPR (Lightning Pickleball Rating) is a proprietary skill assessment system developed exclusively for the Lightning Pickleball community. LPR is calculated based on the ELO algorithm applied to all public lightning match results, showing your growth journey in an intuitive scale from 1 to 10. It's an honorable indicator of how much you've grown within our ecosystem."
       },
       "relationToNtrp": {
         "title": "Relationship to NTRP",
-        "content": "LTR is a unique system distinct from USTA's NTRP. For the convenience of users familiar with NTRP ratings, you can select your skill level in a range similar to NTRP when signing up, but all official levels calculated and displayed within the app are based on LTR."
+        "content": "LPR is a unique system distinct from USTA's NTRP. For the convenience of users familiar with NTRP ratings, you can select your skill level in a range similar to NTRP when signing up, but all official levels calculated and displayed within the app are based on LPR."
       }
     }
   },

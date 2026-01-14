@@ -910,7 +910,7 @@ export async function sendApprovalNotification(
           icon: 'ic_notification',
           color: '#1976d2',
           sound: 'default',
-          channelId: 'lightning_tennis_events',
+          channelId: 'lightning_pickleball_events',
         },
       },
       apns: {

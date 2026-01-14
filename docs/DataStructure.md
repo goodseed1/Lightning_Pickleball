@@ -1,8 +1,8 @@
-# 번개 테니스 데이터 구조 명세서
+# 번개 피클볼 데이터 구조 명세서
 
 ## 📋 개요
 
-번개 테니스 앱은 **이중 랭킹 시스템 (Dual Ranking System)**을 기반으로 한 혁신적인 데이터 아키텍처를 사용합니다. 이 시스템은 생태계 헌장의 **"자율성"** 원칙을 구현하여, 사용자가 전체 커뮤니티와 소속 클럽에서 각각 독립적인 랭킹을 유지할 수 있도록 합니다.
+번개 피클볼 앱은 **이중 랭킹 시스템 (Dual Ranking System)**을 기반으로 한 혁신적인 데이터 아키텍처를 사용합니다. 이 시스템은 생태계 헌장의 **"자율성"** 원칙을 구현하여, 사용자가 전체 커뮤니티와 소속 클럽에서 각각 독립적인 랭킹을 유지할 수 있도록 합니다.
 
 ---
 
@@ -34,8 +34,8 @@
 {
   // === 기본 정보 ===
   uid: "user123",
-  displayName: "김테니스",
-  email: "tennis@example.com",
+  displayName: "김피클볼",
+  email: "pickleball@example.com",
   photoURL: "https://...",
   createdAt: "2025-09-06T00:00:00Z",
   lastActive: "2025-09-06T12:30:00Z",
@@ -78,7 +78,7 @@
 ```javascript
 {
   clubId: "club123",
-  clubName: "서울 테니스 클럽",
+  clubName: "서울 피클볼 클럽",
   role: "member",                      // member | admin | owner
   status: "active",                    // active | inactive | pending
   joinedAt: "2025-08-01T00:00:00Z",
@@ -253,6 +253,6 @@ function updateELO(context, winnerId, loserId) {
 
 ---
 
-**이 데이터 구조는 번개 테니스 생태계 헌장의 모든 원칙을 기술적으로 구현하며, 확장 가능하고 유지보수가 용이한 아키텍처를 제공합니다.**
+**이 데이터 구조는 번개 피클볼 생태계 헌장의 모든 원칙을 기술적으로 구현하며, 확장 가능하고 유지보수가 용이한 아키텍처를 제공합니다.**
 
 _마지막 업데이트: 2025년 9월 6일_

@@ -1,13 +1,13 @@
 /**
- * LTR (Lightning Tennis Rating) Assessment Questions
+ * LPR (Lightning Pickleball Rating) Assessment Questions
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  *
  * 🌐 Supported Languages: ko, en, es, de, fr, it, pt, ja, zh, ru
  *
@@ -48,7 +48,7 @@ export interface LtrQuestion {
   }>;
 }
 
-export const LTR_QUESTIONS: LtrQuestion[] = [
+export const LPR_QUESTIONS: LtrQuestion[] = [
   // ========== PAGE 1: SKILLS (기술) ==========
   {
     id: 'q1_forehand',
@@ -842,12 +842,12 @@ export const LTR_QUESTIONS: LtrQuestion[] = [
     category: 'experience',
     page: 3,
     question: {
-      ko: '테니스 구력이 얼마나 되나요?',
-      en: 'How long have you been playing tennis?',
+      ko: '피클볼 구력이 얼마나 되나요?',
+      en: 'How long have you been playing pickleball?',
       es: '¿Cuánto tiempo llevas jugando tenis?',
-      de: 'Wie lange spielen Sie schon Tennis?',
-      fr: 'Depuis combien de temps jouez-vous au tennis?',
-      it: 'Da quanto tempo giochi a tennis?',
+      de: 'Wie lange spielen Sie schon Pickleball?',
+      fr: 'Depuis combien de temps jouez-vous au pickleball?',
+      it: 'Da quanto tempo giochi a pickleball?',
       pt: 'Há quanto tempo você joga tênis?',
       ja: 'テニス歴はどのくらいですか？',
       zh: '您打网球多长时间了？',
@@ -1369,7 +1369,7 @@ export const QUESTION_PAGES = [
  * Helper function to get questions for a specific page
  */
 export const getQuestionsForPage = (page: 1 | 2 | 3 | 4): LtrQuestion[] => {
-  return LTR_QUESTIONS.filter(q => q.page === page);
+  return LPR_QUESTIONS.filter(q => q.page === page);
 };
 
 /**

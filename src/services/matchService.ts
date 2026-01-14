@@ -31,7 +31,7 @@ import {
   MatchListResponse,
   calculateMatchWinner,
 } from '../types/match';
-import { TennisEventType, getMatchFormatFromEventType } from '../types/league';
+import { PickleballEventType, getMatchFormatFromEventType } from '../types/league';
 import i18n from '../i18n';
 
 class MatchService {
@@ -45,7 +45,7 @@ class MatchService {
    */
   async createMatch(matchData: {
     type: MatchType;
-    eventType?: TennisEventType; // ⭐ 경기 종류 추가
+    eventType?: PickleballEventType; // ⭐ 경기 종류 추가
     format: MatchFormat;
     player1Id: string;
     player2Id: string;
@@ -703,7 +703,7 @@ class MatchService {
   async getPlayerEventTypeStats(
     playerId: string,
     clubId: string,
-    eventType?: import('../types/league').TennisEventType
+    eventType?: import('../types/league').PickleballEventType
   ): Promise<Record<string, unknown> | null> {
     try {
       const stats = await this.getPlayerStats(playerId, clubId);
@@ -728,7 +728,7 @@ class MatchService {
    * 경기 종류가 포함된 번개 매치 생성
    */
   async createLightningMatch(matchData: {
-    eventType: import('../types/league').TennisEventType;
+    eventType: import('../types/league').PickleballEventType;
     player1Id: string;
     player2Id: string;
     player1PartnerId?: string;
@@ -765,7 +765,7 @@ class MatchService {
    */
   async getLightningMatchesByEventType(
     clubId: string,
-    eventType: import('../types/league').TennisEventType,
+    eventType: import('../types/league').PickleballEventType,
     limit: number = 20
   ): Promise<Match[]> {
     try {

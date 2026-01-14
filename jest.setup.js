@@ -1,4 +1,4 @@
-// Jest setup for Lightning Tennis React Native App
+// Jest setup for Lightning Pickleball React Native App
 require('@testing-library/jest-native/extend-expect');
 
 // Set required Firebase environment variables for testing

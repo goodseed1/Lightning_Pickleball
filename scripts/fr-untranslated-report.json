@@ -324,22 +324,22 @@
         "frValue": "(missing)"
       },
       {
-        "key": "generateBracketButton",
-        "enValue": "Generate Bracket & Start League",
+        "key": "generateBpaddleButton",
+        "enValue": "Generate Bpaddle & Start League",
         "frValue": "(missing)"
       },
       {
-        "key": "deleteBracketButton",
-        "enValue": "Delete Bracket",
+        "key": "deleteBpaddleButton",
+        "enValue": "Delete Bpaddle",
         "frValue": "(missing)"
       },
       {
-        "key": "deleteBracketTitle",
-        "enValue": "Delete Bracket",
+        "key": "deleteBpaddleTitle",
+        "enValue": "Delete Bpaddle",
         "frValue": "(missing)"
       },
       {
-        "key": "deleteBracketDescription",
+        "key": "deleteBpaddleDescription",
         "enValue": "Delete all matches and reset league. This action cannot be undone.",
         "frValue": "(missing)"
       },
@@ -386,7 +386,7 @@
       },
       {
         "key": "tapHint",
-        "enValue": "Tap to view bracket",
+        "enValue": "Tap to view bpaddle",
         "frValue": "(missing)"
       },
       {
@@ -405,8 +405,8 @@
         "frValue": "(missing)"
       },
       {
-        "key": "bracketToggle",
-        "enValue": "Playoff Bracket",
+        "key": "bpaddleToggle",
+        "enValue": "Playoff Bpaddle",
         "frValue": "(missing)"
       },
       {
@@ -998,18 +998,18 @@
         "frValue": "(missing)"
       },
       {
-        "key": "deleteBracketTitle",
-        "enValue": "⚠️ Delete Bracket",
+        "key": "deleteBpaddleTitle",
+        "enValue": "⚠️ Delete Bpaddle",
         "frValue": "(missing)"
       },
       {
-        "key": "deleteBracketConfirm",
+        "key": "deleteBpaddleConfirm",
         "enValue": "Delete all matches in {{leagueName}}?\n\nThis action cannot be undone and the league will be reset to application status.",
         "frValue": "(missing)"
       },
       {
-        "key": "generateBracketConfirm",
-        "enValue": "Generate bracket for {{leagueName}}?\n\nThis action cannot be undone and the league will start.",
+        "key": "generateBpaddleConfirm",
+        "enValue": "Generate bpaddle for {{leagueName}}?\n\nThis action cannot be undone and the league will start.",
         "frValue": "(missing)"
       },
       {
@@ -1490,12 +1490,12 @@
       },
       {
         "key": "manualSeedingInstructions",
-        "enValue": "Generate bracket using assigned seeds and start the tournament",
+        "enValue": "Generate bpaddle using assigned seeds and start the tournament",
         "frValue": "(missing)"
       },
       {
         "key": "autoSeedingInstructions",
-        "enValue": "Generate tournament bracket and start the competition",
+        "enValue": "Generate tournament bpaddle and start the competition",
         "frValue": "(missing)"
       },
       {
@@ -1663,13 +1663,13 @@
         "frValue": "(missing)"
       },
       {
-        "key": "searchTennisCourt",
-        "enValue": "Search Tennis Court",
+        "key": "searchPickleballCourt",
+        "enValue": "Search Pickleball Court",
         "frValue": "(missing)"
       },
       {
         "key": "searchHelper",
-        "enValue": "Tap to search for a tennis court.",
+        "enValue": "Tap to search for a pickleball court.",
         "frValue": "(missing)"
       }
     ]
@@ -1997,8 +1997,8 @@
       },
       {
         "key": "aiHelperSubtext",
-        "enValue": "Ask questions about tennis or how to use the app!",
-        "frValue": "Ask questions about tennis or how to use the app!"
+        "enValue": "Ask questions about pickleball or how to use the app!",
+        "frValue": "Ask questions about pickleball or how to use the app!"
       }
     ]
   },
@@ -2013,8 +2013,8 @@
       },
       {
         "key": "social",
-        "enValue": "Social Tennis",
-        "frValue": "Social Tennis"
+        "enValue": "Social Pickleball",
+        "frValue": "Social Pickleball"
       },
       {
         "key": "clinic",
@@ -2485,8 +2485,8 @@
     "keys": [
       {
         "key": "levelMismatch",
-        "enValue": "Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})",
-        "frValue": "Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})"
+        "enValue": "Level mismatch (Your LPR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})",
+        "frValue": "Level mismatch (Your LPR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})"
       },
       {
         "key": "genderMismatch",
@@ -2505,8 +2505,8 @@
       },
       {
         "key": "canApply",
-        "enValue": "Apply: LTR {{minNtrp}} - {{maxNtrp}}",
-        "frValue": "Apply: LTR {{minNtrp}} - {{maxNtrp}}"
+        "enValue": "Apply: LPR {{minNtrp}} - {{maxNtrp}}",
+        "frValue": "Apply: LPR {{minNtrp}} - {{maxNtrp}}"
       },
       {
         "key": "level",
@@ -3370,12 +3370,12 @@
     "keys": [
       {
         "key": "registrationClosedMessage",
-        "enValue": "Registration closed and bracket generated. Tournament has started!",
+        "enValue": "Registration closed and bpaddle generated. Tournament has started!",
         "frValue": "(missing)"
       },
       {
-        "key": "bracketGeneratedMessage",
-        "enValue": "Bracket generated. Tournament has started!",
+        "key": "bpaddleGeneratedMessage",
+        "enValue": "Bpaddle generated. Tournament has started!",
         "frValue": "(missing)"
       },
       {
@@ -3384,8 +3384,8 @@
         "frValue": "(missing)"
       },
       {
-        "key": "bracketGenerationError",
-        "enValue": "Error occurred while generating tournament bracket.",
+        "key": "bpaddleGenerationError",
+        "enValue": "Error occurred while generating tournament bpaddle.",
         "frValue": "(missing)"
       },
       {
@@ -3463,28 +3463,28 @@
     "keys": [
       {
         "key": "hostLevel",
-        "enValue": "Host LTR: {{level}} ({{gameType}})",
-        "frValue": "Host LTR: {{level}} ({{gameType}})"
+        "enValue": "Host LPR: {{level}} ({{gameType}})",
+        "frValue": "Host LPR: {{level}} ({{gameType}})"
       },
       {
         "key": "partnerLevel",
-        "enValue": "Partner LTR: {{level}} ({{gameType}})",
-        "frValue": "Partner LTR: {{level}} ({{gameType}})"
+        "enValue": "Partner LPR: {{level}} ({{gameType}})",
+        "frValue": "Partner LPR: {{level}} ({{gameType}})"
       },
       {
         "key": "combinedLevel",
-        "enValue": "Combined LTR: {{level}}",
-        "frValue": "Combined LTR: {{level}}"
+        "enValue": "Combined LPR: {{level}}",
+        "frValue": "Combined LPR: {{level}}"
       },
       {
         "key": "hostLevelWithType",
-        "enValue": "Host LTR: {{level}} ({{type}})",
-        "frValue": "Host LTR: {{level}} ({{type}})"
+        "enValue": "Host LPR: {{level}} ({{type}})",
+        "frValue": "Host LPR: {{level}} ({{type}})"
       },
       {
         "key": "partnerLevelWithType",
-        "enValue": "Partner LTR: {{level}} ({{type}})",
-        "frValue": "Partner LTR: {{level}} ({{type}})"
+        "enValue": "Partner LPR: {{level}} ({{type}})",
+        "frValue": "Partner LPR: {{level}} ({{type}})"
       }
     ]
   },
@@ -3504,8 +3504,8 @@
       },
       {
         "key": "invitationMessage",
-        "enValue": "[Lightning Tennis] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}",
-        "frValue": "[Lightning Tennis] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}"
+        "enValue": "[Lightning Pickleball] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}",
+        "frValue": "[Lightning Pickleball] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}"
       },
       {
         "key": "defaultSender",
@@ -4226,9 +4226,9 @@
         "frValue": "Failed to respond to invitation. Please try again."
       },
       {
-        "key": "tennisUserFallback",
-        "enValue": "TennisUser{{id}}",
-        "frValue": "TennisUser{{id}}"
+        "key": "pickleballUserFallback",
+        "enValue": "PickleballUser{{id}}",
+        "frValue": "PickleballUser{{id}}"
       }
     ]
   },
@@ -4516,8 +4516,8 @@
         "frValue": "(missing)"
       },
       {
-        "key": "completeMessageWithBracket",
-        "enValue": "All participants have been assigned seeds.\nYou can now generate the tournament bracket.",
+        "key": "completeMessageWithBpaddle",
+        "enValue": "All participants have been assigned seeds.\nYou can now generate the tournament bpaddle.",
         "frValue": "(missing)"
       }
     ]
@@ -4658,8 +4658,8 @@
     "keys": [
       {
         "key": "beginner",
-        "enValue": "Beginner - New to tennis or learning basic strokes",
-        "frValue": "Beginner - New to tennis or learning basic strokes"
+        "enValue": "Beginner - New to pickleball or learning basic strokes",
+        "frValue": "Beginner - New to pickleball or learning basic strokes"
       },
       {
         "key": "elementary",
@@ -4694,13 +4694,13 @@
       },
       {
         "key": "doublesMatchLevel",
-        "enValue": "* Doubles match level is automatically set from host and partner LTR sum.",
-        "frValue": "* Doubles match level is automatically set from host and partner LTR sum."
+        "enValue": "* Doubles match level is automatically set from host and partner LPR sum.",
+        "frValue": "* Doubles match level is automatically set from host and partner LPR sum."
       },
       {
         "key": "singlesMatchLevel",
-        "enValue": "* Singles match level is automatically set from host LTR. (±0.5 tolerance)",
-        "frValue": "* Singles match level is automatically set from host LTR. (±0.5 tolerance)"
+        "enValue": "* Singles match level is automatically set from host LPR. (±0.5 tolerance)",
+        "frValue": "* Singles match level is automatically set from host LPR. (±0.5 tolerance)"
       }
     ]
   },
@@ -5089,8 +5089,8 @@
       },
       {
         "key": "matchNotificationBody",
-        "enValue": "You have a tennis match scheduled in 30 minutes.",
-        "frValue": "You have a tennis match scheduled in 30 minutes."
+        "enValue": "You have a pickleball match scheduled in 30 minutes.",
+        "frValue": "You have a pickleball match scheduled in 30 minutes."
       }
     ]
   },
@@ -5271,8 +5271,8 @@
       },
       {
         "key": "newRequestBody",
-        "enValue": "{{senderName}} has requested a tennis match with you.",
-        "frValue": "{{senderName}} has requested a tennis match with you."
+        "enValue": "{{senderName}} has requested a pickleball match with you.",
+        "frValue": "{{senderName}} has requested a pickleball match with you."
       }
     ]
   },
@@ -5407,7 +5407,7 @@
     ]
   },
   {
-    "section": "alert.tournamentBracket",
+    "section": "alert.tournamentBpaddle",
     "count": 3,
     "keys": [
       {
@@ -5484,8 +5484,8 @@
         "frValue": "(missing)"
       },
       {
-        "key": "generateBracket",
-        "enValue": "Generating Bracket...",
+        "key": "generateBpaddle",
+        "enValue": "Generating Bpaddle...",
         "frValue": "(missing)"
       }
     ]
@@ -5752,12 +5752,12 @@
         "frValue": "(missing)"
       },
       {
-        "key": "generatingBracket",
-        "enValue": "Generating bracket...",
+        "key": "generatingBpaddle",
+        "enValue": "Generating bpaddle...",
         "frValue": "(missing)"
       },
       {
-        "key": "generatingBracketSubtitle",
+        "key": "generatingBpaddleSubtitle",
         "enValue": "League will start soon",
         "frValue": "(missing)"
       }
@@ -6358,7 +6358,7 @@
       },
       {
         "key": "placeholder",
-        "enValue": "Enter your tennis goals...",
+        "enValue": "Enter your pickleball goals...",
         "frValue": "(missing)"
       }
     ]
@@ -6902,8 +6902,8 @@
       },
       {
         "key": "description",
-        "enValue": "You joined your first tennis club! 🏟️",
-        "frValue": "You joined your first tennis club! 🏟️"
+        "enValue": "You joined your first pickleball club! 🏟️",
+        "frValue": "You joined your first pickleball club! 🏟️"
       }
     ]
   },
@@ -7254,8 +7254,8 @@
       },
       {
         "key": "description",
-        "enValue": "Just started playing tennis",
-        "frValue": "Just started playing tennis"
+        "enValue": "Just started playing pickleball",
+        "frValue": "Just started playing pickleball"
       }
     ]
   },
@@ -7494,8 +7494,8 @@
       },
       {
         "key": "placeholder",
-        "enValue": "e.g., Central Park Tennis Courts",
-        "frValue": "e.g., Central Park Tennis Courts"
+        "enValue": "e.g., Central Park Pickleball Courts",
+        "frValue": "e.g., Central Park Pickleball Courts"
       }
     ]
   },
@@ -8145,12 +8145,12 @@
     "keys": [
       {
         "key": "title",
-        "enValue": "What is LTR?",
+        "enValue": "What is LPR?",
         "frValue": "(missing)"
       },
       {
         "key": "content",
-        "enValue": "LTR (Lightning Tennis Rating) is a proprietary skill assessment system developed exclusively for the Lightning Tennis community. LTR is calculated based on the ELO algorithm applied to all public lightning match results, showing your growth journey in an intuitive scale from 1 to 10. It's an honorable indicator of how much you've grown within our ecosystem.",
+        "enValue": "LPR (Lightning Pickleball Rating) is a proprietary skill assessment system developed exclusively for the Lightning Pickleball community. LPR is calculated based on the ELO algorithm applied to all public lightning match results, showing your growth journey in an intuitive scale from 1 to 10. It's an honorable indicator of how much you've grown within our ecosystem.",
         "frValue": "(missing)"
       }
     ]
@@ -8166,7 +8166,7 @@
       },
       {
         "key": "content",
-        "enValue": "LTR is a unique system distinct from USTA's NTRP. For the convenience of users familiar with NTRP ratings, you can select your skill level in a range similar to NTRP when signing up, but all official levels calculated and displayed within the app are based on LTR.",
+        "enValue": "LPR is a unique system distinct from USTA's NTRP. For the convenience of users familiar with NTRP ratings, you can select your skill level in a range similar to NTRP when signing up, but all official levels calculated and displayed within the app are based on LPR.",
         "frValue": "(missing)"
       }
     ]

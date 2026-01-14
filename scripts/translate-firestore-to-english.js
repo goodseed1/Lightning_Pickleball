@@ -47,7 +47,7 @@ const SPECIFIC_COLLECTION = args.find(arg => arg.startsWith('--collection='))?.s
 
 // 번역할 컬렉션 및 필드 정의
 const TRANSLATION_CONFIG = {
-  tennis_clubs: {
+  pickleball_clubs: {
     fields: ['name', 'description', 'rules'],
     nameField: null,
   },
@@ -336,12 +336,12 @@ async function translateCollection(collectionName, config) {
 async function translateClubChats() {
   console.log(`\n💬 club_chats (서브컬렉션) 번역 중...`);
 
-  const clubsSnapshot = await db.collection('tennis_clubs').get();
+  const clubsSnapshot = await db.collection('pickleball_clubs').get();
   let totalTranslated = 0;
   let totalSkipped = 0;
 
   for (const clubDoc of clubsSnapshot.docs) {
-    const chatsRef = db.collection('tennis_clubs').doc(clubDoc.id).collection('chats');
+    const chatsRef = db.collection('pickleball_clubs').doc(clubDoc.id).collection('chats');
     const chatsSnapshot = await chatsRef.get();
 
     if (chatsSnapshot.empty) continue;

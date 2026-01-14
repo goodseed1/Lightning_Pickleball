@@ -1,14 +1,14 @@
 /**
  * League Service
- * Lightning Tennis 클럽 리그 관리 서비스
+ * Lightning Pickleball 클럽 리그 관리 서비스
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 
 import {
@@ -936,7 +936,7 @@ class LeagueService {
       player2Standing.setsLost += player1Sets;
       player2Standing.setDifference = player2Standing.setsWon - player2Standing.setsLost;
 
-      // 순위 재정렬 (번개 테니스 공식 타이브레이커 규정 v1.0 적용)
+      // 순위 재정렬 (번개 피클볼 공식 타이브레이커 규정 v1.0 적용)
       console.log('🐛 DEBUG: updateStandings - about to call sortStandings');
       console.log('🐛 DEBUG: updateStandings - standings before sort:', standings);
 

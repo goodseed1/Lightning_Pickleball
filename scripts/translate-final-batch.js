@@ -175,7 +175,7 @@ const translations = {
       },
       scheduleTypes: {
         practice: 'Sessione Allenamento',
-        social: 'Tennis Sociale',
+        social: 'Pickleball Sociale',
       },
     },
   },
@@ -191,7 +191,7 @@ const translations = {
     facilities: 'Strutture',
     rules: 'Regole Club',
     loading: 'Caricamento informazioni club...',
-    address_search_title: 'Cerca Indirizzo Campo da Tennis',
+    address_search_title: 'Cerca Indirizzo Campo da Pickleball',
     meeting_modal_title: 'Aggiungi Orario Incontro Regolare',
     day_selection: 'Selezione Giorno',
     meeting_time: 'Orario Incontro',

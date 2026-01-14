@@ -23,7 +23,7 @@ async function findUnknownMemberships() {
     const clubId = data.clubId;
 
     // Check if club exists and has a name
-    const clubDoc = await db.collection('tennis_clubs').doc(clubId).get();
+    const clubDoc = await db.collection('pickleball_clubs').doc(clubId).get();
     const clubData = clubDoc.exists ? clubDoc.data() : null;
     const clubName = clubData?.name || clubData?.profile?.name;
 

@@ -296,7 +296,7 @@ const deTranslations = {
   },
   services: {
     activity: {
-      tennisUserFallback: 'TennisBenutzer{{id}}',
+      pickleballUserFallback: 'PickleballBenutzer{{id}}',
     },
   },
   aiMatching: {
@@ -354,7 +354,7 @@ async function applyTranslations() {
       { path: 'units.km', expected: 'km' },
       { path: 'roles.manager', expected: 'Manager' },
       { path: 'recordScore.tiebreak', expected: 'Tiebreak' },
-      { path: 'services.activity.tennisUserFallback', expected: 'TennisBenutzer{{id}}' },
+      { path: 'services.activity.pickleballUserFallback', expected: 'PickleballBenutzer{{id}}' },
     ];
 
     let allVerified = true;

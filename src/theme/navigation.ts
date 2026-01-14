@@ -1,15 +1,15 @@
 /**
- * Lightning Tennis Navigation Themes
+ * Lightning Pickleball Navigation Themes
  * Project Midnight - Phase 2: Dedicated Navigation Theme System
  *
- * Professional navigation themes with Lightning Tennis branding
+ * Professional navigation themes with Lightning Pickleball branding
  * Optimized for React Navigation with platform-specific styling
  */
 
 import { Theme as NavigationTheme } from '@react-navigation/native';
 import {
-  LightningTennisBrandColors,
-  LightningTennisDarkColors,
+  LightningPickleballBrandColors,
+  LightningPickleballDarkColors,
   LightModeColors,
   DarkModeColors,
   getPlatformLightColors,
@@ -20,112 +20,112 @@ import {
 // ==================== LIGHTNING TENNIS NAVIGATION THEMES ====================
 
 /**
- * Lightning Tennis Light Navigation Theme
- * Professional light theme with Lightning Tennis branding
+ * Lightning Pickleball Light Navigation Theme
+ * Professional light theme with Lightning Pickleball branding
  */
-export const LightningTennisLightNavigationTheme: NavigationTheme = {
+export const LightningPickleballLightNavigationTheme: NavigationTheme = {
   dark: false,
   colors: {
-    // Enhanced Lightning Tennis branding (spread first to allow overrides)
+    // Enhanced Lightning Pickleball branding (spread first to allow overrides)
     ...getPlatformLightColors(),
 
     // Core navigation colors (these override platform colors)
-    primary: LightningTennisBrandColors.primary,
+    primary: LightningPickleballBrandColors.primary,
     background: LightModeColors.background,
     card: LightModeColors.surface,
     text: LightModeColors.onSurface,
     border: LightModeColors.outline,
-    notification: LightningTennisBrandColors.error,
+    notification: LightningPickleballBrandColors.error,
   },
 };
 
 /**
- * Lightning Tennis Dark Navigation Theme
- * Professional dark theme with Lightning Tennis branding optimized for dark mode
+ * Lightning Pickleball Dark Navigation Theme
+ * Professional dark theme with Lightning Pickleball branding optimized for dark mode
  */
-export const LightningTennisDarkNavigationTheme: NavigationTheme = {
+export const LightningPickleballDarkNavigationTheme: NavigationTheme = {
   dark: true,
   colors: {
-    // Enhanced Lightning Tennis dark branding (spread first to allow overrides)
+    // Enhanced Lightning Pickleball dark branding (spread first to allow overrides)
     ...getPlatformDarkColors(),
 
     // Core navigation colors (these override platform colors)
-    primary: LightningTennisDarkColors.primary,
+    primary: LightningPickleballDarkColors.primary,
     background: DarkModeColors.background,
     card: DarkModeColors.surface,
     text: DarkModeColors.onSurface,
     border: DarkModeColors.outline,
-    notification: LightningTennisDarkColors.error,
+    notification: LightningPickleballDarkColors.error,
   },
 };
 
 // ==================== SPECIALIZED NAVIGATION THEMES ====================
 
 /**
- * Lightning Tennis Tournament Navigation Theme (Light)
+ * Lightning Pickleball Tournament Navigation Theme (Light)
  * Special theme for tournament/competition screens
  */
 export const TournamentLightNavigationTheme: NavigationTheme = {
-  ...LightningTennisLightNavigationTheme,
+  ...LightningPickleballLightNavigationTheme,
   colors: {
-    ...LightningTennisLightNavigationTheme.colors,
-    primary: LightningTennisBrandColors.tennis, // Tennis green for tournaments
-    card: withOpacity(LightningTennisBrandColors.tennis, 0.05), // Subtle tennis background
-    border: withOpacity(LightningTennisBrandColors.tennis, 0.2),
+    ...LightningPickleballLightNavigationTheme.colors,
+    primary: LightningPickleballBrandColors.pickleball, // Pickleball green for tournaments
+    card: withOpacity(LightningPickleballBrandColors.pickleball, 0.05), // Subtle pickleball background
+    border: withOpacity(LightningPickleballBrandColors.pickleball, 0.2),
   },
 };
 
 /**
- * Lightning Tennis Tournament Navigation Theme (Dark)
+ * Lightning Pickleball Tournament Navigation Theme (Dark)
  * Special dark theme for tournament/competition screens
  */
 export const TournamentDarkNavigationTheme: NavigationTheme = {
-  ...LightningTennisDarkNavigationTheme,
+  ...LightningPickleballDarkNavigationTheme,
   colors: {
-    ...LightningTennisDarkNavigationTheme.colors,
-    primary: LightningTennisDarkColors.tennis, // Tennis green for tournaments
-    card: withOpacity(LightningTennisDarkColors.tennis, 0.08), // Subtle tennis background
-    border: withOpacity(LightningTennisDarkColors.tennis, 0.3),
+    ...LightningPickleballDarkNavigationTheme.colors,
+    primary: LightningPickleballDarkColors.pickleball, // Pickleball green for tournaments
+    card: withOpacity(LightningPickleballDarkColors.pickleball, 0.08), // Subtle pickleball background
+    border: withOpacity(LightningPickleballDarkColors.pickleball, 0.3),
   },
 };
 
 /**
- * Lightning Tennis Electric Navigation Theme (Light)
+ * Lightning Pickleball Electric Navigation Theme (Light)
  * High-energy theme for matching/lightning features
  */
 export const ElectricLightNavigationTheme: NavigationTheme = {
-  ...LightningTennisLightNavigationTheme,
+  ...LightningPickleballLightNavigationTheme,
   colors: {
-    ...LightningTennisLightNavigationTheme.colors,
-    primary: LightningTennisBrandColors.accent, // Electric cyan
-    card: withOpacity(LightningTennisBrandColors.accent, 0.03),
-    border: withOpacity(LightningTennisBrandColors.accent, 0.2),
-    notification: LightningTennisBrandColors.lightning, // Lightning gold notifications
+    ...LightningPickleballLightNavigationTheme.colors,
+    primary: LightningPickleballBrandColors.accent, // Electric cyan
+    card: withOpacity(LightningPickleballBrandColors.accent, 0.03),
+    border: withOpacity(LightningPickleballBrandColors.accent, 0.2),
+    notification: LightningPickleballBrandColors.lightning, // Lightning gold notifications
   },
 };
 
 /**
- * Lightning Tennis Electric Navigation Theme (Dark)
+ * Lightning Pickleball Electric Navigation Theme (Dark)
  * High-energy dark theme for matching/lightning features
  */
 export const ElectricDarkNavigationTheme: NavigationTheme = {
-  ...LightningTennisDarkNavigationTheme,
+  ...LightningPickleballDarkNavigationTheme,
   colors: {
-    ...LightningTennisDarkNavigationTheme.colors,
-    primary: LightningTennisDarkColors.accent, // Electric cyan
-    card: withOpacity(LightningTennisDarkColors.accent, 0.05),
-    border: withOpacity(LightningTennisDarkColors.accent, 0.3),
-    notification: LightningTennisDarkColors.lightning, // Lightning gold notifications
+    ...LightningPickleballDarkNavigationTheme.colors,
+    primary: LightningPickleballDarkColors.accent, // Electric cyan
+    card: withOpacity(LightningPickleballDarkColors.accent, 0.05),
+    border: withOpacity(LightningPickleballDarkColors.accent, 0.3),
+    notification: LightningPickleballDarkColors.lightning, // Lightning gold notifications
   },
 };
 
 // ==================== NAVIGATION THEME BUILDER FUNCTIONS ====================
 
 /**
- * Get the appropriate Lightning Tennis navigation theme based on mode
+ * Get the appropriate Lightning Pickleball navigation theme based on mode
  */
-export const getLightningTennisNavigationTheme = (isDark: boolean): NavigationTheme => {
-  return isDark ? LightningTennisDarkNavigationTheme : LightningTennisLightNavigationTheme;
+export const getLightningPickleballNavigationTheme = (isDark: boolean): NavigationTheme => {
+  return isDark ? LightningPickleballDarkNavigationTheme : LightningPickleballLightNavigationTheme;
 };
 
 /**
@@ -143,13 +143,13 @@ export const getElectricNavigationTheme = (isDark: boolean): NavigationTheme => 
 };
 
 /**
- * Create a custom navigation theme with Lightning Tennis base styling
+ * Create a custom navigation theme with Lightning Pickleball base styling
  */
 export const createCustomNavigationTheme = (
   isDark: boolean,
   customColors: Partial<NavigationTheme['colors']>
 ): NavigationTheme => {
-  const baseTheme = getLightningTennisNavigationTheme(isDark);
+  const baseTheme = getLightningPickleballNavigationTheme(isDark);
 
   return {
     ...baseTheme,
@@ -166,10 +166,10 @@ export const createCustomNavigationTheme = (
  * Navigation Theme Variants for different app sections
  */
 export const NavigationThemeVariants = {
-  // Standard Lightning Tennis themes
+  // Standard Lightning Pickleball themes
   standard: {
-    light: LightningTennisLightNavigationTheme,
-    dark: LightningTennisDarkNavigationTheme,
+    light: LightningPickleballLightNavigationTheme,
+    dark: LightningPickleballDarkNavigationTheme,
   },
 
   // Tournament/Competition themes
@@ -187,12 +187,12 @@ export const NavigationThemeVariants = {
   // Club-specific themes
   club: {
     light: createCustomNavigationTheme(false, {
-      primary: LightningTennisBrandColors.secondary,
-      border: withOpacity(LightningTennisBrandColors.secondary, 0.2),
+      primary: LightningPickleballBrandColors.secondary,
+      border: withOpacity(LightningPickleballBrandColors.secondary, 0.2),
     }),
     dark: createCustomNavigationTheme(true, {
-      primary: LightningTennisDarkColors.secondary,
-      border: withOpacity(LightningTennisDarkColors.secondary, 0.3),
+      primary: LightningPickleballDarkColors.secondary,
+      border: withOpacity(LightningPickleballDarkColors.secondary, 0.3),
     }),
   },
 } as const;
@@ -237,7 +237,7 @@ export const validateNavigationTheme = (theme: NavigationTheme): boolean => {
 
 // ==================== TYPE EXPORTS ====================
 
-export type LightningTennisNavigationTheme = typeof LightningTennisLightNavigationTheme;
+export type LightningPickleballNavigationTheme = typeof LightningPickleballLightNavigationTheme;
 export type NavigationThemeVariant = keyof typeof NavigationThemeVariants;
 export type NavigationThemeMode = 'light' | 'dark';
 

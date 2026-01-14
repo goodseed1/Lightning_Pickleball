@@ -91,7 +91,7 @@ const exhaustiveMap = {
   'Last meetup': '上次聚会',
 
   // Errors/Messages
-  'Bracket not yet generated': '对阵表尚未生成',
+  'Bpaddle not yet generated': '对阵表尚未生成',
   'Could not load meetup information': '无法加载聚会信息',
   'The meetup information will be updated': '聚会信息将被更新',
   'To proceed with account deletion, type your nickname': '要继续删除账户，请输入您的昵称',
@@ -115,7 +115,7 @@ const exhaustiveMap = {
   '{{nickname}}': '{{nickname}}',
   '{{numbers}}': '{{numbers}}',
   '{{minNtrp}} - {{maxNtrp}}': '{{minNtrp}} - {{maxNtrp}}',
-  'LTR {{minNtrp}} - {{maxNtrp}}': 'LTR {{minNtrp}} - {{maxNtrp}}',
+  'LPR {{minNtrp}} - {{maxNtrp}}': 'LPR {{minNtrp}} - {{maxNtrp}}',
 };
 
 // Deep merge function

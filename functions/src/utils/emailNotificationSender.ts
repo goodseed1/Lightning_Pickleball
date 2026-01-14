@@ -17,8 +17,8 @@ import * as admin from 'firebase-admin';
 import * as sgMail from '@sendgrid/mail';
 
 // Configuration
-const FROM_EMAIL = 'noreply@lightning-tennis.com'; // TODO: Update with verified sender email
-const APP_NAME = 'Lightning Tennis';
+const FROM_EMAIL = 'noreply@lightning-pickleball.com'; // TODO: Update with verified sender email
+const APP_NAME = 'Lightning Pickleball';
 
 // Initialize SendGrid with API key from environment
 const sendgridApiKey = process.env.SENDGRID_API_KEY || '';
@@ -171,7 +171,7 @@ function generateEmailTemplate(
     </div>
     <div class="footer">
       <p>This email was sent by ${APP_NAME}</p>
-      <p>If you have any questions, please contact us at support@lightning-tennis.com</p>
+      <p>If you have any questions, please contact us at support@lightning-pickleball.com</p>
     </div>
   </div>
 </body>
@@ -213,7 +213,7 @@ export async function sendTournamentInvitationEmail(
       '토너먼트 초대',
       body,
       '토너먼트 확인하기',
-      `https://lightning-tennis.com/tournaments/${tournamentId}`
+      `https://lightning-pickleball.com/tournaments/${tournamentId}`
     );
     const text = `${clubName}에서 ${tournamentName} 토너먼트에 초대하셨습니다. 앱에서 확인해주세요!`;
 
@@ -267,7 +267,7 @@ export async function sendTeamInvitationEmail(
       '팀 파트너 초대',
       body,
       '초대 확인하기',
-      `https://lightning-tennis.com/teams/${teamId}`
+      `https://lightning-pickleball.com/teams/${teamId}`
     );
     const text = `${inviterName}님이 ${tournamentName} 토너먼트에서 팀 파트너로 초대하셨습니다. 앱에서 확인해주세요!`;
 
@@ -325,7 +325,7 @@ export async function sendMatchReminderEmail(
       '경기 리마인더',
       body,
       '경기 상세 보기',
-      `https://lightning-tennis.com/matches/${matchId}`
+      `https://lightning-pickleball.com/matches/${matchId}`
     );
     const text = `${opponentName}님과의 경기가 ${matchTime}에 ${location}에서 열립니다. 앱에서 확인해주세요!`;
 
@@ -389,7 +389,7 @@ export async function sendTournamentCompletionEmail(
       '토너먼트 결과',
       body,
       '결과 상세 보기',
-      `https://lightning-tennis.com/tournaments/${tournamentId}`
+      `https://lightning-pickleball.com/tournaments/${tournamentId}`
     );
     const text = `${tournamentName} 토너먼트가 종료되었습니다. 최종 순위: ${placement}, ELO 변동: ${eloChange}`;
 
@@ -439,7 +439,7 @@ export async function sendWeeklySummaryEmail(
     const subject = '⚡ 이번 주 활동 요약';
     const body = `
       <p>안녕하세요, ${userName}님!</p>
-      <p>이번 주 Lightning Tennis 활동을 정리해드립니다:</p>
+      <p>이번 주 Lightning Pickleball 활동을 정리해드립니다:</p>
       <ul>
         <li><strong>경기 수:</strong> ${stats.matchesPlayed}경기</li>
         <li><strong>전적:</strong> ${stats.wins}승 ${stats.losses}패</li>
@@ -453,7 +453,7 @@ export async function sendWeeklySummaryEmail(
       '주간 활동 요약',
       body,
       '내 프로필 보기',
-      'https://lightning-tennis.com/profile'
+      'https://lightning-pickleball.com/profile'
     );
     const text = `이번 주 ${stats.matchesPlayed}경기를 하셨습니다 (${stats.wins}승 ${stats.losses}패). ELO 변동: ${stats.eloChange}`;
 

@@ -1,7 +1,7 @@
 /**
- * 🎾 NTRP → LTR Firestore 마이그레이션 스크립트
+ * 🎾 NTRP → LPR Firestore 마이그레이션 스크립트
  *
- * 이 스크립트는 기존 NTRP 필드를 LTR 필드로 마이그레이션합니다.
+ * 이 스크립트는 기존 NTRP 필드를 LPR 필드로 마이그레이션합니다.
  * - users: ntrpLevel → ltrLevel
  * - lightning_matches/events: minNtrp/maxNtrp → minLtr/maxLtr
  * - partner_invitations: inviterNtrp/combinedNtrp → inviterLtr/combinedLtr
@@ -25,7 +25,7 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-// 🎯 NTRP (1.0-5.5) → LTR (1-10) 변환 함수
+// 🎯 NTRP (1.0-5.5) → LPR (1-10) 변환 함수
 function convertNtrpToLtr(ntrp) {
   if (ntrp === undefined || ntrp === null) return null;
 
@@ -34,7 +34,7 @@ function convertNtrpToLtr(ntrp) {
 
   if (isNaN(numericNtrp)) return 5; // 기본값
 
-  // NTRP → LTR 매핑 테이블
+  // NTRP → LPR 매핑 테이블
   if (numericNtrp <= 1.0) return 1;
   if (numericNtrp <= 1.5) return 2;
   if (numericNtrp <= 2.0) return 3;
@@ -319,7 +319,7 @@ async function main() {
   const isDryRun = process.argv.includes('--dry-run');
 
   console.log('═══════════════════════════════════════════════════════════');
-  console.log('🎾 Lightning Tennis: NTRP → LTR Firestore 마이그레이션');
+  console.log('🎾 Lightning Pickleball: NTRP → LPR Firestore 마이그레이션');
   console.log('═══════════════════════════════════════════════════════════');
 
   if (isDryRun) {

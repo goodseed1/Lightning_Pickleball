@@ -53,7 +53,7 @@ const ContentManagementScreen: React.FC = () => {
   const loadContentStats = async () => {
     try {
       // Get clubs count and recent clubs
-      const clubsSnapshot = await getDocs(collection(db, 'tennis_clubs'));
+      const clubsSnapshot = await getDocs(collection(db, 'pickleball_clubs'));
 
       // 각 클럽의 members 서브컬렉션에서 실제 회원수 카운트
       const clubsData = await Promise.all(
@@ -179,7 +179,7 @@ const ContentManagementScreen: React.FC = () => {
             <List.Item
               title={t('admin.content.matchManagement', '경기 관리')}
               description={t('admin.content.matchDesc', '경기 기록 조회 및 관리')}
-              left={props => <List.Icon {...props} icon='tennis' color='#ff9800' />}
+              left={props => <List.Icon {...props} icon='pickleball' color='#ff9800' />}
               right={props => <List.Icon {...props} icon='chevron-right' />}
               onPress={() => navigation.navigate('MatchManagement')}
             />

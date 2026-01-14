@@ -49,7 +49,7 @@ const COLLECTIONS_TO_WIPE = [
 
   // Club data
   'clubs',
-  'tennis_clubs',
+  'pickleball_clubs',
   'club_events',
   'clubMembers',
   'club_join_requests',
@@ -83,9 +83,9 @@ const COLLECTIONS_TO_WIPE = [
 
   // Community data
   'community_groups',
-  'tennis_courts',
+  'pickleball_courts',
   'coach_lessons',
-  'tennis_services',
+  'pickleball_services',
 
   // Dues data
   'club_dues_settings',

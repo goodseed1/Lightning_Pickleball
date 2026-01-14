@@ -2,7 +2,7 @@
 
 /**
  * Enhanced French Translation Script with Context-Aware Logic
- * Translates remaining untranslated keys in fr.json with tennis-specific vocabulary
+ * Translates remaining untranslated keys in fr.json with pickleball-specific vocabulary
  */
 
 const fs = require('fs');
@@ -15,8 +15,8 @@ const FR_PATH = path.join(__dirname, '../src/locales/fr.json');
 const en = JSON.parse(fs.readFileSync(EN_PATH, 'utf8'));
 const fr = JSON.parse(fs.readFileSync(FR_PATH, 'utf8'));
 
-// Tennis-specific translation logic
-function translateTennisText(text) {
+// Pickleball-specific translation logic
+function translatePickleballText(text) {
   if (!text || typeof text !== 'string') return text;
 
   // Common sentence patterns
@@ -335,7 +335,7 @@ const dictionary = {
   withdrawn: 'retiré',
   withdrawal: 'retrait',
 
-  // Tennis terms
+  // Pickleball terms
   match: 'match',
   matches: 'matchs',
   game: 'jeu',
@@ -414,7 +414,7 @@ const dictionary = {
   seasons: 'saisons',
   round: 'tour',
   rounds: 'tours',
-  bracket: 'grille',
+  bpaddle: 'grille',
   draw: 'tableau',
   seed: 'tête de série',
   seeded: 'tête de série',
@@ -880,7 +880,7 @@ function smartTranslate(text, enText) {
   if (text !== enText) return text;
 
   // Try pattern-based translation
-  const patternResult = translateTennisText(enText);
+  const patternResult = translatePickleballText(enText);
   if (patternResult) {
     // Recursively translate the replaced parts
     return patternResult;

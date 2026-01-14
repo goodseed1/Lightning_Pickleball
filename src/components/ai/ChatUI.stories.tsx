@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 const sampleMessages: ChatMessage[] = [
   {
     id: '1',
-    content: '안녕하세요! Lightning Tennis AI입니다. 🎾 무엇을 도와드릴까요?',
+    content: '안녕하세요! Lightning Pickleball AI입니다. 🎾 무엇을 도와드릴까요?',
     sender: 'ai',
     timestamp: new Date('2024-12-14T14:00:00'),
     language: 'ko',
@@ -31,7 +31,7 @@ const sampleMessages: ChatMessage[] = [
   },
   {
     id: '2',
-    content: '테니스 서브 잘 치는 방법 알려줘',
+    content: '피클볼 서브 잘 치는 방법 알려줘',
     sender: 'user',
     timestamp: new Date('2024-12-14T14:00:30'),
     language: 'ko',
@@ -40,7 +40,7 @@ const sampleMessages: ChatMessage[] = [
   {
     id: '3',
     content:
-      '좋은 서브를 위해서는 토스가 가장 중요합니다. 공을 일정한 높이로 던지는 연습을 먼저 해보세요!\n\n추가로:\n1. 토스는 어깨 약간 앞쪽\n2. 라켓을 완전히 펼 수 있는 높이\n3. 천천히 스윙하며 연습',
+      '좋은 서브를 위해서는 토스가 가장 중요합니다. 공을 일정한 높이로 던지는 연습을 먼저 해보세요!\n\n추가로:\n1. 토스는 어깨 약간 앞쪽\n2. 패들을 완전히 펼 수 있는 높이\n3. 천천히 스윙하며 연습',
     sender: 'ai',
     timestamp: new Date('2024-12-14T14:00:45'),
     language: 'ko',
@@ -59,7 +59,7 @@ const sampleQuickReplies: QuickReplyOption[] = [
   {
     id: 'q2',
     label: '서브 팁',
-    icon: 'tennis',
+    icon: 'pickleball',
     onPress: () => console.log('Serve tips clicked'),
   },
   {
@@ -139,7 +139,7 @@ export const LongConversation: Story = {
     messages: [
       {
         id: '1',
-        content: '안녕하세요! Lightning Tennis AI입니다. 🎾 무엇을 도와드릴까요?',
+        content: '안녕하세요! Lightning Pickleball AI입니다. 🎾 무엇을 도와드릴까요?',
         sender: 'ai',
         timestamp: new Date('2024-12-14T13:50:00'),
         language: 'ko',
@@ -147,7 +147,7 @@ export const LongConversation: Story = {
       },
       {
         id: '2',
-        content: '테니스 초보자인데 시작하는 방법 알려줘',
+        content: '피클볼 초보자인데 시작하는 방법 알려줘',
         sender: 'user',
         timestamp: new Date('2024-12-14T13:50:30'),
         language: 'ko',
@@ -156,7 +156,7 @@ export const LongConversation: Story = {
       {
         id: '3',
         content:
-          '테니스를 시작하신다니 반갑습니다! 먼저 기본적인 그립과 스탠스를 익히는 것이 중요합니다.',
+          '피클볼를 시작하신다니 반갑습니다! 먼저 기본적인 그립과 스탠스를 익히는 것이 중요합니다.',
         sender: 'ai',
         timestamp: new Date('2024-12-14T13:50:45'),
         language: 'ko',
@@ -173,7 +173,7 @@ export const LongConversation: Story = {
       {
         id: '5',
         content:
-          '가장 기본적인 그립은 이스턴 그립입니다:\n\n1. 라켓을 땅에 세워놓고\n2. 악수하듯이 잡으세요\n3. 손바닥이 라켓 면과 같은 방향',
+          '가장 기본적인 그립은 이스턴 그립입니다:\n\n1. 패들을 땅에 세워놓고\n2. 악수하듯이 잡으세요\n3. 손바닥이 패들 면과 같은 방향',
         sender: 'ai',
         timestamp: new Date('2024-12-14T13:51:15'),
         language: 'ko',
@@ -190,7 +190,7 @@ export const LongConversation: Story = {
       {
         id: '7',
         content:
-          '서브는 토스가 가장 중요합니다:\n\n1. 토스는 어깨 약간 앞쪽\n2. 라켓을 완전히 펼 수 있는 높이\n3. 천천히 스윙하며 연습\n4. 일정한 리듬 유지',
+          '서브는 토스가 가장 중요합니다:\n\n1. 토스는 어깨 약간 앞쪽\n2. 패들을 완전히 펼 수 있는 높이\n3. 천천히 스윙하며 연습\n4. 일정한 리듬 유지',
         sender: 'ai',
         timestamp: new Date('2024-12-14T13:52:15'),
         language: 'ko',
@@ -207,7 +207,7 @@ export const LongConversation: Story = {
       {
         id: '9',
         content:
-          '백핸드는 두 가지 방법이 있습니다:\n\n한손 백핸드:\n- 그립을 바꿔서 치는 방식\n- 리치가 길고 파워풀\n\n양손 백핸드:\n- 양손으로 라켓을 잡는 방식\n- 안정적이고 초보자에게 추천',
+          '백핸드는 두 가지 방법이 있습니다:\n\n한손 백핸드:\n- 그립을 바꿔서 치는 방식\n- 리치가 길고 파워풀\n\n양손 백핸드:\n- 양손으로 패들을 잡는 방식\n- 안정적이고 초보자에게 추천',
         sender: 'ai',
         timestamp: new Date('2024-12-14T13:53:20'),
         language: 'ko',
@@ -226,7 +226,7 @@ export const EnglishConversation: Story = {
     messages: [
       {
         id: '1',
-        content: "Hello! I'm Lightning Tennis AI. 🎾 How can I help you today?",
+        content: "Hello! I'm Lightning Pickleball AI. 🎾 How can I help you today?",
         sender: 'ai',
         timestamp: new Date('2024-12-14T14:00:00'),
         language: 'en',
@@ -234,7 +234,7 @@ export const EnglishConversation: Story = {
       },
       {
         id: '2',
-        content: 'How can I improve my tennis serve?',
+        content: 'How can I improve my pickleball serve?',
         sender: 'user',
         timestamp: new Date('2024-12-14T14:00:30'),
         language: 'en',
@@ -243,7 +243,7 @@ export const EnglishConversation: Story = {
       {
         id: '3',
         content:
-          'The most important aspect of a good serve is the toss. Practice throwing the ball at a consistent height first!\n\nAdditionally:\n1. Toss slightly in front of your shoulder\n2. At a height where you can fully extend your racket\n3. Practice with a slow swing',
+          'The most important aspect of a good serve is the toss. Practice throwing the ball at a consistent height first!\n\nAdditionally:\n1. Toss slightly in front of your shoulder\n2. At a height where you can fully extend your paddle\n3. Practice with a slow swing',
         sender: 'ai',
         timestamp: new Date('2024-12-14T14:00:45'),
         language: 'en',
@@ -262,7 +262,7 @@ export const EnglishConversation: Story = {
       {
         id: 'q2',
         label: 'Serve Tips',
-        icon: 'tennis',
+        icon: 'pickleball',
         onPress: () => console.log('Serve'),
       },
       {

@@ -718,7 +718,7 @@ const CreateMeetupBottomSheet: React.FC<CreateMeetupBottomSheetProps> = ({
               {/* Court Count */}
               <View style={styles.inputRow}>
                 <View style={styles.inputLabel}>
-                  <Ionicons name='tennisball-outline' size={22} color={theme?.colors.primary} />
+                  <Ionicons name='pickleballball-outline' size={22} color={theme?.colors.primary} />
                   <Text style={styles.labelText}>{t('createMeetupBottomSheet.courts')}</Text>
                 </View>
                 <View style={styles.counterContainer}>

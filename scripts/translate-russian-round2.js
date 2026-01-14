@@ -575,7 +575,7 @@ const translations = {
       gender: 'Пол',
       location: 'Местоположение',
     },
-    tennis: {
+    pickleball: {
       level: 'Уровень',
       rating: 'Рейтинг',
       experience: 'Опыт',

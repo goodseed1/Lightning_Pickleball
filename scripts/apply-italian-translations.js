@@ -63,7 +63,7 @@ const italianTranslations = {
     badges: {
       first_club_join: {
         name: 'Primo Membro del Club',
-        description: 'Hai aderito al tuo primo club di tennis! 🏟️',
+        description: 'Hai aderito al tuo primo club di pickleball! 🏟️',
       },
       streak_5: {
         name: 'Serie di 5 Vittorie',

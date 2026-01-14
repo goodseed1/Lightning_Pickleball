@@ -13,7 +13,7 @@ const translations = {
       partner: 'Partner',
     },
     autoNtrp: {
-      partnerLevelWithType: 'LTR Partner: {{level}} ({{type}})',
+      partnerLevelWithType: 'LPR Partner: {{level}} ({{type}})',
     },
     toggleDescriptions: {
       autoApprovalDetailed:

@@ -28,7 +28,7 @@ const TrophyDisplay: React.FC<TrophyDisplayProps> = ({ trophy }) => {
       }
 
       try {
-        const clubDoc = await getDoc(doc(db, 'tennis_clubs', trophy.clubId));
+        const clubDoc = await getDoc(doc(db, 'pickleball_clubs', trophy.clubId));
         if (clubDoc.exists()) {
           const clubData = clubDoc.data();
           const clubName = clubData.profile?.name || clubData.name || 'Unknown Club';

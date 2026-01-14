@@ -1,6 +1,6 @@
 /**
- * Tennis Match System - TypeScript Type Definitions
- * 테니스 경기 점수 기록 및 관리 시스템 타입 정의
+ * Pickleball Match System - TypeScript Type Definitions
+ * 피클볼 경기 점수 기록 및 관리 시스템 타입 정의
  */
 
 import { Timestamp } from 'firebase/firestore';
@@ -23,8 +23,8 @@ export type ScoreStatus = 'pending' | 'submitted' | 'confirmed' | 'disputed' | '
 // ============ CORE INTERFACES ============
 
 /**
- * Tennis Set Score Structure
- * 테니스 세트 점수 구조
+ * Pickleball Set Score Structure
+ * 피클볼 세트 점수 구조
  */
 export interface SetScore {
   player1Games: number; // 게임 수 (0-7)
@@ -66,7 +66,7 @@ export interface Match {
   format: MatchFormat;
 
   // ⭐ 경기 종류 (번개 매치, 리그, 토너먼트용)
-  eventType?: import('./league').TennisEventType;
+  eventType?: import('./league').PickleballEventType;
 
   // 참가자 정보
   player1: MatchParticipant;
@@ -165,7 +165,7 @@ export interface PlayerMatchStats {
 
   // ⭐ 경기 종류별 통계 (번개 매치용)
   eventTypeStats?: {
-    [K in import('./league').TennisEventType]?: {
+    [K in import('./league').PickleballEventType]?: {
       matches: number;
       wins: number;
       losses: number;
@@ -450,13 +450,13 @@ export const calculateMatchWinner = (sets: SetScore[]): 'player1' | 'player2' | 
 };
 
 /**
- * Validate tennis score
- * 테니스 점수 유효성 검사
+ * Validate pickleball score
+ * 피클볼 점수 유효성 검사
  * @param sets - 세트 점수 배열
  * @param gamesPerSet - 세트당 게임 수 (일반 6게임, 단축 4게임)
  * @param t - Translation function (optional, defaults to Korean hardcoded messages for backward compatibility)
  */
-export const validateTennisScore = (
+export const validatePickleballScore = (
   sets: SetScore[],
   gamesPerSet: number = 6, // ⚡ [THOR] 단축 세트 지원: 일반 6게임 / 단축 4게임
   t?: (key: string, params?: Record<string, string | number>) => string
@@ -634,10 +634,10 @@ export type GameMatchType = 'singles' | 'doubles' | 'mixed_doubles';
  * Partner Invitation for Doubles Matches
  * 복식 매치 파트너 초대 정보
  *
- * 📝 LTR System Migration
- * UI 표시: "LTR" (Lightning Tennis Rating)
+ * 📝 LPR System Migration
+ * UI 표시: "LPR" (Lightning Pickleball Rating)
  * 코드/DB: "ltr" (아래 필드명들)
- * Migration complete: NTRP → LTR
+ * Migration complete: NTRP → LPR
  */
 export interface PartnerInvitation {
   id: string;
@@ -646,11 +646,11 @@ export interface PartnerInvitation {
   gameType: 'mens_doubles' | 'womens_doubles' | 'mixed_doubles';
   inviterId: string;
   inviterName: string;
-  inviterLtr?: number; // 초대자(호스트) LTR 레벨
+  inviterLtr?: number; // 초대자(호스트) LPR 레벨
   invitedUserId: string;
   invitedUserName: string;
-  invitedUserLtr?: number; // 초대받은 사람 LTR 레벨
-  combinedLtr?: number; // 두 사람의 LTR 합계
+  invitedUserLtr?: number; // 초대받은 사람 LPR 레벨
+  combinedLtr?: number; // 두 사람의 LPR 합계
   status: 'pending' | 'accepted' | 'rejected';
   createdAt: Timestamp; // Firestore Timestamp
   expiresAt: Timestamp | Date; // Firestore Timestamp (createdAt + 24 hours)

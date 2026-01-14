@@ -2,13 +2,13 @@
  * 테스트용 번개매치 생성 유틸리티
  * 매치 결과 표시 시스템을 테스트하기 위한 새로운 번개매치들을 생성합니다
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
@@ -24,7 +24,7 @@ export async function createTestMatch1() {
     const eventData = {
       title: '번개매치 테스트1 (호스트 승리)',
       description: '매치 결과 표시 시스템 테스트용 - 호스트가 승리하는 케이스',
-      location: '테니스 코트 A',
+      location: '피클볼 코트 A',
       // Schedule for tomorrow to make it upcoming
       eventDate: new Date(Date.now() + 24 * 60 * 60 * 1000),
       startTime: new Date(Date.now() + 24 * 60 * 60 * 1000 + 2 * 60 * 60 * 1000), // Tomorrow +2 hours
@@ -72,7 +72,7 @@ export async function createTestMatch2() {
     const eventData = {
       title: '번개매치 테스트2 (신청자 승리)',
       description: '매치 결과 표시 시스템 테스트용 - 신청자가 승리하는 케이스',
-      location: '테니스 코트 B',
+      location: '피클볼 코트 B',
       // Schedule for day after tomorrow
       eventDate: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000),
       startTime: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000 + 3 * 60 * 60 * 1000), // Day after tomorrow +3 hours

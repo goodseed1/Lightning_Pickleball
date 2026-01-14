@@ -1,6 +1,6 @@
 # 📧 Email Notification System Setup Guide
 
-This guide explains how to configure and use the Lightning Tennis email notification system.
+This guide explains how to configure and use the Lightning Pickleball email notification system.
 
 ## 📋 Overview
 
@@ -23,7 +23,7 @@ The email notification system uses **SendGrid** to send professional HTML emails
 2. Navigate to **Settings > API Keys**
 
 3. Click **Create API Key**
-   - Name: `Lightning Tennis Functions`
+   - Name: `Lightning Pickleball Functions`
    - Permissions: **Full Access** or **Mail Send** only
 
 4. Copy the API key (you'll only see it once!)
@@ -34,16 +34,16 @@ The email notification system uses **SendGrid** to send professional HTML emails
 
 2. Choose one option:
    - **Domain Authentication** (recommended for production)
-     - Verify `lightning-tennis.com` domain
+     - Verify `lightning-pickleball.com` domain
      - Follow DNS setup instructions
 
    - **Single Sender Verification** (quick start)
-     - Add sender email (e.g., `noreply@lightning-tennis.com`)
+     - Add sender email (e.g., `noreply@lightning-pickleball.com`)
      - Verify via email confirmation
 
 3. Update `FROM_EMAIL` in `emailNotificationSender.ts`:
    ```typescript
-   const FROM_EMAIL = 'noreply@lightning-tennis.com'; // Your verified email
+   const FROM_EMAIL = 'noreply@lightning-pickleball.com'; // Your verified email
    ```
 
 ### Step 3: Configure Firebase Functions
@@ -84,7 +84,7 @@ const result = await sendTournamentInvitationEmail(
   'John Doe', // userName
   'Summer Championship', // tournamentName
   'tour123', // tournamentId
-  'Seoul Tennis Club' // clubName
+  'Seoul Pickleball Club' // clubName
 );
 
 if (result.success) {
@@ -118,7 +118,7 @@ await sendMatchReminderEmail(
   'John Doe', // userName
   'Jane Smith', // opponentName
   '2025-11-15 14:00', // matchTime
-  'Seoul Tennis Club Court 1', // location
+  'Seoul Pickleball Club Court 1', // location
   'match123' // matchId
 );
 ```
@@ -223,7 +223,7 @@ firebase functions:log --tail
 
 The email template uses a clean, responsive design with:
 
-- Gradient header with Lightning Tennis branding
+- Gradient header with Lightning Pickleball branding
 - Clear content sections
 - Call-to-action buttons
 - Mobile-responsive layout
@@ -233,7 +233,7 @@ To customize the template, edit `generateEmailTemplate()` in `emailNotificationS
 ### Template Structure
 
 ```html
-- Header (purple gradient with ⚡ Lightning Tennis) - Content Section - Title (H2) - Body (HTML
+- Header (purple gradient with ⚡ Lightning Pickleball) - Content Section - Title (H2) - Body (HTML
 content) - CTA Button (optional) - Footer - Contact information - Support email
 ```
 
@@ -311,7 +311,7 @@ For issues or questions:
 
 - **SendGrid Docs**: https://docs.sendgrid.com/
 - **Firebase Functions**: https://firebase.google.com/docs/functions
-- **Lightning Tennis Team**: support@lightning-tennis.com
+- **Lightning Pickleball Team**: support@lightning-pickleball.com
 
 ---
 

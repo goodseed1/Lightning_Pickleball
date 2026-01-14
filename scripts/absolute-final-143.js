@@ -39,7 +39,7 @@ const absoluteFinal143 = {
       noParticipantsDescription: 'As candidaturas aparecerão aqui em tempo real',
     },
     loading: {
-      generatingBracket: 'Gerando chave...',
+      generatingBpaddle: 'Gerando chave...',
     },
     playoffs: {
       format: 'Formato:',

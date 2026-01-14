@@ -666,12 +666,12 @@ class MeetupService {
           clubId: 'mock-club-1',
           status: 'pending',
           dateTime: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000),
-          title: 'Weekly Tennis Meetup',
-          description: 'Regular weekly tennis meetup for club members',
+          title: 'Weekly Pickleball Meetup',
+          description: 'Regular weekly pickleball meetup for club members',
           location: {
             type: 'home',
             name: 'Club Home Courts',
-            address: '1234 Tennis Drive, Atlanta, GA 30309',
+            address: '1234 Pickleball Drive, Atlanta, GA 30309',
           },
           courtDetails: {
             availableCourts: 4,
@@ -807,7 +807,7 @@ class MeetupService {
           location: {
             type: 'home',
             name: 'Club Home Courts',
-            address: '1234 Tennis Drive, Atlanta, GA 30309',
+            address: '1234 Pickleball Drive, Atlanta, GA 30309',
           },
           courtDetails: {
             availableCourts: 3,
@@ -1011,8 +1011,8 @@ class MeetupService {
       dateTime: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000), // 2 days from now
       location: {
         type: 'home',
-        name: 'Atlanta Tennis Center',
-        address: '1234 Tennis Ave, Atlanta, GA 30309',
+        name: 'Atlanta Pickleball Center',
+        address: '1234 Pickleball Ave, Atlanta, GA 30309',
       },
       courtDetails: {
         availableCourts: 4,

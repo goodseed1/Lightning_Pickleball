@@ -1,6 +1,6 @@
 # 🏹 [Hawkeye] Cloud Functions Testing Guide
 
-This directory contains the test infrastructure for Lightning Tennis Cloud Functions.
+This directory contains the test infrastructure for Lightning Pickleball Cloud Functions.
 
 ## 📋 Quick Start
 

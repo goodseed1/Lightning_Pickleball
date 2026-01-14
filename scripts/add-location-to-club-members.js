@@ -18,11 +18,11 @@ const DULUTH_LOCATION = {
 };
 
 async function addLocationToClubMembers() {
-  console.log('📍 Lightning Tennis Club 회원들에게 위치 정보 추가\n');
+  console.log('📍 Lightning Pickleball Club 회원들에게 위치 정보 추가\n');
   console.log('🎯 위치: Duluth, GA (34.0029, -84.1446)\n');
   console.log('='.repeat(80));
 
-  const clubId = 'WsetxkWODywjt0BBcqrs'; // Lightning Tennis Club
+  const clubId = 'WsetxkWODywjt0BBcqrs'; // Lightning Pickleball Club
 
   // 1. 클럽 멤버십 조회
   const membershipsQuery = await db.collection('clubMembers').where('clubId', '==', clubId).get();

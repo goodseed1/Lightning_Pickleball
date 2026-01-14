@@ -217,7 +217,7 @@ const russianTranslations = {
     },
     signup: {
       title: 'Создать аккаунт',
-      subtitle: 'Присоединяйтесь к Lightning Tennis',
+      subtitle: 'Присоединяйтесь к Lightning Pickleball',
       namePlaceholder: 'Введите ваше имя',
       confirmPasswordPlaceholder: 'Подтвердите пароль',
       termsAgreement: 'Я согласен с',
@@ -413,7 +413,7 @@ const russianTranslations = {
     editProfile: 'Редактировать профиль',
     viewProfile: 'Просмотр профиля',
     personalInfo: 'Личная информация',
-    tennisInfo: 'Теннисная информация',
+    pickleballInfo: 'Теннисная информация',
     preferences: 'Предпочтения',
     privacy: 'Приватность',
     firstName: 'Имя',
@@ -562,7 +562,7 @@ const russianTranslations = {
       selectLanguage: 'Выберите язык',
     },
     aboutApp: {
-      title: 'О Lightning Tennis',
+      title: 'О Lightning Pickleball',
       version: 'Версия',
       build: 'Сборка',
       termsOfService: 'Условия использования',

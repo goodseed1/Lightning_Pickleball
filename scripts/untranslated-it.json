@@ -225,7 +225,7 @@
   },
   {
     "key": "editProfile.goals.placeholder",
-    "enValue": "Enter your tennis goals..."
+    "enValue": "Enter your pickleball goals..."
   },
   {
     "key": "editProfile.activityTime.lunch",
@@ -449,15 +449,15 @@
   },
   {
     "key": "clubTournamentManagement.management.closeRegistrationDescription",
-    "enValue": "Close registration and prepare to generate tournament bracket"
+    "enValue": "Close registration and prepare to generate tournament bpaddle"
   },
   {
     "key": "clubTournamentManagement.management.evenParticipantsRequired",
     "enValue": "Doubles requires even number of participants (current: {{count}})"
   },
   {
-    "key": "clubTournamentManagement.management.generateBracketInstructions",
-    "enValue": "Generate bracket using {{method}} seeding and start the tournament"
+    "key": "clubTournamentManagement.management.generateBpaddleInstructions",
+    "enValue": "Generate bpaddle using {{method}} seeding and start the tournament"
   },
   {
     "key": "clubTournamentManagement.management.minimumTeamsRequired",
@@ -473,11 +473,11 @@
   },
   {
     "key": "clubTournamentManagement.management.manualSeedingInstructions",
-    "enValue": "Generate bracket using assigned seeds and start the tournament"
+    "enValue": "Generate bpaddle using assigned seeds and start the tournament"
   },
   {
     "key": "clubTournamentManagement.management.autoSeedingInstructions",
-    "enValue": "Generate tournament bracket and start the competition"
+    "enValue": "Generate tournament bpaddle and start the competition"
   },
   {
     "key": "clubTournamentManagement.common.confirm",
@@ -729,15 +729,15 @@
   },
   {
     "key": "createEvent.autoNtrp.partnerLevelWithType",
-    "enValue": "Partner LTR: {{level}} ({{type}})"
+    "enValue": "Partner LPR: {{level}} ({{type}})"
   },
   {
     "key": "createEvent.helperText.doublesMatchLevel",
-    "enValue": "* Doubles match level is automatically set from host and partner LTR sum."
+    "enValue": "* Doubles match level is automatically set from host and partner LPR sum."
   },
   {
     "key": "createEvent.helperText.singlesMatchLevel",
-    "enValue": "* Singles match level is automatically set from host LTR. (±0.5 tolerance)"
+    "enValue": "* Singles match level is automatically set from host LPR. (±0.5 tolerance)"
   },
   {
     "key": "createEvent.toggleDescriptions.autoApproval",
@@ -1097,7 +1097,7 @@
   },
   {
     "key": "createMeetup.location.searchHelper",
-    "enValue": "Tap to search for a tennis court."
+    "enValue": "Tap to search for a pickleball court."
   },
   {
     "key": "createMeetup.court.courtNumbersPlaceholder",
@@ -1677,7 +1677,7 @@
   },
   {
     "key": "aiChat.quickPrompts.rulesHelp",
-    "enValue": "Explain basic tennis rules"
+    "enValue": "Explain basic pickleball rules"
   },
   {
     "key": "aiChat.quickPrompts.techniqueTips",
@@ -1689,7 +1689,7 @@
   },
   {
     "key": "aiChat.quickPrompts.equipmentHelp",
-    "enValue": "Recommend tennis equipment for my skill level"
+    "enValue": "Recommend pickleball equipment for my skill level"
   },
   {
     "key": "aiChat.adminResponse",
@@ -1885,7 +1885,7 @@
   },
   {
     "key": "badgeGallery.badges.first_club_join.description",
-    "enValue": "You joined your first tennis club! 🏟️"
+    "enValue": "You joined your first pickleball club! 🏟️"
   },
   {
     "key": "badgeGallery.badges.streak_5.description",
@@ -2140,8 +2140,8 @@
     "enValue": "Applications will appear here in real-time"
   },
   {
-    "key": "leagueDetail.loading.generatingBracket",
-    "enValue": "Generating bracket..."
+    "key": "leagueDetail.loading.generatingBpaddle",
+    "enValue": "Generating bpaddle..."
   },
   {
     "key": "leagueDetail.standings.thirdPlace",
@@ -2177,7 +2177,7 @@
   },
   {
     "key": "leagueDetail.playoffs.tapHint",
-    "enValue": "Tap to view bracket"
+    "enValue": "Tap to view bpaddle"
   },
   {
     "key": "leagueDetail.playoffs.seasonComplete",
@@ -2357,7 +2357,7 @@
   },
   {
     "key": "ntrpSelector.levels.beginner.description",
-    "enValue": "Just started playing tennis"
+    "enValue": "Just started playing pickleball"
   },
   {
     "key": "ntrpSelector.levels.intermediate.description",
@@ -2489,7 +2489,7 @@
   },
   {
     "key": "clubOverviewScreen.emptyStateAdminDescription",
-    "enValue": "No club activities yet. Let's enjoy tennis with your members!"
+    "enValue": "No club activities yet. Let's enjoy pickleball with your members!"
   },
   {
     "key": "clubOverviewScreen.emptyStateAdminAction3",
@@ -2517,7 +2517,7 @@
   },
   {
     "key": "clubOverviewScreen.emptyStateGuestDescription",
-    "enValue": "Join this club to enjoy tennis with members."
+    "enValue": "Join this club to enjoy pickleball with members."
   },
   {
     "key": "clubOverviewScreen.emptyStateGuestAction2",
@@ -2533,7 +2533,7 @@
   },
   {
     "key": "clubOverviewScreen.aiHelperSubtext",
-    "enValue": "Ask questions about tennis or how to use the app!"
+    "enValue": "Ask questions about pickleball or how to use the app!"
   },
   {
     "key": "types.match.validation.tiebreak",
@@ -3513,7 +3513,7 @@
   },
   {
     "key": "utils.ltr.whatIsLtr.title",
-    "enValue": "What is LTR?"
+    "enValue": "What is LPR?"
   },
   {
     "key": "utils.ltr.relationToNtrp.title",
@@ -3521,7 +3521,7 @@
   },
   {
     "key": "utils.ltr.relationToNtrp.content",
-    "enValue": "LTR is a unique system distinct from USTA's NTRP. For the convenience of users familiar with NTRP ratings, you can select your skill level in a range similar to NTRP when signing up, but all official levels calculated and displayed within the app are based on LTR."
+    "enValue": "LPR is a unique system distinct from USTA's NTRP. For the convenience of users familiar with NTRP ratings, you can select your skill level in a range similar to NTRP when signing up, but all official levels calculated and displayed within the app are based on LPR."
   },
   {
     "key": "feedCard.feedTextError",

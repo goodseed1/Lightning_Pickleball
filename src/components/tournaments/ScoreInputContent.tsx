@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Button, TextInput as PaperTextInput, RadioButton } from 'react-native-paper';
-import { SetScore, ScoreInputForm, Match, validateTennisScore } from '../../types/match';
+import { SetScore, ScoreInputForm, Match, validatePickleballScore } from '../../types/match';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../hooks/useTheme';
 
@@ -60,9 +60,9 @@ const ScoreInputContent: React.FC<ScoreInputContentProps> = ({
   const [notes, setNotes] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Tennis score validation function (adapted from league system)
+  // Pickleball score validation function (adapted from league system)
   // ⚡ [THOR] 단축 세트 지원: gamesPerSet 기반 동적 검증
-  const isValidTennisScore = (score1: number, score2: number): boolean => {
+  const isValidPickleballScore = (score1: number, score2: number): boolean => {
     const maxScore = Math.max(score1, score2);
     const minScore = Math.min(score1, score2);
 
@@ -265,13 +265,13 @@ const ScoreInputContent: React.FC<ScoreInputContentProps> = ({
       return;
     }
 
-    // 상대방 점수와 함께 테니스 규칙 검증
+    // 상대방 점수와 함께 피클볼 규칙 검증
     const otherPlayer = player === 'player1' ? 'player2' : 'player1';
     const otherPlayerValue = newSets[setIndex][otherPlayer];
     if (otherPlayerValue.trim()) {
       const otherNumValue = parseInt(otherPlayerValue, 10);
-      if (!isNaN(otherNumValue) && !isValidTennisScore(numValue, otherNumValue)) {
-        Alert.alert(t('scoreInput.invalidScore'), t('scoreInput.invalidTennisScore'));
+      if (!isNaN(otherNumValue) && !isValidPickleballScore(numValue, otherNumValue)) {
+        Alert.alert(t('scoreInput.invalidScore'), t('scoreInput.invalidPickleballScore'));
         return;
       }
     }
@@ -350,7 +350,7 @@ const ScoreInputContent: React.FC<ScoreInputContentProps> = ({
 
       // 🟢 [LOW] 부전승 시 점수 검증 스킵
       if (!walkover) {
-        const validationResult = validateTennisScore(setsForValidation, gamesPerSet);
+        const validationResult = validatePickleballScore(setsForValidation, gamesPerSet);
         if (!validationResult.isValid) {
           const errorMessage =
             validationResult.errors.length > 0
@@ -720,7 +720,7 @@ const ScoreInputContent: React.FC<ScoreInputContentProps> = ({
                           </Text>
                         )}
                         <View style={styles.tiebreakInputWrapper}>
-                          <Text style={[styles.tiebreakBracket, { color: theme.colors.primary }]}>
+                          <Text style={[styles.tiebreakBpaddle, { color: theme.colors.primary }]}>
                             (
                           </Text>
                           <TextInput
@@ -739,7 +739,7 @@ const ScoreInputContent: React.FC<ScoreInputContentProps> = ({
                             placeholderTextColor={theme.colors.onSurfaceVariant}
                             selectTextOnFocus={true}
                           />
-                          <Text style={[styles.tiebreakBracket, { color: theme.colors.primary }]}>
+                          <Text style={[styles.tiebreakBpaddle, { color: theme.colors.primary }]}>
                             )
                           </Text>
                         </View>
@@ -786,7 +786,7 @@ const ScoreInputContent: React.FC<ScoreInputContentProps> = ({
                           </Text>
                         )}
                         <View style={styles.tiebreakInputWrapper}>
-                          <Text style={[styles.tiebreakBracket, { color: theme.colors.primary }]}>
+                          <Text style={[styles.tiebreakBpaddle, { color: theme.colors.primary }]}>
                             (
                           </Text>
                           <TextInput
@@ -805,7 +805,7 @@ const ScoreInputContent: React.FC<ScoreInputContentProps> = ({
                             placeholderTextColor={theme.colors.onSurfaceVariant}
                             selectTextOnFocus={true}
                           />
-                          <Text style={[styles.tiebreakBracket, { color: theme.colors.primary }]}>
+                          <Text style={[styles.tiebreakBpaddle, { color: theme.colors.primary }]}>
                             )
                           </Text>
                         </View>
@@ -1221,7 +1221,7 @@ const createStyles = (theme: {
       flexDirection: 'row',
       alignItems: 'center',
     },
-    tiebreakBracket: {
+    tiebreakBpaddle: {
       fontSize: 18,
       fontWeight: 'bold',
       marginHorizontal: 2,

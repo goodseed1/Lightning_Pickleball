@@ -45,7 +45,7 @@ Translation style:
 - Professional but friendly tone
 - Preserve {{placeholders}}
 - Keep \n line breaks
-- Don't translate "Lightning Tennis" brand name
+- Don't translate "Lightning Pickleball" brand name
 
 ### Step 3: Create and run script
 
@@ -95,7 +95,7 @@ node scripts/translate-top10-sections.js
 - [ ] {{placeholders}} preserved
 - [ ] File saved with proper formatting
 
-## Tennis Terminology Reference
+## Pickleball Terminology Reference
 
 - Match → 比赛
 - Tournament → 锦标赛
@@ -105,7 +105,7 @@ node scripts/translate-top10-sections.js
 - Doubles → 双打
 - Court → 球场
 - Seeding → 排位
-- Bracket → 对阵表
+- Bpaddle → 对阵表
 - Championship → 冠军赛
 - Round → 轮次
 - Participant → 参与者
@@ -121,4 +121,4 @@ node scripts/translate-top10-sections.js
 
 ## Work Location
 
-`/Volumes/DevSSD/development/Projects/lightning-tennis-react/lightning-tennis-simple/`
+`/Volumes/DevSSD/development/Projects/lightning-pickleball-react/lightning-pickleball-simple/`

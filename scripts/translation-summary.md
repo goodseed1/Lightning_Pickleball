@@ -59,7 +59,7 @@ Completed French translations for sections where fr===en values existed.
 The following 3 strings were flagged as fr===en but are actually correct:
 
 1. **"Clubs"** - Correct in French (same spelling)
-   - Example: "des clubs de tennis" (tennis clubs)
+   - Example: "des clubs de pickleball" (pickleball clubs)
 
 2. **"Services"** - Correct in French (same spelling)
    - Example: "services professionnels" (professional services)

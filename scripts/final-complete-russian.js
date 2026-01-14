@@ -65,7 +65,7 @@ const translations = {
   Saving: 'Сохранение',
   Sending: 'Отправка',
 
-  // Tennis-specific
+  // Pickleball-specific
   Singles: 'Одиночный',
   Doubles: 'Парный',
   Mixed: 'Микст',

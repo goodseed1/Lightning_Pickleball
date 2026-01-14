@@ -135,11 +135,11 @@ export const applyToEvent = onCall<ApplyToEventRequest>(async request => {
 
         // Fallback to user ID substring
         if (!finalApplicantName) {
-          finalApplicantName = `테니스유저${applicantId.substring(0, 4)}`;
+          finalApplicantName = `피클볼유저${applicantId.substring(0, 4)}`;
         }
       } catch (error) {
         logger.warn('Error fetching user profile:', error);
-        finalApplicantName = `테니스유저${applicantId.substring(0, 4)}`;
+        finalApplicantName = `피클볼유저${applicantId.substring(0, 4)}`;
       }
     }
 

@@ -60,7 +60,7 @@ const germanTranslations = {
     },
   },
   alert: {
-    tournamentBracket: {
+    tournamentBpaddle: {
       info: 'Info',
     },
   },
@@ -289,7 +289,7 @@ const germanTranslations = {
   },
   services: {
     activity: {
-      tennisUserFallback: 'TennisUser{{id}}',
+      pickleballUserFallback: 'PickleballUser{{id}}',
     },
   },
   aiMatching: {

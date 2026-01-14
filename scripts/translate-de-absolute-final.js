@@ -75,7 +75,7 @@ const germanTranslations = {
   },
 
   alert: {
-    tournamentBracket: {
+    tournamentBpaddle: {
       info: 'Info',
     },
   },
@@ -370,7 +370,7 @@ const germanTranslations = {
 
   services: {
     activity: {
-      tennisUserFallback: 'TennisUser{{id}}',
+      pickleballUserFallback: 'PickleballUser{{id}}',
     },
   },
 
@@ -397,7 +397,7 @@ const germanTranslations = {
   utils: {
     ltr: {
       whatIsLtr: {
-        title: 'Was ist LTR?',
+        title: 'Was ist LPR?',
       },
       relationToNtrp: {
         title: 'Beziehung zu NTRP',

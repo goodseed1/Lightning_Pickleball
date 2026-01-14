@@ -13,13 +13,13 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text as PaperText } from 'react-native-paper';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { convertEloToLtr } from '../../constants/ltr';
 
 // ==================== TYPE DEFINITIONS ====================
 
-// 🎯 [KIM v2] Added elo field for LTR display
+// 🎯 [KIM v2] Added elo field for LPR display
 interface RankingPeriodData {
   currentRank: number | null;
   totalPlayers: number;
@@ -106,7 +106,7 @@ const getCurrentQuarter = (): number => {
 const RankingsCard: React.FC<RankingsCardProps> = props => {
   // 🎨 [DARK GLASS] Theme setup
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors, currentTheme);
   const { t } = useLanguage();
 
@@ -126,7 +126,7 @@ const RankingsCard: React.FC<RankingsCardProps> = props => {
       return t('rankingsCard.alltimeRank');
     };
 
-    // 🎯 [KIM v2] Helper to render a single ranking card with ELO & LTR
+    // 🎯 [KIM v2] Helper to render a single ranking card with ELO & LPR
     const renderRankingCard = (periodData: RankingPeriodData, label: string, key: string) => {
       const rank = periodData.currentRank;
       const total = periodData.totalPlayers;
@@ -150,9 +150,9 @@ const RankingsCard: React.FC<RankingsCardProps> = props => {
             </PaperText>
           </View>
 
-          {/* LTR */}
+          {/* LPR */}
           <PaperText variant='bodySmall' style={styles.ltrText}>
-            LTR {ltr}
+            LPR {ltr}
           </PaperText>
 
           {/* ELO */}
@@ -226,9 +226,9 @@ const RankingsCard: React.FC<RankingsCardProps> = props => {
             </PaperText>
           </View>
 
-          {/* LTR */}
+          {/* LPR */}
           <PaperText variant='bodySmall' style={styles.ltrText}>
-            LTR {ltr}
+            LPR {ltr}
           </PaperText>
 
           {/* ELO */}

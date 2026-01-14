@@ -74,7 +74,7 @@ Average matches|Matchs moyens
 Badges|Badges
 Bank|Banque
 Based on last 10 matches|Basé sur les 10 derniers matchs
-Bracket generated. Tournament has started!|Tableau généré. Le tournoi a commencé !
+Bpaddle generated. Tournament has started!|Tableau généré. Le tournoi a commencé !
 Calculate Winner|Calculer le gagnant
 Can be changed in club settings|Peut être modifié dans les paramètres du club
 Cannot load team information|Impossible de charger les informations de l'équipe
@@ -105,7 +105,7 @@ Danger Zone|Zone de danger
 Date|Date
 Day of month|Jour du mois
 Dedicated Player|Joueur dévoué
-Delete Bracket|Supprimer le tableau
+Delete Bpaddle|Supprimer le tableau
 Delete League|Supprimer la ligue
 Delete Lesson|Supprimer la leçon
 Deleting this tournament will remove all match records. Continue?|La suppression de ce tournoi supprimera tous les enregistrements de match. Continuer ?
@@ -119,11 +119,11 @@ Email is already verified. Please log in.|L'email est déjà vérifié. Veuillez
 End date must be on or after start date|La date de fin doit être à ou après la date de début
 Endurance|Endurance
 Enter your nickname|Entrez votre surnom
-Enter your tennis goals...|Entrez vos objectifs de tennis...
+Enter your pickleball goals...|Entrez vos objectifs de pickleball...
 Error checking round generation possibility.|Erreur lors de la vérification de la possibilité de génération de tour.
 Error occurred while approving|Une erreur s'est produite lors de l'approbation
 Error occurred while assigning seed|Une erreur s'est produite lors de l'attribution de la série
-Error occurred while generating tournament bracket.|Une erreur s'est produite lors de la génération du tableau du tournoi.
+Error occurred while generating tournament bpaddle.|Une erreur s'est produite lors de la génération du tableau du tournoi.
 Error occurred while removing seed|Une erreur s'est produite lors de la suppression de la série
 Error occurred while saving|Une erreur s'est produite lors de l'enregistrement
 Error submitting match score.|Erreur lors de la soumission du score du match.
@@ -151,7 +151,7 @@ Format:|Format :
 Français|Français
 Fri|Ven
 Friday|Vendredi
-Generate Bracket & Start League|Générer le tableau et démarrer la ligue
+Generate Bpaddle & Start League|Générer le tableau et démarrer la ligue
 Getting Started|Commencer
 Global|Global
 Goals|Objectifs
@@ -222,7 +222,7 @@ Night Owl|Oiseau de nuit
 No achievements yet|Aucun succès pour le moment
 No active leagues|Aucune ligue active
 No announcements|Aucune annonce
-No brackets created yet|Aucun tableau créé pour le moment
+No bpaddles created yet|Aucun tableau créé pour le moment
 No chat messages|Aucun message de discussion
 No clubs found|Aucun club trouvé
 No courts available|Aucun court disponible
@@ -274,7 +274,7 @@ Pinned|Épinglé
 Play|Jouer
 Player Profile|Profil du joueur
 Players|Joueurs
-Playoff Bracket|Tableau des éliminatoires
+Playoff Bpaddle|Tableau des éliminatoires
 Playoffs|Éliminatoires
 Policy|Règlement
 Policy Name|Nom du règlement
@@ -364,7 +364,7 @@ Sunday|Dimanche
 Sunny|Ensoleillé
 Team|Équipe
 Teams|Équipes
-The bracket cannot be changed once created|Le tableau ne peut pas être modifié une fois créé
+The bpaddle cannot be changed once created|Le tableau ne peut pas être modifié une fois créé
 This Month|Ce mois-ci
 This Week|Cette semaine
 This Year|Cette année
@@ -392,7 +392,7 @@ Update|Mettre à jour
 Upload|Télécharger
 Verified|Vérifié
 View|Voir
-View Bracket|Voir le tableau
+View Bpaddle|Voir le tableau
 View Details|Voir les détails
 View History|Voir l'historique
 View Match|Voir le match
@@ -476,7 +476,7 @@ Object.assign(FINAL_DICT, {
   '{{wins}}W {{losses}}L': '{{wins}}V {{losses}}D',
   '{{year}}': '{{year}}',
   '×{{count}}': '×{{count}}',
-  '⚠️ Delete Bracket': '⚠️ Supprimer le tableau',
+  '⚠️ Delete Bpaddle': '⚠️ Supprimer le tableau',
   '⚠️ Delete League': '⚠️ Supprimer la ligue',
   '🎉 Qualified Players': '🎉 Joueurs qualifiés',
   '🎾 Friend Invitations': "🎾 Invitations d'amis",

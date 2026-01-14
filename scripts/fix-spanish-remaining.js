@@ -294,7 +294,7 @@ const translations = {
     },
     buttons: {
       joinTournament: 'Unirse al Torneo',
-      viewBracket: 'Ver Bracket',
+      viewBpaddle: 'Ver Bpaddle',
       joining: 'Uniéndose...',
       participating: 'Participando',
       applyToLeague: 'Aplicar a Liga',
@@ -494,8 +494,8 @@ const translations = {
       ranking: 'Por Ranking',
       manual: 'Manual',
     },
-    bracketType: 'Tipo de Bracket',
-    bracketTypes: {
+    bpaddleType: 'Tipo de Bpaddle',
+    bpaddleTypes: {
       singleElimination: 'Eliminación Simple',
       doubleElimination: 'Eliminación Doble',
       roundRobin: 'Todos contra Todos',
@@ -551,7 +551,7 @@ const translations = {
       gameTypeLabel: 'Tipo de Juego *',
       partner: 'Compañero',
       selectPartner: 'Seleccionar Compañero',
-      ntrpRange: 'Rango LTR',
+      ntrpRange: 'Rango LPR',
       message: 'Mensaje',
       messagePlaceholder: 'Escribe un mensaje para los participantes',
     },
@@ -577,7 +577,7 @@ const translations = {
       updated: '¡Evento actualizado exitosamente!',
     },
     ntrpFilter: {
-      title: 'Filtro de Nivel LTR',
+      title: 'Filtro de Nivel LPR',
       minLevel: 'Nivel Mínimo',
       maxLevel: 'Nivel Máximo',
       noRestriction: 'Sin Restricción',
@@ -833,7 +833,7 @@ const translations = {
       guestTeamWins: 'Equipo Visitante Gana',
     },
     requirements: {
-      levelMismatch: 'Nivel no coincide (Tu LTR: {{userNtrp}}, Permitido: {{minNtrp}}~{{maxNtrp}})',
+      levelMismatch: 'Nivel no coincide (Tu LPR: {{userNtrp}}, Permitido: {{minNtrp}}~{{maxNtrp}})',
       genderMismatch: 'Género no coincide',
       alreadyApplied: 'Ya aplicaste',
       eventFull: 'Evento lleno',
@@ -894,17 +894,17 @@ const translations = {
     applicationPending: 'Tu aplicación a la liga está pendiente.',
     applicationApproved: '¡Has sido aprobado para unirte a la liga!',
     applicationRejected: 'Tu aplicación a la liga ha sido rechazada.',
-    generateBracket: 'Generar Bracket',
-    generateBracketMessage:
-      'Gestiona aplicaciones en la pestaña Participantes, luego genera el bracket en la pestaña Gestión',
-    generateBracketMessageSimple:
-      'El calendario de partidos aparecerá aquí una vez generado el bracket',
-    bracketGeneratedSuccess:
-      '¡Bracket generado exitosamente!\n\nLa lista de partidos aparecerá pronto.',
-    bracketGenerateError: 'Error al generar bracket.',
-    bracketDeletedSuccess:
-      'Bracket eliminado exitosamente.\n\nAhora puedes generar un nuevo bracket.',
-    bracketDeleteError: 'Error al eliminar bracket.',
+    generateBpaddle: 'Generar Bpaddle',
+    generateBpaddleMessage:
+      'Gestiona aplicaciones en la pestaña Participantes, luego genera el bpaddle en la pestaña Gestión',
+    generateBpaddleMessageSimple:
+      'El calendario de partidos aparecerá aquí una vez generado el bpaddle',
+    bpaddleGeneratedSuccess:
+      '¡Bpaddle generado exitosamente!\n\nLa lista de partidos aparecerá pronto.',
+    bpaddleGenerateError: 'Error al generar bpaddle.',
+    bpaddleDeletedSuccess:
+      'Bpaddle eliminado exitosamente.\n\nAhora puedes generar un nuevo bpaddle.',
+    bpaddleDeleteError: 'Error al eliminar bpaddle.',
     startPlayoffs: 'Iniciar Playoffs',
     playoffsStartedSuccess:
       '¡Playoffs iniciados exitosamente!\n\nLos partidos de playoff aparecerán pronto.',

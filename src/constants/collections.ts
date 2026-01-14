@@ -15,7 +15,7 @@
 
 export const COLLECTIONS = {
   // ===== CLUB MANAGEMENT =====
-  TENNIS_CLUBS: 'tennis_clubs',
+  TENNIS_CLUBS: 'pickleball_clubs',
   CLUB_MEMBERS: 'clubMembers',
   CLUB_JOIN_REQUESTS: 'club_join_requests', // ← Ghost Hunter's Target: The ONE TRUE NAME
   CLUB_INVITATIONS: 'clubInvitations',
@@ -84,7 +84,7 @@ export const COLLECTIONS = {
   COACH_LESSONS: 'coach_lessons',
 
   // ===== TENNIS SERVICES (중고거래, 수리 등) =====
-  TENNIS_SERVICES: 'tennis_services',
+  TENNIS_SERVICES: 'pickleball_services',
 
   // ===== SYSTEM & LOGS =====
   SYSTEM_LOGS: 'systemLogs',

@@ -55,16 +55,16 @@ Internationally recognized:
 
 ### 4. International Sports Terminology
 
-Tennis/sports terms understood globally:
+Pickleball/sports terms understood globally:
 
-- **Set** - Tennis scoring unit
-- **Tiebreak** - Tennis rule
+- **Set** - Pickleball scoring unit
+- **Tiebreak** - Pickleball rule
 - **Walkover** - Sports term (W.O.)
 - **Playoffs** - Sports competition format
 - **Champion** - Sports title
 - **Final** - Tournament stage
-- **Volley** - Tennis shot
-- **Backhand** / **Forehand** - Tennis strokes
+- **Volley** - Pickleball shot
+- **Backhand** / **Forehand** - Pickleball strokes
 - **Indoor** / **Outdoor** - Court types
 - **Mental** - Mental strength (psychology term)
 - **Mixed** - Mixed doubles
@@ -102,7 +102,7 @@ This correctly identifies matching strings, but cannot distinguish between:
 To verify these are international terms, check usage in real-world apps:
 
 - WhatsApp, Facebook, Instagram use "Chat", "Online", "Feed", "Post" universally
-- Tennis apps use "Set", "Tiebreak", "Walkover", "Playoffs" internationally
+- Pickleball apps use "Set", "Tiebreak", "Walkover", "Playoffs" internationally
 - Payment apps keep "Venmo", brand names as-is
 - All apps use "Error", "Email", "Password", "Admin" without translation
 

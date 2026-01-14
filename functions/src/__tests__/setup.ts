@@ -11,7 +11,7 @@ import * as admin from 'firebase-admin';
 // Use test project ID to prevent accidentally affecting production data
 if (!admin.apps.length) {
   admin.initializeApp({
-    projectId: 'test-lightning-tennis',
+    projectId: 'test-lightning-pickleball',
   });
 }
 
@@ -23,7 +23,7 @@ process.env.FIREBASE_AUTH_EMULATOR_HOST = 'localhost:9099';
 process.env.FUNCTIONS_EMULATOR = 'true';
 
 console.log('🏹 [HAWKEYE] Firebase Test Environment initialized');
-console.log(`  - Project ID: test-lightning-tennis`);
+console.log(`  - Project ID: test-lightning-pickleball`);
 console.log(`  - Firestore Emulator: ${process.env.FIRESTORE_EMULATOR_HOST}`);
 console.log(`  - Auth Emulator: ${process.env.FIREBASE_AUTH_EMULATOR_HOST}`);
 

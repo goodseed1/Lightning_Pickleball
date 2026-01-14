@@ -17,7 +17,7 @@ async function inspectClub() {
   const clubId = 'dRxu8Xnwmfoj0zzyQjVu';
   console.log(`🔍 Inspecting club: ${clubId}\n`);
 
-  const doc = await db.collection('tennis_clubs').doc(clubId).get();
+  const doc = await db.collection('pickleball_clubs').doc(clubId).get();
 
   if (!doc.exists) {
     console.log('Club not found!');

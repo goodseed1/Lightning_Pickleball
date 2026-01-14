@@ -1,6 +1,6 @@
 # Translation Utility Scripts
 
-This directory contains utility scripts for managing translations in Lightning Tennis.
+This directory contains utility scripts for managing translations in Lightning Pickleball.
 
 ## Spanish Translation Scripts (Production Ready)
 

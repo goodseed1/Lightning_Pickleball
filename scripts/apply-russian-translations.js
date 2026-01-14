@@ -164,7 +164,7 @@ const translations = {
 
   clubTournamentManagement: {
     status: {
-      bracketGeneration: 'Генерация сетки',
+      bpaddleGeneration: 'Генерация сетки',
       inProgress: 'В процессе',
       completed: 'Завершено',
     },
@@ -189,7 +189,7 @@ const translations = {
       successTitle: 'Турнир начался',
       successMessage: 'Турнир успешно начался! Сетка сгенерирована.',
       registrationClosedMessage: 'Регистрация закрыта и сетка сгенерирована. Турнир начался!',
-      bracketGeneratedMessage: 'Сетка сгенерирована. Турнир начался!',
+      bpaddleGeneratedMessage: 'Сетка сгенерирована. Турнир начался!',
       waitForParticipantAddition: 'Пожалуйста, подождите, пока добавление участников завершится.',
       addingParticipants: 'Добавление участников',
     },
@@ -200,7 +200,7 @@ const translations = {
       incompleteTitle: 'Назначение посева не завершено',
       completeTitle: 'Назначение посева завершено',
       completeMessage: 'Всем участникам назначены посевы.',
-      completeMessageWithBracket:
+      completeMessageWithBpaddle:
         'Всем участникам назначены посевы.\nТеперь вы можете сгенерировать турнирную сетку.',
     },
     deletion: {
@@ -231,7 +231,7 @@ const translations = {
         'Закрыть регистрацию и подготовиться к генерации турнирной сетки',
       deleteAllParticipantsWarning: 'Удалить все данные участников. Это действие необратимо.',
       assignSeedsManually: 'Назначить посевы вручную на вкладке Участники',
-      generateBracketAndStart: 'Генерировать сетку и начать турнир',
+      generateBpaddleAndStart: 'Генерировать сетку и начать турнир',
       addingParticipantsWait: 'Добавление участников... Пожалуйста, подождите до завершения.',
       cancelAndDeleteWarning: 'Отменить генерацию сетки и удалить турнир. Это действие необратимо.',
       tournamentInProgress: 'Турнир в процессе. Проверьте результаты матчей на вкладке Матчи.',
@@ -249,8 +249,8 @@ const translations = {
       noActiveTournaments: 'Нет активных турниров',
       noCompletedTournaments: 'Нет завершенных турниров',
       createNewMessage: 'Создайте новый турнир для соревнования с членами клуба',
-      bracketNotGenerated: 'Сетка еще не сгенерирована',
-      bracketAfterRegistration: 'Сетка будет сгенерирована после закрытия регистрации',
+      bpaddleNotGenerated: 'Сетка еще не сгенерирована',
+      bpaddleAfterRegistration: 'Сетка будет сгенерирована после закрытия регистрации',
       clickMatchesForDetails: 'Нажмите на матчи для просмотра деталей',
       cannotLoadTeamInfo: 'Невозможно загрузить информацию о команде',
       participantsCannotFormTeams:
@@ -272,8 +272,8 @@ const translations = {
     },
     loading: {
       league: 'Загрузка информации о лиге...',
-      generatingBracket: 'Генерация сетки...',
-      generatingBracketSubtitle: 'Лига скоро начнется',
+      generatingBpaddle: 'Генерация сетки...',
+      generatingBpaddleSubtitle: 'Лига скоро начнется',
     },
     errors: {
       leagueNotFound: 'Лига не найдена',
@@ -299,10 +299,10 @@ const translations = {
     },
     leagueManagement: {
       title: 'Управление лигой',
-      generateBracketButton: 'Генерировать сетку и начать лигу',
-      deleteBracketButton: 'Удалить сетку',
-      deleteBracketTitle: 'Удалить сетку',
-      deleteBracketDescription: 'Удалить все матчи и сбросить лигу. Это действие необратимо.',
+      generateBpaddleButton: 'Генерировать сетку и начать лигу',
+      deleteBpaddleButton: 'Удалить сетку',
+      deleteBpaddleTitle: 'Удалить сетку',
+      deleteBpaddleDescription: 'Удалить все матчи и сбросить лигу. Это действие необратимо.',
       dangerZoneTitle: 'Опасная зона',
       deleteLeagueButton: 'Удалить лигу',
     },
@@ -315,7 +315,7 @@ const translations = {
       seasonCompleteDescription:
         'Все матчи завершены. Начните плей-офф для определения финального чемпиона.',
       startButton: 'Начать плей-офф',
-      bracketToggle: 'Сетка плей-офф',
+      bpaddleToggle: 'Сетка плей-офф',
       standingsToggle: 'Таблица',
     },
     matchApproval: {
@@ -332,7 +332,7 @@ const translations = {
       bulkApprovalTitle: 'Массовое утверждение результатов матчей',
       bulkApprovalWarning:
         'Утвержденные результаты будут отражены в таблице и не могут быть отменены.',
-      deleteBracketTitle: '⚠️ Удалить сетку',
+      deleteBpaddleTitle: '⚠️ Удалить сетку',
       deleteLeagueTitle: '⚠️ Удалить лигу',
     },
     validation: {

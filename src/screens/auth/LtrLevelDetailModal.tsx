@@ -1,9 +1,9 @@
 /**
- * 📝 LTR Level Detail Modal
+ * 📝 LPR Level Detail Modal
  *
- * Shows detailed information about an LTR (Lightning Tennis Rating) level
+ * Shows detailed information about an LPR (Lightning Pickleball Rating) level
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * Props: "ltr: number" (1-10) - integer values
  */
 import React from 'react';
@@ -18,8 +18,8 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { lightningTennisDarkTheme } from '../../theme';
-import { LTR_LEVELS, getLocalizedText } from '../../constants/ltr';
+import { lightningPickleballDarkTheme } from '../../theme';
+import { LPR_LEVELS, getLocalizedText } from '../../constants/ltr';
 
 // ============================================================================
 // Type Definitions
@@ -37,9 +37,9 @@ interface LtrLevelDetailModalProps {
 
 const LtrLevelDetailModal: React.FC<LtrLevelDetailModalProps> = ({ visible, ltr, onClose }) => {
   const { currentLanguage, t } = useLanguage();
-  const themeColors = lightningTennisDarkTheme.colors;
+  const themeColors = lightningPickleballDarkTheme.colors;
 
-  const levelDetails = LTR_LEVELS.find(level => level.value === ltr);
+  const levelDetails = LPR_LEVELS.find(level => level.value === ltr);
 
   if (!levelDetails) return null;
 
@@ -72,7 +72,7 @@ const LtrLevelDetailModal: React.FC<LtrLevelDetailModalProps> = ({ visible, ltr,
             {/* Skills */}
             <View style={styles.section}>
               <View style={styles.sectionHeader}>
-                <Ionicons name='tennisball' size={20} color='#FFD700' />
+                <Ionicons name='pickleballball' size={20} color='#FFD700' />
                 <Text style={[styles.sectionTitle, { color: '#FFD700' }]}>
                   {t('ltrLevelDetail.skills')}
                 </Text>

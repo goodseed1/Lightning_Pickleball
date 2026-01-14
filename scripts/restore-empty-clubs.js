@@ -40,7 +40,7 @@ async function restoreClubs() {
 
   for (const club of CLUBS_TO_RESTORE) {
     try {
-      await db.collection('tennis_clubs').doc(club.id).set(club.data);
+      await db.collection('pickleball_clubs').doc(club.id).set(club.data);
       console.log(`✅ Restored: ${club.id}`);
     } catch (error) {
       console.error(`❌ Error restoring ${club.id}:`, error.message);
@@ -51,7 +51,7 @@ async function restoreClubs() {
 
   // Verify
   console.log('\n📋 Current clubs:');
-  const clubs = await db.collection('tennis_clubs').get();
+  const clubs = await db.collection('pickleball_clubs').get();
   clubs.forEach(doc => {
     const data = doc.data();
     console.log(`   - "${data.name || '(empty)'}" (ID: ${doc.id})`);

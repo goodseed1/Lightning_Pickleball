@@ -67,7 +67,7 @@ const translations = {
   'leagueDetail.player': 'Spieler',
   'leagueDetail.matches': 'Matches',
   'leagueDetail.playoffsQualified': '🏆 Playoffs-qualifiziert!',
-  'leagueDetail.tennisUserId': 'TennisUser{{id}}',
+  'leagueDetail.pickleballUserId': 'PickleballUser{{id}}',
 
   'editProfile.cameraPermissionNeeded': 'Kameraberechtigung erforderlich für Profilfotos.',
   'editProfile.camera': 'Kamera',
@@ -311,7 +311,7 @@ const translations = {
   'clubTournamentManagement.delete': 'Löschen',
   'clubTournamentManagement.view': 'Anzeigen',
   'clubTournamentManagement.participants': 'Teilnehmer',
-  'clubTournamentManagement.bracket': 'Turnierbaum',
+  'clubTournamentManagement.bpaddle': 'Turnierbaum',
   'clubTournamentManagement.results': 'Ergebnisse',
 
   'hallOfFame.title': 'Ruhmeshalle',
@@ -338,7 +338,7 @@ const translations = {
   'feedCard.comments': 'Kommentare',
   'feedCard.timeAgo': 'Vor',
 
-  'ntrpAssessment.title': 'LTR-Bewertung',
+  'ntrpAssessment.title': 'LPR-Bewertung',
   'ntrpAssessment.start': 'Starten',
   'ntrpAssessment.continue': 'Fortfahren',
   'ntrpAssessment.complete': 'Abschließen',

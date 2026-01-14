@@ -8,10 +8,10 @@ admin.initializeApp({
 const db = admin.firestore();
 
 async function checkClubStructure() {
-  console.log('🔍 Checking Lightning Tennis Club structure...\n');
+  console.log('🔍 Checking Lightning Pickleball Club structure...\n');
 
   const clubId = 'WsetxkWODywjt0BBcqrs';
-  const clubRef = db.collection('tennis_clubs').doc(clubId);
+  const clubRef = db.collection('pickleball_clubs').doc(clubId);
   const clubDoc = await clubRef.get();
 
   if (!clubDoc.exists) {

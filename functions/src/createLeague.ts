@@ -115,7 +115,7 @@ export const createLeague = onCall<CreateLeagueRequest, Promise<CreateLeagueResp
       // ========================================================================
       // Step 3: Verify Club Exists
       // ========================================================================
-      const clubRef = db.collection('tennis_clubs').doc(clubId);
+      const clubRef = db.collection('pickleball_clubs').doc(clubId);
       const clubSnap = await clubRef.get();
 
       if (!clubSnap.exists) {

@@ -5,10 +5,10 @@ const localesDir = path.join(__dirname, '../src/locales');
 
 // Clean address_placeholder - remove "EN/US/Atlanta bias" and use proper translations
 const placeholders = {
-  en: 'Search for tennis court address',
-  ko: '테니스 코트 주소 검색',
+  en: 'Search for pickleball court address',
+  ko: '피클볼 코트 주소 검색',
   es: 'Buscar dirección de la cancha',
-  de: 'Tennisplatz-Adresse suchen',
+  de: 'Pickleballplatz-Adresse suchen',
   fr: "Rechercher l'adresse du court",
   it: 'Cerca indirizzo del campo',
   ja: 'テニスコートの住所を検索',

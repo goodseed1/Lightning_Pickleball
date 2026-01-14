@@ -1,8 +1,8 @@
 /**
- * 📝 LTR (Lightning Tennis Rating) System
+ * 📝 LPR (Lightning Pickleball Rating) System
  *
- * ⚡ LTR 1-10: Lightning Tennis의 고유 레이팅 시스템
- *    - UI 표시: "LTR" (Lightning Tennis Rating)
+ * ⚡ LPR 1-10: Lightning Pickleball의 고유 레이팅 시스템
+ *    - UI 표시: "LPR" (Lightning Pickleball Rating)
  *    - 7-Tier System: Bronze/Silver/Gold/Platinum/Diamond/Master/Legend
  */
 import React, { useRef } from 'react';
@@ -81,7 +81,7 @@ const InformationTabContent: React.FC<InformationTabContentProps> = ({
         userGender={userGender}
       />
 
-      {/* ⚡ LTR Explanation Card - "What is LTR?" */}
+      {/* ⚡ LPR Explanation Card - "What is LPR?" */}
       <LtrExplanationCard />
 
       {/* 🏆 Achievements Guide Card - "Achievements Guide" */}

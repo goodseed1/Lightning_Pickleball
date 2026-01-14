@@ -1,8 +1,8 @@
-# 📅 Lightning Tennis Scheduled Functions Deployment Guide
+# 📅 Lightning Pickleball Scheduled Functions Deployment Guide
 
 ## 🎯 Overview
 
-This guide covers the deployment and testing of Lightning Tennis's automated club schedule functions, specifically the **Weekly Event Generator** that automatically creates Lightning Events from club schedules every week.
+This guide covers the deployment and testing of Lightning Pickleball's automated club schedule functions, specifically the **Weekly Event Generator** that automatically creates Lightning Events from club schedules every week.
 
 ## 🏗️ Function Architecture
 
@@ -145,7 +145,7 @@ Before testing, ensure you have test data:
   duration: 120,
   timezone: "America/New_York",
   location: {
-    name: "Central Park Tennis Courts",
+    name: "Central Park Pickleball Courts",
     address: "Central Park, New York, NY",
     indoorOutdoor: "outdoor"
   },
@@ -328,7 +328,7 @@ if (DEBUG_MODE) {
 
 ### Key Contacts
 
-- **Development Team**: Lightning Tennis Dev Team
+- **Development Team**: Lightning Pickleball Dev Team
 - **Firebase Support**: Google Cloud Support (if enterprise)
 - **On-call Engineer**: Check team rotation schedule
 
@@ -367,4 +367,4 @@ The deployment is successful when:
 6. ✅ No errors in function logs
 7. ✅ Performance metrics are within acceptable ranges
 
-**Congratulations! Your Lightning Tennis scheduled event generation system is now live! 🎾**
+**Congratulations! Your Lightning Pickleball scheduled event generation system is now live! 🎾**

@@ -98,7 +98,7 @@ const dictionary = {
   'Cannot remove the owner': 'Der Besitzer kann nicht entfernt werden',
   'Are you sure': 'Sind Sie sicher',
 
-  // Tennis terms
+  // Pickleball terms
   Match: 'Match',
   Matches: 'Matches',
   Tournament: 'Turnier',

@@ -96,7 +96,7 @@ const translations = {
     playoffCreated: {
       title: 'Плей-офф создан!',
       message: 'Плей-офф успешно создан',
-      viewBracket: 'Просмотр сетки',
+      viewBpaddle: 'Просмотр сетки',
       startPlayoffs: 'Начать плей-офф',
     },
   },
@@ -460,7 +460,7 @@ const translations = {
 
   tournamentDetail: {
     tabs: {
-      bracket: 'Сетка',
+      bpaddle: 'Сетка',
       schedule: 'Расписание',
       participants: 'Участники',
       rules: 'Правила',

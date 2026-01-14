@@ -20,7 +20,7 @@ const db = admin.firestore();
 async function fixClubStatus() {
   console.log('🔍 Finding clubs without status field...\n');
 
-  const clubsRef = db.collection('tennis_clubs');
+  const clubsRef = db.collection('pickleball_clubs');
   const snapshot = await clubsRef.get();
 
   let fixed = 0;

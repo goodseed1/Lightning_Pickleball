@@ -15,7 +15,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { db } from '../../../firebase/config';
 import { useTheme } from '../../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../../theme';
+import { getLightningPickleballTheme } from '../../../theme';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import { formatPriceByCountry, formatPriceByCurrencyCode } from '../../../utils/currencyUtils';
 
@@ -70,7 +70,7 @@ const ClubPoliciesScreen: React.FC<ClubPoliciesScreenProps> = ({ clubId, clubNam
   const isMember = userRole !== null && userRole !== 'none' && userRole !== '';
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
   const { t } = useLanguage();
 
@@ -85,7 +85,7 @@ const ClubPoliciesScreen: React.FC<ClubPoliciesScreenProps> = ({ clubId, clubNam
     const loadClubData = async () => {
       try {
         console.log('🦾 [IRON MAN] Loading club data for policies...', clubId);
-        const clubRef = doc(db, 'tennis_clubs', clubId);
+        const clubRef = doc(db, 'pickleball_clubs', clubId);
         const clubSnap = await getDoc(clubRef);
 
         if (clubSnap.exists()) {
@@ -276,7 +276,7 @@ const ClubPoliciesScreen: React.FC<ClubPoliciesScreenProps> = ({ clubId, clubNam
         <Card style={styles.facilitiesCard}>
           <Card.Content>
             <View style={styles.sectionHeader}>
-              <Ionicons name='tennisball' size={18} color={themeColors.colors.secondary} />
+              <Ionicons name='pickleballball' size={18} color={themeColors.colors.secondary} />
               <PaperText variant='titleMedium' style={styles.sectionTitle}>
                 {t('clubPolicies.sections.facilities')}
               </PaperText>

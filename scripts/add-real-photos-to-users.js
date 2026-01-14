@@ -63,7 +63,7 @@ function guessGender(displayName, existingGender) {
     return 'female';
   }
 
-  // 기본값은 남성 (테니스 앱 특성상 남성이 더 많음)
+  // 기본값은 남성 (피클볼 앱 특성상 남성이 더 많음)
   return 'male';
 }
 

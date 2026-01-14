@@ -54,7 +54,7 @@ async function initializeFeedback() {
         userName: 'Test User 3',
         type: 'praise',
         title: '앱 정말 좋아요!',
-        description: '테니스 경기 관리하기 너무 편해요. 친구들한테도 추천했어요!',
+        description: '피클볼 경기 관리하기 너무 편해요. 친구들한테도 추천했어요!',
         status: 'resolved',
         priority: 'low',
         createdAt: admin.firestore.Timestamp.fromDate(

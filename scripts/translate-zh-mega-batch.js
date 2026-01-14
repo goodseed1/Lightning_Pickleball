@@ -30,7 +30,7 @@ const zhTranslations = {
       },
       success: {
         title: '注册成功',
-        message: '欢迎加入Lightning Tennis！',
+        message: '欢迎加入Lightning Pickleball！',
         ok: '好的',
       },
     },

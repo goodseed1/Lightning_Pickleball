@@ -254,7 +254,7 @@ function qualifiesForBadgeTier(
       return stats.consecutiveTournamentWins >= condition.value;
 
     case 'tournamentWinRate': {
-      // Tennis Prodigy: 100% win rate with minimum 5 tournaments
+      // Pickleball Prodigy: 100% win rate with minimum 5 tournaments
       const minTournaments =
         (condition as unknown as { minTournaments?: number }).minTournaments || 1;
       return (

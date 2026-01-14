@@ -39,7 +39,7 @@ These keys match the English values because they are:
    - `Normal` - Same in Spanish
    - `Manual` - Same in Spanish
    - `Final` - Same in Spanish
-   - `Set` - Official tennis term in Spanish
+   - `Set` - Official pickleball term in Spanish
    - `Playoffs` - International sports term
    - Language names: 中文, 日本語, Español, Français
 

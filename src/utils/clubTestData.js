@@ -8,12 +8,12 @@
  */
 export const createSampleClubData = () => {
   return {
-    name: 'Atlanta Korean Tennis Club',
+    name: 'Atlanta Korean Pickleball Club',
     description:
-      '한인 테니스 동호회입니다. 초급부터 고급까지 모든 레벨을 환영합니다. 매주 정기 모임과 월 1회 토너먼트를 개최합니다.',
+      '한인 피클볼 동호회입니다. 초급부터 고급까지 모든 레벨을 환영합니다. 매주 정기 모임과 월 1회 토너먼트를 개최합니다.',
 
     location: {
-      address: 'Piedmont Park Tennis Center, Atlanta, GA',
+      address: 'Piedmont Park Pickleball Center, Atlanta, GA',
       zipCode: '30309',
       region: 'Metro Atlanta',
       coordinates: {
@@ -30,15 +30,15 @@ export const createSampleClubData = () => {
 
     tags: ['Korean', 'Intermediate', 'Social', 'Weekly'],
     skillLevel: 'mixed',
-    playingStyle: ['both_great', 'social_tennis'],
+    playingStyle: ['both_great', 'social_pickleball'],
     languages: ['ko', 'en'],
 
     contact: {
-      email: 'atlantakoreantennis@gmail.com',
+      email: 'atlantakoreanpickleball@gmail.com',
       phone: '+1-404-555-0123',
       socialMedia: {
-        facebook: 'atlantakoreantennis',
-        instagram: '@atl_korean_tennis',
+        facebook: 'atlantakoreanpickleball',
+        instagram: '@atl_korean_pickleball',
       },
     },
   };
@@ -55,7 +55,7 @@ export const createSampleEventData = () => {
   return {
     title: '주간 정기 연습',
     description:
-      '매주 토요일 정기 연습입니다. 초급부터 고급까지 모든 레벨 참여 가능합니다. 라켓과 공은 클럽에서 제공됩니다.',
+      '매주 토요일 정기 연습입니다. 초급부터 고급까지 모든 레벨 참여 가능합니다. 패들과 공은 클럽에서 제공됩니다.',
 
     type: 'practice',
     category: 'regular',
@@ -69,7 +69,7 @@ export const createSampleEventData = () => {
     },
 
     location: {
-      name: 'Piedmont Park Tennis Center',
+      name: 'Piedmont Park Pickleball Center',
       address: '1320 Monroe Dr NE, Atlanta, GA 30309',
       coordinates: {
         lat: 33.7875,
@@ -89,8 +89,8 @@ export const createSampleEventData = () => {
     },
 
     maxParticipants: 16,
-    equipment: ['Tennis Rackets', 'Tennis Balls', 'Water'],
-    instructions: '토요일 오전 9시에 코트 1번에서 만나요. 운동복과 테니스화 착용 필수입니다.',
+    equipment: ['Pickleball Paddles', 'Pickleball Balls', 'Water'],
+    instructions: '토요일 오전 9시에 코트 1번에서 만나요. 운동복과 피클볼화 착용 필수입니다.',
   };
 };
 
@@ -101,7 +101,7 @@ export const createSampleInvitationData = () => {
   return {
     email: 'newplayer@example.com',
     message:
-      '안녕하세요! 저희 애틀랜타 한인 테니스 클럽에 초대합니다. 함께 즐거운 테니스 시간을 보내요!',
+      '안녕하세요! 저희 애틀랜타 한인 피클볼 클럽에 초대합니다. 함께 즐거운 피클볼 시간을 보내요!',
     role: 'member',
   };
 };
@@ -122,36 +122,36 @@ export const createSampleMessageData = () => {
 export const generateSampleClubs = () => {
   const clubs = [
     {
-      name: 'Atlanta Korean Tennis Club',
-      description: '한인 테니스 동호회입니다. 초급부터 고급까지 모든 레벨을 환영합니다.',
+      name: 'Atlanta Korean Pickleball Club',
+      description: '한인 피클볼 동호회입니다. 초급부터 고급까지 모든 레벨을 환영합니다.',
       location: { address: 'Piedmont Park, Atlanta, GA', region: 'Metro Atlanta' },
       tags: ['Korean', 'Mixed Level', 'Social'],
       languages: ['ko', 'en'],
     },
     {
-      name: 'Buckhead Tennis Society',
-      description: 'Competitive tennis club for intermediate to advanced players in Buckhead area.',
+      name: 'Buckhead Pickleball Society',
+      description: 'Competitive pickleball club for intermediate to advanced players in Buckhead area.',
       location: { address: 'Buckhead, Atlanta, GA', region: 'Buckhead' },
       tags: ['Advanced', 'Competitive', 'Tournaments'],
       languages: ['en'],
     },
     {
-      name: 'Decatur Community Tennis',
-      description: 'Family-friendly tennis club welcoming players of all ages and skill levels.',
+      name: 'Decatur Community Pickleball',
+      description: 'Family-friendly pickleball club welcoming players of all ages and skill levels.',
       location: { address: 'Decatur, GA', region: 'Decatur' },
       tags: ['Family', 'Beginner', 'Community'],
       languages: ['en'],
     },
     {
-      name: 'Midtown Tennis Meetup',
-      description: 'Casual tennis group for young professionals in Midtown Atlanta.',
+      name: 'Midtown Pickleball Meetup',
+      description: 'Casual pickleball group for young professionals in Midtown Atlanta.',
       location: { address: 'Midtown, Atlanta, GA', region: 'Midtown' },
       tags: ['Young Professional', 'Casual', 'Networking'],
       languages: ['en'],
     },
     {
-      name: 'Marietta Tennis League',
-      description: 'Organized tennis league with seasonal tournaments and regular matches.',
+      name: 'Marietta Pickleball League',
+      description: 'Organized pickleball league with seasonal tournaments and regular matches.',
       location: { address: 'Marietta, GA', region: 'Marietta' },
       tags: ['League', 'Tournament', 'Organized'],
       languages: ['en'],

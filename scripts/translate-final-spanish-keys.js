@@ -94,7 +94,7 @@ const translations = {
       liabilityDisclaimer: {
         content: `⚠️ AVISO LEGAL IMPORTANTE ⚠️
 
-La aplicación Lightning Tennis sirve como plataforma para conectar jugadores individuales de tenis.
+La aplicación Lightning Pickleball sirve como plataforma para conectar jugadores individuales de tenis.
 
 NO ASUMIMOS NINGUNA RESPONSABILIDAD LEGAL por:
 
@@ -138,7 +138,7 @@ Este consentimiento es opcional y rechazarlo no limitará tu uso del servicio.`,
       inclusivityPolicy: {
         content: `🌈 Política de Diversidad e Inclusión y Exención de Responsabilidad
 
-Lightning Tennis es una plataforma abierta a todos los usuarios.
+Lightning Pickleball es una plataforma abierta a todos los usuarios.
 
 1. Principios de Inclusividad
 - Todos los usuarios tienen igual acceso a nuestros servicios independientemente de género, orientación sexual o identidad de género.
@@ -716,14 +716,14 @@ Al aceptar esta política, reconoces entender y aceptar estos términos.`,
   utils: {
     ltr: {
       whatIsLtr: {
-        title: '¿Qué es LTR?',
+        title: '¿Qué es LPR?',
         content:
-          'LTR (Lightning Tennis Rating) es un sistema de evaluación de habilidad propietario desarrollado exclusivamente para la comunidad Lightning Tennis. LTR se calcula basándose en el algoritmo ELO aplicado a todos los resultados de partidos lightning públicos, mostrando tu trayectoria de crecimiento en una escala intuitiva de 1 a 10. Es un indicador honorable de cuánto has crecido dentro de nuestro ecosistema.',
+          'LPR (Lightning Pickleball Rating) es un sistema de evaluación de habilidad propietario desarrollado exclusivamente para la comunidad Lightning Pickleball. LPR se calcula basándose en el algoritmo ELO aplicado a todos los resultados de partidos lightning públicos, mostrando tu trayectoria de crecimiento en una escala intuitiva de 1 a 10. Es un indicador honorable de cuánto has crecido dentro de nuestro ecosistema.',
       },
       relationToNtrp: {
         title: 'Relación con NTRP',
         content:
-          'LTR es un sistema único distinto del NTRP de la USTA. Para la comodidad de usuarios familiarizados con las calificaciones NTRP, puedes seleccionar tu nivel de habilidad en un rango similar a NTRP al registrarte, pero todos los niveles oficiales calculados y mostrados dentro de la app se basan en LTR.',
+          'LPR es un sistema único distinto del NTRP de la USTA. Para la comodidad de usuarios familiarizados con las calificaciones NTRP, puedes seleccionar tu nivel de habilidad en un rango similar a NTRP al registrarte, pero todos los niveles oficiales calculados y mostrados dentro de la app se basan en LPR.',
       },
     },
   },
@@ -800,8 +800,8 @@ Al aceptar esta política, reconoces entender y aceptar estos términos.`,
     matchesPlayed: 'Partidos Jugados',
   },
 
-  // tournamentBracket (3 keys)
-  tournamentBracket: {
+  // tournamentBpaddle (3 keys)
+  tournamentBpaddle: {
     round: 'Ronda',
     winner: 'Ganador',
     tbd: 'Por Determinar',
@@ -944,7 +944,7 @@ Al aceptar esta política, reconoces entender y aceptar estos términos.`,
 
   // equipmentShop (2 keys)
   equipmentShop: {
-    shopRackets: 'Comprar Raquetas',
+    shopPaddles: 'Comprar Raquetas',
     shopBalls: 'Comprar Pelotas',
   },
 

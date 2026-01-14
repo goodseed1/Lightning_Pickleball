@@ -42,7 +42,7 @@ const esTranslations = {
   'clubSelector.club': 'Club',
   'rateSportsmanship.alerts.error': 'Error',
   'alert.title.error': 'Error',
-  'alert.tournamentBracket.info': 'Info',
+  'alert.tournamentBpaddle.info': 'Info',
   'editProfile.common.error': 'Error',
   'discover.alerts.error': 'Error',
   'emailLogin.alerts.genericError.title': 'Error',

@@ -62,13 +62,13 @@ exports.awardTournamentTrophies = onCall(async request => {
       });
 
       // Get club data for trophy context
-      let clubName = 'Tennis Club';
+      let clubName = 'Pickleball Club';
       if (tournamentData.clubId) {
         try {
-          const clubDoc = await transaction.get(db.doc(`tennis_clubs/${tournamentData.clubId}`));
+          const clubDoc = await transaction.get(db.doc(`pickleball_clubs/${tournamentData.clubId}`));
           if (clubDoc.exists) {
             const clubData = clubDoc.data();
-            clubName = clubData.name || clubData.profile?.name || 'Tennis Club';
+            clubName = clubData.name || clubData.profile?.name || 'Pickleball Club';
           }
         } catch (error) {
           console.warn('⚠️ [TROPHY CEREMONY] Could not fetch club name:', error);

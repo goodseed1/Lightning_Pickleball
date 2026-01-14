@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase/config';
@@ -23,7 +23,7 @@ export const createTestUsers = async () => {
       email: 'kim.seojun@example.com',
       ltrLevel: '4.0',
       skillLevel: '4.0',
-      bio: '매일 저녁 테니스를 즐기는 직장인입니다.',
+      bio: '매일 저녁 피클볼를 즐기는 직장인입니다.',
       location: {
         lat: 37.5665,
         lng: 126.978,
@@ -51,7 +51,7 @@ export const createTestUsers = async () => {
       email: 'lee.minji@example.com',
       ltrLevel: '3.5',
       skillLevel: '3.5',
-      bio: '주말 테니스 파트너를 찾고 있어요!',
+      bio: '주말 피클볼 파트너를 찾고 있어요!',
       location: {
         lat: 37.5565,
         lng: 126.968,
@@ -79,7 +79,7 @@ export const createTestUsers = async () => {
       email: 'alex.johnson@example.com',
       ltrLevel: '4.5',
       skillLevel: '4.5',
-      bio: '10 years of tennis experience, looking for competitive matches.',
+      bio: '10 years of pickleball experience, looking for competitive matches.',
       location: {
         lat: 37.5765,
         lng: 126.988,
@@ -135,7 +135,7 @@ export const createTestUsers = async () => {
       email: 'park.junhyung@example.com',
       ltrLevel: '5.0',
       skillLevel: '5.0',
-      bio: '테니스 경력 15년, 함께 실력을 키워요.',
+      bio: '피클볼 경력 15년, 함께 실력을 키워요.',
       location: {
         lat: 37.52,
         lng: 127.03,

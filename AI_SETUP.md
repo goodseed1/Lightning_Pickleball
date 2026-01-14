@@ -1,21 +1,21 @@
-# Lightning Tennis AI Chatbot Setup
+# Lightning Pickleball AI Chatbot Setup
 
 ## Overview
 
-Lightning Tennis now includes a comprehensive AI chatbot powered by Google's Gemini AI. The chatbot provides tennis-related assistance including rules, techniques, strategy advice, match analysis, and personalized recommendations.
+Lightning Pickleball now includes a comprehensive AI chatbot powered by Google's Gemini AI. The chatbot provides pickleball-related assistance including rules, techniques, strategy advice, match analysis, and personalized recommendations.
 
 ## Features
 
-### 🎾 Tennis Expertise
+### 🎾 Pickleball Expertise
 
-- **Rules & Scoring**: Complete tennis rule explanations and scoring system guidance
+- **Rules & Scoring**: Complete pickleball rule explanations and scoring system guidance
 - **Technique Tips**: Stroke mechanics, improvement suggestions, and form corrections
 - **Strategy Advice**: Singles/doubles tactics, match preparation, mental game
 - **Equipment Recommendations**: Racquet, strings, shoes based on skill level
 
 ### 🤖 AI Capabilities
 
-- **RAG System**: Retrieval-Augmented Generation with tennis knowledge base
+- **RAG System**: Retrieval-Augmented Generation with pickleball knowledge base
 - **Multi-language Support**: English and Korean (한국어) responses
 - **Personalized Advice**: Tailored to user's skill level, playing style, and goals
 - **Match Analysis**: Performance analysis with improvement suggestions
@@ -23,7 +23,7 @@ Lightning Tennis now includes a comprehensive AI chatbot powered by Google's Gem
 
 ### 📱 User Experience
 
-- **Quick Actions**: One-tap access to common tennis questions
+- **Quick Actions**: One-tap access to common pickleball questions
 - **Typing Indicators**: Real-time feedback during AI response generation
 - **Confidence Scoring**: AI confidence levels for response quality
 - **Knowledge Sources**: Displays number of sources used for each response
@@ -65,17 +65,17 @@ npm install
 1. Run the app: `npm start`
 2. Navigate to Profile screen
 3. Tap the green AI chat button (floating action button)
-4. Try asking tennis-related questions:
-   - "Explain tennis scoring system"
+4. Try asking pickleball-related questions:
+   - "Explain pickleball scoring system"
    - "How can I improve my backhand?"
    - "What's the best strategy for doubles?"
    - "Recommend a racquet for beginners"
 
 ## AI Features in Detail
 
-### Tennis Knowledge Base (RAG)
+### Pickleball Knowledge Base (RAG)
 
-The AI uses a comprehensive tennis knowledge base covering:
+The AI uses a comprehensive pickleball knowledge base covering:
 
 **Rules & Regulations**
 
@@ -103,14 +103,14 @@ The AI uses a comprehensive tennis knowledge base covering:
 
 - Racquet selection by skill level
 - String tension recommendations
-- Tennis shoe requirements
+- Pickleball shoe requirements
 - Grip sizes and materials
 
 ### Personalized Responses
 
 The AI considers user profile data:
 
-- **LTR Skill Level**: Tailors advice complexity
+- **LPR Skill Level**: Tailors advice complexity
 - **Playing Style**: Matches recommendations to preferred style
 - **Recent Matches**: References performance history
 - **Current Goals**: Aligns advice with improvement objectives
@@ -119,25 +119,25 @@ The AI considers user profile data:
 
 **English Features:**
 
-- Professional tennis terminology
+- Professional pickleball terminology
 - Clear, actionable advice
 - Beginner-friendly explanations
 - Advanced tactical discussions
 
 **Korean Features (한국어):**
 
-- Tennis terms in Korean
-- Cultural context for Korean tennis community
+- Pickleball terms in Korean
+- Cultural context for Korean pickleball community
 - Bilingual explanations when helpful
-- Korean-specific tennis culture references
+- Korean-specific pickleball culture references
 
 ## Usage Examples
 
-### Basic Tennis Questions
+### Basic Pickleball Questions
 
 ```
-User: "What does 'love' mean in tennis?"
-AI: "In tennis, 'love' means zero points. The scoring goes: love (0), 15, 30, 40, then game. The term 'love' likely comes from the French word 'l'oeuf' (the egg), representing the oval shape of zero."
+User: "What does 'love' mean in pickleball?"
+AI: "In pickleball, 'love' means zero points. The scoring goes: love (0), 15, 30, 40, then game. The term 'love' likely comes from the French word 'l'oeuf' (the egg), representing the oval shape of zero."
 ```
 
 ### Skill-Specific Advice
@@ -220,4 +220,4 @@ For AI chatbot issues:
 3. Test with simple questions first
 4. Contact support with specific error messages
 
-The Lightning Tennis AI is designed to be your personal tennis assistant, helping you improve your game through intelligent, personalized advice. Enjoy exploring the world of tennis with AI-powered insights! 🎾🤖
+The Lightning Pickleball AI is designed to be your personal pickleball assistant, helping you improve your game through intelligent, personalized advice. Enjoy exploring the world of pickleball with AI-powered insights! 🎾🤖

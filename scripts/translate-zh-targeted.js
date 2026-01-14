@@ -95,7 +95,7 @@ const zhTranslations = {
     edit: {
       title: '编辑资料',
       personalInfo: '个人信息',
-      tennisInfo: '网球信息',
+      pickleballInfo: '网球信息',
       preferences: '偏好设置',
       saveChanges: '保存更改',
       discardChanges: '放弃更改',

@@ -129,7 +129,7 @@ export const approveJoinRequest = onCall<ApproveJoinRequestData>(async request =
       const { clubId, userId: applicantId } = requestData;
 
       // 2. 🏰 CITADEL SECURITY: Verify club exists
-      const clubRef = db.collection('tennis_clubs').doc(clubId);
+      const clubRef = db.collection('pickleball_clubs').doc(clubId);
       const clubDoc = await transaction.get(clubRef);
 
       if (!clubDoc.exists) {
@@ -449,7 +449,7 @@ export const rejectJoinRequest = onCall<RejectJoinRequestData>(async request => 
       const { clubId, userId: applicantId } = requestData;
 
       // Get club data for club name
-      const clubRef = db.collection('tennis_clubs').doc(clubId);
+      const clubRef = db.collection('pickleball_clubs').doc(clubId);
       const clubDoc = await transaction.get(clubRef);
 
       // Update request status
@@ -626,7 +626,7 @@ export const removeClubMember = onCall<RemoveClubMemberData>(async request => {
       }
 
       // 5. Get club data for club name
-      const clubRef = db.collection('tennis_clubs').doc(clubId);
+      const clubRef = db.collection('pickleball_clubs').doc(clubId);
       const clubDoc = await transaction.get(clubRef);
 
       if (!clubDoc.exists) {

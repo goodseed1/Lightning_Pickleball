@@ -16,7 +16,7 @@ const db = admin.firestore();
 async function listClubs() {
   console.log('🎾 Listing all clubs...\n');
 
-  const clubsRef = db.collection('tennis_clubs');
+  const clubsRef = db.collection('pickleball_clubs');
   const snapshot = await clubsRef.get();
 
   console.log(`Found ${snapshot.size} clubs:\n`);

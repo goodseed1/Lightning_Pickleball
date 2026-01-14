@@ -1,26 +1,26 @@
 /**
- * ⚡ LTR (Lightning Tennis Rating) Utility Functions
+ * ⚡ LPR (Lightning Pickleball Rating) Utility Functions
  *
- * Utility functions for the LTR 1-10 rating system
- * Converts between LTR levels and ELO ratings
+ * Utility functions for the LPR 1-10 rating system
+ * Converts between LPR levels and ELO ratings
  *
- * 🎯 LTR System - Lightning Tennis의 독자적인 레이팅 시스템
+ * 🎯 LPR System - Lightning Pickleball의 독자적인 레이팅 시스템
  * - ELO 알고리즘 기반
  * - 1-10까지의 직관적인 레벨
  * - 공용 번개 매치 결과에 적용
  *
- * @author Kim (LTR System Transition)
+ * @author Kim (LPR System Transition)
  * @date 2025-12-28
  */
 
 import {
-  LTR_LEVELS,
-  LTR_TIERS,
+  LPR_LEVELS,
+  LPR_TIERS,
   getLtrLevelByValue,
   convertEloToLtr,
   getInitialEloFromLtr,
   convertNtrpToLtr,
-  ONBOARDING_LTR_CAP,
+  ONBOARDING_LPR_CAP,
   getOnboardingLtrLevels,
   getTierByLevel,
   getTierNameByLevel,
@@ -43,9 +43,9 @@ export {
   convertNtrpToLtr,
   getLtrLevelByValue,
   getOnboardingLtrLevels,
-  ONBOARDING_LTR_CAP,
-  LTR_LEVELS,
-  LTR_TIERS,
+  ONBOARDING_LPR_CAP,
+  LPR_LEVELS,
+  LPR_TIERS,
   getTierByLevel,
   getTierNameByLevel,
   getTierColorByLevel,
@@ -55,23 +55,23 @@ export {
 export type { LtrLevel, LtrTier, LtrTierName, SupportedLanguage };
 
 /**
- * Get localized LTR label for a given level
+ * Get localized LPR label for a given level
  * Alias for backward compatibility with eloUtils imports
  *
- * @param ltrLevel - LTR level (1-10)
+ * @param ltrLevel - LPR level (1-10)
  * @param language - Supported language code
  * @returns Localized label string
  */
 export function getLocalizedLtrLabel(ltrLevel: number, language: SupportedLanguage = 'ko'): string {
   const level = getLtrLevelByValue(ltrLevel);
-  if (!level) return `LTR ${ltrLevel}`;
+  if (!level) return `LPR ${ltrLevel}`;
   return level.label[language] || level.label.en;
 }
 
 /**
- * Get LTR level details for UI display
+ * Get LPR level details for UI display
  *
- * @param ltrLevel - LTR level (1-10)
+ * @param ltrLevel - LPR level (1-10)
  * @param language - Supported language code
  * @returns Object with label, description, skills, tactics, experience
  */
@@ -80,7 +80,7 @@ export function getLtrDetails(ltrLevel: number, language: SupportedLanguage = 'k
 
   if (!level) {
     return {
-      label: `LTR ${ltrLevel}`,
+      label: `LPR ${ltrLevel}`,
       description: i18n.t('utils.ltr.unknownLevel'),
       skills: '',
       tactics: '',
@@ -103,9 +103,9 @@ export function getLtrDetails(ltrLevel: number, language: SupportedLanguage = 'k
 export const getNtrpDetails = getLtrDetails;
 
 /**
- * Validate if LTR level is within acceptable range (1-10)
+ * Validate if LPR level is within acceptable range (1-10)
  *
- * @param ltrLevel - LTR level to validate
+ * @param ltrLevel - LPR level to validate
  * @returns true if valid (1-10), false otherwise
  */
 export function isValidLtrLevel(ltrLevel: number): boolean {
@@ -113,43 +113,43 @@ export function isValidLtrLevel(ltrLevel: number): boolean {
 }
 
 /**
- * Validate if LTR level is within onboarding cap
+ * Validate if LPR level is within onboarding cap
  *
- * @param ltrLevel - LTR level to validate
+ * @param ltrLevel - LPR level to validate
  * @returns true if valid for onboarding (1-5), false otherwise
  */
 export function isValidOnboardingLtrLevel(ltrLevel: number): boolean {
-  return isValidLtrLevel(ltrLevel) && ltrLevel <= ONBOARDING_LTR_CAP;
+  return isValidLtrLevel(ltrLevel) && ltrLevel <= ONBOARDING_LPR_CAP;
 }
 
 /**
- * Check if selected LTR level requires over-estimation warning
- * LTR 5 is the onboarding cap, so show warning for attempts above
+ * Check if selected LPR level requires over-estimation warning
+ * LPR 5 is the onboarding cap, so show warning for attempts above
  *
- * @param ltrLevel - LTR level to check
+ * @param ltrLevel - LPR level to check
  * @returns true if level is at the onboarding cap (requires info about earning higher levels)
  */
 export function shouldShowOnboardingCapInfo(ltrLevel: number): boolean {
-  return ltrLevel >= ONBOARDING_LTR_CAP;
+  return ltrLevel >= ONBOARDING_LPR_CAP;
 }
 
 /**
- * Check if selected LTR level is at beginner tier
+ * Check if selected LPR level is at beginner tier
  *
- * @param ltrLevel - LTR level to check
- * @returns true if LTR 1 or 2 (show encouragement message)
+ * @param ltrLevel - LPR level to check
+ * @returns true if LPR 1 or 2 (show encouragement message)
  */
 export function isBeginnerLevel(ltrLevel: number): boolean {
   return ltrLevel <= 2;
 }
 
 /**
- * Get LTR level description for display in profile
+ * Get LPR level description for display in profile
  * Handles multiple input formats: number, string, object
  *
- * @param ltrLevel - LTR level (number, string, or object with ltr)
+ * @param ltrLevel - LPR level (number, string, or object with ltr)
  * @param language - Supported language code
- * @returns Formatted LTR description string
+ * @returns Formatted LPR description string
  */
 export function getLtrLevelDescription(
   ltrLevel: string | number | object | undefined,
@@ -159,17 +159,17 @@ export function getLtrLevelDescription(
     return '';
   }
 
-  // Handle NUMBER (standard LTR format)
+  // Handle NUMBER (standard LPR format)
   if (typeof ltrLevel === 'number') {
     const details = getLtrDetails(ltrLevel, language);
-    return details.label; // e.g., "LTR 5 - 폭풍의 눈"
+    return details.label; // e.g., "LPR 5 - 폭풍의 눈"
   }
 
-  // Handle STRING that looks like LTR number (e.g., "5", "7")
+  // Handle STRING that looks like LPR number (e.g., "5", "7")
   if (typeof ltrLevel === 'string') {
     const numValue = parseInt(ltrLevel, 10);
 
-    // If it's a valid LTR numeric value, convert it
+    // If it's a valid LPR numeric value, convert it
     if (!isNaN(numValue) && numValue >= 1 && numValue <= 10) {
       const details = getLtrDetails(numValue, language);
       return details.label;
@@ -189,9 +189,9 @@ export function getLtrLevelDescription(
 }
 
 /**
- * Get ELO range description for a given LTR level
+ * Get ELO range description for a given LPR level
  *
- * @param ltrLevel - LTR level (1-10)
+ * @param ltrLevel - LPR level (1-10)
  * @returns ELO range string (e.g., "1300-1399" or "≥2400")
  */
 export function getEloRangeDescription(
@@ -211,10 +211,10 @@ export function getEloRangeDescription(
 }
 
 /**
- * Calculate LTR level progress percentage within current level
+ * Calculate LPR level progress percentage within current level
  *
  * @param elo - Current ELO rating
- * @returns Progress percentage (0-100) within current LTR level
+ * @returns Progress percentage (0-100) within current LPR level
  */
 export function calculateLtrProgress(elo: number): number {
   const ltr = convertEloToLtr(elo);
@@ -222,7 +222,7 @@ export function calculateLtrProgress(elo: number): number {
 
   if (!level) return 0;
 
-  // LTR 10 has no upper limit
+  // LPR 10 has no upper limit
   if (ltr === 10) {
     // Show progress based on how far beyond 2400
     const bonusProgress = Math.min(((elo - 2400) / 200) * 100, 100);
@@ -236,9 +236,9 @@ export function calculateLtrProgress(elo: number): number {
 }
 
 /**
- * Get the next LTR level info
+ * Get the next LPR level info
  *
- * @param currentLtr - Current LTR level
+ * @param currentLtr - Current LPR level
  * @param language - Supported language code
  * @returns Next level info or null if at max level
  */
@@ -259,19 +259,19 @@ export function getNextLtrLevel(currentLtr: number, language: SupportedLanguage 
 }
 
 /**
- * Get formatted LTR badge text
+ * Get formatted LPR badge text
  *
- * @param ltrLevel - LTR level (1-10)
- * @returns Formatted badge text (e.g., "LTR 5")
+ * @param ltrLevel - LPR level (1-10)
+ * @returns Formatted badge text (e.g., "LPR 5")
  */
 export function getLtrBadgeText(ltrLevel: number): string {
-  return `LTR ${ltrLevel}`;
+  return `LPR ${ltrLevel}`;
 }
 
 /**
- * Get LTR level tier category (NEW: 7-tier system)
+ * Get LPR level tier category (NEW: 7-tier system)
  *
- * @param ltrLevel - LTR level (1-10)
+ * @param ltrLevel - LPR level (1-10)
  * @returns Tier name: LtrTierName
  */
 export function getLtrTier(ltrLevel: number): LtrTierName {
@@ -281,27 +281,27 @@ export function getLtrTier(ltrLevel: number): LtrTierName {
 /**
  * Get tier color for UI display (NEW: 7-tier system colors)
  *
- * @param ltrLevel - LTR level (1-10)
+ * @param ltrLevel - LPR level (1-10)
  * @returns Hex color code for the tier
  *
  * 🎨 Tier Colors:
- * - Bronze (LTR 1-2): #CD7F32
- * - Silver (LTR 3-4): #C0C0C0
- * - Gold (LTR 5-6): #FFD700
- * - Platinum (LTR 7): #E5E4E2
- * - Diamond (LTR 8): #B9F2FF
- * - Master (LTR 9): #1A1A2E (Obsidian)
- * - Legend (LTR 10): #FFD700 (Legendary Gold)
+ * - Bronze (LPR 1-2): #CD7F32
+ * - Silver (LPR 3-4): #C0C0C0
+ * - Gold (LPR 5-6): #FFD700
+ * - Platinum (LPR 7): #E5E4E2
+ * - Diamond (LPR 8): #B9F2FF
+ * - Master (LPR 9): #1A1A2E (Obsidian)
+ * - Legend (LPR 10): #FFD700 (Legendary Gold)
  */
 export function getLtrTierColor(ltrLevel: number): string {
   return getTierColorByLevel(ltrLevel);
 }
 
 /**
- * Compare two LTR levels for matchmaking
+ * Compare two LPR levels for matchmaking
  *
- * @param ltr1 - First LTR level
- * @param ltr2 - Second LTR level
+ * @param ltr1 - First LPR level
+ * @param ltr2 - Second LPR level
  * @returns 'good' | 'fair' | 'mismatch' based on difference
  */
 export function compareLtrLevels(ltr1: number, ltr2: number): 'good' | 'fair' | 'mismatch' {
@@ -313,10 +313,10 @@ export function compareLtrLevels(ltr1: number, ltr2: number): 'good' | 'fair' | 
 }
 
 /**
- * Get LTR explanation text for Hall of Fame page
+ * Get LPR explanation text for Hall of Fame page
  *
  * @param language - Supported language code
- * @returns Object with LTR explanation sections
+ * @returns Object with LPR explanation sections
  */
 export function getLtrExplanation(language: SupportedLanguage = 'ko') {
   // Set the language for i18n before retrieving translations
@@ -347,98 +347,98 @@ export function getLtrExplanation(language: SupportedLanguage = 'ko') {
     },
     es: {
       whatIsLtr: {
-        title: '¿Qué es LTR?',
+        title: '¿Qué es LPR?',
         content:
-          'LTR (Lightning Tennis Rating) es un sistema de evaluación de habilidades desarrollado independientemente para la comunidad de Lightning Tennis. LTR se calcula en base a un algoritmo ELO aplicado a todos los resultados de partidos públicos, mostrando tu viaje de crecimiento a través de niveles intuitivos del 1 al 10.',
+          'LPR (Lightning Pickleball Rating) es un sistema de evaluación de habilidades desarrollado independientemente para la comunidad de Lightning Pickleball. LPR se calcula en base a un algoritmo ELO aplicado a todos los resultados de partidos públicos, mostrando tu viaje de crecimiento a través de niveles intuitivos del 1 al 10.',
       },
       relationToNtrp: {
         title: 'Relación con NTRP',
         content:
-          'LTR es el sistema propio de Lightning Tennis, diferente del NTRP de USTA. Para comodidad de los usuarios familiarizados con NTRP, puedes seleccionar tu nivel en un rango similar al registrarte, pero todos los niveles oficiales se basan en LTR.',
+          'LPR es el sistema propio de Lightning Pickleball, diferente del NTRP de USTA. Para comodidad de los usuarios familiarizados con NTRP, puedes seleccionar tu nivel en un rango similar al registrarte, pero todos los niveles oficiales se basan en LPR.',
       },
     },
     fr: {
       whatIsLtr: {
-        title: "Qu'est-ce que LTR?",
+        title: "Qu'est-ce que LPR?",
         content:
-          "LTR (Lightning Tennis Rating) est un système d'évaluation des compétences développé indépendamment pour la communauté Lightning Tennis. LTR est calculé sur la base d'un algorithme ELO appliqué à tous les résultats de matchs publics, montrant votre parcours de croissance à travers des niveaux intuitifs de 1 à 10.",
+          "LPR (Lightning Pickleball Rating) est un système d'évaluation des compétences développé indépendamment pour la communauté Lightning Pickleball. LPR est calculé sur la base d'un algorithme ELO appliqué à tous les résultats de matchs publics, montrant votre parcours de croissance à travers des niveaux intuitifs de 1 à 10.",
       },
       relationToNtrp: {
         title: 'Relation avec NTRP',
         content:
-          "LTR est le système propre de Lightning Tennis, différent du NTRP de l'USTA. Pour la commodité des utilisateurs familiers avec NTRP, vous pouvez sélectionner votre niveau dans une plage similaire lors de l'inscription, mais tous les niveaux officiels sont basés sur LTR.",
+          "LPR est le système propre de Lightning Pickleball, différent du NTRP de l'USTA. Pour la commodité des utilisateurs familiers avec NTRP, vous pouvez sélectionner votre niveau dans une plage similaire lors de l'inscription, mais tous les niveaux officiels sont basés sur LPR.",
       },
     },
     de: {
       whatIsLtr: {
-        title: 'Was ist LTR?',
+        title: 'Was ist LPR?',
         content:
-          'LTR (Lightning Tennis Rating) ist ein unabhängig entwickeltes Bewertungssystem für die Lightning Tennis Community. LTR wird basierend auf einem ELO-Algorithmus berechnet, der auf alle öffentlichen Match-Ergebnisse angewendet wird, und zeigt Ihre Entwicklung durch intuitive Level von 1 bis 10.',
+          'LPR (Lightning Pickleball Rating) ist ein unabhängig entwickeltes Bewertungssystem für die Lightning Pickleball Community. LPR wird basierend auf einem ELO-Algorithmus berechnet, der auf alle öffentlichen Match-Ergebnisse angewendet wird, und zeigt Ihre Entwicklung durch intuitive Level von 1 bis 10.',
       },
       relationToNtrp: {
         title: 'Beziehung zu NTRP',
         content:
-          'LTR ist Lightning Tennis eigenes System, unterschiedlich von USTAs NTRP. Für die Bequemlichkeit der mit NTRP vertrauten Benutzer können Sie bei der Anmeldung Ihr Level in einem ähnlichen Bereich wählen, aber alle offiziellen Level basieren auf LTR.',
+          'LPR ist Lightning Pickleball eigenes System, unterschiedlich von USTAs NTRP. Für die Bequemlichkeit der mit NTRP vertrauten Benutzer können Sie bei der Anmeldung Ihr Level in einem ähnlichen Bereich wählen, aber alle offiziellen Level basieren auf LPR.',
       },
     },
     ja: {
       whatIsLtr: {
-        title: 'LTRとは？',
+        title: 'LPRとは？',
         content:
-          'LTR（Lightning Tennis Rating）は、ライトニングテニスコミュニティのために独自に開発されたスキル評価システムです。LTRは、すべての公開マッチ結果に適用されるELOアルゴリズムに基づいて計算され、1から10までの直感的なレベルであなたの成長の旅を示します。',
+          'LPR（Lightning Pickleball Rating）は、ライトニングテニスコミュニティのために独自に開発されたスキル評価システムです。LPRは、すべての公開マッチ結果に適用されるELOアルゴリズムに基づいて計算され、1から10までの直感的なレベルであなたの成長の旅を示します。',
       },
       relationToNtrp: {
         title: 'NTRPとの関係',
         content:
-          'LTRはUSTA NTRPとは異なる、ライトニングテニス独自のシステムです。NTRPに慣れたユーザーの便宜のため、登録時に同様の範囲でレベルを選択できますが、アプリ内で計算・表示されるすべての公式レベルはLTRに基づいています。',
+          'LPRはUSTA NTRPとは異なる、ライトニングテニス独自のシステムです。NTRPに慣れたユーザーの便宜のため、登録時に同様の範囲でレベルを選択できますが、アプリ内で計算・表示されるすべての公式レベルはLPRに基づいています。',
       },
     },
     zh: {
       whatIsLtr: {
-        title: '什么是LTR？',
+        title: '什么是LPR？',
         content:
-          'LTR（Lightning Tennis Rating）是为闪电网球社区独立开发的技能评估系统。LTR基于应用于所有公开比赛结果的ELO算法计算，通过1到10的直观级别展示您的成长历程。',
+          'LPR（Lightning Pickleball Rating）是为闪电网球社区独立开发的技能评估系统。LPR基于应用于所有公开比赛结果的ELO算法计算，通过1到10的直观级别展示您的成长历程。',
       },
       relationToNtrp: {
         title: '与NTRP的关系',
         content:
-          'LTR是闪电网球自己的系统，与USTA的NTRP不同。为了方便熟悉NTRP的用户，注册时可以选择类似范围的级别，但应用内计算和显示的所有官方级别都基于LTR。',
+          'LPR是闪电网球自己的系统，与USTA的NTRP不同。为了方便熟悉NTRP的用户，注册时可以选择类似范围的级别，但应用内计算和显示的所有官方级别都基于LPR。',
       },
     },
     pt: {
       whatIsLtr: {
-        title: 'O que é LTR?',
+        title: 'O que é LPR?',
         content:
-          'LTR (Lightning Tennis Rating) é um sistema de avaliação de habilidades desenvolvido independentemente para a comunidade Lightning Tennis. LTR é calculado com base em um algoritmo ELO aplicado a todos os resultados de partidas públicas, mostrando sua jornada de crescimento através de níveis intuitivos de 1 a 10.',
+          'LPR (Lightning Pickleball Rating) é um sistema de avaliação de habilidades desenvolvido independentemente para a comunidade Lightning Pickleball. LPR é calculado com base em um algoritmo ELO aplicado a todos os resultados de partidas públicas, mostrando sua jornada de crescimento através de níveis intuitivos de 1 a 10.',
       },
       relationToNtrp: {
         title: 'Relação com NTRP',
         content:
-          'LTR é o sistema próprio do Lightning Tennis, diferente do NTRP da USTA. Para conveniência dos usuários familiarizados com NTRP, você pode selecionar seu nível em uma faixa similar ao se inscrever, mas todos os níveis oficiais são baseados em LTR.',
+          'LPR é o sistema próprio do Lightning Pickleball, diferente do NTRP da USTA. Para conveniência dos usuários familiarizados com NTRP, você pode selecionar seu nível em uma faixa similar ao se inscrever, mas todos os níveis oficiais são baseados em LPR.',
       },
     },
     it: {
       whatIsLtr: {
-        title: "Cos'è LTR?",
+        title: "Cos'è LPR?",
         content:
-          'LTR (Lightning Tennis Rating) è un sistema di valutazione delle competenze sviluppato indipendentemente per la comunità Lightning Tennis. LTR è calcolato sulla base di un algoritmo ELO applicato a tutti i risultati delle partite pubbliche, mostrando il tuo percorso di crescita attraverso livelli intuitivi da 1 a 10.',
+          'LPR (Lightning Pickleball Rating) è un sistema di valutazione delle competenze sviluppato indipendentemente per la comunità Lightning Pickleball. LPR è calcolato sulla base di un algoritmo ELO applicato a tutti i risultati delle partite pubbliche, mostrando il tuo percorso di crescita attraverso livelli intuitivi da 1 a 10.',
       },
       relationToNtrp: {
         title: 'Relazione con NTRP',
         content:
-          "LTR è il sistema proprio di Lightning Tennis, diverso dall'NTRP dell'USTA. Per comodità degli utenti familiari con NTRP, puoi selezionare il tuo livello in un intervallo simile durante la registrazione, ma tutti i livelli ufficiali sono basati su LTR.",
+          "LPR è il sistema proprio di Lightning Pickleball, diverso dall'NTRP dell'USTA. Per comodità degli utenti familiari con NTRP, puoi selezionare il tuo livello in un intervallo simile durante la registrazione, ma tutti i livelli ufficiali sono basati su LPR.",
       },
     },
     ru: {
       whatIsLtr: {
-        title: 'Что такое LTR?',
+        title: 'Что такое LPR?',
         content:
-          'LTR (Lightning Tennis Rating) - это система оценки навыков, независимо разработанная для сообщества Lightning Tennis. LTR рассчитывается на основе алгоритма ELO, применяемого ко всем результатам публичных матчей, показывая ваш путь роста через интуитивные уровни от 1 до 10.',
+          'LPR (Lightning Pickleball Rating) - это система оценки навыков, независимо разработанная для сообщества Lightning Pickleball. LPR рассчитывается на основе алгоритма ELO, применяемого ко всем результатам публичных матчей, показывая ваш путь роста через интуитивные уровни от 1 до 10.',
       },
       relationToNtrp: {
         title: 'Связь с NTRP',
         content:
-          'LTR - это собственная система Lightning Tennis, отличная от NTRP USTA. Для удобства пользователей, знакомых с NTRP, вы можете выбрать свой уровень в аналогичном диапазоне при регистрации, но все официальные уровни основаны на LTR.',
+          'LPR - это собственная система Lightning Pickleball, отличная от NTRP USTA. Для удобства пользователей, знакомых с NTRP, вы можете выбрать свой уровень в аналогичном диапазоне при регистрации, но все официальные уровни основаны на LPR.',
       },
     },
   };
@@ -447,11 +447,11 @@ export function getLtrExplanation(language: SupportedLanguage = 'ko') {
 }
 
 /**
- * Check if user's self-assessed LTR is significantly higher than calculated LTR
+ * Check if user's self-assessed LPR is significantly higher than calculated LPR
  * Used to show over-estimation warning during onboarding
  *
- * @param selfAssessed - User's self-assessed LTR level
- * @param calculated - Calculated LTR based on assessment answers
+ * @param selfAssessed - User's self-assessed LPR level
+ * @param calculated - Calculated LPR based on assessment answers
  * @returns true if user may be overestimating their skill
  */
 export function shouldShowOverEstimationWarning(selfAssessed: number, calculated: number): boolean {
@@ -460,11 +460,11 @@ export function shouldShowOverEstimationWarning(selfAssessed: number, calculated
 }
 
 /**
- * Check if user's self-assessed LTR is significantly lower than calculated LTR
+ * Check if user's self-assessed LPR is significantly lower than calculated LPR
  * Used to show recommendation to consider higher level during onboarding
  *
- * @param selfAssessed - User's self-assessed LTR level
- * @param calculated - Calculated LTR based on assessment answers
+ * @param selfAssessed - User's self-assessed LPR level
+ * @param calculated - Calculated LPR based on assessment answers
  * @returns true if user may be underestimating their skill
  */
 export function shouldShowUnderEstimationRecommendation(

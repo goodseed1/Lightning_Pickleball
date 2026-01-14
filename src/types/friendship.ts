@@ -19,7 +19,7 @@ export interface FriendRequest {
   requesterName: string;
   requesterProfileImage?: string;
   requesterSkillLevel?: string;
-  requesterSinglesElo?: number; // 🎾 ELO-based LTR display
+  requesterSinglesElo?: number; // 🎾 ELO-based LPR display
   createdAt: Date;
 }
 
@@ -29,7 +29,7 @@ export interface Friend {
   name: string;
   profileImage?: string;
   skillLevel?: string;
-  singlesElo?: number; // 🎾 ELO-based LTR display
+  singlesElo?: number; // 🎾 ELO-based LPR display
   location?: string;
   isOnline: boolean;
   lastSeen?: Date;
@@ -40,7 +40,7 @@ export interface FriendSearchResult {
   nickname: string;
   profileImage?: string;
   skillLevel?: string;
-  singlesElo?: number; // 🎾 ELO-based LTR display
+  singlesElo?: number; // 🎾 ELO-based LPR display
   location?: string;
   isFriend: boolean;
   hasPendingRequest: boolean;

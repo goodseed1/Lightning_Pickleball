@@ -31,8 +31,8 @@ const manualTranslations = {
   'New match request 📨': 'Neue Match-Anfrage 📨',
   'You have a {{score}}% match rate with {{name}}.':
     'Sie haben eine {{score}}%-Übereinstimmung mit {{name}}.',
-  '{{senderName}} has requested a tennis match with you.':
-    '{{senderName}} hat ein Tennis-Match mit Ihnen angefragt.',
+  '{{senderName}} has requested a pickleball match with you.':
+    '{{senderName}} hat ein Pickleball-Match mit Ihnen angefragt.',
   'No events found matching your criteria. Try searching with different filters!':
     'Keine Events gefunden, die Ihren Kriterien entsprechen. Versuchen Sie eine Suche mit anderen Filtern!',
   Untitled: 'Ohne Titel',

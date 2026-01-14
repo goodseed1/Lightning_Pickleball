@@ -13,7 +13,7 @@ All necessary Italian translations have been successfully applied to `/src/local
 | **Host**         | **Organizzatore**       | Event organizer/host                              |
 | **Hall of Fame** | **Albo d'oro**          | Trophy/achievement hall (literally "Golden Roll") |
 | **partner**      | **compagno**            | Match partner/companion                           |
-| **Walkover**     | **Vittoria a tavolino** | Tennis term for victory by forfeit                |
+| **Walkover**     | **Vittoria a tavolino** | Pickleball term for victory by forfeit                |
 
 ### Intentional English Matches (63 keys):
 
@@ -59,7 +59,7 @@ These terms are correctly kept in English or use universal conventions:
 #### 6. Commonly Used English Terms in Italian (4 keys)
 
 - `Club` (used in Italian sports context)
-- `1 Set` (tennis terminology)
+- `1 Set` (pickleball terminology)
 
 ## Files Modified
 
@@ -97,4 +97,4 @@ The remaining 63 matches are intentional and follow international localization b
 ---
 
 **Completed**: 2025-12-30
-**By**: Kim (Lightning Tennis Translation Team)
+**By**: Kim (Lightning Pickleball Translation Team)

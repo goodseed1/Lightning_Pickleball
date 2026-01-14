@@ -138,7 +138,7 @@
 - "Lightning Meetup"
 - "Casual Meetup"
 - "Create Club"
-- "Tennis Community"
+- "Pickleball Community"
 
 **Action Required:** Need to identify the actual key path in en.json (might be under `createNew` or `navigation` or `actions`)
 

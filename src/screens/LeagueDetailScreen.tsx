@@ -49,7 +49,7 @@ import LeagueScoreInputModal from '../components/leagues/LeagueScoreInputModal';
 import UserSearchModal from '../components/modals/UserSearchModal';
 import TeamPairingModal from '../components/modals/TeamPairingModal';
 import { PlayoffCreatedModal } from '../components/modals/PlayoffCreatedModal';
-import TournamentBracketView from '../components/tournaments/TournamentBracketView';
+import TournamentBpaddleView from '../components/tournaments/TournamentBpaddleView';
 import { MD3Theme } from 'react-native-paper';
 
 // User interface matching UserSearchModal's format
@@ -117,11 +117,11 @@ const LeagueDetailScreen = () => {
   const [activeTab, setActiveTab] = useState<
     'matches' | 'participants' | 'standings' | 'management'
   >(initialTab || 'matches'); // Default: matches tab (admin will change to management tab in useEffect if initialTab is not set)
-  const [standingsViewMode, setStandingsViewMode] = useState<'standings' | 'bracket'>('standings');
+  const [standingsViewMode, setStandingsViewMode] = useState<'standings' | 'bpaddle'>('standings');
   const [userRole, setUserRole] = useState<string | null>(null);
   // Grant manager permissions (except club deletion)
   const isAdminOrManager = userRole === 'admin' || userRole === 'manager';
-  const [isGeneratingBracket, setIsGeneratingBracket] = useState(false);
+  const [isGeneratingBpaddle, setIsGeneratingBpaddle] = useState(false);
   const [isStartingPlayoffs, setIsStartingPlayoffs] = useState(false);
   const [isClearingMatches, setIsClearingMatches] = useState(false);
 
@@ -950,19 +950,19 @@ const LeagueDetailScreen = () => {
         </Text>
         <Text style={[styles.emptyText, { color: theme.colors.onSurfaceVariant }]}>
           {isAdminOrManager
-            ? t('leagueDetail.generateBracketMessage')
-            : t('leagueDetail.generateBracketMessageSimple')}
+            ? t('leagueDetail.generateBpaddleMessage')
+            : t('leagueDetail.generateBpaddleMessageSimple')}
         </Text>
       </View>
     );
   };
 
-  const handleGenerateBracket = async () => {
+  const handleGenerateBpaddle = async () => {
     if (!league) return;
 
     Alert.alert(
-      t('leagueDetail.generateBracket'),
-      t('leagueDetail.generateBracketConfirm', { leagueName: league.name }),
+      t('leagueDetail.generateBpaddle'),
+      t('leagueDetail.generateBpaddleConfirm', { leagueName: league.name }),
       [
         {
           text: t('common.cancel'),
@@ -973,7 +973,7 @@ const LeagueDetailScreen = () => {
           style: 'default',
           onPress: async () => {
             try {
-              setIsGeneratingBracket(true);
+              setIsGeneratingBpaddle(true);
               console.log('🎭 [Curtain Up] 대진표 생성 시작 - 리그 전환 준비 중...');
 
               // Step 1: 리그 상태를 'preparing'으로 전환
@@ -985,7 +985,7 @@ const LeagueDetailScreen = () => {
               await leagueService.generateRoundRobinMatches(leagueId);
               console.log('🎭 [Curtain Up] 대진표 생성 완료 - 실시간 UI 전환 대기 중...');
 
-              Alert.alert(t('common.success'), t('leagueDetail.bracketGeneratedSuccess'), [
+              Alert.alert(t('common.success'), t('leagueDetail.bpaddleGeneratedSuccess'), [
                 {
                   text: t('common.confirm'),
                   onPress: () => {
@@ -999,8 +999,8 @@ const LeagueDetailScreen = () => {
                 },
               ]);
             } catch (error) {
-              console.error('Error generating bracket:', error);
-              let errorMessage = t('leagueDetail.bracketGenerateError');
+              console.error('Error generating bpaddle:', error);
+              let errorMessage = t('leagueDetail.bpaddleGenerateError');
 
               // 클라이언트 사이드 에러 처리
               if (error instanceof Error && error.message) {
@@ -1009,7 +1009,7 @@ const LeagueDetailScreen = () => {
 
               Alert.alert(t('common.error'), errorMessage);
             } finally {
-              setIsGeneratingBracket(false);
+              setIsGeneratingBpaddle(false);
             }
           },
         },
@@ -1017,13 +1017,13 @@ const LeagueDetailScreen = () => {
     );
   };
 
-  // {t('leagueDetail.deleteBracket')} 함수
+  // {t('leagueDetail.deleteBpaddle')} 함수
   const handleClearMatches = async () => {
     if (!league) return;
 
     Alert.alert(
-      `⚠️ ${t('leagueDetail.deleteBracket')}`,
-      t('leagueDetail.deleteBracketConfirm', { leagueName: league.name }),
+      `⚠️ ${t('leagueDetail.deleteBpaddle')}`,
+      t('leagueDetail.deleteBpaddleConfirm', { leagueName: league.name }),
       [
         {
           text: t('common.cancel'),
@@ -1035,18 +1035,18 @@ const LeagueDetailScreen = () => {
           onPress: async () => {
             try {
               setIsClearingMatches(true);
-              console.log('🗑️ [CLEAR MATCHES] Starting bracket deletion...');
+              console.log('🗑️ [CLEAR MATCHES] Starting bpaddle deletion...');
 
               await leagueService.clearAllMatches(leagueId);
 
-              Alert.alert(t('common.finish'), t('leagueDetail.bracketDeletedSuccess'), [
+              Alert.alert(t('common.finish'), t('leagueDetail.bpaddleDeletedSuccess'), [
                 {
                   text: t('common.confirm'),
                 },
               ]);
             } catch (error) {
               console.error('Error clearing matches:', error);
-              let errorMessage = t('leagueDetail.bracketDeleteError');
+              let errorMessage = t('leagueDetail.bpaddleDeleteError');
 
               if (error instanceof Error && error.message) {
                 errorMessage = error.message;
@@ -1587,7 +1587,7 @@ const LeagueDetailScreen = () => {
   };
 
   // 🏆 플레이오프 매치 → 브래킷 형식 변환
-  const convertPlayoffToBracketFormat = (playoffMatches: LeagueMatch[]) => {
+  const convertPlayoffToBpaddleFormat = (playoffMatches: LeagueMatch[]) => {
     if (!playoffMatches || playoffMatches.length === 0) {
       return {
         rounds: [],
@@ -2134,7 +2134,7 @@ const LeagueDetailScreen = () => {
                   style={styles.playoffStatusCard}
                   onPress={() => {
                     setActiveTab('standings');
-                    setStandingsViewMode('bracket');
+                    setStandingsViewMode('bpaddle');
                   }}
                 >
                   <Card.Content>
@@ -2185,7 +2185,7 @@ const LeagueDetailScreen = () => {
                       {/* 🎯 [KIM] 클릭 안내 문구 추가 */}
                       <View style={styles.playoffTapHintContainer}>
                         <Text style={styles.playoffTapHintText}>
-                          {t('leagueDetail.tapToViewBracket')}
+                          {t('leagueDetail.tapToViewBpaddle')}
                         </Text>
                         <Ionicons name='chevron-forward' size={18} color={theme.colors.primary} />
                       </View>
@@ -2721,8 +2721,8 @@ const LeagueDetailScreen = () => {
             {(() => {
               const playoffMatches = matches.filter(m => m.isPlayoffMatch);
 
-              // 🔍 DEBUG: {t('leagueDetail.playoffBracket')} 탭 표시 조건 확인
-              console.log('🔍 [DEBUG - Standings Tab] Playoff bracket toggle visibility check:', {
+              // 🔍 DEBUG: {t('leagueDetail.playoffBpaddle')} 탭 표시 조건 확인
+              console.log('🔍 [DEBUG - Standings Tab] Playoff bpaddle toggle visibility check:', {
                 leagueStatus: league?.status,
                 totalMatches: matches.length,
                 playoffMatches: playoffMatches.length,
@@ -2762,17 +2762,17 @@ const LeagueDetailScreen = () => {
                     <TouchableOpacity
                       style={[
                         styles.standingsSubTab,
-                        standingsViewMode === 'bracket' && styles.standingsSubTabActive,
+                        standingsViewMode === 'bpaddle' && styles.standingsSubTabActive,
                       ]}
-                      onPress={() => setStandingsViewMode('bracket')}
+                      onPress={() => setStandingsViewMode('bpaddle')}
                     >
                       <Text
                         style={[
                           styles.standingsSubTabText,
-                          standingsViewMode === 'bracket' && styles.standingsSubTabTextActive,
+                          standingsViewMode === 'bpaddle' && styles.standingsSubTabTextActive,
                         ]}
                       >
-                        {t('leagueDetail.playoffBracket')}
+                        {t('leagueDetail.playoffBpaddle')}
                       </Text>
                     </TouchableOpacity>
                   </View>
@@ -2792,18 +2792,18 @@ const LeagueDetailScreen = () => {
                 standingsViewMode === 'standings' ? (
                   renderStandingsCard()
                 ) : (
-                  <TournamentBracketView
-                    bracket={
-                      convertPlayoffToBracketFormat(
+                  <TournamentBpaddleView
+                    bpaddle={
+                      convertPlayoffToBpaddleFormat(
                         playoffMatches as LeagueMatch[]
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       ) as any
                     }
                     currentUserId={currentUser?.uid}
                     isTournamentAdmin={isAdminOrManager}
-                    onMatchPress={bracketMatch => {
+                    onMatchPress={bpaddleMatch => {
                       // 브래킷 매치 ID로 원본 LeagueMatch 찾기
-                      const originalMatch = matches.find(m => m.id === bracketMatch.id);
+                      const originalMatch = matches.find(m => m.id === bpaddleMatch.id);
                       if (originalMatch) {
                         handleSubmitResult(originalMatch as LeagueMatch);
                       }
@@ -3033,15 +3033,15 @@ const LeagueDetailScreen = () => {
                       <TouchableOpacity
                         style={[
                           styles.primaryActionButton,
-                          (isGeneratingBracket || !hasMinimumParticipants) && { opacity: 0.6 },
+                          (isGeneratingBpaddle || !hasMinimumParticipants) && { opacity: 0.6 },
                           { backgroundColor: theme.colors.primary },
                         ]}
-                        onPress={handleGenerateBracket}
-                        disabled={isGeneratingBracket || !hasMinimumParticipants}
+                        onPress={handleGenerateBpaddle}
+                        disabled={isGeneratingBpaddle || !hasMinimumParticipants}
                       >
                         <Ionicons name='grid-outline' size={20} color='#fff' />
                         <Text style={styles.primaryActionButtonText}>
-                          {t('leagueDetail.generateBracketAndStartLeague')}
+                          {t('leagueDetail.generateBpaddleAndStartLeague')}
                         </Text>
                       </TouchableOpacity>
 
@@ -3119,16 +3119,16 @@ const LeagueDetailScreen = () => {
                   </Card>
                 )}
 
-              {/* {t('leagueDetail.deleteBracket')} 버튼 ({t('leagueDetail.management')}자만, 매치가 있을 때만, 완료되지 않은 리그만 표시) */}
+              {/* {t('leagueDetail.deleteBpaddle')} 버튼 ({t('leagueDetail.management')}자만, 매치가 있을 때만, 완료되지 않은 리그만 표시) */}
               {isAdminOrManager && matches.length > 0 && league?.status !== 'completed' && (
                 <Card style={styles.dangerCard}>
                   <Card.Content>
                     <View style={styles.dangerContainer}>
                       <Ionicons name='warning' size={28} color='#F44336' />
                       <View style={styles.dangerTextContainer}>
-                        <Title style={styles.dangerTitle}>{t('leagueDetail.deleteBracket')}</Title>
+                        <Title style={styles.dangerTitle}>{t('leagueDetail.deleteBpaddle')}</Title>
                         <Paragraph style={styles.dangerSubtitle}>
-                          {t('leagueDetail.deleteBracketWarning')}
+                          {t('leagueDetail.deleteBpaddleWarning')}
                         </Paragraph>
                       </View>
                     </View>
@@ -3140,7 +3140,7 @@ const LeagueDetailScreen = () => {
                       style={styles.dangerButton}
                       icon='delete'
                     >
-                      {t('leagueDetail.deleteBracket')}
+                      {t('leagueDetail.deleteBpaddle')}
                     </Button>
                   </Card.Content>
                 </Card>
@@ -3303,11 +3303,11 @@ const LeagueDetailScreen = () => {
       </Portal>
 
       {/* 대진표 생성 중 로딩 오버레이 */}
-      {isGeneratingBracket && (
+      {isGeneratingBpaddle && (
         <View style={styles.generatingOverlay}>
           <View style={styles.generatingContainer}>
             <ActivityIndicator size='large' color='#1976d2' />
-            <Text style={styles.generatingTitle}>{t('leagueDetail.generatingBracket')}</Text>
+            <Text style={styles.generatingTitle}>{t('leagueDetail.generatingBpaddle')}</Text>
             <Text style={styles.generatingSubtitle}>{t('leagueDetail.leagueSoonStarts')}</Text>
           </View>
         </View>
@@ -3925,7 +3925,7 @@ const createStyles = (theme: MD3Theme) =>
       fontWeight: 'bold',
       marginLeft: 8,
     },
-    // {t('leagueDetail.deleteBracket')} 버튼 스타일
+    // {t('leagueDetail.deleteBpaddle')} 버튼 스타일
     // Complete league styles
     completeLeagueCard: {
       backgroundColor: theme.colors.primaryContainer,

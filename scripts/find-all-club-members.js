@@ -10,8 +10,8 @@ const db = admin.firestore();
 async function findAllClubMembers() {
   console.log('🔍 Searching for club members in subcollections...\n');
 
-  // Get all tennis_clubs
-  const clubsSnapshot = await db.collection('tennis_clubs').get();
+  // Get all pickleball_clubs
+  const clubsSnapshot = await db.collection('pickleball_clubs').get();
 
   console.log(`📋 Total clubs: ${clubsSnapshot.size}\n`);
 
@@ -21,7 +21,7 @@ async function findAllClubMembers() {
 
     // Check members subcollection
     const membersSnapshot = await db
-      .collection('tennis_clubs')
+      .collection('pickleball_clubs')
       .doc(clubDoc.id)
       .collection('members')
       .get();

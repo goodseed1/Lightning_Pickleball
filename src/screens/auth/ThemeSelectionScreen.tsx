@@ -1,5 +1,5 @@
 /**
- * Theme Selection Screen for Lightning Tennis
+ * Theme Selection Screen for Lightning Pickleball
  * Project Midnight - Dark Mode First Implementation
  *
  * Allows users to choose their preferred theme during onboarding
@@ -12,7 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTheme } from '../../hooks/useTheme';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { ThemePreference } from '../../types/theme';
 
 interface ThemeSelectionScreenProps {
@@ -25,7 +25,7 @@ interface ThemeSelectionScreenProps {
 const ThemeSelectionScreen: React.FC<ThemeSelectionScreenProps> = ({ onComplete, onBack }) => {
   const { theme, themePreference, setThemePreference } = useTheme();
   const { t } = useLanguage();
-  const themeColors = getLightningTennisTheme(theme);
+  const themeColors = getLightningPickleballTheme(theme);
 
   const [selectedTheme, setSelectedTheme] = useState<ThemePreference>(themePreference);
   const fadeAnim = React.useRef(new Animated.Value(0)).current;

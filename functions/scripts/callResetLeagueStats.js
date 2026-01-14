@@ -13,7 +13,7 @@ const admin = require('firebase-admin');
 // Initialize Firebase Admin with default credentials
 // This will use the Firebase CLI credentials automatically
 admin.initializeApp({
-  projectId: 'lightning-tennis-community',
+  projectId: 'lightning-pickleball-community',
 });
 
 const db = admin.firestore();

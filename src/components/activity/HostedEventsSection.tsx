@@ -8,7 +8,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { EventWithParticipation } from '../../types/activity';
 import { useTheme } from '../../hooks/useTheme';
 import { useAuth } from '../../contexts/AuthContext';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import UserSearchModal from '../modals/UserSearchModal';
 import { usePartnerReinvite } from '../../hooks/usePartnerReinvite';
 import { useFriendReinvite } from '../../hooks/useFriendReinvite';
@@ -35,7 +35,7 @@ const HostedEventsSection: React.FC<HostedEventsSectionProps> = ({
   const { theme: currentTheme } = useTheme();
   const { currentUser } = useAuth();
   const { t } = useLanguage();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
 
   // 🛡️ [CAPTAIN AMERICA] Partner re-invite hook for DOUBLES (Phase 2: Extracted to custom hook)

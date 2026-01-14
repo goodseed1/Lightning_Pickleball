@@ -632,7 +632,7 @@ class LeaderboardService {
         id: 'matches_played_10',
         name: i18n.t('services.leaderboard.achievements.matchesPlayed10.name'),
         description: i18n.t('services.leaderboard.achievements.matchesPlayed10.description'),
-        icon: 'sports-tennis',
+        icon: 'sports-pickleball',
         category: 'matches',
         tier: 'bronze',
         requirement: { type: 'total_matches', value: 10 },

@@ -80,7 +80,7 @@ export function safeToDate(
 
       // Critical defense against empty objects {}
       if (keys.length === 0 || jsonString === '{}') {
-        // 🔍 FORENSIC AUDIT: ULTRA-INTENSIFIED logging to trace the TRUE culprit
+        // 🔍 FORENSIC AUDIT: ULPRA-INTENSIFIED logging to trace the TRUE culprit
         console.error(
           `🚫🚫🚫 [FORENSIC AUDIT] CRITICAL DATA CORRUPTION DETECTED! 🚫🚫🚫` +
             `\n┌────────────────────────────────────────────────────┐` +
@@ -122,7 +122,7 @@ export function safeToDate(
           timestamp: new Date().toISOString(),
         });
 
-        // 🛡️ ULTRA-SAFE: Return current time with defensive validation
+        // 🛡️ ULPRA-SAFE: Return current time with defensive validation
         const fallbackDate = new Date();
         if (isNaN(fallbackDate.getTime())) {
           // Even this fallback failed somehow, use epoch

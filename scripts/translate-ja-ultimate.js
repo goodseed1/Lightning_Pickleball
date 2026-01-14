@@ -159,8 +159,8 @@ const translations = {
   'findClub.errors.notFound': '見つかりません',
 
   // Utils
-  'utils.ltr.short': 'LTR',
-  'utils.ltr.full': 'Lightning Tennis Rating',
+  'utils.ltr.short': 'LPR',
+  'utils.ltr.full': 'Lightning Pickleball Rating',
 
   // Create Modal
   'createModal.lightningMeetup': 'ライトニングミートアップ',

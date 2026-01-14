@@ -23,8 +23,8 @@ const FIRST_CLUB_JOIN_BADGE = {
     en: 'First Club Member',
   },
   description: {
-    ko: '첫 번째 테니스 클럽에 가입하셨습니다! 🏟️',
-    en: 'You joined your first tennis club! 🏟️',
+    ko: '첫 번째 피클볼 클럽에 가입하셨습니다! 🏟️',
+    en: 'You joined your first pickleball club! 🏟️',
   },
   iconUrl: '🏟️', // 실제로는 이미지 URL
   category: 'club',

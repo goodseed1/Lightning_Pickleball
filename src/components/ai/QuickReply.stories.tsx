@@ -34,7 +34,7 @@ type Story = StoryObj<typeof meta>;
 // Story: 기본 빠른 응답 버튼
 export const Default: Story = {
   args: {
-    label: '테니스 규칙',
+    label: '피클볼 규칙',
     onPress: () => console.log('Quick reply pressed'),
   },
 };
@@ -65,7 +65,7 @@ export const WithDifferentIcons: Story = {
       <QuickReply label='도움말' icon='help-circle' onPress={() => console.log('Help')} />
       <QuickReply label='분석' icon='chart-line' onPress={() => console.log('Analysis')} />
       <QuickReply label='전략' icon='chess-knight' onPress={() => console.log('Strategy')} />
-      <QuickReply label='장비' icon='tennis' onPress={() => console.log('Equipment')} />
+      <QuickReply label='장비' icon='pickleball' onPress={() => console.log('Equipment')} />
     </View>
   ),
 };
@@ -86,7 +86,7 @@ export const KoreanExamples: Story = {
   render: () => (
     <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
       <QuickReply label='기본 규칙' icon='book-open-variant' onPress={() => console.log('Rules')} />
-      <QuickReply label='서브 팁' icon='tennis' onPress={() => console.log('Serve tips')} />
+      <QuickReply label='서브 팁' icon='pickleball' onPress={() => console.log('Serve tips')} />
       <QuickReply label='경기 전략' icon='strategy' onPress={() => console.log('Strategy')} />
       <QuickReply label='장비 추천' icon='cart' onPress={() => console.log('Equipment')} />
       <QuickReply label='훈련 방법' icon='dumbbell' onPress={() => console.log('Training')} />
@@ -103,7 +103,7 @@ export const EnglishExamples: Story = {
         icon='book-open-variant'
         onPress={() => console.log('Rules')}
       />
-      <QuickReply label='Serve Tips' icon='tennis' onPress={() => console.log('Serve tips')} />
+      <QuickReply label='Serve Tips' icon='pickleball' onPress={() => console.log('Serve tips')} />
       <QuickReply label='Match Strategy' icon='strategy' onPress={() => console.log('Strategy')} />
       <QuickReply label='Equipment' icon='cart' onPress={() => console.log('Equipment')} />
       <QuickReply label='Training' icon='dumbbell' onPress={() => console.log('Training')} />

@@ -403,7 +403,7 @@ describe.skip('SocialService Unit Tests - TypeScript service needs refactoring',
           senderId: 'sender-2',
           receiverId: 'current-user-123',
           status: 'pending',
-          message: 'Want to play tennis?',
+          message: 'Want to play pickleball?',
         },
       ];
 

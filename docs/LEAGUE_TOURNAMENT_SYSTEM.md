@@ -1,8 +1,8 @@
-# 🏆 Lightning Tennis 클럽 리그 & 토너먼트 시스템 설계
+# 🏆 Lightning Pickleball 클럽 리그 & 토너먼트 시스템 설계
 
 ## 🎯 개요
 
-Lightning Tennis의 **클럽 리그 & 토너먼트 시스템**은 테니스 클럽들이 체계적인 경쟁 시스템을 운영할 수 있도록 설계되었습니다. 정기적인 리그전과 토너먼트를 통해 클럽 회원들의 실력 향상과 친목 도모를 동시에 추구합니다.
+Lightning Pickleball의 **클럽 리그 & 토너먼트 시스템**은 피클볼 클럽들이 체계적인 경쟁 시스템을 운영할 수 있도록 설계되었습니다. 정기적인 리그전과 토너먼트를 통해 클럽 회원들의 실력 향상과 친목 도모를 동시에 추구합니다.
 
 ## 🏅 리그 시스템 (League System)
 
@@ -17,7 +17,7 @@ Lightning Tennis의 **클럽 리그 & 토너먼트 시스템**은 테니스 클�
 
 2. **유연한 점수 시스템**
    - Standard: 승리 3점, 무승부 1점, 패배 0점
-   - Tennis: 승리 2점, 패배 0점 (무승부 없음)
+   - Pickleball: 승리 2점, 패배 0점 (무승부 없음)
    - Custom: 사용자 정의 점수 체계
 
 3. **자동 순위 계산**
@@ -35,14 +35,14 @@ Lightning Tennis의 **클럽 리그 & 토너먼트 시스템**은 테니스 클�
   seasonNumber?: number,           // 시즌 번호 (예: 5)
 
   // 기본 정보
-  title: string,                   // "Metro Atlanta Tennis League"
+  title: string,                   // "Metro Atlanta Pickleball League"
   description?: string,            // 리그 설명
   bannerImage?: string,            // 배너 이미지 URL
 
   // 리그 설정
   settings: {
     format: 'round_robin',         // 리그 형식
-    scoringSystem: 'tennis',       // 점수 시스템
+    scoringSystem: 'pickleball',       // 점수 시스템
     pointsForWin: 2,              // 승리 점수
     pointsForLoss: 0,             // 패배 점수
 
@@ -59,7 +59,7 @@ Lightning Tennis의 **클럽 리그 & 토너먼트 시스템**은 테니스 클�
       max: "4.5"
     },
 
-    // 타이브레이크 규칙 (번개 테니스 공식 규정 v1.0)
+    // 타이브레이크 규칙 (번개 피클볼 공식 규정 v1.0)
     tiebreakRules: [
       { order: 1, type: 'head_to_head', description: '동점자 간 승자승 원칙' },
       { order: 2, type: 'set_win_rate', description: '세트 득실률 (이긴 세트 / 총 세트)' },
@@ -137,7 +137,7 @@ Lightning Tennis의 **클럽 리그 & 토너먼트 시스템**은 테니스 클�
     },
     runnerUp: {
       type: 'gift',
-      description: 'Tennis Equipment Package',
+      description: 'Pickleball Equipment Package',
       value: 200
     }
   },
@@ -271,7 +271,7 @@ Lightning Tennis의 **클럽 리그 & 토너먼트 시스템**은 테니스 클�
 
     // 규칙
     thirdPlaceMatch: true,         // 3,4위전
-    consolationBracket: false,     // 패자부활전
+    consolationBpaddle: false,     // 패자부활전
     allowWalkovers: true
   },
 
@@ -297,7 +297,7 @@ Lightning Tennis의 **클럽 리그 & 토너먼트 시스템**은 테니스 클�
   ],
 
   // 대진표 (라운드별)
-  bracket: [
+  bpaddle: [
     {
       roundNumber: 1,
       roundName: "Round of 16",
@@ -307,7 +307,7 @@ Lightning Tennis의 **클럽 리그 & 토너먼트 시스템**은 테니스 클�
           tournamentId: "tournamentId",
           roundNumber: 1,
           matchNumber: 1,
-          bracketPosition: 1,      // 대진표 위치
+          bpaddlePosition: 1,      // 대진표 위치
 
           // 참가자
           player1: {
@@ -478,14 +478,14 @@ registerForTournament(tournamentId: string, userId: string): Promise<string>
 assignSeeds(tournamentId: string, seeds: SeedAssignment[]): Promise<void>
 
 // 싱글 엘리미네이션 대진표 생성
-generateSingleEliminationBracket(tournamentId: string): Promise<void>
+generateSingleEliminationBpaddle(tournamentId: string): Promise<void>
 
 // 경기 결과 입력 및 다음 라운드 자동 진출
 updateMatchResult(matchId: string, winner: string, score: TournamentScore): Promise<void>
 
 // 토너먼트 정보 조회
 getTournament(tournamentId: string): Promise<Tournament>
-getTournamentMatches(tournamentId: string): Promise<BracketMatch[]>
+getTournamentMatches(tournamentId: string): Promise<BpaddleMatch[]>
 
 // 실시간 구독
 subscribeToTournament(tournamentId: string, callback: Function): Unsubscribe
@@ -506,7 +506,7 @@ subscribeToTournament(tournamentId: string, callback: Function): Unsubscribe
 8. 다음 라운드 연결 관계 설정
 ```
 
-### 순위표 정렬 알고리즘 (번개 테니스 공식 규정 v1.0)
+### 순위표 정렬 알고리즘 (번개 피클볼 공식 규정 v1.0)
 
 ```typescript
 /**
@@ -612,4 +612,4 @@ subscribeToTournament(tournamentId: string, callback: Function): Unsubscribe
 3. **커뮤니티 강화**: 리그/토너먼트를 통한 유대감 형성
 4. **수익 창출**: 참가비를 통한 클럽 수익 증대
 
-Lightning Tennis의 리그 & 토너먼트 시스템은 클럽 운영의 핵심 기능으로, 체계적인 경쟁 시스템을 통해 테니스 커뮤니티를 더욱 활성화시킵니다. 🎾🏆
+Lightning Pickleball의 리그 & 토너먼트 시스템은 클럽 운영의 핵심 기능으로, 체계적인 경쟁 시스템을 통해 피클볼 커뮤니티를 더욱 활성화시킵니다. 🎾🏆

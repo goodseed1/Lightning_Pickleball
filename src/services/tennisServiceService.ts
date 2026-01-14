@@ -1,7 +1,7 @@
 /**
- * Tennis Service Service
- * 테니스 서비스 게시판 CRUD 서비스
- * 줄 교체, 라켓 수리, 중고 거래 등
+ * Pickleball Service Service
+ * 피클볼 서비스 게시판 CRUD 서비스
+ * 줄 교체, 패들 수리, 중고 거래 등
  */
 
 import {
@@ -26,17 +26,17 @@ import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage
 import { db, storage } from '../firebase/config';
 import { COLLECTIONS } from '../constants/collections';
 import {
-  TennisService,
+  PickleballService,
   CreateServiceRequest,
   UpdateServiceRequest,
   ServiceLocation,
-} from '../types/tennisService';
+} from '../types/pickleballService';
 
 // 🛡️ 도용 방지: 게시 제한 상수
 const DAILY_POST_LIMIT = 3; // 하루 최대 3개
 const MAX_TOTAL_POSTS = 5; // 총 최대 5개
 
-class TennisServiceService {
+class PickleballServiceService {
   private collectionRef = collection(db, COLLECTIONS.TENNIS_SERVICES);
 
   /**
@@ -86,7 +86,7 @@ class TennisServiceService {
 
       // 파일명 생성
       const timestamp = Date.now();
-      const filename = `tennis_services/${userId}/${timestamp}.jpg`;
+      const filename = `pickleball_services/${userId}/${timestamp}.jpg`;
       const storageRef = ref(storage, filename);
 
       // 업로드
@@ -94,10 +94,10 @@ class TennisServiceService {
 
       // 다운로드 URL 반환
       const downloadURL = await getDownloadURL(storageRef);
-      console.log('📸 [TennisServiceService] Image uploaded:', downloadURL);
+      console.log('📸 [PickleballServiceService] Image uploaded:', downloadURL);
       return downloadURL;
     } catch (error) {
-      console.error('❌ [TennisServiceService] Error uploading image:', error);
+      console.error('❌ [PickleballServiceService] Error uploading image:', error);
       throw error;
     }
   }
@@ -109,10 +109,10 @@ class TennisServiceService {
     try {
       const storageRef = ref(storage, imageUrl);
       await deleteObject(storageRef);
-      console.log('🗑️ [TennisServiceService] Image deleted:', imageUrl);
+      console.log('🗑️ [PickleballServiceService] Image deleted:', imageUrl);
     } catch (error) {
       // 이미지가 없어도 에러 무시
-      console.warn('⚠️ [TennisServiceService] Error deleting image:', error);
+      console.warn('⚠️ [PickleballServiceService] Error deleting image:', error);
     }
   }
 
@@ -148,10 +148,10 @@ class TennisServiceService {
       };
 
       const docRef = await addDoc(this.collectionRef, serviceData);
-      console.log('🛠️ [TennisServiceService] Service created:', docRef.id);
+      console.log('🛠️ [PickleballServiceService] Service created:', docRef.id);
       return docRef.id;
     } catch (error) {
-      console.error('❌ [TennisServiceService] Error creating service:', error);
+      console.error('❌ [PickleballServiceService] Error creating service:', error);
       throw error;
     }
   }
@@ -159,7 +159,7 @@ class TennisServiceService {
   /**
    * 서비스 게시글 조회 (단일)
    */
-  async getService(serviceId: string): Promise<TennisService | null> {
+  async getService(serviceId: string): Promise<PickleballService | null> {
     try {
       const docRef = doc(this.collectionRef, serviceId);
       const docSnap = await getDoc(docRef);
@@ -171,9 +171,9 @@ class TennisServiceService {
       return {
         id: docSnap.id,
         ...docSnap.data(),
-      } as TennisService;
+      } as PickleballService;
     } catch (error) {
-      console.error('❌ [TennisServiceService] Error getting service:', error);
+      console.error('❌ [PickleballServiceService] Error getting service:', error);
       throw error;
     }
   }
@@ -181,7 +181,7 @@ class TennisServiceService {
   /**
    * 서비스 목록 조회 (활성 상태만)
    */
-  async getServices(limitCount: number = 50): Promise<TennisService[]> {
+  async getServices(limitCount: number = 50): Promise<PickleballService[]> {
     try {
       const q = query(
         this.collectionRef,
@@ -196,10 +196,10 @@ class TennisServiceService {
           ({
             id: doc.id,
             ...doc.data(),
-          }) as TennisService
+          }) as PickleballService
       );
     } catch (error) {
-      console.error('❌ [TennisServiceService] Error getting services:', error);
+      console.error('❌ [PickleballServiceService] Error getting services:', error);
       throw error;
     }
   }
@@ -208,7 +208,7 @@ class TennisServiceService {
    * 서비스 목록 실시간 구독
    */
   listenToServices(
-    callback: (services: TennisService[]) => void,
+    callback: (services: PickleballService[]) => void,
     limitCount: number = 50
   ): Unsubscribe {
     const q = query(
@@ -226,12 +226,12 @@ class TennisServiceService {
             ({
               id: doc.id,
               ...doc.data(),
-            }) as TennisService
+            }) as PickleballService
         );
         callback(services);
       },
       error => {
-        console.error('❌ [TennisServiceService] Listener error:', error);
+        console.error('❌ [PickleballServiceService] Listener error:', error);
       }
     );
   }
@@ -256,9 +256,9 @@ class TennisServiceService {
       if (request.status !== undefined) updateData.status = request.status;
 
       await updateDoc(docRef, updateData);
-      console.log('🛠️ [TennisServiceService] Service updated:', serviceId);
+      console.log('🛠️ [PickleballServiceService] Service updated:', serviceId);
     } catch (error) {
-      console.error('❌ [TennisServiceService] Error updating service:', error);
+      console.error('❌ [PickleballServiceService] Error updating service:', error);
       throw error;
     }
   }
@@ -273,9 +273,9 @@ class TennisServiceService {
         status: 'deleted',
         updatedAt: serverTimestamp(),
       });
-      console.log('🛠️ [TennisServiceService] Service deleted:', serviceId);
+      console.log('🛠️ [PickleballServiceService] Service deleted:', serviceId);
     } catch (error) {
-      console.error('❌ [TennisServiceService] Error deleting service:', error);
+      console.error('❌ [PickleballServiceService] Error deleting service:', error);
       throw error;
     }
   }
@@ -287,14 +287,14 @@ class TennisServiceService {
     try {
       const docRef = doc(this.collectionRef, serviceId);
       await deleteDoc(docRef);
-      console.log('🛠️ [TennisServiceService] Service permanently deleted:', serviceId);
+      console.log('🛠️ [PickleballServiceService] Service permanently deleted:', serviceId);
     } catch (error) {
-      console.error('❌ [TennisServiceService] Error permanently deleting service:', error);
+      console.error('❌ [PickleballServiceService] Error permanently deleting service:', error);
       throw error;
     }
   }
 }
 
 // 싱글톤 인스턴스 export
-const tennisServiceService = new TennisServiceService();
-export default tennisServiceService;
+const pickleballServiceService = new PickleballServiceService();
+export default pickleballServiceService;

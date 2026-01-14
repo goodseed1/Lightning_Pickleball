@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
@@ -29,7 +29,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { getDistanceUnit } from '../utils/unitUtils';
 import { convertEloToLtr } from '../utils/ltrUtils';
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import CameraService from '../services/CameraService';
 import ImageUploadService from '../services/imageUploadService';
 import { Appbar } from 'react-native-paper';
@@ -48,7 +48,7 @@ const EditProfileScreen = () => {
 
   // 🎯 [KIM FIX] 다크 모드 지원
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const isDark = currentTheme === 'dark';
 
   // Get user's country for distance unit formatting
@@ -70,12 +70,12 @@ const EditProfileScreen = () => {
       (elo): elo is number => elo !== null && elo !== undefined
     );
 
-    // If user has ELO data, calculate LTR from highest ELO
+    // If user has ELO data, calculate LPR from highest ELO
     if (eloValues.length > 0) {
       const highestElo = Math.max(...eloValues);
       const calculatedLtr = convertEloToLtr(highestElo);
 
-      // Determine skill level label based on LTR (1-10 scale)
+      // Determine skill level label based on LPR (1-10 scale)
       let skillLabel = t('editProfile.skillLevel.beginner');
       if (calculatedLtr >= 9) skillLabel = t('editProfile.skillLevel.expert');
       else if (calculatedLtr >= 7) skillLabel = t('editProfile.skillLevel.advanced');

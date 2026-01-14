@@ -32,8 +32,8 @@ All keys are under `leagueDetail.*`:
 ### 3. Loading States
 
 - `loading.league` - "리그 정보를 불러오는 중..."
-- `loading.generatingBracket` - "대진표 생성 중..."
-- `loading.generatingBracketSubtitle` - "리그가 곧 시작됩니다"
+- `loading.generatingBpaddle` - "대진표 생성 중..."
+- `loading.generatingBpaddleSubtitle` - "리그가 곧 시작됩니다"
 
 ### 4. Errors
 
@@ -71,10 +71,10 @@ All keys are under `leagueDetail.*`:
 ### 7. League Management
 
 - `leagueManagement.title` - "리그 관리"
-- `leagueManagement.generateBracketButton` - "대진표 생성 및 리그 시작"
-- `leagueManagement.deleteBracketButton` - "브래킷 삭제"
-- `leagueManagement.deleteBracketTitle` - "브래킷 삭제"
-- `leagueManagement.deleteBracketDescription` - "모든 경기를 삭제하고 리그를 초기화합니다. 이 작업은 되돌릴 수 없습니다."
+- `leagueManagement.generateBpaddleButton` - "대진표 생성 및 리그 시작"
+- `leagueManagement.deleteBpaddleButton` - "브래킷 삭제"
+- `leagueManagement.deleteBpaddleTitle` - "브래킷 삭제"
+- `leagueManagement.deleteBpaddleDescription` - "모든 경기를 삭제하고 리그를 초기화합니다. 이 작업은 되돌릴 수 없습니다."
 - `leagueManagement.dangerZoneTitle` - "위험 구역"
 - `leagueManagement.deleteLeagueButton` - "리그 삭제"
 - `leagueManagement.minParticipantsDoubles` - "복식 리그는 최소 2팀 (4명)이 필요합니다. 현재: {{count}}명"
@@ -89,7 +89,7 @@ All keys are under `leagueDetail.*`:
 - `playoffs.seasonComplete` - "정규 시즌 완료!"
 - `playoffs.seasonCompleteDescription` - "모든 경기가 끝났습니다. 플레이오프를 시작하여 최종 우승자를 결정하세요."
 - `playoffs.startButton` - "플레이오프 시작하기"
-- `playoffs.bracketToggle` - "플레이오프 대진표"
+- `playoffs.bpaddleToggle` - "플레이오프 대진표"
 - `playoffs.standingsToggle` - "순위표"
 
 ### 9. Match Approval
@@ -112,9 +112,9 @@ All keys are under `leagueDetail.*`:
 - `dialogs.bulkApprovalMessage` - "{{count}}개의 승인 대기 중인 경기 결과를 모두 승인하시겠습니까?"
 - `dialogs.bulkApprovalWarning` - "승인된 결과는 순위표에 반영되며, 되돌릴 수 없습니다."
 - `dialogs.approveAll` - "모두 승인"
-- `dialogs.deleteBracketTitle` - "⚠️ 브래킷 삭제"
-- `dialogs.deleteBracketConfirm` - "{{leagueName}}의 모든 경기를 삭제하시겠습니까?\n\n이 작업은 되돌릴 수 없으며, 리그가 참가 신청 상태로 초기화됩니다."
-- `dialogs.generateBracketConfirm` - "{{leagueName}}의 대진표를 생성하시겠습니까?\n\n이 작업은 되돌릴 수 없으며, 리그가 시작됩니다."
+- `dialogs.deleteBpaddleTitle` - "⚠️ 브래킷 삭제"
+- `dialogs.deleteBpaddleConfirm` - "{{leagueName}}의 모든 경기를 삭제하시겠습니까?\n\n이 작업은 되돌릴 수 없으며, 리그가 참가 신청 상태로 초기화됩니다."
+- `dialogs.generateBpaddleConfirm` - "{{leagueName}}의 대진표를 생성하시겠습니까?\n\n이 작업은 되돌릴 수 없으며, 리그가 시작됩니다."
 - `dialogs.startPlayoffsConfirm` - "모든 정규 시즌 경기가 완료되었습니다.\n\n{{leagueName}}의 플레이오프를 시작하시겠습니까?"
 - `dialogs.deleteLeagueTitle` - "⚠️ 리그 삭제"
 - `dialogs.deleteLeagueConfirm` - "정말로 \"{{leagueName}}\" 리그를 삭제하시겠습니까?\n\n이 작업은 되돌릴 수 없으며, 모든 경기 데이터와 참가자 정보가 삭제됩니다."
@@ -166,8 +166,8 @@ Alert.alert(
 
 // After
 Alert.alert(
-  t('leagueDetail.dialogs.deleteBracketTitle'),
-  t('leagueDetail.dialogs.deleteBracketConfirm', { leagueName: league.name }),
+  t('leagueDetail.dialogs.deleteBpaddleTitle'),
+  t('leagueDetail.dialogs.deleteBpaddleConfirm', { leagueName: league.name }),
   ...
 )
 ```

@@ -154,7 +154,7 @@ export const cancelApplication = onCall<CancelApplicationRequest>(async request 
         // Get event title for notification
         const eventDoc = await eventRef.get();
         const eventData = eventDoc.data();
-        const eventTitle = eventData?.title || eventData?.name || 'Tennis Match';
+        const eventTitle = eventData?.title || eventData?.name || 'Pickleball Match';
 
         logger.info('🔔 [CANCEL_APPLICATION] Notifying team member', {
           notifyUserId,
@@ -198,7 +198,7 @@ export const cancelApplication = onCall<CancelApplicationRequest>(async request 
       const eventDoc = await eventRef.get();
       const eventData = eventDoc.data();
       const hostId = eventData?.hostId;
-      const eventTitle = eventData?.title || eventData?.name || 'Tennis Match';
+      const eventTitle = eventData?.title || eventData?.name || 'Pickleball Match';
 
       // Only notify host if the canceller is not the host themselves
       if (hostId && hostId !== userId) {

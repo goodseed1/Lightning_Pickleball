@@ -2,14 +2,14 @@
  * 🎾 Onboarding Container
  *
  * 온보딩 플로우를 관리하는 컨테이너 컴포넌트.
- * 언어 선택 → 약관 동의 → 프로필 설정 → LTR 레벨 선택 순서로 진행.
+ * 언어 선택 → 약관 동의 → 프로필 설정 → LPR 레벨 선택 순서로 진행.
  *
- * 📝 LTR System - Lightning Tennis Rating
- * - LTR은 1-10까지의 정수 값
- * - 온보딩에서는 LTR 1-5까지만 선택 가능
- * - LTR 6 이상은 매치를 통해서만 획득 가능
+ * 📝 LPR System - Lightning Pickleball Rating
+ * - LPR은 1-10까지의 정수 값
+ * - 온보딩에서는 LPR 1-5까지만 선택 가능
+ * - LPR 6 이상은 매치를 통해서만 획득 가능
  *
- * @author Kim (LTR System Transition)
+ * @author Kim (LPR System Transition)
  * @date 2025-12-28
  */
 import React, { useState } from 'react';
@@ -79,14 +79,14 @@ const OnboardingContainer: React.FC<OnboardingContainerProps> = ({ onComplete })
     console.log('🏁 OnboardingContainer: Received profile data');
     console.log('📋 Profile data:', profileData);
 
-    // 🎯 Store profile data and move to LTR level selection
+    // 🎯 Store profile data and move to LPR level selection
     setUserData(prev => ({ ...prev, profile: profileData }));
     setCurrentStep('ltrSelect');
   };
 
-  // 🎯 Start optional LTR assessment from level selection screen
+  // 🎯 Start optional LPR assessment from level selection screen
   const handleLtrStartAssessment = () => {
-    console.log('📝 OnboardingContainer: Starting LTR assessment');
+    console.log('📝 OnboardingContainer: Starting LPR assessment');
     setCurrentStep('ltrQ1');
   };
 
@@ -111,7 +111,7 @@ const OnboardingContainer: React.FC<OnboardingContainerProps> = ({ onComplete })
   };
 
   const handleLtrLevelSelect = (ltr: number) => {
-    console.log('🎾 OnboardingContainer: LTR level selected:', ltr);
+    console.log('🎾 OnboardingContainer: LPR level selected:', ltr);
 
     // 🛡️ Save both skillLevel (number) and ltrLevel (string) for compatibility
     const updatedProfile = {

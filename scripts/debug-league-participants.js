@@ -16,7 +16,7 @@ const db = admin.firestore();
 async function debugLeagueParticipants() {
   console.log('🔍 리그 참가자 데이터 구조 분석...\n');
 
-  // Lightning Tennis Club 리그 찾기
+  // Lightning Pickleball Club 리그 찾기
   const clubId = 'WsetxkWODywjt0BBcqrs';
   const leaguesSnap = await db.collection('leagues').where('clubId', '==', clubId).get();
 

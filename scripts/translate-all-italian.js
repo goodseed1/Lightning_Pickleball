@@ -222,7 +222,7 @@ const translations = {
     detailTabs: {
       matches: 'Partite',
       participants: 'Partecipanti',
-      bracket: 'Tabellone',
+      bpaddle: 'Tabellone',
       standings: 'Classifiche',
       prizes: 'Premi',
       settings: 'Impostazioni',
@@ -234,7 +234,7 @@ const translations = {
       start: 'Inizia',
       end: 'Termina',
       cancel: 'Annulla',
-      generateBracket: 'Genera Tabellone',
+      generateBpaddle: 'Genera Tabellone',
       updateStandings: 'Aggiorna Classifiche',
     },
     format: {
@@ -262,7 +262,7 @@ const translations = {
       tournamentCreated: 'Torneo creato con successo',
       tournamentUpdated: 'Torneo aggiornato',
       tournamentDeleted: 'Torneo eliminato',
-      bracketGenerated: 'Tabellone generato',
+      bpaddleGenerated: 'Tabellone generato',
       scoreUpdated: 'Punteggio aggiornato',
       participantCheckedIn: 'Partecipante registrato',
       noParticipants: 'Nessun partecipante',

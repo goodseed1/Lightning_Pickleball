@@ -1,6 +1,6 @@
 /**
- * Tennis Score Input Modal Component
- * 테니스 경기 점수 입력 모달 컴포넌트
+ * Pickleball Score Input Modal Component
+ * 피클볼 경기 점수 입력 모달 컴포넌트
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
@@ -17,7 +17,7 @@ import { Button, Card, Title, TextInput, IconButton, RadioButton } from 'react-n
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScoreInputForm, Match } from '../../types/match';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 interface ScoreInputModalProps {
@@ -36,7 +36,7 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
   onSubmit,
 }) => {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const { t } = useLanguage();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const styles = createStyles(themeColors.colors as any);
@@ -95,8 +95,8 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
   const isPlayer2 = currentUserId === match.player2.userId;
   const hasPermission = isPlayer1 || isPlayer2;
 
-  // Tennis score validation function
-  const isValidTennisScore = (score1: number, score2: number): boolean => {
+  // Pickleball score validation function
+  const isValidPickleballScore = (score1: number, score2: number): boolean => {
     const maxScore = Math.max(score1, score2);
     const minScore = Math.min(score1, score2);
 
@@ -264,7 +264,7 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
     const player2Score = parseInt(newScoreSets[setIndex].player2 || '0', 10);
 
     if (newScoreSets[setIndex].player1 && newScoreSets[setIndex].player2) {
-      if (!isValidTennisScore(player1Score, player2Score)) {
+      if (!isValidPickleballScore(player1Score, player2Score)) {
         Alert.alert(
           t('recordScore.alerts.invalidScore'),
           t('recordScore.alerts.invalidScoreExplanation'),
@@ -397,7 +397,7 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
           } else {
             Alert.alert(
               t('recordScore.alerts.notice'),
-              t('recordScore.alerts.invalidTennisScore', { set: i + 1 })
+              t('recordScore.alerts.invalidPickleballScore', { set: i + 1 })
             );
             return false;
           }
@@ -635,7 +635,7 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
                   </Text>
                 )}
                 <View style={styles.tiebreakInputWrapper}>
-                  <Text style={styles.tiebreakBracket}>(</Text>
+                  <Text style={styles.tiebreakBpaddle}>(</Text>
                   <RNTextInput
                     value={currentSet.player1_tb || ''}
                     onChangeText={value => updateScore(setIndex, 'player1_tb', value)}
@@ -645,7 +645,7 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
                     placeholder={tiebreakType === 'super' ? '10' : '7'}
                     placeholderTextColor={themeColors.colors.onSurfaceVariant}
                   />
-                  <Text style={styles.tiebreakBracket}>)</Text>
+                  <Text style={styles.tiebreakBpaddle}>)</Text>
                 </View>
               </View>
 
@@ -677,7 +677,7 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
                   </Text>
                 )}
                 <View style={styles.tiebreakInputWrapper}>
-                  <Text style={styles.tiebreakBracket}>(</Text>
+                  <Text style={styles.tiebreakBpaddle}>(</Text>
                   <RNTextInput
                     value={currentSet.player2_tb || ''}
                     onChangeText={value => updateScore(setIndex, 'player2_tb', value)}
@@ -687,7 +687,7 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
                     placeholder={tiebreakType === 'super' ? '10' : '7'}
                     placeholderTextColor={themeColors.colors.onSurfaceVariant}
                   />
-                  <Text style={styles.tiebreakBracket}>)</Text>
+                  <Text style={styles.tiebreakBpaddle}>)</Text>
                 </View>
               </View>
             </View>
@@ -1196,7 +1196,7 @@ const createStyles = (colors: Record<string, string>) =>
       alignItems: 'center',
       justifyContent: 'center',
     },
-    tiebreakBracket: {
+    tiebreakBpaddle: {
       fontSize: 16,
       fontWeight: '600',
       color: colors.onSurface,

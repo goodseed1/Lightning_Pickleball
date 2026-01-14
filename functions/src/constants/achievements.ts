@@ -84,7 +84,7 @@ export const ACHIEVEMENT_DEFINITIONS = {
         points: 250,
         icon: {
           set: 'MaterialCommunityIcons' as const,
-          name: 'tennis-ball',
+          name: 'pickleball-ball',
           color: '#CD7F32',
           tier: 'bronze' as const,
         },
@@ -94,7 +94,7 @@ export const ACHIEVEMENT_DEFINITIONS = {
         points: 500,
         icon: {
           set: 'MaterialCommunityIcons' as const,
-          name: 'tennis',
+          name: 'pickleball',
           color: '#C0C0C0',
           tier: 'silver' as const,
         },
@@ -280,11 +280,11 @@ export const ACHIEVEMENT_DEFINITIONS = {
     hidden: false,
   },
 
-  // 6. Tennis Prodigy - 테니스 신동 (100% 승률, 최소 5회 참가)
+  // 6. Pickleball Prodigy - 피클볼 신동 (100% 승률, 최소 5회 참가)
   TENNIS_PRODIGY: {
-    id: 'tennis_prodigy',
-    name: 'Tennis Prodigy',
-    nameKo: '테니스 신동',
+    id: 'pickleball_prodigy',
+    name: 'Pickleball Prodigy',
+    nameKo: '피클볼 신동',
     description: 'Maintain 100% tournament win rate (minimum 5 tournaments)',
     descriptionKo: '토너먼트 100% 승률 유지 (최소 5회 참가)',
     category: ACHIEVEMENT_CATEGORIES.TOURNAMENTS,

@@ -28,16 +28,16 @@ describe('🌉 [Heimdall] Tournament State Machine', () => {
     it('should reject invalid transitions from draft', () => {
       expect(isValidStateTransition('draft', 'in_progress')).toBe(false);
       expect(isValidStateTransition('draft', 'completed')).toBe(false);
-      expect(isValidStateTransition('draft', 'bracket_generation')).toBe(false);
+      expect(isValidStateTransition('draft', 'bpaddle_generation')).toBe(false);
     });
 
     it('should allow valid transitions from registration', () => {
-      expect(isValidStateTransition('registration', 'bracket_generation')).toBe(true);
+      expect(isValidStateTransition('registration', 'bpaddle_generation')).toBe(true);
       expect(isValidStateTransition('registration', 'cancelled')).toBe(true);
     });
 
-    it('should allow rollback from bracket_generation to registration', () => {
-      expect(isValidStateTransition('bracket_generation', 'registration')).toBe(true);
+    it('should allow rollback from bpaddle_generation to registration', () => {
+      expect(isValidStateTransition('bpaddle_generation', 'registration')).toBe(true);
     });
 
     it('should allow valid transitions from in_progress', () => {
@@ -65,7 +65,7 @@ describe('🌉 [Heimdall] Tournament State Machine', () => {
 
     it('should return valid next states for registration', () => {
       const nextStates = getValidNextStates('registration');
-      expect(nextStates).toEqual(['bracket_generation', 'cancelled']);
+      expect(nextStates).toEqual(['bpaddle_generation', 'cancelled']);
     });
 
     it('should return empty array for terminal states', () => {
@@ -73,8 +73,8 @@ describe('🌉 [Heimdall] Tournament State Machine', () => {
       expect(getValidNextStates('cancelled')).toEqual([]);
     });
 
-    it('should include rollback option for bracket_generation', () => {
-      const nextStates = getValidNextStates('bracket_generation');
+    it('should include rollback option for bpaddle_generation', () => {
+      const nextStates = getValidNextStates('bpaddle_generation');
       expect(nextStates).toContain('registration');
       expect(nextStates).toContain('in_progress');
       expect(nextStates).toContain('cancelled');
@@ -97,7 +97,7 @@ describe('🌉 [Heimdall] Tournament State Machine', () => {
     it('should identify non-terminal states correctly', () => {
       expect(isTerminalState('draft')).toBe(false);
       expect(isTerminalState('registration')).toBe(false);
-      expect(isTerminalState('bracket_generation')).toBe(false);
+      expect(isTerminalState('bpaddle_generation')).toBe(false);
       expect(isTerminalState('in_progress')).toBe(false);
     });
   });
@@ -110,7 +110,7 @@ describe('🌉 [Heimdall] Tournament State Machine', () => {
     it('should return Korean descriptions for all statuses', () => {
       expect(getStatusDescription('draft')).toBe('준비 중');
       expect(getStatusDescription('registration')).toBe('참가 신청 중');
-      expect(getStatusDescription('bracket_generation')).toBe('대진표 생성 중');
+      expect(getStatusDescription('bpaddle_generation')).toBe('대진표 생성 중');
       expect(getStatusDescription('in_progress')).toBe('진행 중');
       expect(getStatusDescription('completed')).toBe('완료됨');
       expect(getStatusDescription('cancelled')).toBe('취소됨');
@@ -158,7 +158,7 @@ describe('🌉 [Heimdall] Tournament State Machine', () => {
       expect(path).toEqual([
         'draft',
         'registration',
-        'bracket_generation',
+        'bpaddle_generation',
         'in_progress',
         'completed',
       ]);
@@ -170,7 +170,7 @@ describe('🌉 [Heimdall] Tournament State Machine', () => {
     });
 
     it('should find path including rollback', () => {
-      const path = getTransitionPath('bracket_generation', 'bracket_generation');
+      const path = getTransitionPath('bpaddle_generation', 'bpaddle_generation');
       expect(path).not.toBeNull();
     });
 
@@ -213,7 +213,7 @@ describe('🌉 [Heimdall] Tournament State Machine', () => {
       const lifecycle: TournamentStatus[] = [
         'draft',
         'registration',
-        'bracket_generation',
+        'bpaddle_generation',
         'in_progress',
         'completed',
       ];
@@ -230,7 +230,7 @@ describe('🌉 [Heimdall] Tournament State Machine', () => {
       const activeStates: TournamentStatus[] = [
         'draft',
         'registration',
-        'bracket_generation',
+        'bpaddle_generation',
         'in_progress',
       ];
 
@@ -244,7 +244,7 @@ describe('🌉 [Heimdall] Tournament State Machine', () => {
       const allStates: TournamentStatus[] = [
         'draft',
         'registration',
-        'bracket_generation',
+        'bpaddle_generation',
         'in_progress',
         'completed',
         'cancelled',

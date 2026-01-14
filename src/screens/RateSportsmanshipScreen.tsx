@@ -2,13 +2,13 @@
  * RateSportsmanshipScreen - 스포츠맨십 평가 화면
  * 매치/모임 종료 후 상대방에 대한 평가를 입력하는 화면
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 
 import React, { useState, useEffect } from 'react';
@@ -22,7 +22,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import ActivityService from '../services/activityService';
 import userService from '../services/userService';
 import { collection, query, where, getDocs } from 'firebase/firestore';
@@ -72,7 +72,7 @@ const RateSportsmanshipScreen = () => {
   const { t } = useLanguage();
   const { currentUser } = useAuth();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const navigation = useNavigation<RateSportsmanshipScreenNavigationProp>();
   const route = useRoute<RateSportsmanshipScreenRouteProp>();
 
@@ -547,7 +547,7 @@ const getStyles = (themeColors: ThemeColors) =>
       borderRadius: 8,
     },
     selectedTagChip: {
-      backgroundColor: themeColors.primary, // Lightning Tennis 브랜드 블루
+      backgroundColor: themeColors.primary, // Lightning Pickleball 브랜드 블루
       borderColor: themeColors.primaryElevated,
       borderWidth: 2,
       shadowColor: themeColors.primaryGlow,

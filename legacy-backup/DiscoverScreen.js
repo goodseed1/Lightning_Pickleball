@@ -1,6 +1,6 @@
 /**
  * DiscoverScreen - 통합 탐색 화면
- * Lightning Tennis 앱의 통합 발견 허브
+ * Lightning Pickleball 앱의 통합 발견 허브
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
@@ -422,7 +422,7 @@ const DiscoverScreen = () => {
         currentUser.name ||
         currentUser.firstName ||
         (currentUser.email ? currentUser.email.split('@')[0] : null) ||
-        `테니스유저${currentUser.uid.substring(0, 4)}`;
+        `피클볼유저${currentUser.uid.substring(0, 4)}`;
 
       const applicationId = await activityService.applyToEvent(
         event.id,
@@ -704,7 +704,7 @@ const DiscoverScreen = () => {
       case TAB_TYPES.COACHES:
         return renderComingSoonTab('🎓', '코치', 'Coaches');
       case TAB_TYPES.SERVICES:
-        return renderComingSoonTab('🛠️', '라켓 서비스', 'Racket Services');
+        return renderComingSoonTab('🛠️', '패들 서비스', 'Paddle Services');
       default:
         return null;
     }
@@ -922,7 +922,7 @@ const DiscoverScreen = () => {
   const getMockPlayers = () => [
     {
       id: '1',
-      nickname: 'TennisAce',
+      nickname: 'PickleballAce',
       skillLevel: 'Intermediate (3.5)',
       location: 'Manhattan',
       distance: '1.2 miles',
@@ -947,8 +947,8 @@ const DiscoverScreen = () => {
   const getMockClubs = () => [
     {
       id: '1',
-      name: 'Manhattan Tennis Club',
-      description: '도심 속 테니스 클럽',
+      name: 'Manhattan Pickleball Club',
+      description: '도심 속 피클볼 클럽',
       location: 'Manhattan, NY',
       memberCount: 124,
       maxMembers: 200,
@@ -958,8 +958,8 @@ const DiscoverScreen = () => {
     },
     {
       id: '2',
-      name: 'Brooklyn Heights Tennis',
-      description: '가족 친화적인 테니스 커뮤니티',
+      name: 'Brooklyn Heights Pickleball',
+      description: '가족 친화적인 피클볼 커뮤니티',
       location: 'Brooklyn Heights, NY',
       memberCount: 89,
       maxMembers: 150,

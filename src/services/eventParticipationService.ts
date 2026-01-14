@@ -1,6 +1,6 @@
 /**
  * Event Participation Service
- * Lightning Tennis 이벤트 참여 관리 서비스
+ * Lightning Pickleball 이벤트 참여 관리 서비스
  */
 
 import {

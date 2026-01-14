@@ -266,7 +266,7 @@ const zhTranslations = {
     edit: '编辑锦标赛',
     overview: '概览',
     participants: '参赛者',
-    brackets: '对阵表',
+    bpaddles: '对阵表',
     schedule: '赛程',
     results: '结果',
 
@@ -304,13 +304,13 @@ const zhTranslations = {
       createTournament: '创建锦标赛',
       editTournament: '编辑锦标赛',
       deleteTournament: '删除锦标赛',
-      generateBrackets: '生成对阵表',
+      generateBpaddles: '生成对阵表',
       publishResults: '公布结果',
       sendNotifications: '发送通知',
       exportData: '导出数据',
     },
 
-    brackets: {
+    bpaddles: {
       round: '轮次',
       round1: '第一轮',
       round2: '第二轮',
@@ -326,7 +326,7 @@ const zhTranslations = {
       tournamentCreated: '锦标赛已创建',
       tournamentUpdated: '锦标赛已更新',
       tournamentDeleted: '锦标赛已删除',
-      bracketsGenerated: '对阵表已生成',
+      bpaddlesGenerated: '对阵表已生成',
       resultsPublished: '结果已公布',
       error: '操作失败',
       confirmDelete: '确认删除此锦标赛？',

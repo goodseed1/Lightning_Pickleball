@@ -1,6 +1,6 @@
 /**
- * Business Service for Lightning Tennis
- * Handles local tennis business partnerships, coach profiles, and shop integrations
+ * Business Service for Lightning Pickleball
+ * Handles local pickleball business partnerships, coach profiles, and shop integrations
  */
 
 import {
@@ -24,7 +24,7 @@ import authService from './authService';
 
 /**
  * Business Service Class
- * Manages tennis business partnerships and services
+ * Manages pickleball business partnerships and services
  */
 class BusinessService {
   constructor() {
@@ -34,7 +34,7 @@ class BusinessService {
   // ============ BUSINESS REGISTRATION ============
 
   /**
-   * Register a new tennis business
+   * Register a new pickleball business
    * @param {Object} businessData - Business registration data
    * @returns {Promise<string>} Business ID
    */

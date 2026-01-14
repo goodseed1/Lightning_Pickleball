@@ -17,8 +17,8 @@ import leagueService from '../../../services/leagueService';
 import {
   CreateLeagueRequest,
   LeagueSettings,
-  TennisEventType,
-  getTennisEventTypeDisplayName,
+  PickleballEventType,
+  getPickleballEventTypeDisplayName,
 } from '../../../types/league';
 
 // 🛡️ 가디언: 리그 시작을 위한 최소 인원 상수
@@ -42,7 +42,7 @@ const CreateClubLeagueForm: React.FC<CreateClubLeagueFormProps> = ({
   // Form states (요구사항에 맞는 필드들)
   const [name, setName] = useState(''); // 요구사항: 시즌 이름
   const [description, setDescription] = useState('');
-  const [eventType, setEventType] = useState<TennisEventType>('mens_singles'); // ⭐ 경기 종류
+  const [eventType, setEventType] = useState<PickleballEventType>('mens_singles'); // ⭐ 경기 종류
   const [applicationDeadline, setApplicationDeadline] = useState(
     new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
   ); // 일주일 후
@@ -59,7 +59,7 @@ const CreateClubLeagueForm: React.FC<CreateClubLeagueFormProps> = ({
 
   // ⭐ 경기 종류 옵션들
   const eventTypeOptions: {
-    value: TennisEventType;
+    value: PickleballEventType;
     label: string;
     icon: React.ComponentProps<typeof Ionicons>['name'];
     description: string;
@@ -151,7 +151,7 @@ const CreateClubLeagueForm: React.FC<CreateClubLeagueFormProps> = ({
       // Default league settings
       const defaultSettings: LeagueSettings = {
         format: 'round_robin',
-        scoringSystem: 'tennisball',
+        scoringSystem: 'pickleballball',
         pointsForWin: 2,
         pointsForLoss: 0,
         minParticipants: parseInt(minParticipants) || 4,
@@ -270,12 +270,12 @@ const CreateClubLeagueForm: React.FC<CreateClubLeagueFormProps> = ({
   };
 
   // ⭐ 경기 종류 변경 핸들러
-  const handleEventTypeChange = (newEventType: TennisEventType) => {
+  const handleEventTypeChange = (newEventType: PickleballEventType) => {
     setEventType(newEventType);
 
     // 경기 종류에 따라 리그 이름 자동 설정 (현재 언어 기준)
     if (!name.trim()) {
-      const eventTypeName = getTennisEventTypeDisplayName(newEventType, t);
+      const eventTypeName = getPickleballEventTypeDisplayName(newEventType, t);
       const currentYear = new Date().getFullYear();
       // 번역된 placeholder 형식 사용: "e.g., 2026 Men's Singles League" 형태에서 이름 부분만 추출
       setName(`${currentYear} ${eventTypeName} League`);
@@ -310,7 +310,7 @@ const CreateClubLeagueForm: React.FC<CreateClubLeagueFormProps> = ({
         </Text>
       </View>
 
-      {/* ⭐ Tennis Event Type Selection */}
+      {/* ⭐ Pickleball Event Type Selection */}
       <View style={[styles.formSection, { backgroundColor: theme.colors.surface }]}>
         <Text style={[styles.sectionTitle, { color: theme.colors.onSurface }]}>
           {t('createClubLeague.matchType.title')}
@@ -364,7 +364,7 @@ const CreateClubLeagueForm: React.FC<CreateClubLeagueFormProps> = ({
           />
           <Text style={[styles.eventTypeInfoText, { color: theme.colors.onSurfaceVariant }]}>
             {t('createClubLeague.matchType.selected')}:{' '}
-            {getTennisEventTypeDisplayName(eventType, t)}
+            {getPickleballEventTypeDisplayName(eventType, t)}
             {eventType.includes('doubles')
               ? ` ${t('createClubLeague.matchType.doublesNote')}`
               : ` ${t('createClubLeague.matchType.singlesNote')}`}
@@ -395,7 +395,7 @@ const CreateClubLeagueForm: React.FC<CreateClubLeagueFormProps> = ({
             onChangeText={setName}
             placeholder={t('createClubLeague.leagueInfo.seasonNamePlaceholder', {
               year: new Date().getFullYear(),
-              eventType: getTennisEventTypeDisplayName(eventType, t),
+              eventType: getPickleballEventTypeDisplayName(eventType, t),
             })}
             placeholderTextColor={theme.colors.onSurfaceVariant}
           />

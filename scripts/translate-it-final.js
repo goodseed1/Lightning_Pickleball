@@ -114,7 +114,7 @@ const italianTranslations = {
   emailLogin: {
     signup: {
       title: 'Crea Account',
-      subtitle: 'Unisciti alla comunità di tennis',
+      subtitle: 'Unisciti alla comunità di pickleball',
       name: 'Nome Completo',
       createAccount: 'Crea Account',
       loginPrompt: 'Hai già un account?',

@@ -19,7 +19,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useLocation } from '../../contexts/LocationContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { RootStackParamList } from '../../navigation/AppNavigator';
 import clubService from '../../services/clubService';
 import duesService from '../../services/duesService';
@@ -61,7 +61,7 @@ const ClubAdminScreen: React.FC = () => {
   const { t } = useLanguage();
   const { location } = useLocation();
   const { theme } = useTheme();
-  const themeColors = getLightningTennisTheme(theme);
+  const themeColors = getLightningPickleballTheme(theme);
   const { clubId, clubName, userRole } = route.params;
 
   // Create styles with dynamic theme colors

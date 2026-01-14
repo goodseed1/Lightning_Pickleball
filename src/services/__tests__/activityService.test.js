@@ -2,13 +2,13 @@
  * ActivityService Unit Tests
  * Tests all event-related operations including applications, hosting, and participation
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  *
  * Following START.md Golden Rule 1: TDD - Writing tests for our core service
  */
@@ -55,7 +55,7 @@ describe.skip('ActivityService Unit Tests - TypeScript service needs refactoring
   describe('Event Creation', () => {
     it('should create a new event successfully', async () => {
       const eventData = {
-        title: 'Weekend Tennis Match',
+        title: 'Weekend Pickleball Match',
         description: 'Friendly doubles match',
         type: 'match',
         location: { address: 'Central Park Courts', coordinates: { lat: 40.7829, lng: -73.9654 } },
@@ -192,7 +192,7 @@ describe.skip('ActivityService Unit Tests - TypeScript service needs refactoring
     it('should apply to an event successfully', async () => {
       const mockEvent = {
         id: 'event-123',
-        title: 'Open Tennis Match',
+        title: 'Open Pickleball Match',
         maxParticipants: 4,
         participants: ['user1', 'user2'],
       };
@@ -291,7 +291,7 @@ describe.skip('ActivityService Unit Tests - TypeScript service needs refactoring
       updateDoc.mockResolvedValue();
 
       const updates = {
-        title: 'Updated Tennis Match',
+        title: 'Updated Pickleball Match',
         description: 'New description',
         maxParticipants: 6,
       };

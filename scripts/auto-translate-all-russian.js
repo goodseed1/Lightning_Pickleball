@@ -98,7 +98,7 @@ const dict = {
   Other: 'Другое',
   Total: 'Всего',
 
-  // Tennis terms
+  // Pickleball terms
   Match: 'Матч',
   Matches: 'Матчи',
   Tournament: 'Турнир',

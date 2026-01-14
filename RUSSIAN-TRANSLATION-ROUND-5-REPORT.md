@@ -36,7 +36,7 @@ Round 5 successfully translated **863 keys** across **17 major sections**, bring
 ✅ **clubTournamentManagement** (69 keys)
 
 - Tournament status & participants
-- Bracket generation
+- Bpaddle generation
 - Seed assignment
 - Match results
 - Management controls

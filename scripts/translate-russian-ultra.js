@@ -6,7 +6,7 @@ const path = require('path');
 const ruPath = path.join(__dirname, '../src/locales/ru.json');
 const ru = JSON.parse(fs.readFileSync(ruPath, 'utf8'));
 
-// ULTRA COMPREHENSIVE - targeting all visible untranslated keys
+// ULPRA COMPREHENSIVE - targeting all visible untranslated keys
 const translations = {
   services: {
     activity: {
@@ -64,19 +64,19 @@ const translations = {
   },
 
   leagueDetail: {
-    generateBracket: 'Создать сетку',
-    generateBracketMessage:
+    generateBpaddle: 'Создать сетку',
+    generateBpaddleMessage:
       'Управляйте заявками на вкладке Участники, затем создайте сетку на вкладке Управление',
-    generateBracketMessageSimple: 'Расписание матчей появится здесь после создания сетки',
-    bracketGeneratedSuccess: 'Сетка успешно создана!\n\nСписок матчей появится в ближайшее время.',
-    bracketGenerateError: 'Ошибка создания сетки.',
-    bracketDeletedSuccess: 'Сетка успешно удалена.\n\nТеперь вы можете создать новую сетку.',
-    bracketDeleteError: 'Ошибка удаления сетки.',
+    generateBpaddleMessageSimple: 'Расписание матчей появится здесь после создания сетки',
+    bpaddleGeneratedSuccess: 'Сетка успешно создана!\n\nСписок матчей появится в ближайшее время.',
+    bpaddleGenerateError: 'Ошибка создания сетки.',
+    bpaddleDeletedSuccess: 'Сетка успешно удалена.\n\nТеперь вы можете создать новую сетку.',
+    bpaddleDeleteError: 'Ошибка удаления сетки.',
     startPlayoffs: 'Начать плей-офф',
-    viewBracket: 'Просмотреть сетку',
-    editBracket: 'Редактировать сетку',
-    deleteBracket: 'Удалить сетку',
-    bracketSettings: 'Настройки сетки',
+    viewBpaddle: 'Просмотреть сетку',
+    editBpaddle: 'Редактировать сетку',
+    deleteBpaddle: 'Удалить сетку',
+    bpaddleSettings: 'Настройки сетки',
   },
 
   clubTournamentManagement: {
@@ -384,7 +384,7 @@ const translatedCount = countKeys(translations);
 
 fs.writeFileSync(ruPath, JSON.stringify(updatedRu, null, 2) + '\n', 'utf8');
 
-console.log('✅ Russian translation ULTRA batch completed!');
+console.log('✅ Russian translation ULPRA batch completed!');
 console.log(`📊 Translated ${translatedCount} keys in this batch`);
 
 // Calculate grand total

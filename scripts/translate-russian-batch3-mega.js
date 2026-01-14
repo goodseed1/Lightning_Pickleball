@@ -118,7 +118,7 @@ const translations = {
   profileSettings: {
     sections: {
       personal: 'Личное',
-      tennis: 'Теннис',
+      pickleball: 'Теннис',
       preferences: 'Предпочтения',
       privacy: 'Конфиденциальность',
       notifications: 'Уведомления',

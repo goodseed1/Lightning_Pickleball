@@ -5,7 +5,7 @@
 
 console.log('Verification of French translations:');
 console.log('\n1. "Clubs" - ✅ Correct in French (same as English)');
-console.log('   Example: "des clubs de tennis" = tennis clubs');
+console.log('   Example: "des clubs de pickleball" = pickleball clubs');
 console.log('\n2. "Services" - ✅ Correct in French (same as English)');
 console.log('   Example: "services professionnels" = professional services');
 console.log('\n3. "Expert" - ✅ Correct in French (same as English)');

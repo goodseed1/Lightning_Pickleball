@@ -4,7 +4,7 @@
  * Shared by both Club ELO and Global ELO systems
  *
  * These utility functions implement the standard ELO rating calculation
- * formulas used across all Lightning Tennis rating systems.
+ * formulas used across all Lightning Pickleball rating systems.
  */
 
 /**

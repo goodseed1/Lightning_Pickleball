@@ -66,9 +66,9 @@ const translations = {
     },
     buttons: {
       addParticipantManually: 'Добавить участника вручную',
-      generateBracket: 'Создание сетки...',
-      viewBracket: 'Просмотр сетки',
-      editBracket: 'Редактировать сетку',
+      generateBpaddle: 'Создание сетки...',
+      viewBpaddle: 'Просмотр сетки',
+      editBpaddle: 'Редактировать сетку',
       startTournament: 'Начать турнир',
       endTournament: 'Завершить турнир',
       publishResults: 'Опубликовать результаты',
@@ -131,7 +131,7 @@ const translations = {
       referee: 'Судья',
       noMatches: 'Нет матчей',
     },
-    bracket: {
+    bpaddle: {
       title: 'Сетка',
       view: 'Просмотр сетки',
       generate: 'Создать сетку',
@@ -177,7 +177,7 @@ const translations = {
       inviteOnly: 'Только по приглашению',
     },
     messages: {
-      bracketGenerated: 'Сетка создана успешно',
+      bpaddleGenerated: 'Сетка создана успешно',
       tournamentStarted: 'Турнир начался',
       tournamentEnded: 'Турнир завершён',
       scoreSubmitted: 'Счёт отправлен',
@@ -195,7 +195,7 @@ const translations = {
       createFailed: 'Не удалось создать',
       deleteFailed: 'Не удалось удалить',
       insufficientParticipants: 'Недостаточно участников',
-      bracketError: 'Ошибка создания сетки',
+      bpaddleError: 'Ошибка создания сетки',
       invalidFormat: 'Неверный формат',
       registrationClosed: 'Регистрация закрыта',
     },
@@ -338,7 +338,7 @@ const translations = {
     },
     playoffs: {
       title: 'Плей-офф',
-      bracket: 'Сетка',
+      bpaddle: 'Сетка',
       start: 'Начать плей-офф',
       qualified: 'Квалифицировались',
       matchup: 'Матчи',

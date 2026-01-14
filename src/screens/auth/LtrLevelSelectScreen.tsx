@@ -1,18 +1,18 @@
 /**
- * 🎾 LTR Level Selection Screen
+ * 🎾 LPR Level Selection Screen
  *
  * Direct level selection screen for streamlined onboarding.
  * Users can either select their level directly or take the optional assessment.
  *
- * 📝 LTR System - Lightning Tennis Rating
+ * 📝 LPR System - Lightning Pickleball Rating
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ltr" - 변수명, 함수명, 새로운 Firestore 필드명
  *
- * LTR은 1-10까지의 정수 값으로, 온보딩에서는 LTR 1-5까지만 선택 가능합니다.
- * LTR 6 이상은 매치를 통해서만 획득할 수 있습니다.
+ * LPR은 1-10까지의 정수 값으로, 온보딩에서는 LPR 1-5까지만 선택 가능합니다.
+ * LPR 6 이상은 매치를 통해서만 획득할 수 있습니다.
  *
- * @author Kim (LTR System Transition)
+ * @author Kim (LPR System Transition)
  * @date 2025-12-28
  */
 
@@ -28,9 +28,9 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { lightningTennisDarkTheme } from '../../theme';
+import { lightningPickleballDarkTheme } from '../../theme';
 import { getInitialEloFromLtr, getLocalizedText } from '../../constants/ltr';
-import { LTR_LEVELS, getOnboardingLtrLevels } from '../../constants/ltr';
+import { LPR_LEVELS, getOnboardingLtrLevels } from '../../constants/ltr';
 import LtrLevelDetailModal from './LtrLevelDetailModal';
 
 // ============================================================================
@@ -53,13 +53,13 @@ const LtrLevelSelectScreen: React.FC<LtrLevelSelectScreenProps> = ({
   onBack,
 }) => {
   const { currentLanguage, t } = useLanguage();
-  const themeColors = lightningTennisDarkTheme.colors;
+  const themeColors = lightningPickleballDarkTheme.colors;
 
   const [selectedLevel, setSelectedLevel] = useState<number | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalLtr, setModalLtr] = useState<number>(3);
 
-  // Get onboarding levels (LTR 1-5)
+  // Get onboarding levels (LPR 1-5)
   const onboardingLevels = getOnboardingLtrLevels();
 
   // ============================================================================
@@ -69,10 +69,10 @@ const LtrLevelSelectScreen: React.FC<LtrLevelSelectScreenProps> = ({
   const handleLevelSelect = (ltr: number) => {
     setSelectedLevel(ltr);
 
-    const levelDetails = LTR_LEVELS.find(l => l.value === ltr);
+    const levelDetails = LPR_LEVELS.find(l => l.value === ltr);
     const levelLabel = levelDetails
       ? getLocalizedText(levelDetails.label, currentLanguage)
-      : `LTR ${ltr}`;
+      : `LPR ${ltr}`;
 
     Alert.alert(
       t('ltrLevelSelect.confirmTitle') || 'Confirm Level',
@@ -107,7 +107,7 @@ const LtrLevelSelectScreen: React.FC<LtrLevelSelectScreenProps> = ({
 
   const renderLevelButton = (ltr: number) => {
     const isSelected = ltr === selectedLevel;
-    const level = LTR_LEVELS.find(l => l.value === ltr);
+    const level = LPR_LEVELS.find(l => l.value === ltr);
     const levelElo = getInitialEloFromLtr(ltr);
     if (!level) return null;
 
@@ -121,7 +121,7 @@ const LtrLevelSelectScreen: React.FC<LtrLevelSelectScreenProps> = ({
             <Text style={styles.levelValue}>{ltr}</Text>
           </View>
           <Text style={styles.levelLabel} numberOfLines={1}>
-            {getLocalizedText(level.label, currentLanguage).replace(/LTR \d+ - /, '')}
+            {getLocalizedText(level.label, currentLanguage).replace(/LPR \d+ - /, '')}
           </Text>
           <Text style={styles.levelElo}>ELO {levelElo}</Text>
         </TouchableOpacity>
@@ -180,16 +180,16 @@ const LtrLevelSelectScreen: React.FC<LtrLevelSelectScreenProps> = ({
         {/* Title Section */}
         <View style={styles.titleSection}>
           <View style={styles.iconContainer}>
-            <Ionicons name='tennisball' size={48} color='#4CAF50' />
+            <Ionicons name='pickleballball' size={48} color='#4CAF50' />
           </View>
 
           <Text style={styles.mainTitle}>
-            {t('ltrLevelSelect.mainTitle') || "What's Your LTR Level?"}
+            {t('ltrLevelSelect.mainTitle') || "What's Your LPR Level?"}
           </Text>
 
           <Text style={styles.subtitle}>
             {t('ltrLevelSelect.subtitle') ||
-              'Select the level that best describes your current tennis skill'}
+              'Select the level that best describes your current pickleball skill'}
           </Text>
 
           {/* 🎯 Policy Notice for Level 6+ - subtitle 아래로 이동 */}
@@ -197,14 +197,14 @@ const LtrLevelSelectScreen: React.FC<LtrLevelSelectScreenProps> = ({
             <Ionicons name='information-circle' size={18} color='#FFD700' />
             <Text style={styles.policyNoticeText}>
               {t('ltrLevelSelect.policyNotice') ||
-                'LTR 6 and above can only be achieved through match results within the app'}
+                'LPR 6 and above can only be achieved through match results within the app'}
             </Text>
           </View>
         </View>
 
         {/* Level Selection Grid */}
-        {/* 🎯 [ONBOARDING LIMIT] 온보딩에서 최대 선택 가능 LTR: 5 */}
-        {/* LTR 6 이상은 매치를 통해서만 달성 가능 */}
+        {/* 🎯 [ONBOARDING LIMIT] 온보딩에서 최대 선택 가능 LPR: 5 */}
+        {/* LPR 6 이상은 매치를 통해서만 달성 가능 */}
         <View style={styles.selectionSection}>
           <View style={styles.levelGrid}>
             {onboardingLevels.map(level => renderLevelButton(level.value))}

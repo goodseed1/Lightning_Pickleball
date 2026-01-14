@@ -82,7 +82,7 @@ const translations = {
   // Edit Profile
   'Edit Profile': 'プロフィールを編集',
   'Personal Information': '個人情報',
-  'Tennis Information': 'テニス情報',
+  'Pickleball Information': 'テニス情報',
   'Privacy Settings': 'プライバシー設定',
   'Notification Preferences': '通知設定',
   'Account Settings': 'アカウント設定',

@@ -22,7 +22,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../contexts/AuthContext';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import teamService from '../../services/teamService';
 import { Team, getInviteHoursRemaining } from '../../types/team';
 
@@ -31,7 +31,7 @@ const TeamInvitationsScreen = () => {
   const { currentUser } = useAuth();
   const { t } = useLanguage();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
 
   // State

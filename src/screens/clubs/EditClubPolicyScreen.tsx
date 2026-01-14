@@ -27,7 +27,7 @@ import { db } from '../../firebase/config';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 
 // Types
 interface Meeting {
@@ -60,7 +60,7 @@ const EditClubPolicyScreen = () => {
   const { t } = useTranslation();
   const { currentUser } = useAuth();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
 
   // Get params
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -147,7 +147,7 @@ const EditClubPolicyScreen = () => {
   const loadClubData = async () => {
     try {
       setLoading(true);
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       const clubSnap = await getDoc(clubRef);
 
       if (clubSnap.exists()) {
@@ -178,7 +178,7 @@ const EditClubPolicyScreen = () => {
     try {
       setSaving(true);
 
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       await updateDoc(clubRef, {
         'profile.rules': rules.split('\n').filter(r => r.trim()),
         'settings.meetings': meetings,

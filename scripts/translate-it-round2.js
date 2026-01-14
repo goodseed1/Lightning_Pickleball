@@ -394,7 +394,7 @@ const italianTranslations = {
     edit: {
       title: 'Modifica Profilo',
       basicInfo: 'Informazioni di Base',
-      tennisInfo: 'Informazioni Tennis',
+      pickleballInfo: 'Informazioni Pickleball',
       preferences: 'Preferenze',
       saveButton: 'Salva Modifiche',
       cancelButton: 'Annulla',

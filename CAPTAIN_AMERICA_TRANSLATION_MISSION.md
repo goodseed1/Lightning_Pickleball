@@ -38,7 +38,7 @@ All remaining sections
 
 ## Translation Guidelines
 
-### 1. Tennis Terminology
+### 1. Pickleball Terminology
 
 - Match → 比赛
 - Tournament → 锦标赛
@@ -59,7 +59,7 @@ All remaining sections
 - Preserve `{{variable}}` placeholders exactly
 - Keep `\n` for line breaks
 - Maintain emojis (🏆, ⚠️, etc.)
-- Do NOT translate brand names ("Lightning Tennis")
+- Do NOT translate brand names ("Lightning Pickleball")
 
 ### 4. Quality Standards
 
@@ -143,7 +143,7 @@ Consult:
 
 - Existing `src/locales/zh.json` for translation style
 - `src/locales/ko.json` for Korean reference (similar structure)
-- Tennis terminology standards in Chinese
+- Pickleball terminology standards in Chinese
 
 ---
 

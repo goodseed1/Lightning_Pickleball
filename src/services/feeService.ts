@@ -119,7 +119,7 @@ class FeeService {
     // Get club details
     const clubs = [];
     for (const clubId of clubIds) {
-      const clubDoc = await getDoc(doc(db, 'tennis_clubs', clubId));
+      const clubDoc = await getDoc(doc(db, 'pickleball_clubs', clubId));
       if (clubDoc.exists()) {
         clubs.push({
           id: clubId,
@@ -412,7 +412,7 @@ class FeeService {
     try {
       console.log('💳 Getting payment methods for club:', clubId);
 
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       const clubSnap = await getDoc(clubRef);
 
       if (!clubSnap.exists()) {

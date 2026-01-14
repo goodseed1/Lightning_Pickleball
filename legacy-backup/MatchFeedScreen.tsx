@@ -364,7 +364,7 @@ export default function MatchFeedScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Title style={styles.title}>⚡ 번개 매칭</Title>
-        <Text style={styles.subtitle}>실시간 테니스 파트너 찾기</Text>
+        <Text style={styles.subtitle}>실시간 피클볼 파트너 찾기</Text>
       </View>
 
       {renderFilterChips()}
@@ -387,7 +387,7 @@ export default function MatchFeedScreen() {
                   : '등록된 번개 모임이 없습니다'}
             </Text>
             <Text style={styles.emptyDescription}>
-              새로운 매칭을 만들어 테니스 파트너를 찾아보세요!
+              새로운 매칭을 만들어 피클볼 파트너를 찾아보세요!
             </Text>
             <Button mode='contained' onPress={handleCreateMatch} style={styles.emptyAction}>
               첫 번째 매칭 만들기

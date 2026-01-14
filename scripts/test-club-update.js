@@ -11,7 +11,7 @@ async function testClubUpdate() {
   console.log('🧪 Testing club update simulation...\n');
 
   const clubId = 'WsetxkWODywjt0BBcqrs';
-  const clubRef = db.collection('tennis_clubs').doc(clubId);
+  const clubRef = db.collection('pickleball_clubs').doc(clubId);
 
   // Get current data first
   const clubDoc = await clubRef.get();
@@ -21,14 +21,14 @@ async function testClubUpdate() {
 
   // Simulate what the app does when saving
   const testUpdateData = {
-    'profile.name': 'Lightning Tennis Club',
+    'profile.name': 'Lightning Pickleball Club',
     'profile.description': 'Test update',
     'profile.logo': 'https://example.com/test-logo.png',
     'profile.location': '',
     'profile.facilities': [],
     'profile.rules': [],
     'profile.courtAddress': {
-      address: '123 Tennis Court Dr, Atlanta, GA 30301',
+      address: '123 Pickleball Court Dr, Atlanta, GA 30301',
       city: 'Atlanta',
       state: 'GA',
       country: 'USA',

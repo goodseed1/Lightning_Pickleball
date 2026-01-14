@@ -1,14 +1,14 @@
 /**
- * Auth Context for Lightning Tennis
+ * Auth Context for Lightning Pickleball
  * Manages user authentication state
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 
 import React, { createContext, useContext, useState, useEffect, useRef, ReactNode } from 'react';
@@ -1470,12 +1470,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         });
 
         // 🧠 OPERATION RECALL: Create comprehensive Firestore structure that preserves ALL memories
-        // 🛡️ Initialize ELO from LTR level
+        // 🛡️ Initialize ELO from LPR level
         const { getInitialEloFromLtr } = await import('../utils/ltrUtils');
         let initialElo = 1200; // Default
         if (profileData?.skillLevel && typeof profileData.skillLevel === 'number') {
           initialElo = getInitialEloFromLtr(profileData.skillLevel);
-          console.log(`🎾 Initialized ELO from LTR ${profileData.skillLevel}: ${initialElo}`);
+          console.log(`🎾 Initialized ELO from LPR ${profileData.skillLevel}: ${initialElo}`);
         }
 
         const firestoreData = {

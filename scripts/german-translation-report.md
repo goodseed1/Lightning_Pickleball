@@ -5,7 +5,7 @@
 
 ## Summary
 
-Successfully completed German (de) translations for Lightning Tennis app.
+Successfully completed German (de) translations for Lightning Pickleball app.
 
 ### Translation Statistics
 

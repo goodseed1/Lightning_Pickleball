@@ -87,7 +87,7 @@ const translations = {
     },
     devTools: {
       loading: 'Cargando...',
-      tennisStats: '📊 Estadísticas de Tenis',
+      pickleballStats: '📊 Estadísticas de Tenis',
       matchesPlayed: 'Partidos Jugados',
       wins: 'Victorias',
       winRate: 'Tasa de Victoria',
@@ -164,7 +164,7 @@ const translations = {
     buttons: {
       closeRegistration: 'Cerrar Inscripción',
       addParticipantManually: 'Agregar Participante Manualmente',
-      generateBracket: 'Generando Cuadro...',
+      generateBpaddle: 'Generando Cuadro...',
     },
     roundGeneration: {
       errorTitle: 'Error',
@@ -177,10 +177,10 @@ const translations = {
       manualSeedingMessage:
         'El sembrado manual está habilitado. Por favor asigna los cabezas de serie en la pestaña Participantes, luego presiona "Generar Cuadro e Iniciar".',
       registrationClosedMessage: '¡Inscripción cerrada y cuadro generado. El torneo ha comenzado!',
-      bracketGeneratedMessage: '¡Cuadro generado. El torneo ha comenzado!',
+      bpaddleGeneratedMessage: '¡Cuadro generado. El torneo ha comenzado!',
       waitForParticipantAddition:
         'Por favor espera hasta que se complete la adición de participantes.',
-      bracketGenerationError: 'Ocurrió un error al generar el cuadro del torneo.',
+      bpaddleGenerationError: 'Ocurrió un error al generar el cuadro del torneo.',
       roundCheckError: 'Error al verificar la posibilidad de generación de ronda.',
       errorTitle: 'Error',
     },
@@ -189,7 +189,7 @@ const translations = {
       errorAssigning: 'Ocurrió un error al asignar cabeza de serie',
       errorRemoving: 'Ocurrió un error al eliminar cabeza de serie',
       seedRangeError: 'El número de cabeza de serie debe estar entre 1 y {{max}}',
-      completeMessageWithBracket:
+      completeMessageWithBpaddle:
         'Todos los participantes han sido asignados cabezas de serie.\nAhora puedes generar el cuadro del torneo.',
     },
     deletion: {
@@ -231,8 +231,8 @@ const translations = {
       evenParticipantsRequired:
         'Los dobles requieren un número par de participantes (actual: {{count}})',
       assignSeedsManually: 'Asignar cabezas de serie manualmente en la pestaña Participantes',
-      generateBracketAndStart: 'Generar Cuadro e Iniciar Torneo',
-      generateBracketInstructions: 'Generar cuadro usando sembrado {{method}} e iniciar el torneo',
+      generateBpaddleAndStart: 'Generar Cuadro e Iniciar Torneo',
+      generateBpaddleInstructions: 'Generar cuadro usando sembrado {{method}} e iniciar el torneo',
       addingParticipantsWait: 'Agregando participantes... Por favor espera hasta que se complete.',
       cancelAndDeleteWarning:
         'Cancelar generación del cuadro y eliminar torneo. Esta acción no se puede deshacer.',
@@ -263,8 +263,8 @@ const translations = {
       noActiveTournaments: 'No hay torneos activos',
       noCompletedTournaments: 'No hay torneos completados',
       createNewMessage: 'Crea un nuevo torneo para competir con miembros del club',
-      bracketNotGenerated: 'Cuadro aún no generado',
-      bracketAfterRegistration: 'El cuadro se generará después de cerrar la inscripción',
+      bpaddleNotGenerated: 'Cuadro aún no generado',
+      bpaddleAfterRegistration: 'El cuadro se generará después de cerrar la inscripción',
       clickMatchesForDetails: 'Haz clic en los partidos para ver detalles',
       cannotLoadTeamInfo: 'No se puede cargar información del equipo',
       participantsCannotFormTeams:
@@ -292,8 +292,8 @@ const translations = {
     },
     loading: {
       league: 'Cargando información de la liga...',
-      generatingBracket: 'Generando cuadro...',
-      generatingBracketSubtitle: 'La liga comenzará pronto',
+      generatingBpaddle: 'Generando cuadro...',
+      generatingBpaddleSubtitle: 'La liga comenzará pronto',
     },
     errors: {
       leagueNotFound: 'Liga no encontrada',
@@ -324,10 +324,10 @@ const translations = {
     },
     leagueManagement: {
       title: 'Gestión de Liga',
-      generateBracketButton: 'Generar Cuadro e Iniciar Liga',
-      deleteBracketButton: 'Eliminar Cuadro',
-      deleteBracketTitle: 'Eliminar Cuadro',
-      deleteBracketDescription:
+      generateBpaddleButton: 'Generar Cuadro e Iniciar Liga',
+      deleteBpaddleButton: 'Eliminar Cuadro',
+      deleteBpaddleTitle: 'Eliminar Cuadro',
+      deleteBpaddleDescription:
         'Eliminar todos los partidos y restablecer liga. Esta acción no se puede deshacer.',
       dangerZoneTitle: 'Zona de Peligro',
       deleteLeagueButton: 'Eliminar Liga',
@@ -345,7 +345,7 @@ const translations = {
       seasonCompleteDescription:
         'Todos los partidos están terminados. Inicia los playoffs para determinar el campeón final.',
       startButton: 'Iniciar Playoffs',
-      bracketToggle: 'Cuadro de Playoffs',
+      bpaddleToggle: 'Cuadro de Playoffs',
       standingsToggle: 'Clasificación',
     },
     matchApproval: {
@@ -367,10 +367,10 @@ const translations = {
       bulkApprovalWarning:
         'Los resultados aprobados se reflejarán en la clasificación y no se pueden deshacer.',
       approveAll: 'Aprobar Todos',
-      deleteBracketTitle: '⚠️ Eliminar Cuadro',
-      deleteBracketConfirm:
+      deleteBpaddleTitle: '⚠️ Eliminar Cuadro',
+      deleteBpaddleConfirm:
         '¿Eliminar todos los partidos en {{leagueName}}?\n\nEsta acción no se puede deshacer y la liga se restablecerá al estado de solicitud.',
-      generateBracketConfirm:
+      generateBpaddleConfirm:
         '¿Generar cuadro para {{leagueName}}?\n\nEsta acción no se puede deshacer y la liga comenzará.',
       startPlayoffsConfirm:
         'Todos los partidos de temporada regular están completos.\n\n¿Iniciar playoffs para {{leagueName}}?',
@@ -417,7 +417,7 @@ const translations = {
         title: '⚡ Partido Rápido',
         cannotChallenge: 'No se Puede Desafiar',
         sameGenderOnly: 'Solo puedes desafiar jugadores del mismo género.',
-        ntrpOutOfRange: 'LTR {{ntrp}} está fuera de tu rango de desafío. (máx +1.0)',
+        ntrpOutOfRange: 'LPR {{ntrp}} está fuera de tu rango de desafío. (máx +1.0)',
         challengeMessage:
           '¿Desafiar a {{name}} a un partido?\n\nUbicación y hora se discutirán por chat después de la aceptación.',
         cancel: 'Cancelar',

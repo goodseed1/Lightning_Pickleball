@@ -5,7 +5,7 @@
 
 ## Overview
 
-The French translation for Lightning Tennis has been completed with **deep merge** methodology to preserve all existing translations while adding new ones.
+The French translation for Lightning Pickleball has been completed with **deep merge** methodology to preserve all existing translations while adding new ones.
 
 ## Statistics
 
@@ -18,9 +18,9 @@ The French translation for Lightning Tennis has been completed with **deep merge
 
 The remaining 113 keys are **intentionally kept the same** as English because they are:
 
-### 1. International Tennis Terms (35 keys)
+### 1. International Pickleball Terms (35 keys)
 
-Words that are used internationally in tennis and are the same in French:
+Words that are used internationally in pickleball and are the same in French:
 
 - Match, Set, Court, Expert, Doubles
 - Champion, Challenger, Participant
@@ -163,7 +163,7 @@ TOTAL: 113 "untranslated" keys
 - Maintain consistent terminology
 - Preserve placeholder variables
 - Respect French cultural norms
-- Follow tennis terminology conventions
+- Follow pickleball terminology conventions
 
 ## Examples of Successful Translations
 
@@ -213,7 +213,7 @@ TOTAL: 113 "untranslated" keys
 
 ## Conclusion
 
-The French translation for Lightning Tennis is **complete and production-ready**. The remaining 113 "untranslated" keys are intentionally kept the same as English due to being international terms, cognates, units, proper nouns, or template placeholders.
+The French translation for Lightning Pickleball is **complete and production-ready**. The remaining 113 "untranslated" keys are intentionally kept the same as English due to being international terms, cognates, units, proper nouns, or template placeholders.
 
 **Final Status**: ✅ **100% COMPLETE**
 

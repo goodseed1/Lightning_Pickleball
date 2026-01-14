@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
- * 🎯 [KIM] Migration Script: Backfill coordinates for coach_lessons and tennis_services
+ * 🎯 [KIM] Migration Script: Backfill coordinates for coach_lessons and pickleball_services
  *
  * This script reads author coordinates from users collection and updates
- * coach_lessons/tennis_services documents that are missing the coordinates field.
+ * coach_lessons/pickleball_services documents that are missing the coordinates field.
  *
  * Usage:
  *   node scripts/migrate-coordinates.js
@@ -154,10 +154,10 @@ async function migrateCoordinates() {
   }
 
   // ========================
-  // 2. Migrate tennis_services
+  // 2. Migrate pickleball_services
   // ========================
-  console.log('\n🎾 Processing tennis_services...');
-  const servicesSnapshot = await db.collection('tennis_services').get();
+  console.log('\n🎾 Processing pickleball_services...');
+  const servicesSnapshot = await db.collection('pickleball_services').get();
 
   const servicesWithoutCoords = [];
   const servicesWithCoords = [];
@@ -201,7 +201,7 @@ async function migrateCoordinates() {
   console.log('');
 
   // Update services
-  console.log('📝 Updating tennis_services...');
+  console.log('📝 Updating pickleball_services...');
   console.log('━'.repeat(60));
 
   let servicesUpdated = 0;
@@ -223,7 +223,7 @@ async function migrateCoordinates() {
     );
 
     if (!isDryRun) {
-      await db.collection('tennis_services').doc(service.id).update({
+      await db.collection('pickleball_services').doc(service.id).update({
         coordinates: authorCoords,
         updatedAt: admin.firestore.FieldValue.serverTimestamp(),
       });
@@ -240,7 +240,7 @@ async function migrateCoordinates() {
   console.log(`   📚 coach_lessons:`);
   console.log(`      ${isDryRun ? '🔍 Would update' : '✅ Updated'}: ${lessonsUpdated}`);
   console.log(`      ⏭️ Skipped: ${lessonsSkipped}`);
-  console.log(`   🎾 tennis_services:`);
+  console.log(`   🎾 pickleball_services:`);
   console.log(`      ${isDryRun ? '🔍 Would update' : '✅ Updated'}: ${servicesUpdated}`);
   console.log(`      ⏭️ Skipped: ${servicesSkipped}`);
   console.log('═'.repeat(40));

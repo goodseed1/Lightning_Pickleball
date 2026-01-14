@@ -30,7 +30,7 @@ The `firestore.rules` file has been updated to include comprehensive security ru
 ### 1. Deploy Rules via Firebase Console (Recommended)
 
 1. Go to [Firebase Console](https://console.firebase.google.com)
-2. Select project: `lightning-tennis-community`
+2. Select project: `lightning-pickleball-community`
 3. Navigate to **Firestore Database** > **Rules**
 4. Copy the contents of `firestore.rules` file
 5. Paste into the rules editor

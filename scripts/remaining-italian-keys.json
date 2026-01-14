@@ -203,8 +203,8 @@
       "section": "clubTournamentManagement"
     },
     {
-      "path": "clubTournamentManagement.management.generateBracketInstructions",
-      "en": "Generate bracket using {{method}} seeding and start the tournament",
+      "path": "clubTournamentManagement.management.generateBpaddleInstructions",
+      "en": "Generate bpaddle using {{method}} seeding and start the tournament",
       "section": "clubTournamentManagement"
     },
     {
@@ -278,7 +278,7 @@
     },
     {
       "path": "createEvent.autoNtrp.partnerLevelWithType",
-      "en": "Partner LTR: {{level}} ({{type}})",
+      "en": "Partner LPR: {{level}} ({{type}})",
       "section": "createEvent"
     },
     {
@@ -890,7 +890,7 @@
   "aiChat": [
     {
       "path": "aiChat.quickPrompts.rulesHelp",
-      "en": "Explain basic tennis rules",
+      "en": "Explain basic pickleball rules",
       "section": "aiChat"
     },
     {
@@ -900,7 +900,7 @@
     },
     {
       "path": "aiChat.quickPrompts.equipmentHelp",
-      "en": "Recommend tennis equipment for my skill level",
+      "en": "Recommend pickleball equipment for my skill level",
       "section": "aiChat"
     },
     {
@@ -1281,7 +1281,7 @@
   "badgeGallery": [
     {
       "path": "badgeGallery.badges.first_club_join.description",
-      "en": "You joined your first tennis club! 🏟️",
+      "en": "You joined your first pickleball club! 🏟️",
       "section": "badgeGallery"
     },
     {
@@ -1377,7 +1377,7 @@
   "ntrpSelector": [
     {
       "path": "ntrpSelector.levels.beginner.description",
-      "en": "Just started playing tennis",
+      "en": "Just started playing pickleball",
       "section": "ntrpSelector"
     },
     {
@@ -2661,7 +2661,7 @@
   "utils": [
     {
       "path": "utils.ltr.whatIsLtr.title",
-      "en": "What is LTR?",
+      "en": "What is LPR?",
       "section": "utils"
     }
   ]

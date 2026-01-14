@@ -1,6 +1,6 @@
 /**
  * Event Participation Type Definitions
- * Lightning Tennis 이벤트 참여 관련 타입 정의
+ * Lightning Pickleball 이벤트 참여 관련 타입 정의
  */
 
 import { Timestamp as FirebaseTimestamp } from 'firebase/firestore';
@@ -175,7 +175,7 @@ export interface ParticipationActivityFeedData {
  *
  * @example
  * const title = t(PARTICIPATION_MESSAGE_KEYS.autoApprovalTitle);
- * const body = t(PARTICIPATION_MESSAGE_KEYS.autoApprovalBody, { eventTitle: 'Tennis Match' });
+ * const body = t(PARTICIPATION_MESSAGE_KEYS.autoApprovalBody, { eventTitle: 'Pickleball Match' });
  */
 export const PARTICIPATION_MESSAGE_KEYS = {
   autoApprovalTitle: 'eventParticipation.messages.autoApprovalTitle',

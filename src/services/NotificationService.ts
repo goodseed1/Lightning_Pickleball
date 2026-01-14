@@ -67,11 +67,11 @@ class NotificationService {
       const channels = [
         {
           id: 'default',
-          name: 'Lightning Tennis',
+          name: 'Lightning Pickleball',
           description: '기본 알림 / Default notifications',
         },
         {
-          id: 'lightning_tennis_events',
+          id: 'lightning_pickleball_events',
           name: '번개매치 이벤트',
           description: '번개매치 참여 승인/거절 알림',
         },

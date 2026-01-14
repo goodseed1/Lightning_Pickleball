@@ -96,7 +96,7 @@ const translations = {
   'editProfile.languages.label': '', // EN: Languages
   'editProfile.languages.select': '', // EN: Select Languages
   'editProfile.goals.label': '', // EN: Goals
-  'editProfile.goals.placeholder': '', // EN: Enter your tennis goals...
+  'editProfile.goals.placeholder': '', // EN: Enter your pickleball goals...
   'editProfile.activityTime.label': '', // EN: Activity Preferred Times
   'editProfile.activityTime.weekdays': '', // EN: Weekdays
 };

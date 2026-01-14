@@ -38,7 +38,7 @@ try {
 }
 
 /**
- * Firestore Database Service for Lightning Tennis
+ * Firestore Database Service for Lightning Pickleball
  * Handles all database operations for matches, clubs, users, etc.
  */
 class FirestoreService {
@@ -445,13 +445,13 @@ class FirestoreService {
   // ============ TENNIS CLUBS ============
 
   /**
-   * Create a new tennis club
+   * Create a new pickleball club
    * @param {Object} clubData - Club data
    * @returns {Promise<string>} Created club ID
    */
-  async createTennisClub(clubData) {
+  async createPickleballClub(clubData) {
     try {
-      const clubsRef = collection(db, 'tennis_clubs');
+      const clubsRef = collection(db, 'pickleball_clubs');
       const docRef = await addDoc(clubsRef, {
         ...clubData,
         createdAt: serverTimestamp(),
@@ -459,10 +459,10 @@ class FirestoreService {
         memberCount: 1, // Creator is first member
       });
 
-      console.log('✅ Tennis club created:', docRef.id);
+      console.log('✅ Pickleball club created:', docRef.id);
       return docRef.id;
     } catch (error) {
-      console.error('❌ Failed to create tennis club:', error);
+      console.error('❌ Failed to create pickleball club:', error);
       throw error;
     }
   }
@@ -475,7 +475,7 @@ class FirestoreService {
    */
   async getNearbyClubs(location, radiusMiles = 30) {
     try {
-      const clubsRef = collection(db, 'tennis_clubs');
+      const clubsRef = collection(db, 'pickleball_clubs');
       const q = query(clubsRef, where('isPublic', '==', true), orderBy('memberCount', 'desc'));
 
       const snapshot = await getDocs(q);
@@ -508,14 +508,14 @@ class FirestoreService {
   }
 
   /**
-   * Join a tennis club
+   * Join a pickleball club
    * @param {string} clubId - Club ID to join
    * @param {string} userId - User ID joining
    * @returns {Promise} Join operation promise
    */
-  async joinTennisClub(clubId, userId) {
+  async joinPickleballClub(clubId, userId) {
     try {
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
 
       await runTransaction(db, async transaction => {
         const clubDoc = await transaction.get(clubRef);

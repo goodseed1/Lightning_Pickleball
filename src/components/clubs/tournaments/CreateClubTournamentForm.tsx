@@ -22,7 +22,7 @@ import {
   SeedingMethod,
   TournamentSettings,
 } from '../../../types/tournament';
-import { TennisEventType, getTennisEventTypeDisplayName } from '../../../types/league';
+import { PickleballEventType, getPickleballEventTypeDisplayName } from '../../../types/league';
 
 // Tournament constants
 const MIN_START_PARTICIPANTS = 4; // Minimum for tournaments (different from leagues)
@@ -47,7 +47,7 @@ const CreateClubTournamentForm: React.FC<CreateClubTournamentFormProps> = ({
   // Form states
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [eventType, setEventType] = useState<TennisEventType>('mens_singles');
+  const [eventType, setEventType] = useState<PickleballEventType>('mens_singles');
   // 🦾 [IRON MAN] Tournament format is now hardcoded to single_elimination
   const format: TournamentFormat = 'single_elimination';
   const [matchFormat, setMatchFormat] = useState<TournamentMatchFormat>('best_of_3'); // Default: 3세트 경기 (2세트 선승)
@@ -117,9 +117,9 @@ const CreateClubTournamentForm: React.FC<CreateClubTournamentFormProps> = ({
     },
   ];
 
-  // Tennis event type options (same as league)
+  // Pickleball event type options (same as league)
   const eventTypeOptions: {
-    value: TennisEventType;
+    value: PickleballEventType;
     labelKey: string;
     icon: string;
     descriptionKey: string;
@@ -250,7 +250,7 @@ const CreateClubTournamentForm: React.FC<CreateClubTournamentFormProps> = ({
         matchDuration: 90,
         // 🦾 [IRON MAN] Hardcoded for single elimination only
         thirdPlaceMatch: true,
-        consolationBracket: false,
+        consolationBpaddle: false,
         allowWalkovers: true,
         eligibilityCriteria: {
           clubMemberOnly: true,
@@ -349,11 +349,11 @@ const CreateClubTournamentForm: React.FC<CreateClubTournamentFormProps> = ({
     });
   };
 
-  const handleEventTypeChange = (newEventType: TennisEventType) => {
+  const handleEventTypeChange = (newEventType: PickleballEventType) => {
     setEventType(newEventType);
 
     if (!name.trim()) {
-      const eventTypeName = getTennisEventTypeDisplayName(newEventType, t);
+      const eventTypeName = getPickleballEventTypeDisplayName(newEventType, t);
       const currentYear = new Date().getFullYear();
       setName(
         t('createClubTournament.defaultTournamentName', {
@@ -401,7 +401,7 @@ const CreateClubTournamentForm: React.FC<CreateClubTournamentFormProps> = ({
         </Text>
       </View>
 
-      {/* Tennis Event Type Selection */}
+      {/* Pickleball Event Type Selection */}
       <View style={[styles.formSection, { backgroundColor: theme.colors.surface }]}>
         <Text style={[styles.sectionTitle, { color: theme.colors.onSurface }]}>
           {t('createClubTournament.matchType')}
@@ -472,7 +472,7 @@ const CreateClubTournamentForm: React.FC<CreateClubTournamentFormProps> = ({
             value={name}
             onChangeText={setName}
             placeholder={t('createClubTournament.tournamentNamePlaceholder', {
-              eventType: getTennisEventTypeDisplayName(eventType, t),
+              eventType: getPickleballEventTypeDisplayName(eventType, t),
             })}
             placeholderTextColor={theme.colors.onSurfaceVariant}
           />

@@ -1,14 +1,14 @@
 /**
- * 📝 LTR (Lightning Tennis Rating) System
+ * 📝 LPR (Lightning Pickleball Rating) System
  *
- * ⚡ LTR 1-10: Lightning Tennis의 고유 레이팅 시스템
- *    - UI 표시: "LTR" (Lightning Tennis Rating)
+ * ⚡ LPR 1-10: Lightning Pickleball의 고유 레이팅 시스템
+ *    - UI 표시: "LPR" (Lightning Pickleball Rating)
  *    - 코드/DB: "ltr" - 새로운 변수명, Firestore 필드명
  *    - ELO 알고리즘 기반 계산
  *
  * 📋 Legacy Support (NTRP):
  *    - 기존 NTRP 함수들은 하위 호환성을 위해 유지
- *    - 새로운 UI는 LTR 함수들을 사용
+ *    - 새로운 UI는 LPR 함수들을 사용
  */
 import { SkillLevel, UserProfile, LtrDisplayOptions } from '../types/user';
 import {
@@ -20,12 +20,12 @@ import {
   getTierColorByLevel,
   getTierThemeByLevel,
 } from './ltrUtils';
-import { LTR_LEVELS, getLocalizedText } from '../constants/ltr';
+import { LPR_LEVELS, getLocalizedText } from '../constants/ltr';
 import i18n from '../i18n';
 
 /**
- * ELO to LTR conversion mapping table (1-10 scale)
- * 🎯 [KIM FIX v16] Updated to use LTR scale (1-10) instead of NTRP (2.5-5.5)
+ * ELO to LPR conversion mapping table (1-10 scale)
+ * 🎯 [KIM FIX v16] Updated to use LPR scale (1-10) instead of NTRP (2.5-5.5)
  */
 const ELO_TO_NTRP_MAP = [
   { minElo: 0, maxElo: 1000, ntrp: 1 },
@@ -41,8 +41,8 @@ const ELO_TO_NTRP_MAP = [
 ];
 
 /**
- * Convert ELO rating to LTR value (1-10 scale)
- * 🎯 [KIM FIX v16] Returns LTR scale (1-10) instead of NTRP (2.5-5.5)
+ * Convert ELO rating to LPR value (1-10 scale)
+ * 🎯 [KIM FIX v16] Returns LPR scale (1-10) instead of NTRP (2.5-5.5)
  */
 export function convertEloToLtr(elo: number): number {
   for (const mapping of ELO_TO_NTRP_MAP) {
@@ -50,7 +50,7 @@ export function convertEloToLtr(elo: number): number {
       return mapping.ntrp;
     }
   }
-  return 5; // Default fallback (LTR 5 = Default)
+  return 5; // Default fallback (LPR 5 = Default)
 }
 
 /**
@@ -251,36 +251,36 @@ export function updateCalculatedNtrp(
 }
 
 // ============================================================================
-// ⚡ LTR (Lightning Tennis Rating) Functions
+// ⚡ LPR (Lightning Pickleball Rating) Functions
 // ============================================================================
 
 /**
- * Get LTR description with tier name for UI display
+ * Get LPR description with tier name for UI display
  * @param elo - ELO rating
  * @param language - 'ko' | 'en'
- * @returns Formatted LTR description (e.g., "LTR 5 - Gold I (번개)")
+ * @returns Formatted LPR description (e.g., "LPR 5 - Gold I (번개)")
  */
 export function getLtrDescription(elo: number, language: 'ko' | 'en' = 'ko'): string {
   const ltr = getLtrFromElo(elo);
-  const level = LTR_LEVELS.find(l => l.value === ltr);
-  if (!level) return `LTR ${ltr}`;
+  const level = LPR_LEVELS.find(l => l.value === ltr);
+  if (!level) return `LPR ${ltr}`;
 
   const label = getLocalizedText(level.label, language);
   return label;
 }
 
 /**
- * Get short LTR display for badges/chips
+ * Get short LPR display for badges/chips
  * @param elo - ELO rating
- * @returns Short display (e.g., "LTR 5")
+ * @returns Short display (e.g., "LPR 5")
  */
 export function getLtrBadgeText(elo: number): string {
   const ltr = getLtrFromElo(elo);
-  return `LTR ${ltr}`;
+  return `LPR ${ltr}`;
 }
 
 /**
- * Get LTR tier information for styling
+ * Get LPR tier information for styling
  * @param elo - ELO rating
  * @returns Tier info { name, color, theme }
  */
@@ -301,10 +301,10 @@ export function getLtrTierInfo(elo: number): {
 }
 
 /**
- * Get LTR display for profile (with tier and theme)
+ * Get LPR display for profile (with tier and theme)
  * @param elo - ELO rating
  * @param language - 'ko' | 'en'
- * @returns Full LTR display info
+ * @returns Full LPR display info
  */
 export function getLtrProfileDisplay(
   elo: number,
@@ -318,11 +318,11 @@ export function getLtrProfileDisplay(
   elo: number;
 } {
   const ltr = getLtrFromElo(elo);
-  const level = LTR_LEVELS.find(l => l.value === ltr);
+  const level = LPR_LEVELS.find(l => l.value === ltr);
 
   return {
     level: ltr,
-    label: level ? getLocalizedText(level.label, language) : `LTR ${ltr}`,
+    label: level ? getLocalizedText(level.label, language) : `LPR ${ltr}`,
     tier: getTierNameByLevel(ltr),
     theme: getTierThemeByLevel(ltr, language),
     color: getTierColorByLevel(ltr),
@@ -331,6 +331,6 @@ export function getLtrProfileDisplay(
 }
 
 /**
- * Re-export LTR utility functions for convenience
+ * Re-export LPR utility functions for convenience
  */
 export { getLtrFromElo, getLtrTier, getLtrTierColor, getLocalizedLtrLabel };

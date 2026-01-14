@@ -8,7 +8,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 
 export interface FriendInvitation {
   eventId: string;
@@ -18,7 +18,7 @@ export interface FriendInvitation {
   eventLocation?: string;
   hostId: string;
   hostName: string;
-  hostLtr?: number; // 🎾 [KIM FIX] Host's LTR level
+  hostLtr?: number; // 🎾 [KIM FIX] Host's LPR level
   gameType?: string;
   status: 'pending' | 'accepted' | 'rejected';
   invitedAt: string;
@@ -34,13 +34,13 @@ interface Props {
 const FriendInvitationCard: React.FC<Props> = ({ invitation, onAccept, onReject, onHostPress }) => {
   const { t } = useLanguage();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
 
-  // 🎾 [KIM FIX] Format LTR level for display
+  // 🎾 [KIM FIX] Format LPR level for display
   const formatLtr = (ltr?: number) => {
     if (ltr === undefined || ltr === null) return null;
-    return `LTR ${ltr.toFixed(1)}`;
+    return `LPR ${ltr.toFixed(1)}`;
   };
 
   // 🎯 [COMPACT] Only show pending invitations (accepted/rejected are filtered out)
@@ -112,7 +112,7 @@ const FriendInvitationCard: React.FC<Props> = ({ invitation, onAccept, onReject,
             <Text style={styles.title} numberOfLines={1}>
               {invitation.eventTitle}
             </Text>
-            {/* 🎾 [KIM FIX] Touchable host name with LTR level */}
+            {/* 🎾 [KIM FIX] Touchable host name with LPR level */}
             <TouchableOpacity
               onPress={() => onHostPress && onHostPress(invitation.hostId, invitation.hostName)}
               disabled={!onHostPress}
@@ -242,7 +242,7 @@ const createStyles = (colors: Record<string, string>) =>
       fontWeight: 'bold',
       color: colors.onSurface,
     },
-    // 🎾 [KIM FIX] Host row with touchable name and LTR badge
+    // 🎾 [KIM FIX] Host row with touchable name and LPR badge
     hostRow: {
       flexDirection: 'row',
       alignItems: 'center',

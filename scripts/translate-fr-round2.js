@@ -563,7 +563,7 @@ const frTranslations = {
     register: "S'inscrire",
     withdraw: 'Se retirer',
     viewStandings: 'Voir le classement',
-    viewBracket: 'Voir le tableau',
+    viewBpaddle: 'Voir le tableau',
 
     // Registration
     spotsLeft: 'Places restantes',

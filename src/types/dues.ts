@@ -1,6 +1,6 @@
 /**
  * Dues Type Definitions
- * Lightning Tennis 클럽 회비 관리 시스템 타입 정의
+ * Lightning Pickleball 클럽 회비 관리 시스템 타입 정의
  */
 
 import { Timestamp as FirebaseTimestamp } from 'firebase/firestore';

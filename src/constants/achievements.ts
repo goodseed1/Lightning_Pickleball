@@ -64,7 +64,7 @@ export const ACHIEVEMENT_DEFINITIONS = {
         points: 250,
         icon: {
           set: 'MaterialCommunityIcons' as const,
-          name: 'tennis-ball',
+          name: 'pickleball-ball',
           color: '#CD7F32',
           tier: 'bronze' as const,
         },
@@ -74,7 +74,7 @@ export const ACHIEVEMENT_DEFINITIONS = {
         points: 500,
         icon: {
           set: 'MaterialCommunityIcons' as const,
-          name: 'tennis',
+          name: 'pickleball',
           color: '#C0C0C0',
           tier: 'silver' as const,
         },
@@ -246,8 +246,8 @@ export const ACHIEVEMENT_DEFINITIONS = {
     id: 'social_butterfly',
     name: 'Social Butterfly',
     nameKo: '사교적인 나비',
-    description: 'Make friends in the tennis community',
-    descriptionKo: '테니스 커뮤니티에서 친구를 만드세요',
+    description: 'Make friends in the pickleball community',
+    descriptionKo: '피클볼 커뮤니티에서 친구를 만드세요',
     category: ACHIEVEMENT_CATEGORIES.SOCIAL,
     tiers: {
       bronze: {
@@ -289,8 +289,8 @@ export const ACHIEVEMENT_DEFINITIONS = {
     id: 'community_pioneer',
     name: 'Community Pioneer',
     nameKo: '커뮤니티 개척자',
-    description: 'Join and participate in tennis clubs',
-    descriptionKo: '테니스 클럽에 가입하고 참여하세요',
+    description: 'Join and participate in pickleball clubs',
+    descriptionKo: '피클볼 클럽에 가입하고 참여하세요',
     category: ACHIEVEMENT_CATEGORIES.CLUBS,
     tiers: {
       bronze: {
@@ -526,11 +526,11 @@ export const ACHIEVEMENT_DEFINITIONS = {
     hidden: false,
   },
 
-  // 6. Tennis Prodigy - 테니스 신동 (100% 승률, 최소 5회 참가)
+  // 6. Pickleball Prodigy - 피클볼 신동 (100% 승률, 최소 5회 참가)
   TENNIS_PRODIGY: {
-    id: 'tennis_prodigy',
-    name: 'Tennis Prodigy',
-    nameKo: '테니스 신동',
+    id: 'pickleball_prodigy',
+    name: 'Pickleball Prodigy',
+    nameKo: '피클볼 신동',
     description: 'Maintain 100% tournament win rate (minimum 5 tournaments)',
     descriptionKo: '토너먼트 100% 승률 유지 (최소 5회 참가)',
     category: ACHIEVEMENT_CATEGORIES.TOURNAMENTS,
@@ -688,8 +688,8 @@ export const ACHIEVEMENT_DEFINITIONS = {
     id: 'early_adopter',
     name: 'Early Adopter',
     nameKo: '얼리 어답터',
-    description: 'Join Lightning Tennis in its early days',
-    descriptionKo: '번개 테니스 초기에 가입하세요',
+    description: 'Join Lightning Pickleball in its early days',
+    descriptionKo: '번개 피클볼 초기에 가입하세요',
     category: ACHIEVEMENT_CATEGORIES.SPECIAL,
     tiers: {
       platinum: {

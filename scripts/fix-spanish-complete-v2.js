@@ -141,7 +141,7 @@ const spanishTranslations = {
   profileSettings: {
     title: 'Configuración del Perfil',
     personalInfo: 'Información Personal',
-    tennisInfo: 'Información de Tenis',
+    pickleballInfo: 'Información de Tenis',
     preferences: 'Preferencias',
     accountSettings: 'Configuración de Cuenta',
     save: 'Guardar',
@@ -1036,7 +1036,7 @@ const spanishTranslations = {
   tournamentDetail: {
     title: 'Detalles del Torneo',
     overview: 'Resumen',
-    bracket: 'Cuadro',
+    bpaddle: 'Cuadro',
     participants: 'Participantes',
     schedule: 'Calendario',
     rules: 'Reglas',
@@ -1063,7 +1063,7 @@ const spanishTranslations = {
     title: 'Torneo',
     register: 'Registrarse',
     withdraw: 'Retirarse',
-    viewBracket: 'Ver Cuadro',
+    viewBpaddle: 'Ver Cuadro',
     viewSchedule: 'Ver Calendario',
     loading: 'Cargando...',
   },

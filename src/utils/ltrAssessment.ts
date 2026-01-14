@@ -1,11 +1,11 @@
 /**
- * LTR Assessment Utility
+ * LPR Assessment Utility
  *
- * 📝 LTR (Lightning Tennis Rating) 시스템
- * - LTR 스케일: 1-10 정수
+ * 📝 LPR (Lightning Pickleball Rating) 시스템
+ * - LPR 스케일: 1-10 정수
  * - ELO 기반 계산
  *
- * Calculates recommended LTR level based on user's assessment questionnaire responses.
+ * Calculates recommended LPR level based on user's assessment questionnaire responses.
  * Uses weighted scoring system across 4 categories: Skills, Tactics, Experience, Self-Assessment.
  */
 
@@ -35,7 +35,7 @@ export interface AssessmentResult {
     experience: number; // 0-30 (3 questions × 10 points)
     selfAssessment: number; // 0-20 (2 questions × 10 points)
     total: number; // 0-140
-    weighted: number; // Weighted average for LTR calculation (0-1)
+    weighted: number; // Weighted average for LPR calculation (0-1)
   };
   warnings: string[];
 }
@@ -58,8 +58,8 @@ const CATEGORY_MAX_SCORES = {
   selfAssessment: 20,
 };
 
-// LTR Mapping: weighted score (0-1) → LTR level (1-5 for onboarding)
-const LTR_MAPPING = [
+// LPR Mapping: weighted score (0-1) → LPR level (1-5 for onboarding)
+const LPR_MAPPING = [
   { min: 0.0, max: 0.2, ltr: 1 },
   { min: 0.2, max: 0.4, ltr: 2 },
   { min: 0.4, max: 0.6, ltr: 3 },
@@ -76,16 +76,16 @@ const CONFIDENCE_THRESHOLDS = {
 // Main Calculation Function
 // ============================================================================
 
-// 🎯 [ONBOARDING LIMIT] 온보딩에서 최대 선택 가능 LTR: 5
-// LTR 6 이상은 매치를 통해서만 달성 가능 (실력으로 증명!)
-const MAX_ONBOARDING_LTR = 5;
+// 🎯 [ONBOARDING LIMIT] 온보딩에서 최대 선택 가능 LPR: 5
+// LPR 6 이상은 매치를 통해서만 달성 가능 (실력으로 증명!)
+const MAX_ONBOARDING_LPR = 5;
 
 /**
- * Calculate recommended LTR level from assessment answers
+ * Calculate recommended LPR level from assessment answers
  * Note: Result is capped at 6 - higher levels must be earned through matches
  */
 export function calculateRecommendedLtr(answers: Answer[]): AssessmentResult {
-  console.log('🎾 ========== LTR Assessment Calculation START ==========');
+  console.log('🎾 ========== LPR Assessment Calculation START ==========');
   console.log('📝 Total answers received:', answers.length);
 
   // 1. Category별 점수 집계
@@ -143,11 +143,11 @@ export function calculateRecommendedLtr(answers: Answer[]): AssessmentResult {
   );
   console.log(`  • Final weighted score: ${weighted.toFixed(3)}`);
 
-  // 3. LTR Level Mapping
+  // 3. LPR Level Mapping
   const rawLtr = mapWeightedScoreToLtr(weighted);
   // 🎯 [ONBOARDING LIMIT] Cap at 5 - higher levels must be earned through matches
-  const recommendedLtr = Math.min(rawLtr, MAX_ONBOARDING_LTR);
-  console.log(`🎯 Raw LTR: ${rawLtr}, Capped to: ${recommendedLtr} (max: ${MAX_ONBOARDING_LTR})`);
+  const recommendedLtr = Math.min(rawLtr, MAX_ONBOARDING_LPR);
+  console.log(`🎯 Raw LPR: ${rawLtr}, Capped to: ${recommendedLtr} (max: ${MAX_ONBOARDING_LPR})`);
 
   // 4. Confidence Calculation
   const scores = answers.map(a => a.score);
@@ -178,7 +178,7 @@ export function calculateRecommendedLtr(answers: Answer[]): AssessmentResult {
     result.warnings.forEach(warning => console.log(`  • ${warning}`));
   }
 
-  console.log('🎾 ========== LTR Assessment Calculation END ==========');
+  console.log('🎾 ========== LPR Assessment Calculation END ==========');
 
   return result;
 }
@@ -215,14 +215,14 @@ function calculateStandardDeviation(scores: number[]): number {
 }
 
 /**
- * Map weighted score (0-1) to LTR level (1-5)
+ * Map weighted score (0-1) to LPR level (1-5)
  */
 function mapWeightedScoreToLtr(weighted: number): number {
   // Clamp weighted score to 0-1 range
   const clampedWeighted = Math.max(0, Math.min(1, weighted));
 
-  // Find matching LTR range
-  const match = LTR_MAPPING.find(
+  // Find matching LPR range
+  const match = LPR_MAPPING.find(
     range => clampedWeighted >= range.min && clampedWeighted < range.max
   );
 
@@ -294,4 +294,4 @@ function detectWarnings(result: AssessmentResult): string[] {
 // Exports
 // ============================================================================
 
-export { CATEGORY_WEIGHTS, CATEGORY_MAX_SCORES, LTR_MAPPING };
+export { CATEGORY_WEIGHTS, CATEGORY_MAX_SCORES, LPR_MAPPING };

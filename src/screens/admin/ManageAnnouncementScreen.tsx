@@ -15,7 +15,7 @@ import { useRoute, useNavigation, RouteProp } from '@react-navigation/native';
 
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import clubService from '../../services/clubService';
 
 type RootStackParamList = {
@@ -40,7 +40,7 @@ const ManageAnnouncementScreen: React.FC = () => {
   const { clubId } = route.params;
   const { t, currentLanguage } = useLanguage();
   const { theme } = useTheme();
-  const themeColors = getLightningTennisTheme(theme);
+  const themeColors = getLightningPickleballTheme(theme);
 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');

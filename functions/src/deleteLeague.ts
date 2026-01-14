@@ -163,7 +163,7 @@ export const deleteLeague = onCall<DeleteLeagueRequest, Promise<DeleteLeagueResp
 
       // 5.5: Update club stats (decrease totalEvents count)
       if (leagueData.clubId) {
-        const clubRef = db.collection('tennis_clubs').doc(leagueData.clubId);
+        const clubRef = db.collection('pickleball_clubs').doc(leagueData.clubId);
         batch.update(clubRef, {
           'stats.totalEvents': admin.firestore.FieldValue.increment(-1),
           updatedAt: admin.firestore.FieldValue.serverTimestamp(),

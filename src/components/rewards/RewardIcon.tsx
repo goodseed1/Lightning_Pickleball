@@ -93,7 +93,7 @@ const defaultIconMappings = {
   },
 
   // Achievement Categories
-  matches: { set: 'MaterialCommunityIcons' as const, name: 'tennis-ball', color: '#8BC34A' },
+  matches: { set: 'MaterialCommunityIcons' as const, name: 'pickleball-ball', color: '#8BC34A' },
   social: { set: 'MaterialCommunityIcons' as const, name: 'account-heart', color: '#E91E63' },
   clubs: { set: 'MaterialCommunityIcons' as const, name: 'home-group', color: '#9C27B0' },
   tournaments: { set: 'MaterialCommunityIcons' as const, name: 'tournament', color: '#FF5722' },

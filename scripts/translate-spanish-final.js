@@ -174,9 +174,9 @@ const spanishTranslations = {
 
   createClubTournament: {
     matchFormats: {
-      best_of_1: '1 Set', // Keep - tennis term
-      best_of_3: '3 Sets', // Keep - tennis term
-      best_of_5: '5 Sets', // Keep - tennis term
+      best_of_1: '1 Set', // Keep - pickleball term
+      best_of_3: '3 Sets', // Keep - pickleball term
+      best_of_5: '5 Sets', // Keep - pickleball term
     },
     seedingMethods: {
       manual: 'Manual', // Keep - technical term
@@ -427,8 +427,8 @@ const spanishTranslations = {
   },
 
   recordScore: {
-    set: 'Set', // Keep - tennis term
-    setN: 'Set {{n}}', // Keep - tennis term
+    set: 'Set', // Keep - pickleball term
+    setN: 'Set {{n}}', // Keep - pickleball term
     alerts: {
       error: 'Error', // Keep - universal
       confirm: 'OK', // Keep - universal

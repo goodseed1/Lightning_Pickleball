@@ -51,7 +51,7 @@ exports.addTournamentParticipant = onCall(async request => {
       const tournament = tournamentDoc.data();
 
       // Verify caller is a tournament admin (owner or club admin)
-      const clubRef = db.doc(`tennis_clubs/${tournament.clubId}`);
+      const clubRef = db.doc(`pickleball_clubs/${tournament.clubId}`);
       const clubMemberRef = db.doc(`clubMembers/${callerId}_${tournament.clubId}`);
 
       const [clubDoc, clubMemberDoc] = await Promise.all([
@@ -79,9 +79,9 @@ exports.addTournamentParticipant = onCall(async request => {
       }
 
       // Check tournament status
-      // ⚠️ RACE CONDITION FIX: Allow participant addition during 'registration' or 'bracket_generation'
-      // This prevents rejection when user quickly clicks "Close Registration" → "Generate Bracket"
-      const allowedStatuses = ['registration', 'bracket_generation'];
+      // ⚠️ RACE CONDITION FIX: Allow participant addition during 'registration' or 'bpaddle_generation'
+      // This prevents rejection when user quickly clicks "Close Registration" → "Generate Bpaddle"
+      const allowedStatuses = ['registration', 'bpaddle_generation'];
       if (!allowedStatuses.includes(tournament.status)) {
         throw new HttpsError(
           'failed-precondition',

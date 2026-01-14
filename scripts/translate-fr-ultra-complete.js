@@ -21,12 +21,12 @@ function deepMerge(target, source) {
 const ultraCompleteFrench = {
   leagueDetail: {
     notification: 'Notification',
-    bracketGeneratedSuccess:
+    bpaddleGeneratedSuccess:
       "Tableau généré avec succès !\n\nLa liste des matchs sera affichée dans l'onglet Calendrier.",
-    bracketGenerateError: 'Erreur lors de la génération du tableau.',
-    bracketDeletedSuccess:
+    bpaddleGenerateError: 'Erreur lors de la génération du tableau.',
+    bpaddleDeletedSuccess:
       'Tableau supprimé avec succès.\n\nVous pouvez maintenant générer un nouveau tableau.',
-    bracketDeleteError: 'Erreur lors de la suppression du tableau.',
+    bpaddleDeleteError: 'Erreur lors de la suppression du tableau.',
     leagueStarted: 'Ligue Commencée',
     leagueEnded: 'Ligue Terminée',
     matchScheduled: 'Match Programmé',
@@ -284,7 +284,7 @@ const ultraCompleteFrench = {
 
   // Additional ultra-comprehensive sections
   tournaments: {
-    brackets: {
+    bpaddles: {
       singleElimination: 'Élimination Directe',
       doubleElimination: 'Double Élimination',
       roundRobin: 'Tous Contre Tous',
@@ -292,8 +292,8 @@ const ultraCompleteFrench = {
       consolation: 'Consolation',
       mainDraw: 'Tableau Principal',
       qualifyingDraw: 'Tableau de Qualification',
-      upperBracket: 'Tableau Supérieur',
-      lowerBracket: 'Tableau Inférieur',
+      upperBpaddle: 'Tableau Supérieur',
+      lowerBpaddle: 'Tableau Inférieur',
       winnersPool: 'Poule des Gagnants',
       losersPool: 'Poule des Perdants',
       championshipRound: 'Tour de Championnat',
@@ -478,8 +478,8 @@ const ultraCompleteFrench = {
   },
 };
 
-console.log('🚀 Applying ULTRA-COMPLETE French translations...');
+console.log('🚀 Applying ULPRA-COMPLETE French translations...');
 const updated = deepMerge(frData, ultraCompleteFrench);
 fs.writeFileSync(FR_PATH, JSON.stringify(updated, null, 2) + '\n', 'utf8');
-console.log('✅ Done! ULTRA-COMPLETE French translations applied.');
+console.log('✅ Done! ULPRA-COMPLETE French translations applied.');
 console.log('🎉 All French translations should now be complete!');

@@ -49,7 +49,7 @@ const translations = {
 
   auth: {
     register: {
-      subtitle: '加入Lightning Tennis',
+      subtitle: '加入Lightning Pickleball',
       signingUp: '注册中...',
       passwordHint: '密码必须至少8个字符，包含大写、小写字母和数字。',
       agreeTerms: '我同意服务条款（必填）',
@@ -103,7 +103,7 @@ const enhancedMap = {
   'You can change this anytime in settings': '您可以随时在设置中更改',
 
   // Auth
-  'Join Lightning Tennis': '加入Lightning Tennis',
+  'Join Lightning Pickleball': '加入Lightning Pickleball',
   'Signing up...': '注册中...',
   'Coming Soon': '即将推出',
   'Terms of Service are coming soon.': '服务条款即将推出。',
@@ -127,14 +127,14 @@ const enhancedMap = {
   'I agree to the Privacy Policy (Required)': '我同意隐私政策（必填）',
 
   // More common translations - add as many as we find
-  'Build your local tennis network and community': '建立您的本地网球网络和社区',
-  'Welcome to Lightning Tennis!': '欢迎来到Lightning Tennis！',
-  'Connect with tennis players in your area and join the community':
+  'Build your local pickleball network and community': '建立您的本地网球网络和社区',
+  'Welcome to Lightning Pickleball!': '欢迎来到Lightning Pickleball！',
+  'Connect with pickleball players in your area and join the community':
     '与您所在地区的网球选手联系并加入社区',
   'Continue with Email': '使用电子邮件继续',
   "What you'll get:": '您将获得：',
-  'Find instant lightning tennis matches': '查找即时闪电网球比赛',
-  'Join or create tennis clubs': '加入或创建网球俱乐部',
+  'Find instant lightning pickleball matches': '查找即时闪电网球比赛',
+  'Join or create pickleball clubs': '加入或创建网球俱乐部',
   'Track your progress & stats': '跟踪您的进度和统计',
   'By continuing, you agree to our Terms of Service and Privacy Policy':
     '继续即表示您同意我们的服务条款和隐私政策',

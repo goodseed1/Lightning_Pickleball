@@ -21,7 +21,7 @@ const allTranslations = {
       },
       buttons: {
         joinTournament: 'Turnier beitreten',
-        viewBracket: 'Spielplan ansehen',
+        viewBpaddle: 'Spielplan ansehen',
         joining: 'Beitritt...',
         participating: 'Teilnehmend',
         applyToLeague: 'Für Liga bewerben',
@@ -222,7 +222,7 @@ const allTranslations = {
       header: { create: 'Club erstellen', edit: 'Club bearbeiten' },
       basic: {
         name: 'Clubname',
-        namePlaceholder: 'z.B. Tennisclub München',
+        namePlaceholder: 'z.B. Pickleballclub München',
         intro: 'Beschreibung',
         clubType: 'Clubtyp',
       },
@@ -268,7 +268,7 @@ const allTranslations = {
       },
       buttons: {
         joinTournament: 'Rejoindre le tournoi',
-        viewBracket: 'Voir le tableau',
+        viewBpaddle: 'Voir le tableau',
         joining: 'Inscription...',
         participating: 'Participant',
         applyToLeague: 'Postuler à la ligue',
@@ -453,7 +453,7 @@ const allTranslations = {
       header: { create: 'Créer un club', edit: 'Modifier le club' },
       basic: {
         name: 'Nom du club',
-        namePlaceholder: 'ex. Tennis Club Paris',
+        namePlaceholder: 'ex. Pickleball Club Paris',
         intro: 'Description',
         clubType: 'Type de club',
       },
@@ -499,7 +499,7 @@ const allTranslations = {
       },
       buttons: {
         joinTournament: 'Partecipa al torneo',
-        viewBracket: 'Vedi tabellone',
+        viewBpaddle: 'Vedi tabellone',
         joining: 'Iscrizione...',
         participating: 'Partecipante',
         applyToLeague: 'Iscriviti alla lega',
@@ -691,7 +691,7 @@ const allTranslations = {
       header: { create: 'Crea club', edit: 'Modifica club' },
       basic: {
         name: 'Nome club',
-        namePlaceholder: 'es. Tennis Club Roma',
+        namePlaceholder: 'es. Pickleball Club Roma',
         intro: 'Descrizione',
         clubType: 'Tipo di club',
       },
@@ -737,7 +737,7 @@ const allTranslations = {
       },
       buttons: {
         joinTournament: 'トーナメントに参加',
-        viewBracket: 'ブラケットを見る',
+        viewBpaddle: 'ブラケットを見る',
         joining: '参加中...',
         participating: '参加中',
         applyToLeague: 'リーグに申込',
@@ -966,7 +966,7 @@ const allTranslations = {
       },
       buttons: {
         joinTournament: 'Participar do torneio',
-        viewBracket: 'Ver chave',
+        viewBpaddle: 'Ver chave',
         joining: 'Inscrevendo...',
         participating: 'Participando',
         applyToLeague: 'Inscrever-se na liga',
@@ -1192,7 +1192,7 @@ const allTranslations = {
       },
       buttons: {
         joinTournament: 'Присоединиться к турниру',
-        viewBracket: 'Смотреть сетку',
+        viewBpaddle: 'Смотреть сетку',
         joining: 'Присоединение...',
         participating: 'Участвует',
         applyToLeague: 'Подать заявку в лигу',
@@ -1418,7 +1418,7 @@ const allTranslations = {
       },
       buttons: {
         joinTournament: '参加锦标赛',
-        viewBracket: '查看对阵',
+        viewBpaddle: '查看对阵',
         joining: '加入中...',
         participating: '参与中',
         applyToLeague: '申请加入联赛',

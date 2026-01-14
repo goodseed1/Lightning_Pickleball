@@ -1,5 +1,5 @@
 /**
- * Lightning Tennis Club System - TypeScript Type Definitions
+ * Lightning Pickleball Club System - TypeScript Type Definitions
  * Defines all data structures for the club management system
  */
 

@@ -445,13 +445,13 @@
     "targetValue": "[MISSING]"
   },
   {
-    "key": "createMeetup.location.searchTennisCourt",
-    "enValue": "Search Tennis Court",
+    "key": "createMeetup.location.searchPickleballCourt",
+    "enValue": "Search Pickleball Court",
     "targetValue": "[MISSING]"
   },
   {
     "key": "createMeetup.location.searchHelper",
-    "enValue": "Tap to search for a tennis court.",
+    "enValue": "Tap to search for a pickleball court.",
     "targetValue": "[MISSING]"
   },
   {

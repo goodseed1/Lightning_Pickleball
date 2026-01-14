@@ -395,7 +395,7 @@ const germanTranslations = {
     runnerUp: 'Zweitplatzierter',
     emptyStateGuestTitle: '🎾 Willkommen bei {{clubName}}!',
     aiHelperHint: 'Nicht sicher, was zu tun ist?',
-    aiHelperSubtext: 'Stellen Sie Fragen über Tennis oder wie man die App nutzt!',
+    aiHelperSubtext: 'Stellen Sie Fragen über Pickleball oder wie man die App nutzt!',
   },
 
   schedules: {

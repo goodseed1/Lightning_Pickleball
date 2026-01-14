@@ -101,7 +101,7 @@ export const onTournamentRegistrationOpened = onDocumentUpdated(
       // 3. Fetch Club Data
       // ========================================================================
 
-      const clubDoc = await db.doc(`tennis_clubs/${clubId}`).get();
+      const clubDoc = await db.doc(`pickleball_clubs/${clubId}`).get();
 
       if (!clubDoc.exists) {
         console.error('❌ [TOURNAMENT FEED] Club not found:', clubId);

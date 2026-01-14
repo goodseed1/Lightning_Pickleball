@@ -10,7 +10,7 @@ const db = admin.firestore();
 async function findProblematicClubs() {
   console.log('🔍 Searching for problematic clubs...\n');
 
-  const clubsSnapshot = await db.collection('tennis_clubs').get();
+  const clubsSnapshot = await db.collection('pickleball_clubs').get();
 
   const problematicClubs = [];
   const allClubs = [];

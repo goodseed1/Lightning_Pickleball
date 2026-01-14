@@ -26,7 +26,7 @@ import RankingsCard, { GlobalRankingData } from '../components/stats/RankingsCar
 import { convertEloToLtr } from '../utils/ltrUtils';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import { useLanguage } from '../contexts/LanguageContext';
 import HallOfFameSection from '../components/profile/HallOfFameSection';
 
@@ -208,7 +208,7 @@ type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 const UserProfileScreen: React.FC = () => {
   // 🎨 [DARK GLASS] Theme setup
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors, currentTheme);
 
   const route = useRoute<UserProfileScreenRouteProp>();
@@ -317,9 +317,9 @@ const UserProfileScreen: React.FC = () => {
             nickname ||
             t('profile.userProfile.defaultNickname'),
           skillLevel: profileData.profile?.skillLevel
-            ? `LTR ${profileData.profile.skillLevel}`
+            ? `LPR ${profileData.profile.skillLevel}`
             : profileData.ltrLevel
-              ? `LTR ${profileData.ltrLevel}`
+              ? `LPR ${profileData.ltrLevel}`
               : 'Beginner',
           gender: profileData.profile?.gender || profileData.gender || 'Other',
           // 🎯 [KIM FIX] location은 profile.location 또는 root level에 있을 수 있음
@@ -394,7 +394,7 @@ const UserProfileScreen: React.FC = () => {
         achievements: {
           badges: profileData.achievements?.badges || [],
         },
-        // 🎾 [ELO-BASED LTR] Include eloRatings for consistent LTR display
+        // 🎾 [ELO-BASED LPR] Include eloRatings for consistent LPR display
         eloRatings: profileData.eloRatings,
       };
 
@@ -759,7 +759,7 @@ const UserProfileScreen: React.FC = () => {
                     ].filter(item => item.elo !== null && item.elo !== undefined);
 
                     if (eloData.length === 0) {
-                      return 'LTR N/A';
+                      return 'LPR N/A';
                     }
 
                     // 가장 높은 ELO와 해당 게임 타입 찾기
@@ -767,7 +767,7 @@ const UserProfileScreen: React.FC = () => {
                       (item.elo || 0) > (max.elo || 0) ? item : max
                     );
                     const calculatedLtr = convertEloToLtr(highest.elo || 1200);
-                    return `LTR ${calculatedLtr} (${highest.type})`;
+                    return `LPR ${calculatedLtr} (${highest.type})`;
                   })()}
                 </Chip>
                 {/* 🎯 [KIM FIX] Join Date - Show when user joined the app (inside profileInfo for proper alignment) */}
@@ -911,9 +911,9 @@ const UserProfileScreen: React.FC = () => {
               </View>
             </View>
 
-            {/* 🆕 [KIM] LTR & ELO Ratings by Match Type */}
+            {/* 🆕 [KIM] LPR & ELO Ratings by Match Type */}
             <View style={styles.eloSection}>
-              {/* Per-matchType LTR & ELO Display */}
+              {/* Per-matchType LPR & ELO Display */}
               {(() => {
                 // 🎾 [KIM FIX v25] Use eloRatings only (Single Source of Truth)
                 const eloRatings = userProfile.eloRatings as
@@ -938,7 +938,7 @@ const UserProfileScreen: React.FC = () => {
                         variant='titleMedium'
                         style={[styles.eloValue, { color: themeColors.colors.primary }]}
                       >
-                        LTR {convertEloToLtr(singlesElo)}
+                        LPR {convertEloToLtr(singlesElo)}
                       </Text>
                       <Text variant='bodySmall' style={styles.eloSubValue}>
                         ELO {singlesElo}
@@ -952,7 +952,7 @@ const UserProfileScreen: React.FC = () => {
                         variant='titleMedium'
                         style={[styles.eloValue, { color: themeColors.colors.primary }]}
                       >
-                        LTR {convertEloToLtr(doublesElo)}
+                        LPR {convertEloToLtr(doublesElo)}
                       </Text>
                       <Text variant='bodySmall' style={styles.eloSubValue}>
                         ELO {doublesElo}
@@ -966,7 +966,7 @@ const UserProfileScreen: React.FC = () => {
                         variant='titleMedium'
                         style={[styles.eloValue, { color: themeColors.colors.primary }]}
                       >
-                        LTR {convertEloToLtr(mixedElo)}
+                        LPR {convertEloToLtr(mixedElo)}
                       </Text>
                       <Text variant='bodySmall' style={styles.eloSubValue}>
                         ELO {mixedElo}

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 🔍 Check coordinates field in coachLessons and tennisServices
+ * 🔍 Check coordinates field in coachLessons and pickleballServices
  */
 
 const admin = require('firebase-admin');
@@ -42,9 +42,9 @@ async function checkCoordinates() {
     `\n   Summary: ${lessonsWithCoords} with coords, ${lessonsWithoutCoords} without coords`
   );
 
-  // Check tennis_services (not tennisServices!)
-  console.log('\n🎾 Checking tennis_services collection...');
-  const servicesSnapshot = await db.collection('tennis_services').limit(20).get();
+  // Check pickleball_services (not pickleballServices!)
+  console.log('\n🎾 Checking pickleball_services collection...');
+  const servicesSnapshot = await db.collection('pickleball_services').limit(20).get();
 
   let servicesWithCoords = 0;
   let servicesWithoutCoords = 0;

@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 // Mock React Native modules before any imports
 jest.mock('react-native', () => ({
@@ -254,14 +254,14 @@ describe('RankingService - ELO Judiciary System', () => {
         clubRankings: [
           {
             clubId: 'club123',
-            clubName: 'Elite Tennis Club',
+            clubName: 'Elite Pickleball Club',
             clubEloRating: 1280,
             matches: 8,
             winRate: 0.625,
           },
           {
             clubId: 'club456',
-            clubName: 'Community Tennis',
+            clubName: 'Community Pickleball',
             clubEloRating: 1420,
             matches: 12,
             winRate: 0.75,
@@ -279,7 +279,7 @@ describe('RankingService - ELO Judiciary System', () => {
       expect(result.unifiedRanking?.confidence).toBe(0.95);
 
       expect(result.clubRankings).toHaveLength(2);
-      expect(result.clubRankings[0].clubName).toBe('Elite Tennis Club');
+      expect(result.clubRankings[0].clubName).toBe('Elite Pickleball Club');
       expect(result.clubRankings[1].clubEloRating).toBe(1420);
     });
 

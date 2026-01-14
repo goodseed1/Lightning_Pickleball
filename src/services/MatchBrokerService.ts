@@ -170,7 +170,7 @@ class MatchBrokerService {
         skillLevel: 'intermediate',
         availableTime: new Date(Date.now() + Math.random() * 86400000), // Next 24 hours
         userId: 'mock_user_id',
-        userName: 'Tennis Partner',
+        userName: 'Pickleball Partner',
       },
     ];
   }

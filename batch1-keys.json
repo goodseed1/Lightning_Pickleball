@@ -605,7 +605,7 @@
   },
   {
     "key": "eventCard.requirements.levelMismatch",
-    "value": "Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})"
+    "value": "Level mismatch (Your LPR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})"
   },
   {
     "key": "eventCard.requirements.genderMismatch",
@@ -621,7 +621,7 @@
   },
   {
     "key": "eventCard.requirements.canApply",
-    "value": "Apply: LTR {{minNtrp}} - {{maxNtrp}}"
+    "value": "Apply: LPR {{minNtrp}} - {{maxNtrp}}"
   },
   {
     "key": "eventCard.requirements.level",
@@ -837,7 +837,7 @@
   },
   {
     "key": "discover.alerts.quickMatch.ntrpOutOfRange",
-    "value": "LTR {{ntrp}} is beyond your challenge range. (max +1.0)"
+    "value": "LPR {{ntrp}} is beyond your challenge range. (max +1.0)"
   },
   {
     "key": "discover.alerts.quickMatch.challenge",
@@ -873,23 +873,23 @@
   },
   {
     "key": "createEvent.autoNtrp.hostLevel",
-    "value": "Host LTR: {{level}} ({{gameType}})"
+    "value": "Host LPR: {{level}} ({{gameType}})"
   },
   {
     "key": "createEvent.autoNtrp.partnerLevel",
-    "value": "Partner LTR: {{level}} ({{gameType}})"
+    "value": "Partner LPR: {{level}} ({{gameType}})"
   },
   {
     "key": "createEvent.autoNtrp.combinedLevel",
-    "value": "Combined LTR: {{level}}"
+    "value": "Combined LPR: {{level}}"
   },
   {
     "key": "createEvent.autoNtrp.hostLevelWithType",
-    "value": "Host LTR: {{level}} ({{type}})"
+    "value": "Host LPR: {{level}} ({{type}})"
   },
   {
     "key": "createEvent.autoNtrp.partnerLevelWithType",
-    "value": "Partner LTR: {{level}} ({{type}})"
+    "value": "Partner LPR: {{level}} ({{type}})"
   },
   {
     "key": "createEvent.helperText.languageSelection",
@@ -1153,7 +1153,7 @@
   },
   {
     "key": "matches.createModal.location.placeholder",
-    "value": "e.g., Central Park Tennis Courts"
+    "value": "e.g., Central Park Pickleball Courts"
   },
   {
     "key": "matches.createModal.recurring.label",

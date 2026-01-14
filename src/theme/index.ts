@@ -1,9 +1,9 @@
 /**
- * Lightning Tennis Theme System
+ * Lightning Pickleball Theme System
  * Project Midnight - Phase 2: Enhanced Theme Architecture
  *
  * Centralized theme system with organized imports and exports
- * Built on React Native Paper with Lightning Tennis branding
+ * Built on React Native Paper with Lightning Pickleball branding
  */
 
 import { MD3LightTheme, MD3DarkTheme } from 'react-native-paper';
@@ -12,8 +12,8 @@ import { ThemeMode } from '../types/theme';
 
 // Import centralized color system
 import {
-  LightningTennisBrandColors,
-  LightningTennisDarkColors,
+  LightningPickleballBrandColors,
+  LightningPickleballDarkColors,
   LightModeColors,
   DarkModeColors,
   getPlatformLightColors,
@@ -21,7 +21,7 @@ import {
 } from './colors';
 
 // Import navigation theme system
-import { getLightningTennisNavigationTheme, NavigationThemeVariants } from './navigation';
+import { getLightningPickleballNavigationTheme, NavigationThemeVariants } from './navigation';
 
 // ==================== COMMON THEME ELEMENTS ====================
 
@@ -65,7 +65,7 @@ const commonFonts = {
 
 /**
  * Common spacing and layout values
- * Consistent spacing system across all Lightning Tennis components
+ * Consistent spacing system across all Lightning Pickleball components
  */
 const commonLayout = {
   spacing: {
@@ -168,32 +168,32 @@ const darkShadows = {
 // ==================== LIGHTNING TENNIS THEMES ====================
 
 /**
- * Lightning Tennis Light Theme
- * Professional light theme with Lightning Tennis branding
+ * Lightning Pickleball Light Theme
+ * Professional light theme with Lightning Pickleball branding
  * Optimized for React Native Paper components
  */
-export const lightningTennisLightTheme = {
+export const lightningPickleballLightTheme = {
   ...MD3LightTheme,
   dark: false,
   colors: {
     ...MD3LightTheme.colors,
 
-    // Core Lightning Tennis brand colors
-    primary: LightningTennisBrandColors.primary,
-    secondary: LightningTennisBrandColors.secondary,
-    tertiary: LightningTennisBrandColors.accent,
+    // Core Lightning Pickleball brand colors
+    primary: LightningPickleballBrandColors.primary,
+    secondary: LightningPickleballBrandColors.secondary,
+    tertiary: LightningPickleballBrandColors.accent,
 
     // Status colors
-    success: LightningTennisBrandColors.success,
-    warning: LightningTennisBrandColors.warning,
-    error: LightningTennisBrandColors.error,
+    success: LightningPickleballBrandColors.success,
+    warning: LightningPickleballBrandColors.warning,
+    error: LightningPickleballBrandColors.error,
 
-    // Special Lightning Tennis colors
-    tennis: LightningTennisBrandColors.tennis,
-    lightning: LightningTennisBrandColors.lightning,
+    // Special Lightning Pickleball colors
+    pickleball: LightningPickleballBrandColors.pickleball,
+    lightning: LightningPickleballBrandColors.lightning,
 
     // Interaction colors
-    likeActive: LightningTennisBrandColors.likeActive,
+    likeActive: LightningPickleballBrandColors.likeActive,
 
     // Platform-specific colors
     ...getPlatformLightColors(),
@@ -228,41 +228,41 @@ export const lightningTennisLightTheme = {
 };
 
 /**
- * Lightning Tennis Dark Theme
- * Professional dark theme with Lightning Tennis branding
+ * Lightning Pickleball Dark Theme
+ * Professional dark theme with Lightning Pickleball branding
  * Optimized for React Native Paper components in dark mode
  */
-export const lightningTennisDarkTheme = {
+export const lightningPickleballDarkTheme = {
   ...MD3DarkTheme,
   dark: true,
   colors: {
     ...MD3DarkTheme.colors,
 
-    // Core Lightning Tennis brand colors (dark optimized)
-    primary: LightningTennisDarkColors.primary,
-    secondary: LightningTennisDarkColors.secondary,
-    tertiary: LightningTennisDarkColors.accent,
+    // Core Lightning Pickleball brand colors (dark optimized)
+    primary: LightningPickleballDarkColors.primary,
+    secondary: LightningPickleballDarkColors.secondary,
+    tertiary: LightningPickleballDarkColors.accent,
 
     // Status colors (dark optimized)
-    success: LightningTennisDarkColors.success,
-    warning: LightningTennisDarkColors.warning,
-    error: LightningTennisDarkColors.error,
+    success: LightningPickleballDarkColors.success,
+    warning: LightningPickleballDarkColors.warning,
+    error: LightningPickleballDarkColors.error,
 
-    // Special Lightning Tennis colors (dark optimized)
-    tennis: LightningTennisDarkColors.tennis,
-    tennisGlow: LightningTennisDarkColors.tennisGlow,
-    lightning: LightningTennisDarkColors.lightning,
-    lightningGlow: LightningTennisDarkColors.lightningGlow,
+    // Special Lightning Pickleball colors (dark optimized)
+    pickleball: LightningPickleballDarkColors.pickleball,
+    pickleballGlow: LightningPickleballDarkColors.pickleballGlow,
+    lightning: LightningPickleballDarkColors.lightning,
+    lightningGlow: LightningPickleballDarkColors.lightningGlow,
 
     // Enhanced primary colors for depth
-    primaryElevated: LightningTennisDarkColors.primaryElevated,
-    primaryGlow: LightningTennisDarkColors.primaryGlow,
+    primaryElevated: LightningPickleballDarkColors.primaryElevated,
+    primaryGlow: LightningPickleballDarkColors.primaryGlow,
 
     // Enhanced accent colors
-    accentSoft: LightningTennisDarkColors.accentSoft,
+    accentSoft: LightningPickleballDarkColors.accentSoft,
 
     // Interaction colors (dark optimized)
-    likeActive: LightningTennisDarkColors.likeActive,
+    likeActive: LightningPickleballDarkColors.likeActive,
 
     // Platform-specific colors
     ...getPlatformDarkColors(),
@@ -303,11 +303,11 @@ export const lightningTennisDarkTheme = {
 // ==================== THEME UTILITIES ====================
 
 /**
- * Get the appropriate Lightning Tennis theme based on mode
+ * Get the appropriate Lightning Pickleball theme based on mode
  * Main theme getter function for the application
  */
-export const getLightningTennisTheme = (mode: ThemeMode) => {
-  return mode === 'dark' ? lightningTennisDarkTheme : lightningTennisLightTheme;
+export const getLightningPickleballTheme = (mode: ThemeMode) => {
+  return mode === 'dark' ? lightningPickleballDarkTheme : lightningPickleballLightTheme;
 };
 
 /**
@@ -316,8 +316,8 @@ export const getLightningTennisTheme = (mode: ThemeMode) => {
  * Defaults to dark mode for Project Midnight
  */
 export const getCompleteTheme = (mode: ThemeMode = 'dark') => {
-  const paperTheme = getLightningTennisTheme(mode);
-  const navigationTheme = getLightningTennisNavigationTheme(mode === 'dark');
+  const paperTheme = getLightningPickleballTheme(mode);
+  const navigationTheme = getLightningPickleballNavigationTheme(mode === 'dark');
 
   return {
     paper: paperTheme,
@@ -327,14 +327,14 @@ export const getCompleteTheme = (mode: ThemeMode = 'dark') => {
 
 /**
  * Create a custom theme variant
- * Allows customization while maintaining Lightning Tennis base styling
+ * Allows customization while maintaining Lightning Pickleball base styling
  */
 export const createCustomTheme = (
   mode: ThemeMode,
   customColors: Record<string, string> = {},
   customProperties: Record<string, unknown> = {}
 ) => {
-  const baseTheme = getLightningTennisTheme(mode);
+  const baseTheme = getLightningPickleballTheme(mode);
 
   return {
     ...baseTheme,
@@ -349,28 +349,28 @@ export const createCustomTheme = (
 // ==================== BACKWARDS COMPATIBILITY ====================
 
 /**
- * @deprecated Use getLightningTennisTheme instead
+ * @deprecated Use getLightningPickleballTheme instead
  * Maintained for backwards compatibility with existing code
  */
-export const getTheme = getLightningTennisTheme;
+export const getTheme = getLightningPickleballTheme;
 
 /**
- * @deprecated Use lightningTennisLightTheme instead
+ * @deprecated Use lightningPickleballLightTheme instead
  * Maintained for backwards compatibility
  */
-export const lightTheme = lightningTennisLightTheme;
+export const lightTheme = lightningPickleballLightTheme;
 
 /**
- * @deprecated Use lightningTennisDarkTheme instead
+ * @deprecated Use lightningPickleballDarkTheme instead
  * Maintained for backwards compatibility
  */
-export const darkTheme = lightningTennisDarkTheme;
+export const darkTheme = lightningPickleballDarkTheme;
 
 /**
- * @deprecated Use lightningTennisLightTheme instead
+ * @deprecated Use lightningPickleballLightTheme instead
  * Maintained for backwards compatibility
  */
-export const theme = lightningTennisLightTheme;
+export const theme = lightningPickleballLightTheme;
 
 // ==================== EXPORTS ====================
 
@@ -382,29 +382,29 @@ export * from './navigation';
 
 // Main theme exports
 export {
-  lightningTennisLightTheme as LightningTennisLightTheme,
-  lightningTennisDarkTheme as LightningTennisDarkTheme,
+  lightningPickleballLightTheme as LightningPickleballLightTheme,
+  lightningPickleballDarkTheme as LightningPickleballDarkTheme,
 };
 
 // ==================== TYPES ====================
 
 /**
- * Main Lightning Tennis theme type
+ * Main Lightning Pickleball theme type
  */
-export type LightningTennisTheme = typeof lightningTennisLightTheme;
+export type LightningPickleballTheme = typeof lightningPickleballLightTheme;
 
 /**
- * Extended theme colors including Lightning Tennis custom colors
+ * Extended theme colors including Lightning Pickleball custom colors
  */
-export type LightningTennisColors = typeof lightningTennisLightTheme.colors;
+export type LightningPickleballColors = typeof lightningPickleballLightTheme.colors;
 
 /**
- * Custom colors specific to Lightning Tennis
+ * Custom colors specific to Lightning Pickleball
  */
 export type CustomColors = {
   success: string;
   warning: string;
-  tennis: string;
+  pickleball: string;
   lightning: string;
   surfaceVariant: string;
   onSurfaceVariant: string;
@@ -416,8 +416,8 @@ export type CustomColors = {
  * Complete theme package with Paper and Navigation themes
  */
 export type CompleteTheme = {
-  paper: LightningTennisTheme;
-  navigation: ReturnType<typeof getLightningTennisNavigationTheme>;
+  paper: LightningPickleballTheme;
+  navigation: ReturnType<typeof getLightningPickleballNavigationTheme>;
 };
 
 // ==================== THEME CONSTANTS ====================

@@ -107,11 +107,11 @@ const translations = {
       participants: 'Участники',
       standings: 'Турнирная таблица',
       management: 'Управление',
-      bracket: 'Сетка',
+      bpaddle: 'Сетка',
     },
 
     status: {
-      bracketGeneration: 'Создание сетки',
+      bpaddleGeneration: 'Создание сетки',
       inProgress: 'В процессе',
       upcoming: 'Предстоящий',
       completed: 'Завершен',
@@ -119,12 +119,12 @@ const translations = {
     },
 
     actions: {
-      generateBracket: 'Создать сетку',
+      generateBpaddle: 'Создать сетку',
       startTournament: 'Начать турнир',
       completeTournament: 'Завершить турнир',
       cancelTournament: 'Отменить турнир',
       editTournament: 'Редактировать турнир',
-      viewBracket: 'Просмотреть сетку',
+      viewBpaddle: 'Просмотреть сетку',
     },
   },
 

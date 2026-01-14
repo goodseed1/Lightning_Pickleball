@@ -49,8 +49,8 @@ const db = admin.firestore();
  *
  * State Transitions:
  * - draft → registration | cancelled
- * - registration → bracket_generation | cancelled
- * - bracket_generation → in_progress | registration | cancelled
+ * - registration → bpaddle_generation | cancelled
+ * - bpaddle_generation → in_progress | registration | cancelled
  * - in_progress → completed | cancelled
  * - completed → (terminal)
  * - cancelled → (terminal)

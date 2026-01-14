@@ -46,7 +46,7 @@ const translations = {
       deleteTitle: 'Eliminar Torneo',
       participants: 'Participantes',
       matches: 'Partidos',
-      bracket: 'Bracket',
+      bpaddle: 'Bpaddle',
       results: 'Resultados',
       winner: 'Ganador',
       runnerUp: 'Subcampeón',
@@ -179,7 +179,7 @@ const translations = {
     matchType: {
       title: 'Tipo de Partido',
       ranked: 'Clasificatorio',
-      rankedDescription: 'Afecta tu ranking LTR',
+      rankedDescription: 'Afecta tu ranking LPR',
       friendly: 'Amistoso',
       friendlyDescription: 'Sin afectar ranking',
       practice: 'Práctica',

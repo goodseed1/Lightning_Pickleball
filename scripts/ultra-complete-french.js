@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * ULTRA-COMPLETE French Translation Script
+ * ULPRA-COMPLETE French Translation Script
  * Translates ALL 891 remaining keys from untranslated-french-keys.json
  */
 
@@ -92,7 +92,7 @@ const completeTranslations = {
     club: 'Club',
   },
   alert: {
-    tournamentBracket: {
+    tournamentBpaddle: {
       info: 'Info',
       participants: 'Participants',
       participantsTab: 'Participants',
@@ -254,11 +254,11 @@ const completeTranslations = {
     },
     requirements: {
       levelMismatch:
-        'Niveau incompatible (Votre LTR : {{userNtrp}}, Autorisé : {{minNtrp}}~{{maxNtrp}})',
+        'Niveau incompatible (Votre LPR : {{userNtrp}}, Autorisé : {{minNtrp}}~{{maxNtrp}})',
       genderMismatch: 'Incompatibilité de Genre',
       menOnly: 'Ceci est un match masculin',
       womenOnly: 'Ceci est un match féminin',
-      canApply: 'Candidater : LTR {{minNtrp}} - {{maxNtrp}}',
+      canApply: 'Candidater : LPR {{minNtrp}} - {{maxNtrp}}',
       level: 'Niveau : {{level}}',
     },
     soloApplicants: {
@@ -288,7 +288,7 @@ const completeTranslations = {
       anyLevelDesc: 'Tous les niveaux sont les bienvenus',
     },
     skillDescriptions: {
-      beginner: 'Débutant - Nouveau au tennis ou apprentissage des coups de base',
+      beginner: 'Débutant - Nouveau au pickleball ou apprentissage des coups de base',
       elementary: 'Élémentaire - Peut frapper des coups de base, comprend les bases du double',
       intermediate: 'Intermédiaire - Coups cohérents, jeu stratégique',
       advanced: 'Avancé - Expérience de tournoi, compétences avancées',
@@ -298,20 +298,20 @@ const completeTranslations = {
         "Les matchs Lightning n'autorisent que des niveaux égaux ou supérieurs au niveau de l'hôte",
     },
     autoNtrp: {
-      hostLevel: 'LTR Hôte : {{level}} ({{gameType}})',
-      partnerLevel: 'LTR Partenaire : {{level}} ({{gameType}})',
-      combinedLevel: 'LTR Combiné : {{level}}',
-      hostLevelWithType: 'LTR Hôte : {{level}} ({{type}})',
-      partnerLevelWithType: 'LTR Partenaire : {{level}} ({{type}})',
+      hostLevel: 'LPR Hôte : {{level}} ({{gameType}})',
+      partnerLevel: 'LPR Partenaire : {{level}} ({{gameType}})',
+      combinedLevel: 'LPR Combiné : {{level}}',
+      hostLevelWithType: 'LPR Hôte : {{level}} ({{type}})',
+      partnerLevelWithType: 'LPR Partenaire : {{level}} ({{type}})',
     },
     helperText: {
       languageSelection:
         'Sélectionnez les langues dans lesquelles vous pouvez communiquer pour une meilleure expérience de match.',
       matchLevelAuto: 'Le niveau du match est calculé automatiquement selon {{type}}.',
       doublesMatchLevel:
-        "* Le niveau du match en double est automatiquement défini à partir de la somme des LTR de l'hôte et du partenaire.",
+        "* Le niveau du match en double est automatiquement défini à partir de la somme des LPR de l'hôte et du partenaire.",
       singlesMatchLevel:
-        "* Le niveau du match en simple est automatiquement défini selon le LTR de l'hôte. (tolérance de ±0,5)",
+        "* Le niveau du match en simple est automatiquement défini selon le LPR de l'hôte. (tolérance de ±0,5)",
     },
     toggleDescriptions: {
       autoApproval:
@@ -325,7 +325,7 @@ const completeTranslations = {
       descriptionDetailed:
         "Envoyez des invitations et des liens de téléchargement de l'application aux amis sans l'application",
       invitationMessage:
-        '[Lightning Tennis] {{sender}} vous a invité à \"{{eventTitle}}\" ! Téléchargez l\'application : {{link}}',
+        '[Lightning Pickleball] {{sender}} vous a invité à \"{{eventTitle}}\" ! Téléchargez l\'application : {{link}}',
       defaultSender: 'Un ami',
       numbersToInvite: 'Numéros à inviter :',
     },
@@ -449,11 +449,11 @@ const completeTranslations = {
   // I'll add remaining critical sections to reach 800+ keys
 };
 
-console.log('🚀 Applying ULTRA-COMPLETE French translations...');
+console.log('🚀 Applying ULPRA-COMPLETE French translations...');
 
 const updatedFr = deepMerge(fr, completeTranslations);
 
 fs.writeFileSync(frPath, JSON.stringify(updatedFr, null, 2), 'utf8');
 
-console.log('✅ ULTRA-COMPLETE French translations applied!');
+console.log('✅ ULPRA-COMPLETE French translations applied!');
 console.log('\n📊 Sections completed - Run verification to see progress');

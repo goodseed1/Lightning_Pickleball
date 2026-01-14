@@ -1,6 +1,6 @@
 # 🔐 Social Login Setup Guide
 
-This guide explains how to configure Google and Apple sign-in for the Lightning Tennis app.
+This guide explains how to configure Google and Apple sign-in for the Lightning Pickleball app.
 
 ---
 
@@ -18,7 +18,7 @@ This guide explains how to configure Google and Apple sign-in for the Lightning 
 ### 1. Enable Google Authentication Provider
 
 1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Select your Lightning Tennis project
+2. Select your Lightning Pickleball project
 3. Navigate to **Authentication** > **Sign-in method**
 4. Find **Google** in the providers list
 5. Click **Enable**
@@ -85,8 +85,8 @@ If you need a Service ID for web authentication:
 2. Click the **+** button to create a new identifier
 3. Select **Services IDs** and click **Continue**
 4. Fill in:
-   - **Description**: Lightning Tennis Service ID
-   - **Identifier**: com.lightningtennis.serviceid (or similar)
+   - **Description**: Lightning Pickleball Service ID
+   - **Identifier**: com.lightningpickleball.serviceid (or similar)
 5. Enable **Sign In with Apple**
 6. Configure:
    - **Primary App ID**: Select your main app ID
@@ -228,4 +228,4 @@ After completing this setup:
 ---
 
 **Last Updated**: December 14, 2024
-**Maintained By**: Lightning Tennis Team
+**Maintained By**: Lightning Pickleball Team

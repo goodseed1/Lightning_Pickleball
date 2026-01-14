@@ -596,7 +596,7 @@ export default function CreateClubScreen() {
               label={t('createClub.fields.name')}
               value={formData.name}
               onChangeText={text => updateFormData('name', text)}
-              placeholder='예: 둘루스 한인 테니스 클럽'
+              placeholder='예: 둘루스 한인 피클볼 클럽'
               maxLength={30}
               style={styles.input}
             />
@@ -609,7 +609,7 @@ export default function CreateClubScreen() {
               onChangeText={text => updateFormData('description', text)}
               multiline
               numberOfLines={3}
-              placeholder='아틀란타 메트로 한인 테니스 클럽의 목표, 분위기, 특징 등을 소개해주세요'
+              placeholder='아틀란타 메트로 한인 피클볼 클럽의 목표, 분위기, 특징 등을 소개해주세요'
               maxLength={200}
               style={styles.input}
               right={<TextInput.Affix text={`${formData.description.length}/200`} />}
@@ -627,7 +627,7 @@ export default function CreateClubScreen() {
               <TextInput
                 dense
                 mode='outlined'
-                label='테니스 코트 주소'
+                label='피클볼 코트 주소'
                 value={formData.courtAddress?.address || ''}
                 placeholder={t('createClub.fields.address_placeholder')}
                 editable={false}
@@ -819,10 +819,10 @@ export default function CreateClubScreen() {
             maxHeight: '85%',
           }}
         >
-          <Title style={{ marginBottom: 16 }}>테니스 코트 주소 검색</Title>
+          <Title style={{ marginBottom: 16 }}>피클볼 코트 주소 검색</Title>
 
           <SafeGooglePlacesAutocomplete
-            placeholder='테니스 코트 주소를 검색하세요'
+            placeholder='피클볼 코트 주소를 검색하세요'
             onPress={(data, details) => {
               const locationData = {
                 name: data.structured_formatting?.main_text || data.description || '',

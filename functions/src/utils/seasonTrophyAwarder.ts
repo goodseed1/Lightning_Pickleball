@@ -3,8 +3,8 @@
  * Season Trophy Awarder
  *
  * Awards various trophies to official rankers at season end:
- * 1. Season Champion (Gold/Silver/Bronze) - Top 3 in each LTR grade group
- * 2. Rank Up - Players who improved their LTR grade during the season
+ * 1. Season Champion (Gold/Silver/Bronze) - Top 3 in each LPR grade group
+ * 2. Rank Up - Players who improved their LPR grade during the season
  * 3. Iron Man - Top 10% in matches played
  * 4. Ace - Top 5% win rate (among players with 10+ matches)
  */
@@ -26,7 +26,7 @@ export interface OfficialRanker {
 }
 
 /**
- * Get grade group from LTR grade
+ * Get grade group from LPR grade
  * Example: "4.5" → "4", "3.0" → "3"
  */
 function getGradeGroup(ltrGrade: string): string {
@@ -133,7 +133,7 @@ async function awardSeasonChampionTrophies(
 }
 
 /**
- * Award Rank Up trophies (players who improved their LTR grade)
+ * Award Rank Up trophies (players who improved their LPR grade)
  */
 async function awardRankUpTrophies(
   seasonId: string,
@@ -150,7 +150,7 @@ async function awardRankUpTrophies(
   }> = [];
 
   for (const ranker of officialRankers) {
-    const currentGrade = String(convertEloToNtrp(ranker.eloRating)); // LTR is integer (1-10)
+    const currentGrade = String(convertEloToNtrp(ranker.eloRating)); // LPR is integer (1-10)
     const startingGrade = ranker.startingLtrGrade;
 
     // Check if grade improved (numerical comparison)

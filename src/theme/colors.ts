@@ -1,9 +1,9 @@
 /**
- * Lightning Tennis Color System
+ * Lightning Pickleball Color System
  * Project Midnight - Phase 2: Centralized Color Definitions
  *
- * Comprehensive color palette system for Lightning Tennis app
- * Supporting both light and dark themes with Lightning Tennis branding
+ * Comprehensive color palette system for Lightning Pickleball app
+ * Supporting both light and dark themes with Lightning Pickleball branding
  */
 
 import { Platform } from 'react-native';
@@ -11,13 +11,13 @@ import { Platform } from 'react-native';
 // ==================== LIGHTNING TENNIS BRAND COLORS ====================
 
 /**
- * Core Lightning Tennis Brand Colors (Light Mode)
- * These are the primary brand colors that define Lightning Tennis identity
+ * Core Lightning Pickleball Brand Colors (Light Mode)
+ * These are the primary brand colors that define Lightning Pickleball identity
  */
-export const LightningTennisBrandColors = {
+export const LightningPickleballBrandColors = {
   // Primary brand colors
-  primary: '#1976D2', // Lightning Tennis Blue
-  secondary: '#FF6B35', // Tennis Orange
+  primary: '#1976D2', // Lightning Pickleball Blue
+  secondary: '#FF6B35', // Pickleball Orange
   accent: '#00BCD4', // Electric Cyan
 
   // Status colors
@@ -26,7 +26,7 @@ export const LightningTennisBrandColors = {
   error: '#F44336', // Error Red
 
   // Special brand colors
-  tennis: '#7CB342', // Tennis Court Green
+  pickleball: '#7CB342', // Pickleball Court Green
   lightning: '#FFD700', // Lightning Gold
 
   // Interaction colors
@@ -34,13 +34,13 @@ export const LightningTennisBrandColors = {
 } as const;
 
 /**
- * Lightning Tennis Dark Mode Colors
+ * Lightning Pickleball Dark Mode Colors
  * Optimized for dark backgrounds while maintaining brand identity
  */
-export const LightningTennisDarkColors = {
+export const LightningPickleballDarkColors = {
   // Primary brand colors (softened for dark mode)
   primary: '#42A5F5', // Lighter Lightning Blue
-  secondary: '#FF8A50', // Softer Tennis Orange
+  secondary: '#FF8A50', // Softer Pickleball Orange
   accent: '#26C6DA', // Brighter Electric Cyan
 
   // Status colors (dark mode optimized)
@@ -49,8 +49,8 @@ export const LightningTennisDarkColors = {
   error: '#EF5350', // Softer Error Red
 
   // Special brand colors (dark mode) - Enhanced for depth
-  tennis: '#66BB6A', // Tennis Green
-  tennisGlow: '#4CAF50', // Tennis Green Glow
+  pickleball: '#66BB6A', // Pickleball Green
+  pickleballGlow: '#4CAF50', // Pickleball Green Glow
   lightning: '#FFE082', // Softer Lightning Gold
   lightningGlow: '#FFC107', // Lightning Gold Glow
 
@@ -192,7 +192,7 @@ export const IOSDarkColors = {
  * Following Material Design Guidelines
  */
 export const AndroidLightColors = {
-  primary: LightningTennisBrandColors.primary,
+  primary: LightningPickleballBrandColors.primary,
   background: '#FAFAFA', // Material Light Background
   surface: '#FFFFFF', // Material Light Surface
   onSurface: '#000000', // Material On Surface
@@ -208,7 +208,7 @@ export const AndroidLightColors = {
  * Following Material Design Guidelines for dark theme
  */
 export const AndroidDarkColors = {
-  primary: LightningTennisDarkColors.primary,
+  primary: LightningPickleballDarkColors.primary,
   background: '#121212', // Material Dark Background
   surface: '#1E1E1E', // Material Dark Surface
   onSurface: '#FFFFFF', // Material On Surface (Dark)
@@ -270,17 +270,17 @@ export const withOpacity = (color: string, opacity: number): string => {
 };
 
 /**
- * Lightning Tennis gradient colors
+ * Lightning Pickleball gradient colors
  */
-export const LightningTennisGradients = {
-  primary: [LightningTennisBrandColors.primary, LightningTennisBrandColors.accent],
-  secondary: [LightningTennisBrandColors.secondary, LightningTennisBrandColors.lightning],
-  success: [LightningTennisBrandColors.success, LightningTennisBrandColors.tennis],
+export const LightningPickleballGradients = {
+  primary: [LightningPickleballBrandColors.primary, LightningPickleballBrandColors.accent],
+  secondary: [LightningPickleballBrandColors.secondary, LightningPickleballBrandColors.lightning],
+  success: [LightningPickleballBrandColors.success, LightningPickleballBrandColors.pickleball],
   dark: [DarkModeColors.surface, DarkModeColors.background],
 } as const;
 
 // ==================== TYPE EXPORTS ====================
 
-export type BrandColorName = keyof typeof LightningTennisBrandColors;
+export type BrandColorName = keyof typeof LightningPickleballBrandColors;
 export type SemanticColorName = keyof typeof LightModeColors;
 export type PlatformColorName = keyof typeof IOSLightColors | keyof typeof AndroidLightColors;

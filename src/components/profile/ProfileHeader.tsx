@@ -1,8 +1,8 @@
 /**
- * 📝 LTR (Lightning Tennis Rating) System
+ * 📝 LPR (Lightning Pickleball Rating) System
  *
- * ⚡ LTR 1-10: Lightning Tennis의 고유 레이팅 시스템
- *    - UI 표시: "LTR" (Lightning Tennis Rating)
+ * ⚡ LPR 1-10: Lightning Pickleball의 고유 레이팅 시스템
+ *    - UI 표시: "LPR" (Lightning Pickleball Rating)
  *    - 7-Tier System: Bronze/Silver/Gold/Platinum/Diamond/Master/Legend
  */
 import React from 'react';
@@ -12,7 +12,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useLocation } from '../../contexts/LocationContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { LocationProfile } from '../../types';
 import { getLtrProfileDisplay } from '../../utils/eloUtils';
 import { convertEloToLtr } from '../../constants/ltr';
@@ -62,7 +62,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   const { t, currentLanguage } = useLanguage();
   const { location: deviceLocation } = useLocation();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
 
   // No more prop-based state - always use latest data from AuthContext
@@ -154,7 +154,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
               </Text>
             )}
             {(() => {
-              // ⚡ [KIM FIX v25] LTR: Calculate LTR from highest ELO - use eloRatings only (Single Source of Truth)
+              // ⚡ [KIM FIX v25] LPR: Calculate LPR from highest ELO - use eloRatings only (Single Source of Truth)
               const singlesElo = profileData?.eloRatings?.singles?.current || null;
               const doublesElo = profileData?.eloRatings?.doubles?.current || null;
               const mixedElo = profileData?.eloRatings?.mixed?.current || null;
@@ -175,7 +175,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
               const highestElo = Math.max(...eloValues);
               const ltrInfo = getLtrProfileDisplay(highestElo, currentLanguage as 'ko' | 'en');
 
-              console.log('⚡ [ProfileHeader DEBUG] LTR badge calculation:', {
+              console.log('⚡ [ProfileHeader DEBUG] LPR badge calculation:', {
                 highestElo,
                 ltr: ltrInfo.level,
                 tier: ltrInfo.tier,
@@ -184,7 +184,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
 
               return (
                 <View style={[styles.skillBadge, { backgroundColor: ltrInfo.color }]}>
-                  <Text style={styles.skillBadgeText}>LTR {ltrInfo.level}</Text>
+                  <Text style={styles.skillBadgeText}>LPR {ltrInfo.level}</Text>
                 </View>
               );
             })()}
@@ -312,7 +312,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
           )}
         </View>
 
-        {/* ⚡ LTR Grid for All 3 Game Types */}
+        {/* ⚡ LPR Grid for All 3 Game Types */}
         {/* 🎯 [KIM FIX v25] Use eloRatings only (Single Source of Truth) */}
         <View style={styles.ltrGridContainer}>
           {(() => {
@@ -346,7 +346,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
                 <Text style={styles.ltrGridLabel}>
                   {type.emoji} {type.label}
                 </Text>
-                <Text style={styles.ltrGridValue}>LTR {type.ltr}</Text>
+                <Text style={styles.ltrGridValue}>LPR {type.ltr}</Text>
                 <Text style={styles.ltrGridElo}>ELO {type.elo}</Text>
               </View>
             ));
@@ -496,7 +496,7 @@ const createStyles = (colors: any) =>
       color: colors.onSurfaceVariant,
       marginTop: 2,
     },
-    // ⚡ LTR Grid styles for 3 game types
+    // ⚡ LPR Grid styles for 3 game types
     ltrGridContainer: {
       flexDirection: 'column',
       backgroundColor: colors.primaryContainer,

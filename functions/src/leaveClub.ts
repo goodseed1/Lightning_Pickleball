@@ -64,12 +64,12 @@ export const leaveClub = onCall<{ clubId: string }>(async request => {
     const userName = userData?.displayName || userData?.nickname || 'Unknown User';
 
     // Get club info for notification
-    const clubDoc = await db.doc(`tennis_clubs/${clubId}`).get();
+    const clubDoc = await db.doc(`pickleball_clubs/${clubId}`).get();
     const clubData = clubDoc.data();
     const clubName = clubData?.profile?.name || clubData?.name || 'Unknown Club';
 
     // Define other document references
-    const clubRef = db.doc(`tennis_clubs/${clubId}`);
+    const clubRef = db.doc(`pickleball_clubs/${clubId}`);
     const userRef = db.doc(`users/${userId}`);
 
     // Execute all operations in a transaction for data consistency

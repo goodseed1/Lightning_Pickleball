@@ -1,36 +1,36 @@
 /**
  * Tournament Type Definitions
- * Lightning Tennis 클럽 토너먼트 시스템 타입 정의
+ * Lightning Pickleball 클럽 토너먼트 시스템 타입 정의
  */
 
 import { Timestamp as FirebaseTimestamp } from 'firebase/firestore';
-import { TennisEventType, Gender } from './league';
+import { PickleballEventType, Gender } from './league';
 import { MatchStatus } from './match';
 
 // ============================================================================
 // 🎯 UNIVERSAL BRACKET ENGINE: Competitive Unit Abstractions
 // ============================================================================
-// These types enable the bracket engine to work with ANY competitive entity,
+// These types enable the bpaddle engine to work with ANY competitive entity,
 // whether it's an individual player (singles) or a team (doubles).
 
 /**
- * BracketUnit - The fundamental building block of tournament brackets
+ * BpaddleUnit - The fundamental building block of tournament bpaddles
  *
  * This interface represents the minimum contract that any competitive entity
- * must fulfill to participate in a bracket. It abstracts away the differences
+ * must fulfill to participate in a bpaddle. It abstracts away the differences
  * between singles and doubles formats.
  */
-export interface BracketUnit {
+export interface BpaddleUnit {
   id: string; // Unique identifier (playerId or teamId)
-  displayName: string; // Name shown in bracket (player name or "Player1 / Player2")
+  displayName: string; // Name shown in bpaddle (player name or "Player1 / Player2")
   seed?: number; // Seeding position (1, 2, 3, ...)
-  status?: BracketPositionStatus; // Current bracket position status
+  status?: BpaddlePositionStatus; // Current bpaddle position status
 }
 
 /**
- * CompetitiveUnit - Union type for all possible bracket participants
+ * CompetitiveUnit - Union type for all possible bpaddle participants
  *
- * The universal bracket engine operates on CompetitiveUnits without needing
+ * The universal bpaddle engine operates on CompetitiveUnits without needing
  * to know whether they represent individuals or teams. This enables a single
  * code path for all tournament formats.
  */
@@ -47,7 +47,7 @@ export type MatchFormat = 'singles' | 'doubles';
 export type TournamentStatus =
   | 'draft' // 준비 중
   | 'registration' // 참가 신청 중
-  | 'bracket_generation' // 대진표 생성 중
+  | 'bpaddle_generation' // 대진표 생성 중
   | 'in_progress' // 진행 중
   | 'completed' // 완료됨
   | 'cancelled'; // 취소됨
@@ -80,7 +80,7 @@ export type SeedingMethod =
   | 'snake'; // 스네이크 (강-약 교차)
 
 // 대진표 위치 상태
-export type BracketPositionStatus =
+export type BpaddlePositionStatus =
   | 'empty' // 비어있음
   | 'bye' // 부전승
   | 'filled' // 선수 배정됨
@@ -115,7 +115,7 @@ export interface TournamentSettings {
 
   // 규칙
   thirdPlaceMatch: boolean; // 3,4위전
-  consolationBracket: boolean; // 패자부활전
+  consolationBpaddle: boolean; // 패자부활전
   allowWalkovers: boolean; // 부전승 허용
 
   // 자격 조건
@@ -131,26 +131,26 @@ export interface TournamentSettings {
 }
 
 // 대진표 라운드
-export interface BracketRound {
+export interface BpaddleRound {
   roundNumber: number;
   roundName: string; // "Round of 16", "Quarter Finals", etc.
-  matches: BracketMatch[];
+  matches: BpaddleMatch[];
   startDate?: FirebaseTimestamp;
   endDate?: FirebaseTimestamp;
   isCompleted: boolean;
 }
 
 // 대진표 매치
-export interface BracketMatch {
+export interface BpaddleMatch {
   id: string;
   tournamentId: string;
   roundNumber: number;
   matchNumber: number; // 라운드 내 매치 번호
-  bracketPosition: number; // 전체 대진표에서의 위치
+  bpaddlePosition: number; // 전체 대진표에서의 위치
 
   // 참가자
-  player1?: BracketPlayer;
-  player2?: BracketPlayer;
+  player1?: BpaddlePlayer;
+  player2?: BpaddlePlayer;
 
   // 이전 매치 참조 (승자/패자가 올라오는 경우)
   previousMatch1?: {
@@ -175,7 +175,7 @@ export interface BracketMatch {
 
   // 결과
   _winner?: string; // playerId (Firestore field)
-  winner?: BracketPlayer; // Computed winner object (for UI)
+  winner?: BpaddlePlayer; // Computed winner object (for UI)
   winnerId?: string; // Legacy field for backward compatibility
   score?: TournamentScore;
 
@@ -190,11 +190,11 @@ export interface BracketMatch {
 }
 
 // 대진표 플레이어 (단식/복식 지원)
-export interface BracketPlayer {
+export interface BpaddlePlayer {
   playerId: string;
   playerName: string;
   seed?: number; // 시드 번호
-  status: BracketPositionStatus;
+  status: BpaddlePositionStatus;
 
   // 복식인 경우 파트너 정보
   partnerId?: string;
@@ -236,8 +236,8 @@ export interface Tournament {
   clubId: string;
   tournamentName: string;
 
-  // ⭐ 핵심: 테니스 경기 종류
-  eventType: TennisEventType; // 남자단식, 여자단식, 남자복식, 여자복식, 혼합복식
+  // ⭐ 핵심: 피클볼 경기 종류
+  eventType: PickleballEventType; // 남자단식, 여자단식, 남자복식, 여자복식, 혼합복식
 
   // 기본 정보
   title: string;
@@ -255,7 +255,7 @@ export interface Tournament {
   seeds?: SeedAssignment[]; // 시드 배정
 
   // 대진표
-  bracket: BracketRound[]; // 라운드별 대진표
+  bpaddle: BpaddleRound[]; // 라운드별 대진표
 
   // 일정
   startDate: FirebaseTimestamp;
@@ -326,9 +326,9 @@ export interface Tournament {
   };
 
   // 더블 엘리미네이션용 추가 필드
-  winnersBracket?: BracketRound[];
-  losersBracket?: BracketRound[];
-  grandFinal?: BracketMatch;
+  winnersBpaddle?: BpaddleRound[];
+  losersBpaddle?: BpaddleRound[];
+  grandFinal?: BpaddleMatch;
 
   // 그룹 스테이지 (조별 예선용)
   groups?: TournamentGroup[];
@@ -401,7 +401,7 @@ export interface TournamentGroup {
   id: string;
   name: string; // "Group A"
   participants: string[]; // playerIds
-  matches: BracketMatch[];
+  matches: BpaddleMatch[];
   standings: GroupStanding[];
   qualifyingPositions: number; // 몇 명이 토너먼트 진출
 }
@@ -469,7 +469,7 @@ export interface CreateTournamentRequest {
   clubId: string;
   tournamentName: string;
   title: string;
-  eventType: TennisEventType; // ⭐ 핵심: 경기 종류 선택
+  eventType: PickleballEventType; // ⭐ 핵심: 경기 종류 선택
   description?: string;
   format: TournamentFormat;
   settings: TournamentSettings;
@@ -554,7 +554,7 @@ export const getRoundName = (
 };
 
 export const calculateNextMatchPosition = (
-  currentMatch: BracketMatch
+  currentMatch: BpaddleMatch
   // isWinner parameter removed - not used in current implementation
 ): { matchId: string; position: 'player1' | 'player2' } | null => {
   if (!currentMatch.nextMatch) return null;
@@ -573,7 +573,7 @@ export const isUpset = (winnerSeed?: number, loserSeed?: number): boolean => {
  * 토너먼트 경기 종류에서 매치 형태 추출
  */
 export const getMatchFormatFromTournamentEventType = (
-  eventType: TennisEventType
+  eventType: PickleballEventType
 ): 'singles' | 'doubles' => {
   if (eventType.includes('singles')) return 'singles';
   return 'doubles';
@@ -584,7 +584,7 @@ export const getMatchFormatFromTournamentEventType = (
  * @param t - Translation function for i18n
  */
 export const validateTournamentParticipant = (
-  eventType: TennisEventType,
+  eventType: PickleballEventType,
   playerGender: Gender,
   partnerGender?: Gender,
   t?: (key: string) => string
@@ -656,7 +656,7 @@ export const validateTournamentParticipant = (
  * 토너먼트 참가자 수 제한 계산
  */
 export const calculateTournamentParticipantLimits = (
-  eventType: TennisEventType,
+  eventType: PickleballEventType,
   format: TournamentFormat
 ): { minParticipants: number; maxParticipants: number } => {
   const isDoubles = getMatchFormatFromTournamentEventType(eventType) === 'doubles';
@@ -690,7 +690,7 @@ export const calculateTournamentParticipantLimits = (
  * @param t - Translation function for i18n
  */
 export const getTournamentEventTypeDisplayName = (
-  eventType: TennisEventType,
+  eventType: PickleballEventType,
   t?: (key: string) => string
 ): string => {
   const translate = t || ((key: string) => key);

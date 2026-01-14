@@ -136,7 +136,7 @@ const dict = {
   Notifications: 'Уведомления',
   Preferences: 'Предпочтения',
 
-  // Tennis
+  // Pickleball
   Match: 'Матч',
   Matches: 'Матчи',
   Tournament: 'Турнир',
@@ -161,7 +161,7 @@ const dict = {
   // Tournament
   Participants: 'Участники',
   Participant: 'Участник',
-  Bracket: 'Сетка',
+  Bpaddle: 'Сетка',
   Round: 'Раунд',
   Seed: 'Посев',
   Final: 'Финал',

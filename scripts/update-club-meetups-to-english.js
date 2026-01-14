@@ -42,8 +42,8 @@ function translateDay(text) {
 async function updateClubMeetupsToEnglish() {
   console.log('🎾 클럽 Regular Meetups 영어로 변경 시작...\n');
 
-  // 모든 클럽 가져오기 (컬렉션 이름: tennis_clubs)
-  const clubsSnap = await db.collection('tennis_clubs').get();
+  // 모든 클럽 가져오기 (컬렉션 이름: pickleball_clubs)
+  const clubsSnap = await db.collection('pickleball_clubs').get();
 
   console.log(`📊 ${clubsSnap.size}개의 클럽 발견\n`);
 
@@ -108,7 +108,7 @@ async function updateClubMeetupsToEnglish() {
     }
 
     if (Object.keys(updates).length > 0) {
-      await db.collection('tennis_clubs').doc(clubId).update(updates);
+      await db.collection('pickleball_clubs').doc(clubId).update(updates);
       console.log(`   ✅ 업데이트 완료`);
       totalUpdated++;
     } else if (!hasChanges && clubData.regularMeetups) {

@@ -7,7 +7,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text, Surface } from 'react-native-paper';
 import { useTheme as useLTTheme } from '../../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../../theme';
+import { getLightningPickleballTheme } from '../../../theme';
 import { useLanguage } from '../../../contexts/LanguageContext';
 
 interface ParticipationStatusPanelProps {
@@ -44,7 +44,7 @@ const ParticipationStatusPanel: React.FC<ParticipationStatusPanelProps> = ({
     }
   };
   const { theme: currentTheme } = useLTTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
 
   const getStatusColor = (color: string) => {

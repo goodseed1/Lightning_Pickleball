@@ -48,7 +48,7 @@ const MEGA_TRANSLATIONS = {
   // League Detail phrases
   'League deleted successfully': 'Lega eliminata con successo',
   'Failed to delete league': 'Impossibile eliminare la lega',
-  'View Bracket': 'Visualizza Tabellone',
+  'View Bpaddle': 'Visualizza Tabellone',
   Rounds: 'Turni',
   Round: 'Turno',
   'Start Tournament': 'Avvia Torneo',
@@ -95,8 +95,8 @@ const MEGA_TRANSLATIONS = {
 
   // Tournament Management phrases
   'Seed Players': 'Teste di Serie',
-  'Generate Bracket': 'Genera Tabellone',
-  Bracket: 'Tabellone',
+  'Generate Bpaddle': 'Genera Tabellone',
+  Bpaddle: 'Tabellone',
   Elimination: 'Eliminazione',
   'Single Elimination': 'Eliminazione Diretta',
   'Double Elimination': 'Doppia Eliminazione',

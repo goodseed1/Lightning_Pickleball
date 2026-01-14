@@ -462,7 +462,7 @@ async function migrateUserGender(userId, userData) {
  */
 async function main() {
   console.log('\n╔════════════════════════════════════════════════════════════╗');
-  console.log('║       🔄 Gender Migration Script for Lightning Tennis      ║');
+  console.log('║       🔄 Gender Migration Script for Lightning Pickleball      ║');
   console.log('╚════════════════════════════════════════════════════════════╝\n');
 
   if (isDryRun) {

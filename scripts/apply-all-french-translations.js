@@ -424,7 +424,7 @@ const allFrenchTranslations = {
 
   // 25-45: Sections restantes (3 clés ou moins)
   alert: {
-    tournamentBracket: {
+    tournamentBpaddle: {
       info: 'Info',
       participants: 'Participants',
       participantsTab: 'Participants',
@@ -489,12 +489,12 @@ const allFrenchTranslations = {
     ltr: {
       whatIsLtr: {
         content:
-          "LTR (Lightning Tennis Rating) est un système propriétaire d'évaluation des compétences développé exclusivement pour la communauté Lightning Tennis. Le LTR est calculé sur la base de l'algorithme ELO appliqué à tous les résultats de matchs éclair publics, montrant votre parcours de croissance sur une échelle intuitive de 1 à 10. C'est un indicateur honorable de votre progression au sein de notre écosystème.",
+          "LPR (Lightning Pickleball Rating) est un système propriétaire d'évaluation des compétences développé exclusivement pour la communauté Lightning Pickleball. Le LPR est calculé sur la base de l'algorithme ELO appliqué à tous les résultats de matchs éclair publics, montrant votre parcours de croissance sur une échelle intuitive de 1 à 10. C'est un indicateur honorable de votre progression au sein de notre écosystème.",
       },
       relationToNtrp: {
         title: 'Relation avec le NTRP',
         content:
-          "Le LTR est un système unique distinct du NTRP de l'USTA. Pour la commodité des utilisateurs familiers avec les cotes NTRP, vous pouvez sélectionner votre niveau de compétence dans une plage similaire au NTRP lors de l'inscription, mais tous les niveaux officiels calculés et affichés dans l'application sont basés sur le LTR.",
+          "Le LPR est un système unique distinct du NTRP de l'USTA. Pour la commodité des utilisateurs familiers avec les cotes NTRP, vous pouvez sélectionner votre niveau de compétence dans une plage similaire au NTRP lors de l'inscription, mais tous les niveaux officiels calculés et affichés dans l'application sont basés sur le LPR.",
       },
     },
   },
@@ -508,8 +508,8 @@ const allFrenchTranslations = {
 
   createMeetup: {
     location: {
-      searchTennisCourt: 'Rechercher un court de tennis',
-      searchHelper: 'Appuyez pour rechercher un court de tennis.',
+      searchPickleballCourt: 'Rechercher un court de pickleball',
+      searchHelper: 'Appuyez pour rechercher un court de pickleball.',
     },
   },
 

@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import {
   signInWithEmailAndPassword,
@@ -38,7 +38,7 @@ import { auth, db, functions } from '../firebase/config';
 import { getInitialEloFromNtrp } from '../utils/ltrUtils';
 
 /**
- * Firebase Authentication Service for Lightning Tennis
+ * Firebase Authentication Service for Lightning Pickleball
  * Handles user authentication, social login, and user profile management
  */
 class AuthService {
@@ -383,7 +383,7 @@ class AuthService {
         lastLoginAt: new Date().toISOString(),
         // 🎯 [KIM FIX] Explicitly set isOnboardingComplete to prevent undefined bug
         isOnboardingComplete: false,
-        // Lightning Tennis specific data
+        // Lightning Pickleball specific data
         profile: {
           nickname: additionalData.nickname || user.displayName || '',
           skillLevel: additionalData.skillLevel || 'beginner',
@@ -648,7 +648,7 @@ class AuthService {
           nickname: transformedData.nickname,
           gender: transformedData.gender,
           zipCode: transformedData.zipCode,
-          // Tennis specific
+          // Pickleball specific
           skillLevel: transformedData.skillLevel,
           playingStyle: transformedData.playingStyle,
           maxTravelDistance: transformedData.maxTravelDistance,

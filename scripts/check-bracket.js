@@ -1,5 +1,5 @@
 /**
- * Debug script to check tournament bracket structure in Firestore
+ * Debug script to check tournament bpaddle structure in Firestore
  */
 
 const admin = require('firebase-admin');
@@ -12,7 +12,7 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-async function checkBracket() {
+async function checkBpaddle() {
   const tournamentId = 'lWfpYmba4WCMRLddUHGu';
 
   try {
@@ -31,13 +31,13 @@ async function checkBracket() {
 
     console.log('📊 Tournament Status:', tournament.status);
     console.log('📊 Participants Count:', tournament.participants?.length || 0);
-    console.log('📊 Bracket Rounds:', tournament.bracket?.length || 0);
+    console.log('📊 Bpaddle Rounds:', tournament.bpaddle?.length || 0);
 
-    // Check bracket structure
-    if (tournament.bracket && tournament.bracket.length > 0) {
+    // Check bpaddle structure
+    if (tournament.bpaddle && tournament.bpaddle.length > 0) {
       console.log('\n📋 BRACKET STRUCTURE:\n');
 
-      tournament.bracket.forEach((round, index) => {
+      tournament.bpaddle.forEach((round, index) => {
         console.log(`\n🏆 ${round.roundName} (Round ${round.roundNumber})`);
         console.log(`   Matches: ${round.matches.length}`);
 
@@ -83,4 +83,4 @@ async function checkBracket() {
   }
 }
 
-checkBracket();
+checkBpaddle();

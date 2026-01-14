@@ -180,7 +180,7 @@ export const deleteTournament = onCall<DeleteTournamentRequest, Promise<DeleteTo
 
       // 5.6: Update club stats (decrease totalEvents count)
       if (tournamentData.clubId) {
-        const clubRef = db.collection('tennis_clubs').doc(tournamentData.clubId);
+        const clubRef = db.collection('pickleball_clubs').doc(tournamentData.clubId);
         batch.update(clubRef, {
           'stats.totalEvents': admin.firestore.FieldValue.increment(-1),
           updatedAt: admin.firestore.FieldValue.serverTimestamp(),

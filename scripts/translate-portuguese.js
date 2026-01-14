@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Portuguese (pt-BR) Translation Script for Lightning Tennis
+ * Portuguese (pt-BR) Translation Script for Lightning Pickleball
  *
  * This script translates all remaining untranslated keys in pt.json
  * Strategy: Find keys where pt.json has the same English text as en.json
@@ -234,7 +234,7 @@ const translations = {
       upcoming: 'Próximo Torneio',
       completed: 'Torneio Concluído',
       details: 'Detalhes do Torneio',
-      bracket: 'Chaveamento',
+      bpaddle: 'Chaveamento',
       rounds: 'Rodadas',
       currentRound: 'Rodada Atual',
       champion: 'Campeão',
@@ -361,7 +361,7 @@ const translations = {
   tournament: {
     title: 'Torneio',
     subtitle: 'Detalhes do torneio',
-    bracket: 'Chaveamento',
+    bpaddle: 'Chaveamento',
     participants: 'Participantes',
     schedule: 'Calendário',
     rules: 'Regras',

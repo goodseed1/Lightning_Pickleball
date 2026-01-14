@@ -11,7 +11,7 @@
 
 ### Problem Statement
 
-Lightning Tennis app had **ambiguous field names** in tournament statistics that caused confusion:
+Lightning Pickleball app had **ambiguous field names** in tournament statistics that caused confusion:
 
 - **Field Confusion #1**: `wins` field contained **match wins** but UI displayed as "우승" (championships)
 - **Field Confusion #2**: `participations` field contained **total matches** but UI displayed as "참가" (tournaments played)
@@ -617,7 +617,7 @@ All documentation is located in the project root:
 
 **All 4 phases completed successfully!**
 
-The Lightning Tennis app now has:
+The Lightning Pickleball app now has:
 
 - ✅ Clear, unambiguous field names
 - ✅ Accurate UI labels

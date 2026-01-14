@@ -110,7 +110,7 @@ export default function MatchHistoryTimeline({
           {/* Match Stats */}
           <View style={styles.statsSection}>
             <View style={styles.statItem}>
-              <Icon name='sports-tennis' size={16} color={theme.colors.primary} />
+              <Icon name='sports-pickleball' size={16} color={theme.colors.primary} />
               <Paragraph style={styles.statText}>{match.score}</Paragraph>
             </View>
             <View style={styles.statItem}>
@@ -150,7 +150,7 @@ export default function MatchHistoryTimeline({
     return (
       <Card style={styles.emptyContainer}>
         <Card.Content style={styles.emptyContent}>
-          <Icon name='sports-tennis' size={48} color={theme.colors.outline} />
+          <Icon name='sports-pickleball' size={48} color={theme.colors.outline} />
           <Title style={[styles.emptyTitle, { color: theme.colors.outline }]}>
             매치 기록이 없습니다
           </Title>

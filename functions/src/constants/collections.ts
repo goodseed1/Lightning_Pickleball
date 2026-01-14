@@ -9,7 +9,7 @@
 
 export const COLLECTIONS = {
   // ===== CLUB MANAGEMENT =====
-  TENNIS_CLUBS: 'tennis_clubs',
+  TENNIS_CLUBS: 'pickleball_clubs',
   CLUB_MEMBERS: 'clubMembers',
   CLUB_JOIN_REQUESTS: 'club_join_requests', // ← Ghost Hunter's Target: The ONE TRUE NAME
   CLUB_INVITATIONS: 'clubInvitations',

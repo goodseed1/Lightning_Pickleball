@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import React, { useState, useEffect } from 'react';
 import {
@@ -481,7 +481,7 @@ const ConcludeLeagueScreen = () => {
                   <Text style={styles.participantEmail}>{participant.email}</Text>
                 )}
                 {participant.ltrLevel && (
-                  <Text style={styles.ltrLevel}>LTR {participant.ltrLevel}</Text>
+                  <Text style={styles.ltrLevel}>LPR {participant.ltrLevel}</Text>
                 )}
               </View>
             </View>

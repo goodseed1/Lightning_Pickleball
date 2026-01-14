@@ -456,7 +456,7 @@ const chineseTranslations = {
     },
     skillLevel: {
       title: '技能等级',
-      ltr: 'LTR评级',
+      ltr: 'LPR评级',
       selfRated: '自我评级',
       verified: '已验证',
       updateRating: '更新评级',

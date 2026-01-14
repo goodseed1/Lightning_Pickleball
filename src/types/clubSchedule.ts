@@ -1,6 +1,6 @@
 /**
  * Club Schedule Type Definitions
- * Lightning Tennis Club Regular Meeting Schedules
+ * Lightning Pickleball Club Regular Meeting Schedules
  */
 
 import { Timestamp as FirebaseTimestamp } from 'firebase/firestore';
@@ -12,7 +12,7 @@ export interface ClubSchedule {
   clubId: string; // Club that owns this schedule
 
   // Schedule Information
-  title: string; // Schedule title (e.g., "Weekly Practice", "Saturday Morning Tennis")
+  title: string; // Schedule title (e.g., "Weekly Practice", "Saturday Morning Pickleball")
   description?: string; // Detailed description of the regular meeting
   scheduleType: ScheduleType; // Type of recurring schedule
 
@@ -47,7 +47,7 @@ export interface ClubSchedule {
 
 export type ScheduleType =
   | 'practice' // Regular practice session
-  | 'social' // Social tennis meetup
+  | 'social' // Social pickleball meetup
   | 'league_match' // League match day
   | 'clinic' // Training clinic
   | 'tournament' // Regular tournament
@@ -75,7 +75,7 @@ export const getDayOfWeekLabel = (dayOfWeek: DayOfWeek, t: (key: string) => stri
 // ============ LOCATION INTERFACE ============
 
 export interface ScheduleLocation {
-  name: string; // Location name (e.g., "Central Park Tennis Courts")
+  name: string; // Location name (e.g., "Central Park Pickleball Courts")
   address: string; // Full address
   courtIds?: string[]; // Specific court IDs if applicable
   coordinates?: {

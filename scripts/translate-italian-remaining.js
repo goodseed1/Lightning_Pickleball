@@ -124,7 +124,7 @@ const italianTranslations = {
     },
     equipment: {
       title: 'Attrezzatura',
-      subtitle: 'Acquista e vendi attrezzatura da tennis',
+      subtitle: 'Acquista e vendi attrezzatura da pickleball',
       browseEquipment: 'Esplora Attrezzatura',
       sellEquipment: 'Vendi Attrezzatura',
       myListings: 'I Miei Annunci',

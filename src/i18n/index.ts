@@ -1,10 +1,10 @@
 /**
- * ⚡ LTR System Migration Complete
+ * ⚡ LPR System Migration Complete
  *
- * UI 표시: "LTR" (Lightning Tennis Rating)
+ * UI 표시: "LPR" (Lightning Pickleball Rating)
  * 코드/DB: "ltr" - 변수명, 함수명, 새 Firestore 필드명
  *
- * Migration: NTRP → LTR 완료
+ * Migration: NTRP → LPR 완료
  */
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';

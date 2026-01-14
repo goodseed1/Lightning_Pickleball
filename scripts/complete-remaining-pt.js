@@ -26,7 +26,7 @@ const translations = {
       errorTitle: 'Erro ao Remover',
       errorMessage: 'Não foi possível remover o participante. Por favor, tente novamente.',
     },
-    bracketDeletion: {
+    bpaddleDeletion: {
       confirmTitle: 'Excluir Chave',
       confirmMessage:
         'Tem certeza de que deseja excluir a chave do torneio? Todos os resultados serão perdidos.',
@@ -60,8 +60,8 @@ const translations = {
       participantAdded: 'Novo participante foi adicionado',
       participantRemoved: 'Participante foi removido',
       seedsAssigned: 'Cabeças de chave foram atribuídas',
-      bracketGenerated: 'Chave foi gerada',
-      bracketDeleted: 'Chave foi excluída',
+      bpaddleGenerated: 'Chave foi gerada',
+      bpaddleDeleted: 'Chave foi excluída',
       winnerCrowned: 'Campeão foi coroado',
     },
     errors: {
@@ -116,7 +116,7 @@ console.log('\n📊 Completed translations:');
 console.log('  - leagueDetail.genderLabels: Male/Female labels');
 console.log('  - clubTournamentManagement.deletion: Tournament deletion flow');
 console.log('  - clubTournamentManagement.participantRemoval: Participant removal');
-console.log('  - clubTournamentManagement.bracketDeletion: Bracket deletion');
+console.log('  - clubTournamentManagement.bpaddleDeletion: Bpaddle deletion');
 console.log('  - clubTournamentManagement.crownWinner: Winner coronation');
 console.log('  - clubTournamentManagement.tournamentStatus: All status labels');
 console.log('  - clubTournamentManagement.notifications: Tournament notifications');

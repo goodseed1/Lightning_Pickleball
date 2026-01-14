@@ -1,6 +1,6 @@
 /**
- * 테니스 서비스 게시판 타입 정의
- * 줄 교체, 라켓 수리, 중고 거래 등 테니스 관련 서비스 게시판
+ * 피클볼 서비스 게시판 타입 정의
+ * 줄 교체, 패들 수리, 중고 거래 등 피클볼 관련 서비스 게시판
  */
 
 import { Timestamp } from 'firebase/firestore';
@@ -20,15 +20,15 @@ export interface ServiceLocation {
  */
 export type ServiceCategory =
   | 'stringing' // 줄 교체
-  | 'repair' // 라켓 수리
-  | 'used_racket' // 중고 라켓
+  | 'repair' // 패들 수리
+  | 'used_paddle' // 중고 패들
   | 'used_equipment' // 중고 장비 (볼머신 등)
   | 'other'; // 기타
 
 /**
- * 테니스 서비스 게시글 인터페이스
+ * 피클볼 서비스 게시글 인터페이스
  */
-export interface TennisService {
+export interface PickleballService {
   id: string;
 
   // 작성자 정보

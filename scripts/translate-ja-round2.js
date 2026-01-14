@@ -400,7 +400,7 @@ const translations = {
 
   // ========== TOURNAMENT (11 keys) ==========
   tournament: {
-    brackets: 'トーナメント表',
+    bpaddles: 'トーナメント表',
     rounds: 'ラウンド',
     quarterfinals: '準々決勝',
     semifinals: '準決勝',

@@ -40,8 +40,8 @@ async function getClubDueDay(clubId: string): Promise<number> {
       return settings.dueDay || 25; // 기본값 25일
     }
 
-    // tennis_clubs에서 조회
-    const clubRef = db.doc(`tennis_clubs/${clubId}`);
+    // pickleball_clubs에서 조회
+    const clubRef = db.doc(`pickleball_clubs/${clubId}`);
     const clubSnap = await clubRef.get();
 
     if (clubSnap.exists) {
@@ -61,7 +61,7 @@ async function getClubDueDay(clubId: string): Promise<number> {
  */
 async function getClubName(clubId: string): Promise<string> {
   try {
-    const clubRef = db.doc(`tennis_clubs/${clubId}`);
+    const clubRef = db.doc(`pickleball_clubs/${clubId}`);
     const clubSnap = await clubRef.get();
 
     if (!clubSnap.exists) {

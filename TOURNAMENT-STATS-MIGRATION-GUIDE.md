@@ -47,7 +47,7 @@ This guide provides step-by-step instructions for migrating tournament statistic
 
 ```bash
 # Run from project root
-cd /Volumes/DevSSD/development/Projects/lightning-tennis-react/lightning-tennis-simple
+cd /Volumes/DevSSD/development/Projects/lightning-pickleball-react/lightning-pickleball-simple
 
 # Run ESLint
 npm run lint

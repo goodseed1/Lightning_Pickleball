@@ -92,7 +92,7 @@ koData.types.clubSchedule = {
   // Schedule type labels
   scheduleTypes: {
     practice: '연습 세션',
-    social: '친목 테니스',
+    social: '친목 피클볼',
     league_match: '리그 경기',
     clinic: '트레이닝 클리닉',
     tournament: '토너먼트',
@@ -218,7 +218,7 @@ enData.types.clubSchedule = {
   },
   scheduleTypes: {
     practice: 'Practice Session',
-    social: 'Social Tennis',
+    social: 'Social Pickleball',
     league_match: 'League Match',
     clinic: 'Training Clinic',
     tournament: 'Tournament',

@@ -120,7 +120,7 @@ export const transferClubOwnership = onCall<TransferClubOwnershipRequest>(async 
       }
 
       // 3c. Get club info
-      const clubRef = db.collection('tennis_clubs').doc(clubId);
+      const clubRef = db.collection('pickleball_clubs').doc(clubId);
       const clubDoc = await transaction.get(clubRef);
 
       if (!clubDoc.exists) {

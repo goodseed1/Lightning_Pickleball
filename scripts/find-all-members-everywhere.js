@@ -52,7 +52,7 @@ async function findAllMembersEverywhere() {
   }
 
   // 3. Check specific club-related collections
-  const clubCollections = ['clubs', 'tennis_clubs', 'club_members', 'club_memberships'];
+  const clubCollections = ['clubs', 'pickleball_clubs', 'club_members', 'club_memberships'];
   console.log('\n=== Checking club-related collections ===');
   for (const colName of clubCollections) {
     try {

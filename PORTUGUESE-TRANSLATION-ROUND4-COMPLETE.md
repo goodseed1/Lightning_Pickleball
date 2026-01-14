@@ -41,7 +41,7 @@ This round focused on the **TOP 5 UNTRANSLATED SECTIONS** with the most remainin
 - Booking system (available slots, confirmation, cancellation)
 - Coach management (profiles, ratings, experience)
 - Court types (indoor, outdoor, hard, clay, grass)
-- Equipment rental (rackets, balls, shoes, bags)
+- Equipment rental (paddles, balls, shoes, bags)
 - Pricing tiers (hourly, daily, weekly, monthly)
 - Reviews and ratings
 - Service packages and member benefits
@@ -65,7 +65,7 @@ This round focused on the **TOP 5 UNTRANSLATED SECTIONS** with the most remainin
 - Standings (position, played, won, lost, points)
 - Divisions (A, B, C)
 - Tournament formats (single/double elimination, round robin)
-- Brackets and prizes
+- Bpaddles and prizes
 - Rules and scoring system
 
 ### 5. ClubTournamentManagement (69 keys)
@@ -87,7 +87,7 @@ This round focused on the **TOP 5 UNTRANSLATED SECTIONS** with the most remainin
 ### Brazilian Portuguese (pt-BR) Standards
 
 - ✅ Formal business Portuguese for official terms
-- ✅ Sports terminology specific to Brazilian tennis culture
+- ✅ Sports terminology specific to Brazilian pickleball culture
 - ✅ Consistent with existing translations (Rounds 1-3)
 - ✅ User-friendly language for mobile app context
 

@@ -94,7 +94,7 @@ const translations = {
         loadError: 'Fehler beim Laden des Profils',
         notFound: 'Profil nicht gefunden',
         backButton: 'Zurück',
-        defaultNickname: 'Tennisspieler',
+        defaultNickname: 'Pickleballspieler',
         noLocation: 'Keine Standortinfo',
         joinedDate: 'Beigetreten am {{date}}',
         friendRequest: {
@@ -176,7 +176,7 @@ const translations = {
         loadError: 'Échec du chargement du profil',
         notFound: 'Profil non trouvé',
         backButton: 'Retour',
-        defaultNickname: 'Joueur de Tennis',
+        defaultNickname: 'Joueur de Pickleball',
         noLocation: 'Pas de localisation',
         joinedDate: 'Inscrit le {{date}}',
         friendRequest: {
@@ -258,7 +258,7 @@ const translations = {
         loadError: 'Impossibile caricare il profilo',
         notFound: 'Profilo non trovato',
         backButton: 'Indietro',
-        defaultNickname: 'Giocatore di Tennis',
+        defaultNickname: 'Giocatore di Pickleball',
         noLocation: 'Nessuna posizione',
         joinedDate: 'Iscritto il {{date}}',
         friendRequest: {

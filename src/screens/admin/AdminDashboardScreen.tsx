@@ -23,7 +23,7 @@ const AdminDashboardScreen: React.FC = () => {
         <Card style={styles.headerCard}>
           <Card.Content>
             <Title>최고 등급 인가</Title>
-            <List.Subheader>Lightning Tennis - Admin Control Panel</List.Subheader>
+            <List.Subheader>Lightning Pickleball - Admin Control Panel</List.Subheader>
           </Card.Content>
         </Card>
 

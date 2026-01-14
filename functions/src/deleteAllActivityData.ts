@@ -25,7 +25,7 @@ export interface DeleteAllActivityDataRequest {
  * Collections to delete:
  * - events, lightning_events
  * - participation_applications
- * - clubs, tennis_clubs, club_members, clubMembers, clubMemberships
+ * - clubs, pickleball_clubs, club_members, clubMembers, clubMemberships
  * - matches, match_results, club_match_history
  * - leagues, league_participants, league_standings, playoff_matches
  * - tournaments, tournament_events, tournament_matches, tournamentRegistrations
@@ -37,7 +37,7 @@ export interface DeleteAllActivityDataRequest {
  *
  * Subcollections to delete:
  * - users/{userId}/club_match_history
- * - tennis_clubs/{clubId}/members
+ * - pickleball_clubs/{clubId}/members
  * - tournaments/{id}/matches, participants
  * - activityFeed/{userId}/items
  *
@@ -74,7 +74,7 @@ export const deleteAllActivityData = onCall<DeleteAllActivityDataRequest>(async 
       'lightning_events',
       'participation_applications',
       'clubs',
-      'tennis_clubs',
+      'pickleball_clubs',
       'club_members',
       'clubMembers',
       'clubMemberships',
@@ -147,15 +147,15 @@ export const deleteAllActivityData = onCall<DeleteAllActivityDataRequest>(async 
       }
     }
 
-    // 1-2. tennis_clubs/{clubId}/members
-    const clubsSnapshot = await db.collection('tennis_clubs').get();
+    // 1-2. pickleball_clubs/{clubId}/members
+    const clubsSnapshot = await db.collection('pickleball_clubs').get();
     for (const clubDoc of clubsSnapshot.docs) {
       const membersSnap = await clubDoc.ref.collection('members').get();
       if (!membersSnap.empty) {
         const batch = db.batch();
         membersSnap.docs.forEach(doc => batch.delete(doc.ref));
         await batch.commit();
-        logger.info(`Deleted ${membersSnap.size} docs from tennis_clubs/${clubDoc.id}/members`);
+        logger.info(`Deleted ${membersSnap.size} docs from pickleball_clubs/${clubDoc.id}/members`);
         totalDeletedDocs += membersSnap.size;
       }
     }

@@ -46,7 +46,7 @@ const targetClubId = clubIdArg ? clubIdArg.split('=')[1] : null;
 
 async function migrateClubMembersGender() {
   console.log('\n╔════════════════════════════════════════════════════════════╗');
-  console.log('║  🎯 ClubMembers Gender Migration for Lightning Tennis      ║');
+  console.log('║  🎯 ClubMembers Gender Migration for Lightning Pickleball      ║');
   console.log('╚════════════════════════════════════════════════════════════╝\n');
 
   console.log(`   Mode: ${isDryRun ? '🔍 DRY RUN (no changes will be made)' : '⚡ LIVE RUN'}`);

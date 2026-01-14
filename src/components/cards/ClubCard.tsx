@@ -5,7 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
 import { useAuth } from '../../contexts/AuthContext';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { formatDistance } from '../../utils/unitUtils';
 import { formatPriceByCountry } from '../../utils/currencyUtils';
 import StatusChip from '../common/StatusChip';
@@ -49,7 +49,7 @@ const ClubCard: React.FC<ClubCardProps> = ({ club, onPress, onMapPress, notifica
   const { t } = useLanguage();
   const { theme: currentTheme } = useTheme();
   const { currentUser } = useAuth();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
 
   // Get user's country for distance formatting
@@ -129,7 +129,7 @@ const ClubCard: React.FC<ClubCardProps> = ({ club, onPress, onMapPress, notifica
               <Avatar.Image size={42} source={{ uri: club.logoUrl }} style={styles.logo} />
             ) : (
               <View style={styles.logoPlaceholder}>
-                <MaterialCommunityIcons name='tennis' size={20} color='white' />
+                <MaterialCommunityIcons name='pickleball' size={20} color='white' />
               </View>
             )}
             <View style={styles.clubDetails}>

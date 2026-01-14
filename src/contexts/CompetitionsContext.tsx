@@ -1,5 +1,5 @@
 /**
- * Competitions Context for Lightning Tennis
+ * Competitions Context for Lightning Pickleball
  * Manages leagues, tournaments, and user competition data
  */
 

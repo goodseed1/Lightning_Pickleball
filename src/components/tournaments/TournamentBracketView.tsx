@@ -1,6 +1,6 @@
 /**
- * Tournament Bracket View Component
- * Displays tournament bracket with interactive match cards
+ * Tournament Bpaddle View Component
+ * Displays tournament bpaddle with interactive match cards
  */
 
 import React from 'react';
@@ -9,7 +9,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
 
-interface TennisScore {
+interface PickleballScore {
   player1Games: number[];
   player2Games: number[];
   player1Sets: number;
@@ -33,7 +33,7 @@ interface Match {
   player1: Player | null;
   player2: Player | null;
   winner: Player | null;
-  score: TennisScore | null;
+  score: PickleballScore | null;
   status: string;
   nextMatchId?: string;
   type?: string; // 'final' | 'consolation' | 'semifinals' (for playoff labels)
@@ -44,7 +44,7 @@ interface Round {
   matches: Match[];
 }
 
-interface Bracket {
+interface Bpaddle {
   rounds: Round[];
   champion: Player | null;
 }
@@ -55,16 +55,16 @@ interface TournamentParticipant {
   seed: number;
 }
 
-interface TournamentBracketViewProps {
-  bracket: Bracket;
+interface TournamentBpaddleViewProps {
+  bpaddle: Bpaddle;
   participants?: TournamentParticipant[];
   currentUserId?: string;
   isTournamentAdmin?: boolean;
   onMatchPress?: (match: Match) => void;
 }
 
-const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
-  bracket,
+const TournamentBpaddleView: React.FC<TournamentBpaddleViewProps> = ({
+  bpaddle,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   participants = [],
   currentUserId,
@@ -78,11 +78,11 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
     // For small tournaments, use simple progressive naming
     if (totalRounds <= 3) {
       if (roundNumber === totalRounds) {
-        return t('tournamentBracket.rounds.final');
+        return t('tournamentBpaddle.rounds.final');
       } else if (roundNumber === totalRounds - 1 && totalRounds > 2) {
-        return t('tournamentBracket.rounds.semifinals');
+        return t('tournamentBpaddle.rounds.semifinals');
       } else {
-        return t('tournamentBracket.rounds.round', { number: roundNumber });
+        return t('tournamentBpaddle.rounds.round', { number: roundNumber });
       }
     }
 
@@ -90,19 +90,19 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
     const roundsFromFinal = totalRounds - roundNumber;
     switch (roundsFromFinal) {
       case 0:
-        return t('tournamentBracket.rounds.final');
+        return t('tournamentBpaddle.rounds.final');
       case 1:
-        return t('tournamentBracket.rounds.semifinals');
+        return t('tournamentBpaddle.rounds.semifinals');
       case 2:
-        return t('tournamentBracket.rounds.quarterfinals');
+        return t('tournamentBpaddle.rounds.quarterfinals');
       case 3:
-        return t('tournamentBracket.rounds.roundOf16');
+        return t('tournamentBpaddle.rounds.roundOf16');
       case 4:
-        return t('tournamentBracket.rounds.roundOf32');
+        return t('tournamentBpaddle.rounds.roundOf32');
       case 5:
-        return t('tournamentBracket.rounds.roundOf64');
+        return t('tournamentBpaddle.rounds.roundOf64');
       default:
-        return t('tournamentBracket.rounds.round', { number: roundNumber });
+        return t('tournamentBpaddle.rounds.round', { number: roundNumber });
     }
   };
 
@@ -110,7 +110,7 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
     return Math.pow(2, roundNumber - 1) * 40;
   };
 
-  const formatScore = (score: TennisScore | null | unknown) => {
+  const formatScore = (score: PickleballScore | null | unknown) => {
     if (!score) return '';
 
     // Handle different score formats
@@ -119,9 +119,9 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
       // Type-safe property access with proper type guards
       const scoreObj = score as Record<string, unknown>;
 
-      if (scoreObj.bye === true) return t('tournamentBracket.scoreStatus.bye');
-      if (scoreObj.walkover === true) return t('tournamentBracket.scoreStatus.walkover');
-      if (scoreObj.retired === true) return t('tournamentBracket.scoreStatus.retired');
+      if (scoreObj.bye === true) return t('tournamentBpaddle.scoreStatus.bye');
+      if (scoreObj.walkover === true) return t('tournamentBpaddle.scoreStatus.walkover');
+      if (scoreObj.retired === true) return t('tournamentBpaddle.scoreStatus.retired');
 
       // Handle tournament score format with sets array
       if (scoreObj.sets && Array.isArray(scoreObj.sets) && scoreObj.sets.length > 0) {
@@ -180,26 +180,26 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
       Alert.alert(
         t('match_result') || 'Match Result',
         `${winnerName} ${t('won') || 'won'} ${scoreText}`,
-        [{ text: t('tournamentBracket.ok') || 'OK' }]
+        [{ text: t('tournamentBpaddle.ok') || 'OK' }]
       );
     } else {
       // Show why score input is not available
       let message = '';
       if (!match.player1 || !match.player2) {
-        message = t('tournamentBracket.match_not_ready') || 'Match participants not yet determined';
+        message = t('tournamentBpaddle.match_not_ready') || 'Match participants not yet determined';
       } else if (match.status === 'completed') {
-        message = t('tournamentBracket.match_completed') || 'This match has already been completed';
+        message = t('tournamentBpaddle.match_completed') || 'This match has already been completed';
       } else if (!isUserInMatch(match) && !isTournamentAdmin) {
         message =
-          t('tournamentBracket.no_permission') ||
+          t('tournamentBpaddle.no_permission') ||
           'You can only enter scores for your own matches or if you are the tournament admin';
       } else {
         message =
-          t('tournamentBracket.cannot_enter_score') || 'Score entry not available for this match';
+          t('tournamentBpaddle.cannot_enter_score') || 'Score entry not available for this match';
       }
 
-      Alert.alert(t('tournamentBracket.info') || 'Info', message, [
-        { text: t('tournamentBracket.ok') || 'OK' },
+      Alert.alert(t('tournamentBpaddle.info') || 'Info', message, [
+        { text: t('tournamentBpaddle.ok') || 'OK' },
       ]);
     }
   };
@@ -215,7 +215,7 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
       return (
         <View style={styles.playerSlot}>
           <Text style={[styles.playerName, { color: theme.colors.onSurfaceVariant }]}>
-            {t('tournamentBracket.player.tbd')}
+            {t('tournamentBpaddle.player.tbd')}
           </Text>
         </View>
       );
@@ -227,7 +227,7 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
     // Ensure player name is always a string
     const playerName = player.playerName
       ? String(player.playerName)
-      : t('tournamentBracket.player.tbd');
+      : t('tournamentBpaddle.player.tbd');
     // Ensure seed is a number and not displayed if 0
     const seed =
       player.seed && typeof player.seed === 'number' && player.seed > 0 ? player.seed : null;
@@ -302,7 +302,7 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
 
     // Enhanced winner determination for display
     const getWinnerId = (match: Match): string | null => {
-      // Check match.winner object first (converted from bracket format)
+      // Check match.winner object first (converted from bpaddle format)
       if (match.winner?.playerId) {
         return match.winner.playerId;
       }
@@ -315,8 +315,8 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
 
     // Get match type label for playoffs (1,2위전 / 3,4위전)
     const getMatchTypeLabel = (type?: string) => {
-      if (type === 'final') return t('tournamentBracket.matchType.final');
-      if (type === 'consolation') return t('tournamentBracket.matchType.consolation');
+      if (type === 'final') return t('tournamentBpaddle.matchType.final');
+      if (type === 'consolation') return t('tournamentBpaddle.matchType.consolation');
       return null;
     };
 
@@ -376,13 +376,13 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
               <View style={styles.scoreInputIndicator}>
                 <Ionicons name='create' size={16} color={theme.colors.primary} />
                 <Text style={[styles.scoreInputText, { color: theme.colors.primary }]}>
-                  {t('tournamentBracket.actions.tap')}
+                  {t('tournamentBpaddle.actions.tap')}
                 </Text>
               </View>
             ) : (
               <View style={styles.matchVersus}>
                 <Text style={[styles.versusText, { color: theme.colors.onSurfaceVariant }]}>
-                  {t('tournamentBracket.match.versus')}
+                  {t('tournamentBpaddle.match.versus')}
                 </Text>
               </View>
             )}
@@ -395,7 +395,7 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
         {/* Live Indicator */}
         {match.status === 'in_progress' && (
           <View style={styles.liveIndicator}>
-            <Text style={styles.liveText}>{t('tournamentBracket.match.live')}</Text>
+            <Text style={styles.liveText}>{t('tournamentBpaddle.match.live')}</Text>
           </View>
         )}
 
@@ -405,7 +405,7 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
   };
 
   const renderRound = (round: Round) => {
-    const roundName = getRoundName(round.roundNumber, bracket.rounds.length, round.matches.length);
+    const roundName = getRoundName(round.roundNumber, bpaddle.rounds.length, round.matches.length);
     const matchSpacing = getMatchSpacing(round.roundNumber);
 
     // Check if this is the current active round
@@ -442,7 +442,7 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
             <View style={styles.currentRoundBadge}>
               <Ionicons name='play-circle' size={16} color={theme.colors.primary} />
               <Text style={[styles.currentRoundText, { color: theme.colors.primary }]}>
-                {t('tournamentBracket.round.active')}
+                {t('tournamentBpaddle.round.active')}
               </Text>
             </View>
           )}
@@ -467,16 +467,16 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.horizontalScrollContent}
       >
-        <View style={styles.bracketWrapper}>
-          <View style={styles.bracketContainer}>
+        <View style={styles.bpaddleWrapper}>
+          <View style={styles.bpaddleContainer}>
             {/* Rounds and Matches */}
-            {bracket.rounds.map(round => renderRound(round))}
+            {bpaddle.rounds.map(round => renderRound(round))}
 
             {/* Champion Display */}
-            {bracket.champion && (
+            {bpaddle.champion && (
               <View style={styles.championContainer}>
                 <Text style={[styles.championTitle, { color: theme.colors.onSurface }]}>
-                  {t('tournamentBracket.champion.title')}
+                  {t('tournamentBpaddle.champion.title')}
                 </Text>
                 <View
                   style={[
@@ -486,7 +486,7 @@ const TournamentBracketView: React.FC<TournamentBracketViewProps> = ({
                 >
                   <Ionicons name='trophy' size={24} color='#FFD700' />
                   <Text style={[styles.championName, { color: theme.colors.onSurface }]}>
-                    {String(bracket.champion.playerName || t('tournamentBracket.champion.title'))}
+                    {String(bpaddle.champion.playerName || t('tournamentBpaddle.champion.title'))}
                   </Text>
                 </View>
               </View>
@@ -508,10 +508,10 @@ const styles = StyleSheet.create({
   horizontalScrollContent: {
     alignItems: 'flex-start',
   },
-  bracketWrapper: {
+  bpaddleWrapper: {
     position: 'relative', // Enable absolute positioning for SVG overlay
   },
-  bracketContainer: {
+  bpaddleContainer: {
     flexDirection: 'row',
     paddingHorizontal: 20,
     paddingVertical: 20,
@@ -621,7 +621,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: '600',
   },
-  // New styles for enhanced tournament bracket display
+  // New styles for enhanced tournament bpaddle display
   matchCenter: {
     minHeight: 32,
     justifyContent: 'center',
@@ -646,7 +646,7 @@ const styles = StyleSheet.create({
     marginLeft: 6,
   },
   // 🎯 [KIM FIX] Removed unused winnerIndicator style - trophy now only shown inline next to winner name
-  // 🏆 Enhanced Panorama Tournament Bracket Styles
+  // 🏆 Enhanced Panorama Tournament Bpaddle Styles
   currentRoundContainer: {
     borderRadius: 12,
     padding: 8,
@@ -680,4 +680,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TournamentBracketView;
+export default TournamentBpaddleView;

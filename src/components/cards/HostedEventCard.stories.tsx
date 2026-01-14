@@ -36,10 +36,10 @@ type Story = StoryObj<typeof meta>;
 const baseEvent: HostedEvent = {
   id: '1',
   title: '주말 즐거운 랠리',
-  clubName: '서울 테니스 클럽',
+  clubName: '서울 피클볼 클럽',
   date: new Date('2024-12-15T14:00:00'),
   time: '14:00',
-  location: '올림픽공원 테니스장 2코트',
+  location: '올림픽공원 피클볼장 2코트',
   distance: 5.2,
   participants: 4,
   maxParticipants: 8,
@@ -51,7 +51,7 @@ const baseEvent: HostedEvent = {
 const pendingApplications: PendingApplication[] = [
   {
     id: 'app1',
-    applicantName: '이테니스',
+    applicantName: '이피클볼',
     message: '랠리 연습하고 싶어서 신청합니다!',
     appliedAt: new Date('2024-12-10T10:30:00'),
   },
@@ -166,13 +166,13 @@ export const EnglishVersion: Story = {
     event: {
       ...baseEvent,
       title: 'Weekend Rally Practice',
-      clubName: 'Seoul Tennis Club',
+      clubName: 'Seoul Pickleball Club',
       description: 'Fun rally practice session. Beginners welcome!',
-      location: 'Olympic Park Tennis Court 2',
+      location: 'Olympic Park Pickleball Court 2',
       pendingApplications: [
         {
           id: 'app1',
-          applicantName: 'John Tennis',
+          applicantName: 'John Pickleball',
           message: 'Would love to join the rally practice!',
           appliedAt: new Date('2024-12-10T10:30:00'),
         },
@@ -202,7 +202,7 @@ export const PopularMeetupWithManyApplicants: Story = {
       pendingApplications: [
         {
           id: 'app1',
-          applicantName: '이테니스',
+          applicantName: '이피클볼',
           message: '꼭 참여하고 싶습니다!',
           appliedAt: new Date('2024-12-10T10:30:00'),
         },

@@ -437,7 +437,7 @@ await ref.update(data);
 - [TypeScript Strict Mode](https://www.typescriptlang.org/tsconfig#strict)
 - [Firebase Functions v2 Migration](https://firebase.google.com/docs/functions/2nd-gen-upgrade)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
-- [Lightning Tennis Common Helpers](./src/utils/commonHelpers.ts)
+- [Lightning Pickleball Common Helpers](./src/utils/commonHelpers.ts)
 
 ## Next Steps
 

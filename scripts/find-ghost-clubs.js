@@ -19,7 +19,7 @@ async function findGhostClubs() {
   console.log('🔍 Searching for ghost clubs...\n');
 
   // 1. Get all valid club IDs
-  const clubsSnapshot = await db.collection('tennis_clubs').get();
+  const clubsSnapshot = await db.collection('pickleball_clubs').get();
   const validClubIds = new Set(clubsSnapshot.docs.map(doc => doc.id));
   console.log('✅ Valid clubs:', Array.from(validClubIds));
 

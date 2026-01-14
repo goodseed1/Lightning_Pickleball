@@ -110,7 +110,7 @@ const dict = {
   'Meeting Name *': 'Название встречи *',
   'e.g., Weekend Singles Practice': 'например, Тренировка одиночных матчей по выходным',
   'Location *': 'Местоположение *',
-  'e.g., Central Park Tennis Courts': 'например, Теннисные корты Центрального парка',
+  'e.g., Central Park Pickleball Courts': 'например, Теннисные корты Центрального парка',
   'Repeat Day': 'День повтора',
   'Select Day': 'Выберите день',
   Notice: 'Уведомление',
@@ -417,7 +417,7 @@ const dict = {
   'Access revoked': 'Доступ отозван',
 
   // Misc
-  'TennisUser{{id}}': 'ТеннисПользователь{{id}}',
+  'PickleballUser{{id}}': 'ТеннисПользователь{{id}}',
   'Unknown User': 'Неизвестный пользователь',
   Anonymous: 'Аноним',
   'Guest User': 'Гость',

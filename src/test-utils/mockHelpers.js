@@ -2,13 +2,13 @@
  * Common Mock Helpers for Unit Tests
  * Provides standardized mock setup for all test files
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  * Following START.md Golden Rules for consistent testing
  */
 
@@ -120,7 +120,7 @@ export const mockTestData = {
 
   event: {
     id: 'event-123',
-    title: 'Weekend Tennis Match',
+    title: 'Weekend Pickleball Match',
     type: 'match',
     hostId: 'test-user-id',
     hostName: 'Test User',
@@ -136,8 +136,8 @@ export const mockTestData = {
 
   club: {
     id: 'club-123',
-    name: 'Seoul Tennis Club',
-    description: 'Friendly tennis club in Seoul',
+    name: 'Seoul Pickleball Club',
+    description: 'Friendly pickleball club in Seoul',
     memberCount: 25,
     adminId: 'admin-user-id',
     isPublic: true,

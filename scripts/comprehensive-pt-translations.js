@@ -25,7 +25,7 @@ const translations = {
       eventNotFound: 'Evento não encontrado',
       alreadyProcessed: 'Convite já foi processado',
       inviteResponseFailed: 'Falha ao responder convite. Por favor, tente novamente.',
-      tennisUserFallback: 'TennisUser{{id}}',
+      pickleballUserFallback: 'PickleballUser{{id}}',
       notifications: {
         applicationSubmittedTitle: 'Nova Solicitação de Participação',
         applicationApprovedTitle: 'Participação Aprovada!',
@@ -255,11 +255,11 @@ const translations = {
     },
   },
   leagueDetail: {
-    generateBracketMessageSimple: 'Tem certeza de que deseja gerar a chave?',
-    bracketGeneratedSuccess: 'Chave gerada com sucesso',
-    bracketGenerateError: 'Erro ao gerar chave',
-    bracketDeletedSuccess: 'Chave excluída com sucesso',
-    bracketDeleteError: 'Erro ao excluir chave',
+    generateBpaddleMessageSimple: 'Tem certeza de que deseja gerar a chave?',
+    bpaddleGeneratedSuccess: 'Chave gerada com sucesso',
+    bpaddleGenerateError: 'Erro ao gerar chave',
+    bpaddleDeletedSuccess: 'Chave excluída com sucesso',
+    bpaddleDeleteError: 'Erro ao excluir chave',
     startPlayoffs: 'Iniciar Playoffs',
     playoffsStartedSuccess: 'Playoffs iniciados com sucesso',
     playoffsStartError: 'Erro ao iniciar playoffs',
@@ -270,7 +270,7 @@ const translations = {
     eliminationConfirm: 'Confirmar Eliminação',
     backToRegularSeason: 'Voltar para Temporada Regular',
     finalStandings: 'Classificação Final',
-    playoffBracket: 'Chave de Playoff',
+    playoffBpaddle: 'Chave de Playoff',
     semifinals: 'Semifinais',
     finals: 'Final',
     thirdPlace: 'Terceiro Lugar',
@@ -336,7 +336,7 @@ const translations = {
       incompleteRounds: 'Complete todas as partidas da rodada {{round}} antes de gerar a próxima.',
       noParticipants: 'Nenhum participante inscrito',
       invalidFormat: 'Formato de torneio inválido',
-      bracketLocked: 'Chave bloqueada',
+      bpaddleLocked: 'Chave bloqueada',
     },
     seedingDialog: {
       title: 'Atribuir Cabeças de Chave',
@@ -354,7 +354,7 @@ const translations = {
       saved: 'Classificação salva com sucesso',
       saveFailed: 'Falha ao salvar classificação',
     },
-    bracketView: {
+    bpaddleView: {
       round1: 'Rodada 1',
       round2: 'Rodada 2',
       quarterfinals: 'Quartas de Final',

@@ -10,9 +10,9 @@ import { getFirestore, doc, updateDoc, getDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyD4C1_VJ6gYdJGMoZH1sRjhb_nwJr8aD0E',
-  authDomain: 'lightning-tennis-community.firebaseapp.com',
-  projectId: 'lightning-tennis-community',
-  storageBucket: 'lightning-tennis-community.appspot.com',
+  authDomain: 'lightning-pickleball-community.firebaseapp.com',
+  projectId: 'lightning-pickleball-community',
+  storageBucket: 'lightning-pickleball-community.appspot.com',
   messagingSenderId: '1064094238988',
   appId: '1:1064094238988:web:9d1e8a1e7c8b9a8c2e3f4d',
 };

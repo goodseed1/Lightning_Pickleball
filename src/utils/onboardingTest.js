@@ -16,7 +16,7 @@ export const createSampleOnboardingData = (language = 'en') => {
     communicationLanguages: [language, language === 'en' ? 'ko' : 'en'],
 
     // Step 3: Basic Profile Setup
-    nickname: language === 'en' ? 'TennisPlayer123' : '테니스선수123',
+    nickname: language === 'en' ? 'PickleballPlayer123' : '피클볼선수123',
     gender: 'male',
     skillLevel: 'intermediate',
     zipCode: '30309',

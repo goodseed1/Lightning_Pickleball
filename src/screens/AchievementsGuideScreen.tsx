@@ -10,7 +10,7 @@ import { Text, Divider, IconButton } from 'react-native-paper';
 import { MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 import { useTheme } from '../hooks/useTheme';
 import { useLanguage } from '../contexts/LanguageContext';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import { SEASON_TROPHIES } from '../constants/seasonTrophies';
 import { ACHIEVEMENT_DEFINITIONS, ACHIEVEMENT_CATEGORIES } from '../constants/achievements';
 
@@ -23,7 +23,7 @@ interface AchievementsGuideScreenProps {
 const AchievementsGuideScreen: React.FC<AchievementsGuideScreenProps> = ({ navigation }) => {
   // Theme & i18n
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const themedStyles = createThemedStyles(themeColors.colors as any);
   const { t } = useLanguage();

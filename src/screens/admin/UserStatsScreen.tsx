@@ -245,9 +245,9 @@ const UserStatsScreen: React.FC = () => {
           </Text>
         </View>
 
-        {/* Row 3: LTR */}
+        {/* Row 3: LPR */}
         <View style={styles.userRow}>
-          <Text style={[styles.label, { color: colors.onSurfaceVariant }]}>LTR:</Text>
+          <Text style={[styles.label, { color: colors.onSurfaceVariant }]}>LPR:</Text>
           <View style={styles.ltrGroup}>
             <Chip compact style={styles.ltrChip} textStyle={styles.ltrText}>
               단식: {singlesLtr}
@@ -381,7 +381,7 @@ const UserStatsScreen: React.FC = () => {
                   {/* Legend */}
                   <View style={styles.legendContainer}>
                     <Text style={[styles.legendText, { color: colors.onSurfaceVariant }]}>
-                      LTR: S={t('admin.stats.userList.singles')}, D=
+                      LPR: S={t('admin.stats.userList.singles')}, D=
                       {t('admin.stats.userList.doubles')}, M={t('admin.stats.userList.mixed')}
                     </Text>
                   </View>

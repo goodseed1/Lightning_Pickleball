@@ -2,13 +2,13 @@
  * Knowledge Base Service
  * Manages the knowledge base collection for the AI chatbot
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  *
  * 🚀 [2025-01-10] 로컬 캐싱 추가
  * - Firestore 데이터를 AsyncStorage에 캐싱
@@ -275,7 +275,7 @@ class KnowledgeBaseService {
         {
           question: '번개 매치와 번개 모임의 차이점은 무엇인가요?',
           answer:
-            '번개 매치는 1:1 랭킹 경기로 ELO 점수가 변동되며, 매치 결과가 랭킹에 반영됩니다. 번개 모임은 여러 명이 참여하는 친선 경기로 랭킹에 영향을 주지 않으며, 즐거운 테니스 교류가 목적입니다.',
+            '번개 매치는 1:1 랭킹 경기로 ELO 점수가 변동되며, 매치 결과가 랭킹에 반영됩니다. 번개 모임은 여러 명이 참여하는 친선 경기로 랭킹에 영향을 주지 않으며, 즐거운 피클볼 교류가 목적입니다.',
           keywords: ['매치', '모임', '차이점', '랭킹', '번개'],
           category: 'basic',
           priority: 1,
@@ -324,7 +324,7 @@ class KnowledgeBaseService {
         {
           question: '랭킹은 어떻게 정렬되나요?',
           answer:
-            '랭킹은 경기 타입에 따라 다르게 계산됩니다:\n\n🎾 **단식/복식/혼합복식 탭**:\n• 해당 타입의 ELO 점수로 정렬됩니다.\n• 경기를 치르지 않은 경우 온보딩에서 선택한 LTR 기반 ELO가 사용됩니다.\n• 경기를 치른 경우 경기 결과가 반영된 ELO가 사용됩니다.\n\n📊 **전체 탭**:\n• 단식, 복식, 혼합복식 ELO의 **평균값**으로 정렬됩니다.\n• 계산법: (단식 ELO + 복식 ELO + 혼복 ELO) ÷ 3\n• 예: (1400 + 1200 + 1200) ÷ 3 = 평균 1267\n• 온보딩을 완료한 모든 사용자가 랭킹에 포함됩니다.\n\n👤 **내 프로필 > 정보 탭의 전체 순위**:\n• 통계 탭의 "전체" 랭킹과 **동일한 기준**입니다.\n• 평균 ELO 기반: (단식 + 복식 + 혼복) ÷ 3\n\n💡 같은 ELO면 같은 순위로 표시됩니다 (스포츠 스타일 동점 처리).',
+            '랭킹은 경기 타입에 따라 다르게 계산됩니다:\n\n🎾 **단식/복식/혼합복식 탭**:\n• 해당 타입의 ELO 점수로 정렬됩니다.\n• 경기를 치르지 않은 경우 온보딩에서 선택한 LPR 기반 ELO가 사용됩니다.\n• 경기를 치른 경우 경기 결과가 반영된 ELO가 사용됩니다.\n\n📊 **전체 탭**:\n• 단식, 복식, 혼합복식 ELO의 **평균값**으로 정렬됩니다.\n• 계산법: (단식 ELO + 복식 ELO + 혼복 ELO) ÷ 3\n• 예: (1400 + 1200 + 1200) ÷ 3 = 평균 1267\n• 온보딩을 완료한 모든 사용자가 랭킹에 포함됩니다.\n\n👤 **내 프로필 > 정보 탭의 전체 순위**:\n• 통계 탭의 "전체" 랭킹과 **동일한 기준**입니다.\n• 평균 ELO 기반: (단식 + 복식 + 혼복) ÷ 3\n\n💡 같은 ELO면 같은 순위로 표시됩니다 (스포츠 스타일 동점 처리).',
           keywords: [
             '랭킹',
             '정렬',
@@ -344,48 +344,48 @@ class KnowledgeBaseService {
         {
           question: '신규 사용자도 랭킹이 있나요?',
           answer:
-            '네! 온보딩을 완료하면 경기를 하지 않아도 랭킹이 부여됩니다. 신규 사용자들은 승률이 0%이므로, 온보딩 시 선택한 LTR(예: 2.0, 2.5, 3.0, 3.5)에 따른 ELO 점수로 순위가 결정됩니다. 예를 들어, LTR 3.5를 선택한 신규 사용자는 LTR 2.0을 선택한 신규 사용자보다 높은 랭킹을 받습니다.',
-          keywords: ['신규', '사용자', '랭킹', '온보딩', 'LTR', '0%'],
+            '네! 온보딩을 완료하면 경기를 하지 않아도 랭킹이 부여됩니다. 신규 사용자들은 승률이 0%이므로, 온보딩 시 선택한 LPR(예: 2.0, 2.5, 3.0, 3.5)에 따른 ELO 점수로 순위가 결정됩니다. 예를 들어, LPR 3.5를 선택한 신규 사용자는 LPR 2.0을 선택한 신규 사용자보다 높은 랭킹을 받습니다.',
+          keywords: ['신규', '사용자', '랭킹', '온보딩', 'LPR', '0%'],
           category: 'ranking',
           priority: 1,
         },
         {
-          question: 'LTR 레벨이 무엇인가요?',
+          question: 'LPR 레벨이 무엇인가요?',
           answer:
-            'LTR(Lightning Tennis Rating)은 Lightning Tennis 앱의 고유한 ELO 기반 실력 평가 시스템입니다. 1(Bronze, 초보자)부터 10(Legend, 최상위)까지 10단계로 나뉩니다. ELO 점수(600-2400+)를 기반으로 자동 계산되며, 실제 경기 결과에 따라 변동됩니다. LTR 1-2: Bronze/Silver (초보), LTR 3-4: Gold (중급 입문), LTR 5-6: Platinum (중급), LTR 7: Diamond (중상급), LTR 8-9: Master (상급), LTR 10: Legend (최상위). 이 시스템으로 비슷한 실력의 상대와 공정한 매칭이 가능합니다.',
-          keywords: ['LTR', '레벨', '실력', '평가', '매칭', 'ELO', '랭킹', 'NTRP', '등급'],
+            'LPR(Lightning Pickleball Rating)은 Lightning Pickleball 앱의 고유한 ELO 기반 실력 평가 시스템입니다. 1(Bronze, 초보자)부터 10(Legend, 최상위)까지 10단계로 나뉩니다. ELO 점수(600-2400+)를 기반으로 자동 계산되며, 실제 경기 결과에 따라 변동됩니다. LPR 1-2: Bronze/Silver (초보), LPR 3-4: Gold (중급 입문), LPR 5-6: Platinum (중급), LPR 7: Diamond (중상급), LPR 8-9: Master (상급), LPR 10: Legend (최상위). 이 시스템으로 비슷한 실력의 상대와 공정한 매칭이 가능합니다.',
+          keywords: ['LPR', '레벨', '실력', '평가', '매칭', 'ELO', '랭킹', 'NTRP', '등급'],
           category: 'basic',
           priority: 1,
         },
         {
-          question: 'LTR과 NTRP의 차이점은 무엇인가요?',
+          question: 'LPR과 NTRP의 차이점은 무엇인가요?',
           answer:
-            '📊 LTR vs NTRP 비교표:\n\n' +
-            '【LTR (Lightning Tennis Rating)】\n' +
+            '📊 LPR vs NTRP 비교표:\n\n' +
+            '【LPR (Lightning Pickleball Rating)】\n' +
             '• 범위: 1-10 (정수)\n' +
             '• 기반: ELO 알고리즘 (체스 랭킹 방식)\n' +
             '• 업데이트: 매 경기 후 자동 실시간 반영\n' +
-            '• 특징: Lightning Tennis 앱 전용 시스템\n' +
+            '• 특징: Lightning Pickleball 앱 전용 시스템\n' +
             '• 평가방식: 경기 결과 기반 객관적 산정\n\n' +
-            '【NTRP (National Tennis Rating Program)】\n' +
+            '【NTRP (National Pickleball Rating Program)】\n' +
             '• 범위: 1.0-7.0 (소수점)\n' +
             '• 기반: USTA 공식 평가 기준\n' +
             '• 업데이트: 자가 평가 또는 공인 코치 평가\n' +
-            '• 특징: 미국 테니스 협회 공식 시스템\n' +
+            '• 특징: 미국 피클볼 협회 공식 시스템\n' +
             '• 평가방식: 기술/전술 체크리스트 기반 주관적 평가\n\n' +
-            '【LTR ↔ NTRP 변환표】\n' +
-            '• LTR 1-2 = NTRP 1.5-2.5 (초보자)\n' +
-            '• LTR 3-4 = NTRP 3.0-3.5 (중급 입문)\n' +
-            '• LTR 5-6 = NTRP 4.0-4.5 (중급)\n' +
-            '• LTR 7 = NTRP 5.0 (중상급)\n' +
-            '• LTR 8-9 = NTRP 5.5-6.0 (상급)\n' +
-            '• LTR 10 = NTRP 6.5-7.0 (최상위)\n\n' +
+            '【LPR ↔ NTRP 변환표】\n' +
+            '• LPR 1-2 = NTRP 1.5-2.5 (초보자)\n' +
+            '• LPR 3-4 = NTRP 3.0-3.5 (중급 입문)\n' +
+            '• LPR 5-6 = NTRP 4.0-4.5 (중급)\n' +
+            '• LPR 7 = NTRP 5.0 (중상급)\n' +
+            '• LPR 8-9 = NTRP 5.5-6.0 (상급)\n' +
+            '• LPR 10 = NTRP 6.5-7.0 (최상위)\n\n' +
             '【주요 차이점】\n' +
-            '• LTR은 실제 경기 결과를 기반으로 자동 계산되어 더 정확합니다.\n' +
+            '• LPR은 실제 경기 결과를 기반으로 자동 계산되어 더 정확합니다.\n' +
             '• NTRP는 자가 신고 방식이라 과대/과소 평가될 수 있습니다.\n' +
-            '• LTR은 앱 내에서 공정한 매칭을 위해 최적화되었습니다.',
+            '• LPR은 앱 내에서 공정한 매칭을 위해 최적화되었습니다.',
           keywords: [
-            'LTR',
+            'LPR',
             'NTRP',
             '차이점',
             '비교',
@@ -401,18 +401,18 @@ class KnowledgeBaseService {
           priority: 2,
         },
         {
-          question: 'LTR을 NTRP로 변환하면 얼마인가요?',
+          question: 'LPR을 NTRP로 변환하면 얼마인가요?',
           answer:
-            '🎾 LTR ↔ NTRP 변환표:\n\n' +
-            '• LTR 1-2 = NTRP 1.5-2.5 (초보자)\n' +
-            '• LTR 3-4 = NTRP 3.0-3.5 (중급 입문)\n' +
-            '• LTR 5-6 = NTRP 4.0-4.5 (중급)\n' +
-            '• LTR 7 = NTRP 5.0 (중상급)\n' +
-            '• LTR 8-9 = NTRP 5.5-6.0 (상급)\n' +
-            '• LTR 10 = NTRP 6.5-7.0 (최상위)\n\n' +
-            '예시: LTR 5라면 NTRP 4.0 정도입니다!\n\n' +
-            '참고: 이 변환은 대략적인 비교이며, LTR은 실제 경기 결과 기반이고 NTRP는 자가 평가 기반이라 정확히 일치하지 않을 수 있습니다.',
-          keywords: ['LTR', 'NTRP', '변환', '얼마', '몇', '레벨', '환산', '대응', '같은', '동일'],
+            '🎾 LPR ↔ NTRP 변환표:\n\n' +
+            '• LPR 1-2 = NTRP 1.5-2.5 (초보자)\n' +
+            '• LPR 3-4 = NTRP 3.0-3.5 (중급 입문)\n' +
+            '• LPR 5-6 = NTRP 4.0-4.5 (중급)\n' +
+            '• LPR 7 = NTRP 5.0 (중상급)\n' +
+            '• LPR 8-9 = NTRP 5.5-6.0 (상급)\n' +
+            '• LPR 10 = NTRP 6.5-7.0 (최상위)\n\n' +
+            '예시: LPR 5라면 NTRP 4.0 정도입니다!\n\n' +
+            '참고: 이 변환은 대략적인 비교이며, LPR은 실제 경기 결과 기반이고 NTRP는 자가 평가 기반이라 정확히 일치하지 않을 수 있습니다.',
+          keywords: ['LPR', 'NTRP', '변환', '얼마', '몇', '레벨', '환산', '대응', '같은', '동일'],
           category: 'ranking',
           priority: 2,
         },
@@ -505,28 +505,28 @@ class KnowledgeBaseService {
           category: 'achievements',
           priority: 1,
         },
-        // 🎯 온보딩 LTR 제한 관련 Q&A (2025-12-22 추가)
+        // 🎯 온보딩 LPR 제한 관련 Q&A (2025-12-22 추가)
         {
-          question: '온보딩에서 선택할 수 있는 최대 LTR은 얼마인가요?',
+          question: '온보딩에서 선택할 수 있는 최대 LPR은 얼마인가요?',
           answer:
-            '온보딩에서 선택할 수 있는 최대 LTR(Lightning Tennis Rating)은 3.5입니다. 2.0, 2.5, 3.0, 3.5 중에서 선택할 수 있습니다. 4.0 이상의 레벨은 실제 경기를 통해서만 달성할 수 있습니다. 이는 실력을 직접 증명해야 한다는 원칙을 반영한 것입니다.',
-          keywords: ['온보딩', 'LTR', '최대', '레벨', '3.5', '선택'],
+            '온보딩에서 선택할 수 있는 최대 LPR(Lightning Pickleball Rating)은 3.5입니다. 2.0, 2.5, 3.0, 3.5 중에서 선택할 수 있습니다. 4.0 이상의 레벨은 실제 경기를 통해서만 달성할 수 있습니다. 이는 실력을 직접 증명해야 한다는 원칙을 반영한 것입니다.',
+          keywords: ['온보딩', 'LPR', '최대', '레벨', '3.5', '선택'],
           category: 'onboarding',
           priority: 1,
         },
         {
-          question: 'LTR 4.0 이상은 어떻게 달성하나요?',
+          question: 'LPR 4.0 이상은 어떻게 달성하나요?',
           answer:
-            'LTR 4.0 이상(4.0, 4.5, 5.0, 5.5)은 온보딩에서 직접 선택할 수 없습니다. 실제 번개 매치에서 승리하여 ELO 점수를 올려야만 달성할 수 있습니다. 강한 상대를 이기면 더 많은 점수를 얻게 되고, 지속적인 승리를 통해 더 높은 LTR 레벨에 도달할 수 있습니다. 실력으로 증명하세요! 💪',
-          keywords: ['LTR', '4.0', '달성', '매치', '승리', 'ELO', '높은 레벨'],
+            'LPR 4.0 이상(4.0, 4.5, 5.0, 5.5)은 온보딩에서 직접 선택할 수 없습니다. 실제 번개 매치에서 승리하여 ELO 점수를 올려야만 달성할 수 있습니다. 강한 상대를 이기면 더 많은 점수를 얻게 되고, 지속적인 승리를 통해 더 높은 LPR 레벨에 도달할 수 있습니다. 실력으로 증명하세요! 💪',
+          keywords: ['LPR', '4.0', '달성', '매치', '승리', 'ELO', '높은 레벨'],
           category: 'ranking',
           priority: 1,
         },
         {
-          question: '왜 온보딩에서 높은 LTR을 선택할 수 없나요?',
+          question: '왜 온보딩에서 높은 LPR을 선택할 수 없나요?',
           answer:
-            'Lightning Tennis는 공정한 경쟁을 위해 온보딩에서 LTR 3.5까지만 선택할 수 있도록 제한하고 있습니다. 4.0 이상의 고급 레벨은 실제 경기 실력으로 증명해야 합니다. 이렇게 하면 랭킹 시스템의 신뢰성이 높아지고, 모든 플레이어가 공정하게 경쟁할 수 있습니다.',
-          keywords: ['온보딩', 'LTR', '제한', '공정', '실력', '증명'],
+            'Lightning Pickleball는 공정한 경쟁을 위해 온보딩에서 LPR 3.5까지만 선택할 수 있도록 제한하고 있습니다. 4.0 이상의 고급 레벨은 실제 경기 실력으로 증명해야 합니다. 이렇게 하면 랭킹 시스템의 신뢰성이 높아지고, 모든 플레이어가 공정하게 경쟁할 수 있습니다.',
+          keywords: ['온보딩', 'LPR', '제한', '공정', '실력', '증명'],
           category: 'onboarding',
           priority: 1,
         },
@@ -534,7 +534,7 @@ class KnowledgeBaseService {
         {
           question: '새로 가입하면 바로 랭킹이 표시되나요?',
           answer:
-            '네! 온보딩을 완료하고 LTR 레벨을 선택하면 바로 랭킹이 표시됩니다. 경기를 하지 않아도 "#X / Y" 형식으로 현재 순위를 확인할 수 있습니다. 첫날부터 커뮤니티의 일원으로 소속감을 느끼고, 랭킹을 올리기 위한 경쟁에 참여해보세요! 🎯',
+            '네! 온보딩을 완료하고 LPR 레벨을 선택하면 바로 랭킹이 표시됩니다. 경기를 하지 않아도 "#X / Y" 형식으로 현재 순위를 확인할 수 있습니다. 첫날부터 커뮤니티의 일원으로 소속감을 느끼고, 랭킹을 올리기 위한 경쟁에 참여해보세요! 🎯',
           keywords: ['신규', '가입', '랭킹', '표시', '온보딩', '새 사용자'],
           category: 'ranking',
           priority: 1,
@@ -542,7 +542,7 @@ class KnowledgeBaseService {
         {
           question: '같은 ELO 점수면 랭킹이 어떻게 표시되나요?',
           answer:
-            'Lightning Tennis는 스포츠 스타일의 동점 처리를 사용합니다. 같은 ELO 점수를 가진 사용자들은 같은 순위로 표시됩니다. 예를 들어, ELO 1400인 사용자가 2명이면 둘 다 #1로 표시되고, 그 다음 사용자는 #3이 됩니다 (#2를 건너뜀). 공정하고 명확한 랭킹 시스템입니다!',
+            'Lightning Pickleball는 스포츠 스타일의 동점 처리를 사용합니다. 같은 ELO 점수를 가진 사용자들은 같은 순위로 표시됩니다. 예를 들어, ELO 1400인 사용자가 2명이면 둘 다 #1로 표시되고, 그 다음 사용자는 #3이 됩니다 (#2를 건너뜀). 공정하고 명확한 랭킹 시스템입니다!',
           keywords: ['동점', '랭킹', 'ELO', '같은', '순위', '표시'],
           category: 'ranking',
           priority: 1,
@@ -559,14 +559,14 @@ class KnowledgeBaseService {
         {
           question: '기록 경기 경험이 없는 새 사용자의 랭킹은 어떻게 정해 지나요?',
           answer:
-            '새로운 사용자의 랭킹은 온보딩 시 직접 선택한 LTR(Lightning Tennis Rating) 레벨을 기반으로 결정됩니다.\n\n📝 **온보딩 과정:**\n• 2.0, 2.5, 3.0, 3.5 중에서 본인의 실력에 맞는 레벨을 직접 선택합니다.\n• 4.0 이상의 레벨은 실제 경기 결과로만 도달할 수 있습니다.\n\n📊 **랭킹 결정 방식:**\n• 선택한 LTR은 내부적으로 ELO 점수로 변환됩니다 (예: 3.0 → 1200점, 3.5 → 1400점).\n• 모든 사용자의 ELO 점수를 높은 순서대로 정렬하여 순위가 결정됩니다.\n• 같은 ELO 점수를 가진 사용자는 같은 순위로 표시됩니다.\n\n🏆 **랭킹 올리는 방법:**\n경기에서 승리하면 ELO 점수가 올라가고, 패배하면 내려갑니다. 특히 자신보다 높은 ELO의 상대를 이기면 더 많은 점수를 얻습니다!',
+            '새로운 사용자의 랭킹은 온보딩 시 직접 선택한 LPR(Lightning Pickleball Rating) 레벨을 기반으로 결정됩니다.\n\n📝 **온보딩 과정:**\n• 2.0, 2.5, 3.0, 3.5 중에서 본인의 실력에 맞는 레벨을 직접 선택합니다.\n• 4.0 이상의 레벨은 실제 경기 결과로만 도달할 수 있습니다.\n\n📊 **랭킹 결정 방식:**\n• 선택한 LPR은 내부적으로 ELO 점수로 변환됩니다 (예: 3.0 → 1200점, 3.5 → 1400점).\n• 모든 사용자의 ELO 점수를 높은 순서대로 정렬하여 순위가 결정됩니다.\n• 같은 ELO 점수를 가진 사용자는 같은 순위로 표시됩니다.\n\n🏆 **랭킹 올리는 방법:**\n경기에서 승리하면 ELO 점수가 올라가고, 패배하면 내려갑니다. 특히 자신보다 높은 ELO의 상대를 이기면 더 많은 점수를 얻습니다!',
           keywords: [
             '새 사용자',
             '신규',
             '랭킹',
             '결정',
             '경기 경험',
-            'LTR',
+            'LPR',
             'ELO',
             '온보딩',
             '순위',
@@ -578,12 +578,12 @@ class KnowledgeBaseService {
         {
           question: '플레이어 목록에서 매치 신청 버튼이 비활성화되어 있는 경우는 언제인가요?',
           answer:
-            '매치 신청 버튼이 비활성화되는 경우: 1) LTR 제한 - 단식은 호스트와 같은 레벨(0) 또는 1레벨 높은 상대(+1)만 초대 가능 (예: LTR 5는 5~6 범위). 복식/혼복은 ±2 허용 (예: LTR 5는 3~7 범위). 2) 성별 제한 - 단식은 동성 간에만 신청 가능. 두 조건을 모두 충족해야 매치 신청이 가능합니다. [2025년 1월 업데이트]',
+            '매치 신청 버튼이 비활성화되는 경우: 1) LPR 제한 - 단식은 호스트와 같은 레벨(0) 또는 1레벨 높은 상대(+1)만 초대 가능 (예: LPR 5는 5~6 범위). 복식/혼복은 ±2 허용 (예: LPR 5는 3~7 범위). 2) 성별 제한 - 단식은 동성 간에만 신청 가능. 두 조건을 모두 충족해야 매치 신청이 가능합니다. [2025년 1월 업데이트]',
           keywords: [
             '매치 신청',
             '비활성화',
             '버튼',
-            'LTR',
+            'LPR',
             '성별',
             '퀵 매치',
             '조건',
@@ -593,14 +593,14 @@ class KnowledgeBaseService {
           category: 'match',
           priority: 1,
         },
-        // 🎾 LTR 레벨 초대 제한 Q&A (2025-01-01 추가)
+        // 🎾 LPR 레벨 초대 제한 Q&A (2025-01-01 추가)
         {
           question: '단식 매치에서 어느 레벨까지 초대할 수 있나요?',
           answer:
-            '🎯 **단식 매치 LTR 레벨 제한**\n\n단식에서는 **같은 레벨(0) 또는 1레벨 높은 상대(+1)** 만 초대할 수 있습니다.\n\n📊 **예시:**\n• LTR 5인 호스트 → LTR 5, 6 초대 가능\n• LTR 3인 호스트 → LTR 3, 4 초대 가능\n• ❌ LTR 5인 호스트가 LTR 4(하위) 초대 불가\n• ❌ LTR 5인 호스트가 LTR 7(+2 초과) 초대 불가\n\n🤔 **이유:**\n실력이 낮은 상대를 일부러 초대해서 쉽게 이기는 것을 방지합니다. 하지만 더 강한 상대에게 도전하는 것은 허용됩니다!\n\n💡 **복식/혼합복식은?**\n복식과 혼합복식은 ±2 범위가 허용되어 더 유연한 매칭이 가능합니다. (예: LTR 5 → 3~7 범위)',
+            '🎯 **단식 매치 LPR 레벨 제한**\n\n단식에서는 **같은 레벨(0) 또는 1레벨 높은 상대(+1)** 만 초대할 수 있습니다.\n\n📊 **예시:**\n• LPR 5인 호스트 → LPR 5, 6 초대 가능\n• LPR 3인 호스트 → LPR 3, 4 초대 가능\n• ❌ LPR 5인 호스트가 LPR 4(하위) 초대 불가\n• ❌ LPR 5인 호스트가 LPR 7(+2 초과) 초대 불가\n\n🤔 **이유:**\n실력이 낮은 상대를 일부러 초대해서 쉽게 이기는 것을 방지합니다. 하지만 더 강한 상대에게 도전하는 것은 허용됩니다!\n\n💡 **복식/혼합복식은?**\n복식과 혼합복식은 ±2 범위가 허용되어 더 유연한 매칭이 가능합니다. (예: LPR 5 → 3~7 범위)',
           keywords: [
             '단식',
-            'LTR',
+            'LPR',
             '레벨',
             '초대',
             '제한',
@@ -617,12 +617,12 @@ class KnowledgeBaseService {
         {
           question: '복식 매치에서 어느 레벨까지 초대할 수 있나요?',
           answer:
-            '🎾 **복식/혼합복식 LTR 레벨 제한**\n\n복식과 혼합복식에서는 **±2 LTR 범위** 내에서 초대가 가능합니다.\n\n📊 **예시:**\n• LTR 5인 호스트 → LTR 3~7 초대 가능\n• LTR 4인 호스트 → LTR 2~6 초대 가능\n• LTR 8인 호스트 → LTR 6~10 초대 가능\n\n🤔 **단식보다 범위가 넓은 이유:**\n• 복식은 팀워크가 중요하므로 더 유연한 매칭 허용\n• 다양한 실력대의 플레이어와 파트너십 형성 가능\n• 초보자와 고급자가 함께 팀을 이룰 수 있음\n\n💡 **단식은?**\n단식은 같은 레벨(0) 또는 +1 레벨만 초대 가능합니다.',
+            '🎾 **복식/혼합복식 LPR 레벨 제한**\n\n복식과 혼합복식에서는 **±2 LPR 범위** 내에서 초대가 가능합니다.\n\n📊 **예시:**\n• LPR 5인 호스트 → LPR 3~7 초대 가능\n• LPR 4인 호스트 → LPR 2~6 초대 가능\n• LPR 8인 호스트 → LPR 6~10 초대 가능\n\n🤔 **단식보다 범위가 넓은 이유:**\n• 복식은 팀워크가 중요하므로 더 유연한 매칭 허용\n• 다양한 실력대의 플레이어와 파트너십 형성 가능\n• 초보자와 고급자가 함께 팀을 이룰 수 있음\n\n💡 **단식은?**\n단식은 같은 레벨(0) 또는 +1 레벨만 초대 가능합니다.',
           keywords: [
             '복식',
             '혼합복식',
             '혼복',
-            'LTR',
+            'LPR',
             '레벨',
             '초대',
             '제한',
@@ -636,16 +636,16 @@ class KnowledgeBaseService {
         {
           question: '왜 같은 성별끼리만 매치할 수 있나요?',
           answer:
-            '단식 번개 매치는 공정한 경쟁을 위해 동성 간에만 신청할 수 있습니다. 남성은 남성끼리, 여성은 여성끼리 매치를 진행합니다. 혼합복식이나 번개 모임의 경우에는 성별 제한이 없으므로, 다양한 조합으로 테니스를 즐기실 수 있습니다!',
+            '단식 번개 매치는 공정한 경쟁을 위해 동성 간에만 신청할 수 있습니다. 남성은 남성끼리, 여성은 여성끼리 매치를 진행합니다. 혼합복식이나 번개 모임의 경우에는 성별 제한이 없으므로, 다양한 조합으로 피클볼를 즐기실 수 있습니다!',
           keywords: ['성별', '동성', '매치', '남성', '여성', '단식', '공정'],
           category: 'match',
           priority: 1,
         },
         // 📧 공식 연락처 Q&A (2025-12-24 추가)
         {
-          question: '번개 테니스 앱 공식 이메일 주소가 무엇인가요?',
+          question: '번개 피클볼 앱 공식 이메일 주소가 무엇인가요?',
           answer:
-            '번개 테니스 앱의 공식 이메일 주소는 lightningtennisapp@gmail.com 입니다. 문의사항, 피드백, 버그 신고, 제휴 문의 등 모든 문의는 이 이메일로 보내주세요. 빠른 시간 내에 답변 드리겠습니다! ⚡',
+            '번개 피클볼 앱의 공식 이메일 주소는 lightningpickleballapp@gmail.com 입니다. 문의사항, 피드백, 버그 신고, 제휴 문의 등 모든 문의는 이 이메일로 보내주세요. 빠른 시간 내에 답변 드리겠습니다! ⚡',
           keywords: [
             '이메일',
             '연락처',
@@ -668,14 +668,14 @@ class KnowledgeBaseService {
           category: 'contact',
           priority: 1,
         },
-        // 📊 ELO to LTR 변환 테이블 Q&A (2025-12-31 추가)
+        // 📊 ELO to LPR 변환 테이블 Q&A (2025-12-31 추가)
         {
-          question: 'ELO to LTR 변환 테이블을 보여줘요',
+          question: 'ELO to LPR 변환 테이블을 보여줘요',
           answer:
-            '📊 **ELO → LTR 변환 테이블**\n\nLightning Tennis는 ELO 점수를 LTR(Lightning Tennis Rating) 레벨로 변환합니다:\n\n| ELO 범위 | LTR 레벨 | 티어 |\n|----------|---------|------|\n| 0 - 1000 | LTR 1 | 🥉 Bronze |\n| 1000 - 1100 | LTR 2 | 🥈 Silver |\n| 1100 - 1200 | LTR 3 | 🥇 Gold I |\n| 1200 - 1300 | LTR 4 | 🥇 Gold II |\n| 1300 - 1450 | LTR 5 | 💎 Platinum I |\n| 1450 - 1600 | LTR 6 | 💎 Platinum II |\n| 1600 - 1800 | LTR 7 | 💠 Diamond |\n| 1800 - 2100 | LTR 8 | 👑 Master I |\n| 2100 - 2400 | LTR 9 | 👑 Master II |\n| 2400+ | LTR 10 | 🏆 Legend |\n\n💡 **참고**: 강한 상대를 이기면 더 많은 점수를 얻게 되고, 지속적인 승리를 통해 더 높은 LTR 레벨에 도달할 수 있습니다. 실력으로 증명하세요! 💪',
+            '📊 **ELO → LPR 변환 테이블**\n\nLightning Pickleball는 ELO 점수를 LPR(Lightning Pickleball Rating) 레벨로 변환합니다:\n\n| ELO 범위 | LPR 레벨 | 티어 |\n|----------|---------|------|\n| 0 - 1000 | LPR 1 | 🥉 Bronze |\n| 1000 - 1100 | LPR 2 | 🥈 Silver |\n| 1100 - 1200 | LPR 3 | 🥇 Gold I |\n| 1200 - 1300 | LPR 4 | 🥇 Gold II |\n| 1300 - 1450 | LPR 5 | 💎 Platinum I |\n| 1450 - 1600 | LPR 6 | 💎 Platinum II |\n| 1600 - 1800 | LPR 7 | 💠 Diamond |\n| 1800 - 2100 | LPR 8 | 👑 Master I |\n| 2100 - 2400 | LPR 9 | 👑 Master II |\n| 2400+ | LPR 10 | 🏆 Legend |\n\n💡 **참고**: 강한 상대를 이기면 더 많은 점수를 얻게 되고, 지속적인 승리를 통해 더 높은 LPR 레벨에 도달할 수 있습니다. 실력으로 증명하세요! 💪',
           keywords: [
             'ELO',
-            'LTR',
+            'LPR',
             '변환',
             '테이블',
             'convert',
@@ -689,19 +689,19 @@ class KnowledgeBaseService {
           priority: 1,
         },
         {
-          question: 'ELO 점수가 LTR로 어떻게 변환되나요?',
+          question: 'ELO 점수가 LPR로 어떻게 변환되나요?',
           answer:
-            'ELO 점수는 다음과 같이 LTR 레벨로 변환됩니다:\n\n• ELO 0-1000 → LTR 1 (Bronze)\n• ELO 1000-1100 → LTR 2 (Silver)\n• ELO 1100-1200 → LTR 3 (Gold I)\n• ELO 1200-1300 → LTR 4 (Gold II)\n• ELO 1300-1450 → LTR 5 (Platinum I)\n• ELO 1450-1600 → LTR 6 (Platinum II)\n• ELO 1600-1800 → LTR 7 (Diamond)\n• ELO 1800-2100 → LTR 8 (Master I)\n• ELO 2100-2400 → LTR 9 (Master II)\n• ELO 2400+ → LTR 10 (Legend)\n\n예를 들어, ELO가 1400이면 LTR 5 (Platinum I)입니다!',
-          keywords: ['ELO', 'LTR', '변환', '어떻게', '점수', '레벨', 'convert', '계산'],
+            'ELO 점수는 다음과 같이 LPR 레벨로 변환됩니다:\n\n• ELO 0-1000 → LPR 1 (Bronze)\n• ELO 1000-1100 → LPR 2 (Silver)\n• ELO 1100-1200 → LPR 3 (Gold I)\n• ELO 1200-1300 → LPR 4 (Gold II)\n• ELO 1300-1450 → LPR 5 (Platinum I)\n• ELO 1450-1600 → LPR 6 (Platinum II)\n• ELO 1600-1800 → LPR 7 (Diamond)\n• ELO 1800-2100 → LPR 8 (Master I)\n• ELO 2100-2400 → LPR 9 (Master II)\n• ELO 2400+ → LPR 10 (Legend)\n\n예를 들어, ELO가 1400이면 LPR 5 (Platinum I)입니다!',
+          keywords: ['ELO', 'LPR', '변환', '어떻게', '점수', '레벨', 'convert', '계산'],
           category: 'ranking',
           priority: 1,
         },
         {
-          question: 'LTR 레벨별 ELO 범위가 어떻게 되나요?',
+          question: 'LPR 레벨별 ELO 범위가 어떻게 되나요?',
           answer:
-            '각 LTR 레벨에 해당하는 ELO 점수 범위입니다:\n\n🥉 **LTR 1 (Bronze)**: 0 - 1000\n🥈 **LTR 2 (Silver)**: 1000 - 1100\n🥇 **LTR 3 (Gold I)**: 1100 - 1200\n🥇 **LTR 4 (Gold II)**: 1200 - 1300\n💎 **LTR 5 (Platinum I)**: 1300 - 1450\n💎 **LTR 6 (Platinum II)**: 1450 - 1600\n💠 **LTR 7 (Diamond)**: 1600 - 1800\n👑 **LTR 8 (Master I)**: 1800 - 2100\n👑 **LTR 9 (Master II)**: 2100 - 2400\n🏆 **LTR 10 (Legend)**: 2400+\n\n경기에서 승리하면 ELO가 올라가고, 더 높은 LTR 레벨에 도달할 수 있습니다! 화이팅! 💪',
+            '각 LPR 레벨에 해당하는 ELO 점수 범위입니다:\n\n🥉 **LPR 1 (Bronze)**: 0 - 1000\n🥈 **LPR 2 (Silver)**: 1000 - 1100\n🥇 **LPR 3 (Gold I)**: 1100 - 1200\n🥇 **LPR 4 (Gold II)**: 1200 - 1300\n💎 **LPR 5 (Platinum I)**: 1300 - 1450\n💎 **LPR 6 (Platinum II)**: 1450 - 1600\n💠 **LPR 7 (Diamond)**: 1600 - 1800\n👑 **LPR 8 (Master I)**: 1800 - 2100\n👑 **LPR 9 (Master II)**: 2100 - 2400\n🏆 **LPR 10 (Legend)**: 2400+\n\n경기에서 승리하면 ELO가 올라가고, 더 높은 LPR 레벨에 도달할 수 있습니다! 화이팅! 💪',
           keywords: [
-            'LTR',
+            'LPR',
             'ELO',
             '범위',
             '레벨별',
@@ -762,7 +762,7 @@ class KnowledgeBaseService {
         {
           question: '탐색 화면에서 클럽 정보는 어떻게 수집되나요?',
           answer:
-            '탐색/클럽 화면의 데이터는 다음과 같이 수집됩니다:\n\n📋 **기본 클럽 정보**:\n• Firestore의 tennis_clubs 컬렉션에서 실시간으로 구독됩니다.\n• 클럽명, 설명, 위치, 로고 등이 포함됩니다.\n\n👥 **회원 수**:\n• clubMembers 컬렉션에서 status가 active인 멤버를 실시간으로 카운트합니다.\n• 정확한 현재 회원 수를 보장합니다.\n\n🏆 **이벤트 빈번도**:\n• club_events 컬렉션에서 최근 30일 이벤트 수를 계산합니다.\n• "이벤트: X회/월" 형식으로 표시됩니다.\n\n💬 **클럽 소통 활성도**:\n• clubAnnouncements 컬렉션에서 최근 7일 공지사항 수를 기준으로 합니다.\n• 5개 이상: 활발, 2-4개: 보통, 0-1개: 조용\n\n📈 **회원 변동**:\n• clubMembers에서 최근 30일 가입/탈퇴 수를 계산합니다.\n• "+X/-Y" 형식으로 표시됩니다.\n\n💰 **월회비**:\n• tennis_clubs.settings.monthlyFee 필드에서 가져옵니다.',
+            '탐색/클럽 화면의 데이터는 다음과 같이 수집됩니다:\n\n📋 **기본 클럽 정보**:\n• Firestore의 pickleball_clubs 컬렉션에서 실시간으로 구독됩니다.\n• 클럽명, 설명, 위치, 로고 등이 포함됩니다.\n\n👥 **회원 수**:\n• clubMembers 컬렉션에서 status가 active인 멤버를 실시간으로 카운트합니다.\n• 정확한 현재 회원 수를 보장합니다.\n\n🏆 **이벤트 빈번도**:\n• club_events 컬렉션에서 최근 30일 이벤트 수를 계산합니다.\n• "이벤트: X회/월" 형식으로 표시됩니다.\n\n💬 **클럽 소통 활성도**:\n• clubAnnouncements 컬렉션에서 최근 7일 공지사항 수를 기준으로 합니다.\n• 5개 이상: 활발, 2-4개: 보통, 0-1개: 조용\n\n📈 **회원 변동**:\n• clubMembers에서 최근 30일 가입/탈퇴 수를 계산합니다.\n• "+X/-Y" 형식으로 표시됩니다.\n\n💰 **월회비**:\n• pickleball_clubs.settings.monthlyFee 필드에서 가져옵니다.',
           keywords: [
             '탐색',
             '클럽',
@@ -896,7 +896,7 @@ class KnowledgeBaseService {
         {
           question: '공용 ELO와 클럽 ELO의 차이점은 무엇인가요?',
           answer:
-            'Lightning Tennis에는 두 가지 ELO 시스템이 있습니다:\n\n🌐 **공용 ELO (Public ELO)**:\n• 번개 매치(퀵 매치)에서 사용됩니다.\n• 단식, 복식, 혼합복식이 **각각 별도로** 관리됩니다.\n• 예: 단식 ELO 1500, 복식 ELO 1400, 혼복 ELO 1350\n\n🏛️ **클럽 ELO (Club ELO)**:\n• 클럽 리그/토너먼트에서 사용됩니다.\n• 단식, 복식, 혼합복식이 **하나의 ELO로 통합**됩니다.\n• 리그와 토너먼트 결과도 같은 클럽 ELO에 반영됩니다.\n• 단, K-Factor(점수 변동폭)만 다릅니다.\n\n📋 **요약 표**:\n| 구분 | 공용 ELO | 클럽 ELO |\n|------|---------|----------|\n| 단식/복식/혼복 | ✅ 분리 | ❌ 통합 |\n| 리그/토너먼트 | N/A | ❌ 통합 |',
+            'Lightning Pickleball에는 두 가지 ELO 시스템이 있습니다:\n\n🌐 **공용 ELO (Public ELO)**:\n• 번개 매치(퀵 매치)에서 사용됩니다.\n• 단식, 복식, 혼합복식이 **각각 별도로** 관리됩니다.\n• 예: 단식 ELO 1500, 복식 ELO 1400, 혼복 ELO 1350\n\n🏛️ **클럽 ELO (Club ELO)**:\n• 클럽 리그/토너먼트에서 사용됩니다.\n• 단식, 복식, 혼합복식이 **하나의 ELO로 통합**됩니다.\n• 리그와 토너먼트 결과도 같은 클럽 ELO에 반영됩니다.\n• 단, K-Factor(점수 변동폭)만 다릅니다.\n\n📋 **요약 표**:\n| 구분 | 공용 ELO | 클럽 ELO |\n|------|---------|----------|\n| 단식/복식/혼복 | ✅ 분리 | ❌ 통합 |\n| 리그/토너먼트 | N/A | ❌ 통합 |',
           keywords: ['ELO', '공용', '클럽', '차이', '단식', '복식', '혼복', '분리', '통합'],
           category: 'ranking',
           priority: 1,
@@ -920,7 +920,7 @@ class KnowledgeBaseService {
         {
           question: '공용 리그나 토너먼트가 있나요?',
           answer:
-            '현재는 **클럽 내 리그/토너먼트**만 지원됩니다. 클럽에 가입한 후 클럽 관리자가 개최하는 리그나 토너먼트에 참가할 수 있습니다.\n\n🔮 **향후 계획**:\n공용(Public) 리그/토너먼트 기능이 준비 중입니다! 클럽 가입 없이도 Lightning Tennis 사용자들이 참여할 수 있는 공용 대회가 추가될 예정입니다.\n\n현재 공용 기능:\n• ⚡ 번개 매치 (퀵 매치): 공용 ELO 사용\n• 🎾 번개 모임: 랭킹에 영향 없음\n\n현재 클럽 기능:\n• 🏆 클럽 리그: 클럽 ELO 사용 (K=16)\n• ⚔️ 클럽 토너먼트: 클럽 ELO 사용 (K=24-32)\n\n새로운 기능 소식은 앱 공지사항을 확인해 주세요! 📢',
+            '현재는 **클럽 내 리그/토너먼트**만 지원됩니다. 클럽에 가입한 후 클럽 관리자가 개최하는 리그나 토너먼트에 참가할 수 있습니다.\n\n🔮 **향후 계획**:\n공용(Public) 리그/토너먼트 기능이 준비 중입니다! 클럽 가입 없이도 Lightning Pickleball 사용자들이 참여할 수 있는 공용 대회가 추가될 예정입니다.\n\n현재 공용 기능:\n• ⚡ 번개 매치 (퀵 매치): 공용 ELO 사용\n• 🎾 번개 모임: 랭킹에 영향 없음\n\n현재 클럽 기능:\n• 🏆 클럽 리그: 클럽 ELO 사용 (K=16)\n• ⚔️ 클럽 토너먼트: 클럽 ELO 사용 (K=24-32)\n\n새로운 기능 소식은 앱 공지사항을 확인해 주세요! 📢',
           keywords: ['공용', '리그', '토너먼트', '대회', '계획', '예정', '클럽', '퍼블릭'],
           category: 'competition',
           priority: 1,
@@ -929,13 +929,13 @@ class KnowledgeBaseService {
         {
           question: '커뮤니티 가이드라인을 알려주세요',
           answer:
-            "📋 **번개 테니스 커뮤니티 가이드라인 (Community Guidelines)**\n\n**목적**: '번개 테니스'가 즐겁고, 공정하며, 안전한 커뮤니티가 되기 위해 모든 멤버가 지켜야 할 약속을 규정합니다.\n\n---\n\n⭐ **제1장: 핵심 가치**\n• 자율성, 접근성, 공정성, 투명성, 존중\n\n🎾 **제2장: 공식 경기 규칙**\n• USTA The Code 준수, 스코어 기록, 몰수/기권, 비용 분담\n\n📊 **제3장: 랭킹 및 시즌 정책**\n• 전체/클럽 ELO, 분기별 시즌, 공식 랭킹 자격, ELO 재경기 제한\n\n🤝 **제4장: 사용자 행동 강령**\n• 정확성의 의무, 불법 콘텐츠 금지\n\n🌈 **제5장: 다양성 및 포용성 정책**\n• 포용성 원칙, 차별 금지",
+            "📋 **번개 피클볼 커뮤니티 가이드라인 (Community Guidelines)**\n\n**목적**: '번개 피클볼'가 즐겁고, 공정하며, 안전한 커뮤니티가 되기 위해 모든 멤버가 지켜야 할 약속을 규정합니다.\n\n---\n\n⭐ **제1장: 핵심 가치**\n• 자율성, 접근성, 공정성, 투명성, 존중\n\n🎾 **제2장: 공식 경기 규칙**\n• USTA The Code 준수, 스코어 기록, 몰수/기권, 비용 분담\n\n📊 **제3장: 랭킹 및 시즌 정책**\n• 전체/클럽 ELO, 분기별 시즌, 공식 랭킹 자격, ELO 재경기 제한\n\n🤝 **제4장: 사용자 행동 강령**\n• 정확성의 의무, 불법 콘텐츠 금지\n\n🌈 **제5장: 다양성 및 포용성 정책**\n• 포용성 원칙, 차별 금지",
           keywords: ['커뮤니티', '가이드라인', '규칙', '정책', '핵심 가치', '행동 강령'],
           category: 'guidelines',
           priority: 1,
         },
         {
-          question: '번개 테니스의 핵심 가치는 무엇인가요?',
+          question: '번개 피클볼의 핵심 가치는 무엇인가요?',
           answer:
             '⭐ **핵심 가치 (제1장)**\n\n**자율성**: 모든 경기는 사용자에 의해 자율적으로 생성되고 운영됩니다.\n\n**접근성**: 실력 향상의 기회는 모두에게 평등하며, 참가비 없이 제공됩니다.\n\n**공정성**: 모든 공식 경기 결과는 객관적인 ELO 레이팅 시스템을 통해 실력으로 증명됩니다.\n\n**투명성**: 모든 공식 경기 기록, 랭킹, 트로피는 투명하게 공개되어 커뮤니티의 역사가 됩니다.\n\n**존중**: 온라인과 오프라인 모두에서, 우리는 서로를 존중하는 스포츠맨십을 최우선으로 합니다.',
           keywords: ['핵심 가치', '자율성', '접근성', '공정성', '투명성', '존중', '스포츠맨십'],
@@ -961,15 +961,15 @@ class KnowledgeBaseService {
         {
           question: '사용자 행동 강령이 뭔가요?',
           answer:
-            '🤝 **사용자 행동 강령 (제4장)**\n\n✍️ **정확성의 의무**:\n모든 사용자는 자신의 프로필(특히 경기 시작 전의 자체 평가 레벨)과 경기 결과를 **최대한 정확하게 기록**할 의무가 있습니다.\n\n⚠️ 의도적인 실력 속이기(**샌드배깅**)나 스코어 조작은 커뮤니티의 신뢰를 해치는 **심각한 행위**로 간주됩니다.\n\n📊 **LTR(Lightning Tennis Rating)**은 이 기록된 결과들을 바탕으로 시스템에 의해 **공정하게 자동 계산**됩니다.\n\n🚫 **불법 콘텐츠 금지**:\n불법적이거나 부적절한 콘텐츠(모욕, 차별 등)를 게시하거나 AI 챗봇을 통해 생성하는 것을 금지합니다.',
-          keywords: ['행동 강령', '정확성', '샌드배깅', 'LTR', '불법 콘텐츠', '조작'],
+            '🤝 **사용자 행동 강령 (제4장)**\n\n✍️ **정확성의 의무**:\n모든 사용자는 자신의 프로필(특히 경기 시작 전의 자체 평가 레벨)과 경기 결과를 **최대한 정확하게 기록**할 의무가 있습니다.\n\n⚠️ 의도적인 실력 속이기(**샌드배깅**)나 스코어 조작은 커뮤니티의 신뢰를 해치는 **심각한 행위**로 간주됩니다.\n\n📊 **LPR(Lightning Pickleball Rating)**은 이 기록된 결과들을 바탕으로 시스템에 의해 **공정하게 자동 계산**됩니다.\n\n🚫 **불법 콘텐츠 금지**:\n불법적이거나 부적절한 콘텐츠(모욕, 차별 등)를 게시하거나 AI 챗봇을 통해 생성하는 것을 금지합니다.',
+          keywords: ['행동 강령', '정확성', '샌드배깅', 'LPR', '불법 콘텐츠', '조작'],
           category: 'guidelines',
           priority: 1,
         },
         {
           question: '다양성 및 포용성 정책이 뭔가요?',
           answer:
-            '🌈 **다양성 및 포용성 정책 (제5장)**\n\n🤝 **포용성 원칙**:\n성별, 성적 지향, 성 정체성에 관계없이 모든 사용자는 모든 활동에 **동등하게 참여할 권리**를 가집니다.\n\n🚫 **차별 금지**:\n차별적 언행은 금지되며, 발견 시 **서비스 이용이 제한**될 수 있습니다.\n\n💡 번개 테니스는 모든 테니스 플레이어가 환영받는 **포용적인 커뮤니티**를 지향합니다!',
+            '🌈 **다양성 및 포용성 정책 (제5장)**\n\n🤝 **포용성 원칙**:\n성별, 성적 지향, 성 정체성에 관계없이 모든 사용자는 모든 활동에 **동등하게 참여할 권리**를 가집니다.\n\n🚫 **차별 금지**:\n차별적 언행은 금지되며, 발견 시 **서비스 이용이 제한**될 수 있습니다.\n\n💡 번개 피클볼는 모든 피클볼 플레이어가 환영받는 **포용적인 커뮤니티**를 지향합니다!',
           keywords: ['다양성', '포용성', '차별', '금지', '성별', '평등', '정책'],
           category: 'guidelines',
           priority: 1,
@@ -1028,7 +1028,7 @@ class KnowledgeBaseService {
         {
           question: '시즌 트로피는 어떤 것들이 있나요?',
           answer:
-            '🏆 **시즌 트로피 종류**\n\n시즌 종료 시 공식 랭커들에게 자동으로 수여됩니다.\n\n🥇 **시즌 챔피언 (Season Champion)**:\n• 시작 LTR 등급 그룹 내 ELO 1~3위\n• 금/은/동 트로피 수여\n• 예: LTR 3.0 그룹 챔피언, LTR 3.5 그룹 챔피언\n\n🚀 **랭크업 (Rank Up)**:\n• 시즌 중 LTR 등급이 상승한 모든 플레이어\n\n🔥 **아이언맨 (Iron Man)**:\n• 시즌 최다 경기 상위 10%\n• 성실한 참여에 대한 보상!\n\n♠️ **에이스 (Ace)**:\n• 10경기 이상 + 최고 승률 상위 5%\n• 효율성의 달인!',
+            '🏆 **시즌 트로피 종류**\n\n시즌 종료 시 공식 랭커들에게 자동으로 수여됩니다.\n\n🥇 **시즌 챔피언 (Season Champion)**:\n• 시작 LPR 등급 그룹 내 ELO 1~3위\n• 금/은/동 트로피 수여\n• 예: LPR 3.0 그룹 챔피언, LPR 3.5 그룹 챔피언\n\n🚀 **랭크업 (Rank Up)**:\n• 시즌 중 LPR 등급이 상승한 모든 플레이어\n\n🔥 **아이언맨 (Iron Man)**:\n• 시즌 최다 경기 상위 10%\n• 성실한 참여에 대한 보상!\n\n♠️ **에이스 (Ace)**:\n• 10경기 이상 + 최고 승률 상위 5%\n• 효율성의 달인!',
           keywords: ['시즌', '트로피', '챔피언', '랭크업', '아이언맨', '에이스'],
           category: 'achievements',
           priority: 1,
@@ -1036,8 +1036,8 @@ class KnowledgeBaseService {
         {
           question: '시즌 챔피언은 어떻게 결정되나요?',
           answer:
-            '👑 **시즌 챔피언 선정 방식**\n\n시즌 챔피언은 **시작 LTR 등급 그룹** 내에서 결정됩니다.\n\n📊 **그룹 분류 기준**:\n• 시즌 첫날의 LTR 등급 스냅샷이 기준\n• 예: LTR 3.0, 3.5, 4.0, 4.5 각각 별도 그룹\n\n🏅 **순위 결정**:\n• 각 그룹 내 공식 랭커 중 ELO 1~3위\n• 🥇 1위: 금 트로피\n• 🥈 2위: 은 트로피  \n• 🥉 3위: 동 트로피\n\n💡 **왜 시작 등급 기준인가요?**\n시즌 중 등급이 올라도 시작 등급 그룹에서 경쟁합니다. 이렇게 하면 실력이 비슷한 플레이어들끼리 공정하게 경쟁할 수 있습니다!',
-          keywords: ['챔피언', '시즌', '결정', '등급', '그룹', 'LTR'],
+            '👑 **시즌 챔피언 선정 방식**\n\n시즌 챔피언은 **시작 LPR 등급 그룹** 내에서 결정됩니다.\n\n📊 **그룹 분류 기준**:\n• 시즌 첫날의 LPR 등급 스냅샷이 기준\n• 예: LPR 3.0, 3.5, 4.0, 4.5 각각 별도 그룹\n\n🏅 **순위 결정**:\n• 각 그룹 내 공식 랭커 중 ELO 1~3위\n• 🥇 1위: 금 트로피\n• 🥈 2위: 은 트로피  \n• 🥉 3위: 동 트로피\n\n💡 **왜 시작 등급 기준인가요?**\n시즌 중 등급이 올라도 시작 등급 그룹에서 경쟁합니다. 이렇게 하면 실력이 비슷한 플레이어들끼리 공정하게 경쟁할 수 있습니다!',
+          keywords: ['챔피언', '시즌', '결정', '등급', '그룹', 'LPR'],
           category: 'achievements',
           priority: 1,
         },
@@ -1063,7 +1063,7 @@ class KnowledgeBaseService {
         {
           question: "What's the difference between Lightning Match and Lightning Meetup?",
           answer:
-            "Lightning Match is a 1:1 ranked game where ELO scores change and results affect your ranking. Lightning Meetup is a friendly game with multiple participants that doesn't affect rankings and focuses on enjoyable tennis social interaction.",
+            "Lightning Match is a 1:1 ranked game where ELO scores change and results affect your ranking. Lightning Meetup is a friendly game with multiple participants that doesn't affect rankings and focuses on enjoyable pickleball social interaction.",
           keywords: ['match', 'meetup', 'difference', 'ranking', 'lightning'],
           category: 'basic',
           priority: 1,
@@ -1085,11 +1085,11 @@ class KnowledgeBaseService {
           priority: 1,
         },
         {
-          question: 'What is LTR level?',
+          question: 'What is LPR level?',
           answer:
-            'LTR (Lightning Tennis Rating) is our unique ELO-based skill rating system. It ranges from 1 (Bronze, beginner) to 10 (Legend, elite). Based on ELO scores (600-2400+), it updates automatically after each match. LTR 1-2: Bronze/Silver (beginner), LTR 3-4: Gold (intermediate entry), LTR 5-6: Platinum (intermediate), LTR 7: Diamond (advanced intermediate), LTR 8-9: Master (advanced), LTR 10: Legend (elite). This system ensures fair matching with similarly skilled players.',
+            'LPR (Lightning Pickleball Rating) is our unique ELO-based skill rating system. It ranges from 1 (Bronze, beginner) to 10 (Legend, elite). Based on ELO scores (600-2400+), it updates automatically after each match. LPR 1-2: Bronze/Silver (beginner), LPR 3-4: Gold (intermediate entry), LPR 5-6: Platinum (intermediate), LPR 7: Diamond (advanced intermediate), LPR 8-9: Master (advanced), LPR 10: Legend (elite). This system ensures fair matching with similarly skilled players.',
           keywords: [
-            'LTR',
+            'LPR',
             'level',
             'skill',
             'rating',
@@ -1191,28 +1191,28 @@ class KnowledgeBaseService {
           category: 'achievements',
           priority: 1,
         },
-        // 🎯 Onboarding LTR Limit Q&A (Added 2025-12-22)
+        // 🎯 Onboarding LPR Limit Q&A (Added 2025-12-22)
         {
-          question: 'What is the maximum LTR I can select during onboarding?',
+          question: 'What is the maximum LPR I can select during onboarding?',
           answer:
-            'The maximum LTR (Lightning Tennis Rating) you can select during onboarding is 3.5. You can choose from 2.0, 2.5, 3.0, or 3.5. Levels 4.0 and above can only be achieved through actual matches. This reflects our principle that higher levels must be earned through demonstrated skill.',
-          keywords: ['onboarding', 'LTR', 'maximum', 'level', '3.5', 'select'],
+            'The maximum LPR (Lightning Pickleball Rating) you can select during onboarding is 3.5. You can choose from 2.0, 2.5, 3.0, or 3.5. Levels 4.0 and above can only be achieved through actual matches. This reflects our principle that higher levels must be earned through demonstrated skill.',
+          keywords: ['onboarding', 'LPR', 'maximum', 'level', '3.5', 'select'],
           category: 'onboarding',
           priority: 1,
         },
         {
-          question: 'How do I reach LTR 4.0 or higher?',
+          question: 'How do I reach LPR 4.0 or higher?',
           answer:
-            'LTR levels 4.0 and above (4.0, 4.5, 5.0, 5.5) cannot be selected during onboarding. You must earn them by winning Lightning Matches and increasing your ELO score. Beating stronger opponents earns you more points, and consistent victories will help you reach higher LTR levels. Prove your skill on the court! 💪',
-          keywords: ['LTR', '4.0', 'achieve', 'match', 'win', 'ELO', 'higher level'],
+            'LPR levels 4.0 and above (4.0, 4.5, 5.0, 5.5) cannot be selected during onboarding. You must earn them by winning Lightning Matches and increasing your ELO score. Beating stronger opponents earns you more points, and consistent victories will help you reach higher LPR levels. Prove your skill on the court! 💪',
+          keywords: ['LPR', '4.0', 'achieve', 'match', 'win', 'ELO', 'higher level'],
           category: 'ranking',
           priority: 1,
         },
         {
-          question: "Why can't I select a high LTR during onboarding?",
+          question: "Why can't I select a high LPR during onboarding?",
           answer:
-            'Lightning Tennis limits onboarding LTR selection to 3.5 to ensure fair competition. Advanced levels (4.0+) must be proven through actual match performance. This maintains the integrity of the ranking system and ensures all players compete fairly.',
-          keywords: ['onboarding', 'LTR', 'limit', 'fair', 'skill', 'prove'],
+            'Lightning Pickleball limits onboarding LPR selection to 3.5 to ensure fair competition. Advanced levels (4.0+) must be proven through actual match performance. This maintains the integrity of the ranking system and ensures all players compete fairly.',
+          keywords: ['onboarding', 'LPR', 'limit', 'fair', 'skill', 'prove'],
           category: 'onboarding',
           priority: 1,
         },
@@ -1220,7 +1220,7 @@ class KnowledgeBaseService {
         {
           question: 'Do I get a ranking immediately after signing up?',
           answer:
-            'Yes! Once you complete onboarding and select your LTR level, your ranking is displayed immediately. Even without playing any matches, you can see your current ranking in "#X / Y" format. Feel part of the community from day 1 and start competing to climb the ranks! 🎯',
+            'Yes! Once you complete onboarding and select your LPR level, your ranking is displayed immediately. Even without playing any matches, you can see your current ranking in "#X / Y" format. Feel part of the community from day 1 and start competing to climb the ranks! 🎯',
           keywords: ['new', 'signup', 'ranking', 'display', 'onboarding', 'new user'],
           category: 'ranking',
           priority: 1,
@@ -1228,7 +1228,7 @@ class KnowledgeBaseService {
         {
           question: 'How are rankings displayed when players have the same ELO?',
           answer:
-            'Lightning Tennis uses sports-style tiebreaking. Players with the same ELO score share the same rank. For example, if 2 players have ELO 1400, both are ranked #1, and the next player is #3 (skipping #2). This ensures a fair and clear ranking system!',
+            'Lightning Pickleball uses sports-style tiebreaking. Players with the same ELO score share the same rank. For example, if 2 players have ELO 1400, both are ranked #1, and the next player is #3 (skipping #2). This ensures a fair and clear ranking system!',
           keywords: ['tie', 'ranking', 'ELO', 'same', 'rank', 'display'],
           category: 'ranking',
           priority: 1,
@@ -1241,14 +1241,14 @@ class KnowledgeBaseService {
           category: 'ranking',
           priority: 1,
         },
-        // 📊 ELO to LTR Conversion Table Q&A (Added 2025-12-31)
+        // 📊 ELO to LPR Conversion Table Q&A (Added 2025-12-31)
         {
-          question: 'Show me the ELO to LTR conversion table',
+          question: 'Show me the ELO to LPR conversion table',
           answer:
-            '📊 **ELO → LTR Conversion Table**\n\nLightning Tennis converts ELO scores to LTR (Lightning Tennis Rating) levels:\n\n| ELO Range | LTR Level | Tier |\n|----------|---------|------|\n| 0 - 1000 | LTR 1 | 🥉 Bronze |\n| 1000 - 1100 | LTR 2 | 🥈 Silver |\n| 1100 - 1200 | LTR 3 | 🥇 Gold I |\n| 1200 - 1300 | LTR 4 | 🥇 Gold II |\n| 1300 - 1450 | LTR 5 | 💎 Platinum I |\n| 1450 - 1600 | LTR 6 | 💎 Platinum II |\n| 1600 - 1800 | LTR 7 | 💠 Diamond |\n| 1800 - 2100 | LTR 8 | 👑 Master I |\n| 2100 - 2400 | LTR 9 | 👑 Master II |\n| 2400+ | LTR 10 | 🏆 Legend |\n\n💡 **Note**: Beat stronger opponents to earn more points, and reach higher LTR levels through consistent wins. Prove yourself! 💪',
+            '📊 **ELO → LPR Conversion Table**\n\nLightning Pickleball converts ELO scores to LPR (Lightning Pickleball Rating) levels:\n\n| ELO Range | LPR Level | Tier |\n|----------|---------|------|\n| 0 - 1000 | LPR 1 | 🥉 Bronze |\n| 1000 - 1100 | LPR 2 | 🥈 Silver |\n| 1100 - 1200 | LPR 3 | 🥇 Gold I |\n| 1200 - 1300 | LPR 4 | 🥇 Gold II |\n| 1300 - 1450 | LPR 5 | 💎 Platinum I |\n| 1450 - 1600 | LPR 6 | 💎 Platinum II |\n| 1600 - 1800 | LPR 7 | 💠 Diamond |\n| 1800 - 2100 | LPR 8 | 👑 Master I |\n| 2100 - 2400 | LPR 9 | 👑 Master II |\n| 2400+ | LPR 10 | 🏆 Legend |\n\n💡 **Note**: Beat stronger opponents to earn more points, and reach higher LPR levels through consistent wins. Prove yourself! 💪',
           keywords: [
             'ELO',
-            'LTR',
+            'LPR',
             'conversion',
             'table',
             'convert',
@@ -1261,19 +1261,19 @@ class KnowledgeBaseService {
           priority: 1,
         },
         {
-          question: 'How is ELO score converted to LTR?',
+          question: 'How is ELO score converted to LPR?',
           answer:
-            'ELO scores are converted to LTR levels as follows:\n\n• ELO 0-1000 → LTR 1 (Bronze)\n• ELO 1000-1100 → LTR 2 (Silver)\n• ELO 1100-1200 → LTR 3 (Gold I)\n• ELO 1200-1300 → LTR 4 (Gold II)\n• ELO 1300-1450 → LTR 5 (Platinum I)\n• ELO 1450-1600 → LTR 6 (Platinum II)\n• ELO 1600-1800 → LTR 7 (Diamond)\n• ELO 1800-2100 → LTR 8 (Master I)\n• ELO 2100-2400 → LTR 9 (Master II)\n• ELO 2400+ → LTR 10 (Legend)\n\nFor example, if your ELO is 1400, your LTR is 5 (Platinum I)!',
-          keywords: ['ELO', 'LTR', 'convert', 'how', 'score', 'level', 'conversion', 'calculate'],
+            'ELO scores are converted to LPR levels as follows:\n\n• ELO 0-1000 → LPR 1 (Bronze)\n• ELO 1000-1100 → LPR 2 (Silver)\n• ELO 1100-1200 → LPR 3 (Gold I)\n• ELO 1200-1300 → LPR 4 (Gold II)\n• ELO 1300-1450 → LPR 5 (Platinum I)\n• ELO 1450-1600 → LPR 6 (Platinum II)\n• ELO 1600-1800 → LPR 7 (Diamond)\n• ELO 1800-2100 → LPR 8 (Master I)\n• ELO 2100-2400 → LPR 9 (Master II)\n• ELO 2400+ → LPR 10 (Legend)\n\nFor example, if your ELO is 1400, your LPR is 5 (Platinum I)!',
+          keywords: ['ELO', 'LPR', 'convert', 'how', 'score', 'level', 'conversion', 'calculate'],
           category: 'ranking',
           priority: 1,
         },
         {
-          question: 'What ELO range corresponds to each LTR level?',
+          question: 'What ELO range corresponds to each LPR level?',
           answer:
-            'Here are the ELO ranges for each LTR level:\n\n🥉 **LTR 1 (Bronze)**: 0 - 1000\n🥈 **LTR 2 (Silver)**: 1000 - 1100\n🥇 **LTR 3 (Gold I)**: 1100 - 1200\n🥇 **LTR 4 (Gold II)**: 1200 - 1300\n💎 **LTR 5 (Platinum I)**: 1300 - 1450\n💎 **LTR 6 (Platinum II)**: 1450 - 1600\n💠 **LTR 7 (Diamond)**: 1600 - 1800\n👑 **LTR 8 (Master I)**: 1800 - 2100\n👑 **LTR 9 (Master II)**: 2100 - 2400\n🏆 **LTR 10 (Legend)**: 2400+\n\nWin matches to increase your ELO and reach higher LTR levels! Go get them! 💪',
+            'Here are the ELO ranges for each LPR level:\n\n🥉 **LPR 1 (Bronze)**: 0 - 1000\n🥈 **LPR 2 (Silver)**: 1000 - 1100\n🥇 **LPR 3 (Gold I)**: 1100 - 1200\n🥇 **LPR 4 (Gold II)**: 1200 - 1300\n💎 **LPR 5 (Platinum I)**: 1300 - 1450\n💎 **LPR 6 (Platinum II)**: 1450 - 1600\n💠 **LPR 7 (Diamond)**: 1600 - 1800\n👑 **LPR 8 (Master I)**: 1800 - 2100\n👑 **LPR 9 (Master II)**: 2100 - 2400\n🏆 **LPR 10 (Legend)**: 2400+\n\nWin matches to increase your ELO and reach higher LPR levels! Go get them! 💪',
           keywords: [
-            'LTR',
+            'LPR',
             'ELO',
             'range',
             'level',
@@ -1293,7 +1293,7 @@ class KnowledgeBaseService {
         {
           question: 'How are rankings sorted?',
           answer:
-            "Rankings are calculated differently depending on the match type:\n\n🎾 **Singles/Doubles/Mixed Doubles Tabs**:\n• Sorted by the ELO score for that specific match type.\n• If you haven't played any matches, your onboarding LTR-based ELO is used.\n• After playing matches, your updated ELO from match results is used.\n\n📊 **All Tab**:\n• Sorted by the **average** of your Singles, Doubles, and Mixed Doubles ELO scores.\n• Example: Singles 1400 + Doubles 1200 + Mixed 1200 = Average 1267\n• All onboarded users are included in the ranking.\n\n💡 Players with the same ELO share the same rank (sports-style tiebreaking).",
+            "Rankings are calculated differently depending on the match type:\n\n🎾 **Singles/Doubles/Mixed Doubles Tabs**:\n• Sorted by the ELO score for that specific match type.\n• If you haven't played any matches, your onboarding LPR-based ELO is used.\n• After playing matches, your updated ELO from match results is used.\n\n📊 **All Tab**:\n• Sorted by the **average** of your Singles, Doubles, and Mixed Doubles ELO scores.\n• Example: Singles 1400 + Doubles 1200 + Mixed 1200 = Average 1267\n• All onboarded users are included in the ranking.\n\n💡 Players with the same ELO share the same rank (sports-style tiebreaking).",
           keywords: [
             'ranking',
             'sort',
@@ -1312,13 +1312,13 @@ class KnowledgeBaseService {
         {
           question: 'How is the ranking determined for new users without match experience?',
           answer:
-            "A new user's ranking is determined based on the LTR (Lightning Tennis Rating) level they select during onboarding.\n\n📝 **Onboarding Process:**\n• You directly select your skill level from 2.0, 2.5, 3.0, or 3.5.\n• Levels 4.0 and above can only be achieved through actual match results.\n\n📊 **How Rankings Are Calculated:**\n• Your selected LTR is converted to an internal ELO score (e.g., 3.0 → 1200 points, 3.5 → 1400 points).\n• All users' ELO scores are sorted in descending order to determine rankings.\n• Users with the same ELO score share the same rank.\n\n🏆 **How to Improve Your Ranking:**\nWinning matches increases your ELO score, while losing decreases it. Beating opponents with higher ELO than yours earns you more points!",
+            "A new user's ranking is determined based on the LPR (Lightning Pickleball Rating) level they select during onboarding.\n\n📝 **Onboarding Process:**\n• You directly select your skill level from 2.0, 2.5, 3.0, or 3.5.\n• Levels 4.0 and above can only be achieved through actual match results.\n\n📊 **How Rankings Are Calculated:**\n• Your selected LPR is converted to an internal ELO score (e.g., 3.0 → 1200 points, 3.5 → 1400 points).\n• All users' ELO scores are sorted in descending order to determine rankings.\n• Users with the same ELO score share the same rank.\n\n🏆 **How to Improve Your Ranking:**\nWinning matches increases your ELO score, while losing decreases it. Beating opponents with higher ELO than yours earns you more points!",
           keywords: [
             'new user',
             'ranking',
             'determination',
             'match experience',
-            'LTR',
+            'LPR',
             'ELO',
             'onboarding',
             'rank',
@@ -1330,12 +1330,12 @@ class KnowledgeBaseService {
         {
           question: 'When is the match request button disabled in the player list?',
           answer:
-            'The match request button is disabled when: 1) LTR limit - For singles, host can only invite same level (0) or 1 level higher (+1) (e.g., LTR 5 can invite 5~6). For doubles/mixed, ±2 tolerance (e.g., LTR 5 can invite 3~7). 2) Gender limit - Singles matches require same gender. Both conditions must be met. [January 2025 Update]',
+            'The match request button is disabled when: 1) LPR limit - For singles, host can only invite same level (0) or 1 level higher (+1) (e.g., LPR 5 can invite 5~6). For doubles/mixed, ±2 tolerance (e.g., LPR 5 can invite 3~7). 2) Gender limit - Singles matches require same gender. Both conditions must be met. [January 2025 Update]',
           keywords: [
             'match request',
             'disabled',
             'button',
-            'LTR',
+            'LPR',
             'gender',
             'quick match',
             'eligibility',
@@ -1345,14 +1345,14 @@ class KnowledgeBaseService {
           category: 'match',
           priority: 1,
         },
-        // 🎾 LTR Level Invitation Limit Q&A (Added 2025-01-01)
+        // 🎾 LPR Level Invitation Limit Q&A (Added 2025-01-01)
         {
           question: 'What level can I invite in singles matches?',
           answer:
-            '🎯 **Singles Match LTR Level Limits**\n\nIn singles, you can only invite players at **same level (0) or 1 level higher (+1)**.\n\n📊 **Examples:**\n• LTR 5 host → Can invite LTR 5, 6\n• LTR 3 host → Can invite LTR 3, 4\n• ❌ LTR 5 host cannot invite LTR 4 (lower level)\n• ❌ LTR 5 host cannot invite LTR 7 (exceeds +1)\n\n🤔 **Why?**\nThis prevents players from deliberately inviting weaker opponents for easy wins. However, challenging stronger opponents is allowed!\n\n💡 **What about Doubles?**\nDoubles and Mixed Doubles allow ±2 range for more flexible matching. (e.g., LTR 5 → range 3~7)',
+            '🎯 **Singles Match LPR Level Limits**\n\nIn singles, you can only invite players at **same level (0) or 1 level higher (+1)**.\n\n📊 **Examples:**\n• LPR 5 host → Can invite LPR 5, 6\n• LPR 3 host → Can invite LPR 3, 4\n• ❌ LPR 5 host cannot invite LPR 4 (lower level)\n• ❌ LPR 5 host cannot invite LPR 7 (exceeds +1)\n\n🤔 **Why?**\nThis prevents players from deliberately inviting weaker opponents for easy wins. However, challenging stronger opponents is allowed!\n\n💡 **What about Doubles?**\nDoubles and Mixed Doubles allow ±2 range for more flexible matching. (e.g., LPR 5 → range 3~7)',
           keywords: [
             'singles',
-            'LTR',
+            'LPR',
             'level',
             'invite',
             'limit',
@@ -1368,11 +1368,11 @@ class KnowledgeBaseService {
         {
           question: 'What level can I invite in doubles matches?',
           answer:
-            '🎾 **Doubles/Mixed Doubles LTR Level Limits**\n\nIn doubles and mixed doubles, you can invite players within **±2 LTR range**.\n\n📊 **Examples:**\n• LTR 5 host → Can invite LTR 3~7\n• LTR 4 host → Can invite LTR 2~6\n• LTR 8 host → Can invite LTR 6~10\n\n🤔 **Why wider range than singles?**\n• Doubles emphasizes teamwork, so more flexible matching is allowed\n• Enables partnership formation across different skill levels\n• Beginners and advanced players can team up together\n\n💡 **What about Singles?**\nSingles only allows same level (0) or +1 level invitations.',
+            '🎾 **Doubles/Mixed Doubles LPR Level Limits**\n\nIn doubles and mixed doubles, you can invite players within **±2 LPR range**.\n\n📊 **Examples:**\n• LPR 5 host → Can invite LPR 3~7\n• LPR 4 host → Can invite LPR 2~6\n• LPR 8 host → Can invite LPR 6~10\n\n🤔 **Why wider range than singles?**\n• Doubles emphasizes teamwork, so more flexible matching is allowed\n• Enables partnership formation across different skill levels\n• Beginners and advanced players can team up together\n\n💡 **What about Singles?**\nSingles only allows same level (0) or +1 level invitations.',
           keywords: [
             'doubles',
             'mixed doubles',
-            'LTR',
+            'LPR',
             'level',
             'invite',
             'limit',
@@ -1385,16 +1385,16 @@ class KnowledgeBaseService {
         {
           question: 'Why can I only match with the same gender?',
           answer:
-            'Singles Lightning Matches are restricted to same-gender matches for fair competition. Men play against men, and women play against women. However, mixed doubles and Lightning Meetups have no gender restrictions, so you can enjoy tennis in various combinations!',
+            'Singles Lightning Matches are restricted to same-gender matches for fair competition. Men play against men, and women play against women. However, mixed doubles and Lightning Meetups have no gender restrictions, so you can enjoy pickleball in various combinations!',
           keywords: ['gender', 'same', 'match', 'male', 'female', 'singles', 'fair'],
           category: 'match',
           priority: 1,
         },
         // 📧 Official Contact Q&A (Added 2025-12-24)
         {
-          question: 'What is the official email address of Lightning Tennis app?',
+          question: 'What is the official email address of Lightning Pickleball app?',
           answer:
-            'The official email address of Lightning Tennis app is lightningtennisapp@gmail.com. For inquiries, feedback, bug reports, partnership opportunities, or any other questions, please reach out to this email. We will respond as quickly as possible! ⚡',
+            'The official email address of Lightning Pickleball app is lightningpickleballapp@gmail.com. For inquiries, feedback, bug reports, partnership opportunities, or any other questions, please reach out to this email. We will respond as quickly as possible! ⚡',
           keywords: ['email', 'contact', 'official', 'feedback', 'bug', 'partnership', 'inquiry'],
           category: 'contact',
           priority: 1,
@@ -1468,7 +1468,7 @@ class KnowledgeBaseService {
         {
           question: 'How is club information collected in the Discovery screen?',
           answer:
-            "Club data in the Discovery/Clubs screen is collected as follows:\n\n📋 **Basic Club Info**:\n• Subscribed in real-time from Firestore's tennis_clubs collection.\n• Includes club name, description, location, logo, etc.\n\n👥 **Member Count**:\n• Real-time count from clubMembers collection where status is 'active'.\n• Ensures accurate current member count.\n\n🏆 **Event Frequency**:\n• Calculated from club_events collection for the last 30 days.\n• Displayed as 'Events: X/mo'.\n\n💬 **Communication Level**:\n• Based on clubAnnouncements count from the last 7 days.\n• 5+: Active, 2-4: Normal, 0-1: Quiet\n\n📈 **Member Trend**:\n• Calculated from clubMembers join/leave data for the last 30 days.\n• Displayed as '+X/-Y'.\n\n💰 **Monthly Fee**:\n• Retrieved from tennis_clubs.settings.monthlyFee field.",
+            "Club data in the Discovery/Clubs screen is collected as follows:\n\n📋 **Basic Club Info**:\n• Subscribed in real-time from Firestore's pickleball_clubs collection.\n• Includes club name, description, location, logo, etc.\n\n👥 **Member Count**:\n• Real-time count from clubMembers collection where status is 'active'.\n• Ensures accurate current member count.\n\n🏆 **Event Frequency**:\n• Calculated from club_events collection for the last 30 days.\n• Displayed as 'Events: X/mo'.\n\n💬 **Communication Level**:\n• Based on clubAnnouncements count from the last 7 days.\n• 5+: Active, 2-4: Normal, 0-1: Quiet\n\n📈 **Member Trend**:\n• Calculated from clubMembers join/leave data for the last 30 days.\n• Displayed as '+X/-Y'.\n\n💰 **Monthly Fee**:\n• Retrieved from pickleball_clubs.settings.monthlyFee field.",
           keywords: [
             'discovery',
             'club',
@@ -1619,7 +1619,7 @@ class KnowledgeBaseService {
         {
           question: "What's the difference between Public ELO and Club ELO?",
           answer:
-            'Lightning Tennis has two ELO systems:\n\n🌐 **Public ELO**:\n• Used in Lightning Matches (Quick Matches).\n• Singles, Doubles, and Mixed Doubles are **managed separately**.\n• Example: Singles ELO 1500, Doubles ELO 1400, Mixed ELO 1350\n\n🏛️ **Club ELO**:\n• Used in Club Leagues/Tournaments.\n• Singles, Doubles, and Mixed Doubles are **combined into one ELO**.\n• League and Tournament results both affect the same Club ELO.\n• However, the K-Factor (score change magnitude) differs.\n\n📋 **Summary Table**:\n| Category | Public ELO | Club ELO |\n|----------|-----------|----------|\n| Singles/Doubles/Mixed | ✅ Separate | ❌ Combined |\n| League/Tournament | N/A | ❌ Combined |',
+            'Lightning Pickleball has two ELO systems:\n\n🌐 **Public ELO**:\n• Used in Lightning Matches (Quick Matches).\n• Singles, Doubles, and Mixed Doubles are **managed separately**.\n• Example: Singles ELO 1500, Doubles ELO 1400, Mixed ELO 1350\n\n🏛️ **Club ELO**:\n• Used in Club Leagues/Tournaments.\n• Singles, Doubles, and Mixed Doubles are **combined into one ELO**.\n• League and Tournament results both affect the same Club ELO.\n• However, the K-Factor (score change magnitude) differs.\n\n📋 **Summary Table**:\n| Category | Public ELO | Club ELO |\n|----------|-----------|----------|\n| Singles/Doubles/Mixed | ✅ Separate | ❌ Combined |\n| League/Tournament | N/A | ❌ Combined |',
           keywords: [
             'ELO',
             'public',
@@ -1653,7 +1653,7 @@ class KnowledgeBaseService {
         {
           question: 'Are there public leagues or tournaments?',
           answer:
-            'Currently, only **Club Leagues/Tournaments** are supported. You can participate in leagues or tournaments hosted by club admins after joining a club.\n\n🔮 **Future Plans**:\nPublic Leagues/Tournaments are in development! Soon, Lightning Tennis users will be able to join public competitions without club membership.\n\nCurrent Public Features:\n• ⚡ Lightning Match (Quick Match): Uses Public ELO\n• 🎾 Lightning Meetup: No ranking impact\n\nCurrent Club Features:\n• 🏆 Club League: Uses Club ELO (K=16)\n• ⚔️ Club Tournament: Uses Club ELO (K=24-32)\n\nStay tuned for new feature announcements! 📢',
+            'Currently, only **Club Leagues/Tournaments** are supported. You can participate in leagues or tournaments hosted by club admins after joining a club.\n\n🔮 **Future Plans**:\nPublic Leagues/Tournaments are in development! Soon, Lightning Pickleball users will be able to join public competitions without club membership.\n\nCurrent Public Features:\n• ⚡ Lightning Match (Quick Match): Uses Public ELO\n• 🎾 Lightning Meetup: No ranking impact\n\nCurrent Club Features:\n• 🏆 Club League: Uses Club ELO (K=16)\n• ⚔️ Club Tournament: Uses Club ELO (K=24-32)\n\nStay tuned for new feature announcements! 📢',
           keywords: ['public', 'league', 'tournament', 'competition', 'plan', 'future', 'club'],
           category: 'competition',
           priority: 1,
@@ -1662,7 +1662,7 @@ class KnowledgeBaseService {
         {
           question: 'What are the Community Guidelines?',
           answer:
-            '📋 **Lightning Tennis Community Guidelines**\n\n**Purpose**: To define the promises all members must keep for Lightning Tennis to be a fun, fair, and safe community.\n\n---\n\n⭐ **Chapter 1: Core Values**\n• Autonomy, Accessibility, Fairness, Transparency, Respect\n\n🎾 **Chapter 2: Official Match Rules**\n• Follow USTA The Code, Score recording, Forfeit/withdrawal, Cost sharing\n\n📊 **Chapter 3: Ranking & Season Policies**\n• Public/Club ELO, Quarterly seasons, Official ranking requirements, ELO rematch limit\n\n🤝 **Chapter 4: Code of Conduct**\n• Accuracy obligation, Prohibited content\n\n🌈 **Chapter 5: Diversity & Inclusion Policy**\n• Inclusivity principle, No discrimination',
+            '📋 **Lightning Pickleball Community Guidelines**\n\n**Purpose**: To define the promises all members must keep for Lightning Pickleball to be a fun, fair, and safe community.\n\n---\n\n⭐ **Chapter 1: Core Values**\n• Autonomy, Accessibility, Fairness, Transparency, Respect\n\n🎾 **Chapter 2: Official Match Rules**\n• Follow USTA The Code, Score recording, Forfeit/withdrawal, Cost sharing\n\n📊 **Chapter 3: Ranking & Season Policies**\n• Public/Club ELO, Quarterly seasons, Official ranking requirements, ELO rematch limit\n\n🤝 **Chapter 4: Code of Conduct**\n• Accuracy obligation, Prohibited content\n\n🌈 **Chapter 5: Diversity & Inclusion Policy**\n• Inclusivity principle, No discrimination',
           keywords: [
             'community',
             'guidelines',
@@ -1675,7 +1675,7 @@ class KnowledgeBaseService {
           priority: 1,
         },
         {
-          question: 'What are the Core Values of Lightning Tennis?',
+          question: 'What are the Core Values of Lightning Pickleball?',
           answer:
             '⭐ **Core Values (Chapter 1)**\n\n**Autonomy**: All matches are created and managed autonomously by users.\n\n**Accessibility**: Opportunities for skill improvement are equal for everyone, provided free of charge.\n\n**Fairness**: All official match results are proven through an objective ELO rating system.\n\n**Transparency**: All official match records, rankings, and trophies are transparently published as community history.\n\n**Respect**: Online and offline, we prioritize sportsmanship and respect for each other above all else.',
           keywords: [
@@ -1727,12 +1727,12 @@ class KnowledgeBaseService {
         {
           question: 'What is the Code of Conduct?',
           answer:
-            '🤝 **Code of Conduct (Chapter 4)**\n\n✍️ **Accuracy Obligation**:\nAll users must record their profile (especially self-assessed skill level before matches) and match results **as accurately as possible**.\n\n⚠️ Intentional skill misrepresentation (**sandbagging**) or score manipulation is considered a **serious violation** of community trust.\n\n📊 **LTR (Lightning Tennis Rating)** is **fairly auto-calculated** by the system based on these recorded results.\n\n🚫 **Prohibited Content**:\nPosting or generating illegal or inappropriate content (insults, discrimination, etc.) through the AI chatbot is prohibited.',
+            '🤝 **Code of Conduct (Chapter 4)**\n\n✍️ **Accuracy Obligation**:\nAll users must record their profile (especially self-assessed skill level before matches) and match results **as accurately as possible**.\n\n⚠️ Intentional skill misrepresentation (**sandbagging**) or score manipulation is considered a **serious violation** of community trust.\n\n📊 **LPR (Lightning Pickleball Rating)** is **fairly auto-calculated** by the system based on these recorded results.\n\n🚫 **Prohibited Content**:\nPosting or generating illegal or inappropriate content (insults, discrimination, etc.) through the AI chatbot is prohibited.',
           keywords: [
             'code of conduct',
             'accuracy',
             'sandbagging',
-            'LTR',
+            'LPR',
             'prohibited content',
             'manipulation',
           ],
@@ -1742,7 +1742,7 @@ class KnowledgeBaseService {
         {
           question: 'What is the Diversity & Inclusion Policy?',
           answer:
-            '🌈 **Diversity & Inclusion Policy (Chapter 5)**\n\n🤝 **Inclusivity Principle**:\nRegardless of gender, sexual orientation, or gender identity, all users have the right to **participate equally** in all activities.\n\n🚫 **No Discrimination**:\nDiscriminatory speech or behavior is prohibited and may result in **service restrictions** if discovered.\n\n💡 Lightning Tennis strives to be an **inclusive community** where all tennis players feel welcome!',
+            '🌈 **Diversity & Inclusion Policy (Chapter 5)**\n\n🤝 **Inclusivity Principle**:\nRegardless of gender, sexual orientation, or gender identity, all users have the right to **participate equally** in all activities.\n\n🚫 **No Discrimination**:\nDiscriminatory speech or behavior is prohibited and may result in **service restrictions** if discovered.\n\n💡 Lightning Pickleball strives to be an **inclusive community** where all pickleball players feel welcome!',
           keywords: [
             'diversity',
             'inclusion',
@@ -1809,7 +1809,7 @@ class KnowledgeBaseService {
         {
           question: 'What Season Trophies are available?',
           answer:
-            '🏆 **Season Trophy Types**\n\nAutomatically awarded to Official Rankers at season end.\n\n🥇 **Season Champion**:\n• Top 1-3 ELO within starting LTR grade group\n• Gold/Silver/Bronze trophies awarded\n• Example: LTR 3.0 group champion, LTR 3.5 group champion\n\n🚀 **Rank Up**:\n• All players whose LTR grade increased during the season\n\n🔥 **Iron Man**:\n• Top 10% in most matches played\n• Reward for consistent participation!\n\n♠️ **Ace**:\n• 10+ matches + Top 5% win rate\n• Master of efficiency!',
+            '🏆 **Season Trophy Types**\n\nAutomatically awarded to Official Rankers at season end.\n\n🥇 **Season Champion**:\n• Top 1-3 ELO within starting LPR grade group\n• Gold/Silver/Bronze trophies awarded\n• Example: LPR 3.0 group champion, LPR 3.5 group champion\n\n🚀 **Rank Up**:\n• All players whose LPR grade increased during the season\n\n🔥 **Iron Man**:\n• Top 10% in most matches played\n• Reward for consistent participation!\n\n♠️ **Ace**:\n• 10+ matches + Top 5% win rate\n• Master of efficiency!',
           keywords: ['season', 'trophy', 'champion', 'rank up', 'iron man', 'ace'],
           category: 'achievements',
           priority: 1,
@@ -1817,8 +1817,8 @@ class KnowledgeBaseService {
         {
           question: 'How is the Season Champion determined?',
           answer:
-            '👑 **Season Champion Selection**\n\nSeason Champions are determined within **starting LTR grade groups**.\n\n📊 **Group Classification**:\n• Based on LTR grade snapshot from season first day\n• Example: LTR 3.0, 3.5, 4.0, 4.5 each have separate groups\n\n🏅 **Ranking Determination**:\n• Top 1-3 ELO among official rankers in each group\n• 🥇 1st place: Gold trophy\n• 🥈 2nd place: Silver trophy\n• 🥉 3rd place: Bronze trophy\n\n💡 **Why starting grade?**\nEven if your grade increases during the season, you compete in your starting grade group. This ensures fair competition among players of similar skill!',
-          keywords: ['champion', 'season', 'determine', 'grade', 'group', 'LTR'],
+            '👑 **Season Champion Selection**\n\nSeason Champions are determined within **starting LPR grade groups**.\n\n📊 **Group Classification**:\n• Based on LPR grade snapshot from season first day\n• Example: LPR 3.0, 3.5, 4.0, 4.5 each have separate groups\n\n🏅 **Ranking Determination**:\n• Top 1-3 ELO among official rankers in each group\n• 🥇 1st place: Gold trophy\n• 🥈 2nd place: Silver trophy\n• 🥉 3rd place: Bronze trophy\n\n💡 **Why starting grade?**\nEven if your grade increases during the season, you compete in your starting grade group. This ensures fair competition among players of similar skill!',
+          keywords: ['champion', 'season', 'determine', 'grade', 'group', 'LPR'],
           category: 'achievements',
           priority: 1,
         },

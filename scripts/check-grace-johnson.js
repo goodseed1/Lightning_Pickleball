@@ -60,11 +60,11 @@ async function checkUser() {
     console.log('\n' + '='.repeat(60));
     console.log('🔍 스크린샷과 비교:');
     console.log('='.repeat(60));
-    console.log('  Rankings 섹션: ELO 1200 (LTR 4)');
+    console.log('  Rankings 섹션: ELO 1200 (LPR 4)');
     console.log('  Match Statistics:');
-    console.log('    - Singles: ELO 1189 (LTR 3)');
-    console.log('    - Doubles: ELO 1045 (LTR 2)');
-    console.log('    - Mixed: ELO 1200 (LTR 4)');
+    console.log('    - Singles: ELO 1189 (LPR 3)');
+    console.log('    - Doubles: ELO 1045 (LPR 2)');
+    console.log('    - Mixed: ELO 1200 (LPR 4)');
 
     console.log('\n' + '='.repeat(60));
     console.log('📋 결론:');

@@ -139,7 +139,7 @@ const translations = {
   // inviteFriends section (2 keys)
   inviteFriends: {
     title: 'Invitar Amigos',
-    shareMessage: '¡Únete a mí en Lightning Tennis!',
+    shareMessage: '¡Únete a mí en Lightning Pickleball!',
   },
 
   // leagueRankings section (2 keys)
@@ -172,8 +172,8 @@ const translations = {
     submit: 'Enviar Reporte',
   },
 
-  // tournamentBracket section (2 keys)
-  tournamentBracket: {
+  // tournamentBpaddle section (2 keys)
+  tournamentBpaddle: {
     title: 'Cuadro del Torneo',
     round: 'Ronda {{number}}',
   },

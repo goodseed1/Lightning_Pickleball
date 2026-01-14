@@ -5,13 +5,13 @@
  */
 
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 /* eslint-disable react-refresh/only-export-components */
 
@@ -36,8 +36,8 @@ import { cctvLog, CCTV_PHASES } from '../utils/cctvLogger';
 import { formatDistance } from '../utils/unitUtils';
 import coachLessonService from '../services/coachLessonService';
 import { CoachLesson } from '../types/coachLesson';
-import tennisServiceService from '../services/tennisServiceService';
-import { TennisService } from '../types/tennisService';
+import pickleballServiceService from '../services/pickleballServiceService';
+import { PickleballService } from '../types/pickleballService';
 import clubService from '../services/clubService';
 
 // Type definitions
@@ -71,11 +71,11 @@ interface Player {
     gender?: string;
   };
   preferredTimeSlots: string[];
-  // 🎯 [KIM FIX v19] LTR values (1-10 scale) for all game types
+  // 🎯 [KIM FIX v19] LPR values (1-10 scale) for all game types
   singlesLtr?: number;
   doublesLtr?: number;
   mixedLtr?: number;
-  // 🎾 ELO-based LTR display (accurate, from actual matches)
+  // 🎾 ELO-based LPR display (accurate, from actual matches)
   singlesElo?: number;
   // 🎯 [KIM FIX] createdAt for sorting (optional for players)
   createdAt?: Date | { toDate: () => Date };
@@ -177,10 +177,10 @@ interface DiscoveryContextType {
   clubs: Club[];
   events: Event[];
   lessons: CoachLesson[];
-  services: TennisService[];
+  services: PickleballService[];
 
   // Filtered results
-  filteredResults: (Player | Club | Event | CoachLesson | TennisService)[];
+  filteredResults: (Player | Club | Event | CoachLesson | PickleballService)[];
 
   // Loading states
   isLoading: boolean;
@@ -242,7 +242,7 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
   const [clubs, setClubs] = useState<Club[]>([]);
   const [events, setEvents] = useState<Event[]>([]);
   const [lessons, setLessons] = useState<CoachLesson[]>([]);
-  const [services, setServices] = useState<TennisService[]>([]);
+  const [services, setServices] = useState<PickleballService[]>([]);
 
   // 🎯 [KIM FIX] Track pending join requests for club status display
   const [pendingJoinRequests, setPendingJoinRequests] = useState<
@@ -423,8 +423,8 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
           const doublesElo = eloRatings?.doubles?.current;
           const mixedElo = eloRatings?.mixed?.current;
 
-          // ELO to LTR conversion (1-10 scale)
-          // 🎯 [KIM FIX v16] Use LTR scale (1-10) instead of NTRP (2.5-5.5)
+          // ELO to LPR conversion (1-10 scale)
+          // 🎯 [KIM FIX v16] Use LPR scale (1-10) instead of NTRP (2.5-5.5)
           const eloToLtr = (elo: number): number => {
             if (elo < 1000) return 1;
             if (elo < 1100) return 2;
@@ -458,10 +458,10 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
               userData.location || { latitude: 0, longitude: 0 },
             profile,
             preferredTimeSlots: userData.preferredTimeSlots || [],
-            singlesLtr, // 🎯 [KIM FIX v19] Singles LTR (1-10 scale) for quick match display
-            doublesLtr, // 🎯 [KIM FIX v19] Doubles LTR (1-10 scale) for live event card display
-            mixedLtr, // 🎯 [KIM FIX v19] Mixed LTR (1-10 scale) for live event card display
-            singlesElo, // 🎾 ELO-based LTR display (accurate, from actual matches)
+            singlesLtr, // 🎯 [KIM FIX v19] Singles LPR (1-10 scale) for quick match display
+            doublesLtr, // 🎯 [KIM FIX v19] Doubles LPR (1-10 scale) for live event card display
+            mixedLtr, // 🎯 [KIM FIX v19] Mixed LPR (1-10 scale) for live event card display
+            singlesElo, // 🎾 ELO-based LPR display (accurate, from actual matches)
           } as Player;
         });
 
@@ -849,7 +849,7 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
       userId: user.uid,
     });
 
-    const clubsRef = collection(db, 'tennis_clubs');
+    const clubsRef = collection(db, 'pickleball_clubs');
     const clubsQuery = query(clubsRef, where('status', '==', 'active'), limit(50));
 
     const unsubscribe = onSnapshot(
@@ -1092,7 +1092,7 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
     };
   }, [user?.uid]);
 
-  // ✅ Reactive Tennis Services Subscription
+  // ✅ Reactive Pickleball Services Subscription
   useEffect(() => {
     if (!user?.uid) {
       setServices([]);
@@ -1103,7 +1103,7 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
       userId: user.uid,
     });
 
-    const unsubscribe = tennisServiceService.listenToServices(servicesList => {
+    const unsubscribe = pickleballServiceService.listenToServices(servicesList => {
       cctvLog('DiscoveryContext', CCTV_PHASES.DISCOVERY_DATA_LOADED, 'Services data received', {
         docsCount: servicesList.length,
       });
@@ -1494,7 +1494,7 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
           if (event.hostId) {
             const hostPlayer = players.find(p => p.id === event.hostId);
             if (hostPlayer) {
-              // Select LTR based on gameType
+              // Select LPR based on gameType
               const gameType = event.gameType?.toLowerCase() || 'singles';
               if (gameType.includes('mixed')) {
                 liveHostNtrp = hostPlayer.mixedLtr || hostPlayer.singlesLtr || liveHostNtrp;
@@ -1626,7 +1626,7 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
 
       console.log(`  - Lessons After Processing: ${results.length}`);
     } else if (filterType === 'services') {
-      // 🛠️ Tennis Services Processing Pipeline
+      // 🛠️ Pickleball Services Processing Pipeline
       console.log(`--- 🏭 DISCOVERY FACTORY: TENNIS SERVICES PROCESSING ---`);
       console.log(`  - Total Raw Services: ${services.length}`);
 
@@ -1698,7 +1698,7 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
             );
           } else if (hasAuthorName) {
             // Lesson or Service (both have authorName)
-            const itemWithAuthor = item as CoachLesson | TennisService;
+            const itemWithAuthor = item as CoachLesson | PickleballService;
             const hasLocation = 'location' in itemWithAuthor && itemWithAuthor.location;
             return (
               item.title.toLowerCase().includes(searchTerm) ||
@@ -1724,7 +1724,7 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
           return item.skillLevel === skillFilter;
         }
 
-        // 🎯 [KIM FIX v19] Get LTR value from player data
+        // 🎯 [KIM FIX v19] Get LPR value from player data
         let ntrpValue: number | undefined;
 
         // Priority 1: singlesLtr (most reliable - 1-10 scale)

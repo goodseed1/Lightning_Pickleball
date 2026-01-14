@@ -83,7 +83,7 @@ export async function verifyClubExists(
   clubId: string
 ): Promise<{ isValid: boolean; error?: string }> {
   try {
-    const clubDoc = await db.collection('tennis_clubs').doc(clubId).get();
+    const clubDoc = await db.collection('pickleball_clubs').doc(clubId).get();
 
     if (!clubDoc.exists) {
       return {
@@ -176,7 +176,7 @@ export function validateTournamentDates(
 }
 
 /**
- * Validate draw date (optional date for bracket generation)
+ * Validate draw date (optional date for bpaddle generation)
  *
  * @param drawDate - Draw date
  * @param registrationDeadline - Registration deadline
@@ -337,7 +337,7 @@ export function validateCanRegister(
 }
 
 // ============================================================================
-// Bracket Calculation Utilities
+// Bpaddle Calculation Utilities
 // ============================================================================
 
 /**
@@ -354,7 +354,7 @@ export function calculateTotalRounds(maxParticipants: number): number {
 }
 
 /**
- * Calculate number of matches in a single elimination bracket
+ * Calculate number of matches in a single elimination bpaddle
  *
  * @param participantCount - Number of participants
  * @returns Total number of matches

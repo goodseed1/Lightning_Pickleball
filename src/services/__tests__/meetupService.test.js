@@ -40,12 +40,12 @@ describe.skip('MeetupService Integration Tests - Complex mocking issues', () => 
         dateTime: new Date('2024-12-25T10:00:00'),
         location: {
           type: 'home',
-          name: 'Tennis Club Court',
-          address: '123 Tennis Ave',
+          name: 'Pickleball Club Court',
+          address: '123 Pickleball Ave',
           coordinates: { lat: 34.0522, lng: -118.2437 },
         },
-        title: 'Weekly Tennis Meetup',
-        description: 'Regular weekend tennis session',
+        title: 'Weekly Pickleball Meetup',
+        description: 'Regular weekend pickleball session',
         maxParticipants: 8,
       };
       const mockMeetupId = 'meetup123';
@@ -65,8 +65,8 @@ describe.skip('MeetupService Integration Tests - Complex mocking issues', () => 
         dateTime: expect.objectContaining({ _isTimestamp: true }),
         location: expect.objectContaining({
           type: 'home',
-          name: 'Tennis Club Court',
-          address: '123 Tennis Ave',
+          name: 'Pickleball Club Court',
+          address: '123 Pickleball Ave',
           coordinates: expect.objectContaining({
             latitude: 34.0522,
             longitude: -118.2437,

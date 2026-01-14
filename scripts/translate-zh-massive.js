@@ -90,7 +90,7 @@ const zhTranslations = {
         defaultMessage: '您有一条新的活动更新。',
         defaultLeagueName: '联赛',
       },
-      tennisUserFallback: '网球用户{{id}}',
+      pickleballUserFallback: '网球用户{{id}}',
     },
     camera: {
       permissionError: '请求权限时发生错误。',

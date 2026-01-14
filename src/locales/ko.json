@@ -1,6 +1,6 @@
 {
   "home": {
-    "subtitle": "나만의 지역 테니스 커뮤니티"
+    "subtitle": "나만의 지역 피클볼 커뮤니티"
   },
   "participationStatus": {
     "courts": "코트",
@@ -52,13 +52,13 @@
       "retry": "다시 시도",
       "debugTitle": "개발 모드 - 에러 정보:",
       "detailedTitle": "앱에서 오류가 발생했습니다",
-      "detailedMessage": "죄송합니다. 예상치 못한 오류가 발생했습니다. 앱을 다시 시작하거나 문제가 계속되면 번개앱 도우미 또는 lightningtennisapp@gmail.com으로 문의해주세요.",
+      "detailedMessage": "죄송합니다. 예상치 못한 오류가 발생했습니다. 앱을 다시 시작하거나 문제가 계속되면 번개앱 도우미 또는 lightningpickleballapp@gmail.com으로 문의해주세요.",
       "reportSent": "✅ 오류 보고서가 자동으로 전송되었습니다",
       "reportPending": "📤 오류 보고서 전송 중...",
       "errorDetails": "에러 세부사항 (개발 모드):",
       "componentStack": "컴포넌트 스택:",
       "restart": "앱 재시작",
-      "supportText": "문제가 계속되면 번개앱 도우미 또는 lightningtennisapp@gmail.com으로 다음 정보와 함께 문의해주세요:",
+      "supportText": "문제가 계속되면 번개앱 도우미 또는 lightningpickleballapp@gmail.com으로 다음 정보와 함께 문의해주세요:",
       "errorTime": "오류 발생 시간",
       "appVersion": "앱 버전",
       "errorCode": "오류 코드"
@@ -92,7 +92,7 @@
     "create": "생성",
     "myClubs": "내 클럽",
     "myProfile": "내 프로필",
-    "ltrAssessment": "LTR 자가 진단"
+    "ltrAssessment": "LPR 자가 진단"
   },
   "feedbackCard": {
     "time": {
@@ -172,13 +172,13 @@
     "createAccount": "계정 만들기",
     "alreadyHaveAccount": "이미 계정이 있으신가요?",
     "dontHaveAccount": "계정이 없으신가요?",
-    "loginDescription": "지역 테니스 네트워크와 커뮤니티를 구축하세요",
-    "welcomeTitle": "라이트닝 테니스에 오신 것을 환영합니다!",
-    "welcomeSubtitle": "주변 테니스 선수들과 연결하고 커뮤니티에 참여하세요",
+    "loginDescription": "지역 피클볼 네트워크와 커뮤니티를 구축하세요",
+    "welcomeTitle": "라이트닝 피클볼에 오신 것을 환영합니다!",
+    "welcomeSubtitle": "주변 피클볼 선수들과 연결하고 커뮤니티에 참여하세요",
     "continueWithEmail": "이메일로 계속하기",
     "whatYouGet": "이런 기능을 이용할 수 있어요:",
-    "feature1": "즉시 번개 테니스 매치 찾기",
-    "feature2": "테니스 클럽 가입 또는 생성",
+    "feature1": "즉시 번개 피클볼 매치 찾기",
+    "feature2": "피클볼 클럽 가입 또는 생성",
     "feature3": "진행 상황 및 통계 추적",
     "termsNotice": "계속하면 서비스 약관 및 개인정보 보호정책에 동의하는 것입니다",
     "loginFailed": "로그인에 실패했습니다. 다시 시도해주세요.",
@@ -230,7 +230,7 @@
     "facilities": "시설 정보",
     "rules": "클럽 규칙",
     "loading": "클럽 정보를 불러오는 중...",
-    "address_search_title": "테니스 코트 주소 검색",
+    "address_search_title": "피클볼 코트 주소 검색",
     "meeting_modal_title": "정기 모임 시간 추가",
     "day_selection": "요일 선택",
     "meeting_time": "모임 시간",
@@ -255,11 +255,11 @@
     "fields": {
       "name": "클럽 이름",
       "intro": "소개",
-      "address_placeholder": "테니스 코트 주소 검색",
-      "address_label": "테니스 코트 주소",
-      "address_search_placeholder": "테니스 코트 주소를 검색하세요",
-      "name_placeholder": "예: 번개 테니스 클럽",
-      "intro_placeholder": "테니스 클럽의 목표, 분위기, 특징 등을 소개해 주세요",
+      "address_placeholder": "피클볼 코트 주소 검색",
+      "address_label": "피클볼 코트 주소",
+      "address_search_placeholder": "피클볼 코트 주소를 검색하세요",
+      "name_placeholder": "예: 번개 피클볼 클럽",
+      "intro_placeholder": "피클볼 클럽의 목표, 분위기, 특징 등을 소개해 주세요",
       "fee_placeholder": "예: 50",
       "rules_placeholder": "예:\n• 정기 모임 참석률 70% 이상 유지\n• 상호 예의와 배려\n• 시설 이용 후 정리정돈",
       "meet_day": "요일",
@@ -368,7 +368,7 @@
       "meetingName": "모임 이름 *",
       "meetingNamePlaceholder": "예: 주말 단식 연습",
       "location": "장소 *",
-      "locationPlaceholder": "예: 중앙공원 테니스장",
+      "locationPlaceholder": "예: 중앙공원 피클볼장",
       "repeatDay": "반복 요일",
       "startTime": "시작 시간",
       "endTime": "종료 시간"
@@ -465,7 +465,7 @@
       "loadError": "프로필을 불러오는 중 오류가 발생했습니다",
       "notFound": "프로필 정보를 찾을 수 없습니다",
       "backButton": "돌아가기",
-      "defaultNickname": "테니스 플레이어",
+      "defaultNickname": "피클볼 플레이어",
       "noLocation": "위치 정보 없음",
       "joinedDate": "{{date}} 가입",
       "friendRequest": {
@@ -537,7 +537,7 @@
   "profileSetup": {
     "title": "프로필 설정",
     "step1": "기본 정보",
-    "step2": "테니스 정보",
+    "step2": "피클볼 정보",
     "step3": "위치 및 권한",
     "step4": "활동 선호 시간대",
     "nickname": "닉네임",
@@ -628,9 +628,9 @@
   "onboarding": {
     "steps": {
       "skillLevel": "실력 수준",
-      "skillLevelSubtitle": "테니스 실력 수준을 알려주세요",
+      "skillLevelSubtitle": "피클볼 실력 수준을 알려주세요",
       "preferredTime": "선호 시간",
-      "preferredTimeSubtitle": "주로 언제 테니스를 치시나요?",
+      "preferredTimeSubtitle": "주로 언제 피클볼를 치시나요?",
       "travelDistance": "이동 거리",
       "travelDistanceSubtitle": "최대 몇 km까지 이동하실 수 있나요?",
       "bio": "자기소개",
@@ -640,9 +640,9 @@
     },
     "skillLevels": {
       "beginner": "초보자",
-      "beginnerDesc": "테니스를 배우기 시작했어요 (LTR 2.5)",
+      "beginnerDesc": "피클볼를 배우기 시작했어요 (LPR 2.5)",
       "elementary": "초급",
-      "elementaryDesc": "기본기를 익혔어요 (LTR 3.5)"
+      "elementaryDesc": "기본기를 익혔어요 (LPR 3.5)"
     },
     "timeSlots": {
       "morning": "오전 (6-12시)",
@@ -653,7 +653,7 @@
     "timeSlotHint": "여러 시간대를 선택할 수 있어요",
     "maxDistance": "최대 {{distance}}km",
     "bioLabel": "자기소개",
-    "bioPlaceholder": "테니스에 대한 경험이나 매칭 상대에게 전하고 싶은 말을 적어주세요.",
+    "bioPlaceholder": "피클볼에 대한 경험이나 매칭 상대에게 전하고 싶은 말을 적어주세요.",
     "bioCharCount": "{{count}} / 200자 (최소 10자)",
     "locationText": "근처 플레이어와 매칭하기 위해 위치 정보 사용을 허용해주세요.",
     "locationNote": "• 정확한 위치는 저장되지 않습니다\n• 매칭 시에만 대략적인 거리를 계산합니다\n• 언제든 설정에서 변경할 수 있습니다",
@@ -666,7 +666,7 @@
       "locationError": "위치 오류",
       "locationErrorMessage": "위치를 가져올 수 없습니다. 다시 시도해주세요.",
       "profileComplete": "프로필 설정 완료",
-      "profileCompleteMessage": "프로필 설정이 완료되었습니다. Lightning Tennis를 시작해보세요!",
+      "profileCompleteMessage": "프로필 설정이 완료되었습니다. Lightning Pickleball를 시작해보세요!",
       "error": "오류",
       "errorMessage": "프로필 설정 중 오류가 발생했습니다."
     }
@@ -716,11 +716,11 @@
     }
   },
   "ltrAssessment": {
-    "title": "LTR 자가 진단",
+    "title": "LPR 자가 진단",
     "back": "뒤로",
     "next": "다음",
     "viewResult": "결과 보기",
-    "recommendedLevel": "추천 LTR 레벨",
+    "recommendedLevel": "추천 LPR 레벨",
     "confidence": "신뢰도",
     "confidenceHigh": "높음",
     "confidenceMedium": "보통",
@@ -735,23 +735,23 @@
     "complete": "완료"
   },
   "ltrResult": {
-    "title": "LTR 레벨 평가",
-    "recommendedLevel": "추천 LTR 레벨",
+    "title": "LPR 레벨 평가",
+    "recommendedLevel": "추천 LPR 레벨",
     "initialElo": "초기 ELO",
     "recommended": "추천",
     "confirmSkillLevel": "실력 수준 확인",
     "confirmMessage": "{{level}}을(를) 선택하시겠습니까?\n\n이 레벨로 프로필이 설정됩니다.",
     "chooseSkillLevel": "실력 수준 선택",
     "manualSelectionHint": "추천 결과와 다르다고 생각되시면 직접 선택하세요",
-    "highLevelNotice": "평가 결과 LTR {{level}} 수준으로 분석되었습니다. 하지만 신규 회원은 최대 3.5까지만 선택 가능하며, 실제 매치를 통해 더 높은 레벨로 올라갈 수 있습니다.",
-    "policyNotice": "LTR 6 이상은 앱 내 경기 결과를 통해서만 획득할 수 있습니다. 온보딩에서는 LTR 5까지 선택 가능합니다.",
+    "highLevelNotice": "평가 결과 LPR {{level}} 수준으로 분석되었습니다. 하지만 신규 회원은 최대 3.5까지만 선택 가능하며, 실제 매치를 통해 더 높은 레벨로 올라갈 수 있습니다.",
+    "policyNotice": "LPR 6 이상은 앱 내 경기 결과를 통해서만 획득할 수 있습니다. 온보딩에서는 LPR 5까지 선택 가능합니다.",
     "eloInfo": {
       "title": "ELO 레이팅이란?",
-      "description": "ELO는 상대적 실력을 나타내는 점수입니다. 경기 결과에 따라 변동되며, LTR 레벨을 기반으로 초기값이 설정됩니다."
+      "description": "ELO는 상대적 실력을 나타내는 점수입니다. 경기 결과에 따라 변동되며, LPR 레벨을 기반으로 초기값이 설정됩니다."
     },
     "confidenceInfo": {
       "title": "신뢰도란?",
-      "description": "신뢰도 (Confidence Level)는 LTR 평가 결과가 얼마나 일관성 있는지를 나타냅니다."
+      "description": "신뢰도 (Confidence Level)는 LPR 평가 결과가 얼마나 일관성 있는지를 나타냅니다."
     },
     "confidence": {
       "label": "신뢰도: {{level}}",
@@ -791,11 +791,11 @@
   "terms": {
     "title": "약관 동의",
     "description": "서비스 이용을 위한 약관에 동의해주세요",
-    "introSubtitle": "안전하고 즐거운 테니스 커뮤니티를 위해 필요한 약관들입니다",
+    "introSubtitle": "안전하고 즐거운 피클볼 커뮤니티를 위해 필요한 약관들입니다",
     "stepProgress": "{{total}}단계 중 {{current}}단계",
     "agreeAll": "약관 모두 동의",
     "importantNotice": "중요 안내사항",
-    "noticeContent": "Lightning Tennis는 테니스 플레이어를 연결하는 플랫폼입니다. 실제 경기 중 발생하는 안전사고나 분쟁에 대한 책임은 참가자들에게 있으며, 당사는 이에 대한 법적 책임을 지지 않습니다.",
+    "noticeContent": "Lightning Pickleball는 피클볼 플레이어를 연결하는 플랫폼입니다. 실제 경기 중 발생하는 안전사고나 분쟁에 대한 책임은 참가자들에게 있으며, 당사는 이에 대한 법적 책임을 지지 않습니다.",
     "requiredTermsTitle": "필수 약관 동의",
     "requiredTermsMessage": "서비스 이용을 위해 필수 약관에 모두 동의해주세요.",
     "serviceTerms": "서비스 이용약관",
@@ -809,27 +809,27 @@
     "details": {
       "serviceTerms": {
         "title": "서비스 이용약관",
-        "content": "Lightning Tennis 서비스 이용약관\n\n⚠️ 중요 안내사항\nLightning Tennis는 테니스 플레이어를 연결하는 플랫폼입니다. 실제 경기 중 발생하는 안전사고나 분쟁에 대한 책임은 참가자들에게 있으며, 당사는 이에 대한 법적 책임을 지지 않습니다.\n\n1. 서비스 이용\n- 본 앱은 테니스 플레이어들을 연결하는 플랫폼 서비스입니다.\n- 사용자는 매치 생성, 참여, 클럽 활동 등의 기능을 이용할 수 있습니다.\n- 서비스 이용 시 상호 존중과 스포츠맨십을 지켜주세요.\n\n2. 사용자 의무\n- 정확한 정보를 제공해야 합니다.\n- 타인의 권리를 침해하지 않아야 합니다.\n- 불법적이거나 부적절한 콘텐츠를 게시하지 않아야 합니다.\n\n3. AI 챗봇 서비스 관련 조항\n3.1 AI 답변의 한계 (면책 조항)\n- 챗봇이 제공하는 테니스 관련 정보는 AI에 의해 생성되었습니다.\n- AI가 제공하는 정보는 부정확하거나 최신이 아닐 수 있습니다.\n- 회사는 AI 챗봇이 제공하는 정보의 정확성, 완전성, 신뢰성에 대해 보장하지 않습니다.\n- AI 챗봇 정보로 인해 발생하는 모든 손해에 대해 회사는 책임지지 않습니다.\n\n3.2 사용자 행위 규정\n- 챗봇을 이용하여 불법적인 내용을 생성하거나 질문하는 것을 금지합니다.\n- 모욕적이거나 차별적인 내용을 생성하거나 질문하는 것을 금지합니다.\n- 타인의 권리를 침해하는 내용을 생성하거나 질문하는 것을 금지합니다.\n- 개인정보, 민감한 정보를 의도적으로 공유하는 것을 금지합니다.\n\n3.3 서비스 변경 및 중단\n- 회사는 언제든지 AI 챗봇 기능의 내용을 변경할 수 있습니다.\n- 회사는 기술적, 운영상의 사유로 챗봇 서비스를 일시적 또는 영구적으로 중단할 수 있습니다.\n- 서비스 변경 또는 중단으로 인한 손해에 대해 회사는 책임지지 않습니다.\n\n4. 서비스 제공자의 권리\n- 서비스 품질 향상을 위한 업데이트를 진행할 수 있습니다.\n- 부적절한 사용자에 대한 제재 조치를 취할 수 있습니다."
+        "content": "Lightning Pickleball 서비스 이용약관\n\n⚠️ 중요 안내사항\nLightning Pickleball는 피클볼 플레이어를 연결하는 플랫폼입니다. 실제 경기 중 발생하는 안전사고나 분쟁에 대한 책임은 참가자들에게 있으며, 당사는 이에 대한 법적 책임을 지지 않습니다.\n\n1. 서비스 이용\n- 본 앱은 피클볼 플레이어들을 연결하는 플랫폼 서비스입니다.\n- 사용자는 매치 생성, 참여, 클럽 활동 등의 기능을 이용할 수 있습니다.\n- 서비스 이용 시 상호 존중과 스포츠맨십을 지켜주세요.\n\n2. 사용자 의무\n- 정확한 정보를 제공해야 합니다.\n- 타인의 권리를 침해하지 않아야 합니다.\n- 불법적이거나 부적절한 콘텐츠를 게시하지 않아야 합니다.\n\n3. AI 챗봇 서비스 관련 조항\n3.1 AI 답변의 한계 (면책 조항)\n- 챗봇이 제공하는 피클볼 관련 정보는 AI에 의해 생성되었습니다.\n- AI가 제공하는 정보는 부정확하거나 최신이 아닐 수 있습니다.\n- 회사는 AI 챗봇이 제공하는 정보의 정확성, 완전성, 신뢰성에 대해 보장하지 않습니다.\n- AI 챗봇 정보로 인해 발생하는 모든 손해에 대해 회사는 책임지지 않습니다.\n\n3.2 사용자 행위 규정\n- 챗봇을 이용하여 불법적인 내용을 생성하거나 질문하는 것을 금지합니다.\n- 모욕적이거나 차별적인 내용을 생성하거나 질문하는 것을 금지합니다.\n- 타인의 권리를 침해하는 내용을 생성하거나 질문하는 것을 금지합니다.\n- 개인정보, 민감한 정보를 의도적으로 공유하는 것을 금지합니다.\n\n3.3 서비스 변경 및 중단\n- 회사는 언제든지 AI 챗봇 기능의 내용을 변경할 수 있습니다.\n- 회사는 기술적, 운영상의 사유로 챗봇 서비스를 일시적 또는 영구적으로 중단할 수 있습니다.\n- 서비스 변경 또는 중단으로 인한 손해에 대해 회사는 책임지지 않습니다.\n\n4. 서비스 제공자의 권리\n- 서비스 품질 향상을 위한 업데이트를 진행할 수 있습니다.\n- 부적절한 사용자에 대한 제재 조치를 취할 수 있습니다."
       },
       "privacyPolicy": {
         "title": "개인정보 처리방침",
-        "content": "개인정보 처리방침\n\n1. 수집하는 개인정보\n- 기본 정보: 닉네임, 성별, 연령대\n- 테니스 정보: NTRP 레벨, 선호 플레이 스타일\n- 위치 정보: 활동 지역, GPS 위치 (매치 찾기용)\n- 연락처 정보: 이메일 주소\n- AI 챗봇 대화 정보: 사용자가 입력한 질문 내용과 대화 기록\n\n2. 개인정보 이용 목적\n- 매치메이킹 서비스 제공\n- 맞춤형 추천 서비스 제공\n- 사용자 간 소통 지원\n- 서비스 개선 및 통계 분석\n- AI 챗봇 서비스 제공: 사용자 질문에 대한 답변 생성\n- 챗봇 서비스 품질 개선 및 사용자 문의 트렌드 분석\n\n3. 제3자 정보 제공 (중요)\n3.1 Google AI 서비스 연동\n- AI 챗봇 답변 생성을 위해 사용자의 대화 내용이 Google(Alphabet Inc.)에 전송됩니다.\n- Google은 AI 모델(Gemini)을 통해 답변을 생성하기 위한 목적으로만 해당 데이터를 처리합니다.\n- Google의 개인정보 처리방침: https://policies.google.com/privacy\n- 사용자는 AI 챗봇 기능 사용을 거부할 수 있으며, 거부 시에도 다른 서비스 이용에는 제한이 없습니다.\n\n3.2 제3자 제공 시 보호조치\n- 개인 식별 정보는 최대한 제거하고 전송합니다.\n- 암호화된 통신을 통해 안전하게 전송됩니다.\n\n4. 데이터 저장 기간\n- 기본 개인정보: 서비스 이용 기간 동안 보관\n- AI 챗봇 대화 로그: 서비스 개선 목적으로 최대 2년간 보관 후 자동 삭제\n- 회원 탈퇴 시 모든 개인정보 즉시 삭제 (단, 법적 의무가 있는 경우 해당 기간 동안 보관)\n\n5. 개인정보 보호 및 이용자 권리\n- 수집된 개인정보는 암호화되어 안전하게 보관됩니다.\n- 사용자는 언제든지 개인정보 처리 정지를 요구할 수 있습니다.\n- 개인정보 열람, 정정, 삭제를 요청할 수 있습니다.\n\n⚠️ 6. 개인정보 보안 면책 조항 (중요)\n- 해킹, 악성코드, 시스템 오류 등 외부 공격이나 프로그램 오류로 인해 개인정보가 유출될 경우, 회사는 이에 대한 법적 책임을 지지 않습니다.\n- 사용자는 본 서비스 이용 시 주민등록번호, 금융정보, 비밀번호 등 민감한 개인정보를 앱 내에 노출하거나 저장하지 않을 것을 권고합니다.\n- 프로필, 게시글, 채팅 등에 민감한 정보를 입력하여 발생하는 피해에 대해 회사는 책임을 지지 않습니다.\n- 사용자는 자신의 계정 보안을 위해 강력한 비밀번호 사용 및 주기적 변경을 권장합니다.\n\n⚠️ 7. 대화방 프라이버시 안내 및 면책 (중요)\n- 이벤트/클럽 대화방의 메시지는 해당 방의 모든 참여자가 볼 수 있습니다.\n- 1:1 다이렉트 메시지는 대화 상대방만 열람할 수 있습니다.\n- 대화방에서 공유된 개인정보(전화번호, 주소 등)로 인한 문제는 공유한 사용자의 책임입니다.\n- 다른 참여자가 대화 내용을 스크린샷, 복사, 외부 공유할 수 있으며, 이로 인한 피해에 대해 회사는 책임지지 않습니다.\n- 회사는 서비스 운영, 분쟁 해결, 불법 행위 방지를 위해 대화 내용을 열람할 수 있습니다."
+        "content": "개인정보 처리방침\n\n1. 수집하는 개인정보\n- 기본 정보: 닉네임, 성별, 연령대\n- 피클볼 정보: NTRP 레벨, 선호 플레이 스타일\n- 위치 정보: 활동 지역, GPS 위치 (매치 찾기용)\n- 연락처 정보: 이메일 주소\n- AI 챗봇 대화 정보: 사용자가 입력한 질문 내용과 대화 기록\n\n2. 개인정보 이용 목적\n- 매치메이킹 서비스 제공\n- 맞춤형 추천 서비스 제공\n- 사용자 간 소통 지원\n- 서비스 개선 및 통계 분석\n- AI 챗봇 서비스 제공: 사용자 질문에 대한 답변 생성\n- 챗봇 서비스 품질 개선 및 사용자 문의 트렌드 분석\n\n3. 제3자 정보 제공 (중요)\n3.1 Google AI 서비스 연동\n- AI 챗봇 답변 생성을 위해 사용자의 대화 내용이 Google(Alphabet Inc.)에 전송됩니다.\n- Google은 AI 모델(Gemini)을 통해 답변을 생성하기 위한 목적으로만 해당 데이터를 처리합니다.\n- Google의 개인정보 처리방침: https://policies.google.com/privacy\n- 사용자는 AI 챗봇 기능 사용을 거부할 수 있으며, 거부 시에도 다른 서비스 이용에는 제한이 없습니다.\n\n3.2 제3자 제공 시 보호조치\n- 개인 식별 정보는 최대한 제거하고 전송합니다.\n- 암호화된 통신을 통해 안전하게 전송됩니다.\n\n4. 데이터 저장 기간\n- 기본 개인정보: 서비스 이용 기간 동안 보관\n- AI 챗봇 대화 로그: 서비스 개선 목적으로 최대 2년간 보관 후 자동 삭제\n- 회원 탈퇴 시 모든 개인정보 즉시 삭제 (단, 법적 의무가 있는 경우 해당 기간 동안 보관)\n\n5. 개인정보 보호 및 이용자 권리\n- 수집된 개인정보는 암호화되어 안전하게 보관됩니다.\n- 사용자는 언제든지 개인정보 처리 정지를 요구할 수 있습니다.\n- 개인정보 열람, 정정, 삭제를 요청할 수 있습니다.\n\n⚠️ 6. 개인정보 보안 면책 조항 (중요)\n- 해킹, 악성코드, 시스템 오류 등 외부 공격이나 프로그램 오류로 인해 개인정보가 유출될 경우, 회사는 이에 대한 법적 책임을 지지 않습니다.\n- 사용자는 본 서비스 이용 시 주민등록번호, 금융정보, 비밀번호 등 민감한 개인정보를 앱 내에 노출하거나 저장하지 않을 것을 권고합니다.\n- 프로필, 게시글, 채팅 등에 민감한 정보를 입력하여 발생하는 피해에 대해 회사는 책임을 지지 않습니다.\n- 사용자는 자신의 계정 보안을 위해 강력한 비밀번호 사용 및 주기적 변경을 권장합니다.\n\n⚠️ 7. 대화방 프라이버시 안내 및 면책 (중요)\n- 이벤트/클럽 대화방의 메시지는 해당 방의 모든 참여자가 볼 수 있습니다.\n- 1:1 다이렉트 메시지는 대화 상대방만 열람할 수 있습니다.\n- 대화방에서 공유된 개인정보(전화번호, 주소 등)로 인한 문제는 공유한 사용자의 책임입니다.\n- 다른 참여자가 대화 내용을 스크린샷, 복사, 외부 공유할 수 있으며, 이로 인한 피해에 대해 회사는 책임지지 않습니다.\n- 회사는 서비스 운영, 분쟁 해결, 불법 행위 방지를 위해 대화 내용을 열람할 수 있습니다."
       },
       "locationServices": {
         "title": "위치 기반 서비스 약관",
-        "content": "위치 기반 서비스 약관\n\n1. 위치정보 수집 및 이용\n- 근처 매치 찾기 서비스 제공\n- 테니스 코트 검색 서비스 제공\n- 거리 기반 알림 서비스 제공\n\n2. 위치정보 제공 동의\n- 사용자는 언제든지 위치정보 제공을 거부할 수 있습니다.\n- 위치정보 제공을 거부하는 경우 일부 서비스 이용이 제한될 수 있습니다.\n\n3. 위치정보 보호\n- 수집된 위치정보는 암호화되어 안전하게 보관됩니다.\n- 사용자의 동의 없이 제3자에게 제공되지 않습니다.\n\n⚠️ 4. 매치/모임 장소 정보 공개 안내 (중요)\n- 매치 또는 모임 생성 시 입력한 장소 주소는 앱의 모든 사용자에게 공개됩니다.\n- 클럽 정보에 등록된 코트 주소도 모든 사용자에게 공개됩니다.\n- 정확한 도로명 주소, 도시, 지역이 표시됩니다.\n- 개인 주소보다는 공공 장소(테니스 코트, 공원, 체육시설)를 사용하시기를 권장합니다.\n- 매치 또는 모임 생성 시 장소 정보 공개에 동의하는 것으로 간주됩니다.\n- 개인 위치 정보 공개로 인해 발생하는 모든 문제에 대한 책임은 사용자 본인에게 있습니다."
+        "content": "위치 기반 서비스 약관\n\n1. 위치정보 수집 및 이용\n- 근처 매치 찾기 서비스 제공\n- 피클볼 코트 검색 서비스 제공\n- 거리 기반 알림 서비스 제공\n\n2. 위치정보 제공 동의\n- 사용자는 언제든지 위치정보 제공을 거부할 수 있습니다.\n- 위치정보 제공을 거부하는 경우 일부 서비스 이용이 제한될 수 있습니다.\n\n3. 위치정보 보호\n- 수집된 위치정보는 암호화되어 안전하게 보관됩니다.\n- 사용자의 동의 없이 제3자에게 제공되지 않습니다.\n\n⚠️ 4. 매치/모임 장소 정보 공개 안내 (중요)\n- 매치 또는 모임 생성 시 입력한 장소 주소는 앱의 모든 사용자에게 공개됩니다.\n- 클럽 정보에 등록된 코트 주소도 모든 사용자에게 공개됩니다.\n- 정확한 도로명 주소, 도시, 지역이 표시됩니다.\n- 개인 주소보다는 공공 장소(피클볼 코트, 공원, 체육시설)를 사용하시기를 권장합니다.\n- 매치 또는 모임 생성 시 장소 정보 공개에 동의하는 것으로 간주됩니다.\n- 개인 위치 정보 공개로 인해 발생하는 모든 문제에 대한 책임은 사용자 본인에게 있습니다."
       },
       "liabilityDisclaimer": {
         "title": "책임 제한 및 면책 조항",
-        "content": "⚠️ 중요한 법적 고지사항 ⚠️\n\nLightning Tennis 앱은 개별 테니스 플레이어들을 연결하는 플랫폼 서비스입니다.\n\n당사는 다음 사항에 대해 법적 책임을 지지 않습니다:\n\n1. 안전사고 면책\n- 테니스 경기 중 발생하는 부상, 사고\n- 매치 참가자 간의 개인적 분쟁\n- 테니스 코트 시설의 안전사고\n\n2. 금전적 분쟁 면책\n- 매치 비용 관련 분쟁\n- 코트 대여료 관련 문제\n- 사용자 간 금전 거래 분쟁\n\n3. 클럽 회비 관련 면책\n- 본 앱은 클럽 회비 청구 내역 확인 및 납부 확인 요청 기능만 제공합니다.\n- 실제 결제는 클럽에서 지정한 결제 수단을 통해 직접 진행해야 합니다.\n- 본 앱은 결제 처리 기능을 제공하지 않습니다.\n- 회원과 클럽 간의 금전 거래에 대해 어떠한 책임도 지지 않습니다.\n\n4. 사용자 책임\n- 모든 매치의 안전과 책임은 주최자와 참가자에게 있습니다.\n- 사용자는 자신의 건강 상태를 확인하고 참가해야 합니다.\n- 적절한 보험 가입을 권장합니다.\n\n본 서비스를 이용함으로써 위 면책 조항에 동의하는 것으로 간주됩니다."
+        "content": "⚠️ 중요한 법적 고지사항 ⚠️\n\nLightning Pickleball 앱은 개별 피클볼 플레이어들을 연결하는 플랫폼 서비스입니다.\n\n당사는 다음 사항에 대해 법적 책임을 지지 않습니다:\n\n1. 안전사고 면책\n- 피클볼 경기 중 발생하는 부상, 사고\n- 매치 참가자 간의 개인적 분쟁\n- 피클볼 코트 시설의 안전사고\n\n2. 금전적 분쟁 면책\n- 매치 비용 관련 분쟁\n- 코트 대여료 관련 문제\n- 사용자 간 금전 거래 분쟁\n\n3. 클럽 회비 관련 면책\n- 본 앱은 클럽 회비 청구 내역 확인 및 납부 확인 요청 기능만 제공합니다.\n- 실제 결제는 클럽에서 지정한 결제 수단을 통해 직접 진행해야 합니다.\n- 본 앱은 결제 처리 기능을 제공하지 않습니다.\n- 회원과 클럽 간의 금전 거래에 대해 어떠한 책임도 지지 않습니다.\n\n4. 사용자 책임\n- 모든 매치의 안전과 책임은 주최자와 참가자에게 있습니다.\n- 사용자는 자신의 건강 상태를 확인하고 참가해야 합니다.\n- 적절한 보험 가입을 권장합니다.\n\n본 서비스를 이용함으로써 위 면책 조항에 동의하는 것으로 간주됩니다."
       },
       "marketingCommunications": {
         "title": "마케팅 정보 수신 동의",
-        "content": "마케팅 정보 수신 동의 (선택사항)\n\n1. 수신 내용\n- 새로운 기능 및 서비스 업데이트\n- 특별 이벤트 및 프로모션 안내\n- 테니스 관련 유용한 정보 및 팁\n- 파트너십 혜택 및 할인 정보\n\n2. 수신 방법\n- 푸시 알림\n- 이메일\n- 앱 내 알림\n\n3. 수신 거부\n- 언제든지 설정에서 수신을 거부할 수 있습니다.\n- 개별 알림별로 선택적 수신 거부가 가능합니다.\n\n본 동의는 선택사항이며, 거부하셔도 서비스 이용에는 제한이 없습니다."
+        "content": "마케팅 정보 수신 동의 (선택사항)\n\n1. 수신 내용\n- 새로운 기능 및 서비스 업데이트\n- 특별 이벤트 및 프로모션 안내\n- 피클볼 관련 유용한 정보 및 팁\n- 파트너십 혜택 및 할인 정보\n\n2. 수신 방법\n- 푸시 알림\n- 이메일\n- 앱 내 알림\n\n3. 수신 거부\n- 언제든지 설정에서 수신을 거부할 수 있습니다.\n- 개별 알림별로 선택적 수신 거부가 가능합니다.\n\n본 동의는 선택사항이며, 거부하셔도 서비스 이용에는 제한이 없습니다."
       },
       "inclusivityPolicy": {
         "title": "다양성 포용 정책",
-        "content": "🌈 다양성 포용 정책 및 면책 조항\n\nLightning Tennis는 모든 사용자에게 열린 플랫폼입니다.\n\n1. 포용성 원칙\n- 성별, 성적 지향, 성 정체성에 관계없이 모든 사용자는 동등하게 서비스를 이용할 수 있습니다.\n- 성 소수자(LGBTQ+) 사용자들도 모든 활동(매치 생성, 참여, 클럽 활동 등)에 제한 없이 참여할 수 있습니다.\n- 모든 사용자는 상호 존중의 원칙을 준수해야 합니다.\n\n2. 프로그램 오류 면책\n- 프로그램 오류로 인해 일부 기능이 의도치 않게 제한되는 경우가 발생할 수 있습니다.\n- 이러한 오류는 의도적인 차별이 아니며, 발견 즉시 수정됩니다.\n- 프로그램 오류로 인한 기능 제한에 대해 법적 소송을 제기하지 않는 것에 동의합니다.\n\n3. 차별 금지\n- 성별, 성적 지향, 성 정체성을 이유로 한 차별적 언행은 금지됩니다.\n- 차별 행위 발견 시 서비스 이용이 제한될 수 있습니다.\n\n본 정책에 동의함으로써 위 조항들을 이해하고 수락합니다."
+        "content": "🌈 다양성 포용 정책 및 면책 조항\n\nLightning Pickleball는 모든 사용자에게 열린 플랫폼입니다.\n\n1. 포용성 원칙\n- 성별, 성적 지향, 성 정체성에 관계없이 모든 사용자는 동등하게 서비스를 이용할 수 있습니다.\n- 성 소수자(LGBTQ+) 사용자들도 모든 활동(매치 생성, 참여, 클럽 활동 등)에 제한 없이 참여할 수 있습니다.\n- 모든 사용자는 상호 존중의 원칙을 준수해야 합니다.\n\n2. 프로그램 오류 면책\n- 프로그램 오류로 인해 일부 기능이 의도치 않게 제한되는 경우가 발생할 수 있습니다.\n- 이러한 오류는 의도적인 차별이 아니며, 발견 즉시 수정됩니다.\n- 프로그램 오류로 인한 기능 제한에 대해 법적 소송을 제기하지 않는 것에 동의합니다.\n\n3. 차별 금지\n- 성별, 성적 지향, 성 정체성을 이유로 한 차별적 언행은 금지됩니다.\n- 차별 행위 발견 시 서비스 이용이 제한될 수 있습니다.\n\n본 정책에 동의함으로써 위 조항들을 이해하고 수락합니다."
       }
     }
   },
@@ -901,7 +901,7 @@
     },
     "devTools": {
       "loading": "로딩 중...",
-      "tennisStats": "📊 테니스 통계",
+      "pickleballStats": "📊 피클볼 통계",
       "matchesPlayed": "경기 수",
       "wins": "승리",
       "winRate": "승률",
@@ -989,7 +989,7 @@
     "beFirstToPost": "첫 번째 글을 작성해보세요!",
     "pinned": "고정",
     "announcement": "공지",
-    "postContentPlaceholder": "게시글 내용을 입력해주세요...\n\n예시:\n안녕하세요! 이번 주말 정기 모임에 대해 안내드립니다.\n\n일시: 토요일 오후 2시\n장소: 코트 A\n준비물: 라켓, 운동화\n\n많은 참여 부탁드립니다!",
+    "postContentPlaceholder": "게시글 내용을 입력해주세요...\n\n예시:\n안녕하세요! 이번 주말 정기 모임에 대해 안내드립니다.\n\n일시: 토요일 오후 2시\n장소: 코트 A\n준비물: 패들, 운동화\n\n많은 참여 부탁드립니다!",
     "joinRequest": {
       "approvedTitle": "완료",
       "approvedMessage": "가입 신청이 승인되었습니다!",
@@ -1125,8 +1125,8 @@
     },
     "createClub": {
       "title": "클럽 만들기",
-      "subtitle": "테니스 커뮤니티",
-      "description": "새로운 테니스 커뮤니티를 시작하세요."
+      "subtitle": "피클볼 커뮤니티",
+      "description": "새로운 피클볼 커뮤니티를 시작하세요."
     },
     "infoNotice": "선택한 유형은 나중에 변경할 수 없습니다."
   },
@@ -1169,11 +1169,11 @@
   },
   "locationSearch": {
     "title": "위치 검색",
-    "placeholder": "테니스장 이름 또는 주소를 검색하세요",
+    "placeholder": "피클볼장 이름 또는 주소를 검색하세요",
     "useCurrentLocation": "현재 위치 사용",
     "currentLocation": "현재 위치",
     "publicWarning": "입력한 주소는 모든 사용자에게 공개됩니다.",
-    "avoidHomeAddress": "집 주소 사용은 피해주세요. 테니스장이나 공원 등 공공장소를 권장합니다."
+    "avoidHomeAddress": "집 주소 사용은 피해주세요. 피클볼장이나 공원 등 공공장소를 권장합니다."
   },
   "editProfile": {
     "title": "프로필 수정",
@@ -1195,7 +1195,7 @@
       "hint": "💡 성별은 온보딩 시 설정되며 변경할 수 없습니다."
     },
     "skillLevel": {
-      "label": "LTR 실력 레벨",
+      "label": "LPR 실력 레벨",
       "beginner": "초급",
       "intermediate": "중급",
       "advanced": "고급",
@@ -1219,7 +1219,7 @@
     },
     "goals": {
       "label": "목표",
-      "placeholder": "테니스 목표를 입력하세요..."
+      "placeholder": "피클볼 목표를 입력하세요..."
     },
     "activityTime": {
       "label": "활동 선호 시간대",
@@ -1310,7 +1310,7 @@
     },
     "locationRequired": {
       "title": "위치 정보 필요",
-      "description": "Lightning Tennis는 위치 기반 서비스입니다. 주변의 이벤트, 플레이어, 클럽, 코치, 서비스를 보려면 내 프로필 > 설정에서 위치를 활성화해주세요.",
+      "description": "Lightning Pickleball는 위치 기반 서비스입니다. 주변의 이벤트, 플레이어, 클럽, 코치, 서비스를 보려면 내 프로필 > 설정에서 위치를 활성화해주세요.",
       "setupButton": "위치 설정하기"
     },
     "alerts": {
@@ -1340,7 +1340,7 @@
         "title": "⚡ 퀵 매치 신청",
         "cannotChallenge": "매치 불가",
         "sameGenderOnly": "같은 성별의 플레이어만 도전할 수 있습니다.",
-        "ntrpOutOfRange": "LTR {{ntrp}}은(는) 도전 가능 범위를 벗어납니다. (최대 +1.0)",
+        "ntrpOutOfRange": "LPR {{ntrp}}은(는) 도전 가능 범위를 벗어납니다. (최대 +1.0)",
         "challengeMessage": "{{name}}님에게 매치를 신청하시겠습니까?\n\n장소와 시간은 수락 후 채팅으로 협의합니다.",
         "cancel": "취소",
         "challenge": "신청하기",
@@ -1387,10 +1387,10 @@
       "encouragement": {
         "events": "첫 번째 번개매치나 모임을 직접 만들어보세요! ⚡",
         "eventsSubtext": "\"생성\" 탭에서 이벤트를 생성할 수 있어요.",
-        "players": "주변 친구를 초대해서 함께 테니스를 즐겨보세요! 🎾",
+        "players": "주변 친구를 초대해서 함께 피클볼를 즐겨보세요! 🎾",
         "playersSubtext": "친구와 함께 번개 매치, 모임, 또는 클럽을 시작해보세요.",
         "clubs": "아직 근처에 클럽이 없네요. 첫 번째 클럽을 만들어보세요! 🏆",
-        "clubsSubtext": "\"생성\" 탭에서 나만의 테니스 클럽을 시작할 수 있어요.",
+        "clubsSubtext": "\"생성\" 탭에서 나만의 피클볼 클럽을 시작할 수 있어요.",
         "coaches": "현재 범위 내에 등록된 코치가 없어요 🔍",
         "coachesSubtext": "검색 거리를 넓혀서 더 많은 코치를 찾아보세요.",
         "services": "현재 범위 내에 등록된 서비스가 없어요 🔧",
@@ -1678,7 +1678,7 @@
     },
     "buttons": {
       "joinTournament": "참가하기",
-      "viewBracket": "대진표 보기",
+      "viewBpaddle": "대진표 보기",
       "joining": "참가 신청 중...",
       "participating": "참가 중",
       "applyToLeague": "참가하기",
@@ -1731,7 +1731,7 @@
       "statusOpen": "신청 가능",
       "statusPreparing": "준비중",
       "applySection": "참가 신청",
-      "applyDescription": "리그에 참가하여 다른 플레이어들과 경쟁하고 테니스 실력을 향상시키세요. 신청 후 관리자의 승인을 기다리셔야 합니다.",
+      "applyDescription": "리그에 참가하여 다른 플레이어들과 경쟁하고 피클볼 실력을 향상시키세요. 신청 후 관리자의 승인을 기다리셔야 합니다.",
       "applying": "신청 중...",
       "applyButton": "참가하기",
       "notOpenWarning": "현재 신청 기간이 아닙니다",
@@ -1847,7 +1847,7 @@
     "status": {
       "draft": "초안",
       "registration": "등록 중",
-      "bracketGeneration": "대진표 생성 중",
+      "bpaddleGeneration": "대진표 생성 중",
       "inProgress": "진행 중",
       "completed": "완료됨",
       "cancelled": "취소됨"
@@ -1871,7 +1871,7 @@
       "crownWinner": "우승자 선정하기",
       "closeRegistration": "참가 신청 마감",
       "addParticipantManually": "참가자 직접 추가",
-      "generateBracket": "대진표 생성 중..."
+      "generateBpaddle": "대진표 생성 중..."
     },
     "stats": {
       "champion": "우승자: ",
@@ -1925,7 +1925,7 @@
       "errorAssigning": "시드 배정 중 오류가 발생했습니다",
       "errorRemoving": "시드 제거 중 오류가 발생했습니다",
       "seedRangeError": "시드 번호는 1에서 {{max}} 사이여야 합니다",
-      "completeMessageWithBracket": "모든 참가자의 시드 배정이 완료되었습니다.\n이제 대진표를 생성할 수 있습니다."
+      "completeMessageWithBpaddle": "모든 참가자의 시드 배정이 완료되었습니다.\n이제 대진표를 생성할 수 있습니다."
     },
     "deletion": {
       "title": "토너먼트 삭제",
@@ -1987,8 +1987,8 @@
       "deleteAllParticipantsWarning": "모든 참가자 데이터를 삭제합니다. 이 작업은 되돌릴 수 없습니다.",
       "evenParticipantsRequired": "복식은 짝수 참가자가 필요합니다 (현재: {{count}}명)",
       "assignSeedsManually": "참가자 탭에서 수동으로 시드를 배정하세요",
-      "generateBracketAndStart": "대진표 생성 및 토너먼트 시작",
-      "generateBracketInstructions": "{{method}} 시딩으로 대진표를 생성하고 토너먼트를 시작합니다",
+      "generateBpaddleAndStart": "대진표 생성 및 토너먼트 시작",
+      "generateBpaddleInstructions": "{{method}} 시딩으로 대진표를 생성하고 토너먼트를 시작합니다",
       "addingParticipantsWait": "참가자 추가 중... 완료될 때까지 기다려주세요.",
       "cancelAndDeleteWarning": "대진표 생성 작업을 취소하고 토너먼트를 삭제합니다. 이 작업은 되돌릴 수 없습니다.",
       "tournamentInProgress": "토너먼트가 진행 중입니다. 경기 탭에서 경기 결과를 확인하세요.",
@@ -2009,8 +2009,8 @@
       "noActiveTournaments": "진행 중인 토너먼트가 없습니다",
       "noCompletedTournaments": "완료된 토너먼트가 없습니다",
       "createNewMessage": "클럽 멤버들과 경쟁할 새 토너먼트를 생성해보세요",
-      "bracketNotGenerated": "아직 대진표가 생성되지 않았습니다",
-      "bracketAfterRegistration": "참가 신청 마감 후 대진표가 생성됩니다",
+      "bpaddleNotGenerated": "아직 대진표가 생성되지 않았습니다",
+      "bpaddleAfterRegistration": "참가 신청 마감 후 대진표가 생성됩니다",
       "clickMatchesForDetails": "경기를 클릭하면 자세한 정보를 볼 수 있습니다",
       "cannotLoadTeamInfo": "팀 정보를 불러올 수 없습니다",
       "participantsCannotFormTeams": "참가자들이 팀을 구성할 수 없습니다. 각 참가자의 파트너 정보를 확인해주세요.",
@@ -2159,12 +2159,12 @@
       "guestTeamWins": "게스트팀 승리"
     },
     "requirements": {
-      "levelMismatch": "레벨 불일치 (내 LTR: {{userLtr}}, 허용: {{minLtr}}~{{maxLtr}})",
+      "levelMismatch": "레벨 불일치 (내 LPR: {{userLtr}}, 허용: {{minLtr}}~{{maxLtr}})",
       "genderMismatch": "성별 불일치",
       "menOnly": "남성 전용 매치입니다",
       "womenOnly": "여성 전용 매치입니다",
-      "canApply": "신청 가능: LTR {{minLtr}} ~ {{maxLtr}}",
-      "canApplyDoublesTeam": "신청 가능: 복식팀 LTR {{minLtr}} ~ {{maxLtr}}",
+      "canApply": "신청 가능: LPR {{minLtr}} ~ {{maxLtr}}",
+      "canApplyDoublesTeam": "신청 가능: 복식팀 LPR {{minLtr}} ~ {{maxLtr}}",
       "level": "레벨: {{level}}"
     },
     "soloApplicants": {
@@ -2210,7 +2210,7 @@
       "inviteAppUsers": "앱 사용자 초대",
       "smsFriendInvitations": "SMS로 친구 초대",
       "sendSmsInvitations": "SMS로 초대장 보내기",
-      "skillLevelMultiple": "LTR 실력 레벨 * (다중 선택 가능)",
+      "skillLevelMultiple": "LPR 실력 레벨 * (다중 선택 가능)",
       "selectSkillLevelsDesc": "환영하는 실력 레벨을 모두 선택해주세요",
       "matchLevelAuto": "매치 레벨 (자동 계산됨)",
       "skillLevel": "실력 레벨",
@@ -2256,17 +2256,17 @@
       "matchLevelRestriction": "번개 매치에서는 호스트보다 같거나 높은 레벨만 선택 가능합니다"
     },
     "autoNtrp": {
-      "hostLevel": "호스트 LTR: {{level}} ({{gameType}})",
-      "partnerLevel": "파트너 LTR: {{level}} ({{gameType}})",
-      "combinedLevel": "합산 LTR: {{level}}",
-      "hostLevelWithType": "호스트 LTR: {{level}} ({{type}})",
-      "partnerLevelWithType": "파트너 LTR: {{level}} ({{type}})"
+      "hostLevel": "호스트 LPR: {{level}} ({{gameType}})",
+      "partnerLevel": "파트너 LPR: {{level}} ({{gameType}})",
+      "combinedLevel": "합산 LPR: {{level}}",
+      "hostLevelWithType": "호스트 LPR: {{level}} ({{type}})",
+      "partnerLevelWithType": "파트너 LPR: {{level}} ({{type}})"
     },
     "helperText": {
       "languageSelection": "소통 가능한 언어를 선택하면 더 나은 매칭 경험을 얻을 수 있습니다.",
       "matchLevelAuto": "매치 레벨은 {{type}}에 따라 자동 계산됩니다.",
-      "doublesMatchLevel": "* 복식 매치의 레벨은 호스트와 파트너의 LTR 합산으로 자동 설정됩니다. 파트너는 호스트와 ±2 레벨 이내여야 합니다.",
-      "singlesMatchLevel": "* 단식 매치의 레벨은 호스트 LTR 기준으로 자동 설정됩니다. (0~+1 허용)"
+      "doublesMatchLevel": "* 복식 매치의 레벨은 호스트와 파트너의 LPR 합산으로 자동 설정됩니다. 파트너는 호스트와 ±2 레벨 이내여야 합니다.",
+      "singlesMatchLevel": "* 단식 매치의 레벨은 호스트 LPR 기준으로 자동 설정됩니다. (0~+1 허용)"
     },
     "friendInviteFilter": {
       "description": "같은 레벨 또는 1레벨 위까지만 초대 가능합니다"
@@ -2278,7 +2278,7 @@
     "sms": {
       "description": "앱을 설치하지 않은 친구들에게 초대장과 앱 설치 링크를 보냅니다",
       "descriptionDetailed": "앱을 설치하지 않은 친구들에게 초대장과 앱 설치 링크를 보냅니다",
-      "invitationMessage": "[라이트닝 테니스] {{sender}}님이 \"{{eventTitle}}\" 모임에 초대했습니다! 앱 다운로드: {{link}}",
+      "invitationMessage": "[라이트닝 피클볼] {{sender}}님이 \"{{eventTitle}}\" 모임에 초대했습니다! 앱 다운로드: {{link}}",
       "defaultSender": "친구",
       "numbersToInvite": "초대할 번호:"
     },
@@ -2324,14 +2324,14 @@
       "userSearchError": "사용자 검색 중 오류가 발생했습니다.",
       "userListError": "사용자 목록을 불러오는 중 오류가 발생했습니다.",
       "partnerSelectionFailed": "파트너 선택 불가",
-      "partnerLevelGap": "파트너와의 LTR 레벨 차이가 너무 큽니다.\n\n본인 LTR: {{hostNtrp}}\n파트너 LTR: {{partnerNtrp}}\n차이: {{gap}} (최대 2.0)\n\n비슷한 실력의 파트너를 선택해주세요.",
+      "partnerLevelGap": "파트너와의 LPR 레벨 차이가 너무 큽니다.\n\n본인 LPR: {{hostNtrp}}\n파트너 LPR: {{partnerNtrp}}\n차이: {{gap}} (최대 2.0)\n\n비슷한 실력의 파트너를 선택해주세요.",
       "partnerSelected": "파트너 선택됨",
       "partnerSelectedMessage": "{{displayName}}님을 파트너로 선택했습니다.",
       "titleRequired": "제목을 입력해주세요.",
       "locationRequired": "장소를 입력해주세요.",
       "gameTypeRequired": "게임 방식을 선택해주세요.",
       "doublesRequiresPartner": "복식 경기는 파트너를 선택해야 합니다.",
-      "skillLevelRequired": "LTR 실력 레벨을 선택해주세요.",
+      "skillLevelRequired": "LPR 실력 레벨을 선택해주세요.",
       "eventUpdated": "{{typeLabel}}이(가) 수정되었습니다!",
       "eventCreated": "{{typeLabel}}이(가) 생성되었습니다!",
       "partnerInvited": "\n파트너에게 초대장을 보냈습니다.",
@@ -2736,7 +2736,7 @@
       "achievements": "업적"
     },
     "empty": {
-      "title": "테니스를 시작해볼까요?",
+      "title": "피클볼를 시작해볼까요?",
       "description": "아직 활동이 없어요. 아래 가이드를 따라 시작해보세요!",
       "guides": {
         "findEvents": "주변 이벤트 참여하기",
@@ -2746,7 +2746,7 @@
       "aiHelper": {
         "question": "무엇을 해야 할지 모르겠다면?",
         "buttonText": "AI 도우미와 대화하기",
-        "subtext": "테니스 관련 질문이나 앱 사용법을 물어보세요!"
+        "subtext": "피클볼 관련 질문이나 앱 사용법을 물어보세요!"
       }
     },
     "notifications": {
@@ -2827,8 +2827,8 @@
       "clubHomeCourt": "클럽 홈 코트",
       "changeInSettings": "클럽 설정에서 변경 가능합니다",
       "courtLocation": "코트 주소",
-      "searchTennisCourt": "테니스 코트 검색하기",
-      "searchHelper": "탭하여 테니스 코트를 검색하세요."
+      "searchPickleballCourt": "피클볼 코트 검색하기",
+      "searchHelper": "탭하여 피클볼 코트를 검색하세요."
     },
     "court": {
       "availableCourts": "이용 가능한 코트 수",
@@ -2891,7 +2891,7 @@
     "placeholders": {
       "title": "예: 수요일 저녁 연습",
       "description": "모임에 대한 상세 설명을 입력하세요",
-      "locationName": "예: 센트럴 파크 테니스 코트",
+      "locationName": "예: 센트럴 파크 피클볼 코트",
       "address": "전체 주소를 입력하세요",
       "directions": "주차 정보, 입구 위치 등",
       "skillLevel": "예: 3.5+",
@@ -3135,7 +3135,7 @@
     "form": {
       "title": "참가 신청서",
       "skillLevelConfirmation": "실력 수준 확인",
-      "skillLevelPlaceholder": "예: LTR 5",
+      "skillLevelPlaceholder": "예: LPR 5",
       "emergencyContact": "긴급 연락처",
       "emergencyPlaceholder": "전화번호 입력",
       "preferredPartner": "선호 파트너 (선택)",
@@ -3225,7 +3225,7 @@
   "clubMemberInvitation": {
     "headerTitle": "회원 초대",
     "inviteAppUsers": "앱 사용자 초대",
-    "inviteAppUsersDescription": "Lightning Tennis 앱 사용자를 검색하여 클럽에 초대합니다.",
+    "inviteAppUsersDescription": "Lightning Pickleball 앱 사용자를 검색하여 클럽에 초대합니다.",
     "searchUsers": "사용자 검색",
     "selectedUsers": "선택된 사용자 ({{count}}명)",
     "sendInvitationWithLink": "초대 메시지 보내기",
@@ -3236,7 +3236,7 @@
     "phonePlaceholderIntl": "전화번호 입력 (예: +1-404-555-1234)",
     "sendSMSInvitation": "SMS 초대 보내기",
     "infoNote": "초대를 받은 사용자는 앱 내에서 초대를 수락하거나 거절할 수 있습니다.",
-    "invitationMessage": "{{clubName}} 클럽에 가입하시겠어요? Lightning Tennis 앱에서 초대를 확인해주세요!",
+    "invitationMessage": "{{clubName}} 클럽에 가입하시겠어요? Lightning Pickleball 앱에서 초대를 확인해주세요!",
     "invitationsSentTitle": "초대 완료",
     "invitationsSentMessage": "{{count}}명에게 초대 메시지를 보냈습니다.",
     "viewChat": "대화 보기",
@@ -3244,7 +3244,7 @@
     "notice": "알림",
     "enterPhoneNumbers": "전화번호를 입력해주세요.",
     "enterValidNumbers": "올바른 전화번호를 입력해주세요.",
-    "smsMessage": "{{clubName}} 테니스 클럽에 초대합니다! Lightning Tennis 앱을 다운로드하고 함께 테니스를 즐겨요!\n\n📱 iOS: https://apps.apple.com/app/id6749823614\n🤖 Android: https://play.google.com/store/apps/details?id=com.lightningtennis.app",
+    "smsMessage": "{{clubName}} 피클볼 클럽에 초대합니다! Lightning Pickleball 앱을 다운로드하고 함께 피클볼를 즐겨요!\n\n📱 iOS: https://apps.apple.com/app/id6749823614\n🤖 Android: https://play.google.com/store/apps/details?id=com.lightningpickleball.app",
     "smsCancelledTitle": "SMS 전송 취소",
     "smsCancelledMessage": "{{remaining}}명에게 아직 SMS를 보내지 않았습니다. 계속하시겠습니까?",
     "stop": "중단",
@@ -3488,7 +3488,7 @@
       "sent": "전송됨",
       "hasProposal": "제안 있음",
       "proposeTeam": "팀 제안",
-      "ltrOutOfRange": "LTR 범위 초과"
+      "ltrOutOfRange": "LPR 범위 초과"
     },
     "matchResult": {
       "ourTeamWon": "승리",
@@ -3586,7 +3586,7 @@
         "Thunderstorm with Heavy Hail": "큰 우박 동반 뇌우",
         "Unknown": "알 수 없음"
       },
-      "tennis": {
+      "pickleball": {
         "unplayable": "경기 불가",
         "notRecommended": "경기 권장 안 함",
         "caution": "주의 필요"
@@ -3797,8 +3797,8 @@
     "title": "제목 *",
     "category": "카테고리",
     "categoryStringing": "줄 교체",
-    "categoryRepair": "라켓 수리",
-    "categoryUsedRacket": "중고 라켓",
+    "categoryRepair": "패들 수리",
+    "categoryUsedPaddle": "중고 패들",
     "categoryUsedEquipment": "중고 장비",
     "categoryOther": "기타",
     "description": "설명",
@@ -3941,12 +3941,12 @@
     "noRecentMatches": "분석할 최근 경기가 없습니다. 경기를 완료한 후 다시 시도해주세요.",
     "loginRequired": "개인화된 조언을 받으려면 로그인이 필요합니다.",
     "quickPrompts": {
-      "rulesHelp": "테니스 기본 규칙을 설명해주세요",
+      "rulesHelp": "피클볼 기본 규칙을 설명해주세요",
       "techniqueTips": "내 실력 수준에 맞는 기술 향상 방법을 알려주세요",
       "strategyAdvice": "경기 전략과 전술에 대해 조언해주세요",
-      "equipmentHelp": "내 실력에 맞는 테니스 장비를 추천해주세요"
+      "equipmentHelp": "내 실력에 맞는 피클볼 장비를 추천해주세요"
     },
-    "welcome": "안녕하세요! 번개앱 도우미입니다. 🎾\n\n번개앱 사용법과 테니스에 관한 모든 질문에 답해드릴 준비가 되어 있습니다:\n\n📱 앱 사용법\n• 번개 매치/모임 만들기\n• 클럽 가입 및 관리\n• ELO 랭킹 시스템\n• 복식 참가 방법\n\n🎾 테니스 지식\n• 기술과 전략 조언\n• 규칙과 스코어링 설명\n• 장비 추천\n\n무엇을 도와드릴까요?\n\n번개앱 사용중 불편하신 점도 말씀해 주시면 수정하도록 하겠습니다. '문제'를 언급해 주시면 됩니다.\n\n⚠️ AI 기반 도우미로, 정확하지 않은 답변을 제공할 수 있습니다.",
+    "welcome": "안녕하세요! 번개앱 도우미입니다. 🎾\n\n번개앱 사용법과 피클볼에 관한 모든 질문에 답해드릴 준비가 되어 있습니다:\n\n📱 앱 사용법\n• 번개 매치/모임 만들기\n• 클럽 가입 및 관리\n• ELO 랭킹 시스템\n• 복식 참가 방법\n\n🎾 피클볼 지식\n• 기술과 전략 조언\n• 규칙과 스코어링 설명\n• 장비 추천\n\n무엇을 도와드릴까요?\n\n번개앱 사용중 불편하신 점도 말씀해 주시면 수정하도록 하겠습니다. '문제'를 언급해 주시면 됩니다.\n\n⚠️ AI 기반 도우미로, 정확하지 않은 답변을 제공할 수 있습니다.",
     "adminResponse": "📬 관리팀 응답:\n\n{{response}}",
     "userReply": "💬 내 답변: {{message}}",
     "originalQuestion": "📝 내 질문: {{question}}",
@@ -4252,11 +4252,11 @@
     "scoreSubmissionFailed": "점수 입력 실패",
     "loadingTournament": "토너먼트 정보를 불러오는 중...",
     "tournamentNotFound": "토너먼트를 찾을 수 없습니다",
-    "bracket": "대진표",
+    "bpaddle": "대진표",
     "hallOfFame": "명예의 전당",
-    "bracketNotGenerated": "대진표가 아직 생성되지 않았습니다",
-    "bracketWillBeGenerated": "참가자 모집이 완료된 후 대진표가 생성됩니다",
-    "statusGeneratingBracket": "대진표 생성 중",
+    "bpaddleNotGenerated": "대진표가 아직 생성되지 않았습니다",
+    "bpaddleWillBeGenerated": "참가자 모집이 완료된 후 대진표가 생성됩니다",
+    "statusGeneratingBpaddle": "대진표 생성 중",
     "statusInProgress": "진행 중",
     "statusCompleted": "완료됨",
     "participants": "참가자",
@@ -4365,12 +4365,12 @@
     }
   },
   "ntrpLevelSelect": {
-    "headerTitle": "LTR 레벨 선택",
-    "mainTitle": "테니스 레벨을 선택하세요",
+    "headerTitle": "LPR 레벨 선택",
+    "mainTitle": "피클볼 레벨을 선택하세요",
     "subtitle": "당신의 실력에 맞는 레벨을 선택하세요",
     "confirmTitle": "실력 레벨 확인",
     "confirmMessage": "{{level}}을(를) 선택하시겠습니까?\n\n프로필이 이 레벨로 설정됩니다.",
-    "policyNotice": "LTR 6 이상은 앱 내 경기 결과를 통해서만 획득할 수 있습니다. 온보딩에서는 LTR 5까지 선택 가능합니다.",
+    "policyNotice": "LPR 6 이상은 앱 내 경기 결과를 통해서만 획득할 수 있습니다. 온보딩에서는 LPR 5까지 선택 가능합니다.",
     "assessmentTitle": "🤔 레벨을 모르시겠나요?",
     "assessmentSubtitle": "몇 가지 질문에 답하여 추천 레벨을 받으세요",
     "assessmentButton": "레벨 평가 받기",
@@ -4428,7 +4428,7 @@
   "setLocationTimeModal": {
     "title": "📍 장소/시간 설정",
     "location": "장소",
-    "locationPlaceholder": "예: 서울 테니스 클럽, 2번 코트",
+    "locationPlaceholder": "예: 서울 피클볼 클럽, 2번 코트",
     "date": "날짜",
     "time": "시간",
     "infoText": "장소와 시간을 설정하면 상대방에게 알림이 전송됩니다.",
@@ -4521,13 +4521,13 @@
     },
     "seasonTrophyItems": {
       "seasonChampion": "시즌 챔피언",
-      "seasonChampionDesc": "LTR 등급 그룹 내 1위 달성",
+      "seasonChampionDesc": "LPR 등급 그룹 내 1위 달성",
       "seasonRunnerUp": "시즌 준우승",
-      "seasonRunnerUpDesc": "LTR 등급 그룹 내 2위 달성",
+      "seasonRunnerUpDesc": "LPR 등급 그룹 내 2위 달성",
       "season3rdPlace": "시즌 3위",
-      "season3rdPlaceDesc": "LTR 등급 그룹 내 3위 달성",
+      "season3rdPlaceDesc": "LPR 등급 그룹 내 3위 달성",
       "rankUp": "랭크업",
-      "rankUpDesc": "시즌 중 LTR 등급 상승",
+      "rankUpDesc": "시즌 중 LPR 등급 상승",
       "ironMan": "아이언맨",
       "ironManDesc": "시즌 최다 경기 상위 10%",
       "ace": "에이스",
@@ -4556,11 +4556,11 @@
       },
       "social_butterfly": {
         "name": "사교적인 나비",
-        "desc": "테니스 커뮤니티에서 친구를 만드세요"
+        "desc": "피클볼 커뮤니티에서 친구를 만드세요"
       },
       "community_pioneer": {
         "name": "커뮤니티 개척자",
-        "desc": "테니스 클럽에 가입하고 참여하세요"
+        "desc": "피클볼 클럽에 가입하고 참여하세요"
       },
       "first_tournament_victory": {
         "name": "첫 토너먼트 우승",
@@ -4582,8 +4582,8 @@
         "name": "뜨거운 연승",
         "desc": "3개의 토너먼트를 연속으로 우승하세요"
       },
-      "tennis_prodigy": {
-        "name": "테니스 신동",
+      "pickleball_prodigy": {
+        "name": "피클볼 신동",
         "desc": "토너먼트 100% 승률 유지 (최소 5회 참가)"
       },
       "runner_up_resilience": {
@@ -4608,7 +4608,7 @@
       },
       "early_adopter": {
         "name": "얼리 어답터",
-        "desc": "번개 테니스 초기에 가입하세요"
+        "desc": "번개 피클볼 초기에 가입하세요"
       },
       "conditions": {
         "wins": "{{count}}경기 승리",
@@ -4628,7 +4628,7 @@
         "singlesTournamentWins": "싱글 토너먼트 {{count}}회 우승",
         "doublesTournamentWins": "복식 토너먼트 {{count}}회 우승",
         "perfectMatches": "무실세트 {{count}}경기 승리",
-        "joinDate": "번개 테니스 초기 가입",
+        "joinDate": "번개 피클볼 초기 가입",
         "lightningMatchesHosted": "번개 매치 {{count}}회 주최"
       },
       "lightning_host": {
@@ -4655,7 +4655,7 @@
       },
       "first_club_join": {
         "name": "첫 클럽 가입",
-        "description": "첫 테니스 클럽에 가입했습니다! 🏟️"
+        "description": "첫 피클볼 클럽에 가입했습니다! 🏟️"
       },
       "streak_5": {
         "name": "5연승",
@@ -4744,9 +4744,9 @@
   },
   "ltrLevelSelect": {
     "headerTitle": "레벨 선택",
-    "mainTitle": "당신의 LTR 레벨은?",
-    "subtitle": "현재 테니스 실력에 맞는 레벨을 선택하세요",
-    "policyNotice": "LTR 6 이상은 앱 내 경기 결과를 통해서만 획득할 수 있습니다",
+    "mainTitle": "당신의 LPR 레벨은?",
+    "subtitle": "현재 피클볼 실력에 맞는 레벨을 선택하세요",
+    "policyNotice": "LPR 6 이상은 앱 내 경기 결과를 통해서만 획득할 수 있습니다",
     "assessmentTitle": "잘 모르시겠나요?",
     "assessmentSubtitle": "실력 평가를 통해 레벨을 추천받으세요",
     "assessmentButton": "실력 평가 시작",
@@ -4763,11 +4763,11 @@
     "close": "닫기"
   },
   "ltrExplanation": {
-    "title": "LTR이란?",
-    "description": "LTR(Lightning Tennis Rating)은 ELO 알고리즘 기반의 1-10 고유 레이팅 시스템입니다. 앱 내 경기 결과에 따라 레이팅이 계산됩니다.",
-    "tierSystem": "LTR 10레벨 시스템",
+    "title": "LPR이란?",
+    "description": "LPR(Lightning Pickleball Rating)은 ELO 알고리즘 기반의 1-10 고유 레이팅 시스템입니다. 앱 내 경기 결과에 따라 레이팅이 계산됩니다.",
+    "tierSystem": "LPR 10레벨 시스템",
     "keyPoints": "핵심 포인트",
-    "point1": "온보딩 최대 LTR 5 - 더 높은 레벨은 경기를 통해 획득",
+    "point1": "온보딩 최대 LPR 5 - 더 높은 레벨은 경기를 통해 획득",
     "point2": "공정하고 정확한 ELO 기반 레이팅 계산",
     "point3": "단식, 복식, 혼합복식 별도 레이팅"
   },
@@ -4810,7 +4810,7 @@
       "equalScoresInvalid": "{{set}}세트: 6-6이 아닌 동점은 불가능합니다.",
       "needTiebreakAt66": "{{set}}세트: 6-6인 경우 타이브레이크를 진행해야 합니다.",
       "needTiebreakAt76": "{{set}}세트: 7-6인 경우 타이브레이크 점수를 표시해야 합니다.",
-      "invalidTennisScore": "{{set}}세트: 올바르지 않은 테니스 스코어입니다.",
+      "invalidPickleballScore": "{{set}}세트: 올바르지 않은 피클볼 스코어입니다.",
       "needSixGames": "{{set}}세트: 세트를 이기려면 최소 6게임이 필요합니다.",
       "enterAtLeastOneSet": "최소 한 세트의 스코어를 입력해주세요.",
       "needMoreSets": "{{count}}세트 이상을 완료해야 경기 결과를 제출할 수 있습니다.",
@@ -4819,7 +4819,7 @@
       "rankingUpdateFailed": "경기 결과는 기록되었지만 랭킹 업데이트에 문제가 있었습니다.\n관리자에게 문의해주세요.",
       "recordError": "결과 기록 중 오류가 발생했습니다.",
       "invalidScore": "잘못된 점수",
-      "invalidScoreExplanation": "테니스 규칙에 맞지 않는 점수입니다.\n\n가능한 점수:\n• 6점 이하: 모든 조합 가능\n• 7점: 7-5만 가능\n• 8점 이상: 불가능",
+      "invalidScoreExplanation": "피클볼 규칙에 맞지 않는 점수입니다.\n\n가능한 점수:\n• 6점 이하: 모든 조합 가능\n• 7점: 7-5만 가능\n• 8점 이상: 불가능",
       "superTiebreak": "슈퍼 타이브레이크",
       "standardTiebreak": "타이브레이크",
       "globalRanking": "글로벌",
@@ -4887,9 +4887,9 @@
     "selected": "{{count}}명 선택됨",
     "add": "추가",
     "noName": "이름 없음",
-    "clubLtr": "클럽 LTR {{value}}",
-    "ltr": "LTR {{value}}",
-    "noLtr": "LTR 없음",
+    "clubLtr": "클럽 LPR {{value}}",
+    "ltr": "LPR {{value}}",
+    "noLtr": "LPR 없음",
     "required": "필수",
     "error": "오류",
     "ok": "확인",
@@ -5002,13 +5002,13 @@
     }
   },
   "leagueDetail": {
-    "generatingBracket": "대진표 생성 중...",
+    "generatingBpaddle": "대진표 생성 중...",
     "leagueSoonStarts": "리그가 곧 시작됩니다",
     "roundRobinInProgress": "라운드 로빈 진행 중",
     "roundRobinProgress": "현재 {{completedMatches}}/{{expectedMatches}} 경기 완료 ({{participantCount}}명 참가)",
     "roundRobinRequirement": "모든 참가자가 서로 한 번씩 경기해야 플레이오프를 시작할 수 있습니다.",
-    "deleteBracket": "브래킷 삭제",
-    "deleteBracketWarning": "모든 경기를 삭제하고 접수 상태로 초기화합니다. 이 작업은 되돌릴 수 없습니다.",
+    "deleteBpaddle": "브래킷 삭제",
+    "deleteBpaddleWarning": "모든 경기를 삭제하고 접수 상태로 초기화합니다. 이 작업은 되돌릴 수 없습니다.",
     "leagueDeleted": "리그 삭제됨",
     "leagueDeletedByAdmin": "이 리그가 다른 운영진에 의해 삭제되었습니다. 필요시 새로 생성해주세요.",
     "unknownUser": "알 수 없는 사용자",
@@ -5033,13 +5033,13 @@
     "applicationPending": "리그 참가 신청이 대기 중입니다.",
     "applicationApproved": "리그에 참가가 확정되었습니다!",
     "applicationRejected": "리그 참가 신청이 거절되었습니다.",
-    "generateBracket": "대진표 생성",
-    "generateBracketMessage": "참가자 탭에서 참가 신청을 관리하고, 관리 탭에서 대진표를 생성하세요",
-    "generateBracketMessageSimple": "대진표가 생성되면 여기에 경기 일정이 표시됩니다",
-    "bracketGeneratedSuccess": "대진표가 생성되었습니다!\n\n경기 목록이 곧 나타납니다.",
-    "bracketGenerateError": "대진표 생성 중 오류가 발생했습니다.",
-    "bracketDeletedSuccess": "브래킷이 삭제되었습니다.\n\n새로운 브래킷을 생성할 수 있습니다.",
-    "bracketDeleteError": "브래킷 삭제 중 오류가 발생했습니다.",
+    "generateBpaddle": "대진표 생성",
+    "generateBpaddleMessage": "참가자 탭에서 참가 신청을 관리하고, 관리 탭에서 대진표를 생성하세요",
+    "generateBpaddleMessageSimple": "대진표가 생성되면 여기에 경기 일정이 표시됩니다",
+    "bpaddleGeneratedSuccess": "대진표가 생성되었습니다!\n\n경기 목록이 곧 나타납니다.",
+    "bpaddleGenerateError": "대진표 생성 중 오류가 발생했습니다.",
+    "bpaddleDeletedSuccess": "브래킷이 삭제되었습니다.\n\n새로운 브래킷을 생성할 수 있습니다.",
+    "bpaddleDeleteError": "브래킷 삭제 중 오류가 발생했습니다.",
     "startPlayoffs": "플레이오프 시작",
     "playoffsStartedSuccess": "플레이오프가 시작되었습니다!\n\n플레이오프 경기가 곧 나타납니다.",
     "playoffsStartError": "플레이오프 시작 중 오류가 발생했습니다. 다시 시도해주세요.",
@@ -5119,13 +5119,13 @@
     "leagueNotFound": "리그를 찾을 수 없습니다",
     "playoffInProgress": "플레이오프 진행 중",
     "tournamentFormat": "대회 형식:",
-    "tapToViewBracket": "탭하여 대진표 보기",
+    "tapToViewBpaddle": "탭하여 대진표 보기",
     "regularSeasonComplete": "정규 시즌 완료!",
     "allMatchesCompleteStartPlayoffs": "모든 경기가 끝났습니다. 플레이오프를 시작하여 최종 우승자를 결정하세요.",
     "startPlayoffsButton": "플레이오프 시작하기",
     "approvedTeam": "승인팀",
     "fillRate": "충원율",
-    "generateBracketAndStartLeague": "대진표 생성 및 리그 시작",
+    "generateBpaddleAndStartLeague": "대진표 생성 및 리그 시작",
     "matchProgress": "경기 진행률",
     "deleteLeague": "리그 삭제",
     "addParticipantsDirectly": "참가자 직접 추가",
@@ -5148,12 +5148,12 @@
     "standingsTable": "순위표",
     "player": "선수",
     "matches": "경기",
-    "playoffBracket": "플레이오프 대진표",
+    "playoffBpaddle": "플레이오프 대진표",
     "leagueManagement": "관리",
     "noMatchesYet": "아직 경기가 없습니다",
     "teamInviteSent": "{{partnerName}}님에게 팀 초대를 보냈습니다.\n\n파트너가 수락하면 리그 신청이 자동으로 완료됩니다.",
-    "generateBracketConfirm": "{{leagueName}}의 대진표를 생성하시겠습니까?\n\n이 작업은 되돌릴 수 없으며, 리그가 시작됩니다.",
-    "deleteBracketConfirm": "{{leagueName}}의 모든 경기를 삭제하시겠습니까?\n\n이 작업은 되돌릴 수 없으며, 리그가 참가 신청 상태로 초기화됩니다.",
+    "generateBpaddleConfirm": "{{leagueName}}의 대진표를 생성하시겠습니까?\n\n이 작업은 되돌릴 수 없으며, 리그가 시작됩니다.",
+    "deleteBpaddleConfirm": "{{leagueName}}의 모든 경기를 삭제하시겠습니까?\n\n이 작업은 되돌릴 수 없으며, 리그가 참가 신청 상태로 초기화됩니다.",
     "startPlayoffsConfirm": "모든 정규 시즌 경기가 완료되었습니다.\n\n{{leagueName}}의 플레이오프를 시작하시겠습니까?",
     "deleteLeagueConfirm": "정말로 \"{{leagueName}}\" 리그를 삭제하시겠습니까?\n\n이 작업은 되돌릴 수 없으며, 모든 경기 데이터와 참가자 정보가 삭제됩니다.",
     "bulkApprovalSuccessMessage": "{{count}}개의 경기 결과가 모두 승인되었습니다.",
@@ -5262,7 +5262,7 @@
     "emptyStates": {
       "noFriends": {
         "title": "아직 친구가 없습니다",
-        "description": "친구 찾기 탭에서 테니스 친구를 찾아보세요"
+        "description": "친구 찾기 탭에서 피클볼 친구를 찾아보세요"
       },
       "noRequests": {
         "title": "친구 요청이 없습니다",
@@ -5331,7 +5331,7 @@
     "levels": {
       "beginner": {
         "label": "1.0-2.5 (초보자)",
-        "description": "테니스를 막 시작한 분"
+        "description": "피클볼를 막 시작한 분"
       },
       "intermediate": {
         "label": "3.0-3.5 (초급)",
@@ -5438,7 +5438,7 @@
       "later": "나중에",
       "openSettings": "설정 열기",
       "matchNotificationTitle": "매치 알림",
-      "matchNotificationBody": "30분 후 테니스 매치가 예정되어 있습니다."
+      "matchNotificationBody": "30분 후 피클볼 매치가 예정되어 있습니다."
     },
     "feed": {
       "refreshFailed": "피드를 불러오는데 실패했습니다.",
@@ -5502,7 +5502,7 @@
       "locationSearch": "장소 검색",
       "leagueManagement": "리그 관리",
       "tournamentManagement": "토너먼트 관리",
-      "tournamentBracket": "토너먼트 대진표",
+      "tournamentBpaddle": "토너먼트 대진표",
       "tournamentDetail": "토너먼트 상세",
       "teamInvitations": "팀 초대",
       "scheduleSettings": "일정 설정",
@@ -5558,7 +5558,7 @@
     "activitiesInProgress": "진행 중인 활동",
     "registrationOpen": "등록 중",
     "inProgress": "진행 중",
-    "bracketGeneration": "대진표 생성 중",
+    "bpaddleGeneration": "대진표 생성 중",
     "roundRobinInProgress": "라운드 로빈 진행 중",
     "playoffsInProgress": "플레이오프 진행 중",
     "clubNotifications": "클럽 알림",
@@ -5574,7 +5574,7 @@
     "winner": "우승",
     "runnerUp": "준우승",
     "emptyStateAdminTitle": "🎾 클럽을 시작해볼까요?",
-    "emptyStateAdminDescription": "아직 클럽 활동이 없어요. 멤버들과 함께 테니스를 즐겨보세요!",
+    "emptyStateAdminDescription": "아직 클럽 활동이 없어요. 멤버들과 함께 피클볼를 즐겨보세요!",
     "emptyStateAdminAction1": "정기 모임을 만들어 멤버들을 초대해보세요",
     "emptyStateAdminAction2": "새로운 멤버를 초대해서 클럽을 키워보세요",
     "emptyStateAdminAction3": "토너먼트나 리그를 개최해보세요",
@@ -5584,12 +5584,12 @@
     "emptyStateMemberAction2": "주변의 다른 플레이어들을 탐색해보세요",
     "emptyStateGuestTitle": "🎾 {{clubName}}에 오신 것을 환영합니다!",
     "emptyStateGuestTitleDefault": "🎾 클럽에 오신 것을 환영합니다!",
-    "emptyStateGuestDescription": "이 클럽에 가입하면 멤버들과 함께 테니스를 즐길 수 있어요.",
+    "emptyStateGuestDescription": "이 클럽에 가입하면 멤버들과 함께 피클볼를 즐길 수 있어요.",
     "emptyStateGuestAction1": "가입 신청을 하고 멤버가 되어보세요",
     "emptyStateGuestAction2": "클럽 정보를 확인해보세요",
     "aiHelperHint": "무엇을 해야 할지 모르겠다면?",
     "aiHelperButton": "AI 도우미와 대화하기",
-    "aiHelperSubtext": "테니스 관련 질문이나 앱 사용법을 물어보세요!",
+    "aiHelperSubtext": "피클볼 관련 질문이나 앱 사용법을 물어보세요!",
     "actionRequired": "액션 필요",
     "upcomingActivities": "예정된 활동",
     "noAnnouncements": "공지사항이 없습니다",
@@ -5753,7 +5753,7 @@
       },
       "location": {
         "label": "장소 *",
-        "placeholder": "예: Central Park Tennis Courts"
+        "placeholder": "예: Central Park Pickleball Courts"
       },
       "dateTime": {
         "label": "날짜 & 시간"
@@ -5905,7 +5905,7 @@
       "duration": "소요 시간 (분) *",
       "locationInfo": "장소 정보",
       "locationName": "장소명 *",
-      "locationNamePlaceholder": "예: 센트럴 파크 테니스 코트",
+      "locationNamePlaceholder": "예: 센트럴 파크 피클볼 코트",
       "address": "주소 *",
       "addressPlaceholder": "전체 주소를 입력하세요",
       "directions": "찾아오는 방법",
@@ -6093,7 +6093,7 @@
       "perfectMatchTitle": "완벽한 매치를 찾았습니다! 🎾",
       "newRequestTitle": "새로운 매치 요청 📨",
       "perfectMatchBody": "{{name}}님과의 매칭률이 {{score}}%입니다.",
-      "newRequestBody": "{{senderName}}님이 테니스 매치를 요청했습니다.",
+      "newRequestBody": "{{senderName}}님이 피클볼 매치를 요청했습니다.",
       "matchAcceptedTitle": "매치가 성사되었습니다! 🎉",
       "matchAcceptedBody": "{{responderName}}님이 매치를 수락했습니다. 게임을 준비하세요!",
       "matchDeclinedTitle": "매치 요청이 거절되었습니다 😔",
@@ -6143,7 +6143,7 @@
         "defaultMessage": "새로운 활동이 있습니다.",
         "defaultLeagueName": "리그"
       },
-      "tennisUserFallback": "테니스유저{{id}}"
+      "pickleballUserFallback": "피클볼유저{{id}}"
     },
     "nickname": {
       "taken": "이미 사용 중인 닉네임입니다",
@@ -6537,12 +6537,12 @@
   "utils": {
     "ltr": {
       "whatIsLtr": {
-        "title": "LTR이란?",
-        "content": "LTR(Lightning Tennis Rating)은 번개 테니스 커뮤니티를 위해 독자적으로 개발된 실력 평가 시스템입니다. LTR은 모든 공용 번개 매치 결과에 적용되는 ELO 알고리즘을 기반으로 계산되며, 당신의 성장 여정을 1부터 10까지의 직관적인 레벨로 보여줍니다. 이것은 당신이 우리 생태계 안에서 얼마나 성장했는지를 보여주는 명예로운 지표입니다."
+        "title": "LPR이란?",
+        "content": "LPR(Lightning Pickleball Rating)은 번개 피클볼 커뮤니티를 위해 독자적으로 개발된 실력 평가 시스템입니다. LPR은 모든 공용 번개 매치 결과에 적용되는 ELO 알고리즘을 기반으로 계산되며, 당신의 성장 여정을 1부터 10까지의 직관적인 레벨로 보여줍니다. 이것은 당신이 우리 생태계 안에서 얼마나 성장했는지를 보여주는 명예로운 지표입니다."
       },
       "relationToNtrp": {
         "title": "NTRP와의 관계",
-        "content": "LTR은 USTA의 NTRP와는 다른, 번개 테니스 고유의 시스템입니다. NTRP 등급에 익숙한 사용자의 편의를 위해, 가입 시 자신의 실력을 NTRP와 유사한 범위로 선택할 수 있지만, 앱 내에서 계산되고 표시되는 모든 공식 레벨은 LTR을 기준으로 합니다."
+        "content": "LPR은 USTA의 NTRP와는 다른, 번개 피클볼 고유의 시스템입니다. NTRP 등급에 익숙한 사용자의 편의를 위해, 가입 시 자신의 실력을 NTRP와 유사한 범위로 선택할 수 있지만, 앱 내에서 계산되고 표시되는 모든 공식 레벨은 LPR을 기준으로 합니다."
       },
       "unknownLevel": "알 수 없는 레벨",
       "eloAbove": "ELO {{min}} 이상"
@@ -6616,7 +6616,7 @@
     "lightningMeetup": "번개 모임",
     "casualMeetup": "자유 모임",
     "createClub": "클럽 만들기",
-    "tennisCommunity": "테니스 커뮤니티"
+    "pickleballCommunity": "피클볼 커뮤니티"
   },
   "clubMembersScreen": {
     "tabs": {
@@ -6634,7 +6634,7 @@
     "noRequests": "가입 신청이 없습니다",
     "noMembers": "멤버가 없습니다"
   },
-  "tournamentBracket": {
+  "tournamentBpaddle": {
     "errorLoadingData": "토너먼트 데이터를 불러오지 못했습니다",
     "matchNotFound": "경기를 찾을 수 없습니다",
     "matchResult": "경기 결과",
@@ -6644,11 +6644,11 @@
     "scoreSubmitted": "점수 입력 완료",
     "scoreSubmittedSuccess": "경기 결과가 성공적으로 입력되었습니다.",
     "errorSubmittingScore": "점수 입력 중 오류가 발생했습니다.",
-    "loadingBracket": "대진표를 불러오는 중...",
+    "loadingBpaddle": "대진표를 불러오는 중...",
     "tournamentNotFound": "토너먼트를 찾을 수 없습니다",
-    "bracketNotGenerated": "대진표가 아직 생성되지 않았습니다",
-    "bracketWillBeGenerated": "참가자 모집이 완료된 후 대진표가 생성됩니다",
-    "generatingBracket": "대진표 생성 중",
+    "bpaddleNotGenerated": "대진표가 아직 생성되지 않았습니다",
+    "bpaddleWillBeGenerated": "참가자 모집이 완료된 후 대진표가 생성됩니다",
+    "generatingBpaddle": "대진표 생성 중",
     "inProgress": "진행 중",
     "completed": "완료됨",
     "participants": "참가자",
@@ -6715,7 +6715,7 @@
     "criteriaDescription": "순위: 1) 승리, 2) 세트 차, 3) 게임 차"
   },
   "ltrQuestion": {
-    "title": "LTR 자가 진단",
+    "title": "LPR 자가 진단",
     "back": "뒤로",
     "next": "다음",
     "viewResult": "결과 보기"
@@ -6727,8 +6727,8 @@
     "priceKRW": "{{price}}원",
     "category": {
       "stringing": "줄 교체",
-      "repair": "라켓 수리",
-      "used_racket": "중고 라켓",
+      "repair": "패들 수리",
+      "used_paddle": "중고 패들",
       "used_equipment": "중고 장비",
       "other": "기타"
     }
@@ -6840,7 +6840,7 @@
       "mixedDoubles": "혼합 복식"
     },
     "inviter": "초대자",
-    "combinedLtr": "합산 LTR",
+    "combinedLtr": "합산 LPR",
     "date": "날짜",
     "time": "시간",
     "location": "장소",
@@ -6894,7 +6894,7 @@
     "shortSetsMaxGamesExceeded": "세트당 최대 {{max}} 게임까지 가능합니다",
     "gamesMustBeBetween": "게임 수는 0~7 사이여야 합니다",
     "invalidScore": "잘못된 점수",
-    "invalidTennisScore": "유효하지 않은 테니스 점수 조합입니다",
+    "invalidPickleballScore": "유효하지 않은 피클볼 점수 조합입니다",
     "pleaseCheckScore": "점수를 확인해주세요",
     "winnerSelectionRequired": "승자 선택 필요",
     "pleaseSelectWinner": "승자를 선택해주세요",

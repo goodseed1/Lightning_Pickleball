@@ -2,7 +2,7 @@
  * 🌉 [HEIMDALL] Create Playoffs Cloud Function
  * Phase 5.13: Server-Side Migration - Playoff Creation
  *
- * Creates playoff bracket with tiebreaker rules and match generation
+ * Creates playoff bpaddle with tiebreaker rules and match generation
  * Uses Admin SDK to bypass Security Rules and ensure atomic operations
  *
  * @author Kim (Phase 5.13)
@@ -259,7 +259,7 @@ export const createPlayoffs = onCall<CreatePlayoffsRequest, Promise<CreatePlayof
           player2: matches[0].player2Name,
         });
       } else {
-        // Full bracket (4 players)
+        // Full bpaddle (4 players)
         const matchRefs = [semi1Ref, semi2Ref, finalRef, consolationRef];
         matches.forEach((match, index) => {
           batch.set(matchRefs[index], match);
@@ -421,7 +421,7 @@ function generatePlayoffMatches(
     };
   }
 
-  // 4-participant bracket: Semifinals + Final + Consolation
+  // 4-participant bpaddle: Semifinals + Final + Consolation
   const p1 = qualifiedPlayers[0];
   const p2 = qualifiedPlayers[1];
   const p3 = qualifiedPlayers[2];

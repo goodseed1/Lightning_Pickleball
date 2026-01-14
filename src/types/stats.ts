@@ -126,7 +126,7 @@ export interface ClubTournamentBreakdown {
 
 /**
  * Individual ranking period data with ELO
- * 🎯 [KIM v2] Added elo field for LTR display
+ * 🎯 [KIM v2] Added elo field for LPR display
  */
 export interface RankingPeriodData {
   currentRank: number | null;
@@ -137,7 +137,7 @@ export interface RankingPeriodData {
 /**
  * Global ranking data (monthly, season, all-time)
  * For public scope rankings display
- * 🎯 [KIM v2] Updated to include ELO for LTR calculation
+ * 🎯 [KIM v2] Updated to include ELO for LPR calculation
  */
 export interface GlobalRankingData {
   monthly: RankingPeriodData;

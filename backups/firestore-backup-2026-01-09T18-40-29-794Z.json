@@ -2,7 +2,7 @@
   "timestamp": "2026-01-09T18:40:29.795Z",
   "version": "1.0",
   "collections": {
-    "tennis_clubs": [
+    "pickleball_clubs": [
       {
         "id": "8h6PLuDkhVsvkpIWtacn",
         "data": {
@@ -40,11 +40,11 @@
             "facilities": ["parking"],
             "rules": ["예절 지키기"],
             "description": "환영합니다. 즐테 해요.",
-            "name": "폭포 테니스",
+            "name": "폭포 피클볼",
             "socialLinks": null,
             "tags": [],
             "coverImage": null,
-            "logo": "https://firebasestorage.googleapis.com/v0/b/lightning-tennis-community.firebasestorage.app/o/clubs%2Flogos%2Flogo_temp_1766664903334_1766664903334.jpg?alt=media&token=666822be-6a94-44df-aa70-1e6a12c67e8e",
+            "logo": "https://firebasestorage.googleapis.com/v0/b/lightning-pickleball-community.firebasestorage.app/o/clubs%2Flogos%2Flogo_temp_1766664903334_1766664903334.jpg?alt=media&token=666822be-6a94-44df-aa70-1e6a12c67e8e",
             "contactInfo": null,
             "location": "",
             "establishedDate": {
@@ -134,9 +134,9 @@
             },
             "rules": ["상호 존중 합시다"],
             "facilities": ["lights", "parking", "locker"],
-            "name": "동네테니스 클럽",
-            "description": "동네테니스 클럽입니다.",
-            "logo": "https://firebasestorage.googleapis.com/v0/b/lightning-tennis-community.firebasestorage.app/o/clubs%2Flogos%2Flogo_Vi6CyxkHpULMZ7v2ArLv_1766663938635.jpg?alt=media&token=d709e350-83b1-4570-852f-576e646c5a25"
+            "name": "동네피클볼 클럽",
+            "description": "동네피클볼 클럽입니다.",
+            "logo": "https://firebasestorage.googleapis.com/v0/b/lightning-pickleball-community.firebasestorage.app/o/clubs%2Flogos%2Flogo_Vi6CyxkHpULMZ7v2ArLv_1766663938635.jpg?alt=media&token=d709e350-83b1-4570-852f-576e646c5a25"
           },
           "settings": {
             "paymentMethods": ["Venmo", "Zelle", "KakaoPay"],
@@ -211,7 +211,7 @@
               "_nanoseconds": 900000000
             },
             "name": "한인 클럽",
-            "logo": "https://firebasestorage.googleapis.com/v0/b/lightning-tennis-community.firebasestorage.app/o/clubs%2Flogos%2Flogo_WsetxkWODywjt0BBcqrs_1766665693841.jpg?alt=media&token=973b9a05-cd2b-4047-8ece-cf7eb8eb3151",
+            "logo": "https://firebasestorage.googleapis.com/v0/b/lightning-pickleball-community.firebasestorage.app/o/clubs%2Flogos%2Flogo_WsetxkWODywjt0BBcqrs_1766665693841.jpg?alt=media&token=973b9a05-cd2b-4047-8ece-cf7eb8eb3151",
             "rules": ["상호 예의와 배려를 부탁합니다."],
             "courtAddress": {
               "name": "850 Level Creek Rd",
@@ -255,7 +255,7 @@
               }
             ],
             "paymentQRCodes": {
-              "Venmo": "https://firebasestorage.googleapis.com/v0/b/lightning-tennis-community.firebasestorage.app/o/clubs%2FWsetxkWODywjt0BBcqrs%2Fpayment-qr%2FVenmo-1767587937718.jpg?alt=media&token=0b380f34-18c5-409a-83ab-aa7952ddfff4"
+              "Venmo": "https://firebasestorage.googleapis.com/v0/b/lightning-pickleball-community.firebasestorage.app/o/clubs%2FWsetxkWODywjt0BBcqrs%2Fpayment-qr%2FVenmo-1767587937718.jpg?alt=media&token=0b380f34-18c5-409a-83ab-aa7952ddfff4"
             },
             "paymentIDs": {
               "Venmo": "@tamy"
@@ -473,7 +473,7 @@
           },
           "profile": {
             "tags": [],
-            "description": "Korean tennis club",
+            "description": "Korean pickleball club",
             "name": "TESAJA",
             "coverImage": null,
             "socialLinks": null,
@@ -527,7 +527,7 @@
           "content": "다음 정모때 공 기부 부탁합니다.",
           "authorId": "PWWmQ9CSyPadL4w1JO4Xb3tdqwB2",
           "authorName": "철수",
-          "authorAvatar": "https://firebasestorage.googleapis.com/v0/b/lightning-tennis-community.firebasestorage.app/o/profiles%2FPWWmQ9CSyPadL4w1JO4Xb3tdqwB2%2Fprofile_PWWmQ9CSyPadL4w1JO4Xb3tdqwB2_1766661310673.jpg?alt=media&token=a56176f0-7cc1-48ea-b60e-d2b423ca7d24",
+          "authorAvatar": "https://firebasestorage.googleapis.com/v0/b/lightning-pickleball-community.firebasestorage.app/o/profiles%2FPWWmQ9CSyPadL4w1JO4Xb3tdqwB2%2Fprofile_PWWmQ9CSyPadL4w1JO4Xb3tdqwB2_1766661310673.jpg?alt=media&token=a56176f0-7cc1-48ea-b60e-d2b423ca7d24",
           "commentCount": 0,
           "isAnnouncement": true,
           "isPinned": true,
@@ -2179,7 +2179,7 @@
         "id": "SadTDAVLvlpkhdIX9BDc",
         "data": {
           "type": "meetup",
-          "title": "senior tennis",
+          "title": "senior pickleball",
           "description": "",
           "location": "Use Current Location",
           "scheduledTime": {
@@ -5107,7 +5107,7 @@
               "gamesPerSet": 4
             },
             "allowWalkovers": true,
-            "consolationBracket": false,
+            "consolationBpaddle": false,
             "format": "single_elimination",
             "allowByes": true,
             "seedingMethod": "manual",
@@ -5491,7 +5491,7 @@
               "playerGender": "male"
             }
           ],
-          "bracket": [
+          "bpaddle": [
             {
               "isCompleted": false,
               "matches": [
@@ -5503,7 +5503,7 @@
                     "playerName": "테스트선수25 / 테스트선수24"
                   },
                   "tournamentId": "DwcWWloL15dpLpnkbKvt",
-                  "bracketPosition": 1,
+                  "bpaddlePosition": 1,
                   "matchNumber": 1,
                   "nextMatchId": "DwcWWloL15dpLpnkbKvt_match_4",
                   "roundNumber": 1,
@@ -5534,7 +5534,7 @@
                     "playerId": "aVFbi4N50oUtHIqogdlOFZJ4nhE2_ErbdERX0QaeReQcN6eKGxBjr1Kn2"
                   },
                   "status": "scheduled",
-                  "bracketPosition": 2,
+                  "bpaddlePosition": 2,
                   "createdAt": {
                     "_nanoseconds": 414000000,
                     "_seconds": 1766484462
@@ -5556,7 +5556,7 @@
                   "id": "DwcWWloL15dpLpnkbKvt_match_2"
                 },
                 {
-                  "bracketPosition": 3,
+                  "bpaddlePosition": 3,
                   "roundNumber": 1,
                   "nextMatchPosition": "player2",
                   "createdAt": {
@@ -5600,7 +5600,7 @@
                     "seed": 1,
                     "playerId": "IcF8Pih3UoOchh7GRmYzrF75ijq2_PWWmQ9CSyPadL4w1JO4Xb3tdqwB2"
                   },
-                  "bracketPosition": 4,
+                  "bpaddlePosition": 4,
                   "roundNumber": 2,
                   "id": "DwcWWloL15dpLpnkbKvt_match_4",
                   "nextMatchPosition": "player1",
@@ -5636,7 +5636,7 @@
                     "_seconds": 1766484462
                   },
                   "player1SourcePosition": "winner",
-                  "bracketPosition": 5,
+                  "bpaddlePosition": 5,
                   "nextMatchPosition": "player2",
                   "matchNumber": 2,
                   "roundNumber": 2
@@ -5649,7 +5649,7 @@
                 {
                   "player2SourcePosition": "winner",
                   "roundNumber": 3,
-                  "bracketPosition": 6,
+                  "bpaddlePosition": 6,
                   "id": "DwcWWloL15dpLpnkbKvt_match_6",
                   "createdAt": {
                     "_nanoseconds": 415000000,
@@ -5827,7 +5827,7 @@
             "restBetweenMatches": null,
             "courtCount": null,
             "thirdPlaceMatch": true,
-            "consolationBracket": false,
+            "consolationBpaddle": false,
             "seedingMethod": "manual",
             "maxParticipants": 16,
             "eligibilityCriteria": {
@@ -6032,7 +6032,7 @@
               "tournamentId": "X4wxMPrNtbAEOT13YB2s"
             }
           ],
-          "bracket": [
+          "bpaddle": [
             {
               "matches": [
                 {
@@ -6065,7 +6065,7 @@
                   "status": "scheduled",
                   "roundNumber": 1,
                   "nextMatchId": "X4wxMPrNtbAEOT13YB2s_match_4",
-                  "bracketPosition": 1
+                  "bpaddlePosition": 1
                 },
                 {
                   "nextMatchId": "X4wxMPrNtbAEOT13YB2s_match_5",
@@ -6097,7 +6097,7 @@
                     "playerId": "MLjuNwJBqIgLEKpFNVpJN9NL4gl2"
                   },
                   "id": "X4wxMPrNtbAEOT13YB2s_match_2",
-                  "bracketPosition": 2
+                  "bpaddlePosition": 2
                 },
                 {
                   "updatedAt": {
@@ -6122,7 +6122,7 @@
                   },
                   "matchNumber": 3,
                   "status": "scheduled",
-                  "bracketPosition": 3,
+                  "bpaddlePosition": 3,
                   "nextMatchId": "X4wxMPrNtbAEOT13YB2s_match_5",
                   "createdAt": {
                     "_seconds": 1766677323,
@@ -6145,7 +6145,7 @@
                     "_nanoseconds": 555000000,
                     "_seconds": 1766677323
                   },
-                  "bracketPosition": 4,
+                  "bpaddlePosition": 4,
                   "status": "scheduled",
                   "matchNumber": 1,
                   "player1SourceMatchId": "X4wxMPrNtbAEOT13YB2s_match_1",
@@ -6179,7 +6179,7 @@
                   "nextMatchPosition": "player2",
                   "nextMatchId": "X4wxMPrNtbAEOT13YB2s_match_6",
                   "status": "scheduled",
-                  "bracketPosition": 5,
+                  "bpaddlePosition": 5,
                   "roundNumber": 2,
                   "updatedAt": {
                     "_nanoseconds": 556000000,
@@ -6207,7 +6207,7 @@
                   "player1SourcePosition": "winner",
                   "matchNumber": 1,
                   "tournamentId": "X4wxMPrNtbAEOT13YB2s",
-                  "bracketPosition": 6,
+                  "bpaddlePosition": 6,
                   "player1SourceMatchId": "X4wxMPrNtbAEOT13YB2s_match_4",
                   "createdAt": {
                     "_nanoseconds": 556000000,
@@ -6299,7 +6299,7 @@
             "_nanoseconds": 635000000
           },
           "eventType": "mixed_doubles",
-          "bracket": null,
+          "bpaddle": null,
           "participants": [],
           "totalRounds": 4,
           "endDate": {
@@ -6323,7 +6323,7 @@
           "matches": [],
           "settings": {
             "matchDuration": 90,
-            "consolationBracket": false,
+            "consolationBpaddle": false,
             "restBetweenMatches": null,
             "courtCount": null,
             "format": "single_elimination",
@@ -6377,7 +6377,7 @@
           "settings": {
             "matchFormat": "best_of_3",
             "courtCount": null,
-            "consolationBracket": false,
+            "consolationBpaddle": false,
             "restBetweenMatches": null,
             "allowWalkovers": true,
             "format": "single_elimination",
@@ -6574,7 +6574,7 @@
               "playerId": "ErbdERX0QaeReQcN6eKGxBjr1Kn2"
             }
           ],
-          "bracket": [
+          "bpaddle": [
             {
               "roundName": "Final",
               "matches": [
@@ -6596,7 +6596,7 @@
                     "playerName": "테스트선수25 / 테스트선수24",
                     "seed": 2
                   },
-                  "bracketPosition": 1,
+                  "bpaddlePosition": 1,
                   "nextMatchPosition": "player2",
                   "nextMatchId": "fBFZVMcYIfwBY7v0y1Hm_match_2",
                   "status": "scheduled",
@@ -6621,7 +6621,7 @@
                     "playerId": "IcF8Pih3UoOchh7GRmYzrF75ijq2_PWWmQ9CSyPadL4w1JO4Xb3tdqwB2",
                     "playerName": "Jong / 철수"
                   },
-                  "bracketPosition": 2,
+                  "bpaddlePosition": 2,
                   "status": "scheduled",
                   "updatedAt": {
                     "_nanoseconds": 598000000,
@@ -6731,7 +6731,7 @@
             "minParticipants": 4,
             "matchDuration": 90,
             "matchFormat": "best_of_3",
-            "consolationBracket": false,
+            "consolationBpaddle": false,
             "matchesPerDay": null,
             "allowWalkovers": true,
             "format": "single_elimination",
@@ -7416,7 +7416,7 @@
               }
             }
           ],
-          "bracket": [
+          "bpaddle": [
             {
               "roundNumber": 1,
               "roundName": "Round 1",
@@ -7426,7 +7426,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 1,
                   "matchNumber": 1,
-                  "bracketPosition": 1,
+                  "bpaddlePosition": 1,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7458,7 +7458,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 1,
                   "matchNumber": 2,
-                  "bracketPosition": 2,
+                  "bpaddlePosition": 2,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7490,7 +7490,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 1,
                   "matchNumber": 3,
-                  "bracketPosition": 3,
+                  "bpaddlePosition": 3,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7522,7 +7522,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 1,
                   "matchNumber": 4,
-                  "bracketPosition": 4,
+                  "bpaddlePosition": 4,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7554,7 +7554,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 1,
                   "matchNumber": 5,
-                  "bracketPosition": 5,
+                  "bpaddlePosition": 5,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7586,7 +7586,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 1,
                   "matchNumber": 6,
-                  "bracketPosition": 6,
+                  "bpaddlePosition": 6,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7618,7 +7618,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 1,
                   "matchNumber": 7,
-                  "bracketPosition": 7,
+                  "bpaddlePosition": 7,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7650,7 +7650,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 1,
                   "matchNumber": 8,
-                  "bracketPosition": 8,
+                  "bpaddlePosition": 8,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7682,7 +7682,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 1,
                   "matchNumber": 9,
-                  "bracketPosition": 9,
+                  "bpaddlePosition": 9,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7721,7 +7721,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 2,
                   "matchNumber": 1,
-                  "bracketPosition": 10,
+                  "bpaddlePosition": 10,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7750,7 +7750,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 2,
                   "matchNumber": 2,
-                  "bracketPosition": 11,
+                  "bpaddlePosition": 11,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7779,7 +7779,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 2,
                   "matchNumber": 3,
-                  "bracketPosition": 12,
+                  "bpaddlePosition": 12,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7808,7 +7808,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 2,
                   "matchNumber": 4,
-                  "bracketPosition": 13,
+                  "bpaddlePosition": 13,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7837,7 +7837,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 2,
                   "matchNumber": 5,
-                  "bracketPosition": 14,
+                  "bpaddlePosition": 14,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7864,7 +7864,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 2,
                   "matchNumber": 6,
-                  "bracketPosition": 15,
+                  "bpaddlePosition": 15,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7889,7 +7889,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 2,
                   "matchNumber": 7,
-                  "bracketPosition": 16,
+                  "bpaddlePosition": 16,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7914,7 +7914,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 2,
                   "matchNumber": 8,
-                  "bracketPosition": 17,
+                  "bpaddlePosition": 17,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7939,7 +7939,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 3,
                   "matchNumber": 1,
-                  "bracketPosition": 18,
+                  "bpaddlePosition": 18,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7961,7 +7961,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 3,
                   "matchNumber": 2,
-                  "bracketPosition": 19,
+                  "bpaddlePosition": 19,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -7983,7 +7983,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 3,
                   "matchNumber": 3,
-                  "bracketPosition": 20,
+                  "bpaddlePosition": 20,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -8005,7 +8005,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 3,
                   "matchNumber": 4,
-                  "bracketPosition": 21,
+                  "bpaddlePosition": 21,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -8034,7 +8034,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 4,
                   "matchNumber": 1,
-                  "bracketPosition": 22,
+                  "bpaddlePosition": 22,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -8056,7 +8056,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 4,
                   "matchNumber": 2,
-                  "bracketPosition": 23,
+                  "bpaddlePosition": 23,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -8085,7 +8085,7 @@
                   "tournamentId": "j1WuWreohOGf8zSL4Iyw",
                   "roundNumber": 5,
                   "matchNumber": 1,
-                  "bracketPosition": 24,
+                  "bpaddlePosition": 24,
                   "status": "scheduled",
                   "createdAt": {
                     "_seconds": 1766343103,
@@ -8340,7 +8340,7 @@
             "minParticipants": 4,
             "matchesPerDay": null,
             "format": "single_elimination",
-            "consolationBracket": false,
+            "consolationBpaddle": false,
             "courtCount": null,
             "matchDuration": 90
           },
@@ -8537,7 +8537,7 @@
               "setsLost": 0
             }
           ],
-          "bracket": [
+          "bpaddle": [
             {
               "isCompleted": false,
               "roundName": "Semi Finals",
@@ -8546,7 +8546,7 @@
                 {
                   "nextMatchId": "jGkGIehjPSwYC5l4EfZX_match_3",
                   "status": "scheduled",
-                  "bracketPosition": 1,
+                  "bpaddlePosition": 1,
                   "nextMatchPosition": "player1",
                   "player2": {
                     "seed": 4,
@@ -8579,7 +8579,7 @@
                     "_nanoseconds": 396000000,
                     "_seconds": 1766510866
                   },
-                  "bracketPosition": 2,
+                  "bpaddlePosition": 2,
                   "player2": {
                     "playerId": "IcF8Pih3UoOchh7GRmYzrF75ijq2_aCHzkDcnY0fYEnHodd34EhhSC3p2",
                     "status": "filled",
@@ -8611,7 +8611,7 @@
               "matches": [
                 {
                   "roundNumber": 2,
-                  "bracketPosition": 3,
+                  "bpaddlePosition": 3,
                   "updatedAt": {
                     "_nanoseconds": 396000000,
                     "_seconds": 1766510866
@@ -8727,7 +8727,7 @@
           },
           "description": "",
           "settings": {
-            "consolationBracket": false,
+            "consolationBpaddle": false,
             "scoringFormat": {
               "tiebreakPoints": 7,
               "noAdScoring": false,
@@ -8759,7 +8759,7 @@
           "clubId": "WsetxkWODywjt0BBcqrs",
           "title": "2026년 남자 단식 토너먼트",
           "entryFee": null,
-          "bracket": null,
+          "bpaddle": null,
           "rankings": [],
           "participants": [],
           "totalMatches": 15,
@@ -8792,7 +8792,7 @@
             "restBetweenMatches": null,
             "thirdPlaceMatch": true,
             "courtCount": null,
-            "consolationBracket": false,
+            "consolationBpaddle": false,
             "allowWalkovers": true,
             "eligibilityCriteria": {
               "clubMemberOnly": true
@@ -8994,7 +8994,7 @@
               "partnerName": "테스트선수23"
             }
           ],
-          "bracket": [
+          "bpaddle": [
             {
               "isCompleted": false,
               "roundName": "Final",
@@ -9011,7 +9011,7 @@
                     "_seconds": 1766486659,
                     "_nanoseconds": 112000000
                   },
-                  "bracketPosition": 1,
+                  "bpaddlePosition": 1,
                   "player1": {
                     "playerId": "aCHzkDcnY0fYEnHodd34EhhSC3p2_MLjuNwJBqIgLEKpFNVpJN9NL4gl2",
                     "seed": 2,
@@ -9038,7 +9038,7 @@
               "matches": [
                 {
                   "status": "scheduled",
-                  "bracketPosition": 2,
+                  "bpaddlePosition": 2,
                   "id": "rejVdKoVCoqW5EthqAb5_match_2",
                   "createdAt": {
                     "_seconds": 1766486659,
@@ -12151,7 +12151,7 @@
             "notificationPermissionGranted": true,
             "recentMatches": [],
             "goals": null,
-            "photoURL": "https://firebasestorage.googleapis.com/v0/b/lightning-tennis-community.firebasestorage.app/o/profiles%2FIcF8Pih3UoOchh7GRmYzrF75ijq2%2Fprofile_IcF8Pih3UoOchh7GRmYzrF75ijq2_1765799652925.jpg?alt=media&token=495dce66-982f-40cd-85f7-23be6a5f2d92",
+            "photoURL": "https://firebasestorage.googleapis.com/v0/b/lightning-pickleball-community.firebasestorage.app/o/profiles%2FIcF8Pih3UoOchh7GRmYzrF75ijq2%2Fprofile_IcF8Pih3UoOchh7GRmYzrF75ijq2_1765799652925.jpg?alt=media&token=495dce66-982f-40cd-85f7-23be6a5f2d92",
             "skillLevel": {
               "lastUpdated": "2025-12-15T11:54:14.034Z",
               "source": "profile_update",
@@ -12764,7 +12764,7 @@
             "playingStyle": "all-court",
             "goals": "having fun",
             "maxTravelDistance": 50,
-            "photoURL": "https://firebasestorage.googleapis.com/v0/b/lightning-tennis-community.firebasestorage.app/o/profiles%2FMvvubIP7VZPku9ZLsF5OB2xgMVw2%2Fprofile_MvvubIP7VZPku9ZLsF5OB2xgMVw2_1765939912805.jpg?alt=media&token=aa3eda9f-06c0-45b7-abed-6f22eda146f7",
+            "photoURL": "https://firebasestorage.googleapis.com/v0/b/lightning-pickleball-community.firebasestorage.app/o/profiles%2FMvvubIP7VZPku9ZLsF5OB2xgMVw2%2Fprofile_MvvubIP7VZPku9ZLsF5OB2xgMVw2_1765939912805.jpg?alt=media&token=aa3eda9f-06c0-45b7-abed-6f22eda146f7",
             "location": {
               "lng": -84.0176838,
               "latitude": 34.0391182,
@@ -13575,7 +13575,7 @@
               "selfAssessed": "beginner",
               "lastUpdated": "2025-12-22T12:02:11.901Z"
             },
-            "photoURL": "https://firebasestorage.googleapis.com/v0/b/lightning-tennis-community.firebasestorage.app/o/profiles%2FPWWmQ9CSyPadL4w1JO4Xb3tdqwB2%2Fprofile_PWWmQ9CSyPadL4w1JO4Xb3tdqwB2_1766661310673.jpg?alt=media&token=a56176f0-7cc1-48ea-b60e-d2b423ca7d24",
+            "photoURL": "https://firebasestorage.googleapis.com/v0/b/lightning-pickleball-community.firebasestorage.app/o/profiles%2FPWWmQ9CSyPadL4w1JO4Xb3tdqwB2%2Fprofile_PWWmQ9CSyPadL4w1JO4Xb3tdqwB2_1766661310673.jpg?alt=media&token=a56176f0-7cc1-48ea-b60e-d2b423ca7d24",
             "maxTravelDistance": 19,
             "playingStyle": "net-player",
             "languages": ["ko", "en"],
@@ -15393,15 +15393,15 @@
         "id": "fyhGDaD27vg7Lxk9NU4DHgWB90S2",
         "data": {
           "uid": "fyhGDaD27vg7Lxk9NU4DHgWB90S2",
-          "email": "pibaktennis@gmail.com",
-          "displayName": "pibak tennis",
+          "email": "pibakpickleball@gmail.com",
+          "displayName": "pibak pickleball",
           "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocItxrUPSALSFPW2iMhT4TwLMCRjErELnRmpS5ezufF_K3Hgog=s96-c",
           "emailVerified": true,
           "createdAt": "2026-01-06T14:23:15.940Z",
           "lastLoginAt": "2026-01-06T14:23:15.940Z",
           "isOnboardingComplete": false,
           "profile": {
-            "nickname": "pibak tennis",
+            "nickname": "pibak pickleball",
             "skillLevel": "beginner",
             "gender": "",
             "location": "",
@@ -18489,10 +18489,10 @@
           "recipientId": "MN10BN1qH6fmlIOpg3sHTZOd1c12",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "member",
             "newRole": "manager"
           },
@@ -19170,10 +19170,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "member",
             "newRole": "manager"
           },
@@ -20149,10 +20149,10 @@
           "recipientId": "MN10BN1qH6fmlIOpg3sHTZOd1c12",
           "type": "CLUB_ROLE_DEMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽에서 일반 회원으로 변경되었습니다.",
+          "message": "'동네피클볼' 클럽에서 일반 회원으로 변경되었습니다.",
           "metadata": {
             "notificationType": "club_role_demoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "manager",
             "newRole": "member"
           },
@@ -23277,11 +23277,11 @@
         "id": "6RUYMrReBHGeTxV4Vmj3",
         "data": {
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
-          "message": "'동네 테니스' 클럽에서 제명되었습니다",
+          "message": "'동네 피클볼' 클럽에서 제명되었습니다",
           "type": "CLUB_MEMBER_REMOVED",
           "metadata": {
             "reason": "실수로 제명했음",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "notificationType": "club_member_removed"
           },
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
@@ -23660,10 +23660,10 @@
           "metadata": {
             "deepLink": "club/Vi6CyxkHpULMZ7v2ArLv",
             "notificationType": "club_join_approved",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "requestId": "EzCJmVJEGrjIvdIcB2Nm"
           },
-          "message": "'동네테니스' 클럽 가입이 승인되었습니다! 🎉",
+          "message": "'동네피클볼' 클럽 가입이 승인되었습니다! 🎉",
           "type": "CLUB_JOIN_APPROVED",
           "createdAt": {
             "_seconds": 1766660207,
@@ -23769,10 +23769,10 @@
           "type": "CLUB_OWNERSHIP_RECEIVED",
           "metadata": {
             "previousOwnerId": "MN10BN1qH6fmlIOpg3sHTZOd1c12",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "notificationType": "club_ownership_received"
           },
-          "message": "'동네테니스' 클럽의 오너 권한을 받았습니다. 이제 이 클럽의 오너입니다!",
+          "message": "'동네피클볼' 클럽의 오너 권한을 받았습니다. 이제 이 클럽의 오너입니다!",
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
           "createdAt": {
@@ -24524,10 +24524,10 @@
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'철수'님이 '동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'철수'님이 '동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "promotedUserName": "철수",
             "promotedUserId": "PWWmQ9CSyPadL4w1JO4Xb3tdqwB2",
             "oldRole": "member",
@@ -24741,13 +24741,13 @@
         "data": {
           "metadata": {
             "reason": "No reason provided",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "requestId": "w0KM95GFs4nDoKikO0XA",
             "notificationType": "club_join_rejected"
           },
           "type": "CLUB_JOIN_REJECTED",
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
-          "message": "'동네 테니스' 클럽 가입 신청이 거절되었습니다",
+          "message": "'동네 피클볼' 클럽 가입 신청이 거절되었습니다",
           "status": "unread",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "createdAt": {
@@ -25948,10 +25948,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "promotedUserName": "수정",
             "promotedUserId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
             "oldRole": "member",
@@ -26533,13 +26533,13 @@
           "metadata": {
             "deepLink": "club/bOeo6BhV9LiZJU7SYKY1",
             "requestId": "cyN9Fdqqgs6NVrgiFbCC",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "notificationType": "club_join_approved"
           },
           "type": "CLUB_JOIN_APPROVED",
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
-          "message": "'동네 테니스' 클럽 가입이 승인되었습니다! 🎉",
+          "message": "'동네 피클볼' 클럽 가입이 승인되었습니다! 🎉",
           "createdAt": {
             "_seconds": 1766627712,
             "_nanoseconds": 136000000
@@ -27651,12 +27651,12 @@
           "metadata": {
             "deepLink": "club/bOeo6BhV9LiZJU7SYKY1",
             "requestId": "VLcg1FqHpic4nknhH3Ey",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "notificationType": "club_join_approved"
           },
           "type": "CLUB_JOIN_APPROVED",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
-          "message": "'동네 테니스' 클럽 가입이 승인되었습니다! 🎉",
+          "message": "'동네 피클볼' 클럽 가입이 승인되었습니다! 🎉",
           "createdAt": {
             "_seconds": 1766627606,
             "_nanoseconds": 604000000
@@ -28423,10 +28423,10 @@
           "metadata": {
             "reason": "No reason provided",
             "requestId": "nd2tCUCzgD8qyzae4vrD",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "notificationType": "club_join_rejected"
           },
-          "message": "'동네 테니스' 클럽 가입 신청이 거절되었습니다",
+          "message": "'동네 피클볼' 클럽 가입 신청이 거절되었습니다",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "type": "CLUB_JOIN_REJECTED",
           "createdAt": {
@@ -28703,12 +28703,12 @@
         "data": {
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "metadata": {
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "reason": "No reason provided",
             "requestId": "2nqYZYhauU07Y4GKhSXg",
             "notificationType": "club_join_rejected"
           },
-          "message": "'동네 테니스' 클럽 가입 신청이 거절되었습니다",
+          "message": "'동네 피클볼' 클럽 가입 신청이 거절되었습니다",
           "status": "unread",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "type": "CLUB_JOIN_REJECTED",
@@ -28793,11 +28793,11 @@
           "metadata": {
             "reason": "관리자에 의한 제명",
             "notificationType": "club_member_removed",
-            "clubName": "동네 테니스"
+            "clubName": "동네 피클볼"
           },
           "type": "CLUB_MEMBER_REMOVED",
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
-          "message": "'동네 테니스' 클럽에서 제명되었습니다",
+          "message": "'동네 피클볼' 클럽에서 제명되었습니다",
           "createdAt": {
             "_seconds": 1766629040,
             "_nanoseconds": 366000000
@@ -29715,11 +29715,11 @@
           "recipientId": "PWWmQ9CSyPadL4w1JO4Xb3tdqwB2",
           "type": "CLUB_ROLE_DEMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스 클럽' 클럽에서 일반 회원으로 변경되었습니다.",
+          "message": "'동네피클볼 클럽' 클럽에서 일반 회원으로 변경되었습니다.",
           "status": "unread",
           "metadata": {
             "notificationType": "club_role_demoted",
-            "clubName": "동네테니스 클럽",
+            "clubName": "동네피클볼 클럽",
             "oldRole": "manager",
             "newRole": "member"
           },
@@ -29865,11 +29865,11 @@
           "recipientId": "PWWmQ9CSyPadL4w1JO4Xb3tdqwB2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스 클럽' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'동네피클볼 클럽' 클럽의 운영진으로 승진되었습니다! 🎉",
           "status": "unread",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스 클럽",
+            "clubName": "동네피클볼 클럽",
             "promotedUserName": "철수",
             "promotedUserId": "PWWmQ9CSyPadL4w1JO4Xb3tdqwB2",
             "oldRole": "member",
@@ -31861,10 +31861,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "member",
             "newRole": "manager"
           },
@@ -33027,10 +33027,10 @@
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'수정'님이 '동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'수정'님이 '동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "promotedUserName": "수정",
             "promotedUserId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
             "oldRole": "member",
@@ -33124,12 +33124,12 @@
           "metadata": {
             "newOwnerName": "철진",
             "notificationType": "club_owner_changed",
-            "clubName": "동네테니스"
+            "clubName": "동네피클볼"
           },
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_OWNER_CHANGED",
-          "message": "'동네테니스' 클럽의 관리자가 '철진'님으로 변경되었습니다.",
+          "message": "'동네피클볼' 클럽의 관리자가 '철진'님으로 변경되었습니다.",
           "createdAt": {
             "_seconds": 1766637079,
             "_nanoseconds": 1000000
@@ -33630,11 +33630,11 @@
           "recipientId": "PWWmQ9CSyPadL4w1JO4Xb3tdqwB2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "status": "unread",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "promotedUserName": "철수",
             "promotedUserId": "PWWmQ9CSyPadL4w1JO4Xb3tdqwB2",
             "oldRole": "member",
@@ -35097,10 +35097,10 @@
         "id": "MTMdPMVXcbLy4JuWbjcY",
         "data": {
           "type": "CLUB_JOIN_APPROVED",
-          "message": "'동네 테니스' 클럽 가입이 승인되었습니다! 🎉",
+          "message": "'동네 피클볼' 클럽 가입이 승인되었습니다! 🎉",
           "metadata": {
             "requestId": "ldI6dJxBmwLzdNIIUYP3",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "deepLink": "club/bOeo6BhV9LiZJU7SYKY1",
             "notificationType": "club_join_approved"
           },
@@ -36071,10 +36071,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "member",
             "newRole": "manager"
           },
@@ -36166,10 +36166,10 @@
         "data": {
           "type": "CLUB_OWNERSHIP_RECEIVED",
           "recipientId": "MN10BN1qH6fmlIOpg3sHTZOd1c12",
-          "message": "'동네테니스' 클럽의 관리자 권한을 받았습니다. 이제 이 클럽의 관리자입니다!",
+          "message": "'동네피클볼' 클럽의 관리자 권한을 받았습니다. 이제 이 클럽의 관리자입니다!",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
           "metadata": {
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "notificationType": "club_ownership_received",
             "previousOwnerId": "IcF8Pih3UoOchh7GRmYzrF75ijq2"
           },
@@ -36308,10 +36308,10 @@
           "recipientId": "MN10BN1qH6fmlIOpg3sHTZOd1c12",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'Unknown'님이 '동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'Unknown'님이 '동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "promotedUserName": "Unknown",
             "promotedUserId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
             "oldRole": "member",
@@ -36676,10 +36676,10 @@
           "recipientId": "MN10BN1qH6fmlIOpg3sHTZOd1c12",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "member",
             "newRole": "manager"
           },
@@ -37479,10 +37479,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_DEMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽에서 일반 회원으로 변경되었습니다.",
+          "message": "'동네피클볼' 클럽에서 일반 회원으로 변경되었습니다.",
           "metadata": {
             "notificationType": "club_role_demoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "manager",
             "newRole": "member"
           },
@@ -37676,13 +37676,13 @@
       {
         "id": "QfkC6YPBXFXAHSyMUAGY",
         "data": {
-          "message": "'동네 테니스' 클럽 가입이 승인되었습니다! 🎉",
+          "message": "'동네 피클볼' 클럽 가입이 승인되었습니다! 🎉",
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "metadata": {
             "deepLink": "club/bOeo6BhV9LiZJU7SYKY1",
             "requestId": "NuILY7KpJWDDW5DClKDh",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "notificationType": "club_join_approved"
           },
           "type": "CLUB_JOIN_APPROVED",
@@ -37722,11 +37722,11 @@
       {
         "id": "QjKYysQMpfJyX6IgMmh1",
         "data": {
-          "message": "'동네테니스' 클럽의 오너가 'Jong'님으로 변경되었습니다.",
+          "message": "'동네피클볼' 클럽의 오너가 'Jong'님으로 변경되었습니다.",
           "metadata": {
             "notificationType": "club_owner_changed",
             "newOwnerName": "Jong",
-            "clubName": "동네테니스"
+            "clubName": "동네피클볼"
           },
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
           "type": "CLUB_OWNER_CHANGED",
@@ -38736,13 +38736,13 @@
           "type": "CLUB_JOIN_REJECTED",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "metadata": {
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "notificationType": "club_join_rejected",
             "reason": "No reason provided",
             "requestId": "XQ4pjoeCoaBVdwvHmIJq"
           },
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
-          "message": "'동네 테니스' 클럽 가입 신청이 거절되었습니다",
+          "message": "'동네 피클볼' 클럽 가입 신청이 거절되었습니다",
           "createdAt": {
             "_seconds": 1766627121,
             "_nanoseconds": 172000000
@@ -39900,10 +39900,10 @@
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'철수'님이 '동네테니스 클럽' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'철수'님이 '동네피클볼 클럽' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스 클럽",
+            "clubName": "동네피클볼 클럽",
             "promotedUserName": "철수",
             "promotedUserId": "PWWmQ9CSyPadL4w1JO4Xb3tdqwB2",
             "oldRole": "member",
@@ -40500,11 +40500,11 @@
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "metadata": {
             "reason": "No reason provided",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "notificationType": "club_join_rejected",
             "requestId": "gjtzmM0JhIZNFKTIiPln"
           },
-          "message": "'동네 테니스' 클럽 가입 신청이 거절되었습니다",
+          "message": "'동네 피클볼' 클럽 가입 신청이 거절되었습니다",
           "type": "CLUB_JOIN_REJECTED",
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "createdAt": {
@@ -41376,11 +41376,11 @@
           "metadata": {
             "notificationType": "club_member_removed",
             "reason": "관리자에 의한 제명",
-            "clubName": "동네 테니스"
+            "clubName": "동네 피클볼"
           },
           "type": "CLUB_MEMBER_REMOVED",
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
-          "message": "'동네 테니스' 클럽에서 제명되었습니다",
+          "message": "'동네 피클볼' 클럽에서 제명되었습니다",
           "createdAt": {
             "_seconds": 1766628201,
             "_nanoseconds": 947000000
@@ -41395,11 +41395,11 @@
       {
         "id": "VVTewHJmzx2KyDO7HFOA",
         "data": {
-          "message": "'동네테니스 클럽' 클럽 가입 신청이 거절되었습니다",
+          "message": "'동네피클볼 클럽' 클럽 가입 신청이 거절되었습니다",
           "metadata": {
             "reason": "No reason provided",
             "requestId": "iQBNjeg9H0tzCHYjfJbP",
-            "clubName": "동네테니스 클럽",
+            "clubName": "동네피클볼 클럽",
             "notificationType": "club_join_rejected"
           },
           "status": "unread",
@@ -41851,10 +41851,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_DEMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽에서 일반 회원으로 변경되었습니다.",
+          "message": "'동네피클볼' 클럽에서 일반 회원으로 변경되었습니다.",
           "metadata": {
             "notificationType": "club_role_demoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "manager",
             "newRole": "member"
           },
@@ -42789,10 +42789,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "member",
             "newRole": "manager"
           },
@@ -44356,9 +44356,9 @@
       {
         "id": "Zx6nIpRkmsDRy9oLIHNE",
         "data": {
-          "message": "'동네 테니스' 클럽에서 제명되었습니다",
+          "message": "'동네 피클볼' 클럽에서 제명되었습니다",
           "metadata": {
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "notificationType": "club_member_removed",
             "reason": "관리자에 의한 제명"
           },
@@ -46993,11 +46993,11 @@
           "recipientId": "MN10BN1qH6fmlIOpg3sHTZOd1c12",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'수정'님이 '동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'수정'님이 '동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "status": "unread",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "promotedUserName": "수정",
             "promotedUserId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
             "oldRole": "member",
@@ -47084,11 +47084,11 @@
       {
         "id": "dlh8fdAdXWhsSD6DvvjW",
         "data": {
-          "message": "'동네 테니스' 클럽 가입 신청이 거절되었습니다",
+          "message": "'동네 피클볼' 클럽 가입 신청이 거절되었습니다",
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "metadata": {
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "reason": "No reason provided",
             "requestId": "B0Fym0AlFf3gUwdvKKzZ",
             "notificationType": "club_join_rejected"
@@ -49401,12 +49401,12 @@
           "metadata": {
             "reason": "No reason provided",
             "requestId": "hjYJJujFvNlBcJUewrSE",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "notificationType": "club_join_rejected"
           },
           "type": "CLUB_JOIN_REJECTED",
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
-          "message": "'동네 테니스' 클럽 가입 신청이 거절되었습니다",
+          "message": "'동네 피클볼' 클럽 가입 신청이 거절되었습니다",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "createdAt": {
             "_seconds": 1766631902,
@@ -50390,10 +50390,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_DEMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽에서 일반 회원으로 변경되었습니다.",
+          "message": "'동네피클볼' 클럽에서 일반 회원으로 변경되었습니다.",
           "metadata": {
             "notificationType": "club_role_demoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "manager",
             "newRole": "member"
           },
@@ -50648,14 +50648,14 @@
         "data": {
           "type": "CLUB_JOIN_APPROVED",
           "metadata": {
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "deepLink": "club/bOeo6BhV9LiZJU7SYKY1",
             "requestId": "U3HW2Ouo1w6DR5OW5uTo",
             "notificationType": "club_join_approved"
           },
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
-          "message": "'동네 테니스' 클럽 가입이 승인되었습니다! 🎉",
+          "message": "'동네 피클볼' 클럽 가입이 승인되었습니다! 🎉",
           "createdAt": {
             "_seconds": 1766630950,
             "_nanoseconds": 70000000
@@ -51128,10 +51128,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'철수'님이 '동네테니스 클럽' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'철수'님이 '동네피클볼 클럽' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스 클럽",
+            "clubName": "동네피클볼 클럽",
             "promotedUserName": "철수",
             "promotedUserId": "PWWmQ9CSyPadL4w1JO4Xb3tdqwB2",
             "oldRole": "member",
@@ -51458,10 +51458,10 @@
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'Unknown'님이 '동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'Unknown'님이 '동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "promotedUserName": "Unknown",
             "promotedUserId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
             "oldRole": "member",
@@ -51981,7 +51981,7 @@
       {
         "id": "kBuG0oTQau0SHNtHchGT",
         "data": {
-          "message": "'동네 테니스' 클럽 가입이 승인되었습니다! 🎉",
+          "message": "'동네 피클볼' 클럽 가입이 승인되었습니다! 🎉",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "type": "CLUB_JOIN_APPROVED",
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
@@ -51989,7 +51989,7 @@
             "deepLink": "club/bOeo6BhV9LiZJU7SYKY1",
             "requestId": "SJiyDPK90TSNEmB0aqjU",
             "notificationType": "club_join_approved",
-            "clubName": "동네 테니스"
+            "clubName": "동네 피클볼"
           },
           "createdAt": {
             "_seconds": 1766630880,
@@ -54496,10 +54496,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'철수'님이 '동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'철수'님이 '동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "promotedUserName": "철수",
             "promotedUserId": "PWWmQ9CSyPadL4w1JO4Xb3tdqwB2",
             "oldRole": "member",
@@ -56169,11 +56169,11 @@
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
           "metadata": {
             "reason": "No reason provided",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "requestId": "PybZ8OvVPu2LB58Wfv7B",
             "notificationType": "club_join_rejected"
           },
-          "message": "'동네 테니스' 클럽 가입 신청이 거절되었습니다",
+          "message": "'동네 피클볼' 클럽 가입 신청이 거절되었습니다",
           "type": "CLUB_JOIN_REJECTED",
           "createdAt": {
             "_seconds": 1766628686,
@@ -56192,10 +56192,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_DEMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽에서 일반 회원으로 변경되었습니다.",
+          "message": "'동네피클볼' 클럽에서 일반 회원으로 변경되었습니다.",
           "metadata": {
             "notificationType": "club_role_demoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "manager",
             "newRole": "member"
           },
@@ -56922,10 +56922,10 @@
           "recipientId": "MN10BN1qH6fmlIOpg3sHTZOd1c12",
           "type": "CLUB_ROLE_DEMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽에서 일반 회원으로 변경되었습니다.",
+          "message": "'동네피클볼' 클럽에서 일반 회원으로 변경되었습니다.",
           "metadata": {
             "notificationType": "club_role_demoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "manager",
             "newRole": "member"
           },
@@ -56943,13 +56943,13 @@
       {
         "id": "rREsYbUGZRbNoC77YgaA",
         "data": {
-          "message": "'동네 테니스' 클럽 가입 신청이 거절되었습니다",
+          "message": "'동네 피클볼' 클럽 가입 신청이 거절되었습니다",
           "type": "CLUB_JOIN_REJECTED",
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "metadata": {
             "reason": "No reason provided",
             "notificationType": "club_join_rejected",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "requestId": "zrCQSCQxCOXXWzSwckpY"
           },
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
@@ -58160,14 +58160,14 @@
         "data": {
           "metadata": {
             "deepLink": "club/bOeo6BhV9LiZJU7SYKY1",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "requestId": "2zLeLJaPdMqmNFewMuLX",
             "notificationType": "club_join_approved"
           },
           "type": "CLUB_JOIN_APPROVED",
           "status": "unread",
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
-          "message": "'동네 테니스' 클럽 가입이 승인되었습니다! 🎉",
+          "message": "'동네 피클볼' 클럽 가입이 승인되었습니다! 🎉",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "createdAt": {
             "_seconds": 1766632668,
@@ -58277,12 +58277,12 @@
           "metadata": {
             "requestId": "CKLDmRSR2mAi7YXDSWyI",
             "deepLink": "club/Vi6CyxkHpULMZ7v2ArLv",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "notificationType": "club_join_approved"
           },
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
-          "message": "'동네테니스' 클럽 가입이 승인되었습니다! 🎉",
+          "message": "'동네피클볼' 클럽 가입이 승인되었습니다! 🎉",
           "createdAt": {
             "_seconds": 1766634239,
             "_nanoseconds": 24000000
@@ -58674,11 +58674,11 @@
         "data": {
           "type": "CLUB_MEMBER_REMOVED",
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
-          "message": "'동네 테니스' 클럽에서 제명되었습니다",
+          "message": "'동네 피클볼' 클럽에서 제명되었습니다",
           "metadata": {
             "notificationType": "club_member_removed",
             "reason": "관리자에 의한 제명",
-            "clubName": "동네 테니스"
+            "clubName": "동네 피클볼"
           },
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "createdAt": {
@@ -59101,11 +59101,11 @@
         "id": "u1lmHMSzALLpOKn8NF7D",
         "data": {
           "status": "unread",
-          "message": "'동네 테니스' 클럽 가입이 승인되었습니다! 🎉",
+          "message": "'동네 피클볼' 클럽 가입이 승인되었습니다! 🎉",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "type": "CLUB_JOIN_APPROVED",
           "metadata": {
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "requestId": "c3G1icCr2EqQCdgoT1yv",
             "deepLink": "club/bOeo6BhV9LiZJU7SYKY1",
             "notificationType": "club_join_approved"
@@ -59443,11 +59443,11 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "metadata": {
             "reason": "No reason provided",
-            "clubName": "동네 테니스",
+            "clubName": "동네 피클볼",
             "requestId": "z6W9mUWa3GfZPOpdtW3L",
             "notificationType": "club_join_rejected"
           },
-          "message": "'동네 테니스' 클럽 가입 신청이 거절되었습니다",
+          "message": "'동네 피클볼' 클럽 가입 신청이 거절되었습니다",
           "createdAt": {
             "_seconds": 1766630857,
             "_nanoseconds": 569000000
@@ -60067,9 +60067,9 @@
         "data": {
           "type": "CLUB_JOIN_APPROVED",
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
-          "message": "'동네테니스' 클럽 가입이 승인되었습니다! 🎉",
+          "message": "'동네피클볼' 클럽 가입이 승인되었습니다! 🎉",
           "metadata": {
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "requestId": "AwgE6ZO4fowmvkzJJJJg",
             "notificationType": "club_join_approved",
             "deepLink": "club/Vi6CyxkHpULMZ7v2ArLv"
@@ -60260,11 +60260,11 @@
           "recipientId": "PWWmQ9CSyPadL4w1JO4Xb3tdqwB2",
           "type": "CLUB_ROLE_DEMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스 클럽' 클럽에서 일반 회원으로 변경되었습니다.",
+          "message": "'동네피클볼 클럽' 클럽에서 일반 회원으로 변경되었습니다.",
           "status": "unread",
           "metadata": {
             "notificationType": "club_role_demoted",
-            "clubName": "동네테니스 클럽",
+            "clubName": "동네피클볼 클럽",
             "oldRole": "manager",
             "newRole": "member"
           },
@@ -61081,10 +61081,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_DEMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽에서 일반 회원으로 변경되었습니다.",
+          "message": "'동네피클볼' 클럽에서 일반 회원으로 변경되었습니다.",
           "metadata": {
             "notificationType": "club_role_demoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "oldRole": "manager",
             "newRole": "member"
           },
@@ -62670,11 +62670,11 @@
         "data": {
           "type": "CLUB_OWNER_CHANGED",
           "metadata": {
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "notificationType": "club_owner_changed",
             "newOwnerName": "수정"
           },
-          "message": "'동네테니스' 클럽의 관리자가 '수정'님으로 변경되었습니다.",
+          "message": "'동네피클볼' 클럽의 관리자가 '수정'님으로 변경되었습니다.",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",
           "createdAt": {
@@ -62838,10 +62838,10 @@
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_ROLE_PROMOTED",
           "clubId": "Vi6CyxkHpULMZ7v2ArLv",
-          "message": "'동네테니스' 클럽의 운영진으로 승진되었습니다! 🎉",
+          "message": "'동네피클볼' 클럽의 운영진으로 승진되었습니다! 🎉",
           "metadata": {
             "notificationType": "club_role_promoted",
-            "clubName": "동네테니스",
+            "clubName": "동네피클볼",
             "promotedUserName": "Unknown",
             "promotedUserId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
             "oldRole": "member",
@@ -63346,11 +63346,11 @@
             "reason": "No reason provided",
             "requestId": "5HnnchF5TjTqiD6V2kC2",
             "notificationType": "club_join_rejected",
-            "clubName": "동네 테니스"
+            "clubName": "동네 피클볼"
           },
           "recipientId": "mvBnqsKh9ngKhrOi8BChTj2j7KF2",
           "type": "CLUB_JOIN_REJECTED",
-          "message": "'동네 테니스' 클럽 가입 신청이 거절되었습니다",
+          "message": "'동네 피클볼' 클럽 가입 신청이 거절되었습니다",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "createdAt": {
             "_seconds": 1766632642,
@@ -63517,9 +63517,9 @@
             "deepLink": "club/bOeo6BhV9LiZJU7SYKY1",
             "requestId": "qjZweviCLyfIZ5OmdSyB",
             "notificationType": "club_join_approved",
-            "clubName": "동네 테니스"
+            "clubName": "동네 피클볼"
           },
-          "message": "'동네 테니스' 클럽 가입이 승인되었습니다! 🎉",
+          "message": "'동네 피클볼' 클럽 가입이 승인되었습니다! 🎉",
           "clubId": "bOeo6BhV9LiZJU7SYKY1",
           "type": "CLUB_JOIN_APPROVED",
           "recipientId": "IcF8Pih3UoOchh7GRmYzrF75ijq2",

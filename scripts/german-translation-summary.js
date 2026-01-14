@@ -55,7 +55,7 @@ console.log('   • "OK", "Chat", "Manager", "Online", etc. (88 total)');
 
 console.log('\n🎯 TRANSLATION QUALITY:');
 console.log('   • All translations use formal German (Sie)');
-console.log('   • Sports terminology follows German tennis standards');
+console.log('   • Sports terminology follows German pickleball standards');
 console.log('   • Proper nouns preserved (Venmo, person names)');
 console.log('   • Language names kept in native script');
 

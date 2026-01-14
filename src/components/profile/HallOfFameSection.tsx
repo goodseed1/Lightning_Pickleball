@@ -15,7 +15,7 @@ import TrophyDisplay from './TrophyDisplay';
 import BadgeDisplay, { Badge } from './BadgeDisplay';
 import { Trophy } from '../../types/user';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 // 명예 태그 정의 (Honor Tags)
@@ -70,12 +70,12 @@ const BADGE_ICON_MAP: Record<
   },
   match_milestone_10: {
     set: 'MaterialCommunityIcons',
-    name: 'tennis-ball',
+    name: 'pickleball-ball',
     color: '#8BC34A',
   },
   match_milestone_50: {
     set: 'MaterialCommunityIcons',
-    name: 'tennis',
+    name: 'pickleball',
     color: '#4CAF50',
   },
   match_milestone_100: {
@@ -105,7 +105,7 @@ const HallOfFameSection: React.FC<HallOfFameSectionProps> = ({
 }) => {
   // 🎨 [DARK GLASS] Theme setup
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const themedStyles = createThemedStyles(themeColors.colors as any);
 

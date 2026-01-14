@@ -33,16 +33,16 @@ interface SelectedUser {
 
 /**
  * Event data structure for clubId lookup
- * 🎯 [LTR FIX] Added hostLtr/minLtr for partner LTR filtering
+ * 🎯 [LPR FIX] Added hostLtr/minLtr for partner LPR filtering
  */
 interface EventData {
   id: string;
   clubId: string;
-  hostId?: string; // 🎯 [LTR FIX v2] Host's user ID for ELO lookup fallback
-  hostLtr?: number; // 🎯 [LTR FIX] Host's LTR level for ±1 filtering (preferred)
-  hostLtrLevel?: number; // 🎯 [LTR FIX v2] Legacy field fallback
-  minLtr?: number; // 🎯 [LTR FIX] Fallback: minLtr from Firestore (= hostLtr for singles)
-  gameType?: string; // 🎯 [LTR FIX] Game type for LTR lookup
+  hostId?: string; // 🎯 [LPR FIX v2] Host's user ID for ELO lookup fallback
+  hostLtr?: number; // 🎯 [LPR FIX] Host's LPR level for ±1 filtering (preferred)
+  hostLtrLevel?: number; // 🎯 [LPR FIX v2] Legacy field fallback
+  minLtr?: number; // 🎯 [LPR FIX] Fallback: minLtr from Firestore (= hostLtr for singles)
+  gameType?: string; // 🎯 [LPR FIX] Game type for LPR lookup
 }
 
 /**
@@ -70,9 +70,9 @@ interface UsePartnerReinviteReturn {
     excludeUserIds: string[];
     clubId: string;
     genderFilter: 'male' | 'female' | null;
-    hostLtr?: number; // 🎯 [LTR FIX] Host's LTR level for ±2 filtering
-    gameType?: string; // 🎯 [LTR FIX] Game type for LTR lookup
-    isPartnerSelection: boolean; // 🎯 [LTR FIX] Always true for partner selection
+    hostLtr?: number; // 🎯 [LPR FIX] Host's LPR level for ±2 filtering
+    gameType?: string; // 🎯 [LPR FIX] Game type for LPR lookup
+    isPartnerSelection: boolean; // 🎯 [LPR FIX] Always true for partner selection
   };
 }
 
@@ -91,10 +91,10 @@ export const usePartnerReinvite = ({
   const [reinviteEventId, setReinviteEventId] = useState<string | null>(null);
   const [reinviteGameType, setReinviteGameType] = useState<string | undefined>(undefined);
   const [reinviteClubId, setReinviteClubId] = useState<string>('');
-  const [reinviteHostLtr, setReinviteHostLtr] = useState<number | undefined>(undefined); // 🎯 [LTR FIX]
+  const [reinviteHostLtr, setReinviteHostLtr] = useState<number | undefined>(undefined); // 🎯 [LPR FIX]
 
   /**
-   * 🎯 [LTR FIX v2] Fetch host's ELO from Firestore and convert to LTR
+   * 🎯 [LPR FIX v2] Fetch host's ELO from Firestore and convert to LPR
    * Used as fallback when hostLtr is not stored in event
    */
   const fetchHostLtrFromElo = useCallback(
@@ -107,7 +107,7 @@ export const usePartnerReinvite = ({
         }
 
         const userData = userDoc.data();
-        // 🎯 [LTR FIX v3] Determine which ELO to use based on game type
+        // 🎯 [LPR FIX v3] Determine which ELO to use based on game type
         // - mixed_doubles → mixed ELO
         // - mens_doubles/womens_doubles → doubles ELO
         // - singles → singles ELO
@@ -124,11 +124,11 @@ export const usePartnerReinvite = ({
 
         if (elo === undefined) {
           console.warn('⚠️ [usePartnerReinvite] Host ELO not found, using default');
-          return 5; // Default LTR
+          return 5; // Default LPR
         }
 
         const ltr = convertEloToLtr(elo);
-        console.log('📊 [usePartnerReinvite] Host LTR calculated from ELO:', {
+        console.log('📊 [usePartnerReinvite] Host LPR calculated from ELO:', {
           hostId,
           elo,
           ltr,
@@ -145,7 +145,7 @@ export const usePartnerReinvite = ({
 
   /**
    * Open re-invite modal
-   * 🎯 [LTR FIX v2] Now async to support ELO lookup fallback
+   * 🎯 [LPR FIX v2] Now async to support ELO lookup fallback
    */
   const openReinviteModal = useCallback(
     async (eventId: string, gameType?: string) => {
@@ -158,13 +158,13 @@ export const usePartnerReinvite = ({
 
       const effectiveGameType = gameType || event.gameType;
 
-      // 🎯 [LTR FIX v3] ALWAYS fetch host's current LTR from ELO (Single Source of Truth)
+      // 🎯 [LPR FIX v3] ALWAYS fetch host's current LPR from ELO (Single Source of Truth)
       // - Firestore에 저장된 hostLtr는 이벤트 생성 시점의 값이라 outdated될 수 있음
-      // - 실시간 ELO 조회로 항상 최신 LTR 사용
+      // - 실시간 ELO 조회로 항상 최신 LPR 사용
       let effectiveHostLtr: number | undefined;
 
       if (event.hostId) {
-        console.log('🔄 [usePartnerReinvite] Fetching current host LTR from ELO...');
+        console.log('🔄 [usePartnerReinvite] Fetching current host LPR from ELO...');
         effectiveHostLtr = await fetchHostLtrFromElo(event.hostId, effectiveGameType);
       }
 
@@ -181,12 +181,12 @@ export const usePartnerReinvite = ({
         storedHostLtrLevel: event.hostLtrLevel,
         effectiveHostLtr,
         gameType: effectiveGameType,
-        source: 'ELO lookup (real-time)', // 🎯 [LTR FIX v3] Always use real-time ELO
+        source: 'ELO lookup (real-time)', // 🎯 [LPR FIX v3] Always use real-time ELO
       });
       setReinviteEventId(eventId);
       setReinviteGameType(effectiveGameType);
       setReinviteClubId(event.clubId);
-      setReinviteHostLtr(effectiveHostLtr); // 🎯 [LTR FIX v2] Store hostLtr for filtering
+      setReinviteHostLtr(effectiveHostLtr); // 🎯 [LPR FIX v2] Store hostLtr for filtering
       setReinviteModalVisible(true);
     },
     [events, t, fetchHostLtrFromElo]
@@ -284,9 +284,9 @@ export const usePartnerReinvite = ({
       excludeUserIds: currentUserId ? [currentUserId] : [],
       clubId: reinviteClubId,
       genderFilter,
-      hostLtr: reinviteHostLtr, // 🎯 [LTR FIX] Pass hostLtr to UserSearchModal for ±2 filtering
-      gameType: reinviteGameType, // 🎯 [LTR FIX] Pass gameType for game-specific LTR lookup
-      isPartnerSelection: true, // 🎯 [LTR FIX] Always true - this is partner selection modal
+      hostLtr: reinviteHostLtr, // 🎯 [LPR FIX] Pass hostLtr to UserSearchModal for ±2 filtering
+      gameType: reinviteGameType, // 🎯 [LPR FIX] Pass gameType for game-specific LPR lookup
+      isPartnerSelection: true, // 🎯 [LPR FIX] Always true - this is partner selection modal
     },
   };
 };

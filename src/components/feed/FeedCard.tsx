@@ -1,6 +1,6 @@
 /**
  * FeedCard - Unified feed item component
- * Lightning Tennis 앱의 피드 화면에서 사용되는 개별 피드 아이템
+ * Lightning Pickleball 앱의 피드 화면에서 사용되는 개별 피드 아이템
  * Combines the best features from both FeedItem and FeedCard components
  */
 
@@ -10,7 +10,7 @@ import { Card, IconButton, Avatar, Chip } from 'react-native-paper';
 import { Ionicons, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { FeedItem } from '../../services/feedService';
 import { safeToDate } from '../../utils/dateUtils';
 import * as feedTypes from '../../types/feed.js';
@@ -51,7 +51,7 @@ const FeedCard: React.FC<FeedCardProps> = props => {
   const { currentLanguage: contextLanguage, t } = useLanguage();
   const currentLanguage = propLanguage || contextLanguage || 'ko';
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
 
   /* eslint-disable @typescript-eslint/no-explicit-any */
   const styles = createStyles(themeColors.colors as any);
@@ -166,11 +166,11 @@ const FeedCard: React.FC<FeedCardProps> = props => {
           return { library: 'material', name: 'account-group' };
         return item.metadata?.isWin
           ? { library: 'ionicons', name: 'trophy' }
-          : { library: 'material', name: 'tennis' };
+          : { library: 'material', name: 'pickleball' };
       case 'match_completed':
         return item.metadata?.isWin
           ? { library: 'ionicons', name: 'trophy' }
-          : { library: 'material', name: 'tennis' };
+          : { library: 'material', name: 'pickleball' };
       case 'achievement_unlocked':
         return { library: 'ionicons', name: 'medal' };
       case 'friend_added':

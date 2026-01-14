@@ -1,5 +1,5 @@
 /**
- * Push Notification Service for Lightning Tennis
+ * Push Notification Service for Lightning Pickleball
  * Handles Firebase Cloud Messaging (FCM) for real-time notifications
  */
 
@@ -186,9 +186,9 @@ class PushNotificationService {
         showBadge: true,
       });
 
-      // Lightning Tennis Events (legacy)
-      await Notifications.setNotificationChannelAsync('lightning_tennis_events', {
-        name: 'Lightning Tennis Events',
+      // Lightning Pickleball Events (legacy)
+      await Notifications.setNotificationChannelAsync('lightning_pickleball_events', {
+        name: 'Lightning Pickleball Events',
         description: 'Lightning match events',
         importance: Notifications.AndroidImportance.HIGH,
         vibrationPattern: [0, 250, 250, 250],

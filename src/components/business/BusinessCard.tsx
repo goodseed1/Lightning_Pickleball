@@ -1,6 +1,6 @@
 /**
  * Business Card Component
- * Displays tennis business information with partnership details and booking options
+ * Displays pickleball business information with partnership details and booking options
  */
 
 import React, { useState } from 'react';
@@ -86,7 +86,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({
       case 'academy':
         return 'school';
       case 'court_rental':
-        return 'tennisball';
+        return 'pickleballball';
       default:
         return 'business';
     }
@@ -95,15 +95,15 @@ const BusinessCard: React.FC<BusinessCardProps> = ({
   const getBusinessTypeLabel = (type: string) => {
     switch (type) {
       case 'coach':
-        return 'Tennis Coach';
+        return 'Pickleball Coach';
       case 'pro_shop':
         return 'Pro Shop';
       case 'academy':
-        return 'Tennis Academy';
+        return 'Pickleball Academy';
       case 'court_rental':
         return 'Court Rental';
       default:
-        return 'Tennis Business';
+        return 'Pickleball Business';
     }
   };
 

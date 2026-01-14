@@ -38,7 +38,7 @@ Additional sections translated:
 - **badgeGallery** (34 keys) - Achievement badges
 - **leagues** (33 keys) - League administration
 - **matchScheduling** (32 keys) - Match scheduling workflow
-- **tournamentBracket** (31 keys) - Tournament bracket display
+- **tournamentBpaddle** (31 keys) - Tournament bpaddle display
 - **playerStats** (30 keys) - Player statistics and performance
 
 ## Key Features Translated
@@ -70,7 +70,7 @@ Complete Italian translations for:
 ### 4. Administrative Tools
 
 - League administration
-- Tournament brackets
+- Tournament bpaddles
 - Payment processing
 - Member approvals
 
@@ -79,7 +79,7 @@ Complete Italian translations for:
 All translations follow natural Italian conventions:
 
 - ✅ Formal "Lei" form for professional tone
-- ✅ Tennis-specific terminology (es. "Singolare", "Doppio", "Campionato")
+- ✅ Pickleball-specific terminology (es. "Singolare", "Doppio", "Campionato")
 - ✅ Consistent UI terminology
 - ✅ Natural phrasing and idioms
 
@@ -120,6 +120,6 @@ node scripts/translation-summary.js
 
 **Translator Notes:**
 
-- All translations use appropriate tennis terminology
+- All translations use appropriate pickleball terminology
 - Maintains consistency with existing Korean/English translations
 - Ready for production use in Italian-speaking markets

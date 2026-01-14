@@ -2,7 +2,7 @@
  * 🌉 [HEIMDALL] Submit Match Result Cloud Function
  * Phase 5.4: Server-Side Migration - Match Operations
  *
- * Securely handles match result submission with bracket advancement
+ * Securely handles match result submission with bpaddle advancement
  * Implements Thor's Firestore Transaction Golden Rule
  *
  * @author Heimdall (Phase 5.4)
@@ -244,7 +244,7 @@ export const submitMatchResult = onCall<
       // Check club admin
       let isClubAdmin = false;
       if (tournamentData.clubId) {
-        const clubRef = db.collection('tennis_clubs').doc(tournamentData.clubId);
+        const clubRef = db.collection('pickleball_clubs').doc(tournamentData.clubId);
         const memberRef = clubRef.collection('members').doc(userId);
         const memberSnap = await transaction.get(memberRef);
 

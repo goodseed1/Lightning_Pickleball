@@ -1,21 +1,21 @@
 /**
- * ⚡ [THOR] LTR Migration Cloud Function
+ * ⚡ [THOR] LPR Migration Cloud Function
  *
- * Migrates existing ELO data to the new LTR (Lightning Tennis Rating) system.
+ * Migrates existing ELO data to the new LPR (Lightning Pickleball Rating) system.
  *
  * This function:
  * 1. Reads all users with existing ELO data
- * 2. Calculates LTR levels (1-10) from ELO scores
- * 3. Stores LTR data in user profiles for quick access
+ * 2. Calculates LPR levels (1-10) from ELO scores
+ * 3. Stores LPR data in user profiles for quick access
  *
- * LTR System (7-Tier):
- * - Bronze (LTR 1-2): ELO < 900
- * - Silver (LTR 3-4): ELO 900-1099
- * - Gold (LTR 5-6): ELO 1100-1299
- * - Platinum (LTR 7): ELO 1300-1449
- * - Diamond (LTR 8): ELO 1450-1599
- * - Master (LTR 9): ELO 1600-1799
- * - Legend (LTR 10): ELO 1800+
+ * LPR System (7-Tier):
+ * - Bronze (LPR 1-2): ELO < 900
+ * - Silver (LPR 3-4): ELO 900-1099
+ * - Gold (LPR 5-6): ELO 1100-1299
+ * - Platinum (LPR 7): ELO 1300-1449
+ * - Diamond (LPR 8): ELO 1450-1599
+ * - Master (LPR 9): ELO 1600-1799
+ * - Legend (LPR 10): ELO 1800+
  *
  * This is a ONE-TIME migration function.
  * Run once, then can be removed from deployment.
@@ -31,10 +31,10 @@ import { logger } from 'firebase-functions/v2';
 const db = admin.firestore();
 
 /**
- * LTR Level Thresholds (ELO-based)
+ * LPR Level Thresholds (ELO-based)
  * Based on src/constants/ltr.ts
  */
-const LTR_ELO_THRESHOLDS = [
+const LPR_ELO_THRESHOLDS = [
   { ltr: 1, minElo: 0, maxElo: 799 },
   { ltr: 2, minElo: 800, maxElo: 899 },
   { ltr: 3, minElo: 900, maxElo: 999 },
@@ -48,9 +48,9 @@ const LTR_ELO_THRESHOLDS = [
 ];
 
 /**
- * LTR Tier Information
+ * LPR Tier Information
  */
-const LTR_TIERS = [
+const LPR_TIERS = [
   { name: 'Bronze', levels: [1, 2], color: '#CD7F32' },
   { name: 'Silver', levels: [3, 4], color: '#C0C0C0' },
   { name: 'Gold', levels: [5, 6], color: '#FFD700' },
@@ -90,10 +90,10 @@ interface LtrData {
 }
 
 /**
- * Convert ELO to LTR level (1-10)
+ * Convert ELO to LPR level (1-10)
  */
 function convertEloToLtr(elo: number): number {
-  for (const threshold of LTR_ELO_THRESHOLDS) {
+  for (const threshold of LPR_ELO_THRESHOLDS) {
     if (elo >= threshold.minElo && elo <= threshold.maxElo) {
       return threshold.ltr;
     }
@@ -105,10 +105,10 @@ function convertEloToLtr(elo: number): number {
 }
 
 /**
- * Get tier info from LTR level
+ * Get tier info from LPR level
  */
 function getTierFromLtr(ltr: number): { name: string; color: string } {
-  for (const tier of LTR_TIERS) {
+  for (const tier of LPR_TIERS) {
     if (tier.levels.includes(ltr)) {
       return { name: tier.name, color: tier.color };
     }
@@ -117,7 +117,7 @@ function getTierFromLtr(ltr: number): { name: string; color: string } {
 }
 
 /**
- * Migrate LTR from ELO Cloud Function
+ * Migrate LPR from ELO Cloud Function
  *
  * Security: Admin only (requires secret key)
  *
@@ -142,7 +142,7 @@ export const migrateLtrFromElo = onCall<{ secretKey?: string; dryRun?: boolean }
 
   const dryRun = data.dryRun ?? false;
 
-  logger.info(`⚡ [LTR MIGRATION] Starting LTR migration... ${dryRun ? '(DRY RUN)' : ''}`, {
+  logger.info(`⚡ [LPR MIGRATION] Starting LPR migration... ${dryRun ? '(DRY RUN)' : ''}`, {
     triggeredBy: auth.uid,
     dryRun,
   });
@@ -157,11 +157,11 @@ export const migrateLtrFromElo = onCall<{ secretKey?: string; dryRun?: boolean }
     errorMessages: [],
   };
 
-  // Initialize LTR distribution counters
+  // Initialize LPR distribution counters
   for (let i = 1; i <= 10; i++) {
     stats.ltrDistribution[i] = 0;
   }
-  for (const tier of LTR_TIERS) {
+  for (const tier of LPR_TIERS) {
     stats.tierDistribution[tier.name] = 0;
   }
 
@@ -172,7 +172,7 @@ export const migrateLtrFromElo = onCall<{ secretKey?: string; dryRun?: boolean }
     const usersSnapshot = await db.collection('users').get();
     stats.totalUsers = usersSnapshot.size;
 
-    logger.info(`📊 [LTR MIGRATION] Found ${stats.totalUsers} users to check`);
+    logger.info(`📊 [LPR MIGRATION] Found ${stats.totalUsers} users to check`);
 
     // ==========================================================================
     // Step 3: Process each user in batches
@@ -190,7 +190,7 @@ export const migrateLtrFromElo = onCall<{ secretKey?: string; dryRun?: boolean }
         const skillLevel = userData.skillLevel;
 
         if (!skillLevel) {
-          logger.debug(`⏭️ [LTR MIGRATION] User ${userId} has no skillLevel, skipping`);
+          logger.debug(`⏭️ [LPR MIGRATION] User ${userId} has no skillLevel, skipping`);
           continue;
         }
 
@@ -201,13 +201,13 @@ export const migrateLtrFromElo = onCall<{ secretKey?: string; dryRun?: boolean }
 
         // If all default, skip
         if (singlesElo === 1000 && doublesElo === 1000 && mixedElo === 1000 && !skillLevel.elo) {
-          logger.debug(`⏭️ [LTR MIGRATION] User ${userId} has no ELO history, skipping`);
+          logger.debug(`⏭️ [LPR MIGRATION] User ${userId} has no ELO history, skipping`);
           continue;
         }
 
         stats.usersWithElo++;
 
-        // Calculate LTR for each game type
+        // Calculate LPR for each game type
         const singlesLtr = convertEloToLtr(singlesElo);
         const doublesLtr = convertEloToLtr(doublesElo);
         const mixedLtr = convertEloToLtr(mixedElo);
@@ -230,7 +230,7 @@ export const migrateLtrFromElo = onCall<{ secretKey?: string; dryRun?: boolean }
 
         const tierInfo = getTierFromLtr(highestLtr);
 
-        // Prepare LTR data
+        // Prepare LPR data
         const ltrData: LtrData = {
           singles: { elo: singlesElo, ltr: singlesLtr },
           doubles: { elo: doublesElo, ltr: doublesLtr },
@@ -262,7 +262,7 @@ export const migrateLtrFromElo = onCall<{ secretKey?: string; dryRun?: boolean }
           // Commit batch if reaching limit
           if (batchCount >= batchSize) {
             await batch.commit();
-            logger.info(`💾 [LTR MIGRATION] Committed batch of ${batchCount} users`);
+            logger.info(`💾 [LPR MIGRATION] Committed batch of ${batchCount} users`);
             batch = db.batch();
             batchCount = 0;
           }
@@ -271,13 +271,13 @@ export const migrateLtrFromElo = onCall<{ secretKey?: string; dryRun?: boolean }
         }
 
         logger.debug(
-          `✅ [LTR MIGRATION] User ${userId}: ELO ${highestElo} → LTR ${highestLtr} (${tierInfo.name})`
+          `✅ [LPR MIGRATION] User ${userId}: ELO ${highestElo} → LPR ${highestLtr} (${tierInfo.name})`
         );
       } catch (error) {
         stats.errors++;
         const errorMsg = `Failed to migrate user ${userId}: ${error instanceof Error ? error.message : String(error)}`;
         stats.errorMessages.push(errorMsg);
-        logger.error(`❌ [LTR MIGRATION] ${errorMsg}`);
+        logger.error(`❌ [LPR MIGRATION] ${errorMsg}`);
         // Continue with next user
       }
     }
@@ -285,13 +285,13 @@ export const migrateLtrFromElo = onCall<{ secretKey?: string; dryRun?: boolean }
     // Commit remaining batch
     if (!dryRun && batchCount > 0) {
       await batch.commit();
-      logger.info(`💾 [LTR MIGRATION] Committed final batch of ${batchCount} users`);
+      logger.info(`💾 [LPR MIGRATION] Committed final batch of ${batchCount} users`);
     }
 
     // ==========================================================================
     // Step 4: Return Migration Stats
     // ==========================================================================
-    logger.info(`⚡ [LTR MIGRATION] Migration completed ${dryRun ? '(DRY RUN)' : ''}`, {
+    logger.info(`⚡ [LPR MIGRATION] Migration completed ${dryRun ? '(DRY RUN)' : ''}`, {
       totalUsers: stats.totalUsers,
       usersWithElo: stats.usersWithElo,
       usersUpdated: stats.usersUpdated,
@@ -304,7 +304,7 @@ export const migrateLtrFromElo = onCall<{ secretKey?: string; dryRun?: boolean }
       stats,
     };
   } catch (error) {
-    logger.error('❌ [LTR MIGRATION] Fatal error during migration:', error);
+    logger.error('❌ [LPR MIGRATION] Fatal error during migration:', error);
     throw new HttpsError(
       'internal',
       `Migration failed: ${error instanceof Error ? error.message : 'Unknown error'}`
@@ -313,7 +313,7 @@ export const migrateLtrFromElo = onCall<{ secretKey?: string; dryRun?: boolean }
 });
 
 /**
- * Utility: Get LTR Level for a single user (for testing)
+ * Utility: Get LPR Level for a single user (for testing)
  */
 export const getUserLtrLevel = onCall<{ userId: string }>(async request => {
   const { data, auth } = request;
@@ -344,7 +344,7 @@ export const getUserLtrLevel = onCall<{ userId: string }>(async request => {
       };
     }
 
-    // Check if LTR is already migrated
+    // Check if LPR is already migrated
     if (skillLevel.ltr) {
       return {
         userId: data.userId,
@@ -354,7 +354,7 @@ export const getUserLtrLevel = onCall<{ userId: string }>(async request => {
       };
     }
 
-    // Calculate LTR from ELO
+    // Calculate LPR from ELO
     const singlesElo = skillLevel.singlesElo || skillLevel.elo || 1000;
     const doublesElo = skillLevel.doublesElo || skillLevel.elo || 1000;
     const mixedElo = skillLevel.mixedElo || skillLevel.elo || 1000;
@@ -398,10 +398,10 @@ export const getUserLtrLevel = onCall<{ userId: string }>(async request => {
       },
     };
   } catch (error) {
-    logger.error('❌ [LTR MIGRATION] Error getting user LTR level:', error);
+    logger.error('❌ [LPR MIGRATION] Error getting user LPR level:', error);
     throw new HttpsError(
       'internal',
-      `Failed to get LTR level: ${error instanceof Error ? error.message : 'Unknown error'}`
+      `Failed to get LPR level: ${error instanceof Error ? error.message : 'Unknown error'}`
     );
   }
 });

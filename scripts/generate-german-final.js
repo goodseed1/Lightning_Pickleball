@@ -163,7 +163,7 @@ const translations = {
   Bio: 'Biografie',
   Description: 'Beschreibung',
 
-  // Tennis specific
+  // Pickleball specific
   Match: 'Match',
   Matches: 'Matches',
   Tournament: 'Turnier',

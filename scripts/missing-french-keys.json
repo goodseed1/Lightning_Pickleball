@@ -418,19 +418,19 @@
       "count": 3,
       "keys": [
         {
-          "path": "alert.tournamentBracket.info",
+          "path": "alert.tournamentBpaddle.info",
           "key": "info",
           "en": "Info",
           "missing": false
         },
         {
-          "path": "alert.tournamentBracket.participants",
+          "path": "alert.tournamentBpaddle.participants",
           "key": "participants",
           "en": "Participants",
           "missing": false
         },
         {
-          "path": "alert.tournamentBracket.participantsTab",
+          "path": "alert.tournamentBpaddle.participantsTab",
           "key": "participantsTab",
           "en": "Participants",
           "missing": false

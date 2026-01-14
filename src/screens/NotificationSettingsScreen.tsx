@@ -21,7 +21,7 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import { useLanguage } from '../contexts/LanguageContext';
 
 // ============================================
@@ -111,7 +111,7 @@ const NotificationSettingsScreen = () => {
   const navigation = useNavigation();
   const { currentUser } = useAuth();
   const { theme: currentTheme } = useTheme();
-  const paperTheme = getLightningTennisTheme(currentTheme);
+  const paperTheme = getLightningPickleballTheme(currentTheme);
   const { t } = useLanguage();
 
   const [settings, setSettings] = useState<NotificationSettings>(DEFAULT_SETTINGS);

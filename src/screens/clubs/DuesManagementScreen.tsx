@@ -44,7 +44,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 // 🚨 [LEGAL REVIEW] 결제 수단 기능 비활성화 - 법적 검토 후 활성화 예정
 const SHOW_PAYMENT_METHODS = false;
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { RootStackParamList } from '../../navigation/AppNavigator';
 import duesService from '../../services/duesService';
 import { formatPriceByCurrencyCode } from '../../utils/currencyUtils';
@@ -80,7 +80,7 @@ const DuesManagementScreen: React.FC = () => {
   const { currentUser } = useAuth();
   const { t, currentLanguage } = useLanguage();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
   const { clubId, clubName, initialTab } = route.params;
 
@@ -262,7 +262,7 @@ const DuesManagementScreen: React.FC = () => {
       setIsLoading(true);
 
       // Load club settings from Firestore
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       const clubSnap = await getDoc(clubRef);
 
       if (clubSnap.exists()) {
@@ -331,7 +331,7 @@ const DuesManagementScreen: React.FC = () => {
       };
 
       // Save to Firestore
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       const clubSnap = await getDoc(clubRef);
 
       if (clubSnap.exists()) {
@@ -428,7 +428,7 @@ const DuesManagementScreen: React.FC = () => {
 
             // Save to Firestore
             try {
-              const clubRef = doc(db, 'tennis_clubs', clubId);
+              const clubRef = doc(db, 'pickleball_clubs', clubId);
               const { updateDoc } = await import('firebase/firestore');
               await updateDoc(clubRef, {
                 'settings.paymentMethods': newMethods,
@@ -452,7 +452,7 @@ const DuesManagementScreen: React.FC = () => {
 
     // Save to Firestore
     try {
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       const { updateDoc } = await import('firebase/firestore');
       await updateDoc(clubRef, {
         'settings.paymentMethods': newMethods,
@@ -476,7 +476,7 @@ const DuesManagementScreen: React.FC = () => {
 
     try {
       setIsSavingPaymentID(true);
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       const { updateDoc } = await import('firebase/firestore');
 
       if (editPaymentID.trim()) {
@@ -563,7 +563,7 @@ const DuesManagementScreen: React.FC = () => {
       const downloadUrl = await getDownloadURL(storageRef);
 
       // Update Firestore
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       const { updateDoc } = await import('firebase/firestore');
       await updateDoc(clubRef, {
         [`settings.paymentQRCodes.${selectedPaymentMethod}`]: downloadUrl,
@@ -605,7 +605,7 @@ const DuesManagementScreen: React.FC = () => {
           style: 'destructive',
           onPress: async () => {
             try {
-              const clubRef = doc(db, 'tennis_clubs', clubId);
+              const clubRef = doc(db, 'pickleball_clubs', clubId);
               const { updateDoc, deleteField } = await import('firebase/firestore');
               await updateDoc(clubRef, {
                 [`settings.paymentQRCodes.${selectedPaymentMethod}`]: deleteField(),

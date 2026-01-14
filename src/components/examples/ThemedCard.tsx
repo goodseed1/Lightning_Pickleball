@@ -2,15 +2,15 @@
  * ThemedCard - Example Component
  * Project Midnight - Phase 2: Theme-Aware Component Example
  *
- * Demonstrates how to create Lightning Tennis components that adapt to themes
- * Shows proper usage of useTheme hook and Lightning Tennis color system
+ * Demonstrates how to create Lightning Pickleball components that adapt to themes
+ * Shows proper usage of useTheme hook and Lightning Pickleball color system
  */
 
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Card, Button, Chip } from 'react-native-paper';
 import { useTheme } from '../../hooks/useTheme';
-import { LightningTennisBrandColors, withOpacity } from '../../theme/colors';
+import { LightningPickleballBrandColors, withOpacity } from '../../theme/colors';
 import { createDynamicStyles } from '../../utils/themeUtils';
 
 // ==================== COMPONENT INTERFACES ====================
@@ -19,7 +19,7 @@ interface ThemedCardProps {
   title: string;
   subtitle?: string;
   content: string;
-  variant?: 'standard' | 'tennis' | 'electric' | 'tournament';
+  variant?: 'standard' | 'pickleball' | 'electric' | 'tournament';
   onPress?: () => void;
   showActions?: boolean;
 }
@@ -31,7 +31,7 @@ interface ThemedCardProps {
  *
  * Features:
  * - Automatically adapts colors based on current theme (light/dark)
- * - Multiple variants with Lightning Tennis branding
+ * - Multiple variants with Lightning Pickleball branding
  * - Proper contrast and accessibility
  * - Platform-optimized shadows and elevation
  *
@@ -39,9 +39,9 @@ interface ThemedCardProps {
  * ```tsx
  * <ThemedCard
  *   title="Match Found!"
- *   subtitle="Lightning Tennis"
- *   content="You have a new tennis match request"
- *   variant="tennis"
+ *   subtitle="Lightning Pickleball"
+ *   content="You have a new pickleball match request"
+ *   variant="pickleball"
  *   onPress={() => navigateToMatch()}
  *   showActions={true}
  * />
@@ -104,7 +104,7 @@ export const ThemedCard: React.FC<ThemedCardProps> = ({
 // ==================== ADDITIONAL THEMED COMPONENTS ====================
 
 /**
- * Lightning Tennis Status Indicator
+ * Lightning Pickleball Status Indicator
  */
 export const StatusIndicator = ({
   status,
@@ -125,11 +125,11 @@ export const StatusIndicator = ({
 };
 
 /**
- * Tennis Court Themed Button
+ * Pickleball Court Themed Button
  */
-export const TennisButton = ({ title, onPress }: { title: string; onPress: () => void }) => {
+export const PickleballButton = ({ title, onPress }: { title: string; onPress: () => void }) => {
   const { theme } = useTheme();
-  const styles = createTennisButtonStyles(theme);
+  const styles = createPickleballButtonStyles(theme);
 
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
@@ -174,10 +174,10 @@ const createStatusStyles = (themeMode: 'light' | 'dark') => {
       marginRight: 8,
     },
     online: {
-      backgroundColor: LightningTennisBrandColors.success,
+      backgroundColor: LightningPickleballBrandColors.success,
     },
     playing: {
-      backgroundColor: LightningTennisBrandColors.tennis,
+      backgroundColor: LightningPickleballBrandColors.pickleball,
     },
     offline: {
       backgroundColor: '#9E9E9E',
@@ -190,15 +190,15 @@ const createStatusStyles = (themeMode: 'light' | 'dark') => {
 };
 
 /**
- * Tennis button styles
+ * Pickleball button styles
  */
-const createTennisButtonStyles = (themeMode: 'light' | 'dark') => {
-  const tennisColor = themeMode === 'dark' ? '#9CCC65' : '#7CB342';
+const createPickleballButtonStyles = (themeMode: 'light' | 'dark') => {
+  const pickleballColor = themeMode === 'dark' ? '#9CCC65' : '#7CB342';
 
   return StyleSheet.create({
     button: {
-      backgroundColor: withOpacity(tennisColor, 0.15),
-      borderColor: tennisColor,
+      backgroundColor: withOpacity(pickleballColor, 0.15),
+      borderColor: pickleballColor,
       borderWidth: 1,
       borderRadius: 8,
       paddingVertical: 12,
@@ -206,7 +206,7 @@ const createTennisButtonStyles = (themeMode: 'light' | 'dark') => {
       alignItems: 'center',
     },
     text: {
-      color: tennisColor,
+      color: pickleballColor,
       fontSize: 16,
       fontWeight: '600',
     },
@@ -252,7 +252,7 @@ export const ThemeShowcase: React.FC = () => {
   return (
     <View style={{ padding: 16 }}>
       <SectionHeader
-        title='Lightning Tennis Theme System'
+        title='Lightning Pickleball Theme System'
         subtitle={`Current theme: ${theme} (preference: ${themePreference})`}
       />
 
@@ -265,10 +265,10 @@ export const ThemeShowcase: React.FC = () => {
       />
 
       <ThemedCard
-        title='Tennis Match'
+        title='Pickleball Match'
         subtitle='Court Ready'
-        content='Your tennis match is scheduled for today at 3:00 PM.'
-        variant='tennis'
+        content='Your pickleball match is scheduled for today at 3:00 PM.'
+        variant='pickleball'
         showActions={true}
       />
 
@@ -287,7 +287,7 @@ export const ThemeShowcase: React.FC = () => {
       </View>
 
       <View style={{ marginTop: 16 }}>
-        <TennisButton
+        <PickleballButton
           title='Switch Theme'
           onPress={() => setThemePreference(theme === 'light' ? 'dark' : 'light')}
         />

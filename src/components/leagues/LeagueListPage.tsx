@@ -1,6 +1,6 @@
 /**
  * League List Page Component
- * Browse and join tennis leagues
+ * Browse and join pickleball leagues
  */
 
 import React, { useState, useEffect } from 'react';
@@ -233,7 +233,7 @@ const LeagueListPage = () => {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Tennis Leagues</Text>
+        <Text style={styles.headerTitle}>Pickleball Leagues</Text>
         <TouchableOpacity
           style={styles.createButton}
           onPress={() => {

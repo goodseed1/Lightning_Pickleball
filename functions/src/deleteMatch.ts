@@ -3,7 +3,7 @@
  * Phase 5.5: Server-Side Migration - Admin Tools
  *
  * Allows tournament admin to delete a match (error correction)
- * Used for fixing bracket errors or mistakes
+ * Used for fixing bpaddle errors or mistakes
  *
  * @author Heimdall (Phase 5.5)
  * @date 2025-11-10
@@ -68,7 +68,7 @@ export const deleteMatch = onCall<DeleteMatchRequest, Promise<DeleteMatchRespons
       // Check if user is club admin (if tournament belongs to a club)
       let isClubAdmin = false;
       if (tournamentData.clubId) {
-        const clubRef = db.collection('tennis_clubs').doc(tournamentData.clubId);
+        const clubRef = db.collection('pickleball_clubs').doc(tournamentData.clubId);
         const clubSnap = await clubRef.get();
 
         if (clubSnap.exists) {

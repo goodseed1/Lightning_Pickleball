@@ -1,7 +1,7 @@
 {
   "clubTournamentManagement": {
     "status": {
-      "bracketGeneration": "Generazione Tabellone",
+      "bpaddleGeneration": "Generazione Tabellone",
       "inProgress": "In Corso",
       "completed": "Completato"
     },
@@ -16,7 +16,7 @@
       "player2": "Giocatore 2"
     },
     "tournamentStart": {
-      "bracketGenerationError": "Si è verificato un errore durante la generazione del tabellone del torneo.",
+      "bpaddleGenerationError": "Si è verificato un errore durante la generazione del tabellone del torneo.",
       "roundCheckError": "Errore durante il controllo della possibilità di generazione del turno.",
       "errorTitle": "Errore",
       "errorMessage": "Impossibile avviare il torneo.",
@@ -399,15 +399,15 @@
       },
       "locationServices": {
         "title": "Termini dei Servizi Basati sulla Posizione",
-        "content": "Termini dei Servizi Basati sulla Posizione\n\n1. Raccolta e Uso delle Informazioni sulla Posizione\n- Fornitura di servizi di ricerca partite nelle vicinanze\n- Fornitura di servizi di ricerca campi da tennis\n- Fornitura di servizi di notifica basati sulla distanza\n\n2. Consenso per le Informazioni sulla Posizione\n- Gli utenti possono rifiutare la fornitura delle informazioni sulla posizione in qualsiasi momento\n- Il rifiuto delle informazioni sulla posizione può limitare alcune funzionalità del servizio\n\n3. Protezione delle Informazioni sulla Posizione\n- Le informazioni sulla posizione raccolte vengono crittografate e archiviate in modo sicuro\n- Non fornite a terze parti senza il consenso dell'utente"
+        "content": "Termini dei Servizi Basati sulla Posizione\n\n1. Raccolta e Uso delle Informazioni sulla Posizione\n- Fornitura di servizi di ricerca partite nelle vicinanze\n- Fornitura di servizi di ricerca campi da pickleball\n- Fornitura di servizi di notifica basati sulla distanza\n\n2. Consenso per le Informazioni sulla Posizione\n- Gli utenti possono rifiutare la fornitura delle informazioni sulla posizione in qualsiasi momento\n- Il rifiuto delle informazioni sulla posizione può limitare alcune funzionalità del servizio\n\n3. Protezione delle Informazioni sulla Posizione\n- Le informazioni sulla posizione raccolte vengono crittografate e archiviate in modo sicuro\n- Non fornite a terze parti senza il consenso dell'utente"
       },
       "liabilityDisclaimer": {
         "title": "Esclusione di Responsabilità",
-        "content": "⚠️ AVVISO LEGALE IMPORTANTE ⚠️\n\nL'app Lightning Tennis serve come piattaforma per connettere singoli giocatori di tennis.\n\nNON ASSUMIAMO ALCUNA RESPONSABILITÀ LEGALE per:\n\n1. Esclusione Incidenti di Sicurezza\n- Lesioni o incidenti durante le partite di tennis\n- Dispute personali tra partecipanti alle partite\n- Incidenti di sicurezza presso strutture di campi da tennis\n\n2. Esclusione Dispute Finanziarie\n- Dispute relative ai costi delle partite\n- Problemi relativi alle tariffe di noleggio del campo\n- Transazioni finanziarie tra utenti\n\n3. Responsabilità dell'Utente\n- Tutta la sicurezza e responsabilità per le partite appartengono agli organizzatori e ai partecipanti\n- Gli utenti devono verificare la propria condizione di salute prima di partecipare\n- È raccomandata un'adeguata copertura assicurativa\n\nUtilizzando questo servizio, accetti questi termini di esclusione di responsabilità."
+        "content": "⚠️ AVVISO LEGALE IMPORTANTE ⚠️\n\nL'app Lightning Pickleball serve come piattaforma per connettere singoli giocatori di pickleball.\n\nNON ASSUMIAMO ALCUNA RESPONSABILITÀ LEGALE per:\n\n1. Esclusione Incidenti di Sicurezza\n- Lesioni o incidenti durante le partite di pickleball\n- Dispute personali tra partecipanti alle partite\n- Incidenti di sicurezza presso strutture di campi da pickleball\n\n2. Esclusione Dispute Finanziarie\n- Dispute relative ai costi delle partite\n- Problemi relativi alle tariffe di noleggio del campo\n- Transazioni finanziarie tra utenti\n\n3. Responsabilità dell'Utente\n- Tutta la sicurezza e responsabilità per le partite appartengono agli organizzatori e ai partecipanti\n- Gli utenti devono verificare la propria condizione di salute prima di partecipare\n- È raccomandata un'adeguata copertura assicurativa\n\nUtilizzando questo servizio, accetti questi termini di esclusione di responsabilità."
       },
       "marketingCommunications": {
         "title": "Consenso alle Comunicazioni di Marketing",
-        "content": "Consenso alle Comunicazioni di Marketing (Facoltativo)\n\n1. Contenuto\n- Nuove funzionalità e aggiornamenti del servizio\n- Annunci di eventi speciali e promozioni\n- Informazioni e suggerimenti utili relativi al tennis\n- Vantaggi di partnership e informazioni sugli sconti\n\n2. Metodi di Consegna\n- Notifiche push\n- Email\n- Notifiche in-app\n\n3. Opt-out\n- Puoi rinunciare in qualsiasi momento nelle impostazioni\n- Rinuncia selettiva disponibile per singole notifiche\n\nQuesto consenso è facoltativo e il rifiuto non limiterà l'uso del servizio."
+        "content": "Consenso alle Comunicazioni di Marketing (Facoltativo)\n\n1. Contenuto\n- Nuove funzionalità e aggiornamenti del servizio\n- Annunci di eventi speciali e promozioni\n- Informazioni e suggerimenti utili relativi al pickleball\n- Vantaggi di partnership e informazioni sugli sconti\n\n2. Metodi di Consegna\n- Notifiche push\n- Email\n- Notifiche in-app\n\n3. Opt-out\n- Puoi rinunciare in qualsiasi momento nelle impostazioni\n- Rinuncia selettiva disponibile per singole notifiche\n\nQuesto consenso è facoltativo e il rifiuto non limiterà l'uso del servizio."
       },
       "inclusivityPolicy": {
         "title": "Politica di Diversità e Inclusione"
@@ -427,7 +427,7 @@
     "waze": "Waze"
   },
   "tournamentDetail": {
-    "bracket": "Tabellone",
+    "bpaddle": "Tabellone",
     "participants": "Partecipanti",
     "schedule": "Calendario",
     "results": "Risultati"
@@ -491,7 +491,7 @@
     "description": "Descrizione"
   },
   "tournament": {
-    "bracket": "Tabellone",
+    "bpaddle": "Tabellone",
     "schedule": "Calendario",
     "results": "Risultati"
   },

@@ -2,7 +2,7 @@
  * 🏆 AWARD MISSING TROPHIES
  *
  * Manually award trophies for completed tournaments that didn't get trophies
- * due to the "clubs vs tennis_clubs" bug.
+ * due to the "clubs vs pickleball_clubs" bug.
  *
  * Usage:
  *   GOOGLE_APPLICATION_CREDENTIALS="../service-account-key.json" node scripts/award-missing-trophies.js
@@ -64,10 +64,10 @@ async function awardMissingTrophies() {
     console.log('');
 
     // Get club data
-    const clubDoc = await db.doc(`tennis_clubs/${tournament.clubId}`).get();
+    const clubDoc = await db.doc(`pickleball_clubs/${tournament.clubId}`).get();
 
     if (!clubDoc.exists) {
-      throw new Error(`Club ${tournament.clubId} not found in tennis_clubs collection`);
+      throw new Error(`Club ${tournament.clubId} not found in pickleball_clubs collection`);
     }
 
     const clubData = clubDoc.data();

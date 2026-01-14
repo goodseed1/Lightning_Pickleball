@@ -20,7 +20,7 @@ const db = admin.firestore();
 
 // 백업할 컬렉션 목록
 const COLLECTIONS_TO_BACKUP = [
-  'tennis_clubs',
+  'pickleball_clubs',
   'club_posts',
   'club_chats',
   'events',
@@ -80,12 +80,12 @@ async function backupSubcollection(parentCollection, parentDocId, subcollectionN
 async function backupClubChats() {
   console.log(`  📦 club_chats (서브컬렉션) 백업 중...`);
 
-  const clubsSnapshot = await db.collection('tennis_clubs').get();
+  const clubsSnapshot = await db.collection('pickleball_clubs').get();
   const allChats = [];
 
   for (const clubDoc of clubsSnapshot.docs) {
     const chatsSnapshot = await db
-      .collection('tennis_clubs')
+      .collection('pickleball_clubs')
       .doc(clubDoc.id)
       .collection('chats')
       .get();

@@ -4,7 +4,7 @@ import { Text, Button, Avatar, Modal, Portal, ActivityIndicator } from 'react-na
 import { RoleManagementCard } from '../components/clubs/RoleManagementCard';
 import clubService from '../services/clubService';
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface Member {
@@ -60,7 +60,7 @@ export const RoleManagementContainer: React.FC<RoleManagementContainerProps> = (
   const [roleStats, setRoleStats] = useState<RoleStats>({ admin: 0, manager: 0, member: 0 });
   const [isLoading, setIsLoading] = useState(true);
   const { theme } = useTheme();
-  const themeColors = getLightningTennisTheme(theme);
+  const themeColors = getLightningPickleballTheme(theme);
   const { t } = useLanguage();
 
   // 🔄 오너 이전 관련 상태

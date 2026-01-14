@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 /**
@@ -52,7 +52,7 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({
 }) => {
   const { theme } = useTheme();
   const { t } = useLanguage();
-  const themeColors = getLightningTennisTheme(theme);
+  const themeColors = getLightningPickleballTheme(theme);
   const styles = createStyles(themeColors.colors);
   const [expanded, setExpanded] = useState(false);
   const [showResponseInput, setShowResponseInput] = useState(false);

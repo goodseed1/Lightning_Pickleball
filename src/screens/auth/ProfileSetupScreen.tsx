@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import {
@@ -23,7 +23,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { getDistanceUnit } from '../../utils/unitUtils';
 import { getTimezoneFromCoordinates } from '../../utils/timezoneUtils';
 import Slider from '@react-native-community/slider';
@@ -45,8 +45,8 @@ export interface ProfileData {
   nickname: string;
   gender: 'male' | 'female';
 
-  // Step 2: Tennis Details
-  skillLevel?: number; // LTR 1-10 (set in LTR assessment)
+  // Step 2: Pickleball Details
+  skillLevel?: number; // LPR 1-10 (set in LPR assessment)
   communicationLanguages: string[];
   preferredPlayingStyle: string[];
 
@@ -79,7 +79,7 @@ const ProfileSetupScreen: React.FC<ProfileSetupScreenProps> = ({ onComplete, onB
   const { currentLanguage, t } = useLanguage();
   // FORCE DARK MODE for onboarding
   const forcedTheme = 'dark';
-  const themeColors = getLightningTennisTheme(forcedTheme);
+  const themeColors = getLightningPickleballTheme(forcedTheme);
   const [currentStep, setCurrentStep] = useState(1);
   // 🎯 [KIM] Location Required Modal - shows when user denies location permission
   const [showLocationRequiredModal, setShowLocationRequiredModal] = useState(false);
@@ -218,7 +218,7 @@ const ProfileSetupScreen: React.FC<ProfileSetupScreenProps> = ({ onComplete, onB
   };
 
   const handleNext = () => {
-    // 🎯 [KIM FIX] Step 2 (테니스 정보) 스킵 - 이제 2단계만 존재
+    // 🎯 [KIM FIX] Step 2 (피클볼 정보) 스킵 - 이제 2단계만 존재
     // Step 1: 기본 정보 (닉네임, 성별)
     // Step 2: 위치 및 권한 (기존 Step 3)
     switch (currentStep) {
@@ -320,11 +320,11 @@ const ProfileSetupScreen: React.FC<ProfileSetupScreenProps> = ({ onComplete, onB
     setProfileData(prev => ({ ...prev, ...updates }));
   };
 
-  // 🎯 [KIM FIX] toggleArrayItem 제거됨 - renderTennisDetailsStep와 함께 사용되지 않음
+  // 🎯 [KIM FIX] toggleArrayItem 제거됨 - renderPickleballDetailsStep와 함께 사용되지 않음
   // 향후 필요시 git history에서 복구 가능
 
   const getStepTitle = () => {
-    // 🎯 [KIM FIX] 2단계로 축소 (기존 Step 2 테니스 정보 스킵)
+    // 🎯 [KIM FIX] 2단계로 축소 (기존 Step 2 피클볼 정보 스킵)
     switch (currentStep) {
       case 1:
         return t('profileSetup.step1'); // 기본 정보
@@ -336,7 +336,7 @@ const ProfileSetupScreen: React.FC<ProfileSetupScreenProps> = ({ onComplete, onB
   };
 
   const renderStepContent = () => {
-    // 🎯 [KIM FIX] Step 2 (테니스 정보) 스킵 - Step 1 → Step 2 (기존 위치)
+    // 🎯 [KIM FIX] Step 2 (피클볼 정보) 스킵 - Step 1 → Step 2 (기존 위치)
     switch (currentStep) {
       case 1:
         return renderBasicInfoStep();
@@ -465,7 +465,7 @@ const ProfileSetupScreen: React.FC<ProfileSetupScreenProps> = ({ onComplete, onB
     </View>
   );
 
-  // 🎯 [KIM FIX] renderTennisDetailsStep 제거됨 - Step 2 스킵
+  // 🎯 [KIM FIX] renderPickleballDetailsStep 제거됨 - Step 2 스킵
   // - 소통 언어: LanguageSelectionScreen에서 선택한 언어 자동 적용 (currentLanguage)
   // - 플레이 스타일: 프로필 수정에서 선택 가능
   // - 향후 필요시 git history에서 복구 가능
@@ -910,7 +910,7 @@ const ProfileSetupScreen: React.FC<ProfileSetupScreenProps> = ({ onComplete, onB
             {/* Feature list - Warning style */}
             <View style={styles.locationModalFeatures}>
               <View style={styles.locationModalFeatureItem}>
-                <Ionicons name='tennisball-outline' size={20} color='#FF9800' />
+                <Ionicons name='pickleballball-outline' size={20} color='#FF9800' />
                 <Text
                   style={[styles.locationModalFeatureText, { color: themeColors.colors.onSurface }]}
                 >

@@ -317,7 +317,7 @@ const esTranslations = {
   tournamentDetail: {
     tabs: {
       overview: 'Resumen',
-      bracket: 'Cuadro',
+      bpaddle: 'Cuadro',
       participants: 'Participantes',
       rules: 'Reglas',
     },
@@ -663,7 +663,7 @@ const ptTranslations = {
   tournamentDetail: {
     tabs: {
       overview: 'Visão geral',
-      bracket: 'Chave',
+      bpaddle: 'Chave',
       participants: 'Participantes',
       rules: 'Regras',
     },

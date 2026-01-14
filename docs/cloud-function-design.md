@@ -254,7 +254,7 @@ console.log('✅ Global feed item created');
 {
   id: "league_winner_12345",
   name: "🏆 2025년 1분기 클럽 리그 우승",
-  description: "서울 중앙 테니스 클럽의 2025년 1분기 클럽 리그에서 우승을 차지했습니다",
+  description: "서울 중앙 피클볼 클럽의 2025년 1분기 클럽 리그에서 우승을 차지했습니다",
   type: "league_winner",
   leagueId: "league_12345",
   clubId: "club_123",
@@ -284,8 +284,8 @@ console.log('✅ Global feed item created');
 ```javascript
 {
   type: "leagueResult",
-  title: "서울 중앙 테니스 클럽 리그 우승자 발표",
-  content: "서울 중앙 테니스 클럽의 2025년 1분기 클럽 리그에서 김철수님이 우승했습니다! 🏆",
+  title: "서울 중앙 피클볼 클럽 리그 우승자 발표",
+  content: "서울 중앙 피클볼 클럽의 2025년 1분기 클럽 리그에서 김철수님이 우승했습니다! 🏆",
   clubId: "club_123",
   leagueId: "league_12345",
   winnerId: "user_123",

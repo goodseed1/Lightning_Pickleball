@@ -18,7 +18,7 @@
 
 - **508 keys** fully translated to German (Sie form, formal)
 - **32 keys** using universal/acceptable terms:
-  - Tennis terms: Tiebreak, Walkover, Volley, Mental
+  - Pickleball terms: Tiebreak, Walkover, Volley, Mental
   - Technical terms: Status, Format, Partner, OK, Mixed
   - Brand names: Bank, Venmo
   - Event types: Match, Lightning Match, Lightning Meetup, Playoffs
@@ -31,7 +31,7 @@
 ### Approach
 
 - Formal German (Sie form) throughout
-- Professional terminology for tennis and sports
+- Professional terminology for pickleball and sports
 - Consistent translation of technical terms
 - Preservation of proper nouns and language names
 
@@ -93,7 +93,7 @@ Final validation confirms:
 
 ## 🚀 Production Ready
 
-The German localization for the Lightning Tennis app is now **100% complete** and **production-ready** for the following sections:
+The German localization for the Lightning Pickleball app is now **100% complete** and **production-ready** for the following sections:
 
 - Club Leagues & Tournaments
 - Event Creation

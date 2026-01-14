@@ -1,6 +1,6 @@
 /**
  * Business Directory Page
- * Browse local tennis businesses and partnerships
+ * Browse local pickleball businesses and partnerships
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
@@ -276,13 +276,13 @@ const BusinessDirectoryPage: React.FC<BusinessDirectoryPageProps> = () => {
             businessId: 'business_1',
             clubId: 'club_1',
             business: {
-              name: 'Pro Tennis Academy',
+              name: 'Pro Pickleball Academy',
               type: 'coach',
               logo: null,
               contactInfo: {
                 phone: '(404) 555-0123',
-                email: 'info@protennisacademy.com',
-                address: '123 Tennis Way, Atlanta, GA',
+                email: 'info@propickleballacademy.com',
+                address: '123 Pickleball Way, Atlanta, GA',
               },
               stats: {
                 averageRating: 4.8,
@@ -293,7 +293,7 @@ const BusinessDirectoryPage: React.FC<BusinessDirectoryPageProps> = () => {
             services: ['Private Lessons', 'Group Classes', 'Court Rental'],
             title: '20% Discount for Club Members',
             description:
-              'Professional tennis coaching with certified instructors. Special rates for Lightning Tennis club members.',
+              'Professional pickleball coaching with certified instructors. Special rates for Lightning Pickleball club members.',
             specialOffers: [
               {
                 title: 'New Student Special',
@@ -385,7 +385,7 @@ const BusinessDirectoryPage: React.FC<BusinessDirectoryPageProps> = () => {
     <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Tennis Business Directory</Text>
+        <Text style={styles.headerTitle}>Pickleball Business Directory</Text>
         <View style={styles.headerActions}>
           <TouchableOpacity
             style={styles.headerButton}
@@ -403,7 +403,7 @@ const BusinessDirectoryPage: React.FC<BusinessDirectoryPageProps> = () => {
           <Ionicons name='search' size={20} color='#666' />
           <TextInput
             style={styles.searchInput}
-            placeholder='Search tennis businesses...'
+            placeholder='Search pickleball businesses...'
             value={searchQuery}
             onChangeText={setSearchQuery}
             returnKeyType='search'

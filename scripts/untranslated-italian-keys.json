@@ -257,7 +257,7 @@
       "editProfile": {
         "goals": {
           "label": "Goals",
-          "placeholder": "Enter your tennis goals..."
+          "placeholder": "Enter your pickleball goals..."
         }
       }
     },
@@ -550,14 +550,14 @@
     "management": {
       "clubTournamentManagement": {
         "management": {
-          "closeRegistrationDescription": "Close registration and prepare to generate tournament bracket",
+          "closeRegistrationDescription": "Close registration and prepare to generate tournament bpaddle",
           "evenParticipantsRequired": "Doubles requires even number of participants (current: {{count}})",
-          "generateBracketInstructions": "Generate bracket using {{method}} seeding and start the tournament",
+          "generateBpaddleInstructions": "Generate bpaddle using {{method}} seeding and start the tournament",
           "minimumTeamsRequired": "At least 2 teams required to start (current: {{count}} teams)",
           "minimumParticipantsRequired": "At least 2 participants required to start (current: {{count}})",
           "evenParticipantsNeeded": "Doubles requires even participants (current: {{count}})",
-          "manualSeedingInstructions": "Generate bracket using assigned seeds and start the tournament",
-          "autoSeedingInstructions": "Generate tournament bracket and start the competition"
+          "manualSeedingInstructions": "Generate bpaddle using assigned seeds and start the tournament",
+          "autoSeedingInstructions": "Generate tournament bpaddle and start the competition"
         }
       }
     },
@@ -744,15 +744,15 @@
     "autoNtrp": {
       "createEvent": {
         "autoNtrp": {
-          "partnerLevelWithType": "Partner LTR: {{level}} ({{type}})"
+          "partnerLevelWithType": "Partner LPR: {{level}} ({{type}})"
         }
       }
     },
     "helperText": {
       "createEvent": {
         "helperText": {
-          "doublesMatchLevel": "* Doubles match level is automatically set from host and partner LTR sum.",
-          "singlesMatchLevel": "* Singles match level is automatically set from host LTR. (±0.5 tolerance)"
+          "doublesMatchLevel": "* Doubles match level is automatically set from host and partner LPR sum.",
+          "singlesMatchLevel": "* Singles match level is automatically set from host LPR. (±0.5 tolerance)"
         }
       }
     },
@@ -1010,7 +1010,7 @@
       "createMeetup": {
         "location": {
           "changeInSettings": "Can be changed in club settings",
-          "searchHelper": "Tap to search for a tennis court."
+          "searchHelper": "Tap to search for a pickleball court."
         }
       }
     },
@@ -1374,10 +1374,10 @@
     "quickPrompts": {
       "aiChat": {
         "quickPrompts": {
-          "rulesHelp": "Explain basic tennis rules",
+          "rulesHelp": "Explain basic pickleball rules",
           "techniqueTips": "Give me technique improvement tips for my skill level",
           "strategyAdvice": "Give me match strategy and tactics advice",
-          "equipmentHelp": "Recommend tennis equipment for my skill level"
+          "equipmentHelp": "Recommend pickleball equipment for my skill level"
         }
       }
     }
@@ -1504,7 +1504,7 @@
         "badgeGallery": {
           "badges": {
             "first_club_join": {
-              "description": "You joined your first tennis club! 🏟️"
+              "description": "You joined your first pickleball club! 🏟️"
             }
           }
         }
@@ -1726,7 +1726,7 @@
     "loading": {
       "leagueDetail": {
         "loading": {
-          "generatingBracket": "Generating bracket..."
+          "generatingBpaddle": "Generating bpaddle..."
         }
       }
     },
@@ -1759,7 +1759,7 @@
     "playoffs": {
       "leagueDetail": {
         "playoffs": {
-          "tapHint": "Tap to view bracket",
+          "tapHint": "Tap to view bpaddle",
           "seasonComplete": "Regular Season Complete!",
           "standingsToggle": "Standings"
         }
@@ -1862,7 +1862,7 @@
         "ntrpSelector": {
           "levels": {
             "beginner": {
-              "description": "Just started playing tennis"
+              "description": "Just started playing pickleball"
             }
           }
         }
@@ -2006,18 +2006,18 @@
   "clubOverviewScreen": {
     "clubOverviewScreen": {
       "deleteNotificationError": "An error occurred while deleting the notification.",
-      "emptyStateAdminDescription": "No club activities yet. Let's enjoy tennis with your members!",
+      "emptyStateAdminDescription": "No club activities yet. Let's enjoy pickleball with your members!",
       "emptyStateAdminAction3": "Host a tournament or league",
       "emptyStateMemberTitle": "🎾 No upcoming activities yet",
       "emptyStateMemberDescription": "The club admin is preparing new activities. Please wait a moment!",
       "emptyStateMemberAction1": "Chat with members in club chat",
       "emptyStateMemberAction2": "Explore other players nearby",
       "emptyStateGuestTitleDefault": "🎾 Welcome to the club!",
-      "emptyStateGuestDescription": "Join this club to enjoy tennis with members.",
+      "emptyStateGuestDescription": "Join this club to enjoy pickleball with members.",
       "emptyStateGuestAction2": "Check club information",
       "aiHelperHint": "Not sure what to do?",
       "aiHelperButton": "Chat with AI Assistant",
-      "aiHelperSubtext": "Ask questions about tennis or how to use the app!"
+      "aiHelperSubtext": "Ask questions about pickleball or how to use the app!"
     }
   },
   "types": {
@@ -2924,7 +2924,7 @@
         "utils": {
           "ltr": {
             "whatIsLtr": {
-              "title": "What is LTR?"
+              "title": "What is LPR?"
             }
           }
         }
@@ -2934,7 +2934,7 @@
           "ltr": {
             "relationToNtrp": {
               "title": "Relationship to NTRP",
-              "content": "LTR is a unique system distinct from USTA's NTRP. For the convenience of users familiar with NTRP ratings, you can select your skill level in a range similar to NTRP when signing up, but all official levels calculated and displayed within the app are based on LTR."
+              "content": "LPR is a unique system distinct from USTA's NTRP. For the convenience of users familiar with NTRP ratings, you can select your skill level in a range similar to NTRP when signing up, but all official levels calculated and displayed within the app are based on LPR."
             }
           }
         }

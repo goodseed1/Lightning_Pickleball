@@ -96,27 +96,27 @@ const completeFrench = {
     details: {
       serviceTerms: {
         content:
-          "Conditions d'utilisation de Lightning Tennis\n\n⚠️ Avis Important\nLightning Tennis est une plateforme qui connecte les joueurs de tennis. La responsabilité des incidents de sécurité ou des litiges lors des matchs réels incombe aux participants, et nous n'assumons aucune responsabilité légale pour ces questions.\n\n1. Utilisation du Service\n- Cette application est un service de plateforme connectant les joueurs de tennis.\n- Les utilisateurs peuvent utiliser des fonctionnalités telles que la création de matchs, la participation et les activités de club.\n- Veuillez maintenir le respect mutuel et l'esprit sportif lors de l'utilisation du service.\n\n2. Obligations des Utilisateurs\n- Doit fournir des informations exactes.\n- Ne doit pas porter atteinte aux droits d'autrui.\n- Ne doit pas publier de contenu illégal ou inapproprié.\n\n3. Conditions du Service Chatbot IA\n3.1 Limitations des Réponses IA (Clause de Non-Responsabilité)\n- Les informations liées au tennis fournies par le chatbot sont générées par l'IA.\n- Les informations fournies par l'IA peuvent être inexactes ou obsolètes.\n- L'entreprise ne garantit pas l'exactitude, l'exhaustivité ou la fiabilité des informations du chatbot IA.\n- L'entreprise n'est pas responsable des dommages résultant des informations du chatbot IA.\n\n3.2 Règles de Conduite des Utilisateurs\n- Interdit d'utiliser le chatbot pour générer ou demander du contenu illégal.\n- Interdit de générer ou demander du contenu offensant ou discriminatoire.\n- Interdit de générer ou demander du contenu portant atteinte aux droits d'autrui.\n- Interdit de partager intentionnellement des informations personnelles ou sensibles.\n\n3.3 Modifications et Arrêt du Service\n- L'entreprise peut modifier les fonctionnalités du chatbot IA à tout moment.\n- L'entreprise peut temporairement ou définitivement interrompre le service de chatbot pour des raisons techniques ou opérationnelles.\n- L'entreprise n'est pas responsable des dommages résultant de modifications ou d'arrêt du service.\n\n4. Droits du Fournisseur de Service\n- Peut mettre à jour le service pour améliorer la qualité.\n- Peut prendre des mesures disciplinaires contre les utilisateurs inappropriés.",
+          "Conditions d'utilisation de Lightning Pickleball\n\n⚠️ Avis Important\nLightning Pickleball est une plateforme qui connecte les joueurs de pickleball. La responsabilité des incidents de sécurité ou des litiges lors des matchs réels incombe aux participants, et nous n'assumons aucune responsabilité légale pour ces questions.\n\n1. Utilisation du Service\n- Cette application est un service de plateforme connectant les joueurs de pickleball.\n- Les utilisateurs peuvent utiliser des fonctionnalités telles que la création de matchs, la participation et les activités de club.\n- Veuillez maintenir le respect mutuel et l'esprit sportif lors de l'utilisation du service.\n\n2. Obligations des Utilisateurs\n- Doit fournir des informations exactes.\n- Ne doit pas porter atteinte aux droits d'autrui.\n- Ne doit pas publier de contenu illégal ou inapproprié.\n\n3. Conditions du Service Chatbot IA\n3.1 Limitations des Réponses IA (Clause de Non-Responsabilité)\n- Les informations liées au pickleball fournies par le chatbot sont générées par l'IA.\n- Les informations fournies par l'IA peuvent être inexactes ou obsolètes.\n- L'entreprise ne garantit pas l'exactitude, l'exhaustivité ou la fiabilité des informations du chatbot IA.\n- L'entreprise n'est pas responsable des dommages résultant des informations du chatbot IA.\n\n3.2 Règles de Conduite des Utilisateurs\n- Interdit d'utiliser le chatbot pour générer ou demander du contenu illégal.\n- Interdit de générer ou demander du contenu offensant ou discriminatoire.\n- Interdit de générer ou demander du contenu portant atteinte aux droits d'autrui.\n- Interdit de partager intentionnellement des informations personnelles ou sensibles.\n\n3.3 Modifications et Arrêt du Service\n- L'entreprise peut modifier les fonctionnalités du chatbot IA à tout moment.\n- L'entreprise peut temporairement ou définitivement interrompre le service de chatbot pour des raisons techniques ou opérationnelles.\n- L'entreprise n'est pas responsable des dommages résultant de modifications ou d'arrêt du service.\n\n4. Droits du Fournisseur de Service\n- Peut mettre à jour le service pour améliorer la qualité.\n- Peut prendre des mesures disciplinaires contre les utilisateurs inappropriés.",
       },
       privacyPolicy: {
         content:
-          "Politique de Confidentialité\n\n1. Informations Personnelles que Nous Collectons\n- Informations de base : Pseudo, sexe, tranche d'âge\n- Informations de tennis : Niveau LTR, style de jeu préféré\n- Informations de localisation : Zones d'activité, localisation GPS (pour trouver des matchs)\n- Informations de contact : Adresse e-mail\n- Données de conversation du chatbot IA : Questions des utilisateurs et journaux de conversation\n\n2. Objectif de l'Utilisation des Informations Personnelles\n- Fourniture de services de mise en relation\n- Fourniture de recommandations personnalisées\n- Support de communication des utilisateurs\n- Amélioration du service et analyse statistique\n- Service de chatbot IA : Générer des réponses aux questions des utilisateurs\n- Amélioration de la qualité du service chatbot et analyse des tendances des demandes des utilisateurs\n\n3. Partage d'Informations avec des Tiers (Important)\n3.1 Intégration du Service Google IA\n- Le contenu des conversations des utilisateurs est transmis à Google (Alphabet Inc.) pour la génération de réponses du chatbot IA.\n- Google traite ces données uniquement pour générer des réponses via des modèles IA (Gemini).\n- Politique de confidentialité de Google : https://policies.google.com/privacy\n- Les utilisateurs peuvent se désinscrire des fonctionnalités du chatbot IA sans limiter l'utilisation d'autres services.\n\n3.2 Protections de Partage avec des Tiers\n- Les informations d'identification personnelle sont minimisées avant la transmission.\n- Les données sont transmises en toute sécurité via une communication cryptée.\n\n4. Période de Stockage des Données\n- Informations personnelles de base : Stockées pendant la période d'utilisation du service\n- Journaux de conversation du chatbot IA : Stockés jusqu'à 2 ans pour l'amélioration du service, puis automatiquement supprimés\n- Toutes les informations personnelles immédiatement supprimées lors du retrait du compte (sauf exigences légales de conservation)\n\n5. Protection des Informations Personnelles et Droits des Utilisateurs\n- Les informations personnelles collectées sont cryptées et stockées en toute sécurité\n- Les utilisateurs peuvent demander l'arrêt du traitement des informations personnelles à tout moment\n- Les utilisateurs peuvent demander l'accès, la correction ou la suppression des informations personnelles\n\n⚠️ 6. Clause de Non-Responsabilité sur la Sécurité des Informations Personnelles (Important)\n- En cas de fuite d'informations personnelles due à un piratage, des logiciels malveillants, des erreurs système ou d'autres attaques externes ou erreurs de programme, l'entreprise n'est pas légalement responsable.\n- Il est conseillé aux utilisateurs de NE PAS exposer ou stocker d'informations personnelles sensibles telles que les numéros de sécurité sociale, les informations financières ou les mots de passe dans l'application.\n- L'entreprise n'est pas responsable des dommages résultant de la saisie d'informations sensibles dans les profils, publications, chats, etc.\n- Les utilisateurs sont encouragés à utiliser des mots de passe forts et à les changer périodiquement pour la sécurité du compte.",
+          "Politique de Confidentialité\n\n1. Informations Personnelles que Nous Collectons\n- Informations de base : Pseudo, sexe, tranche d'âge\n- Informations de pickleball : Niveau LPR, style de jeu préféré\n- Informations de localisation : Zones d'activité, localisation GPS (pour trouver des matchs)\n- Informations de contact : Adresse e-mail\n- Données de conversation du chatbot IA : Questions des utilisateurs et journaux de conversation\n\n2. Objectif de l'Utilisation des Informations Personnelles\n- Fourniture de services de mise en relation\n- Fourniture de recommandations personnalisées\n- Support de communication des utilisateurs\n- Amélioration du service et analyse statistique\n- Service de chatbot IA : Générer des réponses aux questions des utilisateurs\n- Amélioration de la qualité du service chatbot et analyse des tendances des demandes des utilisateurs\n\n3. Partage d'Informations avec des Tiers (Important)\n3.1 Intégration du Service Google IA\n- Le contenu des conversations des utilisateurs est transmis à Google (Alphabet Inc.) pour la génération de réponses du chatbot IA.\n- Google traite ces données uniquement pour générer des réponses via des modèles IA (Gemini).\n- Politique de confidentialité de Google : https://policies.google.com/privacy\n- Les utilisateurs peuvent se désinscrire des fonctionnalités du chatbot IA sans limiter l'utilisation d'autres services.\n\n3.2 Protections de Partage avec des Tiers\n- Les informations d'identification personnelle sont minimisées avant la transmission.\n- Les données sont transmises en toute sécurité via une communication cryptée.\n\n4. Période de Stockage des Données\n- Informations personnelles de base : Stockées pendant la période d'utilisation du service\n- Journaux de conversation du chatbot IA : Stockés jusqu'à 2 ans pour l'amélioration du service, puis automatiquement supprimés\n- Toutes les informations personnelles immédiatement supprimées lors du retrait du compte (sauf exigences légales de conservation)\n\n5. Protection des Informations Personnelles et Droits des Utilisateurs\n- Les informations personnelles collectées sont cryptées et stockées en toute sécurité\n- Les utilisateurs peuvent demander l'arrêt du traitement des informations personnelles à tout moment\n- Les utilisateurs peuvent demander l'accès, la correction ou la suppression des informations personnelles\n\n⚠️ 6. Clause de Non-Responsabilité sur la Sécurité des Informations Personnelles (Important)\n- En cas de fuite d'informations personnelles due à un piratage, des logiciels malveillants, des erreurs système ou d'autres attaques externes ou erreurs de programme, l'entreprise n'est pas légalement responsable.\n- Il est conseillé aux utilisateurs de NE PAS exposer ou stocker d'informations personnelles sensibles telles que les numéros de sécurité sociale, les informations financières ou les mots de passe dans l'application.\n- L'entreprise n'est pas responsable des dommages résultant de la saisie d'informations sensibles dans les profils, publications, chats, etc.\n- Les utilisateurs sont encouragés à utiliser des mots de passe forts et à les changer périodiquement pour la sécurité du compte.",
       },
       locationServices: {
         content:
-          "Conditions des Services de Localisation\n\n1. Collecte et Utilisation des Informations de Localisation\n- Fourniture de services de recherche de matchs à proximité\n- Fourniture de services de recherche de courts de tennis\n- Fourniture de services de notification basés sur la distance\n\n2. Consentement pour les Informations de Localisation\n- Les utilisateurs peuvent refuser la fourniture d'informations de localisation à tout moment\n- Le refus des informations de localisation peut limiter certaines fonctionnalités du service\n\n3. Protection des Informations de Localisation\n- Les informations de localisation collectées sont cryptées et stockées en toute sécurité\n- Non fournies à des tiers sans le consentement de l'utilisateur",
+          "Conditions des Services de Localisation\n\n1. Collecte et Utilisation des Informations de Localisation\n- Fourniture de services de recherche de matchs à proximité\n- Fourniture de services de recherche de courts de pickleball\n- Fourniture de services de notification basés sur la distance\n\n2. Consentement pour les Informations de Localisation\n- Les utilisateurs peuvent refuser la fourniture d'informations de localisation à tout moment\n- Le refus des informations de localisation peut limiter certaines fonctionnalités du service\n\n3. Protection des Informations de Localisation\n- Les informations de localisation collectées sont cryptées et stockées en toute sécurité\n- Non fournies à des tiers sans le consentement de l'utilisateur",
       },
       liabilityDisclaimer: {
         content:
-          "⚠️ AVIS JURIDIQUE IMPORTANT ⚠️\n\nL'application Lightning Tennis sert de plateforme pour connecter les joueurs de tennis individuels.\n\nNOUS N'ASSUMONS AUCUNE RESPONSABILITÉ LÉGALE pour :\n\n1. Clause de Non-Responsabilité sur les Incidents de Sécurité\n- Blessures ou accidents pendant les matchs de tennis\n- Litiges personnels entre les participants aux matchs\n- Incidents de sécurité dans les installations de courts de tennis\n\n2. Clause de Non-Responsabilité sur les Litiges Financiers\n- Litiges liés aux coûts des matchs\n- Problèmes liés aux frais de location de court\n- Transactions financières entre utilisateurs\n\n3. Responsabilité de l'Utilisateur\n- Toute la sécurité et la responsabilité des matchs appartiennent aux hôtes et aux participants\n- Les utilisateurs doivent vérifier leur état de santé avant de participer\n- Une couverture d'assurance appropriée est recommandée\n\nEn utilisant ce service, vous acceptez ces conditions de non-responsabilité.",
+          "⚠️ AVIS JURIDIQUE IMPORTANT ⚠️\n\nL'application Lightning Pickleball sert de plateforme pour connecter les joueurs de pickleball individuels.\n\nNOUS N'ASSUMONS AUCUNE RESPONSABILITÉ LÉGALE pour :\n\n1. Clause de Non-Responsabilité sur les Incidents de Sécurité\n- Blessures ou accidents pendant les matchs de pickleball\n- Litiges personnels entre les participants aux matchs\n- Incidents de sécurité dans les installations de courts de pickleball\n\n2. Clause de Non-Responsabilité sur les Litiges Financiers\n- Litiges liés aux coûts des matchs\n- Problèmes liés aux frais de location de court\n- Transactions financières entre utilisateurs\n\n3. Responsabilité de l'Utilisateur\n- Toute la sécurité et la responsabilité des matchs appartiennent aux hôtes et aux participants\n- Les utilisateurs doivent vérifier leur état de santé avant de participer\n- Une couverture d'assurance appropriée est recommandée\n\nEn utilisant ce service, vous acceptez ces conditions de non-responsabilité.",
       },
       marketingCommunications: {
         content:
-          "Consentement aux Communications Marketing (Optionnel)\n\n1. Contenu\n- Nouvelles fonctionnalités et mises à jour du service\n- Annonces d'événements spéciaux et de promotions\n- Informations et conseils utiles liés au tennis\n- Avantages de partenariat et informations de réduction\n\n2. Méthodes de Livraison\n- Notifications push\n- E-mail\n- Notifications dans l'application\n\n3. Désinscription\n- Vous pouvez vous désinscrire à tout moment dans les paramètres\n- Désinscription sélective disponible pour les notifications individuelles\n\nCe consentement est optionnel et le refus ne limitera pas votre utilisation du service.",
+          "Consentement aux Communications Marketing (Optionnel)\n\n1. Contenu\n- Nouvelles fonctionnalités et mises à jour du service\n- Annonces d'événements spéciaux et de promotions\n- Informations et conseils utiles liés au pickleball\n- Avantages de partenariat et informations de réduction\n\n2. Méthodes de Livraison\n- Notifications push\n- E-mail\n- Notifications dans l'application\n\n3. Désinscription\n- Vous pouvez vous désinscrire à tout moment dans les paramètres\n- Désinscription sélective disponible pour les notifications individuelles\n\nCe consentement est optionnel et le refus ne limitera pas votre utilisation du service.",
       },
       inclusivityPolicy: {
         content:
-          "🌈 Politique de Diversité et d'Inclusion et Clause de Non-Responsabilité\n\nLightning Tennis est une plateforme ouverte à tous les utilisateurs.\n\n1. Principes d'Inclusion\n- Tous les utilisateurs ont un accès égal à nos services indépendamment du sexe, de l'orientation sexuelle ou de l'identité de genre.\n- Les utilisateurs LGBTQ+ peuvent participer à toutes les activités (création de matchs, participation, activités de club, etc.) sans restrictions.\n- Tous les utilisateurs doivent adhérer aux principes de respect mutuel.\n\n2. Clause de Non-Responsabilité sur les Erreurs de Programme\n- Des erreurs de programme peuvent occasionnellement causer des restrictions involontaires sur certaines fonctionnalités.\n- De telles erreurs ne sont pas une discrimination intentionnelle et seront corrigées dès leur découverte.\n- Vous acceptez de ne pas déposer de poursuites judiciaires pour des restrictions de fonctionnalités causées par des erreurs de programme.\n\n3. Anti-Discrimination\n- Les discours ou comportements discriminatoires basés sur le sexe, l'orientation sexuelle ou l'identité de genre sont interdits.\n- Les comportements discriminatoires peuvent entraîner des restrictions de service.\n\nEn acceptant cette politique, vous reconnaissez comprendre et accepter ces conditions.",
+          "🌈 Politique de Diversité et d'Inclusion et Clause de Non-Responsabilité\n\nLightning Pickleball est une plateforme ouverte à tous les utilisateurs.\n\n1. Principes d'Inclusion\n- Tous les utilisateurs ont un accès égal à nos services indépendamment du sexe, de l'orientation sexuelle ou de l'identité de genre.\n- Les utilisateurs LGBTQ+ peuvent participer à toutes les activités (création de matchs, participation, activités de club, etc.) sans restrictions.\n- Tous les utilisateurs doivent adhérer aux principes de respect mutuel.\n\n2. Clause de Non-Responsabilité sur les Erreurs de Programme\n- Des erreurs de programme peuvent occasionnellement causer des restrictions involontaires sur certaines fonctionnalités.\n- De telles erreurs ne sont pas une discrimination intentionnelle et seront corrigées dès leur découverte.\n- Vous acceptez de ne pas déposer de poursuites judiciaires pour des restrictions de fonctionnalités causées par des erreurs de programme.\n\n3. Anti-Discrimination\n- Les discours ou comportements discriminatoires basés sur le sexe, l'orientation sexuelle ou l'identité de genre sont interdits.\n- Les comportements discriminatoires peuvent entraîner des restrictions de service.\n\nEn acceptant cette politique, vous reconnaissez comprendre et accepter ces conditions.",
       },
     },
   },
@@ -144,7 +144,7 @@ const completeFrench = {
 
   // Alert
   alert: {
-    tournamentBracket: {
+    tournamentBpaddle: {
       info: 'Info',
       participants: 'Participants',
       participantsTab: 'Participants',
@@ -265,7 +265,7 @@ const completeFrench = {
       management: 'Gestion',
     },
     status: {
-      bracketGeneration: 'Génération du Tableau',
+      bpaddleGeneration: 'Génération du Tableau',
     },
     participants: {
       label: 'Participants',
@@ -280,7 +280,7 @@ const completeFrench = {
       add: 'Ajouter un Participant',
       remove: 'Retirer le Participant',
     },
-    bracket: {
+    bpaddle: {
       title: 'Tableau du Tournoi',
       generate: 'Générer le Tableau',
       regenerate: 'Régénérer le Tableau',
@@ -326,7 +326,7 @@ const completeFrench = {
     },
     coaching: {
       title: 'Coaching',
-      subtitle: 'Cours de tennis professionnels',
+      subtitle: 'Cours de pickleball professionnels',
       description: 'Améliorez votre jeu avec nos coachs certifiés',
       private: 'Cours Privé',
       group: 'Cours de Groupe',
@@ -365,9 +365,9 @@ const completeFrench = {
     },
     equipment: {
       title: 'Équipement',
-      subtitle: 'Équipement et accessoires de tennis',
+      subtitle: 'Équipement et accessoires de pickleball',
       description: 'Tout ce dont vous avez besoin pour jouer',
-      rackets: 'Raquettes',
+      paddles: 'Raquettes',
       balls: 'Balles',
       shoes: 'Chaussures',
       apparel: 'Vêtements',
@@ -385,7 +385,7 @@ const completeFrench = {
     },
     courtRental: {
       title: 'Location de Court',
-      subtitle: 'Réservez des courts de tennis',
+      subtitle: 'Réservez des courts de pickleball',
       description: 'Courts disponibles à la location',
       indoor: 'Intérieur',
       outdoor: 'Extérieur',
@@ -424,7 +424,7 @@ const completeFrench = {
     },
     clinic: {
       title: 'Clinique',
-      subtitle: 'Cliniques et camps de tennis',
+      subtitle: 'Cliniques et camps de pickleball',
       description: "Programmes d'entraînement intensif",
       junior: 'Junior',
       adult: 'Adulte',
@@ -459,7 +459,7 @@ const completeFrench = {
   // Create Event (56 keys)
   createEvent: {
     title: 'Créer un Événement',
-    subtitle: 'Organisez un événement de tennis',
+    subtitle: 'Organisez un événement de pickleball',
     types: {
       match: 'Match',
       practice: 'Entraînement',
@@ -607,7 +607,7 @@ const completeFrench = {
   // AI Matching (46 keys)
   aiMatching: {
     title: 'Correspondance IA',
-    subtitle: 'Trouvez votre partenaire de tennis parfait',
+    subtitle: 'Trouvez votre partenaire de pickleball parfait',
     analyzing: 'Analyse en cours...',
     findingMatches: 'Recherche de correspondances...',
     compatibility: 'Compatibilité',
@@ -755,7 +755,7 @@ const completeFrench = {
   },
 
   ntrpSelector: {
-    title: 'Sélectionner le Niveau LTR',
+    title: 'Sélectionner le Niveau LPR',
     beginner: 'Débutant',
     intermediate: 'Intermédiaire',
     advanced: 'Avancé',

@@ -37,7 +37,7 @@ const frTranslations = {
   'League Rules': 'Règles de la ligue',
 
   // Tournament-related terms
-  'Tournament Bracket': 'Tableau du tournoi',
+  'Tournament Bpaddle': 'Tableau du tournoi',
   'Tournament Schedule': 'Calendrier du tournoi',
   'Tournament Results': 'Résultats du tournoi',
 

@@ -91,8 +91,8 @@ const translations = {
       applyFailed: 'Error al aplicar',
       withdrawSuccess: 'Te has retirado',
       withdrawFailed: 'Error al retirarse',
-      bracketGenerated: 'Bracket generado',
-      bracketFailed: 'Error al generar bracket',
+      bpaddleGenerated: 'Bpaddle generado',
+      bpaddleFailed: 'Error al generar bpaddle',
     },
     // Tournament service
     tournament: {
@@ -570,12 +570,12 @@ const translations = {
 
   // NTRP Result (1 key)
   ntrpResult: {
-    title: 'Resultado LTR',
+    title: 'Resultado LPR',
   },
 
   // NTRP Selector (6 keys)
   ntrpSelector: {
-    title: 'Seleccionar Nivel LTR',
+    title: 'Seleccionar Nivel LPR',
     levels: {
       beginner: 'Principiante',
       intermediate: 'Intermedio',

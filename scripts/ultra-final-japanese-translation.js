@@ -24,7 +24,7 @@ function findUntranslated(enObj, jaObj, pathStr = '', results = []) {
 const beforeCount = findUntranslated(en, ja).length;
 console.log(`\n📊 Starting with ${beforeCount} untranslated keys\n`);
 
-// ULTRA MASSIVE translation map - covering all remaining patterns
+// ULPRA MASSIVE translation map - covering all remaining patterns
 const autoTranslations = {
   // Club Tournament Management
   'Assign Seeds': 'シードを割り当てる',
@@ -65,10 +65,10 @@ const autoTranslations = {
   '{{count}} waiting': '{{count}}人待機中',
   Chat: 'チャット',
   'Apply Solo': 'ソロで申し込む',
-  'Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})':
-    'レベルミスマッチ（あなたのLTR: {{userNtrp}}、許可: {{minNtrp}}〜{{maxNtrp}}）',
+  'Level mismatch (Your LPR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})':
+    'レベルミスマッチ（あなたのLPR: {{userNtrp}}、許可: {{minNtrp}}〜{{maxNtrp}}）',
   'Gender Mismatch': '性別ミスマッチ',
-  'Apply: LTR {{minNtrp}} - {{maxNtrp}}': '応募: LTR {{minNtrp}} - {{maxNtrp}}',
+  'Apply: LPR {{minNtrp}} - {{maxNtrp}}': '応募: LPR {{minNtrp}} - {{maxNtrp}}',
   'Level: {{level}}': 'レベル: {{level}}',
   '{{count}} solo': '{{count}}人ソロ',
   '{{count}} solo applicants': '{{count}}人のソロ申請者',
@@ -78,10 +78,10 @@ const autoTranslations = {
   'NTRP Skill Level * (Multiple Selection)': 'NTRPスキルレベル *（複数選択）',
   'Any Level': 'すべてのレベル',
   'e.g. Weekend Fun Rally': '例: 週末楽しいラリー',
-  'Host LTR: {{level}} ({{gameType}})': 'ホストLTR: {{level}} ({{gameType}})',
-  'Combined LTR: {{level}}': '組み合わせLTR: {{level}}',
-  '[Lightning Tennis] {{sender}} invited you to "{{eventTitle}}"! Download app: {{link}}':
-    '[Lightning Tennis] {{sender}}があなたを"{{eventTitle}}"に招待しました！アプリをダウンロード: {{link}}',
+  'Host LPR: {{level}} ({{gameType}})': 'ホストLPR: {{level}} ({{gameType}})',
+  'Combined LPR: {{level}}': '組み合わせLPR: {{level}}',
+  '[Lightning Pickleball] {{sender}} invited you to "{{eventTitle}}"! Download app: {{link}}':
+    '[Lightning Pickleball] {{sender}}があなたを"{{eventTitle}}"に招待しました！アプリをダウンロード: {{link}}',
   'A friend': '友達',
   'Numbers to invite:': '招待する番号:',
   'Selected ({{count}})': '選択済み ({{count}})',
@@ -577,7 +577,7 @@ untranslated.forEach(item => {
 fs.writeFileSync(jaPath, JSON.stringify(ja, null, 2), 'utf8');
 
 const afterCount = findUntranslated(en, ja).length;
-console.log(`\n✨ ULTRA TRANSLATION COMPLETE! ✨\n`);
+console.log(`\n✨ ULPRA TRANSLATION COMPLETE! ✨\n`);
 console.log(`✅ Translated: ${count} keys`);
 console.log(`📊 Before: ${beforeCount} untranslated`);
 console.log(`📊 After: ${afterCount} untranslated`);

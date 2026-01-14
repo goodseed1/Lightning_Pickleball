@@ -26,14 +26,14 @@ import tournamentService from '../../services/tournamentService';
 import {
   Tournament,
   TournamentStatus,
-  BracketMatch,
+  BpaddleMatch,
   DoublesTeam,
   TournamentScore,
   getMatchFormatFromTournamentEventType,
 } from '../../types/tournament';
 import { ScoreInputForm, Match } from '../../types/match';
 import CreateClubTournamentForm from '../../components/clubs/tournaments/CreateClubTournamentForm';
-import TournamentBracketView from '../../components/tournaments/TournamentBracketView';
+import TournamentBpaddleView from '../../components/tournaments/TournamentBpaddleView';
 import TournamentRankingsTab from '../../components/tournaments/TournamentRankingsTab';
 import ScoreInputContent from '../../components/tournaments/ScoreInputContent';
 import UserSearchModal from '../../components/modals/UserSearchModal';
@@ -59,7 +59,7 @@ const ClubTournamentManagementScreen = () => {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [tournaments, setTournaments] = useState<Tournament[]>([]);
-  const [matches, setMatches] = useState<{ [tournamentId: string]: BracketMatch[] }>({});
+  const [matches, setMatches] = useState<{ [tournamentId: string]: BpaddleMatch[] }>({});
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [activeTab, setActiveTab] = useState<'active' | 'completed'>('active');
 
@@ -72,12 +72,12 @@ const ClubTournamentManagementScreen = () => {
 
   // Score input state - Flow Switch pattern for management screen
   const [scoreInputMode, setScoreInputMode] = useState(false);
-  const [selectedMatchForScoring, setSelectedMatchForScoring] = useState<BracketMatch | null>(null);
+  const [selectedMatchForScoring, setSelectedMatchForScoring] = useState<BpaddleMatch | null>(null);
 
   // Manual round generation state
   const [isGeneratingRound, setIsGeneratingRound] = useState(false);
-  // 🎯 [KIM FIX] Bracket generation loading state for UX improvement
-  const [isGeneratingBracket, setIsGeneratingBracket] = useState(false);
+  // 🎯 [KIM FIX] Bpaddle generation loading state for UX improvement
+  const [isGeneratingBpaddle, setIsGeneratingBpaddle] = useState(false);
   const [roundGenerationStatus, setRoundGenerationStatus] = useState<{
     [tournamentId: string]: {
       canGenerate: boolean;
@@ -205,9 +205,9 @@ const ClubTournamentManagementScreen = () => {
           });
 
         Promise.all(matchPromises).then(matchResults => {
-          const newMatchesData: { [tournamentId: string]: BracketMatch[] } = {};
+          const newMatchesData: { [tournamentId: string]: BpaddleMatch[] } = {};
           matchResults.forEach(({ tournamentId, matches }) => {
-            newMatchesData[tournamentId] = matches as BracketMatch[];
+            newMatchesData[tournamentId] = matches as BpaddleMatch[];
           });
           setMatches(newMatchesData);
         });
@@ -314,7 +314,7 @@ const ClubTournamentManagementScreen = () => {
       setTournaments(allTournaments);
 
       // 각 토너먼트의 경기 정보도 로드하여 완료 가능 여부 확인
-      const matchesData: { [tournamentId: string]: BracketMatch[] } = {};
+      const matchesData: { [tournamentId: string]: BpaddleMatch[] } = {};
       await Promise.all(
         allTournaments.map(async tournament => {
           if (tournament.status === 'in_progress') {
@@ -405,7 +405,7 @@ const ClubTournamentManagementScreen = () => {
     // Set up real-time subscription for this tournament's matches
     if (
       tournament.status === 'in_progress' ||
-      tournament.status === 'bracket_generation' ||
+      tournament.status === 'bpaddle_generation' ||
       tournament.status === 'completed'
     ) {
       subscribeToTournamentMatches(tournament.id);
@@ -576,7 +576,7 @@ const ClubTournamentManagementScreen = () => {
 
     // 🔄 수동 시딩인 경우: 상태만 변경하고 사용자가 직접 시드 배정 후 시작
     if (selectedTournament.settings.seedingMethod === 'manual') {
-      await handleStatusChange(selectedTournament.id, 'bracket_generation');
+      await handleStatusChange(selectedTournament.id, 'bpaddle_generation');
       setDetailActiveTab('participants');
       Alert.alert(
         t('clubTournamentManagement.tournamentStart.seedRequired'),
@@ -586,12 +586,12 @@ const ClubTournamentManagementScreen = () => {
     }
 
     // 🚀 자동 시딩인 경우: 즉시 대진표 생성 및 토너먼트 시작
-    // 🎯 [KIM FIX] Add loading indicator during bracket generation
-    setIsGeneratingBracket(true);
+    // 🎯 [KIM FIX] Add loading indicator during bpaddle generation
+    setIsGeneratingBpaddle(true);
 
     try {
-      await tournamentService.generateTournamentBracket(selectedTournament.id);
-      console.log('✅ Tournament bracket generated and started automatically');
+      await tournamentService.generateTournamentBpaddle(selectedTournament.id);
+      console.log('✅ Tournament bpaddle generated and started automatically');
 
       // Reload tournaments to reflect changes
       loadTournaments();
@@ -606,7 +606,7 @@ const ClubTournamentManagementScreen = () => {
         [
           {
             text: t('clubTournamentManagement.common.confirm'),
-            // 🎯 [KIM FIX] Auto-navigate to matches tab to show bracket
+            // 🎯 [KIM FIX] Auto-navigate to matches tab to show bpaddle
             onPress: () => setDetailActiveTab('matches'),
           },
         ]
@@ -615,11 +615,11 @@ const ClubTournamentManagementScreen = () => {
       console.error('Error starting tournament:', error);
       Alert.alert(
         t('clubTournamentManagement.common.error'),
-        t('clubTournamentManagement.tournamentStart.bracketGenerationError')
+        t('clubTournamentManagement.tournamentStart.bpaddleGenerationError')
       );
     } finally {
       // 🎯 [KIM FIX] Always clear loading state
-      setIsGeneratingBracket(false);
+      setIsGeneratingBpaddle(false);
     }
   };
 
@@ -675,7 +675,7 @@ const ClubTournamentManagementScreen = () => {
 
   const handleStartTournament = async () => {
     if (selectedTournament) {
-      // ⚠️ RACE CONDITION PREVENTION: Don't allow bracket generation while participants are being added
+      // ⚠️ RACE CONDITION PREVENTION: Don't allow bpaddle generation while participants are being added
       if (isAddingParticipant) {
         Alert.alert(
           t('clubTournamentManagement.tournamentStart.addingParticipants'),
@@ -685,9 +685,9 @@ const ClubTournamentManagementScreen = () => {
       }
 
       try {
-        // Generate bracket first
-        await tournamentService.generateTournamentBracket(selectedTournament.id);
-        console.log('✅ Tournament bracket generated and started');
+        // Generate bpaddle first
+        await tournamentService.generateTournamentBpaddle(selectedTournament.id);
+        console.log('✅ Tournament bpaddle generated and started');
 
         // Reload tournaments to reflect changes
         loadTournaments();
@@ -699,7 +699,7 @@ const ClubTournamentManagementScreen = () => {
         // 🎯 [KIM FIX] 성공 Alert 표시 및 경기 탭으로 이동
         Alert.alert(
           t('clubTournamentManagement.tournamentStart.successTitle'),
-          t('clubTournamentManagement.tournamentStart.bracketGeneratedMessage'),
+          t('clubTournamentManagement.tournamentStart.bpaddleGeneratedMessage'),
           [
             {
               text: t('clubTournamentManagement.common.confirm'),
@@ -711,7 +711,7 @@ const ClubTournamentManagementScreen = () => {
         console.error('Error starting tournament:', error);
         Alert.alert(
           t('clubTournamentManagement.common.error'),
-          t('clubTournamentManagement.tournamentStart.bracketGenerationError')
+          t('clubTournamentManagement.tournamentStart.bpaddleGenerationError')
         );
       }
     }
@@ -1278,7 +1278,7 @@ const ClubTournamentManagementScreen = () => {
     // Show success message
     Alert.alert(
       t('clubTournamentManagement.seedAssignment.completeTitle'),
-      t('clubTournamentManagement.seedAssignment.completeMessageWithBracket'),
+      t('clubTournamentManagement.seedAssignment.completeMessageWithBpaddle'),
       [{ text: 'OK' }]
     );
   };
@@ -1289,7 +1289,7 @@ const ClubTournamentManagementScreen = () => {
         return '#757575';
       case 'registration':
         return '#ff9800';
-      case 'bracket_generation':
+      case 'bpaddle_generation':
         return '#9c27b0';
       case 'in_progress':
         return '#4caf50';
@@ -1307,7 +1307,7 @@ const ClubTournamentManagementScreen = () => {
     const statusKeys: Record<TournamentStatus, string> = {
       draft: 'clubTournamentManagement.status.draft',
       registration: 'clubTournamentManagement.status.registration',
-      bracket_generation: 'clubTournamentManagement.status.bracketGeneration',
+      bpaddle_generation: 'clubTournamentManagement.status.bpaddleGeneration',
       in_progress: 'clubTournamentManagement.status.inProgress',
       completed: 'clubTournamentManagement.status.completed',
       cancelled: 'clubTournamentManagement.status.cancelled',
@@ -1317,7 +1317,7 @@ const ClubTournamentManagementScreen = () => {
   };
 
   // 🚀 TRUST SERVER DATA: Simple grouping function without destructive processing
-  const createSimpleBracket = (tournamentMatches: BracketMatch[]) => {
+  const createSimpleBpaddle = (tournamentMatches: BpaddleMatch[]) => {
     if (!tournamentMatches || tournamentMatches.length === 0) {
       return {
         rounds: [],
@@ -1326,7 +1326,7 @@ const ClubTournamentManagementScreen = () => {
     }
 
     // Simple grouping by round number - NO destructive processing
-    const roundsMap: { [roundNum: number]: BracketMatch[] } = {};
+    const roundsMap: { [roundNum: number]: BpaddleMatch[] } = {};
 
     tournamentMatches.forEach(match => {
       const roundNum = match.roundNumber || 1;
@@ -1338,7 +1338,7 @@ const ClubTournamentManagementScreen = () => {
       // Simple conversion - preserve ALL server data
       const simpleMatch = {
         id: match.id,
-        matchNumber: match.matchNumber || match.bracketPosition || 1,
+        matchNumber: match.matchNumber || match.bpaddlePosition || 1,
         player1: match.player1
           ? {
               playerId: match.player1.playerId,
@@ -1373,7 +1373,7 @@ const ClubTournamentManagementScreen = () => {
         nextMatchId: match.nextMatch?.matchId,
       };
 
-      roundsMap[Number(roundNum)].push(simpleMatch as unknown as BracketMatch);
+      roundsMap[Number(roundNum)].push(simpleMatch as unknown as BpaddleMatch);
     });
 
     // Convert to rounds array
@@ -1402,8 +1402,8 @@ const ClubTournamentManagementScreen = () => {
 
   // 🔥 OLD DESTRUCTIVE FUNCTION (DEPRECATED) - DO NOT USE
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const convertToBracketFormat = (
-    tournamentMatches: BracketMatch[],
+  const convertToBpaddleFormat = (
+    tournamentMatches: BpaddleMatch[],
     tournamentData: Tournament
   ) => {
     console.log('🔥 [DEPRECATED] Old destructive function called - this should be replaced!');
@@ -1439,9 +1439,9 @@ const ClubTournamentManagementScreen = () => {
       nextMatchId?: string;
     }
 
-    // Sort matches by bracket position to reconstruct rounds properly
+    // Sort matches by bpaddle position to reconstruct rounds properly
     const sortedMatches = [...tournamentMatches].sort(
-      (a, b) => (a.bracketPosition || 0) - (b.bracketPosition || 0)
+      (a, b) => (a.bpaddlePosition || 0) - (b.bpaddlePosition || 0)
     );
 
     // Attempt to reconstruct rounds based on tournament structure if round numbers are incorrect
@@ -1464,7 +1464,7 @@ const ClubTournamentManagementScreen = () => {
       let roundNum: number;
 
       if (reconstructedRounds) {
-        // Reconstruct round numbers based on tournament bracket structure
+        // Reconstruct round numbers based on tournament bpaddle structure
         // For single elimination: Round 1 = first half matches, Round 2 = quarter finals, etc.
         if (totalMatches <= 4) {
           // 4 or fewer matches: likely semifinals (round 2) and final (round 3)
@@ -1475,7 +1475,7 @@ const ClubTournamentManagementScreen = () => {
           else if (index < totalMatches - 1) roundNum = 2;
           else roundNum = 3;
         } else {
-          // Larger tournaments: use bracket position to determine round
+          // Larger tournaments: use bpaddle position to determine round
           const numFirstRoundMatches = Math.ceil(totalMatches * 0.6);
           if (index < numFirstRoundMatches) roundNum = 1;
           else if (index < totalMatches - 1) roundNum = 2;
@@ -1503,7 +1503,7 @@ const ClubTournamentManagementScreen = () => {
         player1: match.player1?.playerName,
         player2: match.player2?.playerName,
         status: match.status,
-        bracketPosition: match.bracketPosition,
+        bpaddlePosition: match.bpaddlePosition,
         wasReconstructed: reconstructedRounds,
       });
 
@@ -1511,12 +1511,12 @@ const ClubTournamentManagementScreen = () => {
         roundsMap[Number(roundNum)] = [];
       }
 
-      // Convert BracketMatch to format expected by TournamentBracketView
+      // Convert BpaddleMatch to format expected by TournamentBpaddleView
       let winner = null;
       // Enhanced winner determination with detailed logging
       // Priority: _winner → score.winner → legacy winnerId
       let winnerPlayerId =
-        match._winner || (match as BracketMatch & { winnerId?: string }).winnerId;
+        match._winner || (match as BpaddleMatch & { winnerId?: string }).winnerId;
 
       // If no winner field set but match is completed with score, try to get winner from score
       if (!winnerPlayerId && match.status === 'completed' && match.score?.winner) {
@@ -1546,7 +1546,7 @@ const ClubTournamentManagementScreen = () => {
       // Enhanced player conversion with seed restoration
       const convertedMatch = {
         id: match.id,
-        matchNumber: match.bracketPosition || match.matchNumber || 1,
+        matchNumber: match.bpaddlePosition || match.matchNumber || 1,
         player1: match.player1
           ? {
               playerId: match.player1.playerId,
@@ -1604,7 +1604,7 @@ const ClubTournamentManagementScreen = () => {
       })),
     });
 
-    console.log('🏆 [BRACKET DEBUG] Final bracket structure:', {
+    console.log('🏆 [BRACKET DEBUG] Final bpaddle structure:', {
       totalRounds: rounds.length,
       roundsStructure: rounds.map(r => ({
         roundNumber: r.roundNumber,
@@ -1615,9 +1615,9 @@ const ClubTournamentManagementScreen = () => {
       })),
     });
 
-    // 🔍 Seed Data Synchronization - merge participant data with bracket data (REMOVED DUPLICATE)
+    // 🔍 Seed Data Synchronization - merge participant data with bpaddle data (REMOVED DUPLICATE)
 
-    // Apply seed information to bracket matches if missing
+    // Apply seed information to bpaddle matches if missing
     rounds.forEach(round => {
       round.matches.forEach(match => {
         if (match.player1 && participantSeedMap.has(match.player1.playerId)) {
@@ -1674,7 +1674,7 @@ const ClubTournamentManagementScreen = () => {
 
     // Alert if seed 1 players are missing
     if (seedOnePlayers.length === 0) {
-      console.warn('⚠️ [PLAYER VALIDATION] No seed 1 players found in bracket!');
+      console.warn('⚠️ [PLAYER VALIDATION] No seed 1 players found in bpaddle!');
       if (sukiPlayer && !sukiPlayer.seed) {
         console.warn('⚠️ [PLAYER VALIDATION] 숙이 found but missing seed information');
       }
@@ -1778,7 +1778,7 @@ const ClubTournamentManagementScreen = () => {
   };
 
   // Handle match press for direct score input (copied from TournamentDetailScreen)
-  const handleMatchPress = (matchFromBracket: {
+  const handleMatchPress = (matchFromBpaddle: {
     id: string;
     player1?: { playerName: string } | null;
     player2?: { playerName: string } | null;
@@ -1787,15 +1787,15 @@ const ClubTournamentManagementScreen = () => {
     if (!selectedTournament) return;
 
     console.log('🏆 Match pressed in management screen:', {
-      id: matchFromBracket.id,
-      player1: matchFromBracket.player1?.playerName,
-      player2: matchFromBracket.player2?.playerName,
-      status: matchFromBracket.status,
+      id: matchFromBpaddle.id,
+      player1: matchFromBpaddle.player1?.playerName,
+      player2: matchFromBpaddle.player2?.playerName,
+      status: matchFromBpaddle.status,
     });
 
-    // Find the full BracketMatch object from our matches state
+    // Find the full BpaddleMatch object from our matches state
     const tournamentMatches = matches[selectedTournament.id] || [];
-    const fullMatch = tournamentMatches.find(m => m.id === matchFromBracket.id);
+    const fullMatch = tournamentMatches.find(m => m.id === matchFromBpaddle.id);
     if (!fullMatch) {
       Alert.alert(
         t('clubTournamentManagement.common.error'),
@@ -1809,8 +1809,8 @@ const ClubTournamentManagementScreen = () => {
     const canEnterScore = isTournamentAdmin;
 
     console.log('🏆 Management screen match press validation:', {
-      matchId: matchFromBracket.id,
-      status: matchFromBracket.status,
+      matchId: matchFromBpaddle.id,
+      status: matchFromBpaddle.status,
       isTournamentAdmin,
       canEnterScore,
       hasBothPlayers: !!(fullMatch.player1 && fullMatch.player2),
@@ -1818,7 +1818,7 @@ const ClubTournamentManagementScreen = () => {
 
     // Allow score entry for scheduled/in_progress matches where admin has permission
     if (
-      (matchFromBracket.status === 'scheduled' || matchFromBracket.status === 'in_progress') &&
+      (matchFromBpaddle.status === 'scheduled' || matchFromBpaddle.status === 'in_progress') &&
       canEnterScore &&
       fullMatch.player1 &&
       fullMatch.player2
@@ -1826,16 +1826,16 @@ const ClubTournamentManagementScreen = () => {
       // 🚀 Flow Switch: 모달 대신 조건부 렌더링 모드 활성화
       setSelectedMatchForScoring(fullMatch);
       setScoreInputMode(true);
-    } else if (matchFromBracket.status === 'completed') {
+    } else if (matchFromBpaddle.status === 'completed') {
       // Show match result details
       Alert.alert(
         t('clubTournamentManagement.matchResult.title'),
-        `${matchFromBracket.player1?.playerName || 'TBD'} vs ${matchFromBracket.player2?.playerName || 'TBD'}`
+        `${matchFromBpaddle.player1?.playerName || 'TBD'} vs ${matchFromBpaddle.player2?.playerName || 'TBD'}`
       );
     } else {
       Alert.alert(
         t('clubTournamentManagement.matchResult.info'),
-        `${matchFromBracket.player1?.playerName || 'TBD'} vs ${matchFromBracket.player2?.playerName || 'TBD'}`
+        `${matchFromBpaddle.player1?.playerName || 'TBD'} vs ${matchFromBpaddle.player2?.playerName || 'TBD'}`
       );
     }
   };
@@ -2011,59 +2011,59 @@ const ClubTournamentManagementScreen = () => {
     setSelectedMatchForScoring(null);
   };
 
-  // Convert BracketMatch to Match format for ScoreInputContent (copied from TournamentDetailScreen)
-  const convertBracketMatchToMatch = (bracketMatch: BracketMatch): Match | null => {
-    if (!bracketMatch.player1 || !bracketMatch.player2) {
-      console.log('🏆 [Management] Cannot convert bracket match - missing players:', {
-        matchId: bracketMatch.id,
-        hasPlayer1: !!bracketMatch.player1,
-        hasPlayer2: !!bracketMatch.player2,
+  // Convert BpaddleMatch to Match format for ScoreInputContent (copied from TournamentDetailScreen)
+  const convertBpaddleMatchToMatch = (bpaddleMatch: BpaddleMatch): Match | null => {
+    if (!bpaddleMatch.player1 || !bpaddleMatch.player2) {
+      console.log('🏆 [Management] Cannot convert bpaddle match - missing players:', {
+        matchId: bpaddleMatch.id,
+        hasPlayer1: !!bpaddleMatch.player1,
+        hasPlayer2: !!bpaddleMatch.player2,
       });
       return null;
     }
 
-    console.log('🏆 [Management] Converting BracketMatch to Match:', {
-      matchId: bracketMatch.id,
-      player1: bracketMatch.player1,
-      player2: bracketMatch.player2,
+    console.log('🏆 [Management] Converting BpaddleMatch to Match:', {
+      matchId: bpaddleMatch.id,
+      player1: bpaddleMatch.player1,
+      player2: bpaddleMatch.player2,
     });
 
     return {
-      id: bracketMatch.id,
+      id: bpaddleMatch.id,
       type: 'tournament',
       format: 'singles', // Default to singles for tournaments
       eventType: 'mens_singles', // Default event type
 
       // Create proper MatchParticipant objects
       player1: {
-        userId: bracketMatch.player1.playerId,
-        userName: bracketMatch.player1.playerName || 'Player 1',
+        userId: bpaddleMatch.player1.playerId,
+        userName: bpaddleMatch.player1.playerName || 'Player 1',
         skillLevel: 'intermediate', // Default skill level
         photoURL: undefined,
       },
       player2: {
-        userId: bracketMatch.player2.playerId,
-        userName: bracketMatch.player2.playerName || 'Player 2',
+        userId: bpaddleMatch.player2.playerId,
+        userName: bpaddleMatch.player2.playerName || 'Player 2',
         skillLevel: 'intermediate', // Default skill level
         photoURL: undefined,
       },
 
       // Match scheduling info
-      scheduledAt: bracketMatch.scheduledTime
-        ? typeof bracketMatch.scheduledTime.toDate === 'function'
-          ? bracketMatch.scheduledTime
+      scheduledAt: bpaddleMatch.scheduledTime
+        ? typeof bpaddleMatch.scheduledTime.toDate === 'function'
+          ? bpaddleMatch.scheduledTime
           : new Date()
         : new Date(),
 
       // Match metadata for compatibility
-      status: bracketMatch.status || 'scheduled',
-      location: bracketMatch.court || '',
+      status: bpaddleMatch.status || 'scheduled',
+      location: bpaddleMatch.court || '',
 
       // Required fields for Match interface
-      clubId: bracketMatch.tournamentId,
+      clubId: bpaddleMatch.tournamentId,
       createdBy: '',
-      createdAt: bracketMatch.createdAt,
-      updatedAt: bracketMatch.updatedAt,
+      createdAt: bpaddleMatch.createdAt,
+      updatedAt: bpaddleMatch.updatedAt,
     } as Match;
   };
 
@@ -2266,7 +2266,7 @@ const ClubTournamentManagementScreen = () => {
   };
 
   const activeTournaments = tournaments.filter(t =>
-    ['draft', 'registration', 'bracket_generation', 'in_progress'].includes(t.status)
+    ['draft', 'registration', 'bpaddle_generation', 'in_progress'].includes(t.status)
   );
 
   const completedTournaments = tournaments.filter(t =>
@@ -2359,7 +2359,7 @@ const ClubTournamentManagementScreen = () => {
       {scoreInputMode && selectedMatchForScoring ? (
         // 📝 점수 입력 모드: ScoreInputContent 렌더링
         <ScoreInputContent
-          match={convertBracketMatchToMatch(selectedMatchForScoring)!}
+          match={convertBpaddleMatchToMatch(selectedMatchForScoring)!}
           setsToWin={setsToWinForScoreInput} // ⚡ [THOR] Calculate from matchFormat instead of stored value
           gamesPerSet={selectedTournament?.settings?.scoringFormat?.gamesPerSet || 6} // ⚡ [THOR] Pass games per set with fallback
           onCancel={handleScoreInputCancel}
@@ -2670,22 +2670,22 @@ const ClubTournamentManagementScreen = () => {
                 showsVerticalScrollIndicator={false}
               >
                 {detailActiveTab === 'matches' && selectedTournament && (
-                  <View style={styles.bracketViewContainer}>
+                  <View style={styles.bpaddleViewContainer}>
                     {selectedTournament.status === 'draft' ||
                     selectedTournament.status === 'registration' ? (
                       <View style={styles.emptyStateContainer}>
                         <Ionicons name='trophy-outline' size={64} color='#ddd' />
                         <Text style={[styles.emptyTitle, { color: theme.colors.onSurface }]}>
-                          {t('clubTournamentManagement.emptyStates.bracketNotGenerated')}
+                          {t('clubTournamentManagement.emptyStates.bpaddleNotGenerated')}
                         </Text>
                         <Text
                           style={[styles.emptySubtitle, { color: theme.colors.onSurfaceVariant }]}
                         >
-                          {t('clubTournamentManagement.emptyStates.bracketAfterRegistration')}
+                          {t('clubTournamentManagement.emptyStates.bpaddleAfterRegistration')}
                         </Text>
                       </View>
                     ) : (
-                      <View style={styles.bracketContentContainer}>
+                      <View style={styles.bpaddleContentContainer}>
                         {/* Tournament Info Header */}
                         <View
                           style={[
@@ -2704,8 +2704,8 @@ const ClubTournamentManagementScreen = () => {
                               { color: theme.colors.onSurfaceVariant },
                             ]}
                           >
-                            {selectedTournament.status === 'bracket_generation' &&
-                              t('clubTournamentManagement.status.bracketGeneration')}
+                            {selectedTournament.status === 'bpaddle_generation' &&
+                              t('clubTournamentManagement.status.bpaddleGeneration')}
                             {selectedTournament.status === 'in_progress' &&
                               t('clubTournamentManagement.status.inProgress')}
                             {selectedTournament.status === 'completed' &&
@@ -2724,16 +2724,16 @@ const ClubTournamentManagementScreen = () => {
                           )}
                         </View>
 
-                        {/* Embedded Bracket View */}
+                        {/* Embedded Bpaddle View */}
                         {(() => {
                           const tournamentMatches = matches[selectedTournament.id] || [];
-                          const bracket = createSimpleBracket(tournamentMatches); // Type assertion handled in component
+                          const bpaddle = createSimpleBpaddle(tournamentMatches); // Type assertion handled in component
 
                           return (
-                            <View style={styles.embeddedBracketContainer}>
+                            <View style={styles.embeddedBpaddleContainer}>
                               {/* eslint-disable @typescript-eslint/no-explicit-any */}
-                              <TournamentBracketView
-                                bracket={bracket as any}
+                              <TournamentBpaddleView
+                                bpaddle={bpaddle as any}
                                 participants={selectedTournament.participants as any}
                                 currentUserId={undefined} // Admin view, no specific user
                                 isTournamentAdmin={true}
@@ -2745,10 +2745,10 @@ const ClubTournamentManagementScreen = () => {
                         })()}
 
                         {/* Keep the navigation button as requested */}
-                        <View style={styles.bracketNavigationContainer}>
+                        <View style={styles.bpaddleNavigationContainer}>
                           <Text
                             style={[
-                              styles.bracketHintText,
+                              styles.bpaddleHintText,
                               { color: theme.colors.onSurfaceVariant },
                             ]}
                           >
@@ -2944,8 +2944,8 @@ const ClubTournamentManagementScreen = () => {
                                   </Text>
                                 </View>
                                 <View style={styles.participantActions}>
-                                  {/* Manual seed assignment for bracket_generation status */}
-                                  {selectedTournament.status === 'bracket_generation' &&
+                                  {/* Manual seed assignment for bpaddle_generation status */}
+                                  {selectedTournament.status === 'bpaddle_generation' &&
                                     selectedTournament.settings.seedingMethod === 'manual' && (
                                       <View style={styles.seedAssignmentContainer}>
                                         <Text
@@ -3046,8 +3046,8 @@ const ClubTournamentManagementScreen = () => {
                                   </Text>
                                 </View>
                                 <View style={styles.participantActions}>
-                                  {/* Manual seed assignment for bracket_generation status */}
-                                  {selectedTournament.status === 'bracket_generation' &&
+                                  {/* Manual seed assignment for bpaddle_generation status */}
+                                  {selectedTournament.status === 'bpaddle_generation' &&
                                     selectedTournament.settings.seedingMethod === 'manual' && (
                                       <View style={styles.seedAssignmentContainer}>
                                         <Text
@@ -3156,7 +3156,7 @@ const ClubTournamentManagementScreen = () => {
                     )}
 
                     {/* 🎯 Seed Assignment Complete Button */}
-                    {selectedTournament.status === 'bracket_generation' &&
+                    {selectedTournament.status === 'bpaddle_generation' &&
                       selectedTournament.settings?.seedingMethod === 'manual' &&
                       selectedTournament.participants &&
                       selectedTournament.participants.length > 0 && (
@@ -3501,7 +3501,7 @@ const ClubTournamentManagementScreen = () => {
                                     // 🎯 [KIM FIX] 최소 참가자 조건 추가
                                     opacity:
                                       isOddParticipants ||
-                                      isGeneratingBracket ||
+                                      isGeneratingBpaddle ||
                                       !hasMinimumParticipants
                                         ? 0.5
                                         : 1,
@@ -3510,11 +3510,11 @@ const ClubTournamentManagementScreen = () => {
                                 onPress={handleCloseRegistration}
                                 disabled={
                                   isOddParticipants ||
-                                  isGeneratingBracket ||
+                                  isGeneratingBpaddle ||
                                   !hasMinimumParticipants
                                 }
                               >
-                                {isGeneratingBracket ? (
+                                {isGeneratingBpaddle ? (
                                   <ActivityIndicator size='small' color='#FFFFFF' />
                                 ) : (
                                   <Ionicons name='stop-outline' size={20} color='#FFFFFF' />
@@ -3522,8 +3522,8 @@ const ClubTournamentManagementScreen = () => {
                                 <Text
                                   style={[styles.secondaryActionButtonText, { color: '#FFFFFF' }]}
                                 >
-                                  {isGeneratingBracket
-                                    ? t('clubTournamentManagement.buttons.generateBracket')
+                                  {isGeneratingBpaddle
+                                    ? t('clubTournamentManagement.buttons.generateBpaddle')
                                     : t('clubTournamentManagement.buttons.closeRegistration')}
                                 </Text>
                               </TouchableOpacity>
@@ -3586,8 +3586,8 @@ const ClubTournamentManagementScreen = () => {
                           );
                         })()}
 
-                      {/* Bracket Generation Status - Show seed assignment or start tournament button */}
-                      {selectedTournament.status === 'bracket_generation' && (
+                      {/* Bpaddle Generation Status - Show seed assignment or start tournament button */}
+                      {selectedTournament.status === 'bpaddle_generation' && (
                         <View style={styles.actionGroup}>
                           {selectedTournament.settings.seedingMethod === 'manual' && (
                             <>
@@ -3637,7 +3637,7 @@ const ClubTournamentManagementScreen = () => {
                           >
                             <Ionicons name='play-outline' size={20} color='#fff' />
                             <Text style={styles.primaryActionButtonText}>
-                              {t('clubTournamentManagement.management.generateBracketAndStart')}
+                              {t('clubTournamentManagement.management.generateBpaddleAndStart')}
                             </Text>
                           </TouchableOpacity>
                           <Text
@@ -4433,12 +4433,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
   },
-  // Bracket Navigation Styles
-  bracketViewContainer: {
+  // Bpaddle Navigation Styles
+  bpaddleViewContainer: {
     flex: 1,
     padding: 16,
   },
-  bracketContentContainer: {
+  bpaddleContentContainer: {
     flex: 1,
   },
   tournamentInfoHeader: {
@@ -4460,18 +4460,18 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 2,
   },
-  embeddedBracketContainer: {
+  embeddedBpaddleContainer: {
     flex: 1,
     minHeight: 400,
     marginBottom: 20,
   },
-  bracketNavigationContainer: {
+  bpaddleNavigationContainer: {
     alignItems: 'center',
     paddingVertical: 20,
     borderTopWidth: 1,
     borderTopColor: 'rgba(0,0,0,0.1)',
   },
-  bracketInfoCard: {
+  bpaddleInfoCard: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
@@ -4479,12 +4479,12 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     gap: 12,
   },
-  bracketInfoText: {
+  bpaddleInfoText: {
     fontSize: 14,
     lineHeight: 20,
     flex: 1,
   },
-  viewBracketButton: {
+  viewBpaddleButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -4495,12 +4495,12 @@ const styles = StyleSheet.create({
     gap: 8,
     minWidth: 200,
   },
-  viewBracketButtonText: {
+  viewBpaddleButtonText: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#fff',
   },
-  bracketHintText: {
+  bpaddleHintText: {
     fontSize: 12,
     textAlign: 'center',
     paddingHorizontal: 40,

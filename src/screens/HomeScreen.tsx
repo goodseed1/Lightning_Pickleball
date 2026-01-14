@@ -26,8 +26,8 @@ const HomeScreen = () => {
   const [matches, setMatches] = useState<LightningMatch[]>([
     {
       id: '1',
-      title: t('matches.weekendTennisMatch'),
-      location: 'Central Park Tennis Courts',
+      title: t('matches.weekendPickleballMatch'),
+      location: 'Central Park Pickleball Courts',
       time: t('matches.todayAfternoon3'),
       skillLevel: t('matches.intermediate3040'),
       playersNeeded: 3,
@@ -38,7 +38,7 @@ const HomeScreen = () => {
     {
       id: '2',
       title: t('matches.eveningSinglesGame'),
-      location: 'Brooklyn Tennis Club',
+      location: 'Brooklyn Pickleball Club',
       time: t('matches.tomorrowEvening6'),
       skillLevel: t('matches.beginner2030'),
       playersNeeded: 1,
@@ -56,8 +56,8 @@ const HomeScreen = () => {
         onPress: () => {
           const newMatch: LightningMatch = {
             id: Date.now().toString(),
-            title: t('matches.newTennisMatch'),
-            location: t('matches.nearbyTennisCourt'),
+            title: t('matches.newPickleballMatch'),
+            location: t('matches.nearbyPickleballCourt'),
             time: t('matches.tomorrowAfternoon2'),
             skillLevel: t('matches.allLevels'),
             playersNeeded: 3,

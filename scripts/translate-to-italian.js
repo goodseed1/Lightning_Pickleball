@@ -9,7 +9,7 @@ const path = require('path');
 
 const LOCALES_DIR = path.join(__dirname, '..', 'src', 'locales');
 
-// Italian translations for common tennis and app terms
+// Italian translations for common pickleball and app terms
 const TRANSLATIONS = {
   // Status & States
   Paid: 'Pagato',
@@ -54,7 +54,7 @@ const TRANSLATIONS = {
   Password: 'Password',
   Logo: 'Logo',
 
-  // Tennis specific
+  // Pickleball specific
   'Pro Shop': 'Negozio Pro',
   Brunch: 'Brunch',
   Match: 'Partita',

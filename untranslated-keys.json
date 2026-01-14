@@ -389,7 +389,7 @@
   },
   {
     "key": "editProfile.goals.placeholder",
-    "value": "Enter your tennis goals..."
+    "value": "Enter your pickleball goals..."
   },
   {
     "key": "editProfile.activityTime.label",
@@ -521,7 +521,7 @@
   },
   {
     "key": "discover.alerts.quickMatch.ntrpOutOfRange",
-    "value": "LTR {{ntrp}} is beyond your challenge range. (max +1.0)"
+    "value": "LPR {{ntrp}} is beyond your challenge range. (max +1.0)"
   },
   {
     "key": "discover.alerts.quickMatch.challenge",
@@ -940,8 +940,8 @@
     "value": "Assign seeds manually in the Participants tab"
   },
   {
-    "key": "clubTournamentManagement.management.generateBracketAndStart",
-    "value": "Generate Bracket & Start Tournament"
+    "key": "clubTournamentManagement.management.generateBpaddleAndStart",
+    "value": "Generate Bpaddle & Start Tournament"
   },
   {
     "key": "clubTournamentManagement.management.addingParticipantsWait",
@@ -972,12 +972,12 @@
     "value": "Assign"
   },
   {
-    "key": "clubTournamentManagement.emptyStates.bracketNotGenerated",
-    "value": "Bracket not yet generated"
+    "key": "clubTournamentManagement.emptyStates.bpaddleNotGenerated",
+    "value": "Bpaddle not yet generated"
   },
   {
-    "key": "clubTournamentManagement.emptyStates.bracketAfterRegistration",
-    "value": "Bracket will be generated after registration closes"
+    "key": "clubTournamentManagement.emptyStates.bpaddleAfterRegistration",
+    "value": "Bpaddle will be generated after registration closes"
   },
   {
     "key": "clubTournamentManagement.emptyStates.cannotLoadTeamInfo",
@@ -1189,7 +1189,7 @@
   },
   {
     "key": "eventCard.requirements.levelMismatch",
-    "value": "Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})"
+    "value": "Level mismatch (Your LPR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})"
   },
   {
     "key": "eventCard.requirements.genderMismatch",
@@ -1205,7 +1205,7 @@
   },
   {
     "key": "eventCard.requirements.canApply",
-    "value": "Apply: LTR {{minNtrp}} - {{maxNtrp}}"
+    "value": "Apply: LPR {{minNtrp}} - {{maxNtrp}}"
   },
   {
     "key": "eventCard.requirements.level",
@@ -1221,23 +1221,23 @@
   },
   {
     "key": "createEvent.autoNtrp.hostLevel",
-    "value": "Host LTR: {{level}} ({{gameType}})"
+    "value": "Host LPR: {{level}} ({{gameType}})"
   },
   {
     "key": "createEvent.autoNtrp.partnerLevel",
-    "value": "Partner LTR: {{level}} ({{gameType}})"
+    "value": "Partner LPR: {{level}} ({{gameType}})"
   },
   {
     "key": "createEvent.autoNtrp.combinedLevel",
-    "value": "Combined LTR: {{level}}"
+    "value": "Combined LPR: {{level}}"
   },
   {
     "key": "createEvent.autoNtrp.hostLevelWithType",
-    "value": "Host LTR: {{level}} ({{type}})"
+    "value": "Host LPR: {{level}} ({{type}})"
   },
   {
     "key": "createEvent.autoNtrp.partnerLevelWithType",
-    "value": "Partner LTR: {{level}} ({{type}})"
+    "value": "Partner LPR: {{level}} ({{type}})"
   },
   {
     "key": "createEvent.helperText.languageSelection",
@@ -2337,7 +2337,7 @@
   },
   {
     "key": "aiChat.quickPrompts.rulesHelp",
-    "value": "Explain basic tennis rules"
+    "value": "Explain basic pickleball rules"
   },
   {
     "key": "aiChat.quickPrompts.techniqueTips",
@@ -2345,7 +2345,7 @@
   },
   {
     "key": "aiChat.quickPrompts.equipmentHelp",
-    "value": "Recommend tennis equipment for my skill level"
+    "value": "Recommend pickleball equipment for my skill level"
   },
   {
     "key": "aiChat.adminResponse",
@@ -2900,24 +2900,24 @@
     "value": "Your league application has been rejected."
   },
   {
-    "key": "leagueDetail.generateBracket",
-    "value": "Generate Bracket"
+    "key": "leagueDetail.generateBpaddle",
+    "value": "Generate Bpaddle"
   },
   {
-    "key": "leagueDetail.generateBracketMessage",
-    "value": "Manage applications in Participants tab, then generate bracket in Management tab"
+    "key": "leagueDetail.generateBpaddleMessage",
+    "value": "Manage applications in Participants tab, then generate bpaddle in Management tab"
   },
   {
-    "key": "leagueDetail.generateBracketMessageSimple",
-    "value": "Match schedule will appear here once the bracket is generated"
+    "key": "leagueDetail.generateBpaddleMessageSimple",
+    "value": "Match schedule will appear here once the bpaddle is generated"
   },
   {
-    "key": "leagueDetail.bracketGeneratedSuccess",
-    "value": "Bracket generated successfully!\n\nMatch list will appear shortly."
+    "key": "leagueDetail.bpaddleGeneratedSuccess",
+    "value": "Bpaddle generated successfully!\n\nMatch list will appear shortly."
   },
   {
-    "key": "leagueDetail.bracketDeletedSuccess",
-    "value": "Bracket deleted successfully.\n\nYou can now generate a new bracket."
+    "key": "leagueDetail.bpaddleDeletedSuccess",
+    "value": "Bpaddle deleted successfully.\n\nYou can now generate a new bpaddle."
   },
   {
     "key": "leagueDetail.startPlayoffs",
@@ -3121,7 +3121,7 @@
   },
   {
     "key": "ntrpSelector.levels.beginner.description",
-    "value": "Just started playing tennis"
+    "value": "Just started playing pickleball"
   },
   {
     "key": "ntrpSelector.levels.intermediate.label",
@@ -3165,7 +3165,7 @@
   },
   {
     "key": "contexts.notification.matchNotificationBody",
-    "value": "You have a tennis match scheduled in 30 minutes."
+    "value": "You have a pickleball match scheduled in 30 minutes."
   },
   {
     "key": "contexts.auth.wrongPassword",
@@ -3276,8 +3276,8 @@
     "value": "Important"
   },
   {
-    "key": "clubOverviewScreen.bracketGeneration",
-    "value": "Bracket Generation"
+    "key": "clubOverviewScreen.bpaddleGeneration",
+    "value": "Bpaddle Generation"
   },
   {
     "key": "clubOverviewScreen.playoffsInProgress",
@@ -3337,7 +3337,7 @@
   },
   {
     "key": "types.clubSchedule.scheduleTypes.social",
-    "value": "Social Tennis"
+    "value": "Social Pickleball"
   },
   {
     "key": "types.clubSchedule.scheduleTypes.league_match",
@@ -3829,7 +3829,7 @@
   },
   {
     "key": "matches.createModal.location.placeholder",
-    "value": "e.g., Central Park Tennis Courts"
+    "value": "e.g., Central Park Pickleball Courts"
   },
   {
     "key": "matches.createModal.recurring.label",
@@ -4005,7 +4005,7 @@
   },
   {
     "key": "schedules.form.locationNamePlaceholder",
-    "value": "e.g., Central Park Tennis Courts"
+    "value": "e.g., Central Park Pickleball Courts"
   },
   {
     "key": "schedules.form.addressPlaceholder",
@@ -4489,7 +4489,7 @@
   },
   {
     "key": "utils.ltr.whatIsLtr.title",
-    "value": "What is LTR?"
+    "value": "What is LPR?"
   },
   {
     "key": "feedCard.justNow",

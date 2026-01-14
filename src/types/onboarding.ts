@@ -1,9 +1,9 @@
 /**
- * Lightning Tennis Onboarding Data Types
+ * Lightning Pickleball Onboarding Data Types
  * Defines the structure of data collected during the onboarding process
  */
 
-// 10 supported languages for Lightning Tennis
+// 10 supported languages for Lightning Pickleball
 export type SupportedLanguage = 'en' | 'ko' | 'es' | 'fr' | 'de' | 'ja' | 'zh' | 'pt' | 'it' | 'ru';
 
 export type SkillLevel = 'beginner' | 'intermediate' | 'advanced' | 'expert';
@@ -135,7 +135,7 @@ export interface UserProfile {
 export const SKILL_LEVELS: Record<SkillLevel, { label: string; description: string }> = {
   beginner: {
     label: 'Beginner (1.0-2.5)',
-    description: 'New to tennis or less than 1 year, learning basic strokes',
+    description: 'New to pickleball or less than 1 year, learning basic strokes',
   },
   intermediate: {
     label: 'Intermediate (3.0-3.5)',

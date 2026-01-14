@@ -11,7 +11,7 @@ const serviceAccount = require('./firebase-service-account.json');
 // Initialize Firebase Admin
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  projectId: 'lightning-tennis-community',
+  projectId: 'lightning-pickleball-community',
 });
 
 const functions = admin.functions();

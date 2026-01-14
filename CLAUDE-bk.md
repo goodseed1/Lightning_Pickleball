@@ -4,22 +4,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Lightning Tennis (번개 테니스)** - "Build your local tennis network and community"
+**Lightning Pickleball (번개 피클볼)** - "Build your local pickleball network and community"
 
-A multi-platform tennis community application connecting players for quick matches and building sustainable local tennis ecosystems.
+A multi-platform pickleball community application connecting players for quick matches and building sustainable local pickleball ecosystems.
 
-**Core Mission**: Transform fragmented tennis activities into cohesive local networks serving players of all backgrounds and skill levels.
+**Core Mission**: Transform fragmented pickleball activities into cohesive local networks serving players of all backgrounds and skill levels.
 
 **Target Market**:
 
-- Primary: US amateur tennis players (starting Metro Atlanta)
-- Secondary: Existing tennis clubs (especially Korean-American)
+- Primary: US amateur pickleball players (starting Metro Atlanta)
+- Secondary: Existing pickleball clubs (especially Korean-American)
 - Platform: React web + React Native mobile (iOS/Android)
 - Languages: English + Korean (한국어)
 
-## 🦸 Lightning Tennis Team Structure - Avengers Squad v3.0
+## 🦸 Lightning Pickleball Team Structure - Avengers Squad v3.0
 
-번개 테니스 프로젝트는 **Avengers Squad** 모델을 따라 명확한 역할 분담 체계를 유지합니다.
+번개 피클볼 프로젝트는 **Avengers Squad** 모델을 따라 명확한 역할 분담 체계를 유지합니다.
 
 **출처**: 상세 가이드는 [[Avengers-Squad-Team-Charter.md]] 및 [[Avengers-Squad-Field-Agents-Complete-Guide.md]] 참조
 
@@ -223,7 +223,7 @@ npm run preview   # Preview production build
 npm run lint      # Run ESLint
 ```
 
-### Mobile Application (`lightning-tennis-mobile/`)
+### Mobile Application (`lightning-pickleball-mobile/`)
 
 ```bash
 npm run start     # Expo development server
@@ -259,7 +259,7 @@ src/
 ├── utils/              # Utility functions
 └── firebase/           # Firebase configuration
 
-lightning-tennis-mobile/
+lightning-pickleball-mobile/
 ├── src/
 │   ├── screens/        # React Native screens
 │   ├── components/     # Mobile-specific components
@@ -288,7 +288,7 @@ lightning-tennis-mobile/
 ```
 users/               # User profiles with language preferences
 lightning_matches/   # Match coordination
-tennis_clubs/        # Club management
+pickleball_clubs/        # Club management
 club_events/         # Events and schedules
 community_groups/    # Platform communities
 player_stats/        # Performance analytics
@@ -312,7 +312,7 @@ achievements/        # Gamification system
 ### ✅ iOS App (TestFlight Live)
 
 - **App ID**: 6749823614
-- **Bundle ID**: com.lightningtennis.community
+- **Bundle ID**: com.lightningpickleball.community
 - **Status**: Live on TestFlight
 - **Test Users**: goodseed1@gmail.com
 
@@ -339,9 +339,9 @@ achievements/        # Gamification system
 
 ### 📋 START.md - Daily Start Checklist
 
-**위치**: `lightning-tennis-simple/START.md`
+**위치**: `lightning-pickleball-simple/START.md`
 
-이 문서는 Lightning Tennis 개발의 **핵심 규칙과 작업 프로세스**를 정의합니다:
+이 문서는 Lightning Pickleball 개발의 **핵심 규칙과 작업 프로세스**를 정의합니다:
 
 #### 필독 문서 (작업 시작 전 확인)
 
@@ -527,8 +527,8 @@ achievements/        # Gamification system
 - **Semicolons**: Required
 - **Single quotes**: Yes (including JSX)
 - **Trailing commas**: ES5 (objects, arrays)
-- **Bracket spacing**: Yes `{ foo }` not `{foo}`
-- **JSX brackets**: New line
+- **Bpaddle spacing**: Yes `{ foo }` not `{foo}`
+- **JSX bpaddles**: New line
 - **Arrow parens**: Avoid for single params
 - **End of line**: LF (Unix)
 

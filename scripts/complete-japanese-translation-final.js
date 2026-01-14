@@ -67,7 +67,7 @@ const translationMap = {
   'Net Player': 'ネットプレイヤー',
   'Max Travel Distance ({{unit}})': '最大移動距離 ({{unit}})',
   Goals: '目標',
-  'Enter your tennis goals...': 'テニスの目標を入力...',
+  'Enter your pickleball goals...': 'テニスの目標を入力...',
 
   // More edit profile
   'Bio *': 'プロフィール *',
@@ -386,7 +386,7 @@ const translationMap = {
   'Scroll up': '上にスクロール',
 
   // Club Tournament Management extended
-  'Tournament Bracket': 'トーナメントブラケット',
+  'Tournament Bpaddle': 'トーナメントブラケット',
   'Match Pairings': 'マッチペアリング',
   'Seed List': 'シードリスト',
   'Wild Card': 'ワイルドカード',

@@ -19,7 +19,7 @@ const db = admin.firestore();
 async function fixClubNames() {
   console.log('🔍 Finding clubs without root-level name field...\n');
 
-  const clubsRef = db.collection('tennis_clubs');
+  const clubsRef = db.collection('pickleball_clubs');
   const snapshot = await clubsRef.get();
 
   let fixed = 0;

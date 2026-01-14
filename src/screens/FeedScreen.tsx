@@ -1,6 +1,6 @@
 /**
  * FeedScreen - 소셜 피드 화면
- * Lightning Tennis 앱의 메인 소셜 허브
+ * Lightning Pickleball 앱의 메인 소셜 허브
  */
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -29,7 +29,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useActivities } from '../contexts/ActivityContext';
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import {
   getFeedItems,
   listenToFeed,
@@ -49,7 +49,7 @@ const FeedScreen = () => {
   const { unreadTeamInvites, pendingHostedApplicationsCount, pendingFriendInvitationsCount } =
     useActivities();
   const { theme } = useTheme();
-  const themeColors = getLightningTennisTheme(theme);
+  const themeColors = getLightningPickleballTheme(theme);
 
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -703,7 +703,7 @@ const FeedScreen = () => {
               initialActivityTab: 'applied',
             },
           }}
-          icon='tennisball'
+          icon='pickleballball'
           variant='success'
         />
       )}

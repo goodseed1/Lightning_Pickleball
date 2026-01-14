@@ -186,7 +186,7 @@ const absoluteCompleteFrench = {
       sendSmsInvitations: 'Envoyer des Invitations SMS',
       smsInvitationsSent: 'Invitations SMS Envoyées',
       smsInvitationsFailed: 'Échec des Invitations SMS',
-      skillLevelMultiple: 'Niveau LTR * (Sélection Multiple)',
+      skillLevelMultiple: 'Niveau LPR * (Sélection Multiple)',
       selectSkillLevels: 'Sélectionner les Niveaux de Compétence',
       allLevels: 'Tous les Niveaux',
       specificLevels: 'Niveaux Spécifiques',

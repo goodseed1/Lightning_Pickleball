@@ -10,7 +10,7 @@ const RU_PATH = path.join(__dirname, '../src/locales/ru.json');
 const en = JSON.parse(fs.readFileSync(EN_PATH, 'utf8'));
 let ru = JSON.parse(fs.readFileSync(RU_PATH, 'utf8'));
 
-// Massive translation dictionary for all common tennis/app terms
+// Massive translation dictionary for all common pickleball/app terms
 const AUTO_TRANSLATIONS = {
   // Common actions
   Loading: 'Загрузка',
@@ -64,7 +64,7 @@ const AUTO_TRANSLATIONS = {
   'IMPORTANT LEGAL NOTICE': 'ВАЖНОЕ ЮРИДИЧЕСКОЕ УВЕДОМЛЕНИЕ',
   platform: 'платформа',
   'to connect': 'для подключения',
-  'individual tennis players': 'отдельных теннисистов',
+  'individual pickleball players': 'отдельных теннисистов',
   'WE DO NOT ASSUME ANY LEGAL LIABILITY': 'МЫ НЕ НЕСЕМ НИКАКОЙ ЮРИДИЧЕСКОЙ ОТВЕТСТВЕННОСТИ',
   'Safety Incidents Disclaimer': 'Отказ от ответственности за происшествия',
   'Injuries or accidents': 'Травмы или несчастные случаи',

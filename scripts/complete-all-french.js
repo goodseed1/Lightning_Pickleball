@@ -95,7 +95,7 @@ const frenchTranslations = {
       leagueRanking: 'Classement de la ligue',
       skillRating: 'Évaluation de compétence',
       eloRating: 'Classement ELO',
-      ltrRating: 'Classement LTR',
+      ltrRating: 'Classement LPR',
       winRate: 'Taux de victoire',
       totalMatches: 'Total de matchs',
       recentForm: 'Forme récente',

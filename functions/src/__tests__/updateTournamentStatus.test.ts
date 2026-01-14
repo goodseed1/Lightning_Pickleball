@@ -151,14 +151,14 @@ describe('🌉 [HEIMDALL] updateTournamentStatus Integration Tests', () => {
       });
       expect(result.success).toBe(true);
 
-      // Act & Assert - registration → bracket_generation
+      // Act & Assert - registration → bpaddle_generation
       result = await wrapped({
-        data: { tournamentId, newStatus: 'bracket_generation' },
+        data: { tournamentId, newStatus: 'bpaddle_generation' },
         auth: { uid: userId },
       });
       expect(result.success).toBe(true);
 
-      // Act & Assert - bracket_generation → in_progress
+      // Act & Assert - bpaddle_generation → in_progress
       result = await wrapped({
         data: { tournamentId, newStatus: 'in_progress' },
         auth: { uid: userId },
@@ -345,7 +345,7 @@ describe('🌉 [HEIMDALL] updateTournamentStatus Integration Tests', () => {
           createMockTournament({
             id: tournamentId,
             clubId,
-            status: 'bracket_generation',
+            status: 'bpaddle_generation',
             createdBy: userId,
             participantCount: 2, // Less than minimum
             settings: {

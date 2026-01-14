@@ -197,7 +197,7 @@ const translations = {
 
   // CLUB TOURNAMENT MANAGEMENT (35 keys)
   clubTournamentManagement: {
-    bracket: {
+    bpaddle: {
       title: '对阵表',
       round: '轮次',
       match: '比赛',

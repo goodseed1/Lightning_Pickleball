@@ -1,7 +1,7 @@
 /**
- * 🎾 ELO/LTR 미설정 사용자들에게 기본값 설정
+ * 🎾 ELO/LPR 미설정 사용자들에게 기본값 설정
  * - ELO: 1150
- * - LTR: 3
+ * - LPR: 3
  */
 
 const admin = require('firebase-admin');
@@ -14,10 +14,10 @@ admin.initializeApp({
 const db = admin.firestore();
 
 const DEFAULT_ELO = 1150;
-const DEFAULT_LTR = 3;
+const DEFAULT_LPR = 3;
 
 async function setDefaultElo() {
-  console.log('🎾 ELO/LTR 미설정 사용자 검색 및 설정 시작...\n');
+  console.log('🎾 ELO/LPR 미설정 사용자 검색 및 설정 시작...\n');
 
   const usersRef = db.collection('users');
   const snapshot = await usersRef.get();
@@ -62,7 +62,7 @@ async function setDefaultElo() {
     console.log(`   ${i + 1}. ${u.name} (${u.email})`);
   });
 
-  console.log(`\n⏳ ELO ${DEFAULT_ELO}, LTR ${DEFAULT_LTR} 설정 중...`);
+  console.log(`\n⏳ ELO ${DEFAULT_ELO}, LPR ${DEFAULT_LPR} 설정 중...`);
 
   const batch = db.batch();
   usersWithoutElo.forEach(user => {
@@ -86,10 +86,10 @@ async function setDefaultElo() {
 
     batch.update(user.ref, {
       eloRatings,
-      ltrLevel: DEFAULT_LTR,
+      ltrLevel: DEFAULT_LPR,
       skillLevel: {
-        selfAssessed: String(DEFAULT_LTR),
-        ltr: DEFAULT_LTR,
+        selfAssessed: String(DEFAULT_LPR),
+        ltr: DEFAULT_LPR,
         lastUpdated: new Date().toISOString(),
         source: 'default-migration',
       },
@@ -98,9 +98,9 @@ async function setDefaultElo() {
 
   await batch.commit();
 
-  console.log(`\n✅ ${usersWithoutElo.length}명에게 기본 ELO/LTR 설정 완료!`);
+  console.log(`\n✅ ${usersWithoutElo.length}명에게 기본 ELO/LPR 설정 완료!`);
   console.log(`   🎯 ELO: ${DEFAULT_ELO}`);
-  console.log(`   🎯 LTR: ${DEFAULT_LTR}`);
+  console.log(`   🎯 LPR: ${DEFAULT_LPR}`);
 
   process.exit(0);
 }

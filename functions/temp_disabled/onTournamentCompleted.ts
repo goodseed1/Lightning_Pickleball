@@ -27,7 +27,7 @@ function getCurrentSeason(): string {
  */
 async function getClubPrimaryColor(clubId: string): Promise<string | undefined> {
   try {
-    const clubDoc = await db.collection('tennis_clubs').doc(clubId).get();
+    const clubDoc = await db.collection('pickleball_clubs').doc(clubId).get();
     if (clubDoc.exists) {
       const clubData = clubDoc.data();
       return clubData?.theme?.primaryColor || clubData?.settings?.brandColor;
@@ -88,12 +88,12 @@ export const onTournamentCompleted = functions.firestore
         }
 
         // Get club information for trophy context
-        let clubName = 'Tennis Club';
+        let clubName = 'Pickleball Club';
         try {
-          const clubDoc = await db.collection('tennis_clubs').doc(clubId).get();
+          const clubDoc = await db.collection('pickleball_clubs').doc(clubId).get();
           if (clubDoc.exists) {
             const clubData = clubDoc.data();
-            clubName = clubData.name || clubData.profile?.name || 'Tennis Club';
+            clubName = clubData.name || clubData.profile?.name || 'Pickleball Club';
           }
         } catch (error) {
           console.log('⚠️ Could not fetch club data for trophy context');

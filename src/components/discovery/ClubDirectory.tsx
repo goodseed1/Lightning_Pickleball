@@ -1,6 +1,6 @@
 /**
  * Club Directory Component
- * Browse and search tennis clubs with advanced filtering
+ * Browse and search pickleball clubs with advanced filtering
  */
 
 import React, { useEffect, useState, useCallback } from 'react';

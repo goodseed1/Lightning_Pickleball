@@ -284,7 +284,7 @@ export default function PerformanceDashboard() {
           subtitle={t('performanceDashboard.stats.periodRecord', {
             period: t(`performanceDashboard.periods.${selectedPeriod}`),
           })}
-          icon='sports-tennis'
+          icon='sports-pickleball'
           color='#00BCD4'
         />
       </View>

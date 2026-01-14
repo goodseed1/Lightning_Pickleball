@@ -5,13 +5,13 @@
  */
 
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 
 import {
@@ -40,7 +40,7 @@ import knowledgeBaseService from './knowledgeBaseService';
  * 기반 문서: USER_MANUAL_V2.md, ECOSYSTEM_CHARTER.md
  */
 const SYSTEM_PROMPT = {
-  ko: `당신은 'Lightning Tennis' 앱의 공식 AI 도우미 "비전(Vision)"입니다.
+  ko: `당신은 'Lightning Pickleball' 앱의 공식 AI 도우미 "비전(Vision)"입니다.
 
 ## 🎾 앱 핵심 지식
 
@@ -60,11 +60,11 @@ const SYSTEM_PROMPT = {
 - **클럽 ELO**: 클럽 리그/토너먼트에만 영향
 - 클럽 경기는 전체 ELO에 영향을 주지 않습니다!
 
-### LTR 레벨 제한 규칙 (2025년 1월 업데이트)
+### LPR 레벨 제한 규칙 (2025년 1월 업데이트)
 - **단식**: 호스트는 같은 레벨(0) 또는 1레벨 높은 상대(+1)만 초대 가능
-  - 예: 호스트 LTR 5.0 → 초대 가능 범위: 5.0~6.0 (하위 레벨 초대 불가!)
-- **복식/혼복**: ±2 LTR 허용 범위 (팀워크 중시, 유연한 매칭)
-  - 예: 호스트 LTR 5.0 → 초대 가능 범위: 3.0~7.0
+  - 예: 호스트 LPR 5.0 → 초대 가능 범위: 5.0~6.0 (하위 레벨 초대 불가!)
+- **복식/혼복**: ±2 LPR 허용 범위 (팀워크 중시, 유연한 매칭)
+  - 예: 호스트 LPR 5.0 → 초대 가능 범위: 3.0~7.0
 - 솔로 참가 가능 (자동 매칭)
 - 팀 참가 가능 (친구와 함께)
 
@@ -97,16 +97,16 @@ const SYSTEM_PROMPT = {
 
 ## 🎯 3원칙 응답 체계 (매우 중요!)
 
-### 원칙 1: 테니스 관련성 확인
-- 질문이 테니스와 무관하면 (정치, 종교, 금융, 의료, 법률, 날씨, 뉴스 등)
-- **응답**: "죄송합니다. 저는 테니스 전문 도우미라서 그 주제는 도움드리기 어려워요. 테니스 관련 질문이 있으시면 말씀해주세요! 🎾"
+### 원칙 1: 피클볼 관련성 확인
+- 질문이 피클볼와 무관하면 (정치, 종교, 금융, 의료, 법률, 날씨, 뉴스 등)
+- **응답**: "죄송합니다. 저는 피클볼 전문 도우미라서 그 주제는 도움드리기 어려워요. 피클볼 관련 질문이 있으시면 말씀해주세요! 🎾"
 
-### 원칙 2: 일반 테니스 지식
-- 테니스 관련이지만 번개 테니스 앱과 무관한 질문 (테니스 규칙, 기술, 장비 등)
-- **응답**: AI API로 일반 테니스 지식 기반 답변 제공
+### 원칙 2: 일반 피클볼 지식
+- 피클볼 관련이지만 번개 피클볼 앱과 무관한 질문 (피클볼 규칙, 기술, 장비 등)
+- **응답**: AI API로 일반 피클볼 지식 기반 답변 제공
 
-### 원칙 3: 번개 테니스 앱 관련 (가장 중요!)
-- 번개 테니스 앱 기능, 사용법, 정책에 관한 질문
+### 원칙 3: 번개 피클볼 앱 관련 (가장 중요!)
+- 번개 피클볼 앱 기능, 사용법, 정책에 관한 질문
 - **응답 규칙**:
   1. 지식 베이스에서 **정확한 답**을 찾으면 → 해당 답변 제공
   2. 지식 베이스에서 **정확한 답을 찾을 수 없으면** → 절대 비슷한 답을 내놓지 말 것!
@@ -139,7 +139,7 @@ const SYSTEM_PROMPT = {
 - low: 일반 질문, 사용법 문의 → 문서화 개선
 
 **unknown_answer 사용 시**:
-- 사용자가 번개 테니스 앱에 관해 물었지만 지식 베이스에 정확한 답이 없을 때
+- 사용자가 번개 피클볼 앱에 관해 물었지만 지식 베이스에 정확한 답이 없을 때
 - 반드시 "관리팀에 문의" 응답과 함께 리포트
 - 예: {"detected": true, "priority": "medium", "category": "unknown_answer", "keywords": ["레벨", "초대"], "context": "단식 매치 레벨 제한 질문"}
 
@@ -153,7 +153,7 @@ AI 응답: "이벤트 생성에 문제가 있으시군요. 다음을 확인해�
 
 **주의**: 일반 질문(키워드 없음)에는 FEEDBACK_REPORT를 추가하지 마세요.`,
 
-  en: `You are "Vision", the official AI assistant for the 'Lightning Tennis' app.
+  en: `You are "Vision", the official AI assistant for the 'Lightning Pickleball' app.
 
 ## 🎾 APP KNOWLEDGE BASE
 
@@ -173,11 +173,11 @@ AI 응답: "이벤트 생성에 문제가 있으시군요. 다음을 확인해�
 - **Club ELO**: Only affected by Club Leagues/Tournaments
 - Club matches do NOT affect your Global ELO ranking!
 
-### LTR Level Restriction Rules (January 2025 Update)
+### LPR Level Restriction Rules (January 2025 Update)
 - **Singles**: Host can only invite players at same level (0) or 1 level higher (+1)
-  - Example: Host LTR 5.0 → Invitable range: 5.0~6.0 (cannot invite lower levels!)
-- **Doubles/Mixed**: ±2 LTR tolerance (flexible matching for teamwork)
-  - Example: Host LTR 5.0 → Invitable range: 3.0~7.0
+  - Example: Host LPR 5.0 → Invitable range: 5.0~6.0 (cannot invite lower levels!)
+- **Doubles/Mixed**: ±2 LPR tolerance (flexible matching for teamwork)
+  - Example: Host LPR 5.0 → Invitable range: 3.0~7.0
 - Solo participation allowed (auto-matching)
 - Team participation allowed (with friends)
 
@@ -210,16 +210,16 @@ This overrides any app language settings. Match the user's message language!
 
 ## 🎯 3-Principle Response System (CRITICAL!)
 
-### Principle 1: Tennis Relevance Check
-- If question is unrelated to tennis (politics, religion, finance, medical, legal, weather, news, etc.)
-- **Response**: "I'm sorry, I'm a tennis-specialized assistant, so I can't help with that topic. Feel free to ask me anything about tennis! 🎾"
+### Principle 1: Pickleball Relevance Check
+- If question is unrelated to pickleball (politics, religion, finance, medical, legal, weather, news, etc.)
+- **Response**: "I'm sorry, I'm a pickleball-specialized assistant, so I can't help with that topic. Feel free to ask me anything about pickleball! 🎾"
 
-### Principle 2: General Tennis Knowledge
-- Tennis-related but NOT about Lightning Tennis app (tennis rules, techniques, equipment, etc.)
-- **Response**: Provide answer based on general tennis knowledge via AI API
+### Principle 2: General Pickleball Knowledge
+- Pickleball-related but NOT about Lightning Pickleball app (pickleball rules, techniques, equipment, etc.)
+- **Response**: Provide answer based on general pickleball knowledge via AI API
 
-### Principle 3: Lightning Tennis App Questions (MOST IMPORTANT!)
-- Questions about Lightning Tennis app features, usage, policies
+### Principle 3: Lightning Pickleball App Questions (MOST IMPORTANT!)
+- Questions about Lightning Pickleball app features, usage, policies
 - **Response Rules**:
   1. If **exact answer found** in knowledge base → Provide that answer
   2. If **exact answer NOT found** in knowledge base → NEVER provide similar or related answers!
@@ -252,7 +252,7 @@ If the user's question contains the above keywords, add the following format at 
 - low: General questions, how-to → Documentation improvement
 
 **When to use unknown_answer**:
-- User asked about Lightning Tennis app but no exact answer exists in knowledge base
+- User asked about Lightning Pickleball app but no exact answer exists in knowledge base
 - MUST be used together with "I couldn't find exact information" response
 - Helps admin identify knowledge base gaps
 
@@ -316,7 +316,7 @@ const BANNED_KEYWORDS = {
 
 /**
  * Layer 2: Input Filter - Off-Topic Keywords
- * Blocks general knowledge questions not related to tennis
+ * Blocks general knowledge questions not related to pickleball
  */
 const OFF_TOPIC_KEYWORDS = {
   ko: [
@@ -379,7 +379,7 @@ const FORBIDDEN_RESPONSE_PATTERNS = {
 };
 
 /**
- * AI Service for Lightning Tennis app
+ * AI Service for Lightning Pickleball app
  * Provides RAG-based chatbot functionality
  */
 class AIService {
@@ -446,10 +446,10 @@ class AIService {
       }
     }
 
-    // Check off-topic keywords (only if no tennis context)
-    const tennisKeywords = [
-      '테니스',
-      'tennis',
+    // Check off-topic keywords (only if no pickleball context)
+    const pickleballKeywords = [
+      '피클볼',
+      'pickleball',
       '매치',
       'match',
       '클럽',
@@ -461,9 +461,9 @@ class AIService {
       '번개',
       'lightning',
     ];
-    const hasTennisContext = tennisKeywords.some(k => lowerQuery.includes(k.toLowerCase()));
+    const hasPickleballContext = pickleballKeywords.some(k => lowerQuery.includes(k.toLowerCase()));
 
-    if (!hasTennisContext) {
+    if (!hasPickleballContext) {
       for (const keyword of offTopicList) {
         if (lowerQuery.includes(keyword.toLowerCase())) {
           console.warn(`🚫 Blocked off-topic keyword: "${keyword}"`);
@@ -495,8 +495,8 @@ class AIService {
           filtered: true,
           fallbackResponse:
             language === 'ko'
-              ? '죄송합니다. 저는 테니스 전문 도우미입니다. 테니스 관련 질문을 해주시면 기꺼이 도와드릴게요! 🎾'
-              : "I'm sorry, I'm a tennis-specialized assistant. Please ask me about tennis and I'll be happy to help! 🎾",
+              ? '죄송합니다. 저는 피클볼 전문 도우미입니다. 피클볼 관련 질문을 해주시면 기꺼이 도와드릴게요! 🎾'
+              : "I'm sorry, I'm a pickleball-specialized assistant. Please ask me about pickleball and I'll be happy to help! 🎾",
         };
       }
     }
@@ -514,12 +514,12 @@ class AIService {
   getDeclineResponse(reason, language) {
     const responses = {
       banned: {
-        ko: '죄송합니다. 해당 주제는 제가 도움드리기 어려운 영역이에요. 테니스나 Lightning Tennis 앱에 관해 궁금한 점이 있으시면 말씀해주세요! 🎾',
-        en: "I'm sorry, that topic is outside my area of expertise. Feel free to ask me about tennis or the Lightning Tennis app! 🎾",
+        ko: '죄송합니다. 해당 주제는 제가 도움드리기 어려운 영역이에요. 피클볼나 Lightning Pickleball 앱에 관해 궁금한 점이 있으시면 말씀해주세요! 🎾',
+        en: "I'm sorry, that topic is outside my area of expertise. Feel free to ask me about pickleball or the Lightning Pickleball app! 🎾",
       },
       off_topic: {
-        ko: '저는 테니스 전문 도우미라서 그 질문에는 답변드리기 어려워요. 대신 테니스 기술, 규칙, 또는 앱 사용법에 대해 물어봐 주세요! 🎾',
-        en: "I'm a tennis-specialized assistant, so I can't answer that question. Instead, ask me about tennis techniques, rules, or how to use the app! 🎾",
+        ko: '저는 피클볼 전문 도우미라서 그 질문에는 답변드리기 어려워요. 대신 피클볼 기술, 규칙, 또는 앱 사용법에 대해 물어봐 주세요! 🎾',
+        en: "I'm a pickleball-specialized assistant, so I can't answer that question. Instead, ask me about pickleball techniques, rules, or how to use the app! 🎾",
       },
     };
 
@@ -1184,20 +1184,20 @@ class AIService {
     console.log('🧠 NLU: Parsing user query:', query);
 
     // NLU 전용 시스템 프롬프트
-    const nluSystemPrompt = `You are an NLU (Natural Language Understanding) engine for a tennis app.
+    const nluSystemPrompt = `You are an NLU (Natural Language Understanding) engine for a pickleball app.
 Your ONLY job is to convert user queries into structured JSON commands.
 
 Available commands:
-1. searchEvents: Search for tennis matches/events
+1. searchEvents: Search for pickleball matches/events
    - params: gameType (singles/doubles/mixed), timeRange (morning/afternoon/evening/night), date (today/tomorrow/weekend), location (nearby/specific_area), skillLevel (beginner/intermediate/advanced)
 
 2. navigate: Navigate to a screen
-   - params: screen (ClubDirectory/CreateEvent/PartnerSearch/CoachDirectory/RacketServices/Discover/MyProfile)
+   - params: screen (ClubDirectory/CreateEvent/PartnerSearch/CoachDirectory/PaddleServices/Discover/MyProfile)
 
-3. askQuestion: Answer tennis-related questions
+3. askQuestion: Answer pickleball-related questions
    - params: topic (rules/technique/strategy/equipment), subtopic (specific area)
 
-4. unknown: When query is not tennis-related or unclear
+4. unknown: When query is not pickleball-related or unclear
 
 STRICT RULES:
 - Respond ONLY with valid JSON, no other text
@@ -1312,7 +1312,7 @@ Example output:
       default:
         return {
           type: 'fallback',
-          message: '죄송합니다. 질문을 이해하지 못했어요. 테니스 관련 질문을 해주세요!',
+          message: '죄송합니다. 질문을 이해하지 못했어요. 피클볼 관련 질문을 해주세요!',
         };
     }
   }
@@ -1368,13 +1368,13 @@ Example output:
       create_club: {
         ko: {
           message:
-            '대단해요! 👑 나만의 테니스 클럽을 만들어볼까요? 클럽 이름, 지역, 소개글을 입력하면 바로 시작할 수 있어요.',
+            '대단해요! 👑 나만의 피클볼 클럽을 만들어볼까요? 클럽 이름, 지역, 소개글을 입력하면 바로 시작할 수 있어요.',
           nextHint:
             '클럽을 만들면 자동으로 클럽장이 되어 멤버 관리, 이벤트 생성 등을 할 수 있어요.',
         },
         en: {
           message:
-            "Amazing! 👑 Let's create your own tennis club! Enter your club name, region, and description to get started.",
+            "Amazing! 👑 Let's create your own pickleball club! Enter your club name, region, and description to get started.",
           nextHint: "Once created, you'll become the club admin with full management access.",
         },
         command: { type: 'navigate', screen: 'CreateClub' },
@@ -1382,12 +1382,12 @@ Example output:
       find_partner: {
         ko: {
           message:
-            '좋은 생각이에요! 🤝 함께 테니스를 칠 파트너를 찾아볼게요. 실력, 지역, 활동 시간이 비슷한 플레이어를 추천해드려요.',
+            '좋은 생각이에요! 🤝 함께 피클볼를 칠 파트너를 찾아볼게요. 실력, 지역, 활동 시간이 비슷한 플레이어를 추천해드려요.',
           nextHint: '관심 있는 플레이어에게 친구 요청을 보내보세요.',
         },
         en: {
           message:
-            "Great idea! 🤝 Let's find a tennis partner. We'll recommend players with similar skill, region, and schedule.",
+            "Great idea! 🤝 Let's find a pickleball partner. We'll recommend players with similar skill, region, and schedule.",
           nextHint: "Send a friend request to players you're interested in.",
         },
         command: { type: 'navigate', screen: 'Discover', params: { initialFilter: 'players' } },
@@ -1395,25 +1395,25 @@ Example output:
       find_coach: {
         ko: {
           message:
-            '실력 향상을 원하시는군요! 🎓 지역의 테니스 코치들을 찾아볼게요. 경력, 레슨비, 가능 시간을 확인할 수 있어요.',
+            '실력 향상을 원하시는군요! 🎓 지역의 피클볼 코치들을 찾아볼게요. 경력, 레슨비, 가능 시간을 확인할 수 있어요.',
           nextHint: '마음에 드는 코치에게 직접 연락해보세요.',
         },
         en: {
           message:
-            "You want to improve! 🎓 Let's find local tennis coaches. You can check their experience, rates, and availability.",
+            "You want to improve! 🎓 Let's find local pickleball coaches. You can check their experience, rates, and availability.",
           nextHint: 'Contact coaches directly when you find one you like.',
         },
         command: { type: 'navigate', screen: 'Discover', params: { initialFilter: 'coaches' } },
       },
-      racket_service: {
+      paddle_service: {
         ko: {
           message:
-            '장비 관리도 중요하죠! 🛠️ 스트링 교체, 라켓 수리, 중고 장터 서비스를 찾아볼게요.',
+            '장비 관리도 중요하죠! 🛠️ 스트링 교체, 패들 수리, 중고 장터 서비스를 찾아볼게요.',
           nextHint: '가까운 서비스 업체의 가격과 위치를 확인해보세요.',
         },
         en: {
           message:
-            "Equipment matters! 🛠️ Let's find string replacement, racket repair, and used gear services.",
+            "Equipment matters! 🛠️ Let's find string replacement, paddle repair, and used gear services.",
           nextHint: 'Check prices and locations of nearby service providers.',
         },
         command: { type: 'navigate', screen: 'Discover', params: { initialFilter: 'services' } },
@@ -1455,7 +1455,7 @@ Example output:
         { id: 'create_club', label: '클럽 만들기', icon: '👑' },
         { id: 'find_partner', label: '파트너 찾기', icon: '🤝' },
         { id: 'find_coach', label: '레슨/코치 찾기', icon: '🎓' },
-        { id: 'racket_service', label: '라켓/장비 서비스', icon: '🛠️' },
+        { id: 'paddle_service', label: '패들/장비 서비스', icon: '🛠️' },
       ],
       en: [
         { id: 'find_match', label: 'Find Matches', icon: '🎾' },
@@ -1464,7 +1464,7 @@ Example output:
         { id: 'create_club', label: 'Create Club', icon: '👑' },
         { id: 'find_partner', label: 'Find Partner', icon: '🤝' },
         { id: 'find_coach', label: 'Find Coach', icon: '🎓' },
-        { id: 'racket_service', label: 'Racket Service', icon: '🛠️' },
+        { id: 'paddle_service', label: 'Paddle Service', icon: '🛠️' },
       ],
     };
     return replies[language] || replies.en;
@@ -1479,8 +1479,8 @@ Example output:
    */
   getOnboardingWelcome(userName, language = 'ko') {
     const welcomes = {
-      ko: `안녕하세요, ${userName}님! 🎾 Lightning Tennis에 오신 것을 환영합니다!\n\n오늘 무엇을 가장 먼저 해볼까요?`,
-      en: `Hello, ${userName}! 🎾 Welcome to Lightning Tennis!\n\nWhat would you like to do first today?`,
+      ko: `안녕하세요, ${userName}님! 🎾 Lightning Pickleball에 오신 것을 환영합니다!\n\n오늘 무엇을 가장 먼저 해볼까요?`,
+      en: `Hello, ${userName}! 🎾 Welcome to Lightning Pickleball!\n\nWhat would you like to do first today?`,
     };
     return welcomes[language] || welcomes.en;
   }

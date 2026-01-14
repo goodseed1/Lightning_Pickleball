@@ -27,7 +27,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { useAuth } from '../../contexts/AuthContext';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import duesService from '../../services/duesService';
 import { db, storage } from '../../firebase/config';
 import { formatPriceByCountry } from '../../utils/currencyUtils';
@@ -66,7 +66,7 @@ const MemberDuesPaymentScreen: React.FC = () => {
   const { currentUser } = useAuth();
   const { t, currentLanguage } = useLanguage();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
   const { clubId, clubName } = route.params;
 
@@ -111,7 +111,7 @@ const MemberDuesPaymentScreen: React.FC = () => {
       setIsLoading(true);
 
       // Load club settings
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       const clubSnap = await getDoc(clubRef);
 
       if (clubSnap.exists()) {

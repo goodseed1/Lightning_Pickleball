@@ -69,7 +69,7 @@ async function debugTournamentStats() {
       console.log('');
 
       // 5. Check club document for member list
-      const clubDocRef = db.collection('tennis_clubs').doc(clubId);
+      const clubDocRef = db.collection('pickleball_clubs').doc(clubId);
       const clubDoc = await clubDocRef.get();
       if (clubDoc.exists) {
         const clubData = clubDoc.data();

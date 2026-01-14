@@ -63,9 +63,9 @@ async function findUserClubMemberships() {
     });
   }
 
-  // Check tennis_clubs for reference
-  console.log('\n\n📋 Current tennis_clubs:');
-  const clubsSnapshot = await db.collection('tennis_clubs').get();
+  // Check pickleball_clubs for reference
+  console.log('\n\n📋 Current pickleball_clubs:');
+  const clubsSnapshot = await db.collection('pickleball_clubs').get();
   clubsSnapshot.forEach(doc => {
     const data = doc.data();
     console.log(`  - ID: ${doc.id}, Name: "${data.name || '(empty)'}"`);

@@ -26,7 +26,7 @@ async function checkClub() {
 
   try {
     // Check if club exists
-    const clubRef = db.collection('tennis_clubs').doc(clubId);
+    const clubRef = db.collection('pickleball_clubs').doc(clubId);
     const clubDoc = await clubRef.get();
 
     if (clubDoc.exists) {
@@ -39,7 +39,7 @@ async function checkClub() {
       console.log('');
       console.log('🔍 Let\'s search for all clubs with "원이" in the name...');
 
-      const allClubsSnapshot = await db.collection('tennis_clubs').get();
+      const allClubsSnapshot = await db.collection('pickleball_clubs').get();
       console.log(`📊 Total clubs in database: ${allClubsSnapshot.size}`);
       console.log('');
 

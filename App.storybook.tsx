@@ -1,5 +1,5 @@
 /**
- * Storybook Entry Point for Lightning Tennis App
+ * Storybook Entry Point for Lightning Pickleball App
  * Use this to run Storybook in development
  */
 

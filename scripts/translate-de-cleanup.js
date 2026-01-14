@@ -99,7 +99,7 @@ const germanTranslations = {
     levels: {
       beginner: {
         label: '1.0-2.5 (Anfänger)',
-        description: 'Gerade mit Tennis begonnen',
+        description: 'Gerade mit Pickleball begonnen',
       },
       intermediate: {
         label: '3.0-3.5 (Fortgeschritten)',

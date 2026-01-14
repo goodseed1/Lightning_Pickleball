@@ -432,7 +432,7 @@ const translations = {
       participants: 'Участники',
       schedule: 'Расписание',
       standings: 'Турнирная таблица',
-      bracket: 'Сетка',
+      bpaddle: 'Сетка',
       results: 'Результаты',
       statistics: 'Статистика',
       photos: 'Фотографии',

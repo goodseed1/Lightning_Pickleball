@@ -12,8 +12,8 @@ const filePath = path.join(__dirname, '../src/constants/ltrQuestions.ts');
 // Read the file
 let content = fs.readFileSync(filePath, 'utf8');
 
-// Rename NTRP_QUESTIONS to LTR_QUESTIONS
-content = content.replace(/NTRP_QUESTIONS/g, 'LTR_QUESTIONS');
+// Rename NTRP_QUESTIONS to LPR_QUESTIONS
+content = content.replace(/NTRP_QUESTIONS/g, 'LPR_QUESTIONS');
 content = content.replace(/NtrpQuestion/g, 'LtrQuestion');
 
 // Question translations - keyed by question id
@@ -110,9 +110,9 @@ const questionTranslations = {
   },
   q10_lessons: {
     es: '¿Cuánto tiempo llevas jugando tenis?',
-    de: 'Wie lange spielen Sie schon Tennis?',
-    fr: 'Depuis combien de temps jouez-vous au tennis?',
-    it: 'Da quanto tempo giochi a tennis?',
+    de: 'Wie lange spielen Sie schon Pickleball?',
+    fr: 'Depuis combien de temps jouez-vous au pickleball?',
+    it: 'Da quanto tempo giochi a pickleball?',
     pt: 'Há quanto tempo você joga tênis?',
     ja: 'テニス歴はどのくらいですか？',
     zh: '您打网球多长时间了？',
@@ -842,7 +842,7 @@ fs.writeFileSync(filePath, content, 'utf8');
 
 console.log('✅ Updated ltrQuestions.ts with multi-language support');
 console.log('📝 Changes made:');
-console.log('   - Renamed NTRP_QUESTIONS → LTR_QUESTIONS');
+console.log('   - Renamed NTRP_QUESTIONS → LPR_QUESTIONS');
 console.log('   - Renamed NtrpQuestion → LtrQuestion');
 console.log('   - Added 8 language translations to all 14 questions');
 console.log('   - Added 8 language translations to all options');

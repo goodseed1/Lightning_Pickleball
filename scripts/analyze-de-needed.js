@@ -48,7 +48,7 @@ const universalTerms = [
 const languageNames = ['한국어', 'English', '中文', '日本語', 'Español', 'Français'];
 
 // Names should not be translated
-const names = ['Junsu Kim', 'Seoyeon Lee', 'Minjae Park', 'TennisUser'];
+const names = ['Junsu Kim', 'Seoyeon Lee', 'Minjae Park', 'PickleballUser'];
 
 // Numbers and units
 const numbersAndUnits = ['km', 'mi', '4', '2.0-3.0', '3.0-4.0', '4.0-5.0', '5.0+'];

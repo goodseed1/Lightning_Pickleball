@@ -19,7 +19,7 @@
       "perfectMatchTitle": "Match parfait trouvé ! 🎾",
       "newRequestTitle": "Nouvelle demande de match 📨",
       "perfectMatchBody": "Vous avez un taux de compatibilité de {{score}}% avec {{name}}.",
-      "newRequestBody": "{{senderName}} vous a envoyé une demande de match de tennis."
+      "newRequestBody": "{{senderName}} vous a envoyé une demande de match de pickleball."
     },
     "event": {
       "untitled": "Sans titre",
@@ -49,7 +49,7 @@
         "playoffsQualifiedMessage": "Félicitations ! Vous êtes qualifié pour les play-offs de \"{{leagueName}}\" !",
         "defaultMessage": "Vous avez une nouvelle mise à jour d'activité."
       },
-      "tennisUserFallback": "JoueurTennis{{id}}"
+      "pickleballUserFallback": "JoueurPickleball{{id}}"
     },
     "camera": {
       "simulatorError": "Un problème est survenu lors de l'accès à la galerie sur le simulateur iOS. Veuillez tester sur un appareil réel.",
@@ -255,7 +255,7 @@
       "anyLevelDesc": "Tous les niveaux sont les bienvenus"
     },
     "skillDescriptions": {
-      "beginner": "Débutant - Nouveau au tennis ou apprentissage des coups de base",
+      "beginner": "Débutant - Nouveau au pickleball ou apprentissage des coups de base",
       "elementary": "Élémentaire - Peut frapper les coups de base, comprend les bases du double",
       "intermediate": "Intermédiaire - Coups cohérents, jeu stratégique",
       "advanced": "Avancé - Expérience de tournoi, compétences avancées"
@@ -264,17 +264,17 @@
       "matchLevelRestriction": "Les matchs éclair n'autorisent que les niveaux égaux ou supérieurs au niveau de l'hôte"
     },
     "autoNtrp": {
-      "hostLevel": "LTR hôte : {{level}} ({{gameType}})",
-      "partnerLevel": "LTR partenaire : {{level}} ({{gameType}})",
-      "combinedLevel": "LTR combiné : {{level}}",
-      "hostLevelWithType": "LTR hôte : {{level}} ({{type}})",
-      "partnerLevelWithType": "LTR partenaire : {{level}} ({{type}})"
+      "hostLevel": "LPR hôte : {{level}} ({{gameType}})",
+      "partnerLevel": "LPR partenaire : {{level}} ({{gameType}})",
+      "combinedLevel": "LPR combiné : {{level}}",
+      "hostLevelWithType": "LPR hôte : {{level}} ({{type}})",
+      "partnerLevelWithType": "LPR partenaire : {{level}} ({{type}})"
     },
     "helperText": {
       "languageSelection": "Sélectionnez les langues dans lesquelles vous pouvez communiquer pour une meilleure expérience de match.",
       "matchLevelAuto": "Le niveau du match est calculé automatiquement en fonction de {{type}}.",
-      "doublesMatchLevel": "* Le niveau du match en double est automatiquement défini à partir de la somme des LTR de l'hôte et du partenaire.",
-      "singlesMatchLevel": "* Le niveau du match en simple est automatiquement défini à partir du LTR de l'hôte. (tolérance ±0,5)"
+      "doublesMatchLevel": "* Le niveau du match en double est automatiquement défini à partir de la somme des LPR de l'hôte et du partenaire.",
+      "singlesMatchLevel": "* Le niveau du match en simple est automatiquement défini à partir du LPR de l'hôte. (tolérance ±0,5)"
     },
     "toggleDescriptions": {
       "autoApproval": "Lorsque activé, les participants sont auto-approuvés selon le principe du premier arrivé, premier servi jusqu'à la capacité. Lorsque désactivé, l'hôte doit approuver manuellement chaque participant.",
@@ -283,7 +283,7 @@
     "sms": {
       "description": "Envoyez des invitations et un lien de téléchargement de l'application à des amis qui n'ont pas installé l'application",
       "descriptionDetailed": "Envoyez des invitations et des liens de téléchargement de l'application à des amis sans l'application",
-      "invitationMessage": "[Lightning Tennis] {{sender}} vous a invité à \"{{eventTitle}}\" ! Téléchargez l'application : {{link}}",
+      "invitationMessage": "[Lightning Pickleball] {{sender}} vous a invité à \"{{eventTitle}}\" ! Téléchargez l'application : {{link}}",
       "defaultSender": "Un ami",
       "numbersToInvite": "Numéros à inviter :"
     },

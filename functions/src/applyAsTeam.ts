@@ -192,11 +192,11 @@ export const applyAsTeam = onCall<ApplyAsTeamRequest>(async request => {
         }
 
         if (!finalApplicantName) {
-          finalApplicantName = `테니스유저${applicantId.substring(0, 4)}`;
+          finalApplicantName = `피클볼유저${applicantId.substring(0, 4)}`;
         }
       } catch (error) {
         logger.warn('⚠️ [APPLY_AS_TEAM] Error fetching user profile:', error);
-        finalApplicantName = `테니스유저${applicantId.substring(0, 4)}`;
+        finalApplicantName = `피클볼유저${applicantId.substring(0, 4)}`;
       }
     }
 

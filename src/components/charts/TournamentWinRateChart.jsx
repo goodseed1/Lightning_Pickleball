@@ -20,7 +20,7 @@ import { LineChart } from 'react-native-chart-kit';
 import { Card, useTheme as usePaperTheme, SegmentedButtons } from 'react-native-paper';
 import { useTheme } from '../../hooks/useTheme';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 
@@ -63,7 +63,7 @@ const TournamentWinRateChart = ({ userId, selectedClubId = null }) => {
   const { theme: currentTheme } = useTheme();
   const { t } = useLanguage();
   const paperTheme = usePaperTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
 
   // 🎯 [KIM] ScrollView ref for auto-scroll to right (latest data)
   const scrollViewRef = useRef(null);

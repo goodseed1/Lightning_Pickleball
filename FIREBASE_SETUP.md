@@ -1,6 +1,6 @@
-# Firebase Setup Guide for Lightning Tennis
+# Firebase Setup Guide for Lightning Pickleball
 
-This guide will help you set up Firebase for the Lightning Tennis React Native app.
+This guide will help you set up Firebase for the Lightning Pickleball React Native app.
 
 ## 🚀 Quick Start
 
@@ -16,7 +16,7 @@ This guide will help you set up Firebase for the Lightning Tennis React Native a
 
 1. Go to [Firebase Console](https://console.firebase.google.com)
 2. Click "Add project"
-3. Enter project name: `lightning-tennis-app`
+3. Enter project name: `lightning-pickleball-app`
 4. Choose whether to enable Google Analytics (recommended)
 5. Create the project
 
@@ -56,7 +56,7 @@ This guide will help you set up Firebase for the Lightning Tennis React Native a
 1. In Firebase Console, go to **Project Settings** (gear icon)
 2. Scroll down to "Your apps" section
 3. Click the **Web** icon (`</>`)
-4. Enter app nickname: `Lightning Tennis Web`
+4. Enter app nickname: `Lightning Pickleball Web`
 5. **Don't** check "Also set up Firebase Hosting"
 6. Click "Register app"
 
@@ -107,14 +107,14 @@ You should see:
 ### iOS Setup
 
 1. In Firebase Console, click the **iOS** icon to add iOS app
-2. Enter iOS bundle ID (from `app.json`): `com.lightningtennis.community`
+2. Enter iOS bundle ID (from `app.json`): `com.lightningpickleball.community`
 3. Download `GoogleService-Info.plist`
 4. Add it to your iOS project (Xcode)
 
 ### Android Setup
 
 1. Click the **Android** icon to add Android app
-2. Enter Android package name (from `app.json`): `com.lightningtennis.community`
+2. Enter Android package name (from `app.json`): `com.lightningpickleball.community`
 3. Download `google-services.json`
 4. Place it in `android/app/` directory
 
@@ -144,8 +144,8 @@ service cloud.firestore {
       );
     }
 
-    // Tennis clubs
-    match /tennis_clubs/{clubId} {
+    // Pickleball clubs
+    match /pickleball_clubs/{clubId} {
       allow read: if request.auth != null;
       allow create: if request.auth != null;
       allow update: if request.auth != null && (
@@ -336,7 +336,7 @@ The app logs detailed Firebase initialization information. Check the console for
 }
 ```
 
-### Tennis Clubs Collection (`tennis_clubs/{clubId}`)
+### Pickleball Clubs Collection (`pickleball_clubs/{clubId}`)
 
 ```javascript
 {
@@ -394,4 +394,4 @@ If you encounter issues:
 
 ---
 
-**🎾 Lightning Tennis - Firebase Setup Complete! ⚡️**
+**🎾 Lightning Pickleball - Firebase Setup Complete! ⚡️**

@@ -109,7 +109,7 @@ const i18nPushMessages = {
     },
     bodySingles: {
       ko: '{tournamentName}에 등록되었습니다. 대진표 발표를 기다려주세요!',
-      en: 'You are registered for {tournamentName}. Wait for the bracket!',
+      en: 'You are registered for {tournamentName}. Wait for the bpaddle!',
       ja: '「{tournamentName}」に登録されました。対戦表の発表をお待ちください！',
       zh: '您已报名「{tournamentName}」。请等待对阵表！',
       de: 'Sie sind für {tournamentName} registriert. Warten Sie auf die Auslosung!',
@@ -121,7 +121,7 @@ const i18nPushMessages = {
     },
     bodyDoubles: {
       ko: '{tournamentName}에 팀으로 등록되었습니다. 대진표 발표를 기다려주세요!',
-      en: 'Your team is registered for {tournamentName}. Wait for the bracket!',
+      en: 'Your team is registered for {tournamentName}. Wait for the bpaddle!',
       ja: '「{tournamentName}」にチームで登録されました。対戦表の発表をお待ちください！',
       zh: '您的团队已报名「{tournamentName}」。请等待对阵表！',
       de: 'Ihr Team ist für {tournamentName} registriert. Warten Sie auf die Auslosung!',
@@ -185,10 +185,10 @@ const i18nPushMessages = {
         ru: '«{tournamentName}» принимает заявки!',
       },
     },
-    bracket_generation: {
+    bpaddle_generation: {
       title: {
         ko: '🎾 대진표 생성 중',
-        en: '🎾 Generating Bracket',
+        en: '🎾 Generating Bpaddle',
         ja: '🎾 対戦表作成中',
         zh: '🎾 生成对阵表中',
         de: '🎾 Auslosung wird erstellt',
@@ -200,7 +200,7 @@ const i18nPushMessages = {
       },
       body: {
         ko: '{tournamentName} 대진표가 곧 발표됩니다!',
-        en: '{tournamentName} bracket coming soon!',
+        en: '{tournamentName} bpaddle coming soon!',
         ja: '「{tournamentName}」対戦表がまもなく発表されます！',
         zh: '「{tournamentName}」对阵表即将公布！',
         de: '{tournamentName} Auslosung kommt bald!',
@@ -226,7 +226,7 @@ const i18nPushMessages = {
       },
       body: {
         ko: '{tournamentName}가 시작되었습니다. 대진표를 확인하세요!',
-        en: '{tournamentName} has started. Check the bracket!',
+        en: '{tournamentName} has started. Check the bpaddle!',
         ja: '「{tournamentName}」が開始されました。対戦表を確認してください！',
         zh: '「{tournamentName}」已开始。请查看对阵表！',
         de: '{tournamentName} hat begonnen. Prüfen Sie die Auslosung!',
@@ -316,10 +316,10 @@ const i18nPushMessages = {
       },
     },
   },
-  bracketPublished: {
+  bpaddlePublished: {
     title: {
       ko: '🎾 대진표 발표!',
-      en: '🎾 Bracket Published!',
+      en: '🎾 Bpaddle Published!',
       ja: '🎾 対戦表発表！',
       zh: '🎾 对阵表已公布！',
       de: '🎾 Auslosung veröffentlicht!',
@@ -331,7 +331,7 @@ const i18nPushMessages = {
     },
     body: {
       ko: '{tournamentName} 대진표가 발표되었습니다. 상대를 확인하세요!',
-      en: '{tournamentName} bracket is out. Check your opponent!',
+      en: '{tournamentName} bpaddle is out. Check your opponent!',
       ja: '「{tournamentName}」対戦表が発表されました。対戦相手を確認してください！',
       zh: '「{tournamentName}」对阵表已公布。请查看对手！',
       de: '{tournamentName} Auslosung ist da. Prüfen Sie Ihren Gegner!',
@@ -867,8 +867,8 @@ export async function sendTournamentStatusChangeNotification(
         case 'registration':
           statusMessages = i18nPushMessages.statusChange.registration;
           break;
-        case 'bracket_generation':
-          statusMessages = i18nPushMessages.statusChange.bracket_generation;
+        case 'bpaddle_generation':
+          statusMessages = i18nPushMessages.statusChange.bpaddle_generation;
           break;
         case 'in_progress':
           statusMessages = i18nPushMessages.statusChange.in_progress;
@@ -921,16 +921,16 @@ export async function sendTournamentStatusChangeNotification(
 }
 
 /**
- * Send bracket published notification to all participants
+ * Send bpaddle published notification to all participants
  * 🌍 Supports 10 languages based on recipient's preferredLanguage
  */
-export async function sendBracketPublishedNotification(
+export async function sendBpaddlePublishedNotification(
   tournamentId: string,
   tournamentName: string,
   participantIds: string[]
 ): Promise<{ success: boolean; error?: string }> {
   console.log(
-    `🎾 [NOTIFICATION] Sending bracket published notification to ${participantIds.length} participants`
+    `🎾 [NOTIFICATION] Sending bpaddle published notification to ${participantIds.length} participants`
   );
 
   try {
@@ -943,22 +943,22 @@ export async function sendBracketPublishedNotification(
         continue;
       }
 
-      const title = i18nPushMessages.bracketPublished.title[language];
-      const body = replacePlaceholders(i18nPushMessages.bracketPublished.body[language], {
+      const title = i18nPushMessages.bpaddlePublished.title[language];
+      const body = replacePlaceholders(i18nPushMessages.bpaddlePublished.body[language], {
         tournamentName,
       });
 
       console.log(`🌍 [NOTIFICATION] Sending to user ${userId} in language: ${language}`);
 
       const notificationPromise = sendExpoPushNotification(pushToken, title, body, {
-        type: 'bracket_published',
-        notificationType: 'bracket_published',
+        type: 'bpaddle_published',
+        notificationType: 'bpaddle_published',
         tournamentId,
         tournamentName,
       }).then(result => {
         logPushNotification(
           userId,
-          'bracket_published',
+          'bpaddle_published',
           { tournamentId, tournamentName, language },
           result.success ? 'sent' : 'failed'
         );
@@ -971,12 +971,12 @@ export async function sendBracketPublishedNotification(
     await Promise.all(notifications);
 
     console.log(
-      `✅ [NOTIFICATION] Bracket published notifications sent to ${notifications.length} participants`
+      `✅ [NOTIFICATION] Bpaddle published notifications sent to ${notifications.length} participants`
     );
 
     return { success: true };
   } catch (error: unknown) {
-    console.error('❌ [NOTIFICATION] Failed to send bracket published notifications:', error);
+    console.error('❌ [NOTIFICATION] Failed to send bpaddle published notifications:', error);
     return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }

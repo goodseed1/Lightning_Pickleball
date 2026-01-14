@@ -65,8 +65,8 @@ export default function ClubListScreen() {
       const mockClubs: Club[] = [
         {
           id: '1',
-          name: '서울 중앙 테니스 클럽',
-          description: '다양한 레벨의 회원들과 함께하는 활발한 테니스 클럽입니다.',
+          name: '서울 중앙 피클볼 클럽',
+          description: '다양한 레벨의 회원들과 함께하는 활발한 피클볼 클럽입니다.',
           memberCount: 45,
           maxMembers: 60,
           skillLevel: 'all',
@@ -83,7 +83,7 @@ export default function ClubListScreen() {
         },
         {
           id: '2',
-          name: '한강 테니스 동호회',
+          name: '한강 피클볼 동호회',
           description: '한강공원에서 정기 모임을 갖는 친목 중심의 클럽입니다.',
           memberCount: 32,
           maxMembers: 40,
@@ -99,7 +99,7 @@ export default function ClubListScreen() {
         },
         {
           id: '3',
-          name: '프로 테니스 아카데미',
+          name: '프로 피클볼 아카데미',
           description: '경쟁적인 환경에서 실력 향상을 목표로 하는 클럽입니다.',
           memberCount: 28,
           maxMembers: 35,
@@ -117,8 +117,8 @@ export default function ClubListScreen() {
         },
         {
           id: '4',
-          name: '올림픽공원 테니스 모임',
-          description: '올림픽공원에서 즐기는 캐주얼한 테니스 모임입니다.',
+          name: '올림픽공원 피클볼 모임',
+          description: '올림픽공원에서 즐기는 캐주얼한 피클볼 모임입니다.',
           memberCount: 18,
           maxMembers: 25,
           skillLevel: 'intermediate',
@@ -231,7 +231,7 @@ export default function ClubListScreen() {
           <View style={styles.clubInfo}>
             <Avatar.Icon
               size={48}
-              icon='tennisball'
+              icon='pickleballball'
               style={[styles.clubAvatar, { backgroundColor: getSkillLevelColor(club.skillLevel) }]}
             />
             <View style={styles.clubDetails}>

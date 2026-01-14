@@ -49,8 +49,8 @@ const MyClubsScreenSimple = () => {
         {
           id: 'mock-1',
           clubId: 'club-1',
-          clubName: 'Atlanta Tennis Club',
-          clubDescription: 'Weekly tennis matches and practice sessions',
+          clubName: 'Atlanta Pickleball Club',
+          clubDescription: 'Weekly pickleball matches and practice sessions',
           clubLocation: 'Atlanta, GA',
           role: 'admin',
           status: 'active',
@@ -62,8 +62,8 @@ const MyClubsScreenSimple = () => {
         {
           id: 'mock-2',
           clubId: 'club-2',
-          clubName: 'Duluth Tennis Group',
-          clubDescription: 'Friendly tennis community in Duluth',
+          clubName: 'Duluth Pickleball Group',
+          clubDescription: 'Friendly pickleball community in Duluth',
           clubLocation: 'Duluth, GA',
           role: 'member',
           status: 'active',

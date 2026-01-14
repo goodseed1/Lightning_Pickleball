@@ -199,7 +199,7 @@ export const createTournament = onCall<CreateTournamentRequest, Promise<CreateTo
           matchesPerDay: data.settings.matchesPerDay || null,
           restBetweenMatches: data.settings.restBetweenMatches || null,
           thirdPlaceMatch: data.settings.thirdPlaceMatch,
-          consolationBracket: data.settings.consolationBracket,
+          consolationBpaddle: data.settings.consolationBpaddle,
           allowWalkovers: data.settings.allowWalkovers,
           eligibilityCriteria: data.settings.eligibilityCriteria || null,
         },
@@ -221,7 +221,7 @@ export const createTournament = onCall<CreateTournamentRequest, Promise<CreateTo
         // Initialize empty arrays
         participants: [],
         matches: [],
-        bracket: null,
+        bpaddle: null,
         rankings: [],
       };
 

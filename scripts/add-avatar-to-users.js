@@ -18,7 +18,7 @@ if (!admin.apps.length) {
 
 const db = admin.firestore();
 
-// 랜덤 배경색 생성 (테니스/스포츠 느낌의 색상들)
+// 랜덤 배경색 생성 (피클볼/스포츠 느낌의 색상들)
 const avatarColors = [
   '4CAF50', // Green
   '2196F3', // Blue

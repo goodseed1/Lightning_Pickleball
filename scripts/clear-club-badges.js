@@ -126,9 +126,9 @@ async function clearUnreadBadges() {
     console.log('   (해당 클럽 채팅 메시지 없음)\n');
   }
 
-  // 5. tennis_clubs의 unread 관련 필드 초기화
-  console.log('📋 5. tennis_clubs unread 필드 초기화...');
-  await db.collection('tennis_clubs').doc(CLUB_ID).update({
+  // 5. pickleball_clubs의 unread 관련 필드 초기화
+  console.log('📋 5. pickleball_clubs unread 필드 초기화...');
+  await db.collection('pickleball_clubs').doc(CLUB_ID).update({
     unreadCount: 0,
     lastReadAt: admin.firestore.Timestamp.now(),
   });

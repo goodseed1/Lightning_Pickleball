@@ -23,7 +23,7 @@ const translations = {
       loadError: 'Caricamento profilo fallito',
       notFound: 'Profilo non trovato',
       backButton: 'Indietro',
-      defaultNickname: 'Giocatore di Tennis',
+      defaultNickname: 'Giocatore di Pickleball',
       noLocation: 'Nessuna info posizione',
       joinedDate: 'Iscritto il {{date}}',
       friendRequest: {

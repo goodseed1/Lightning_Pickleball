@@ -348,7 +348,7 @@ const part2Translations = {
     trophies: 'Trophées',
     certificates: 'Certificats',
     equipmentList: "Liste d'Équipement",
-    racket: 'Raquette',
+    paddle: 'Raquette',
     shoes: 'Chaussures',
     strings: 'Cordages',
     balls: 'Balles',

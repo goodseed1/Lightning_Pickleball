@@ -2,8 +2,8 @@
  * 🏛️ OLYMPUS MISSION - Phase 1.1: User Search Modal
  * Modal component for searching and selecting users to add as tournament participants
  *
- * 📝 LTR (Lightning Tennis Rating) System
- * - LTR uses integer scale (1-10) for skill matching
+ * 📝 LPR (Lightning Pickleball Rating) System
+ * - LPR uses integer scale (1-10) for skill matching
  * - Partner filtering uses ±1 tolerance for close skill matching
  */
 
@@ -36,8 +36,8 @@ interface User {
   photoURL?: string;
   email?: string;
   gender?: string; // 🎯 [OPERATION DUO - PHASE 4.5 PART 2] Gender for filtering
-  ltrLevel?: string; // 🔒 [PRIVACY] LTR rating for display instead of email
-  // 🎯 [KIM FIX v19] Game-type specific LTR (1-10 scale)
+  ltrLevel?: string; // 🔒 [PRIVACY] LPR rating for display instead of email
+  // 🎯 [KIM FIX v19] Game-type specific LPR (1-10 scale)
   singlesLtr?: number;
   doublesLtr?: number;
   mixedLtr?: number;
@@ -60,11 +60,11 @@ interface UserSearchModalProps {
     teams: Array<{ id: string; player1: User; player2: User }>
   ) => void;
   genderFilter?: 'male' | 'female' | null; // 🎯 [OPERATION DUO - PHASE 4.5 PART 2] Filter by gender
-  // 🎯 [KIM FIX] Match LTR requirements for partner selection
+  // 🎯 [KIM FIX] Match LPR requirements for partner selection
   gameType?: string; // e.g., 'mens_doubles', 'womens_singles', 'mixed_doubles'
-  hostLtr?: number; // Host's LTR level for ±2 filtering (LTR scale 1-10)
-  isPartnerSelection?: boolean; // 🎯 [LTR FIX] True for partner selection (shows different title)
-  hostTeamLtr?: number; // 🎯 [LTR FIX v6] Host team's combined LTR for doubles display (e.g., 6)
+  hostLtr?: number; // Host's LPR level for ±2 filtering (LPR scale 1-10)
+  isPartnerSelection?: boolean; // 🎯 [LPR FIX] True for partner selection (shows different title)
+  hostTeamLtr?: number; // 🎯 [LPR FIX v6] Host team's combined LPR for doubles display (e.g., 6)
 }
 
 const UserSearchModal: React.FC<UserSearchModalProps> = ({
@@ -77,10 +77,10 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
   tournamentFormat = 'singles', // 🆕 Default to singles
   onTeamPairingRequired, // 🆕 Doubles team pairing callback
   genderFilter = null, // 🎯 [OPERATION DUO - PHASE 4.5 PART 2] Gender filter
-  gameType, // 🎯 [KIM FIX] Game type for LTR display
-  hostLtr, // 🎯 [KIM FIX] Host LTR for filtering
-  isPartnerSelection = false, // 🎯 [LTR FIX] Partner selection shows different title
-  hostTeamLtr, // 🎯 [LTR FIX v6] Host team's combined LTR for doubles display
+  gameType, // 🎯 [KIM FIX] Game type for LPR display
+  hostLtr, // 🎯 [KIM FIX] Host LPR for filtering
+  isPartnerSelection = false, // 🎯 [LPR FIX] Partner selection shows different title
+  hostTeamLtr, // 🎯 [LPR FIX v6] Host team's combined LPR for doubles display
 }) => {
   const { t } = useLanguage();
   const { currentUser } = useAuth();
@@ -94,7 +94,7 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
   const useImperialUnits = countryValue === 'us' || countryValue === 'united states';
   const KM_TO_MILES = 0.621371;
 
-  // 🎯 [2025.01 RULE CHANGE] LTR tolerance varies by game type:
+  // 🎯 [2025.01 RULE CHANGE] LPR tolerance varies by game type:
   // - Doubles/Mixed: ±2 (more relaxed for team play)
   // - Singles: 0~+1 only (host can only invite equal or 1 level higher)
   const getLtrTolerance = (): { minDiff: number; maxDiff: number } => {
@@ -126,7 +126,7 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
     return R * c;
   };
 
-  // 🎯 [KIM FIX v19] Get game-type-specific LTR for a user
+  // 🎯 [KIM FIX v19] Get game-type-specific LPR for a user
   const getUserLtrForGameType = (user: User): number | undefined => {
     if (!gameType) return undefined;
 
@@ -141,37 +141,37 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
     return undefined;
   };
 
-  // 🎯 [2025.01 RULE CHANGE] Check if user is within LTR range
+  // 🎯 [2025.01 RULE CHANGE] Check if user is within LPR range
   // - Doubles/Mixed: ±2 tolerance
   // - Singles: 0~+1 only (host can invite equal or higher level only)
-  // 🎯 [LTR FIX v7] For partner selection in doubles:
-  //    - hostTeamLtr = host team's combined LTR (e.g., 6)
-  //    - hostLtr = current user's LTR (e.g., 철수 = 4)
+  // 🎯 [LPR FIX v7] For partner selection in doubles:
+  //    - hostTeamLtr = host team's combined LPR (e.g., 6)
+  //    - hostLtr = current user's LPR (e.g., 철수 = 4)
   //    - allowed team range = hostTeamLtr ± 2 (e.g., 4~8)
-  //    - partner LTR range = (minTeam - hostLtr) ~ (maxTeam - hostLtr) (e.g., 0~4)
+  //    - partner LPR range = (minTeam - hostLtr) ~ (maxTeam - hostLtr) (e.g., 0~4)
   const isUserWithinLtrRange = (user: User): boolean => {
     const gt = (gameType || '').toLowerCase();
     const isDoubles = gt.includes('doubles');
 
-    // 🎯 [LTR FIX v7] For partner selection in doubles, use team-based filtering
+    // 🎯 [LPR FIX v7] For partner selection in doubles, use team-based filtering
     if (isPartnerSelection && isDoubles && hostTeamLtr !== undefined && hostLtr !== undefined) {
       const userLtr = getUserLtrForGameType(user);
-      if (userLtr === undefined) return true; // Allow if no LTR data
+      if (userLtr === undefined) return true; // Allow if no LPR data
 
-      // Calculate allowed team LTR range
-      const minTeam = Math.max(2, hostTeamLtr - 2); // Min team LTR is 2 (1+1)
-      const maxTeam = Math.min(20, hostTeamLtr + 2); // Max team LTR is 20 (10+10)
+      // Calculate allowed team LPR range
+      const minTeam = Math.max(2, hostTeamLtr - 2); // Min team LPR is 2 (1+1)
+      const maxTeam = Math.min(20, hostTeamLtr + 2); // Max team LPR is 20 (10+10)
 
-      // Calculate partner LTR range based on current user's LTR
-      // Team LTR = hostLtr (me) + partnerLtr
+      // Calculate partner LPR range based on current user's LPR
+      // Team LPR = hostLtr (me) + partnerLtr
       // So partnerLtr must be in range: (minTeam - hostLtr) ~ (maxTeam - hostLtr)
-      const minPartnerLtr = Math.max(1, minTeam - hostLtr); // LTR can't be less than 1
-      const maxPartnerLtr = Math.min(10, maxTeam - hostLtr); // LTR can't exceed 10
+      const minPartnerLtr = Math.max(1, minTeam - hostLtr); // LPR can't be less than 1
+      const maxPartnerLtr = Math.min(10, maxTeam - hostLtr); // LPR can't exceed 10
 
       console.log(
-        `🎾 [LTR FIX v7] Partner filter: hostTeamLtr=${hostTeamLtr}, myLtr=${hostLtr}, ` +
+        `🎾 [LPR FIX v7] Partner filter: hostTeamLtr=${hostTeamLtr}, myLtr=${hostLtr}, ` +
           `teamRange=${minTeam}~${maxTeam}, partnerRange=${minPartnerLtr}~${maxPartnerLtr}, ` +
-          `candidate=${user.displayName}(LTR ${userLtr})`
+          `candidate=${user.displayName}(LPR ${userLtr})`
       );
 
       return userLtr >= minPartnerLtr && userLtr <= maxPartnerLtr;
@@ -181,7 +181,7 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
     if (hostLtr === undefined) return true; // No filtering if no hostLtr
 
     const userLtr = getUserLtrForGameType(user);
-    if (userLtr === undefined) return true; // Allow if no LTR data
+    if (userLtr === undefined) return true; // Allow if no LPR data
 
     const { minDiff, maxDiff } = getLtrTolerance();
     const diff = userLtr - hostLtr; // Positive = user is higher level
@@ -191,20 +191,20 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
     return diff >= minDiff && diff <= maxDiff;
   };
 
-  // 🎯 [2025.01 RULE CHANGE] Get LTR range text for display
-  // 🎯 [LTR FIX v7] For partner selection in doubles, show team LTR range
+  // 🎯 [2025.01 RULE CHANGE] Get LPR range text for display
+  // 🎯 [LPR FIX v7] For partner selection in doubles, show team LPR range
   const getLtrRangeText = (): string => {
     const gt = (gameType || '').toLowerCase();
     const isSingles = gt.includes('singles');
     const isDoubles = gt.includes('doubles');
 
-    // 🎯 [LTR FIX v7] For partner selection in doubles, show TEAM LTR range
+    // 🎯 [LPR FIX v7] For partner selection in doubles, show TEAM LPR range
     if (isPartnerSelection && isDoubles && hostTeamLtr !== undefined) {
-      // hostTeamLtr is the host team's combined LTR (e.g., 영철3 + 회장3 = 6)
+      // hostTeamLtr is the host team's combined LPR (e.g., 영철3 + 회장3 = 6)
       // Team range is hostTeamLtr ± 2 (e.g., 6 → 4~8)
-      const minTeam = Math.max(2, hostTeamLtr - 2); // Min team LTR is 2 (1+1)
-      const maxTeam = Math.min(20, hostTeamLtr + 2); // Max team LTR is 20 (10+10)
-      return `${t('eventCard.labels.doublesTeam')} LTR ${minTeam}~${maxTeam}`;
+      const minTeam = Math.max(2, hostTeamLtr - 2); // Min team LPR is 2 (1+1)
+      const maxTeam = Math.min(20, hostTeamLtr + 2); // Max team LPR is 20 (10+10)
+      return `${t('eventCard.labels.doublesTeam')} LPR ${minTeam}~${maxTeam}`;
     }
 
     if (hostLtr === undefined) return '';
@@ -212,11 +212,11 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
     const { minDiff, maxDiff } = getLtrTolerance();
 
     if (isSingles) {
-      // Singles: Show "LTR X~Y" where X = hostLtr, Y = hostLtr + 1
-      return `LTR ${Math.round(hostLtr)}~${Math.round(hostLtr + 1)}`;
+      // Singles: Show "LPR X~Y" where X = hostLtr, Y = hostLtr + 1
+      return `LPR ${Math.round(hostLtr)}~${Math.round(hostLtr + 1)}`;
     } else {
-      // Doubles/Mixed: Show "LTR X~Y" where X = hostLtr - 2, Y = hostLtr + 2
-      return `LTR ${Math.round(hostLtr + minDiff)}~${Math.round(hostLtr + maxDiff)}`;
+      // Doubles/Mixed: Show "LPR X~Y" where X = hostLtr - 2, Y = hostLtr + 2
+      return `LPR ${Math.round(hostLtr + minDiff)}~${Math.round(hostLtr + maxDiff)}`;
     }
   };
 
@@ -263,7 +263,7 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
 
       let availableUsers;
 
-      // 🎯 [KIM FIX] Helper to extract game-type specific LTR from user data
+      // 🎯 [KIM FIX] Helper to extract game-type specific LPR from user data
       // 클럽 ELO (clubStats.clubEloRating)를 우선 사용, 없으면 공용 ELO 사용
       const extractLtrData = (userData: Record<string, unknown>) => {
         // 🎯 [KIM FIX] Club ELO first (for club leagues/tournaments)
@@ -273,8 +273,8 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
         // 🎯 [KIM FIX v25] Use eloRatings only (Single Source of Truth)
         const eloRatings = userData.eloRatings as Record<string, { current?: number }> | undefined;
 
-        // ELO to LTR conversion (1-10 scale)
-        // 🎯 [KIM FIX v16] Use LTR scale (1-10) for skill matching
+        // ELO to LPR conversion (1-10 scale)
+        // 🎯 [KIM FIX v16] Use LPR scale (1-10) for skill matching
         const eloToLtr = (elo: number): number => {
           if (elo < 1000) return 1;
           if (elo < 1100) return 2;
@@ -734,9 +734,9 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
     return null;
   };
 
-  // 🎯 [KIM FIX] Get default LTR (use singles as fallback)
+  // 🎯 [KIM FIX] Get default LPR (use singles as fallback)
   const getDisplayLtr = (user: User): number | undefined => {
-    // If gameType is specified, use game-type specific LTR
+    // If gameType is specified, use game-type specific LPR
     if (gameType) {
       return getUserLtrForGameType(user);
     }
@@ -746,7 +746,7 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
 
   const renderUserItem = ({ item }: { item: User }) => {
     const isSelected = selectedUsers.some(u => u.uid === item.uid);
-    // 🎯 [KIM FIX] Check if user is within LTR range (±1)
+    // 🎯 [KIM FIX] Check if user is within LPR range (±1)
     const isWithinRange = isUserWithinLtrRange(item);
     const userLtr = gameType ? getUserLtrForGameType(item) : getDisplayLtr(item);
 
@@ -822,7 +822,7 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
                 </Text>
               )}
             </View>
-            {/* 🎯 [KIM FIX] Always show LTR - 클럽 검색일 경우 클럽LTR 표시 (리그/토너먼트 통합) */}
+            {/* 🎯 [KIM FIX] Always show LPR - 클럽 검색일 경우 클럽LPR 표시 (리그/토너먼트 통합) */}
             <Text
               style={[
                 styles.userLtr,
@@ -906,7 +906,7 @@ const UserSearchModal: React.FC<UserSearchModalProps> = ({
             <Text style={[styles.headerTitle, { color: theme.colors.onSurface }]}>
               {isPartnerSelection ? t('userSearch.partnerTitle') : t('userSearch.title')}
             </Text>
-            {/* 🎯 [2025.01 RULE CHANGE] Show game type and LTR range */}
+            {/* 🎯 [2025.01 RULE CHANGE] Show game type and LPR range */}
             {gameType && (
               <Text style={[styles.headerSubtitle, { color: theme.colors.primary }]}>
                 {getGameTypeLabel()}
@@ -1292,7 +1292,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginLeft: 6,
   },
-  // 🎯 [KIM FIX] LTR display style
+  // 🎯 [KIM FIX] LPR display style
   userLtr: {
     fontSize: 13,
     fontWeight: '500',

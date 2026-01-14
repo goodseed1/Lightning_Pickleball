@@ -124,7 +124,7 @@ export default function App() {
     initializeApp();
   }, []);
 
-  console.log('🚀 APP: Rendering Lightning Tennis with bulletproof Project Midnight theme system');
+  console.log('🚀 APP: Rendering Lightning Pickleball with bulletproof Project Midnight theme system');
 
   return (
     // Project Midnight Architecture:

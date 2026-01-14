@@ -1,12 +1,12 @@
-# Lightning Tennis - Development Progress
+# Lightning Pickleball - Development Progress
 
-**Lightning Tennis (번개 테니스)** - "Build your local tennis network and community"
+**Lightning Pickleball (번개 피클볼)** - "Build your local pickleball network and community"
 
 ## 🎯 Project Vision
 
-**Ultimate Goal**: Build your local tennis network and community
-**Core Mission**: 지역 테니스 생태계를 활성화하고 지속 가능한 커뮤니티 구축
-**MVP Strategy**: "기존 테니스 동호회(클럽)들이 우리 앱을 그들의 공식 활동 플랫폼으로 사용하게 만든다"
+**Ultimate Goal**: Build your local pickleball network and community
+**Core Mission**: 지역 피클볼 생태계를 활성화하고 지속 가능한 커뮤니티 구축
+**MVP Strategy**: "기존 피클볼 동호회(클럽)들이 우리 앱을 그들의 공식 활동 플랫폼으로 사용하게 만든다"
 
 ---
 
@@ -90,12 +90,12 @@
   - tournamentService (토너먼트 생성, 대진표 생성, 경기 관리)
   - 4가지 대회 형식 (단일/더블 토너먼트, 리그전, 스위스)
   - 자동 시드 배정 (레이팅 기반/랜덤)
-  - 실시간 대진표 시각화 (TournamentBracketView)
+  - 실시간 대진표 시각화 (TournamentBpaddleView)
   - 경기 결과 자동 처리 및 다음 라운드 진출
   - 상금/상품 시스템
 
 - ✅ **경기 관리 시스템**
-  - ScoreInputModal (완전한 테니스 스코어링)
+  - ScoreInputModal (완전한 피클볼 스코어링)
   - 타이브레이크 지원 (6-6 타이브레이크)
   - 다양한 결과 유형 (완주, 기권, 부전승)
   - ELO 레이팅 자동 연동
@@ -115,23 +115,23 @@
 - ✅ **Google Gemini AI 통합**
   - aiChatService.js (완전한 Gemini API 연동)
   - RAG (Retrieval-Augmented Generation) 시스템
-  - 테니스 전문 지식베이스 (영어/한국어)
+  - 피클볼 전문 지식베이스 (영어/한국어)
   - 개인화된 조언 생성 엔진
   - 컨텍스트 기반 대화 시스템
   - API 키 환경변수 설정 완료
 
-- ✅ **지능형 테니스 상담 기능**
-  - **규칙 & 스코어링**: 완전한 테니스 규칙 설명 시스템
+- ✅ **지능형 피클볼 상담 기능**
+  - **규칙 & 스코어링**: 완전한 피클볼 규칙 설명 시스템
   - **기술 조언**: 포핸드, 백핸드, 서브 메커닉 가이드
   - **전략 상담**: 단식/복식 전술, 멘탈 게임
-  - **장비 추천**: 실력별 라켓, 스트링, 신발 추천
+  - **장비 추천**: 실력별 패들, 스트링, 신발 추천
   - **매치 분석**: 경기 결과 분석 및 개선 방안 제시
   - **개인화**: 사용자 실력, 플레이 스타일, 목표 기반 맞춤 조언
 
 - ✅ **완전한 AI 챗봇 UI**
   - AIChatInterface.tsx (메인 채팅 인터페이스)
   - ChatMessage.tsx (메시지 버블, 신뢰도 표시)
-  - QuickActionButtons.tsx (원클릭 테니스 질문 바로가기)
+  - QuickActionButtons.tsx (원클릭 피클볼 질문 바로가기)
   - TypingIndicator.tsx (AI 생각 중 애니메이션)
   - AIChatPage.tsx (전체 화면 채팅 경험)
 
@@ -144,7 +144,7 @@
 - ✅ **다국어 AI 지원**
   - 50+ AI 관련 번역키 추가 (영어/한국어)
   - 문화적 컨텍스트 인식 응답
-  - 테니스 전문 용어 다국어 지원
+  - 피클볼 전문 용어 다국어 지원
   - 언어별 맞춤형 AI 시스템 프롬프트
 
 - ✅ **사용자 경험 최적화**
@@ -315,10 +315,10 @@
   - **최관리자 (Club Manager)**: 이벤트 생성, 클럽 운영, 멤버 관리
   - **정소셜 (Social Player)**: 커뮤니티 구축, 친목 활동, 소셜 이벤트
 
-- ✅ **현실적인 테니스 커뮤니티 경험 구현**
-  - 15개의 다양한 피드 아이템으로 테니스 생태계 완전 재현
-  - 아틀란타 지역 테니스장 실제 위치 반영
-  - LTR 실력 등급 시스템 기반 현실적 매치 결과
+- ✅ **현실적인 피클볼 커뮤니티 경험 구현**
+  - 15개의 다양한 피드 아이템으로 피클볼 생태계 완전 재현
+  - 아틀란타 지역 피클볼장 실제 위치 반영
+  - LPR 실력 등급 시스템 기반 현실적 매치 결과
   - 시간대별 분산 배치 (30분 전 ~ 8일 전)
 
 - ✅ **향상된 한국어/영어 번역 시스템**
@@ -416,7 +416,7 @@
 - ✅ **FeedScreen.tsx 소셜 피드 UI 완전 구현**
   - 400+ 라인의 완전한 소셜 피드 인터페이스 구현
   - 5가지 활동 유형별 동적 아이콘 및 색상 시스템
-  - Mock 데이터 기반 현실적인 테니스 커뮤니티 경험 구현
+  - Mock 데이터 기반 현실적인 피클볼 커뮤니티 경험 구현
   - 좋아요, 댓글, 공유 액션 버튼 및 메뉴 시스템
   - 실시간 새로고침 기능 및 빈 상태 처리
   - 다국어 지원 (한국어/영어) 완전 적용
@@ -445,7 +445,7 @@
 ### 🏗️ **시스템 아키텍처 현황**
 
 ```
-Lightning Tennis Platform
+Lightning Pickleball Platform
 ├── 🔐 Authentication System (완료)
 ├── 🌐 Multi-language Support (완료)
 ├── ⚡ Lightning Match System (완료)
@@ -513,7 +513,7 @@ Lightning Tennis Platform
 
 ### **Phase 4.5: 관리자 웹사이트 개발 (CURRENT PRIORITY)** ⭐ **NEW!**
 
-**Lightning Tennis 관리자 웹사이트 개발 종합 TODO**
+**Lightning Pickleball 관리자 웹사이트 개발 종합 TODO**
 
 #### **Phase 1: 프로젝트 초기 설정 및 기반 구축**
 
@@ -599,7 +599,7 @@ Lightning Tennis Platform
     - 프롬프트 A/B 테스트 도구
 
 13. **📚 지식베이스 관리 시스템**
-    - 테니스 지식 콘텐츠 CRUD
+    - 피클볼 지식 콘텐츠 CRUD
     - 다국어 지식베이스 관리
     - RAG 파이프라인 모니터링
     - 지식베이스 품질 점수
@@ -648,7 +648,7 @@ Lightning Tennis Platform
 
 #### **1. 📱 완전한 앱 TestFlight 배포**
 
-- **목표**: 클럽 관리자 대시보드와 소셜 피드까지 완전히 구현된 Lightning Tennis 앱을 TestFlight에 배포
+- **목표**: 클럽 관리자 대시보드와 소셜 피드까지 완전히 구현된 Lightning Pickleball 앱을 TestFlight에 배포
 - **현재 상태**: 모든 백엔드 시스템, 클럽 관리 대시보드, 소셜 피드 UI 완료
 - **구현 예정 작업**:
   - ✅ 프로덕션 환경 설정 완료 (Firebase, Gemini API)
@@ -717,7 +717,7 @@ Lightning Tennis Platform
 
 **클럽 채택 목표 (6개월 내)**:
 
-- ✅ 50개 이상 테니스 클럽 플랫폼 사용
+- ✅ 50개 이상 피클볼 클럽 플랫폼 사용
 - ✅ 2,000명 이상 활성 사용자
 - ✅ 월 평균 70% 사용자 유지율
 - ✅ 85% 이상 클럽 관리자 만족도
@@ -803,13 +803,13 @@ Lightning Tennis Platform
 
 ## 🏁 **결론 (Conclusion)**
 
-Lightning Tennis는 이제 **완전한 기능을 갖춘 프로덕션급 플랫폼**으로 발전했습니다. **17개의 주요 시스템**이 모두 구현되었으며, **AI 챗봇, 멀티 페르소나 소셜 피드, 클럽 관리자 대시보드, 고도화된 클럽 시스템, UI/UX 완성도, Firebase 보안, 앱 안정성, 네비게이션 일관성, 성능 최적화까지 완전히 통합**되어 세계 최고 수준의 테니스 커뮤니티 플랫폼이 되었습니다.
+Lightning Pickleball는 이제 **완전한 기능을 갖춘 프로덕션급 플랫폼**으로 발전했습니다. **17개의 주요 시스템**이 모두 구현되었으며, **AI 챗봇, 멀티 페르소나 소셜 피드, 클럽 관리자 대시보드, 고도화된 클럽 시스템, UI/UX 완성도, Firebase 보안, 앱 안정성, 네비게이션 일관성, 성능 최적화까지 완전히 통합**되어 세계 최고 수준의 피클볼 커뮤니티 플랫폼이 되었습니다.
 
 ### 🎯 **달성한 혁신적 성과:**
 
-- ✅ **완전한 테니스 생태계**: 개인 매칭부터 클럽 운영, 토너먼트까지
-- ✅ **AI 파워드 테니스 어시스턴트**: Google Gemini 기반 지능형 상담 (지식베이스 최적화)
-- ✅ **멀티 페르소나 소셜 피드**: 5개 사용자 유형의 현실적 테니스 커뮤니티 경험
+- ✅ **완전한 피클볼 생태계**: 개인 매칭부터 클럽 운영, 토너먼트까지
+- ✅ **AI 파워드 피클볼 어시스턴트**: Google Gemini 기반 지능형 상담 (지식베이스 최적화)
+- ✅ **멀티 페르소나 소셜 피드**: 5개 사용자 유형의 현실적 피클볼 커뮤니티 경험
 - ✅ **클럽 관리자 대시보드**: 완전한 회원 관리, 이벤트 관리, 회비 관리 시스템 ⭐ NEW!
 - ✅ **소셜 피드 UI**: 실시간 커뮤니티 활동 피드 완전 구현 ⭐ NEW!
 - ✅ **고도화된 클럽 관리**: 체계적인 클럽 생성, Firebase 인증 문제 해결, UI/UX 완성
@@ -830,7 +830,7 @@ Lightning Tennis는 이제 **완전한 기능을 갖춘 프로덕션급 플랫�
 ### 🎯 **Phase 4.5 목표:**
 
 다음 단계는 **관리자 웹사이트 구축**입니다:
-**🖥️ Lightning Tennis 관리자 웹사이트** 구축 (42주/10개월)
+**🖥️ Lightning Pickleball 관리자 웹사이트** 구축 (42주/10개월)
 
 - 🎫 1:1 Help Desk 시스템
 - 🤖 AI 챗봇 관리 센터
@@ -841,17 +841,17 @@ Lightning Tennis는 이제 **완전한 기능을 갖춘 프로덕션급 플랫�
 
 ### 🚀 **TestFlight 배포 준비:**
 
-**완전한 Lightning Tennis 앱**을 즉시 TestFlight에 배포할 준비가 완료되었습니다. 모든 주요 기능(매칭, 클럽 관리 대시보드, AI, 소셜 피드)이 통합된 **세계 최초의 AI 기반 테니스 소셜 플랫폼**이 완성되었습니다.
+**완전한 Lightning Pickleball 앱**을 즉시 TestFlight에 배포할 준비가 완료되었습니다. 모든 주요 기능(매칭, 클럽 관리 대시보드, AI, 소셜 피드)이 통합된 **세계 최초의 AI 기반 피클볼 소셜 플랫폼**이 완성되었습니다.
 
-Lightning Tennis는 이제 **"지역 테니스 네트워크 구축"**이라는 궁극적 목표를 실현할 모든 준비가 90% 완료되었으며, 관리자 웹사이트까지 완성하면 100% 달성할 예정입니다.
+Lightning Pickleball는 이제 **"지역 피클볼 네트워크 구축"**이라는 궁극적 목표를 실현할 모든 준비가 90% 완료되었으며, 관리자 웹사이트까지 완성하면 100% 달성할 예정입니다.
 
-**🎾 Lightning Tennis - 클럽 관리자 대시보드와 소셜 피드까지 완성한 궁극의 테니스 생태계! 📱🚀⚡️**
+**🎾 Lightning Pickleball - 클럽 관리자 대시보드와 소셜 피드까지 완성한 궁극의 피클볼 생태계! 📱🚀⚡️**
 
 ---
 
 _Last Updated: August 21, 2025_
 _Next Major Milestone: Admin Website Development (Phase 4.5 - 42주/10개월)_
-_🎉 **CLUB DASHBOARD & SOCIAL FEED COMPLETED** - Production-Ready Tennis Community Platform! 📱🚀⚡️_
+_🎉 **CLUB DASHBOARD & SOCIAL FEED COMPLETED** - Production-Ready Pickleball Community Platform! 📱🚀⚡️_
 
 ---
 
@@ -859,14 +859,14 @@ _🎉 **CLUB DASHBOARD & SOCIAL FEED COMPLETED** - Production-Ready Tennis Commu
 
 ### ✅ **경기 타입 분류 시스템 구현 - COMPLETED!**
 
-- **구현 내용**: 테니스 경기 타입 5가지 분류 시스템 완전 구현
+- **구현 내용**: 피클볼 경기 타입 5가지 분류 시스템 완전 구현
   - 남자 단식 (Men's Singles)
   - 여자 단식 (Women's Singles)
   - 남자 복식 (Men's Doubles)
   - 여자 복식 (Women's Doubles)
   - 혼합 복식 (Mixed Doubles)
 - **타입 정의**:
-  - `src/types/league.ts`에 TennisEventType enum 추가
+  - `src/types/league.ts`에 PickleballEventType enum 추가
   - `src/types/match.ts`에 eventType 필드 통합
 - **서비스 레이어**:
   - matchService.ts - 경기 타입별 통계 및 필터링
@@ -966,5 +966,5 @@ _🎉 **CLUB DASHBOARD & SOCIAL FEED COMPLETED** - Production-Ready Tennis Commu
 ### 🎯 **다음 작업 예정**
 
 - **복식 매치 지원**: 팀 단위 승자 선택 UI 구현
-- **점수 입력 검증**: 테니스 스코어 규칙 기반 검증 로직
+- **점수 입력 검증**: 피클볼 스코어 규칙 기반 검증 로직
 - **경기 결과 저장**: Firebase에 경기 결과 저장 및 통계 반영

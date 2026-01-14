@@ -3,7 +3,7 @@
  * Record Season Start Grades
  *
  * Scheduled to run at the start of each season (Q1-Q4).
- * Records each active user's LTR grade as a snapshot for the new season.
+ * Records each active user's LPR grade as a snapshot for the new season.
  * This snapshot determines which grade group they compete in for the entire season.
  *
  * Schedule: Every quarter start at 01:00 AM (Eastern Time)
@@ -50,7 +50,7 @@ async function recordUserSnapshot(
   eloRating: number
 ): Promise<void> {
   try {
-    const ltrGrade = String(convertEloToNtrp(eloRating)); // LTR is integer (1-10)
+    const ltrGrade = String(convertEloToNtrp(eloRating)); // LPR is integer (1-10)
 
     const snapshot = {
       seasonId,
@@ -67,7 +67,7 @@ async function recordUserSnapshot(
       .set(snapshot);
 
     console.log(
-      `✅ [SEASON START] Recorded snapshot for user ${userId}: ${seasonId}, LTR ${ltrGrade}, ELO ${eloRating}`
+      `✅ [SEASON START] Recorded snapshot for user ${userId}: ${seasonId}, LPR ${ltrGrade}, ELO ${eloRating}`
     );
   } catch (error) {
     console.error(`❌ [SEASON START] Error recording snapshot for ${userId}:`, error);
@@ -78,7 +78,7 @@ async function recordUserSnapshot(
 /**
  * Main scheduled function
  * Runs at the start of each quarter (January, April, July, October)
- * Records LTR grade snapshots for all active users
+ * Records LPR grade snapshots for all active users
  */
 export const recordSeasonStartGrades = onSchedule(
   {

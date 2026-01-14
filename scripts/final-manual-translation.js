@@ -85,7 +85,7 @@ const manualTranslations = {
   'Join this league and compete with other players':
     'Únete a esta liga y compite con otros jugadores',
   'League Info': 'Información de Liga',
-  "Join the league to compete with other players and improve your tennis skills. You'll need to wait for admin approval after applying.":
+  "Join the league to compete with other players and improve your pickleball skills. You'll need to wait for admin approval after applying.":
     'Únete a la liga para competir con otros jugadores y mejorar tus habilidades de tenis. Necesitarás esperar la aprobación del administrador después de aplicar.',
   'Applying...': 'Aplicando...',
   'Registration is currently closed': 'La inscripción está actualmente cerrada',
@@ -122,8 +122,8 @@ const manualTranslations = {
     'Envía invitaciones y enlace de descarga de la app a amigos que no han instalado la aplicación',
   'Send invitations and app download links to friends without the app':
     'Envía invitaciones y enlaces de descarga de la app a amigos sin la aplicación',
-  '[Lightning Tennis] {{sender}} invited you to "{{eventTitle}}"! Download app: {{link}}':
-    '[Lightning Tennis] ¡{{sender}} te invitó a "{{eventTitle}}"! Descarga la app: {{link}}',
+  '[Lightning Pickleball] {{sender}} invited you to "{{eventTitle}}"! Download app: {{link}}':
+    '[Lightning Pickleball] ¡{{sender}} te invitó a "{{eventTitle}}"! Descarga la app: {{link}}',
   'A friend': 'Un amigo',
   'Numbers to invite:': 'Números para invitar:',
   'Invite app users or friends via SMS to your {{type}}.':

@@ -1,17 +1,17 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { Card, Button, Avatar } from 'react-native-paper';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useTranslation } from 'react-i18next';
 import { getNtrpDescription, getNtrpDescriptionFromRange } from '../../utils/eloUtils';
 import { convertEloToLtr } from '../../utils/ltrUtils';
@@ -113,9 +113,9 @@ interface PlayerCardProps {
       gender?: string;
     };
     preferredTimeSlots: string[];
-    // 🎯 [KIM FIX v19] Singles LTR (1-10 scale) for quick match display
+    // 🎯 [KIM FIX v19] Singles LPR (1-10 scale) for quick match display
     singlesLtr?: number;
-    // 🎾 ELO-based LTR display
+    // 🎾 ELO-based LPR display
     singlesElo?: number;
   };
   // 🎯 [KIM FIX] Current user info for quick match eligibility check
@@ -142,7 +142,7 @@ const PlayerCard: React.FC<PlayerCardProps> = ({
 
   // Defensive programming: ensure theme is ready and valid
   const safeTheme = theme || 'dark';
-  const themeColors = getLightningTennisTheme(safeTheme);
+  const themeColors = getLightningPickleballTheme(safeTheme);
 
   // Don't render until theme is ready
   if (!isThemeReady || !themeColors) {
@@ -176,7 +176,7 @@ const PlayerCard: React.FC<PlayerCardProps> = ({
     return t('playerCard.notAvailable');
   };
 
-  // 🎯 [KIM FIX v19] Get player's LTR value for comparison
+  // 🎯 [KIM FIX v19] Get player's LPR value for comparison
   const getPlayerNtrp = (): number | undefined => {
     if (player.singlesLtr) return player.singlesLtr;
     if (typeof player.skillLevel === 'object') {
@@ -225,7 +225,7 @@ const PlayerCard: React.FC<PlayerCardProps> = ({
     }
     // If either doesn't have specific gender, skip gender check
 
-    // 🎯 [KIM FIX] Check LTR difference within ±2 (LTR uses 1-10 scale, not NTRP)
+    // 🎯 [KIM FIX] Check LPR difference within ±2 (LPR uses 1-10 scale, not NTRP)
     if (Math.abs(playerNtrp - currentUserNtrp) > 2) {
       return false;
     }
@@ -251,13 +251,13 @@ const PlayerCard: React.FC<PlayerCardProps> = ({
     return 'default'; // Expert/Pro: Default (theme-appropriate in dark mode)
   };
 
-  // 🎯 [KIM FIX] Get singles LTR display text with (단식) label
-  // ⚡ LTR Display - Use ELO-based calculation for consistency
+  // 🎯 [KIM FIX] Get singles LPR display text with (단식) label
+  // ⚡ LPR Display - Use ELO-based calculation for consistency
   const getSinglesLtrDisplay = (): string => {
-    // Use ELO-based LTR if available (accurate, from actual matches)
+    // Use ELO-based LPR if available (accurate, from actual matches)
     if (player.singlesElo && player.singlesElo > 0) {
       const ltrLevel = convertEloToLtr(player.singlesElo);
-      return `LTR ${ltrLevel} (${t('playerCard.singles')})`;
+      return `LPR ${ltrLevel} (${t('playerCard.singles')})`;
     }
     // Fallback to skill level text if no ELO data
     return getSkillLevelText();

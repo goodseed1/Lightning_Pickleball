@@ -51,7 +51,7 @@ import MemberDuesPaymentScreen from '../screens/clubs/MemberDuesPaymentScreen';
 import EventParticipationScreen from '../screens/clubs/EventParticipationScreen';
 import ClubLeagueManagementScreen from '../screens/clubs/ClubLeagueManagementScreen';
 import ClubTournamentManagementScreen from '../screens/clubs/ClubTournamentManagementScreen';
-import TournamentBracketScreen from '../screens/tournaments/TournamentBracketScreen';
+import TournamentBpaddleScreen from '../screens/tournaments/TournamentBpaddleScreen';
 import TournamentDetailScreen from '../screens/tournaments/TournamentDetailScreen';
 // ClubMemberManagementScreen removed - functionality moved to ClubDetail's Members tab
 import ClubChatScreen from '../screens/clubs/ClubChatScreen';
@@ -114,7 +114,7 @@ export type RootStackParamList = {
   MyClubSettings: { clubId: string; clubName: string };
   ClubLeagueManagement: { clubId: string; autoCreate?: boolean };
   ClubTournamentManagement: { clubId: string; autoCreate?: boolean };
-  TournamentBracket: { tournamentId: string; tournamentName: string; clubId: string };
+  TournamentBpaddle: { tournamentId: string; tournamentName: string; clubId: string };
   TournamentDetail: { tournamentId: string; tournamentName: string; clubId: string };
   ClubScheduleSettings: { clubId: string };
   EventParticipation: { eventId: string; clubId: string };
@@ -1086,10 +1086,10 @@ export default function AppNavigator() {
             }}
           />
           <Stack.Screen
-            name='TournamentBracket'
-            component={TournamentBracketScreen}
+            name='TournamentBpaddle'
+            component={TournamentBpaddleScreen}
             options={{
-              title: t('appNavigator.screens.tournamentBracket'),
+              title: t('appNavigator.screens.tournamentBpaddle'),
               headerShown: false,
             }}
           />

@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { useTheme } from '../../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../../theme';
+import { getLightningPickleballTheme } from '../../../theme';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import Section from '../../layout/Section';
 
@@ -37,7 +37,7 @@ type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export default function CourtAddressSection({ formData, clubId }: CourtAddressSectionProps) {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const colors = themeColors.colors;
   const { t } = useLanguage();
   const navigation = useNavigation<NavigationProp>();

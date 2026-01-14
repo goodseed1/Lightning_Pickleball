@@ -11,7 +11,7 @@ const en = JSON.parse(fs.readFileSync(enPath, 'utf8'));
 const de = JSON.parse(fs.readFileSync(dePath, 'utf8'));
 
 // German translations for all remaining keys
-// Using formal "Sie" form for UI, natural German tennis terminology
+// Using formal "Sie" form for UI, natural German pickleball terminology
 const translations = {
   // leagueDetail section (144 keys)
   leagueDetail: {
@@ -363,10 +363,10 @@ const translations = {
     addParticipant: 'Teilnehmer hinzufügen',
     removeParticipant: 'Teilnehmer entfernen',
     seedParticipants: 'Teilnehmer setzen',
-    drawBracket: 'Auslosung',
-    bracket: 'Turnierplan',
-    viewBracket: 'Turnierplan ansehen',
-    updateBracket: 'Turnierplan aktualisieren',
+    drawBpaddle: 'Auslosung',
+    bpaddle: 'Turnierplan',
+    viewBpaddle: 'Turnierplan ansehen',
+    updateBpaddle: 'Turnierplan aktualisieren',
     round: 'Runde',
     round1: 'Runde 1',
     round2: 'Runde 2',
@@ -410,10 +410,10 @@ const translations = {
     share: 'Teilen',
     shareTournament: 'Turnier teilen',
     export: 'Exportieren',
-    exportBracket: 'Turnierplan exportieren',
+    exportBpaddle: 'Turnierplan exportieren',
     exportResults: 'Ergebnisse exportieren',
     print: 'Drucken',
-    printBracket: 'Turnierplan drucken',
+    printBpaddle: 'Turnierplan drucken',
     settings: 'Einstellungen',
     tournamentSettings: 'Turniereinstellungen',
     saveSettings: 'Einstellungen speichern',
@@ -430,7 +430,7 @@ const translations = {
     refresh: 'Aktualisieren',
   },
 
-  // services section (110 keys) - Tennis-specific service translations
+  // services section (110 keys) - Pickleball-specific service translations
   services: {
     auth: {
       signIn: 'Anmelden',
@@ -488,7 +488,7 @@ const translations = {
       profileUpdated: 'Profil aktualisiert',
       profileUpdateError: 'Fehler beim Aktualisieren des Profils',
     },
-    tennis: {
+    pickleball: {
       skillLevel: 'Spielstärke',
       playingStyle: 'Spielstil',
       dominantHand: 'Spielhand',
@@ -592,11 +592,11 @@ const translations = {
     standings: 'Tabelle',
     schedule: 'Spielplan',
     results: 'Ergebnisse',
-    bracket: 'Turnierplan',
+    bpaddle: 'Turnierplan',
     viewStandings: 'Tabelle ansehen',
     viewSchedule: 'Spielplan ansehen',
     viewResults: 'Ergebnisse ansehen',
-    viewBracket: 'Turnierplan ansehen',
+    viewBpaddle: 'Turnierplan ansehen',
     rank: 'Rang',
     player: 'Spieler',
     team: 'Team',

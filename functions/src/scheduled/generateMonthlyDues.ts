@@ -322,7 +322,7 @@ export const generateMonthlyDues = onSchedule(
 
     try {
       // 1. 모든 클럽의 회비 설정 조회
-      const clubsRef = db.collection('tennis_clubs');
+      const clubsRef = db.collection('pickleball_clubs');
       const clubsSnapshot = await clubsRef.get();
 
       let totalRecordsCreated = 0;
@@ -460,8 +460,8 @@ export const generateMonthlyDuesManual = async (
   let totalSkipped = 0;
 
   const clubsQuery = clubId
-    ? db.collection('tennis_clubs').where(admin.firestore.FieldPath.documentId(), '==', clubId)
-    : db.collection('tennis_clubs');
+    ? db.collection('pickleball_clubs').where(admin.firestore.FieldPath.documentId(), '==', clubId)
+    : db.collection('pickleball_clubs');
 
   const clubsSnapshot = await clubsQuery.get();
 

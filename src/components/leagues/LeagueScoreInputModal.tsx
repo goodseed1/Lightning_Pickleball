@@ -14,7 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { LeagueMatch } from '../../types/league';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -47,7 +47,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
   submitting = false,
 }) => {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const { t } = useLanguage();
 
   // 🎯 [KIM FIX] 복식 팀 이름을 개별 선수로 분리 (a/b 형태)
@@ -127,8 +127,8 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
     }
   }, [visible, match]);
 
-  // Tennis score validation function
-  const isValidTennisScore = (score1: number, score2: number): boolean => {
+  // Pickleball score validation function
+  const isValidPickleballScore = (score1: number, score2: number): boolean => {
     const maxScore = Math.max(score1, score2);
     const minScore = Math.min(score1, score2);
 
@@ -310,7 +310,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
     const player2Score = parseInt(newScoreSets[setIndex].player2 || '0', 10);
 
     if (newScoreSets[setIndex].player1 && newScoreSets[setIndex].player2) {
-      if (!isValidTennisScore(player1Score, player2Score)) {
+      if (!isValidPickleballScore(player1Score, player2Score)) {
         Alert.alert(
           t('recordScore.alerts.invalidScore'),
           t('recordScore.alerts.invalidScoreExplanation'),
@@ -444,7 +444,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
           } else {
             Alert.alert(
               t('recordScore.alerts.notice'),
-              t('recordScore.alerts.invalidTennisScore', { set: i + 1 })
+              t('recordScore.alerts.invalidPickleballScore', { set: i + 1 })
             );
             return false;
           }
@@ -717,7 +717,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
                   </Text>
                 )}
                 <View style={styles.tiebreakInputWrapper}>
-                  <Text style={styles.tiebreakBracket}>(</Text>
+                  <Text style={styles.tiebreakBpaddle}>(</Text>
                   <RNTextInput
                     editable={!retired && !walkover}
                     value={currentSet.player1_tb || ''}
@@ -733,7 +733,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
                     placeholderTextColor={themeColors.colors.onSurfaceVariant}
                     selectTextOnFocus={true}
                   />
-                  <Text style={styles.tiebreakBracket}>)</Text>
+                  <Text style={styles.tiebreakBpaddle}>)</Text>
                 </View>
               </View>
 
@@ -765,7 +765,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
                   </Text>
                 )}
                 <View style={styles.tiebreakInputWrapper}>
-                  <Text style={styles.tiebreakBracket}>(</Text>
+                  <Text style={styles.tiebreakBpaddle}>(</Text>
                   <RNTextInput
                     editable={!retired && !walkover}
                     value={currentSet.player2_tb || ''}
@@ -781,7 +781,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
                     placeholderTextColor={themeColors.colors.onSurfaceVariant}
                     selectTextOnFocus={true}
                   />
-                  <Text style={styles.tiebreakBracket}>)</Text>
+                  <Text style={styles.tiebreakBpaddle}>)</Text>
                 </View>
               </View>
             </View>
@@ -1172,7 +1172,7 @@ const createStyles = (colors: Record<string, string>, isDarkMode: boolean) =>
       flexDirection: 'row',
       alignItems: 'center',
     },
-    tiebreakBracket: {
+    tiebreakBpaddle: {
       fontSize: 18,
       fontWeight: 'bold',
       color: colors.primary,

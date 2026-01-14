@@ -1,15 +1,15 @@
 /**
- * 🎾 LTR Assessment Result Screen
+ * 🎾 LPR Assessment Result Screen
  *
- * Displays the recommended LTR level from the assessment quiz.
+ * Displays the recommended LPR level from the assessment quiz.
  * Users can confirm the recommendation or select a different level (1-5).
  *
- * 📝 LTR System - Lightning Tennis Rating
- * - LTR은 1-10까지의 정수 값
- * - 온보딩에서는 LTR 1-5까지만 선택 가능
- * - LTR 6 이상은 매치를 통해서만 획득 가능
+ * 📝 LPR System - Lightning Pickleball Rating
+ * - LPR은 1-10까지의 정수 값
+ * - 온보딩에서는 LPR 1-5까지만 선택 가능
+ * - LPR 6 이상은 매치를 통해서만 획득 가능
  *
- * @author Kim (LTR System Transition)
+ * @author Kim (LPR System Transition)
  * @date 2025-12-28
  */
 import React, { useState } from 'react';
@@ -24,10 +24,10 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { lightningTennisDarkTheme } from '../../theme';
+import { lightningPickleballDarkTheme } from '../../theme';
 import { Answer, AssessmentResult } from '../../utils/ltrAssessment';
 import { getLtrDetails, getInitialEloFromLtr } from '../../utils/ltrUtils';
-import { LTR_LEVELS } from '../../constants/ltr';
+import { LPR_LEVELS } from '../../constants/ltr';
 import LtrLevelDetailModal from './LtrLevelDetailModal';
 
 // ============================================================================
@@ -47,7 +47,7 @@ interface LtrResultScreenProps {
 
 const LtrResultScreen: React.FC<LtrResultScreenProps> = ({ result, onSelectLevel, onBack }) => {
   const { currentLanguage, t } = useLanguage();
-  const themeColors = lightningTennisDarkTheme.colors;
+  const themeColors = lightningPickleballDarkTheme.colors;
 
   const [selectedLevel, setSelectedLevel] = useState<number | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
@@ -64,8 +64,8 @@ const LtrResultScreen: React.FC<LtrResultScreenProps> = ({ result, onSelectLevel
   const handleLevelSelect = (ltr: number) => {
     setSelectedLevel(ltr);
 
-    const levelDetails = LTR_LEVELS.find(l => l.value === ltr);
-    const levelLabel = levelDetails?.label[currentLanguage] || `LTR ${ltr}`;
+    const levelDetails = LPR_LEVELS.find(l => l.value === ltr);
+    const levelLabel = levelDetails?.label[currentLanguage] || `LPR ${ltr}`;
 
     Alert.alert(
       t('ltrResult.confirmSkillLevel'),
@@ -112,7 +112,7 @@ const LtrResultScreen: React.FC<LtrResultScreenProps> = ({ result, onSelectLevel
   const renderLevelButton = (ltr: number) => {
     const isRecommended = ltr === recommendedLtr;
     const isSelected = ltr === selectedLevel;
-    const level = LTR_LEVELS.find(l => l.value === ltr);
+    const level = LPR_LEVELS.find(l => l.value === ltr);
     const levelElo = getInitialEloFromLtr(ltr);
     if (!level) return null;
 
@@ -140,7 +140,7 @@ const LtrResultScreen: React.FC<LtrResultScreenProps> = ({ result, onSelectLevel
             style={[styles.levelLabel, isRecommended && styles.recommendedLevelText]}
             numberOfLines={1}
           >
-            {level.label[currentLanguage].replace(/LTR \d+ - /, '')}
+            {level.label[currentLanguage].replace(/LPR \d+ - /, '')}
           </Text>
           <Text style={[styles.levelElo, isRecommended && styles.recommendedLevelText]}>
             ELO {levelElo}
@@ -234,8 +234,8 @@ const LtrResultScreen: React.FC<LtrResultScreenProps> = ({ result, onSelectLevel
           <Text style={styles.selectionTitle}>{t('ltrResult.chooseSkillLevel')}</Text>
           <Text style={styles.selectionSubtitle}>{t('ltrResult.manualSelectionHint')}</Text>
 
-          {/* 🎯 [ONBOARDING LIMIT] 온보딩에서 최대 선택 가능 LTR: 5 */}
-          {/* LTR 6 이상은 매치를 통해서만 달성 가능 */}
+          {/* 🎯 [ONBOARDING LIMIT] 온보딩에서 최대 선택 가능 LPR: 5 */}
+          {/* LPR 6 이상은 매치를 통해서만 달성 가능 */}
           <View style={styles.levelGrid}>{[1, 2, 3, 4, 5].map(ltr => renderLevelButton(ltr))}</View>
 
           {/* 🎯 Policy Notice - Show when assessment recommends 6+ */}

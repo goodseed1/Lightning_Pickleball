@@ -532,7 +532,7 @@ const ptTranslations = {
     title: 'Gerenciar Torneio',
     overview: 'Visão Geral',
     participants: 'Participantes',
-    bracket: 'Chaveamento',
+    bpaddle: 'Chaveamento',
     schedule: 'Calendário',
     settings: 'Configurações',
     info: {
@@ -568,7 +568,7 @@ const ptTranslations = {
         confirm: 'Confirmar',
       },
     },
-    bracket: {
+    bpaddle: {
       title: 'Chaveamento',
       generate: 'Gerar Chaveamento',
       regenerate: 'Regerar Chaveamento',
@@ -585,7 +585,7 @@ const ptTranslations = {
       bye: 'Bye',
       enterScore: 'Inserir Placar',
       viewMatch: 'Ver Partida',
-      noBracket: 'Nenhum chaveamento gerado ainda',
+      noBpaddle: 'Nenhum chaveamento gerado ainda',
     },
     schedule: {
       title: 'Calendário',

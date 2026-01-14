@@ -10,8 +10,8 @@ const frPath = path.join(localesDir, 'fr.json');
 const en = JSON.parse(fs.readFileSync(enPath, 'utf8'));
 let fr = JSON.parse(fs.readFileSync(frPath, 'utf8'));
 
-// ULTRA-FINAL Dictionary - INCLUDING multi-line strings
-const ULTRA_DICT = {
+// ULPRA-FINAL Dictionary - INCLUDING multi-line strings
+const ULPRA_DICT = {
   // Multi-line strings (CRITICAL!)
   'All regular season matches are complete.\n\nStart playoffs for {{leagueName}}?':
     'Tous les matchs de saison régulière sont terminés.\n\nCommencer les éliminatoires pour {{leagueName}} ?',
@@ -22,19 +22,19 @@ const ULTRA_DICT = {
   'Delete all matches in {{leagueName}}?\n\nThis action cannot be undone and the league will be reset to application status.':
     'Supprimer tous les matchs dans {{leagueName}} ?\n\nCette action ne peut pas être annulée et la ligue sera réinitialisée au statut de candidature.',
 
-  'Generate bracket for {{leagueName}}?\n\nThis action cannot be undone and the league will start.':
+  'Generate bpaddle for {{leagueName}}?\n\nThis action cannot be undone and the league will start.':
     'Générer le tableau pour {{leagueName}} ?\n\nCette action ne peut pas être annulée et la ligue commencera.',
 
   'Match result has been saved.\n\n⚠️ This was a friendly match and will not affect ELO/win rate.':
     "Le résultat du match a été enregistré.\n\n⚠️ Il s'agissait d'un match amical et n'affectera pas votre ELO/taux de victoire.",
 
-  "LTR (Lightning Tennis Rating) is a proprietary skill assessment system developed exclusively for the Lightning Tennis community. LTR is calculated based on the ELO algorithm applied to all public lightning match results, showing your growth journey in an intuitive scale from 1 to 10. It's an honorable indicator of how much you've grown within our ecosystem.\n\nLTR is a unique system distinct from USTA's NTRP. For the convenience of users familiar with NTRP ratings, you can select your skill level in a range similar to NTRP when signing up, but all official levels calculated and displayed within the app are based on LTR.":
-    "LTR (Lightning Tennis Rating) est un système d'évaluation des compétences propriétaire développé exclusivement pour la communauté Lightning Tennis. LTR est calculé sur la base de l'algorithme ELO appliqué à tous les résultats de matchs publics lightning, montrant votre parcours de croissance sur une échelle intuitive de 1 à 10. C'est un indicateur honorable de votre évolution au sein de notre écosystème.\n\nLTR est un système unique distinct du NTRP de l'USTA. Pour la commodité des utilisateurs familiers avec les évaluations NTRP, vous pouvez sélectionner votre niveau de compétence dans une plage similaire au NTRP lors de l'inscription, mais tous les niveaux officiels calculés et affichés dans l'application sont basés sur LTR.",
+  "LPR (Lightning Pickleball Rating) is a proprietary skill assessment system developed exclusively for the Lightning Pickleball community. LPR is calculated based on the ELO algorithm applied to all public lightning match results, showing your growth journey in an intuitive scale from 1 to 10. It's an honorable indicator of how much you've grown within our ecosystem.\n\nLPR is a unique system distinct from USTA's NTRP. For the convenience of users familiar with NTRP ratings, you can select your skill level in a range similar to NTRP when signing up, but all official levels calculated and displayed within the app are based on LPR.":
+    "LPR (Lightning Pickleball Rating) est un système d'évaluation des compétences propriétaire développé exclusivement pour la communauté Lightning Pickleball. LPR est calculé sur la base de l'algorithme ELO appliqué à tous les résultats de matchs publics lightning, montrant votre parcours de croissance sur une échelle intuitive de 1 à 10. C'est un indicateur honorable de votre évolution au sein de notre écosystème.\n\nLPR est un système unique distinct du NTRP de l'USTA. Pour la commodité des utilisateurs familiers avec les évaluations NTRP, vous pouvez sélectionner votre niveau de compétence dans une plage similaire au NTRP lors de l'inscription, mais tous les niveaux officiels calculés et affichés dans l'application sont basés sur LPR.",
 
   'An error occurred while resetting league statistics.\n\n{{error}}':
     "Une erreur s'est produite lors de la réinitialisation des statistiques de ligue.\n\n{{error}}",
 
-  'All participants have been assigned seeds.\nYou can now generate the tournament bracket.':
+  'All participants have been assigned seeds.\nYou can now generate the tournament bpaddle.':
     'Tous les participants ont été attribués des séries.\nVous pouvez maintenant générer le tableau du tournoi.',
 
   'All participant additions failed.\n{{details}}':
@@ -82,12 +82,12 @@ const ULTRA_DICT = {
     'Erreur lors de la suppression du participant : {{error}}',
   'Failed to add participant: {{error}}': "Échec de l'ajout du participant : {{error}}",
   'Generate Round {{round}}': 'Générer le tour {{round}}',
-  'Generate bracket using assigned seeds and start the tournament':
+  'Generate bpaddle using assigned seeds and start the tournament':
     'Générer le tableau en utilisant les séries attribuées et démarrer le tournoi',
-  'Generate tournament bracket and start the competition':
+  'Generate tournament bpaddle and start the competition':
     'Générer le tableau du tournoi et commencer la compétition',
-  'Generating Bracket...': 'Génération du tableau...',
-  'Generating bracket...': 'Génération du tableau...',
+  'Generating Bpaddle...': 'Génération du tableau...',
+  'Generating bpaddle...': 'Génération du tableau...',
   'Generating...': 'Génération...',
   'Go to Management tab and click "Open Registration"':
     'Allez dans l\'onglet Gestion et cliquez sur "Ouvrir les inscriptions"',
@@ -317,7 +317,7 @@ const ULTRA_DICT = {
   'Total Members': 'Total des membres',
   'Total Points': 'Points totaux',
   'Total Wins': 'Victoires totales',
-  'Tournament Brackets': 'Tableaux du tournoi',
+  'Tournament Bpaddles': 'Tableaux du tournoi',
   'Tournament Dashboard': 'Tableau de bord du tournoi',
   'Tournament Ended': 'Tournoi terminé',
   'Tournament Info': 'Informations sur le tournoi',
@@ -333,7 +333,7 @@ const ULTRA_DICT = {
   'View All Achievements': 'Voir tous les succès',
   'View All Matches': 'Voir tous les matchs',
   'View All Stats': 'Voir toutes les statistiques',
-  'View Bracket': 'Voir le tableau',
+  'View Bpaddle': 'Voir le tableau',
   'View Dashboard': 'Voir le tableau de bord',
   'View League': 'Voir la ligue',
   'View Match Details': 'Voir les détails du match',
@@ -351,7 +351,7 @@ const ULTRA_DICT = {
   'Weekly win rate changes': 'Changements hebdomadaires du taux de victoire',
   'Welcome to the chat room! Feel free to discuss about the event.':
     "Bienvenue dans le salon de discussion ! N'hésitez pas à discuter de l'événement.",
-  'What is LTR?': "Qu'est-ce que LTR ?",
+  'What is LPR?': "Qu'est-ce que LPR ?",
   'Win 10 matches in a row': "Gagnez 10 matchs d'affilée",
   'Win 3 matches in a row': "Gagnez 3 matchs d'affilée",
   'Win 5 matches in a row': "Gagnez 5 matchs d'affilée",
@@ -385,9 +385,9 @@ function ultraTranslate(frObj, enObj) {
     if (typeof enValue === 'object' && enValue !== null && !Array.isArray(enValue)) {
       result[key] = ultraTranslate(frValue || {}, enValue);
     } else {
-      // Use exact match from ULTRA_DICT
+      // Use exact match from ULPRA_DICT
       if (frValue === undefined || frValue === enValue) {
-        result[key] = ULTRA_DICT[enValue] !== undefined ? ULTRA_DICT[enValue] : enValue;
+        result[key] = ULPRA_DICT[enValue] !== undefined ? ULPRA_DICT[enValue] : enValue;
       } else {
         result[key] = frValue;
       }
@@ -397,12 +397,12 @@ function ultraTranslate(frObj, enObj) {
   return result;
 }
 
-console.log('🚀🚀🚀 ULTRA-FINAL French Translation - Multi-line Support!\n');
-console.log(`📚 Dictionary entries: ${Object.keys(ULTRA_DICT).length}\n`);
+console.log('🚀🚀🚀 ULPRA-FINAL French Translation - Multi-line Support!\n');
+console.log(`📚 Dictionary entries: ${Object.keys(ULPRA_DICT).length}\n`);
 
 fr = ultraTranslate(fr, en);
 
 fs.writeFileSync(frPath, JSON.stringify(fr, null, 2) + '\n', 'utf8');
 
-console.log('✅ ULTRA-FINAL translation complete!\n');
+console.log('✅ ULPRA-FINAL translation complete!\n');
 console.log(`📁 Updated: ${frPath}\n`);

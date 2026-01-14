@@ -38,7 +38,7 @@ interface OfficialRanker {
 }
 
 /**
- * Get season snapshot for a user (their starting LTR grade)
+ * Get season snapshot for a user (their starting LPR grade)
  */
 async function getSeasonSnapshot(userId: string, seasonId: string): Promise<string | null> {
   try {
@@ -92,7 +92,7 @@ async function recordSeasonFinalRank(
   startingLtrGrade: string
 ): Promise<void> {
   try {
-    const ltrGrade = String(convertEloToNtrp(finalElo)); // LTR is integer (1-10)
+    const ltrGrade = String(convertEloToNtrp(finalElo)); // LPR is integer (1-10)
 
     const seasonRecord = {
       type: 'SEASON_FINAL_RANK',
@@ -109,7 +109,7 @@ async function recordSeasonFinalRank(
     await db.collection('users').doc(userId).collection('hallOfFame').add(seasonRecord);
 
     console.log(
-      `🏆 [SEASON FINAL] Recorded rank #${finalRank}/${totalPlayers} for user ${userId} (${seasonName}, LTR ${ltrGrade})`
+      `🏆 [SEASON FINAL] Recorded rank #${finalRank}/${totalPlayers} for user ${userId} (${seasonName}, LPR ${ltrGrade})`
     );
   } catch (error) {
     console.error(`❌ [SEASON FINAL] Error recording season rank for ${userId}:`, error);
@@ -143,7 +143,7 @@ async function getOfficialRankers(seasonId: string): Promise<OfficialRanker[]> {
         continue;
       }
 
-      // Get their starting LTR grade from season snapshot
+      // Get their starting LPR grade from season snapshot
       const startingGrade = await getSeasonSnapshot(userId, seasonId);
       if (!startingGrade) {
         console.warn(

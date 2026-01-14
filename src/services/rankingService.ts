@@ -35,8 +35,8 @@ import i18n from '../i18n';
  *
  * Philosophy: Federal Model - One citizenship, contextual influence
  *
- * 📝 LTR vs NTRP 네이밍 규칙
- * UI 표시: "LTR" (Lightning Tennis Rating)
+ * 📝 LPR vs NTRP 네이밍 규칙
+ * UI 표시: "LPR" (Lightning Pickleball Rating)
  * 코드/DB: "ntrp" (함수명 convertEloToLtr 등)
  * 이유: Firestore 필드명 변경 위험 방지
  */
@@ -691,7 +691,7 @@ class RankingService {
       };
 
       // 🎯 [KIM FIX] 온보딩 완료 사용자 확인 - 여러 필드 체크 (기존 사용자 호환성)
-      // 경기가 없어도 온보딩에서 LTR 선택했으면 랭킹에 포함
+      // 경기가 없어도 온보딩에서 LPR 선택했으면 랭킹에 포함
       const hasCompletedOnboarding = (userData: UserProfile): boolean => {
         // 1. stats.unifiedEloRating 확인 (새 사용자)
         const stats = userData.stats as { unifiedEloRating?: number } | undefined;

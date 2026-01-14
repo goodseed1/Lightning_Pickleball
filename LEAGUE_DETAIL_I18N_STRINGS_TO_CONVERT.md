@@ -24,8 +24,8 @@
 ### 3. Loading States (3 strings)
 
 - Line ~1984: `리그 정보를 불러오는 중...` → `t('leagueDetail.loading.league')`
-- Line ~3268: `대진표 생성 중...` → `t('leagueDetail.loading.generatingBracket')`
-- Line ~3269: `리그가 곧 시작됩니다` → `t('leagueDetail.loading.generatingBracketSubtitle')`
+- Line ~3268: `대진표 생성 중...` → `t('leagueDetail.loading.generatingBpaddle')`
+- Line ~3269: `리그가 곧 시작됩니다` → `t('leagueDetail.loading.generatingBpaddleSubtitle')`
 
 ### 4. Errors (1 string)
 
@@ -61,10 +61,10 @@
 ### 7. League Management (8 strings)
 
 - Line ~2988: `리그 관리` → `t('leagueDetail.leagueManagement.title')`
-- Line ~3016: `대진표 생성 및 리그 시작` → `t('leagueDetail.leagueManagement.generateBracketButton')`
-- Line ~3105: `브래킷 삭제` → `t('leagueDetail.leagueManagement.deleteBracketButton')`
-- Line ~3091: `브래킷 삭제` (Title) → `t('leagueDetail.leagueManagement.deleteBracketTitle')`
-- Line ~3093: `모든 경기를 삭제하고 리그를 초기화합니다. 이 작업은 되돌릴 수 없습니다.` → `t('leagueDetail.leagueManagement.deleteBracketDescription')`
+- Line ~3016: `대진표 생성 및 리그 시작` → `t('leagueDetail.leagueManagement.generateBpaddleButton')`
+- Line ~3105: `브래킷 삭제` → `t('leagueDetail.leagueManagement.deleteBpaddleButton')`
+- Line ~3091: `브래킷 삭제` (Title) → `t('leagueDetail.leagueManagement.deleteBpaddleTitle')`
+- Line ~3093: `모든 경기를 삭제하고 리그를 초기화합니다. 이 작업은 되돌릴 수 없습니다.` → `t('leagueDetail.leagueManagement.deleteBpaddleDescription')`
 - Line ~3115: `위험 구역` → `t('leagueDetail.leagueManagement.dangerZoneTitle')`
 - Line ~3118: `리그 삭제` → `t('leagueDetail.leagueManagement.deleteLeagueButton')`
 - Lines ~3030-3031: Minimum participants warnings (with variables)
@@ -78,7 +78,7 @@
 - Line ~2204: `정규 시즌 완료!` → `t('leagueDetail.playoffs.seasonComplete')`
 - Line ~2206: `모든 경기가 끝났습니다...` → `t('leagueDetail.playoffs.seasonCompleteDescription')`
 - Line ~2218: `플레이오프 시작하기` → `t('leagueDetail.playoffs.startButton')`
-- Line ~2757: `플레이오프 대진표` → `t('leagueDetail.playoffs.bracketToggle')`
+- Line ~2757: `플레이오프 대진표` → `t('leagueDetail.playoffs.bpaddleToggle')`
 - Line ~2740: `순위표` → `t('leagueDetail.playoffs.standingsToggle')`
 
 ### 9. Match Approval (3 strings)
@@ -126,12 +126,12 @@ t('leagueDetail.leagueManagement.minParticipantsSingles', { count: participantCo
 ### Alert Dialog Messages
 
 ```tsx
-// Generate Bracket
+// Generate Bpaddle
 Alert.alert('대진표 생성', `${league.name}의 대진표를 생성하시겠습니까?\n\n...`);
 // Replace with:
 Alert.alert(
-  t('leagueDetail.generateBracket'),
-  t('leagueDetail.dialogs.generateBracketConfirm', { leagueName: league.name })
+  t('leagueDetail.generateBpaddle'),
+  t('leagueDetail.dialogs.generateBpaddleConfirm', { leagueName: league.name })
 );
 ```
 

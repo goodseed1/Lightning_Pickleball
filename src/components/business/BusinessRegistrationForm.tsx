@@ -1,6 +1,6 @@
 /**
  * Business Registration Form Component
- * Allows tennis coaches and shops to register their business for partnerships
+ * Allows pickleball coaches and shops to register their business for partnerships
  */
 
 import React, { useState } from 'react';
@@ -71,7 +71,7 @@ const BusinessRegistrationForm: React.FC<BusinessRegistrationFormProps> = ({
   const businessTypes = [
     {
       id: 'coach',
-      label: 'Tennis Coach',
+      label: 'Pickleball Coach',
       icon: 'person',
       description: 'Individual coaching services',
     },
@@ -79,19 +79,19 @@ const BusinessRegistrationForm: React.FC<BusinessRegistrationFormProps> = ({
       id: 'pro_shop',
       label: 'Pro Shop',
       icon: 'storefront',
-      description: 'Tennis equipment and gear',
+      description: 'Pickleball equipment and gear',
     },
     {
       id: 'academy',
-      label: 'Tennis Academy',
+      label: 'Pickleball Academy',
       icon: 'school',
       description: 'Professional training facility',
     },
     {
       id: 'court_rental',
       label: 'Court Rental',
-      icon: 'tennisball',
-      description: 'Tennis court rental services',
+      icon: 'pickleballball',
+      description: 'Pickleball court rental services',
     },
   ];
 
@@ -117,7 +117,7 @@ const BusinessRegistrationForm: React.FC<BusinessRegistrationFormProps> = ({
     'USTA SafePlay',
     'First Aid Certified',
     'CPR Certified',
-    'College Tennis Experience',
+    'College Pickleball Experience',
     'Professional Playing Experience',
   ];
 
@@ -492,7 +492,7 @@ const BusinessRegistrationForm: React.FC<BusinessRegistrationFormProps> = ({
 
       <View style={styles.inputGroup}>
         <Text style={styles.label}>General Discount (%)</Text>
-        <Text style={styles.subLabel}>Default discount for Lightning Tennis users</Text>
+        <Text style={styles.subLabel}>Default discount for Lightning Pickleball users</Text>
         <View style={styles.sliderContainer}>
           <TextInput
             style={styles.discountInput}
@@ -518,7 +518,7 @@ const BusinessRegistrationForm: React.FC<BusinessRegistrationFormProps> = ({
         </View>
         <View style={styles.benefitItem}>
           <Ionicons name='checkmark-circle' size={20} color='#4CAF50' />
-          <Text style={styles.benefitText}>Featured in local tennis directory</Text>
+          <Text style={styles.benefitText}>Featured in local pickleball directory</Text>
         </View>
         <View style={styles.benefitItem}>
           <Ionicons name='checkmark-circle' size={20} color='#4CAF50' />
@@ -529,7 +529,7 @@ const BusinessRegistrationForm: React.FC<BusinessRegistrationFormProps> = ({
       <View style={styles.disclaimer}>
         <Text style={styles.disclaimerText}>
           ⚠️ Business registration requires admin approval. All partnerships are subject to
-          Lightning Tennis terms and conditions.
+          Lightning Pickleball terms and conditions.
         </Text>
       </View>
     </View>
@@ -557,7 +557,7 @@ const BusinessRegistrationForm: React.FC<BusinessRegistrationFormProps> = ({
     >
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Register Your Business</Text>
-        <Text style={styles.headerSubtitle}>Join the Lightning Tennis partner network</Text>
+        <Text style={styles.headerSubtitle}>Join the Lightning Pickleball partner network</Text>
       </View>
 
       {renderStepIndicator()}

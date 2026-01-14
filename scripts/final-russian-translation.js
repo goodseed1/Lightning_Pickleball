@@ -110,7 +110,7 @@ const translations = {
     tabs: {
       overview: 'Обзор',
       participants: 'Участники',
-      brackets: 'Сетка',
+      bpaddles: 'Сетка',
       schedule: 'Расписание',
       results: 'Результаты',
     },
@@ -276,7 +276,7 @@ const translations = {
     title: 'Настройки профиля',
     sections: {
       personal: 'Личное',
-      tennis: 'Теннис',
+      pickleball: 'Теннис',
       privacy: 'Приватность',
       notifications: 'Уведомления',
     },

@@ -95,7 +95,7 @@ const translations = {
       applyAsTeam: 'Подать заявку как команда',
       applySolo: 'Подать заявку соло',
       registrationClosed: 'Регистрация закрыта',
-      viewBracket: 'Просмотр сетки',
+      viewBpaddle: 'Просмотр сетки',
       viewStandings: 'Просмотр таблицы',
     },
     results: {

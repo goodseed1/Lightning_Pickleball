@@ -19,7 +19,7 @@ export const createDynamicStyles = (themeMode: 'light' | 'dark', variant: string
           surfaceVariant: '#2C2C2E',
           onSurfaceVariant: '#8E8E93',
           primary: '#42A5F5',
-          tennis: '#9CCC65',
+          pickleball: '#9CCC65',
           accent: '#26C6DA',
           secondary: '#FF8A50',
         }
@@ -29,7 +29,7 @@ export const createDynamicStyles = (themeMode: 'light' | 'dark', variant: string
           surfaceVariant: '#F3F4F6',
           onSurfaceVariant: '#6B7280',
           primary: '#1976D2',
-          tennis: '#7CB342',
+          pickleball: '#7CB342',
           accent: '#00BCD4',
           secondary: '#FF6B35',
         };
@@ -105,10 +105,10 @@ export const createDynamicStyles = (themeMode: 'light' | 'dark', variant: string
  */
 export const getVariantColors = (variant: string, baseColors: Record<string, string>) => {
   switch (variant) {
-    case 'tennis':
+    case 'pickleball':
       return {
-        primary: baseColors.tennis,
-        accent: baseColors.tennis,
+        primary: baseColors.pickleball,
+        accent: baseColors.pickleball,
       };
     case 'electric':
       return {

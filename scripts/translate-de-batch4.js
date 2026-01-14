@@ -99,7 +99,7 @@ const germanTranslations = {
     clubSchedule: {
       scheduleTypes: {
         practice: 'Trainingseinheit',
-        social: 'Soziales Tennis',
+        social: 'Soziales Pickleball',
         clinic: 'Trainingsklinik',
         beginner_friendly: 'Anfängerfreundlich',
         custom: 'Benutzerdefinierte Veranstaltung',
@@ -232,7 +232,7 @@ const germanTranslations = {
     suggestedLocation: 'Vorgeschlagener Standort',
   },
 
-  tournamentBracket: {
+  tournamentBpaddle: {
     title: 'Turnierbaum',
     round1: 'Runde 1',
     round2: 'Runde 2',

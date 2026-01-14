@@ -226,7 +226,7 @@ const frTranslations = {
       later: 'Plus tard',
       openSettings: 'Ouvrir les paramètres',
       matchNotificationTitle: 'Notification de match',
-      matchNotificationBody: 'Vous avez un match de tennis programmé dans 30 minutes.',
+      matchNotificationBody: 'Vous avez un match de pickleball programmé dans 30 minutes.',
     },
     auth: {
       emailVerificationRequired:

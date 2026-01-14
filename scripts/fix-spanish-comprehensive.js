@@ -147,7 +147,7 @@ const esTranslations = {
   auth: {
     register: {
       title: 'Registrarse',
-      subtitle: 'Únete a Lightning Tennis',
+      subtitle: 'Únete a Lightning Pickleball',
       displayName: 'Nombre',
       signingUp: 'Registrando...',
       passwordHint:
@@ -229,7 +229,7 @@ const esTranslations = {
     loadingAnnouncements: 'Cargando anuncios...',
     important: 'Importante',
     noDateInfo: 'Sin fecha',
-    bracketGeneration: 'Generación de Llaves',
+    bpaddleGeneration: 'Generación de Llaves',
     playoffsInProgress: 'Playoffs en Progreso',
     clubNotifications: 'Notificaciones del Club',
     viewAllNotifications: 'Ver Todas las Notificaciones ({{count}})',

@@ -1,6 +1,6 @@
 /**
  * Feed Types
- * Lightning Tennis 피드 시스템 타입 정의
+ * Lightning Pickleball 피드 시스템 타입 정의
  */
 
 /**

@@ -89,8 +89,8 @@ export const onMeetupChatMessageCreated = onDocumentCreated(
       }
 
       // 3. Get club name for notification
-      // 🔧 [FIX] Club collection is 'tennis_clubs', not 'clubs'
-      const clubRef = db.doc(`tennis_clubs/${clubId}`);
+      // 🔧 [FIX] Club collection is 'pickleball_clubs', not 'clubs'
+      const clubRef = db.doc(`pickleball_clubs/${clubId}`);
       const clubSnap = await clubRef.get();
       const clubName = clubSnap.exists ? clubSnap.data()?.name || 'Club' : 'Club';
 

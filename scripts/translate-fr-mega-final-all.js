@@ -35,7 +35,7 @@ const megaFinalFrench = {
     offSeason: 'Hors Saison',
     phaseTransition: 'Transition de Phase',
     enterPlayoffs: 'Entrer en Éliminatoires',
-    playoffBracket: 'Tableau des Éliminatoires',
+    playoffBpaddle: 'Tableau des Éliminatoires',
     playoffSeeding: 'Classement des Éliminatoires',
     topTeamsAdvance: 'Les {{count}} meilleures équipes se qualifient',
     clinched: 'Qualifié',
@@ -186,8 +186,8 @@ const megaFinalFrench = {
       allChecksCompleted: 'Toutes les vérifications terminées',
     },
     management: {
-      generateBracketAndStart: 'Générer le Tableau et Démarrer le Tournoi',
-      generateBracketInstructions:
+      generateBpaddleAndStart: 'Générer le Tableau et Démarrer le Tournoi',
+      generateBpaddleInstructions:
         'Générer le tableau en utilisant le classement {{method}} et démarrer le tournoi.',
       addingParticipantsWait: "Ajout de participants... Veuillez patienter jusqu'à la fin.",
       cancelAndDeleteWarning:
@@ -210,8 +210,8 @@ const megaFinalFrench = {
       noCompletedTournaments: 'Aucun tournoi terminé',
       createNewMessage: 'Créez un nouveau tournoi pour concourir avec les membres du club.',
       createFirstTournament: 'Créer Votre Premier Tournoi',
-      bracketNotGenerated: 'Tableau pas encore généré',
-      bracketAfterRegistration: "Le tableau sera généré après la fermeture de l'inscription.",
+      bpaddleNotGenerated: 'Tableau pas encore généré',
+      bpaddleAfterRegistration: "Le tableau sera généré après la fermeture de l'inscription.",
       waitingForPlayers: 'En Attente de Joueurs',
       tournamentWillStartSoon: 'Le tournoi commencera bientôt',
       checkBackLater: 'Revenez Plus Tard',
@@ -320,7 +320,7 @@ const megaFinalFrench = {
       recordScore: 'Enregistrer le Score',
       meetupDetail: 'Informations sur la Rencontre',
       clubChat: 'Chat du Club',
-      tournamentBracket: 'Tableau du Tournoi',
+      tournamentBpaddle: 'Tableau du Tournoi',
       leagueStandings: 'Classement de la Ligue',
       matchHistory: 'Historique des Matchs',
       playerProfile: 'Profil du Joueur',

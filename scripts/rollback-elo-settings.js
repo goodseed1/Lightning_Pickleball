@@ -1,5 +1,5 @@
 /**
- * 🔄 ELO/LTR 설정 롤백 스크립트
+ * 🔄 ELO/LPR 설정 롤백 스크립트
  *
  * migrate-test-users.js에서 설정한 eloRatings, ltrLevel, skillLevel을 삭제합니다.
  */
@@ -65,7 +65,7 @@ const ROLLBACK_EMAILS = [
 ];
 
 async function rollbackEloSettings() {
-  console.log('🔄 ELO/LTR 설정 롤백 시작...\n');
+  console.log('🔄 ELO/LPR 설정 롤백 시작...\n');
 
   const usersRef = db.collection('users');
   const batch = db.batch();
@@ -91,7 +91,7 @@ async function rollbackEloSettings() {
     }
   }
 
-  console.log(`\n⏳ ${rollbackCount}명의 ELO/LTR 설정 롤백 중...`);
+  console.log(`\n⏳ ${rollbackCount}명의 ELO/LPR 설정 롤백 중...`);
   await batch.commit();
 
   console.log(

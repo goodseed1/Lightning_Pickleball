@@ -1,6 +1,6 @@
 /**
  * Dues Service
- * Lightning Tennis 클럽 회비 관리 서비스
+ * Lightning Pickleball 클럽 회비 관리 서비스
  */
 
 import {

@@ -224,7 +224,7 @@ const MONTH_NAMES: Record<SupportedLanguage, string[]> = {
  */
 async function getClubName(clubId: string): Promise<string> {
   try {
-    const clubRef = db.doc(`tennis_clubs/${clubId}`);
+    const clubRef = db.doc(`pickleball_clubs/${clubId}`);
     const clubSnap = await clubRef.get();
 
     if (!clubSnap.exists) {

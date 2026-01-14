@@ -12,7 +12,7 @@ import { PartnerInvitation } from '../../types/match';
 import PartnerInvitationCard from '../cards/PartnerInvitationCard';
 import FriendInvitationCard, { FriendInvitation } from '../cards/FriendInvitationCard';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 // 🎯 [KIM FIX] Navigation types for EventDetail
@@ -54,7 +54,7 @@ const AppliedEventsSection: React.FC<AppliedEventsSectionProps> = ({
   renderEventCard,
 }) => {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
   const { t } = useLanguage();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();

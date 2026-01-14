@@ -10,7 +10,7 @@
 
 ### 목적
 
-- Firestore 필드명과 코드 변수명을 NTRP에서 LTR로 통일
+- Firestore 필드명과 코드 변수명을 NTRP에서 LPR로 통일
 - UI와 코드의 일관성 확보
 
 ### 영향 범위
@@ -104,10 +104,10 @@ const maxLtr = matchData.maxLtr ?? matchData.maxNtrp ?? 5;
 
 ```json
 // Before
-"levelMismatch": "Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})"
+"levelMismatch": "Level mismatch (Your LPR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})"
 
 // After
-"levelMismatch": "Level mismatch (Your LTR: {{userLtr}}, Allowed: {{minLtr}}~{{maxLtr}})"
+"levelMismatch": "Level mismatch (Your LPR: {{userLtr}}, Allowed: {{minLtr}}~{{maxLtr}})"
 ```
 
 ---
@@ -184,15 +184,15 @@ async function migrateMatchFields() {
 | 1. 단식 매치 생성 | minLtr/maxLtr 필드로 저장됨        |
 | 2. Firestore 확인 | `minLtr: 7, maxLtr: 7` 형태로 저장 |
 | 3. 매치 조회      | EventCard에서 정상 표시            |
-| 4. 신청 시도      | LTR ±1 범위 외 유저는 거부됨       |
+| 4. 신청 시도      | LPR ±1 범위 외 유저는 거부됨       |
 
 ### 테스트 2: 복식 매치 생성
 
 | 단계                           | 예상 결과                   |
 | ------------------------------ | --------------------------- |
-| 1. 파트너 선택 (LTR 5 + LTR 7) | 갭 2 이내로 허용            |
+| 1. 파트너 선택 (LPR 5 + LPR 7) | 갭 2 이내로 허용            |
 | 2. 매치 생성                   | minLtr = maxLtr = 6 (평균)  |
-| 3. 상대팀 매칭                 | 팀 평균 LTR 5-7 범위만 허용 |
+| 3. 상대팀 매칭                 | 팀 평균 LPR 5-7 범위만 허용 |
 
 ### 테스트 3: 하위 호환성
 
@@ -205,15 +205,15 @@ async function migrateMatchFields() {
 
 | 단계                                 | 예상 결과               |
 | ------------------------------------ | ----------------------- |
-| 1. LTR 8 유저가 LTR 3 매치 생성 시도 | 서버에서 거부           |
+| 1. LPR 8 유저가 LPR 3 매치 생성 시도 | 서버에서 거부           |
 | 2. 에러 메시지 확인                  | "양학 방지" 메시지 표시 |
 
 ### 테스트 5: 번역 확인
 
 | 단계                              | 예상 결과                   |
 | --------------------------------- | --------------------------- |
-| 1. 영어로 레벨 불일치 메시지 확인 | "Your LTR: 5, Allowed: 7~9" |
-| 2. 한국어로 확인                  | "내 LTR: 5, 허용: 7~9"      |
+| 1. 영어로 레벨 불일치 메시지 확인 | "Your LPR: 5, Allowed: 7~9" |
+| 2. 한국어로 확인                  | "내 LPR: 5, 허용: 7~9"      |
 
 ---
 

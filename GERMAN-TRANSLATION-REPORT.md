@@ -1,12 +1,12 @@
 # German Translation Completion Report
 
 **Date**: 2025-12-29
-**Project**: Lightning Tennis React App
+**Project**: Lightning Pickleball React App
 **Language**: German (de.json)
 
 ## Summary
 
-Successfully completed comprehensive German translation update for the Lightning Tennis application.
+Successfully completed comprehensive German translation update for the Lightning Pickleball application.
 
 ## Statistics
 
@@ -123,11 +123,11 @@ All translations use the formal "Sie" form appropriate for a professional sports
 - ✅ "Ändern Sie Ihr Profil" (Change your profile)
 - ❌ "Ändere dein Profil" (informal)
 
-### Tennis Terminology
+### Pickleball Terminology
 
-Preserved international tennis terms where appropriate:
+Preserved international pickleball terms where appropriate:
 
-- "LTR" → "LTR" (Lightning Tennis Rating)
+- "LPR" → "LPR" (Lightning Pickleball Rating)
 - "Match" → "Spiel" (German equivalent)
 - "Court" → "Platz"
 - "Serve" → "Aufschlag"

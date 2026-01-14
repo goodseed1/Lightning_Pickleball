@@ -18,7 +18,7 @@ import {
 import { LineChart } from 'react-native-chart-kit';
 import { Card, useTheme as usePaperTheme, SegmentedButtons } from 'react-native-paper';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
 import userService from '../../services/userService';
 
@@ -63,7 +63,7 @@ const EloChart = ({ userId, scope = 'public', selectedClubId = null }) => {
   const selectedClub = selectedClubId || internalSelectedClub;
   const { theme: currentTheme } = useTheme();
   const paperTheme = usePaperTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const { t } = useLanguage();
 
   // 🎯 [KIM] ScrollView ref for auto-scroll to right (latest data)

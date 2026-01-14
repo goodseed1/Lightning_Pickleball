@@ -15,9 +15,9 @@ const badgeTranslations = {
     // Streaks
     winning_streak: { name: 'Winning Streak', desc: 'Achieve winning streaks' },
     // Social
-    social_butterfly: { name: 'Social Butterfly', desc: 'Make friends in the tennis community' },
+    social_butterfly: { name: 'Social Butterfly', desc: 'Make friends in the pickleball community' },
     // Clubs
-    community_pioneer: { name: 'Community Pioneer', desc: 'Join and participate in tennis clubs' },
+    community_pioneer: { name: 'Community Pioneer', desc: 'Join and participate in pickleball clubs' },
     club_organizer: { name: 'Event Organizer', desc: 'Organize successful club events' },
     // Tournaments
     first_tournament_victory: {
@@ -31,8 +31,8 @@ const badgeTranslations = {
       desc: 'Participate in 10 or more tournaments',
     },
     hot_streak: { name: 'Hot Streak', desc: 'Win 3 consecutive tournaments' },
-    tennis_prodigy: {
-      name: 'Tennis Prodigy',
+    pickleball_prodigy: {
+      name: 'Pickleball Prodigy',
       desc: 'Maintain 100% tournament win rate (minimum 5 tournaments)',
     },
     runner_up_resilience: {
@@ -44,7 +44,7 @@ const badgeTranslations = {
     doubles_master: { name: 'Doubles Master', desc: 'Win a doubles tournament' },
     // Special
     perfectionist: { name: 'Perfectionist', desc: 'Win matches without losing a set' },
-    early_adopter: { name: 'Early Adopter', desc: 'Join Lightning Tennis in its early days' },
+    early_adopter: { name: 'Early Adopter', desc: 'Join Lightning Pickleball in its early days' },
     // Tier conditions (for display)
     conditions: {
       wins: 'Win {{count}} match(es)',
@@ -64,7 +64,7 @@ const badgeTranslations = {
       singlesTournamentWins: 'Win {{count}} singles tournament(s)',
       doublesTournamentWins: 'Win {{count}} doubles tournament(s)',
       perfectMatches: 'Win {{count}} match(es) without losing a set',
-      joinDate: 'Join Lightning Tennis in early days',
+      joinDate: 'Join Lightning Pickleball in early days',
     },
   },
   ko: {
@@ -73,21 +73,21 @@ const badgeTranslations = {
     giant_slayer: { name: '거인 사냥꾼', desc: '자신보다 높은 ELO의 상대를 물리치세요' },
     bagel_master: { name: '베이글 마스터', desc: '6-0 또는 6-0, 6-0으로 승리하세요' },
     winning_streak: { name: '연승 행진', desc: '연승 행진을 이어가세요' },
-    social_butterfly: { name: '사교적인 나비', desc: '테니스 커뮤니티에서 친구를 만드세요' },
-    community_pioneer: { name: '커뮤니티 개척자', desc: '테니스 클럽에 가입하고 참여하세요' },
+    social_butterfly: { name: '사교적인 나비', desc: '피클볼 커뮤니티에서 친구를 만드세요' },
+    community_pioneer: { name: '커뮤니티 개척자', desc: '피클볼 클럽에 가입하고 참여하세요' },
     club_organizer: { name: '이벤트 기획자', desc: '성공적인 클럽 이벤트를 기획하세요' },
     first_tournament_victory: { name: '첫 토너먼트 우승', desc: '첫 토너먼트에서 우승하세요' },
     tournament_champion: { name: '토너먼트 챔피언', desc: '여러 토너먼트에서 우승하세요' },
     grand_slam_champion: { name: '그랜드 슬램 챔피언', desc: '4개 이상의 토너먼트에서 우승하세요' },
     veteran_competitor: { name: '베테랑 참가자', desc: '10개 이상의 토너먼트에 참가하세요' },
     hot_streak: { name: '뜨거운 연승', desc: '3개의 토너먼트를 연속으로 우승하세요' },
-    tennis_prodigy: { name: '테니스 신동', desc: '토너먼트 100% 승률 유지 (최소 5회 참가)' },
+    pickleball_prodigy: { name: '피클볼 신동', desc: '토너먼트 100% 승률 유지 (최소 5회 참가)' },
     runner_up_resilience: { name: '준우승의 끈기', desc: '3개 이상의 토너먼트에서 준우승하세요' },
     season_dominator: { name: '시즌 지배자', desc: '한 시즌에 5개 토너먼트에서 우승하세요' },
     speed_champion: { name: '스피드 챔피언', desc: '싱글 토너먼트에서 우승하세요' },
     doubles_master: { name: '복식 마스터', desc: '복식 토너먼트에서 우승하세요' },
     perfectionist: { name: '완벽주의자', desc: '세트를 잃지 않고 경기에서 승리하세요' },
-    early_adopter: { name: '얼리 어답터', desc: '번개 테니스 초기에 가입하세요' },
+    early_adopter: { name: '얼리 어답터', desc: '번개 피클볼 초기에 가입하세요' },
     conditions: {
       wins: '{{count}}경기 승리',
       upsetWins: '상위 랭커 {{count}}명 격파',
@@ -106,7 +106,7 @@ const badgeTranslations = {
       singlesTournamentWins: '싱글 토너먼트 {{count}}회 우승',
       doublesTournamentWins: '복식 토너먼트 {{count}}회 우승',
       perfectMatches: '무실세트 {{count}}경기 승리',
-      joinDate: '번개 테니스 초기 가입',
+      joinDate: '번개 피클볼 초기 가입',
     },
   },
   es: {
@@ -126,7 +126,7 @@ const badgeTranslations = {
     grand_slam_champion: { name: 'Campeón de Grand Slam', desc: 'Gana 4 o más torneos' },
     veteran_competitor: { name: 'Competidor Veterano', desc: 'Participa en 10 o más torneos' },
     hot_streak: { name: 'Racha Caliente', desc: 'Gana 3 torneos consecutivos' },
-    tennis_prodigy: {
+    pickleball_prodigy: {
       name: 'Prodigio del Tenis',
       desc: 'Mantén 100% de victorias (mínimo 5 torneos)',
     },
@@ -138,7 +138,7 @@ const badgeTranslations = {
     speed_champion: { name: 'Campeón de Velocidad', desc: 'Gana un torneo de singles' },
     doubles_master: { name: 'Maestro de Dobles', desc: 'Gana un torneo de dobles' },
     perfectionist: { name: 'Perfeccionista', desc: 'Gana partidos sin perder un set' },
-    early_adopter: { name: 'Pionero', desc: 'Únete a Lightning Tennis en sus primeros días' },
+    early_adopter: { name: 'Pionero', desc: 'Únete a Lightning Pickleball en sus primeros días' },
     conditions: {
       wins: 'Gana {{count}} partido(s)',
       upsetWins: 'Derrota {{count}} oponente(s) de mayor ranking',
@@ -157,7 +157,7 @@ const badgeTranslations = {
       singlesTournamentWins: 'Gana {{count}} torneo(s) de singles',
       doublesTournamentWins: 'Gana {{count}} torneo(s) de dobles',
       perfectMatches: 'Gana {{count}} partido(s) sin perder un set',
-      joinDate: 'Únete a Lightning Tennis en sus primeros días',
+      joinDate: 'Únete a Lightning Pickleball en sus primeros días',
     },
   },
   zh: {
@@ -174,13 +174,13 @@ const badgeTranslations = {
     grand_slam_champion: { name: '大满贯冠军', desc: '赢得4个或更多锦标赛' },
     veteran_competitor: { name: '资深选手', desc: '参加10个或更多锦标赛' },
     hot_streak: { name: '火热连胜', desc: '连续赢得3个锦标赛' },
-    tennis_prodigy: { name: '网球神童', desc: '保持100%胜率（最少5个锦标赛）' },
+    pickleball_prodigy: { name: '网球神童', desc: '保持100%胜率（最少5个锦标赛）' },
     runner_up_resilience: { name: '亚军韧性', desc: '在3个或更多锦标赛中获得亚军' },
     season_dominator: { name: '赛季霸主', desc: '在一个赛季赢得5个锦标赛' },
     speed_champion: { name: '速度冠军', desc: '赢得单打锦标赛' },
     doubles_master: { name: '双打大师', desc: '赢得双打锦标赛' },
     perfectionist: { name: '完美主义者', desc: '不丢一盘赢得比赛' },
-    early_adopter: { name: '早期用户', desc: '在早期加入Lightning Tennis' },
+    early_adopter: { name: '早期用户', desc: '在早期加入Lightning Pickleball' },
     conditions: {
       wins: '赢得{{count}}场比赛',
       upsetWins: '击败{{count}}位高排名对手',
@@ -199,7 +199,7 @@ const badgeTranslations = {
       singlesTournamentWins: '赢得{{count}}个单打锦标赛',
       doublesTournamentWins: '赢得{{count}}个双打锦标赛',
       perfectMatches: '不丢一盘赢得{{count}}场比赛',
-      joinDate: '在早期加入Lightning Tennis',
+      joinDate: '在早期加入Lightning Pickleball',
     },
   },
   ja: {
@@ -219,13 +219,13 @@ const badgeTranslations = {
     },
     veteran_competitor: { name: 'ベテラン競技者', desc: '10以上のトーナメントに参加' },
     hot_streak: { name: 'ホットストリーク', desc: '3つのトーナメントを連続優勝' },
-    tennis_prodigy: { name: 'テニスの神童', desc: '100%勝率を維持（最低5トーナメント）' },
+    pickleball_prodigy: { name: 'テニスの神童', desc: '100%勝率を維持（最低5トーナメント）' },
     runner_up_resilience: { name: '準優勝の粘り', desc: '3つ以上のトーナメントで準優勝' },
     season_dominator: { name: 'シーズン支配者', desc: '1シーズンで5つのトーナメントで優勝' },
     speed_champion: { name: 'スピードチャンピオン', desc: 'シングルストーナメントで優勝' },
     doubles_master: { name: 'ダブルスマスター', desc: 'ダブルストーナメントで優勝' },
     perfectionist: { name: '完璧主義者', desc: 'セットを落とさずに試合に勝つ' },
-    early_adopter: { name: 'アーリーアダプター', desc: 'Lightning Tennisの初期に参加' },
+    early_adopter: { name: 'アーリーアダプター', desc: 'Lightning Pickleballの初期に参加' },
     conditions: {
       wins: '{{count}}試合に勝つ',
       upsetWins: '{{count}}人の上位ランク選手を倒す',
@@ -244,7 +244,7 @@ const badgeTranslations = {
       singlesTournamentWins: '{{count}}つのシングルストーナメントで優勝',
       doublesTournamentWins: '{{count}}つのダブルストーナメントで優勝',
       perfectMatches: 'セットを落とさず{{count}}試合に勝つ',
-      joinDate: 'Lightning Tennisの初期に参加',
+      joinDate: 'Lightning Pickleballの初期に参加',
     },
   },
   fr: {
@@ -258,11 +258,11 @@ const badgeTranslations = {
     winning_streak: { name: 'Série Gagnante', desc: 'Réalisez des séries de victoires' },
     social_butterfly: {
       name: 'Papillon Social',
-      desc: 'Faites-vous des amis dans la communauté du tennis',
+      desc: 'Faites-vous des amis dans la communauté du pickleball',
     },
     community_pioneer: {
       name: 'Pionnier Communautaire',
-      desc: 'Rejoignez et participez aux clubs de tennis',
+      desc: 'Rejoignez et participez aux clubs de pickleball',
     },
     club_organizer: {
       name: "Organisateur d'Événements",
@@ -276,8 +276,8 @@ const badgeTranslations = {
     grand_slam_champion: { name: 'Champion de Grand Chelem', desc: 'Gagnez 4 tournois ou plus' },
     veteran_competitor: { name: 'Compétiteur Vétéran', desc: 'Participez à 10 tournois ou plus' },
     hot_streak: { name: 'Série en Feu', desc: 'Gagnez 3 tournois consécutifs' },
-    tennis_prodigy: {
-      name: 'Prodige du Tennis',
+    pickleball_prodigy: {
+      name: 'Prodige du Pickleball',
       desc: 'Maintenez 100% de victoires (minimum 5 tournois)',
     },
     runner_up_resilience: {
@@ -288,7 +288,7 @@ const badgeTranslations = {
     speed_champion: { name: 'Champion de Vitesse', desc: 'Gagnez un tournoi de simple' },
     doubles_master: { name: 'Maître du Double', desc: 'Gagnez un tournoi de double' },
     perfectionist: { name: 'Perfectionniste', desc: 'Gagnez des matchs sans perdre un set' },
-    early_adopter: { name: 'Adopteur Précoce', desc: 'Rejoignez Lightning Tennis à ses débuts' },
+    early_adopter: { name: 'Adopteur Précoce', desc: 'Rejoignez Lightning Pickleball à ses débuts' },
     conditions: {
       wins: 'Gagnez {{count}} match(s)',
       upsetWins: 'Battez {{count}} adversaire(s) mieux classé(s)',
@@ -307,7 +307,7 @@ const badgeTranslations = {
       singlesTournamentWins: 'Gagnez {{count}} tournoi(s) de simple',
       doublesTournamentWins: 'Gagnez {{count}} tournoi(s) de double',
       perfectMatches: 'Gagnez {{count}} match(s) sans perdre un set',
-      joinDate: 'Rejoignez Lightning Tennis à ses débuts',
+      joinDate: 'Rejoignez Lightning Pickleball à ses débuts',
     },
   },
   de: {
@@ -318,11 +318,11 @@ const badgeTranslations = {
     winning_streak: { name: 'Siegesserie', desc: 'Erreichen Sie Siegesserien' },
     social_butterfly: {
       name: 'Sozialer Schmetterling',
-      desc: 'Finden Sie Freunde in der Tennis-Community',
+      desc: 'Finden Sie Freunde in der Pickleball-Community',
     },
     community_pioneer: {
       name: 'Community-Pionier',
-      desc: 'Treten Sie Tennisclubs bei und nehmen Sie teil',
+      desc: 'Treten Sie Pickleballclubs bei und nehmen Sie teil',
     },
     club_organizer: {
       name: 'Event-Organisator',
@@ -336,8 +336,8 @@ const badgeTranslations = {
     grand_slam_champion: { name: 'Grand-Slam-Champion', desc: 'Gewinnen Sie 4 oder mehr Turniere' },
     veteran_competitor: { name: 'Veteran', desc: 'Nehmen Sie an 10 oder mehr Turnieren teil' },
     hot_streak: { name: 'Heiße Serie', desc: 'Gewinnen Sie 3 aufeinanderfolgende Turniere' },
-    tennis_prodigy: {
-      name: 'Tenniswunderkind',
+    pickleball_prodigy: {
+      name: 'Pickleballwunderkind',
       desc: 'Halten Sie 100% Siegrate (min. 5 Turniere)',
     },
     runner_up_resilience: { name: 'Zweitplatzierter-Ausdauer', desc: 'Werden Sie 3+ Mal Zweiter' },
@@ -345,7 +345,7 @@ const badgeTranslations = {
     speed_champion: { name: 'Speed-Champion', desc: 'Gewinnen Sie ein Einzelturnier' },
     doubles_master: { name: 'Doppel-Meister', desc: 'Gewinnen Sie ein Doppelturnier' },
     perfectionist: { name: 'Perfektionist', desc: 'Gewinnen Sie Spiele ohne Satzverlust' },
-    early_adopter: { name: 'Früher Anwender', desc: 'Treten Sie Lightning Tennis früh bei' },
+    early_adopter: { name: 'Früher Anwender', desc: 'Treten Sie Lightning Pickleball früh bei' },
     conditions: {
       wins: 'Gewinnen Sie {{count}} Spiel(e)',
       upsetWins: 'Besiegen Sie {{count}} höher platzierte(n) Gegner',
@@ -364,7 +364,7 @@ const badgeTranslations = {
       singlesTournamentWins: 'Gewinnen Sie {{count}} Einzelturnier(e)',
       doublesTournamentWins: 'Gewinnen Sie {{count}} Doppelturnier(e)',
       perfectMatches: 'Gewinnen Sie {{count}} Spiel(e) ohne Satzverlust',
-      joinDate: 'Treten Sie Lightning Tennis früh bei',
+      joinDate: 'Treten Sie Lightning Pickleball früh bei',
     },
   },
   it: {
@@ -373,10 +373,10 @@ const badgeTranslations = {
     giant_slayer: { name: 'Ammazzagiganti', desc: 'Sconfiggi avversari con ELO più alto' },
     bagel_master: { name: 'Maestro del Bagel', desc: 'Vinci partite 6-0' },
     winning_streak: { name: 'Serie Vincente', desc: 'Raggiungi serie di vittorie' },
-    social_butterfly: { name: 'Farfalla Sociale', desc: 'Fai amicizia nella comunità del tennis' },
+    social_butterfly: { name: 'Farfalla Sociale', desc: 'Fai amicizia nella comunità del pickleball' },
     community_pioneer: {
       name: 'Pioniere della Comunità',
-      desc: 'Unisciti e partecipa ai club di tennis',
+      desc: 'Unisciti e partecipa ai club di pickleball',
     },
     club_organizer: {
       name: 'Organizzatore di Eventi',
@@ -390,8 +390,8 @@ const badgeTranslations = {
     grand_slam_champion: { name: 'Campione del Grande Slam', desc: 'Vinci 4 o più tornei' },
     veteran_competitor: { name: 'Veterano', desc: 'Partecipa a 10 o più tornei' },
     hot_streak: { name: 'Serie Calda', desc: 'Vinci 3 tornei consecutivi' },
-    tennis_prodigy: {
-      name: 'Prodigio del Tennis',
+    pickleball_prodigy: {
+      name: 'Prodigio del Pickleball',
       desc: 'Mantieni 100% di vittorie (min 5 tornei)',
     },
     runner_up_resilience: { name: 'Resilienza del Finalista', desc: 'Finalista in 3+ tornei' },
@@ -399,7 +399,7 @@ const badgeTranslations = {
     speed_champion: { name: 'Campione di Velocità', desc: 'Vinci un torneo di singolare' },
     doubles_master: { name: 'Maestro del Doppio', desc: 'Vinci un torneo di doppio' },
     perfectionist: { name: 'Perfezionista', desc: 'Vinci partite senza perdere un set' },
-    early_adopter: { name: 'Pioniere', desc: 'Unisciti a Lightning Tennis nei primi giorni' },
+    early_adopter: { name: 'Pioniere', desc: 'Unisciti a Lightning Pickleball nei primi giorni' },
     conditions: {
       wins: 'Vinci {{count}} partita/e',
       upsetWins: 'Sconfiggi {{count}} avversario/i di ranking superiore',
@@ -418,7 +418,7 @@ const badgeTranslations = {
       singlesTournamentWins: 'Vinci {{count}} torneo/i di singolare',
       doublesTournamentWins: 'Vinci {{count}} torneo/i di doppio',
       perfectMatches: 'Vinci {{count}} partita/e senza perdere un set',
-      joinDate: 'Unisciti a Lightning Tennis nei primi giorni',
+      joinDate: 'Unisciti a Lightning Pickleball nei primi giorni',
     },
   },
   pt: {
@@ -441,7 +441,7 @@ const badgeTranslations = {
     grand_slam_champion: { name: 'Campeão de Grand Slam', desc: 'Vença 4 ou mais torneios' },
     veteran_competitor: { name: 'Competidor Veterano', desc: 'Participe de 10 ou mais torneios' },
     hot_streak: { name: 'Sequência Quente', desc: 'Vença 3 torneios consecutivos' },
-    tennis_prodigy: {
+    pickleball_prodigy: {
       name: 'Prodígio do Tênis',
       desc: 'Mantenha 100% de vitórias (mín 5 torneios)',
     },
@@ -450,7 +450,7 @@ const badgeTranslations = {
     speed_champion: { name: 'Campeão de Velocidade', desc: 'Vença um torneio de simples' },
     doubles_master: { name: 'Mestre de Duplas', desc: 'Vença um torneio de duplas' },
     perfectionist: { name: 'Perfeccionista', desc: 'Vença partidas sem perder um set' },
-    early_adopter: { name: 'Pioneiro', desc: 'Junte-se ao Lightning Tennis no início' },
+    early_adopter: { name: 'Pioneiro', desc: 'Junte-se ao Lightning Pickleball no início' },
     conditions: {
       wins: 'Vença {{count}} partida(s)',
       upsetWins: 'Derrote {{count}} oponente(s) de ranking superior',
@@ -469,7 +469,7 @@ const badgeTranslations = {
       singlesTournamentWins: 'Vença {{count}} torneio(s) de simples',
       doublesTournamentWins: 'Vença {{count}} torneio(s) de duplas',
       perfectMatches: 'Vença {{count}} partida(s) sem perder um set',
-      joinDate: 'Junte-se ao Lightning Tennis no início',
+      joinDate: 'Junte-se ao Lightning Pickleball no início',
     },
   },
 };

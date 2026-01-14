@@ -1,5 +1,5 @@
 /**
- * Social Service for Lightning Tennis
+ * Social Service for Lightning Pickleball
  * Handles friend requests, player discovery, and social interactions
  */
 

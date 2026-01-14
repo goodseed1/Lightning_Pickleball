@@ -1,17 +1,17 @@
 /**
- * ⚡ LTR Explanation Card
+ * ⚡ LPR Explanation Card
  *
- * "What is LTR?" - Lightning Tennis Rating 시스템 설명 카드
- * 명예의 전당 섹션에 표시되어 사용자에게 LTR 시스템을 설명합니다.
+ * "What is LPR?" - Lightning Pickleball Rating 시스템 설명 카드
+ * 명예의 전당 섹션에 표시되어 사용자에게 LPR 시스템을 설명합니다.
  *
  * 7-Tier System:
- * - Bronze (LTR 1-2): 🔸 Spark
- * - Silver (LTR 3-4): ⚡ Flash
- * - Gold (LTR 5-6): 🌩️ Bolt
- * - Platinum (LTR 7): ⛈️ Thunder
- * - Diamond (LTR 8): 🌀 Storm
- * - Master (LTR 9): ⚡🔮 Ball Lightning
- * - Legend (LTR 10): ⚡👑 Lightning God
+ * - Bronze (LPR 1-2): 🔸 Spark
+ * - Silver (LPR 3-4): ⚡ Flash
+ * - Gold (LPR 5-6): 🌩️ Bolt
+ * - Platinum (LPR 7): ⛈️ Thunder
+ * - Diamond (LPR 8): 🌀 Storm
+ * - Master (LPR 9): ⚡🔮 Ball Lightning
+ * - Legend (LPR 10): ⚡👑 Lightning God
  */
 
 import React, { useState } from 'react';
@@ -26,9 +26,9 @@ import {
 import { Card, Text } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { LTR_TIERS, LTR_LEVELS, getLocalizedText } from '../../constants/ltr';
+import { LPR_TIERS, LPR_LEVELS, getLocalizedText } from '../../constants/ltr';
 
 // Enable LayoutAnimation for Android
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
@@ -41,7 +41,7 @@ interface LtrExplanationCardProps {
 
 const LtrExplanationCard: React.FC<LtrExplanationCardProps> = ({ defaultExpanded = false }) => {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const { t, currentLanguage } = useLanguage();
   const [expanded, setExpanded] = useState(defaultExpanded);
 
@@ -58,7 +58,7 @@ const LtrExplanationCard: React.FC<LtrExplanationCardProps> = ({ defaultExpanded
         <View style={styles.header}>
           <View style={styles.headerLeft}>
             <Ionicons name='flash' size={24} color='#FFD700' />
-            <Text style={styles.headerTitle}>{t('ltrExplanation.title') || 'What is LTR?'}</Text>
+            <Text style={styles.headerTitle}>{t('ltrExplanation.title') || 'What is LPR?'}</Text>
           </View>
           <Ionicons
             name={expanded ? 'chevron-up' : 'chevron-down'}
@@ -73,18 +73,18 @@ const LtrExplanationCard: React.FC<LtrExplanationCardProps> = ({ defaultExpanded
           {/* Introduction */}
           <Text style={styles.description}>
             {t('ltrExplanation.description') ||
-              'LTR (Lightning Tennis Rating) is our unique 1-10 rating system based on the ELO algorithm. Your rating is calculated from match results within the app.'}
+              'LPR (Lightning Pickleball Rating) is our unique 1-10 rating system based on the ELO algorithm. Your rating is calculated from match results within the app.'}
           </Text>
 
-          {/* Tier System - 10 LTR Levels with exact ELO ranges */}
+          {/* Tier System - 10 LPR Levels with exact ELO ranges */}
           <View style={styles.tierSection}>
             <Text style={styles.sectionTitle}>
               {t('ltrExplanation.tierSystem') || '7-Tier System'}
             </Text>
 
-            {LTR_LEVELS.map(level => {
+            {LPR_LEVELS.map(level => {
               // Find the tier for this level to get the color
-              const tier = LTR_TIERS.find(t => t.levels.includes(level.value));
+              const tier = LPR_TIERS.find(t => t.levels.includes(level.value));
               const tierColor = tier?.color || '#CD7F32';
 
               // Format ELO range clearly
@@ -101,7 +101,7 @@ const LtrExplanationCard: React.FC<LtrExplanationCardProps> = ({ defaultExpanded
                     <Text style={styles.tierBadgeText}>{level.tier}</Text>
                   </View>
                   <View style={styles.tierInfo}>
-                    <Text style={styles.tierLevels}>LTR {level.value}</Text>
+                    <Text style={styles.tierLevels}>LPR {level.value}</Text>
                     <Text style={styles.tierTheme}>
                       {getLocalizedText(level.label, currentLanguage as 'ko' | 'en').split(
                         ' - '
@@ -122,7 +122,7 @@ const LtrExplanationCard: React.FC<LtrExplanationCardProps> = ({ defaultExpanded
               <Ionicons name='checkmark-circle' size={18} color='#4CAF50' />
               <Text style={styles.keyPointText}>
                 {t('ltrExplanation.point1') ||
-                  'Onboarding cap at LTR 5 - Higher levels earned through matches'}
+                  'Onboarding cap at LPR 5 - Higher levels earned through matches'}
               </Text>
             </View>
 

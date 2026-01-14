@@ -18,7 +18,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
 import type { UpdateInfo } from '../../services/appUpdateService';
 
@@ -38,7 +38,7 @@ const UpdatePromptModal: React.FC<UpdatePromptModalProps> = ({
   onDismiss,
 }) => {
   const { theme } = useTheme();
-  const colors = getLightningTennisTheme(theme);
+  const colors = getLightningPickleballTheme(theme);
   const { currentLanguage, t } = useLanguage();
 
   if (!updateInfo) return null;

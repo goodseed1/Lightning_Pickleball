@@ -67,7 +67,7 @@ const phrases = {
   'Try again': 'Erneut versuchen',
   'Load more': 'Mehr laden',
 
-  // Tennis specific
+  // Pickleball specific
   'Match count': 'Match-Anzahl',
   'Participant count': 'Teilnehmeranzahl',
   'Player count': 'Spieleranzahl',
@@ -79,7 +79,7 @@ const phrases = {
   Nickname: 'Spitzname',
   'Chat message': 'Chat-Nachricht',
   'Event type': 'Event-Typ',
-  'Tournament bracket': 'Turnierplan',
+  'Tournament bpaddle': 'Turnierplan',
   Seeding: 'Setzung',
   'Round robin': 'Jeder gegen jeden',
   Elimination: 'Eliminierung',
@@ -124,7 +124,7 @@ const words = {
   available: 'verfügbar',
   type: 'Typ',
   team: 'Team',
-  bracket: 'Turnierplan',
+  bpaddle: 'Turnierplan',
   round: 'Runde',
   start: 'Start',
   complete: 'abschließen',

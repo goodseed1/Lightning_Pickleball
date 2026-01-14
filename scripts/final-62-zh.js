@@ -62,7 +62,7 @@ const final62Map = {
   // Status/Events
   'Service Unavailable': '服务不可用',
   'Set as default': '设为默认',
-  'Social Tennis': '社交网球',
+  'Social Pickleball': '社交网球',
   'Special Cases': '特殊情况',
   'Start Playoffs': '开始季后赛',
   Timeout: '暂停',

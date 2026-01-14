@@ -1,5 +1,5 @@
 /**
- * AI Chat Context for Lightning Tennis
+ * AI Chat Context for Lightning Pickleball
  * Manages AI chat state, conversation history, and user interactions
  */
 

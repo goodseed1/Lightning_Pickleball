@@ -1,8 +1,8 @@
 /**
- * AIAssistantIcon - Lightning Tennis AI 챗봇 아이콘
+ * AIAssistantIcon - Lightning Pickleball AI 챗봇 아이콘
  *
- * 🎾 Tennis Ball + AI 컨셉
- * - 메인: tennis-ball (테니스 앱 아이덴티티)
+ * 🎾 Pickleball Ball + AI 컨셉
+ * - 메인: pickleball-ball (피클볼 앱 아이덴티티)
  * - 배지: "AI" 텍스트 (AI 챗봇 기능)
  *
  * 기존 sparkles 아이콘을 대체하여 상표권 문제 해결
@@ -46,8 +46,8 @@ const AIAssistantIcon: React.FC<AIAssistantIconProps> = ({
 
   return (
     <View style={styles.container}>
-      {/* 메인 아이콘: 테니스 볼 🎾 */}
-      <Ionicons name="tennisball" size={iconSize} color={color} />
+      {/* 메인 아이콘: 피클볼 볼 🎾 */}
+      <Ionicons name="pickleballball" size={iconSize} color={color} />
 
       {/* AI 배지: 텍스트로 "AI" 표시 */}
       {showAIBadge && (

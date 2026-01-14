@@ -102,7 +102,7 @@ Some values remain identical to English intentionally:
 
 | Key                          | Value                       | Reason                                  |
 | ---------------------------- | --------------------------- | --------------------------------------- |
-| `matchFormats.best_of_1/3/5` | "1 Set", "3 Sets", "5 Sets" | Tennis terminology uses "set" in French |
+| `matchFormats.best_of_1/3/5` | "1 Set", "3 Sets", "5 Sets" | Pickleball terminology uses "set" in French |
 | `rsvp.title`                 | "RSVP"                      | French acronym used internationally     |
 | `editEvent.labelDescription` | "Description"               | Same spelling in both languages         |
 | `editEvent.durationUnit`     | "min"                       | Universal abbreviation                  |

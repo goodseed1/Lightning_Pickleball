@@ -102,7 +102,7 @@ function autoTranslate(englishText) {
     Fee: 'Gebühr',
     Cost: 'Kosten',
 
-    // Tennis-specific
+    // Pickleball-specific
     Match: 'Match',
     Matches: 'Matches',
     Tournament: 'Turnier',

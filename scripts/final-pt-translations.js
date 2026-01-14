@@ -4,7 +4,7 @@ const fs = require('fs');
 const translations = {
   services: {
     activity: {
-      tennisUserFallback: 'UsuárioTênis{{id}}',
+      pickleballUserFallback: 'UsuárioTênis{{id}}',
     },
   },
   duesManagement: {

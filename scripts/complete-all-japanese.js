@@ -18,7 +18,7 @@ const completeTranslations = {
     'この検索半径内でこのスキルレベルのマッチが見つかりませんでした。次のいずれかを選択してください：',
   'Expand search radius': '検索半径を拡大',
   'Adjust skill level preferences': 'スキルレベルの設定を調整',
-  'Lightning Tennis provides quick tennis match discovery and community features to help you find tennis partners and stay connected with your tennis community.':
+  'Lightning Pickleball provides quick pickleball match discovery and community features to help you find pickleball partners and stay connected with your pickleball community.':
     'ライトニングテニスは、テニスパートナーを見つけ、テニスコミュニティとつながるための迅速な試合検索とコミュニティ機能を提供します。',
   'Terms of Service': '利用規約',
   'Terms & Privacy': '利用規約とプライバシー',
@@ -146,7 +146,7 @@ function translate(text) {
     opponent: '対戦相手',
     partner: 'パートナー',
     round: 'ラウンド',
-    bracket: 'トーナメント表',
+    bpaddle: 'トーナメント表',
     venue: '会場',
     practice: '練習',
     beginner: '初心者',

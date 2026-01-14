@@ -10,12 +10,12 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { useTheme } from '../../hooks/useTheme';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { TournamentParticipant, BracketMatch, TournamentEventType } from '../../types/tournament';
+import { TournamentParticipant, BpaddleMatch, TournamentEventType } from '../../types/tournament';
 import tournamentService from '../../services/tournamentService';
 
 interface TournamentRankingsTabProps {
   participants: TournamentParticipant[];
-  matches: BracketMatch[];
+  matches: BpaddleMatch[];
   currentUserId?: string;
   eventType?: TournamentEventType;
 }

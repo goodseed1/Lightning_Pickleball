@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
@@ -30,7 +30,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import { CreationStackParamList } from '../navigation/CreationNavigator';
 import ParticipantSelector from '../components/common/ParticipantSelector';
 import activityService from '../services/activityService';
@@ -98,7 +98,7 @@ const CreateEventForm = () => {
   const { t, currentLanguage } = useLanguage();
   const { currentUser } = useAuth();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
 
   // 🌍 [KIM FIX] Get user's country for distance unit display
@@ -241,7 +241,7 @@ const CreateEventForm = () => {
   // Partner selection state (for doubles matches)
   const [hostPartnerId, setHostPartnerId] = useState<string>('');
   const [hostPartnerName, setHostPartnerName] = useState<string>('');
-  const [hostPartnerLtr, setHostPartnerLtr] = useState<number>(5); // LTR default (1-10 scale)
+  const [hostPartnerLtr, setHostPartnerLtr] = useState<number>(5); // LPR default (1-10 scale)
   const [showPartnerModal, setShowPartnerModal] = useState(false);
   const [users, setUsers] = useState<
     Array<{
@@ -431,13 +431,13 @@ const CreateEventForm = () => {
     return null; // No filter for unknown game types
   };
 
-  // LTR 레벨 비교 함수 (1-10 스케일)
-  // 🎯 [KIM FIX v16] Return LTR scale (1-10)
+  // LPR 레벨 비교 함수 (1-10 스케일)
+  // 🎯 [KIM FIX v16] Return LPR scale (1-10)
   const getLtrLevel = (ntrpString: string): number => {
-    if (ntrpString === '1.0-2.5') return 3; // Beginner → LTR 3
-    if (ntrpString === '3.0-3.5') return 5; // Intermediate → LTR 5
-    if (ntrpString === '4.0-4.5') return 7; // Advanced → LTR 7
-    if (ntrpString === '5.0+') return 9; // Expert → LTR 9
+    if (ntrpString === '1.0-2.5') return 3; // Beginner → LPR 3
+    if (ntrpString === '3.0-3.5') return 5; // Intermediate → LPR 5
+    if (ntrpString === '4.0-4.5') return 7; // Advanced → LPR 7
+    if (ntrpString === '5.0+') return 9; // Expert → LPR 9
     if (ntrpString === 'any') return 0; // '실력 무관'은 가장 낮은 값으로 처리
 
     // 개별 값인 경우 (예: '3.5', '4.0')
@@ -445,10 +445,10 @@ const CreateEventForm = () => {
     return isNaN(numLevel) ? 0 : numLevel;
   };
 
-  // 🎯 [KIM FIX] 호스트의 LTR 레벨 계산 함수 (게임 타입별 ELO 기반, 1-10 정수)
+  // 🎯 [KIM FIX] 호스트의 LPR 레벨 계산 함수 (게임 타입별 ELO 기반, 1-10 정수)
   // 🎯 [STALE CLOSURE FIX] Accept optional gameType parameter to avoid stale closure issues
   const getHostLtrLevel = (gameTypeOverride?: string): number => {
-    if (!currentUser) return 5; // LTR default
+    if (!currentUser) return 5; // LPR default
 
     const userAny = currentUser as unknown as Record<string, unknown>;
     // 🎯 [KIM FIX v25] ELO 단일화: eloRatings만 사용 (Single Source of Truth)
@@ -505,7 +505,7 @@ const CreateEventForm = () => {
 
     if (targetElo && targetElo > 0) {
       const ltr = convertEloToLtr(targetElo);
-      console.log('🔍 [getHostLtrLevel] Converted LTR:', ltr);
+      console.log('🔍 [getHostLtrLevel] Converted LPR:', ltr);
       return ltr;
     }
 
@@ -515,7 +515,7 @@ const CreateEventForm = () => {
     if (typeof skillLevel === 'number') return skillLevel;
     if (skillLevel?.calculated) return skillLevel.calculated;
 
-    return 5; // LTR default (1-10 scale)
+    return 5; // LPR default (1-10 scale)
   };
 
   // NTRP 레벨이 선택 가능한지 확인하는 함수
@@ -559,15 +559,15 @@ const CreateEventForm = () => {
   };
 
   /**
-   * 🎯 [KIM FIX] Extract LTR from user profile based on game type
+   * 🎯 [KIM FIX] Extract LPR from user profile based on game type
    * Uses game-type-specific ELO: singles → singles ELO, doubles → doubles ELO, mixed → mixed ELO
-   * Returns LTR (1-10 integer scale)
+   * Returns LPR (1-10 integer scale)
    * @deprecated Use ltrLevel string extraction in handleSelectPartner instead
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const extractLtr = (user: UserWithNtrp | null | undefined, gameTypeOverride?: string): number => {
     if (!user) {
-      return 5; // LTR default (1-10 scale)
+      return 5; // LPR default (1-10 scale)
     }
 
     // 🎯 [KIM FIX v25] ELO 단일화: eloRatings만 사용 (Single Source of Truth)
@@ -594,12 +594,12 @@ const CreateEventForm = () => {
       targetElo = eloRatings?.mixed?.current || null;
     }
 
-    // ELO가 있으면 LTR로 변환 (1-10 integer)
+    // ELO가 있으면 LPR로 변환 (1-10 integer)
     if (targetElo && targetElo > 0) {
       return convertEloToLtr(targetElo);
     }
 
-    // 🎯 [KIM FIX v4] Fallback: profile.ltrLevel (사용자가 설정한 LTR)
+    // 🎯 [KIM FIX v4] Fallback: profile.ltrLevel (사용자가 설정한 LPR)
     const userAnyForProfile = user as unknown as { profile?: { ltrLevel?: string } };
     if (userAnyForProfile?.profile?.ltrLevel) {
       const profileLtr = parseFloat(userAnyForProfile.profile.ltrLevel);
@@ -612,7 +612,7 @@ const CreateEventForm = () => {
     if (typeof user?.skillLevel === 'number') return user.skillLevel;
     if (user?.skillLevel?.calculated) return user.skillLevel.calculated;
 
-    // Default: LTR mid-point
+    // Default: LPR mid-point
     return 5;
   };
 
@@ -656,15 +656,15 @@ const CreateEventForm = () => {
       const currentUserLat = currentUserLocation?.latitude || currentUserLocation?.lat;
       const currentUserLon = currentUserLocation?.longitude || currentUserLocation?.lng;
 
-      // 🎯 [LTR FILTER] Get current user's LTR using effectiveGameType
-      // This ensures the same LTR value is used for both display and filtering
+      // 🎯 [LPR FILTER] Get current user's LPR using effectiveGameType
+      // This ensures the same LPR value is used for both display and filtering
       // 🎯 [STALE CLOSURE FIX] Use effectiveGameType instead of relying on closure
       const currentUserLtr = getHostLtrLevel(effectiveGameType);
       // 🎯 [STALE CLOSURE FIX] Calculate isSinglesMatch from effectiveGameType
       const effectiveIsSingles =
         effectiveGameType === 'mens_singles' || effectiveGameType === 'womens_singles';
       console.log(
-        `🎯 [LTR FILTER] Current user LTR: ${currentUserLtr}, isSinglesMatch: ${effectiveIsSingles}, gameType: ${effectiveGameType}`
+        `🎯 [LPR FILTER] Current user LPR: ${currentUserLtr}, isSinglesMatch: ${effectiveIsSingles}, gameType: ${effectiveGameType}`
       );
 
       // 🎯 [KIM FIX] Get gender filter based on game type
@@ -707,7 +707,7 @@ const CreateEventForm = () => {
               return; // Skip - need female but user is not female
             }
           }
-          // 🎾 [ELO-BASED LTR] Get ELO from multiple possible locations (same as ProfileHeader)
+          // 🎾 [ELO-BASED LPR] Get ELO from multiple possible locations (same as ProfileHeader)
           // 🎯 [KIM FIX v3] publicStats는 matchesPlayed > 0인 경우에만 사용!
           // 🎯 [KIM FIX v25] ELO 단일화: eloRatings만 사용 (Single Source of Truth)
           let ltrDisplay: string | undefined;
@@ -738,7 +738,7 @@ const CreateEventForm = () => {
           if (targetElo && targetElo > 0) {
             ltrDisplay = String(convertEloToLtr(targetElo));
             console.log(
-              `🔍 [ELO_TO_LTR] ${data.displayName}: targetElo=${targetElo} → LTR=${ltrDisplay} (game-type specific)`
+              `🔍 [ELO_TO_LPR] ${data.displayName}: targetElo=${targetElo} → LPR=${ltrDisplay} (game-type specific)`
             );
           } else {
             // Fallback to highest ELO if game-type specific ELO not found
@@ -749,7 +749,7 @@ const CreateEventForm = () => {
               const highestElo = Math.max(...eloValues);
               ltrDisplay = String(convertEloToLtr(highestElo));
               console.log(
-                `🔍 [ELO_TO_LTR] ${data.displayName}: highestElo=${highestElo} → LTR=${ltrDisplay} (fallback)`
+                `🔍 [ELO_TO_LPR] ${data.displayName}: highestElo=${highestElo} → LPR=${ltrDisplay} (fallback)`
               );
             }
           }
@@ -763,7 +763,7 @@ const CreateEventForm = () => {
             }
           }
 
-          // 🎯 [2025.01 RULE CHANGE] LTR filter based on game type
+          // 🎯 [2025.01 RULE CHANGE] LPR filter based on game type
           // Singles: 0~+1 only (host can invite same level or 1 level higher)
           // Doubles/Mixed: ±2 (more relaxed for team play)
 
@@ -783,13 +783,13 @@ const CreateEventForm = () => {
             }
 
             console.log(
-              `🎯 [LTR CHECK] ${data.displayName}: LTR ${userLtr}, myLTR ${currentUserLtr}, diff: ${diff}, skip: ${skip} (${matchType})`
+              `🎯 [LPR CHECK] ${data.displayName}: LPR ${userLtr}, myLPR ${currentUserLtr}, diff: ${diff}, skip: ${skip} (${matchType})`
             );
             if (skip) {
-              return; // Skip - LTR doesn't meet requirements
+              return; // Skip - LPR doesn't meet requirements
             }
           } else {
-            console.log(`⚠️ [NO_LTR] ${data.displayName}: no LTR display, skipping filter`);
+            console.log(`⚠️ [NO_LPR] ${data.displayName}: no LPR display, skipping filter`);
           }
 
           // 🎯 [KIM FIX] Check profile.photoURL FIRST (most common Firestore location)
@@ -847,7 +847,7 @@ const CreateEventForm = () => {
   // 🎯 [STALE CLOSURE FIX v3] Always keep ref updated to latest function
   searchFriendsToInviteRef.current = searchFriendsToInvite;
 
-  // 🎯 [LTR FILTER FIX] Auto-load friend list when modal opens (apply fresh LTR filter)
+  // 🎯 [LPR FILTER FIX] Auto-load friend list when modal opens (apply fresh LPR filter)
   // 🎯 [STALE CLOSURE FIX v3] Use ref to ALWAYS call the latest function version
   useEffect(() => {
     if (showFriendInviteModal) {
@@ -861,7 +861,7 @@ const CreateEventForm = () => {
   }, [showFriendInviteModal, formData.gameType]);
 
   // Handle friend selection/deselection
-  // 🎯 [LTR] Now stores ltrLevel and limits singles to 1 friend
+  // 🎯 [LPR] Now stores ltrLevel and limits singles to 1 friend
   const handleToggleFriend = (user: { id: string; displayName: string; ltrLevel?: string }) => {
     const isSelected = selectedFriends.some(f => f.id === user.id);
 
@@ -976,7 +976,7 @@ const CreateEventForm = () => {
             }
           }
 
-          // 🎯 [KIM FIX] 게임 타입에 맞는 ELO 기반 LTR 계산
+          // 🎯 [KIM FIX] 게임 타입에 맞는 ELO 기반 LPR 계산
           const eloRatings = data.eloRatings as
             | {
                 singles?: { current?: number };
@@ -999,7 +999,7 @@ const CreateEventForm = () => {
             gameTypeLabel = t('createEvent.gameTypes.mixed');
           }
 
-          // 🎾 [ELO-BASED LTR] All users have ELO from onboarding
+          // 🎾 [ELO-BASED LPR] All users have ELO from onboarding
           let ltrDisplay: string | undefined;
           if (targetElo && targetElo > 0) {
             const ltr = convertEloToLtr(targetElo);
@@ -1037,7 +1037,7 @@ const CreateEventForm = () => {
         }
       });
 
-      // 🎯 [KIM FIX v2] Get host LTR for partner filtering
+      // 🎯 [KIM FIX v2] Get host LPR for partner filtering
       // 🎯 [STALE CLOSURE FIX] Pass currentGameType to avoid stale closure
       const hostLtr = getHostLtrLevel(currentGameType);
 
@@ -1045,12 +1045,12 @@ const CreateEventForm = () => {
       const effectiveIsSingles =
         currentGameType === 'mens_singles' || currentGameType === 'womens_singles';
 
-      // 🎯 [2025.01 RULE CHANGE] Filter by LTR based on game type
+      // 🎯 [2025.01 RULE CHANGE] Filter by LPR based on game type
       // - Singles: Host can only invite same level (0) or +1 higher
       // - Doubles/Mixed: ±2 tolerance
       const filteredByLtr = usersList.filter(user => {
-        // Extract numeric LTR from ltrLevel string like "5 (Singles)"
-        if (!user.ltrLevel) return true; // Include users without LTR
+        // Extract numeric LPR from ltrLevel string like "5 (Singles)"
+        if (!user.ltrLevel) return true; // Include users without LPR
         const ltrMatch = user.ltrLevel.match(/^(\d+)/);
         if (!ltrMatch) return true;
         const userLtr = parseInt(ltrMatch[1], 10);
@@ -1092,8 +1092,8 @@ const CreateEventForm = () => {
   };
 
   /**
-   * 🛡️ [OPERATION AUTOMATED FAIRNESS] Partner selection with LTR validation
-   * Prevents selecting partners with LTR gap > 2 (LTR uses 1-10 scale)
+   * 🛡️ [OPERATION AUTOMATED FAIRNESS] Partner selection with LPR validation
+   * Prevents selecting partners with LPR gap > 2 (LPR uses 1-10 scale)
    */
   const handleSelectPartner = (user: {
     id: string;
@@ -1102,11 +1102,11 @@ const CreateEventForm = () => {
     ltrLevel?: string;
     gender?: string;
   }) => {
-    // Extract LTR values (게임 타입에 맞는 ELO 사용)
+    // Extract LPR values (게임 타입에 맞는 ELO 사용)
     const hostLtr = getHostLtrLevel();
 
-    // 🎯 [KIM FIX v2] Extract LTR from ltrLevel string like "7 (복식)" or "5 (Singles)"
-    // loadUsers에서 이미 게임 타입별 ELO로 LTR을 계산해서 문자열로 저장함
+    // 🎯 [KIM FIX v2] Extract LPR from ltrLevel string like "7 (복식)" or "5 (Singles)"
+    // loadUsers에서 이미 게임 타입별 ELO로 LPR을 계산해서 문자열로 저장함
     let partnerLtr = 5; // default
     if (user.ltrLevel) {
       const ltrMatch = user.ltrLevel.match(/^(\d+)/);
@@ -1116,14 +1116,14 @@ const CreateEventForm = () => {
     }
 
     // 🔍 Debug logs
-    console.log('🛡️ [LTR_VALIDATION] Partner selection attempt:', {
+    console.log('🛡️ [LPR_VALIDATION] Partner selection attempt:', {
       host: currentUser?.displayName,
       hostLtr,
       partner: user.displayName,
       partnerLtr,
     });
 
-    // 💥 LTR gap validation: maximum 2 levels difference (LTR 1-10 scale) 💥
+    // 💥 LPR gap validation: maximum 2 levels difference (LPR 1-10 scale) 💥
     const gap = Math.abs(hostLtr - partnerLtr);
 
     if (gap > 2) {
@@ -1136,19 +1136,19 @@ const CreateEventForm = () => {
         }),
         [{ text: t('createEvent.alerts.confirm') }]
       );
-      console.log('❌ [LTR_VALIDATION] Partner rejected - LTR gap too large:', gap);
+      console.log('❌ [LPR_VALIDATION] Partner rejected - LPR gap too large:', gap);
       return;
     }
 
     // ✅ Validation passed
-    console.log('✅ [LTR_VALIDATION] Partner approved - LTR gap acceptable:', gap);
+    console.log('✅ [LPR_VALIDATION] Partner approved - LPR gap acceptable:', gap);
     setHostPartnerId(user.id);
     setHostPartnerName(user.displayName);
 
-    // 🎯 Store partner LTR for auto-calculation
+    // 🎯 Store partner LPR for auto-calculation
     setHostPartnerLtr(partnerLtr);
 
-    console.log('🎯 Partner selected with LTR', {
+    console.log('🎯 Partner selected with LPR', {
       partnerId: user.id,
       partnerName: user.displayName,
       partnerLtr,
@@ -1165,7 +1165,7 @@ const CreateEventForm = () => {
   const sendSMSInvitations = async (eventTitle: string) => {
     if (formData.smsInvites.length === 0) return;
 
-    const appDownloadLink = 'https://lightning-tennis.app/download'; // TODO: Replace with actual app link
+    const appDownloadLink = 'https://lightning-pickleball.app/download'; // TODO: Replace with actual app link
     const senderName = currentUser?.displayName || t('createEvent.sms.defaultSender');
     const message = t('createEvent.sms.invitationMessage', {
       sender: senderName,
@@ -1338,7 +1338,7 @@ const CreateEventForm = () => {
           const functions = getFunctions();
           const createMatchFn = httpsCallable(functions, 'createMatchAndInvite');
 
-          // Calculate LTR based on match type (server uses minLtr/maxLtr field names for compatibility)
+          // Calculate LPR based on match type (server uses minLtr/maxLtr field names for compatibility)
           let minLtr: number;
           let maxLtr: number;
 
@@ -1348,17 +1348,17 @@ const CreateEventForm = () => {
             formData.gameType === 'womens_doubles';
 
           if (isDoublesMatch) {
-            // 🎯 [OPERATION AUTOMATED FAIRNESS] Auto-calculate from host + partner LTR
+            // 🎯 [OPERATION AUTOMATED FAIRNESS] Auto-calculate from host + partner LPR
             const hostLtr = getHostLtrLevel();
             const partnerLtr = hostPartnerLtr;
             const combinedLtr = hostLtr + partnerLtr;
 
             // Send combinedLtr / 2 as both min and max
-            // Server will multiply by 2 to validate against actual combined LTR
+            // Server will multiply by 2 to validate against actual combined LPR
             minLtr = combinedLtr / 2;
             maxLtr = combinedLtr / 2;
 
-            console.log('🎯 [AUTOMATED_FAIRNESS] Auto-calculated doubles LTR', {
+            console.log('🎯 [AUTOMATED_FAIRNESS] Auto-calculated doubles LPR', {
               hostLtr,
               partnerLtr,
               combinedLtr,
@@ -1367,12 +1367,12 @@ const CreateEventForm = () => {
               sentToServer: { minLtr: minLtr, maxLtr: maxLtr },
             });
           } else {
-            // 🎯 [OPERATION AUTOMATED FAIRNESS] Singles matches: auto-calculate from host LTR ± 1
+            // 🎯 [OPERATION AUTOMATED FAIRNESS] Singles matches: auto-calculate from host LPR ± 1
             const hostLtr = getHostLtrLevel();
             minLtr = Math.max(1, hostLtr - 1); // 최소 1
             maxLtr = Math.min(10, hostLtr + 1); // 최대 10
 
-            console.log('🎯 [AUTOMATED_FAIRNESS] Auto-calculated singles LTR (±1 range)', {
+            console.log('🎯 [AUTOMATED_FAIRNESS] Auto-calculated singles LPR (±1 range)', {
               hostLtr,
               minLtr,
               maxLtr,
@@ -1395,7 +1395,7 @@ const CreateEventForm = () => {
               time: selectedDate.toISOString(),
               minLtr: minLtr, // Server API uses 'ntrp' field names for compatibility
               maxLtr: maxLtr,
-              hostLtr: getHostLtrLevel(), // 🎯 [LTR FIX] Host's individual LTR for partner selection
+              hostLtr: getHostLtrLevel(), // 🎯 [LPR FIX] Host's individual LPR for partner selection
               maxParticipants: maxParticipants,
               autoApproval: formData.autoApproval, // 🎯 [AUTO-APPROVAL FIX] 선착순 자동 승인
             },
@@ -1756,7 +1756,7 @@ const CreateEventForm = () => {
               onPress={() => {
                 setShowPartnerModal(true);
                 // 🎯 [KIM FIX] 항상 현재 게임 타입으로 사용자 목록 로드
-                // 이전에 다른 게임 타입으로 로드된 목록이 재사용되면 잘못된 LTR이 표시됨
+                // 이전에 다른 게임 타입으로 로드된 목록이 재사용되면 잘못된 LPR이 표시됨
                 loadUsers('', formData.gameType);
               }}
             >
@@ -1764,7 +1764,7 @@ const CreateEventForm = () => {
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                 <Text style={styles.partnerValue}>
                   {hostPartnerName
-                    ? `${hostPartnerName} (LTR ${hostPartnerLtr})`
+                    ? `${hostPartnerName} (LPR ${hostPartnerLtr})`
                     : t('createEvent.fields.selectPartner')}
                 </Text>
                 <Ionicons
@@ -1894,14 +1894,14 @@ const CreateEventForm = () => {
                 { backgroundColor: themeColors.colors.surfaceVariant },
               ]}
             >
-              {/* 🎯 호스트 LTR */}
+              {/* 🎯 호스트 LPR */}
               <Text style={[styles.autoNtrpText, { color: themeColors.colors.onSurface }]}>
                 {t('createEvent.autoNtrp.hostLevelWithType', {
                   level: getHostLtrLevel(),
                   type: getGameTypeLabel(formData.gameType),
                 })}
               </Text>
-              {/* 🎯 파트너 LTR (복식만 표시) */}
+              {/* 🎯 파트너 LPR (복식만 표시) */}
               {isDoublesMatch && (
                 <>
                   <Text style={[styles.autoNtrpText, { color: themeColors.colors.onSurface }]}>
@@ -2038,10 +2038,10 @@ const CreateEventForm = () => {
                 <View key={friend.id} style={styles.invitedFriendItem}>
                   <Ionicons name='person' size={16} color={themeColors.colors.onSurfaceVariant} />
                   <Text style={styles.invitedFriendName}>{friend.displayName}</Text>
-                  {/* 🎯 [LTR DISPLAY] Show LTR level */}
+                  {/* 🎯 [LPR DISPLAY] Show LPR level */}
                   {friend.ltrLevel && (
                     <View style={styles.invitedFriendLtrBadge}>
-                      <Text style={styles.invitedFriendLtrText}>LTR {friend.ltrLevel}</Text>
+                      <Text style={styles.invitedFriendLtrText}>LPR {friend.ltrLevel}</Text>
                     </View>
                   )}
                   <TouchableOpacity
@@ -2186,7 +2186,7 @@ const CreateEventForm = () => {
             </TouchableOpacity>
           </View>
 
-          {/* 🎯 [KIM FIX] Filter Info Banner - Show game type and LTR range */}
+          {/* 🎯 [KIM FIX] Filter Info Banner - Show game type and LPR range */}
           {isSinglesMatch && (
             <View
               style={{
@@ -2217,7 +2217,7 @@ const CreateEventForm = () => {
                     color: themeColors.colors.onSurface,
                   }}
                 >
-                  {getGameTypeLabel(formData.gameType)} · LTR {getHostLtrLevel()} -{' '}
+                  {getGameTypeLabel(formData.gameType)} · LPR {getHostLtrLevel()} -{' '}
                   {Math.min(getHostLtrLevel() + 1, 10)}
                 </Text>
                 <Text
@@ -2247,9 +2247,9 @@ const CreateEventForm = () => {
                     onPress={() => handleToggleFriend(friend)}
                   >
                     <Text style={styles.selectedFriendName}>{friend.displayName}</Text>
-                    {/* 🎯 [LTR DISPLAY] Show LTR in modal chip */}
+                    {/* 🎯 [LPR DISPLAY] Show LPR in modal chip */}
                     {friend.ltrLevel && (
-                      <Text style={styles.selectedFriendLtr}>LTR {friend.ltrLevel}</Text>
+                      <Text style={styles.selectedFriendLtr}>LPR {friend.ltrLevel}</Text>
                     )}
                     <Ionicons name='close-circle' size={18} color={themeColors.colors.error} />
                   </TouchableOpacity>
@@ -2331,9 +2331,9 @@ const CreateEventForm = () => {
                       <View style={{ flex: 1 }}>
                         <Text style={styles.partnerUserName}>{item.displayName}</Text>
                         <Text style={styles.partnerUserNtrp}>
-                          {/* 🎯 [KIM FIX] Show LTR, Gender symbols ♂/♀, and Distance */}
+                          {/* 🎯 [KIM FIX] Show LPR, Gender symbols ♂/♀, and Distance */}
                           {[
-                            item.ltrLevel ? `LTR ${item.ltrLevel}` : null,
+                            item.ltrLevel ? `LPR ${item.ltrLevel}` : null,
                             item.gender === 'male' || item.gender === t('createEvent.genders.male')
                               ? '♂'
                               : item.gender === 'female' ||
@@ -2580,7 +2580,7 @@ const CreateEventForm = () => {
             </View>
           </View>
 
-          {/* 🎯 [KIM FIX] LTR Filter Explanation */}
+          {/* 🎯 [KIM FIX] LPR Filter Explanation */}
           <View style={{ paddingHorizontal: 16, paddingVertical: 8 }}>
             <Text
               style={{
@@ -2673,9 +2673,9 @@ const CreateEventForm = () => {
                         )}
                       </View>
                       <Text style={styles.partnerUserNtrp}>
-                        {/* 🎯 [KIM FIX] Show LTR and Distance */}
+                        {/* 🎯 [KIM FIX] Show LPR and Distance */}
                         {[
-                          item.ltrLevel ? `LTR ${item.ltrLevel}` : null,
+                          item.ltrLevel ? `LPR ${item.ltrLevel}` : null,
                           item.distance !== undefined
                             ? formatDistance(item.distance, userCountry, t)
                             : t('createEvent.search.noLocationInfo'),
@@ -3500,7 +3500,7 @@ const createStyles = (colors: any) =>
       fontSize: 14,
       color: colors.onSurface,
     },
-    // 🎯 [LTR DISPLAY] Styles for LTR badge in invited friends list
+    // 🎯 [LPR DISPLAY] Styles for LPR badge in invited friends list
     invitedFriendLtrBadge: {
       backgroundColor: colors.primaryContainer,
       borderRadius: 4,

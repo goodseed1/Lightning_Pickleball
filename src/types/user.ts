@@ -1,16 +1,16 @@
 import { Timestamp } from 'firebase/firestore';
 
 /**
- * ⚡ LTR (Lightning Tennis Rating) System
+ * ⚡ LPR (Lightning Pickleball Rating) System
  *
- * LTR은 번개 테니스 커뮤니티의 독자적인 레이팅 시스템입니다.
- * - LTR 1-10: 직관적인 10단계 레벨 시스템
+ * LPR은 번개 피클볼 커뮤니티의 독자적인 레이팅 시스템입니다.
+ * - LPR 1-10: 직관적인 10단계 레벨 시스템
  * - ELO 알고리즘 기반으로 계산
  * - 공용 번개 매치 결과에 적용
  *
  * 📝 Migration Note:
  * - 기존 NTRP 필드는 하위 호환성을 위해 유지
- * - 새로운 ltr 필드가 LTR 1-10 레벨을 저장
+ * - 새로운 ltr 필드가 LPR 1-10 레벨을 저장
  * - calculated 필드는 기존 NTRP 형식 (2.0-5.5)으로 유지 (레거시)
  */
 
@@ -18,15 +18,15 @@ import { Timestamp } from 'firebase/firestore';
  * Unified skill level data structure
  * Single source of truth with self-assessed ranges and calculated values
  *
- * ⚡ LTR System Migration:
- * - ltr: 새로운 LTR 1-10 레벨 (primary)
+ * ⚡ LPR System Migration:
+ * - ltr: 새로운 LPR 1-10 레벨 (primary)
  * - calculated: 기존 NTRP 형식 유지 (legacy, backward compatibility)
  */
 export interface SkillLevel {
-  // Self-assessed skill level range (e.g., "3.0-3.5" for legacy or "3" for LTR)
+  // Self-assessed skill level range (e.g., "3.0-3.5" for legacy or "3" for LPR)
   selfAssessed: string;
 
-  // ⚡ NEW: LTR level (1-10) - Lightning Tennis Rating
+  // ⚡ NEW: LPR level (1-10) - Lightning Pickleball Rating
   // This is the primary rating used in the new system
   ltr?: number;
 
@@ -297,7 +297,7 @@ export interface UserProfile {
 }
 
 /**
- * Display options for LTR levels in unified ranking system
+ * Display options for LPR levels in unified ranking system
  */
 export interface LtrDisplayOptions {
   primary: string; // Main display text
@@ -472,7 +472,7 @@ export interface ClubTournamentRankingData {
  * Season Record - Historical record of player's final ranking at season end
  * Stored in hallOfFame collection for each season
  *
- * ⚡ LTR System: ltrGrade is now a number (1-10)
+ * ⚡ LPR System: ltrGrade is now a number (1-10)
  */
 export interface SeasonRecord {
   type: 'SEASON_FINAL_RANK';
@@ -481,21 +481,21 @@ export interface SeasonRecord {
   finalRank: number; // Player's final rank in that season
   totalPlayers: number; // Total number of official rankers (>= 5 matches)
   finalElo: number; // Player's ELO at season end
-  ltrGrade: number; // ⚡ LTR level at season end (1-10)
-  startingLtrGrade: number; // ⚡ LTR level at season start (for grade group tracking)
+  ltrGrade: number; // ⚡ LPR level at season end (1-10)
+  startingLtrGrade: number; // ⚡ LPR level at season start (for grade group tracking)
   awardedAt: Date; // When this record was created
 }
 
 /**
  * 🏛️ PROJECT OLYMPUS - Honor System Phase 2
- * Season Snapshot - Player's LTR grade recorded at season start
+ * Season Snapshot - Player's LPR grade recorded at season start
  * Used to determine which grade group they compete in for that season
  *
- * ⚡ LTR System: ltrGrade is now a number (1-10)
+ * ⚡ LPR System: ltrGrade is now a number (1-10)
  */
 export interface SeasonSnapshot {
   seasonId: string; // e.g., '2025-Q1'
-  ltrGrade: number; // ⚡ LTR level at season start (1-10)
+  ltrGrade: number; // ⚡ LPR level at season start (1-10)
   eloRating: number; // ELO rating at season start
   recordedAt: Date; // Timestamp when snapshot was taken
 }

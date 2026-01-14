@@ -322,7 +322,7 @@ const italianTranslations = {
     title: 'Impostazioni Profilo',
     sections: {
       personal: 'Informazioni Personali',
-      tennis: 'Informazioni Tennis',
+      pickleball: 'Informazioni Pickleball',
       preferences: 'Preferenze',
       privacy: 'Privacy',
       notifications: 'Notifiche',
@@ -340,7 +340,7 @@ const italianTranslations = {
       changePhoto: 'Cambia Foto',
       removePhoto: 'Rimuovi Foto',
     },
-    tennis: {
+    pickleball: {
       skillLevel: 'Livello di Abilità',
       playingHand: 'Mano di Gioco',
       rightHanded: 'Destrorso',

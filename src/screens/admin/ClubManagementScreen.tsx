@@ -61,7 +61,7 @@ const ClubManagementScreen: React.FC = () => {
   const loadClubs = async () => {
     try {
       // orderBy 제거 - name 필드가 없는 문서가 제외되는 문제 방지
-      const clubsSnapshot = await getDocs(collection(db, 'tennis_clubs'));
+      const clubsSnapshot = await getDocs(collection(db, 'pickleball_clubs'));
 
       // 각 클럽의 members 서브컬렉션에서 실제 회원수 카운트
       const clubsData = await Promise.all(

@@ -273,10 +273,10 @@ describe('AiChatContext - Logic Tests', () => {
     it('한국어 환영 메시지가 올바른 내용을 포함해야 함', () => {
       // Arrange
       const koWelcomeMessage =
-        '안녕하세요! Lightning Tennis AI입니다. 🎾\n\n테니스에 관한 모든 질문에 답해드릴 준비가 되어 있습니다:\n\n• 기술과 전략 조언\n• 규칙과 스코어링 설명\n• 장비 추천\n• 경기 분석\n• 훈련 방법\n\n무엇을 도와드릴까요?';
+        '안녕하세요! Lightning Pickleball AI입니다. 🎾\n\n피클볼에 관한 모든 질문에 답해드릴 준비가 되어 있습니다:\n\n• 기술과 전략 조언\n• 규칙과 스코어링 설명\n• 장비 추천\n• 경기 분석\n• 훈련 방법\n\n무엇을 도와드릴까요?';
 
       // Assert
-      expect(koWelcomeMessage).toContain('Lightning Tennis AI');
+      expect(koWelcomeMessage).toContain('Lightning Pickleball AI');
       expect(koWelcomeMessage).toContain('기술과 전략');
       expect(koWelcomeMessage).toContain('무엇을 도와드릴까요?');
     });
@@ -284,10 +284,10 @@ describe('AiChatContext - Logic Tests', () => {
     it('영어 환영 메시지가 올바른 내용을 포함해야 함', () => {
       // Arrange
       const enWelcomeMessage =
-        "Hello! I'm Lightning Tennis AI. 🎾\n\nI'm ready to help you with all your tennis questions:\n\n• Technique and strategy advice\n• Rules and scoring explanations  \n• Equipment recommendations\n• Match analysis\n• Training methods\n\nWhat can I help you with today?";
+        "Hello! I'm Lightning Pickleball AI. 🎾\n\nI'm ready to help you with all your pickleball questions:\n\n• Technique and strategy advice\n• Rules and scoring explanations  \n• Equipment recommendations\n• Match analysis\n• Training methods\n\nWhat can I help you with today?";
 
       // Assert
-      expect(enWelcomeMessage).toContain('Lightning Tennis AI');
+      expect(enWelcomeMessage).toContain('Lightning Pickleball AI');
       expect(enWelcomeMessage).toContain('Technique and strategy');
       expect(enWelcomeMessage).toContain('What can I help you with today?');
     });

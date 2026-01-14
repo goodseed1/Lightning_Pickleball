@@ -19,12 +19,12 @@ const db = admin.firestore();
 async function investigateCollections() {
   try {
     console.log('🔍 [Investigation] Firebase 컬렉션 구조 조사 시작...');
-    console.log('📋 [Project] lightning-tennis-community');
+    console.log('📋 [Project] lightning-pickleball-community');
 
     // 1. 알려진 컬렉션들 확인
     const knownCollections = [
       'users',
-      'tennis_clubs',
+      'pickleball_clubs',
       'leagues',
       'tournaments',
       'leagues',

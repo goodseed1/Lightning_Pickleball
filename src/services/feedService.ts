@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 // src/services/feedService.ts
 import { db } from '../firebase/config';
@@ -324,7 +324,7 @@ function createMockTimestamp(date: Date): {
 }
 */
 
-/** Get mock feed items for fallback - Multi-persona tennis community experience */
+/** Get mock feed items for fallback - Multi-persona pickleball community experience */
 /* DISABLED: Mock data no longer used to avoid confusing real users
 function getMockFeedItems(): FeedItem[] {
   const now = new Date();
@@ -342,11 +342,11 @@ function getMockFeedItems(): FeedItem[] {
       actorId: 'beginner-user',
       actorName: '김초보',
       clubId: 'atlanta-metro-club',
-      clubName: 'Atlanta Metro Tennis Club',
+      clubName: 'Atlanta Metro Pickleball Club',
       metadata: {
         memberCount: 127,
         clubType: '일반',
-        location: '애틀랜타 테니스 센터',
+        location: '애틀랜타 피클볼 센터',
       },
       timestamp: createMockTimestamp(new Date(now.getTime() - 30 * 60 * 1000)), // 30분 전
       visibility: 'club_members',
@@ -367,7 +367,7 @@ function getMockFeedItems(): FeedItem[] {
       metadata: {
         score: '6-3, 4-6, 7-5',
         eloChange: 18,
-        location: 'Piedmont Park Tennis Center',
+        location: 'Piedmont Park Pickleball Center',
         isWin: true,
         matchType: 'singles',
         duration: 95,
@@ -385,8 +385,8 @@ function getMockFeedItems(): FeedItem[] {
       type: 'tournament_winner',
       actorId: 'advanced-user',
       actorName: '박고수',
-      clubId: 'elite-tennis-club',
-      clubName: 'Elite Tennis Academy',
+      clubId: 'elite-pickleball-club',
+      clubName: 'Elite Pickleball Academy',
       eventId: 'winter-tournament-2024',
       metadata: {
         tournamentName: '2024 Winter Championship',
@@ -409,7 +409,7 @@ function getMockFeedItems(): FeedItem[] {
       actorId: 'manager-user',
       actorName: '최관리자',
       clubId: 'atlanta-metro-club',
-      clubName: 'Atlanta Metro Tennis Club',
+      clubName: 'Atlanta Metro Pickleball Club',
       eventId: 'weekly-doubles-2024',
       metadata: {
         eventName: 'Weekly Doubles Night',
@@ -437,7 +437,7 @@ function getMockFeedItems(): FeedItem[] {
       metadata: {
         score: '4-6, 6-4, 6-2',
         eloChange: -5,
-        location: 'Grant Park Tennis Center',
+        location: 'Grant Park Pickleball Center',
         isWin: false,
         matchType: 'singles',
         newFriend: true,
@@ -480,7 +480,7 @@ function getMockFeedItems(): FeedItem[] {
       actorId: 'intermediate-user',
       actorName: '이중급',
       clubId: 'atlanta-metro-club',
-      clubName: 'Atlanta Metro Tennis Club',
+      clubName: 'Atlanta Metro Pickleball Club',
       metadata: {
         leagueName: '2024 Winter Intermediate League',
         winRate: '75%',
@@ -507,7 +507,7 @@ function getMockFeedItems(): FeedItem[] {
       metadata: {
         score: '7-6, 6-4',
         eloChange: 25,
-        location: 'Bitsy Grant Tennis Center',
+        location: 'Bitsy Grant Pickleball Center',
         isWin: true,
         matchType: 'singles',
         newPersonalBest: true,
@@ -527,7 +527,7 @@ function getMockFeedItems(): FeedItem[] {
       actorId: 'manager-user',
       actorName: '최관리자',
       clubId: 'atlanta-metro-club',
-      clubName: 'Atlanta Metro Tennis Club',
+      clubName: 'Atlanta Metro Pickleball Club',
       metadata: {
         milestone: '100명 돌파',
         currentMembers: 127,
@@ -553,8 +553,8 @@ function getMockFeedItems(): FeedItem[] {
       type: 'club_event',
       actorId: 'social-user',
       actorName: '정소셜',
-      clubId: 'fun-tennis-group',
-      clubName: 'Fun Tennis Atlanta',
+      clubId: 'fun-pickleball-group',
+      clubName: 'Fun Pickleball Atlanta',
       eventId: 'social-doubles-1',
       metadata: {
         eventName: '주말 소셜 복식',
@@ -583,7 +583,7 @@ function getMockFeedItems(): FeedItem[] {
       metadata: {
         score: '6-7, 6-4, 6-4',
         eloChange: 22,
-        location: 'Blackburn Park Tennis',
+        location: 'Blackburn Park Pickleball',
         isWin: true,
         matchType: 'singles',
         firstWin: true,
@@ -608,7 +608,7 @@ function getMockFeedItems(): FeedItem[] {
       metadata: {
         score: '6-4, 6-2',
         eloChange: 15,
-        location: 'Sandy Springs Tennis Center',
+        location: 'Sandy Springs Pickleball Center',
         isWin: true,
         matchType: 'doubles',
         partnership: 'with 최파트너',
@@ -627,8 +627,8 @@ function getMockFeedItems(): FeedItem[] {
       type: 'club_event',
       actorId: 'advanced-user',
       actorName: '박고수',
-      clubId: 'elite-tennis-club',
-      clubName: 'Elite Tennis Academy',
+      clubId: 'elite-pickleball-club',
+      clubName: 'Elite Pickleball Academy',
       eventId: 'coaching-clinic-1',
       metadata: {
         eventName: '고급 전술 클리닉',
@@ -651,13 +651,13 @@ function getMockFeedItems(): FeedItem[] {
       type: 'new_member',
       actorId: 'social-user',
       actorName: '정소셜',
-      clubId: 'fun-tennis-group',
-      clubName: 'Fun Tennis Atlanta',
+      clubId: 'fun-pickleball-group',
+      clubName: 'Fun Pickleball Atlanta',
       metadata: {
         memberCount: 45,
         clubType: '소셜',
         location: '애틀랜타 각지',
-        welcomeMessage: '테니스로 만나는 새로운 친구들!',
+        welcomeMessage: '피클볼로 만나는 새로운 친구들!',
       },
       timestamp: createMockTimestamp(new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000)), // 7일 전
       visibility: 'friends',
@@ -673,7 +673,7 @@ function getMockFeedItems(): FeedItem[] {
       actorId: 'club-member-1',
       actorName: 'Alex Turner',
       clubId: 'atlanta-metro-club',
-      clubName: 'Atlanta Metro Tennis Club',
+      clubName: 'Atlanta Metro Pickleball Club',
       metadata: {
         leagueName: '2024 Winter Beginner League',
         winRate: '88%',

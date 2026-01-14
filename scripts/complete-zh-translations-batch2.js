@@ -358,7 +358,7 @@ const translations = {
   'createMeetup.meetup_type': '聚会类型',
   'createMeetup.drill_session': '训练课',
   'createMeetup.match_play': '比赛',
-  'createMeetup.social_tennis': '社交网球',
+  'createMeetup.social_pickleball': '社交网球',
   'createMeetup.clinic': '诊所',
   'createMeetup.round_robin': '循环赛',
   'createMeetup.team_event': '团队活动',

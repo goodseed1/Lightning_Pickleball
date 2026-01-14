@@ -1,6 +1,6 @@
 # 🚀 Daily Start Checklist
 
-Lightning Tennis 앱 개발을 위한 매일 작업 시작 체크리스트
+Lightning Pickleball 앱 개발을 위한 매일 작업 시작 체크리스트
 
 ## 📋 작업 시작 전 필수 확인사항
 
@@ -13,7 +13,7 @@ Lightning Tennis 앱 개발을 위한 매일 작업 시작 체크리스트
   - 기술 스택 및 아키텍처 방향성 유지
 
 - [ ] **ECOSYSTEM_CHARTER.md 필독** ⭐ **핵심**
-  - 번개 테니스 앱의 **핵심 철학과 가치** 숙지
+  - 번개 피클볼 앱의 **핵심 철학과 가치** 숙지
   - 5대 핵심 원칙 (자율성, 접근성, 공정성, 투명성, 존중) 이해
   - ELO 랭킹 시스템 및 스킬 레벨 정책 확인
   - 공식 번개 매치 규칙 및 트로피 시스템 파악
@@ -21,7 +21,7 @@ Lightning Tennis 앱 개발을 위한 매일 작업 시작 체크리스트
 
 - [ ] **CONTRIBUTING.md 을 읽고 프로젝트 구조와 숙지해 주세요.**
 
-  -This document serves as the **constitutional law** for Lightning Tennis project structure. All developers (human and AI) MUST adhere to these principles to maintain code quality and prevent structural chaos.
+  -This document serves as the **constitutional law** for Lightning Pickleball project structure. All developers (human and AI) MUST adhere to these principles to maintain code quality and prevent structural chaos.
 
 
 ### 🔄 Git 작업 습관

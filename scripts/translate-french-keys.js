@@ -54,7 +54,7 @@ const TRANSLATIONS = {
   miles: 'miles',
   'Distance N/A': 'Distance indisponible',
 
-  // Match & Tennis Terminology
+  // Match & Pickleball Terminology
   'Total Matches': 'Nombre de matchs',
   Match: 'Match',
   Matches: 'Matchs',

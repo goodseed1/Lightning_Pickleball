@@ -17,7 +17,7 @@ type RootStackParamList = {
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme as useLTTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 
 interface AdminMenuItemProps {
   iconName: keyof typeof Ionicons.glyphMap;
@@ -150,7 +150,7 @@ const ClubAdminMenuCard: React.FC<ClubAdminMenuCardProps> = ({
   const navigation = useNavigation<NavigationProp>();
   const { t } = useLanguage();
   const { theme: currentTheme } = useLTTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
 
   // Apply bulletproof dynamic styling pattern with useMemo
   const styles = React.useMemo(() => createStyles(themeColors.colors), [themeColors.colors]);

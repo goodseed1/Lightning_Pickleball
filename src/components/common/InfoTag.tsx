@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 
 interface InfoTagProps {
   text: string;
@@ -11,7 +11,7 @@ interface InfoTagProps {
 
 const InfoTag: React.FC<InfoTagProps> = ({ text, color, backgroundColor }) => {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
 
   // Use theme colors as defaults, but allow custom overrides
   const finalBackgroundColor = backgroundColor || themeColors.colors.surfaceVariant;

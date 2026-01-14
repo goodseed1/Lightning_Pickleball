@@ -5,13 +5,13 @@ const serviceAccount = require('../serviceAccountKey.json');
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    projectId: 'lightning-tennis-community',
+    projectId: 'lightning-pickleball-community',
   });
 }
 
 const db = admin.firestore();
 
-// ELO to LTR conversion (same as ltrUtils.ts)
+// ELO to LPR conversion (same as ltrUtils.ts)
 function convertEloToLtr(elo) {
   if (!elo || elo < 800) return 1;
   if (elo >= 1800) return 10;
@@ -42,7 +42,7 @@ async function getUsers() {
     });
   });
 
-  console.log('\n📊 사용자 목록 (닉네임, 이메일, 성별, 게임타입별 LTR)\n');
+  console.log('\n📊 사용자 목록 (닉네임, 이메일, 성별, 게임타입별 LPR)\n');
   console.log('='.repeat(130));
   console.log(
     '닉네임'.padEnd(14) +
@@ -55,9 +55,9 @@ async function getUsers() {
   console.log('='.repeat(130));
 
   users.forEach(u => {
-    const singlesInfo = u.singlesLtr ? 'LTR ' + u.singlesLtr + ' (' + u.singlesElo + ')' : '-';
-    const doublesInfo = u.doublesLtr ? 'LTR ' + u.doublesLtr + ' (' + u.doublesElo + ')' : '-';
-    const mixedInfo = u.mixedLtr ? 'LTR ' + u.mixedLtr + ' (' + u.mixedElo + ')' : '-';
+    const singlesInfo = u.singlesLtr ? 'LPR ' + u.singlesLtr + ' (' + u.singlesElo + ')' : '-';
+    const doublesInfo = u.doublesLtr ? 'LPR ' + u.doublesLtr + ' (' + u.doublesElo + ')' : '-';
+    const mixedInfo = u.mixedLtr ? 'LPR ' + u.mixedLtr + ' (' + u.mixedElo + ')' : '-';
 
     console.log(
       u.nickname.substring(0, 12).padEnd(14) +

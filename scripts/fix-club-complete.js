@@ -8,12 +8,12 @@ admin.initializeApp({
 const db = admin.firestore();
 
 async function fixClubComplete() {
-  console.log('🔧 Fixing Lightning Tennis Club with complete data structure...\n');
+  console.log('🔧 Fixing Lightning Pickleball Club with complete data structure...\n');
 
   const clubId = 'WsetxkWODywjt0BBcqrs';
   const ownerId = 'IcF8Pih3UoOchh7GRmYzrF75ijq2'; // Jong - the admin
 
-  const clubRef = db.collection('tennis_clubs').doc(clubId);
+  const clubRef = db.collection('pickleball_clubs').doc(clubId);
   const clubDoc = await clubRef.get();
 
   if (!clubDoc.exists) {
@@ -32,7 +32,7 @@ async function fixClubComplete() {
     createdBy: ownerId,
 
     // === Flat Structure (backward compatibility) ===
-    name: currentData.name || 'Lightning Tennis Club',
+    name: currentData.name || 'Lightning Pickleball Club',
     description: currentData.description || '',
     location: currentData.location || '',
     address: currentData.address || '',
@@ -54,7 +54,7 @@ async function fixClubComplete() {
 
     // === Nested Structure (what clubService.updateClub() expects) ===
     profile: {
-      name: currentData.name || 'Lightning Tennis Club',
+      name: currentData.name || 'Lightning Pickleball Club',
       description: currentData.description || '',
       logo: currentData.logoUrl || currentData.profile?.logo || '',
       location: currentData.location || '',

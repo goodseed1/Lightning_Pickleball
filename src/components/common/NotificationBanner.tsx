@@ -11,7 +11,7 @@ import { Text as PaperText, Surface } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 interface NotificationBannerProps {
@@ -35,7 +35,7 @@ export const NotificationBanner: React.FC<NotificationBannerProps> = ({
   const navigation = useNavigation();
   const { theme: currentTheme } = useTheme();
   const { t } = useLanguage();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
 
   const getVariantColor = () => {
     switch (variant) {

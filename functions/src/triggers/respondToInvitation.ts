@@ -217,7 +217,7 @@ export const respondToInvitation = onCall<RespondToInvitationRequest>(async requ
             processedAt: admin.firestore.FieldValue.serverTimestamp(),
             type: 'partner_invitation', // Mark as partner invitation (not manual application)
             // 🎯 [KIM FIX v27] Add host as "partner" from partner's perspective
-            // This enables AppliedEventCard to show team LTR for host partners
+            // This enables AppliedEventCard to show team LPR for host partners
             partnerId: eventData.hostId,
             partnerName: eventData.hostName || 'Host',
             partnerStatus: 'accepted', // Host is always "accepted" from partner's view

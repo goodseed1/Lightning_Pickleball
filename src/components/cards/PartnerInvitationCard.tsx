@@ -7,7 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { PartnerInvitation } from '../../types/match';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 
 interface Props {
   invitation: PartnerInvitation & { id: string };
@@ -28,7 +28,7 @@ const PartnerInvitationCard: React.FC<Props> = ({
 }) => {
   const { currentLanguage, t } = useLanguage();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
 
   // 🆕 [KIM] Open location in Maps app
@@ -158,7 +158,7 @@ const PartnerInvitationCard: React.FC<Props> = ({
   return (
     <View style={styles.card}>
       <View style={styles.header}>
-        <Ionicons name='tennisball' size={24} color={themeColors.colors.primary} />
+        <Ionicons name='pickleballball' size={24} color={themeColors.colors.primary} />
         <Text style={styles.title}>{invitation.eventTitle}</Text>
       </View>
 
@@ -181,7 +181,7 @@ const PartnerInvitationCard: React.FC<Props> = ({
           ) : (
             invitation.inviterName
           )}
-          {invitation.inviterLtr && ` (LTR ${Math.round(invitation.inviterLtr)})`}
+          {invitation.inviterLtr && ` (LPR ${Math.round(invitation.inviterLtr)})`}
         </Text>
         {invitation.combinedLtr && (
           <Text style={[styles.label, styles.ntrpTotal]}>

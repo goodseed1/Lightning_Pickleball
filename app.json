@@ -1,21 +1,21 @@
 {
   "expo": {
-    "name": "Lightning Tennis",
-    "slug": "lightning-tennis-community",
-    "version": "3.0.6",
+    "name": "Lightning Pickleball",
+    "slug": "lightning-pickleball-community",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#1976d2"
+      "backgroundColor": "#4CAF50"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.lightningtennis.community",
-      "buildNumber": "56",
+      "bundleIdentifier": "com.lightningpickleball.community",
+      "buildNumber": "1",
       "entitlements": {
         "com.apple.developer.applesignin": ["Default", "Default"]
       },
@@ -24,9 +24,9 @@
         "NSPhotoLibraryUsageDescription": "This app needs access to your photo library to select profile pictures and match photos.",
         "NSCameraUsageDescription": "This app needs access to your camera to take profile pictures and match photos.",
         "NSPhotoLibraryAddUsageDescription": "This app needs access to save photos to your photo library.",
-        "NSLocationWhenInUseUsageDescription": "This app needs your location to find nearby tennis players and courts.",
-        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app needs your location to find nearby tennis players and courts.",
-        "NSLocationAlwaysUsageDescription": "This app needs your location to find nearby tennis players and courts.",
+        "NSLocationWhenInUseUsageDescription": "This app needs your location to find nearby pickleball players and courts.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app needs your location to find nearby pickleball players and courts.",
+        "NSLocationAlwaysUsageDescription": "This app needs your location to find nearby pickleball players and courts.",
         "UIStatusBarStyle": "UIStatusBarStyleDefault",
         "UIViewControllerBasedStatusBarAppearance": false,
         "CFBundleURLTypes": [
@@ -46,10 +46,10 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#1976d2"
+        "backgroundColor": "#4CAF50"
       },
-      "package": "com.lightningtennis.app",
-      "versionCode": 56,
+      "package": "com.lightningpickleball.app",
+      "versionCode": 1,
       "googleServicesFile": "./google-services.json",
       "permissions": [
         "CAMERA",
@@ -68,14 +68,14 @@
     },
     "notification": {
       "icon": "./assets/notification-icon.png",
-      "color": "#1976d2",
+      "color": "#4CAF50",
       "androidMode": "default",
-      "androidCollapsedTitle": "Lightning Tennis"
+      "androidCollapsedTitle": "Lightning Pickleball"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "scheme": "lightning-tennis",
+    "scheme": "lightning-pickleball",
     "extra": {
       "eas": {
         "projectId": "21147a75-4071-46b1-b5c2-41916ccce97a"

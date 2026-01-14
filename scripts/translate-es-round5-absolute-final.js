@@ -395,10 +395,10 @@ const translations = {
     readTerms: 'Leer Términos Completos',
     details: {
       serviceTerms: {
-        content: `Términos de Servicio de Lightning Tennis
+        content: `Términos de Servicio de Lightning Pickleball
 
 ⚠️ Aviso Importante
-Lightning Tennis es una plataforma que conecta jugadores de tenis. La responsabilidad por incidentes de seguridad o disputas durante partidos reales recae en los participantes, y no asumimos responsabilidad legal por estos asuntos.
+Lightning Pickleball es una plataforma que conecta jugadores de tenis. La responsabilidad por incidentes de seguridad o disputas durante partidos reales recae en los participantes, y no asumimos responsabilidad legal por estos asuntos.
 
 1. Uso del Servicio
 - Esta aplicación es un servicio de plataforma que conecta jugadores de tenis.
@@ -433,7 +433,7 @@ Lightning Tennis es una plataforma que conecta jugadores de tenis. La responsabi
 Fecha de Vigencia: 1 de enero de 2025`,
       },
       privacyPolicy: {
-        content: `Política de Privacidad de Lightning Tennis
+        content: `Política de Privacidad de Lightning Pickleball
 
 Recopilamos y procesamos la siguiente información:
 - Información de perfil (nombre, email, foto)

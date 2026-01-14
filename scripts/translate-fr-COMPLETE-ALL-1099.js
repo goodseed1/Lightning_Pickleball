@@ -90,12 +90,12 @@ const completeDict = {
   // League/Tournament management
   'League Management': 'Gestion de la Ligue',
   title: 'Titre',
-  generateBracketButton: 'Générer le Tableau et Démarrer la Ligue',
-  'Generate Bracket & Start League': 'Générer le Tableau et Démarrer la Ligue',
-  deleteBracketButton: 'Supprimer le Tableau',
-  'Delete Bracket': 'Supprimer le Tableau',
-  deleteBracketTitle: 'Supprimer le Tableau',
-  deleteBracketDescription:
+  generateBpaddleButton: 'Générer le Tableau et Démarrer la Ligue',
+  'Generate Bpaddle & Start League': 'Générer le Tableau et Démarrer la Ligue',
+  deleteBpaddleButton: 'Supprimer le Tableau',
+  'Delete Bpaddle': 'Supprimer le Tableau',
+  deleteBpaddleTitle: 'Supprimer le Tableau',
+  deleteBpaddleDescription:
     'Supprimer tous les matchs et réinitialiser la ligue. Cette action ne peut pas être annulée.',
   'Delete all matches and reset league. This action cannot be undone.':
     'Supprimer tous les matchs et réinitialiser la ligue. Cette action ne peut pas être annulée.',

@@ -79,8 +79,8 @@ const zhTranslations = {
     },
     loading: {
       league: '加载联赛信息中...',
-      generatingBracket: '生成对阵表中...',
-      generatingBracketSubtitle: '联赛即将开始',
+      generatingBpaddle: '生成对阵表中...',
+      generatingBpaddleSubtitle: '联赛即将开始',
     },
     errors: {
       leagueNotFound: '未找到联赛',
@@ -103,7 +103,7 @@ const zhTranslations = {
     },
     leagueManagement: {
       title: '联赛管理',
-      generateBracketButton: '生成对阵表并开始联赛',
+      generateBpaddleButton: '生成对阵表并开始联赛',
       dangerZoneTitle: '危险区域',
       minParticipantsDoubles: '双打联赛需要至少2支队伍（4名球员）。当前：{{count}}名球员',
     },
@@ -113,7 +113,7 @@ const zhTranslations = {
       winner: '冠军：',
       seasonComplete: '常规赛结束！',
       startButton: '开始季后赛',
-      bracketToggle: '季后赛对阵表',
+      bpaddleToggle: '季后赛对阵表',
       standingsToggle: '积分榜',
     },
     matchApproval: {
@@ -157,7 +157,7 @@ const zhTranslations = {
       management: '管理',
     },
     status: {
-      bracketGeneration: '生成对阵表中',
+      bpaddleGeneration: '生成对阵表中',
     },
     participants: {
       label: '参赛者',
@@ -173,7 +173,7 @@ const zhTranslations = {
       assignSeeds: '分配种子',
       completeAssignment: '完成分配',
       crownWinner: '加冕冠军',
-      generateBracket: '生成对阵表中...',
+      generateBpaddle: '生成对阵表中...',
     },
     stats: {
       champion: '冠军：',
@@ -200,7 +200,7 @@ const zhTranslations = {
         '已启用手动种子分配。请在参赛者选项卡中分配种子，然后按"生成对阵表并开始"。',
       successTitle: '锦标赛已开始',
       successMessage: '锦标赛已成功开始！对阵表已生成。',
-      bracketGeneratedMessage: '对阵表已生成。锦标赛已开始！',
+      bpaddleGeneratedMessage: '对阵表已生成。锦标赛已开始！',
       waitForParticipantAddition: '请等待参赛者添加完成。',
       addingParticipants: '添加参赛者中',
     },

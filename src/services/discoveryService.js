@@ -1,5 +1,5 @@
 /**
- * Discovery Service for Lightning Tennis
+ * Discovery Service for Lightning Pickleball
  * Handles club discovery, player search, and recommendation systems
  */
 

@@ -335,7 +335,7 @@ const germanTranslations = {
     performance: 'Leistung',
     achievements: 'Erfolge',
     ranking: 'Rangliste',
-    ltrRating: 'LTR-Bewertung',
+    ltrRating: 'LPR-Bewertung',
     matchesPlayed: 'Gespielte Matches',
     matchesWon: 'Gewonnene Matches',
     matchesLost: 'Verlorene Matches',

@@ -1,4 +1,4 @@
-# Lightning Tennis 이용약관 / Terms and Conditions
+# Lightning Pickleball 이용약관 / Terms and Conditions
 
 > 최종 업데이트: 2024년 12월
 
@@ -8,15 +8,15 @@
 
 ### 1. 서비스 이용약관
 
-**Lightning Tennis 서비스 이용약관**
+**Lightning Pickleball 서비스 이용약관**
 
 #### ⚠️ 중요 안내사항
 
-Lightning Tennis는 테니스 플레이어를 연결하는 플랫폼입니다. 실제 경기 중 발생하는 안전사고나 분쟁에 대한 책임은 참가자들에게 있으며, 당사는 이에 대한 법적 책임을 지지 않습니다.
+Lightning Pickleball는 피클볼 플레이어를 연결하는 플랫폼입니다. 실제 경기 중 발생하는 안전사고나 분쟁에 대한 책임은 참가자들에게 있으며, 당사는 이에 대한 법적 책임을 지지 않습니다.
 
 #### 1. 서비스 이용
 
-- 본 앱은 테니스 플레이어들을 연결하는 플랫폼 서비스입니다.
+- 본 앱은 피클볼 플레이어들을 연결하는 플랫폼 서비스입니다.
 - 사용자는 매치 생성, 참여, 클럽 활동 등의 기능을 이용할 수 있습니다.
 - 서비스 이용 시 상호 존중과 스포츠맨십을 지켜주세요.
 
@@ -30,7 +30,7 @@ Lightning Tennis는 테니스 플레이어를 연결하는 플랫폼입니다. �
 
 ##### 3.1 AI 답변의 한계 (면책 조항)
 
-- 챗봇이 제공하는 테니스 관련 정보는 AI에 의해 생성되었습니다.
+- 챗봇이 제공하는 피클볼 관련 정보는 AI에 의해 생성되었습니다.
 - AI가 제공하는 정보는 부정확하거나 최신이 아닐 수 있습니다.
 - 회사는 AI 챗봇이 제공하는 정보의 정확성, 완전성, 신뢰성에 대해 보장하지 않습니다.
 - AI 챗봇 정보로 인해 발생하는 모든 손해에 대해 회사는 책임지지 않습니다.
@@ -60,7 +60,7 @@ Lightning Tennis는 테니스 플레이어를 연결하는 플랫폼입니다. �
 #### 1. 수집하는 개인정보
 
 - 기본 정보: 닉네임, 성별, 연령대
-- 테니스 정보: NTRP 레벨, 선호 플레이 스타일
+- 피클볼 정보: NTRP 레벨, 선호 플레이 스타일
 - 위치 정보: 활동 지역, GPS 위치 (매치 찾기용)
 - 연락처 정보: 이메일 주소
 - AI 챗봇 대화 정보: 사용자가 입력한 질문 내용과 대화 기록
@@ -114,7 +114,7 @@ Lightning Tennis는 테니스 플레이어를 연결하는 플랫폼입니다. �
 #### 1. 위치정보 수집 및 이용
 
 - 근처 매치 찾기 서비스 제공
-- 테니스 코트 검색 서비스 제공
+- 피클볼 코트 검색 서비스 제공
 - 거리 기반 알림 서비스 제공
 
 #### 2. 위치정보 제공 동의
@@ -133,15 +133,15 @@ Lightning Tennis는 테니스 플레이어를 연결하는 플랫폼입니다. �
 
 #### ⚠️ 중요한 법적 고지사항 ⚠️
 
-Lightning Tennis 앱은 개별 테니스 플레이어들을 연결하는 플랫폼 서비스입니다.
+Lightning Pickleball 앱은 개별 피클볼 플레이어들을 연결하는 플랫폼 서비스입니다.
 
 **당사는 다음 사항에 대해 법적 책임을 지지 않습니다:**
 
 #### 1. 안전사고 면책
 
-- 테니스 경기 중 발생하는 부상, 사고
+- 피클볼 경기 중 발생하는 부상, 사고
 - 매치 참가자 간의 개인적 분쟁
-- 테니스 코트 시설의 안전사고
+- 피클볼 코트 시설의 안전사고
 
 #### 2. 금전적 분쟁 면책
 
@@ -165,7 +165,7 @@ Lightning Tennis 앱은 개별 테니스 플레이어들을 연결하는 플랫�
 
 - 새로운 기능 및 서비스 업데이트
 - 특별 이벤트 및 프로모션 안내
-- 테니스 관련 유용한 정보 및 팁
+- 피클볼 관련 유용한 정보 및 팁
 - 파트너십 혜택 및 할인 정보
 
 #### 2. 수신 방법
@@ -187,7 +187,7 @@ Lightning Tennis 앱은 개별 테니스 플레이어들을 연결하는 플랫�
 
 #### 🌈 다양성 포용 정책 및 면책 조항
 
-Lightning Tennis는 모든 사용자에게 열린 플랫폼입니다.
+Lightning Pickleball는 모든 사용자에게 열린 플랫폼입니다.
 
 #### 1. 포용성 원칙
 
@@ -214,15 +214,15 @@ Lightning Tennis는 모든 사용자에게 열린 플랫폼입니다.
 
 ### 1. Terms of Service
 
-**Lightning Tennis Terms of Service**
+**Lightning Pickleball Terms of Service**
 
 #### ⚠️ Important Notice
 
-Lightning Tennis is a platform that connects tennis players. Responsibility for safety incidents or disputes during actual matches lies with the participants, and we do not assume legal liability for these matters.
+Lightning Pickleball is a platform that connects pickleball players. Responsibility for safety incidents or disputes during actual matches lies with the participants, and we do not assume legal liability for these matters.
 
 #### 1. Service Usage
 
-- This app is a platform service connecting tennis players.
+- This app is a platform service connecting pickleball players.
 - Users can utilize features such as match creation, participation, and club activities.
 - Please maintain mutual respect and sportsmanship when using the service.
 
@@ -236,7 +236,7 @@ Lightning Tennis is a platform that connects tennis players. Responsibility for 
 
 ##### 3.1 AI Answer Limitations (Disclaimer)
 
-- Tennis-related information provided by the chatbot is generated by AI.
+- Pickleball-related information provided by the chatbot is generated by AI.
 - Information provided by AI may be inaccurate or outdated.
 - The company does not guarantee the accuracy, completeness, or reliability of AI chatbot information.
 - The company is not liable for any damages arising from AI chatbot information.
@@ -266,7 +266,7 @@ Lightning Tennis is a platform that connects tennis players. Responsibility for 
 #### 1. Personal Information We Collect
 
 - Basic info: Nickname, gender, age range
-- Tennis info: NTRP level, preferred playing style
+- Pickleball info: NTRP level, preferred playing style
 - Location info: Activity areas, GPS location (for match finding)
 - Contact info: Email address
 - AI Chatbot conversation data: User questions and conversation logs
@@ -320,7 +320,7 @@ Lightning Tennis is a platform that connects tennis players. Responsibility for 
 #### 1. Location Information Collection and Use
 
 - Providing nearby match finding services
-- Providing tennis court search services
+- Providing pickleball court search services
 - Providing distance-based notification services
 
 #### 2. Consent for Location Information
@@ -339,15 +339,15 @@ Lightning Tennis is a platform that connects tennis players. Responsibility for 
 
 #### ⚠️ IMPORTANT LEGAL NOTICE ⚠️
 
-Lightning Tennis app serves as a platform to connect individual tennis players.
+Lightning Pickleball app serves as a platform to connect individual pickleball players.
 
 **WE DO NOT ASSUME ANY LEGAL LIABILITY for:**
 
 #### 1. Safety Incidents Disclaimer
 
-- Injuries or accidents during tennis matches
+- Injuries or accidents during pickleball matches
 - Personal disputes between match participants
-- Safety incidents at tennis court facilities
+- Safety incidents at pickleball court facilities
 
 #### 2. Financial Disputes Disclaimer
 
@@ -371,7 +371,7 @@ Lightning Tennis app serves as a platform to connect individual tennis players.
 
 - New features and service updates
 - Special events and promotion announcements
-- Useful tennis-related information and tips
+- Useful pickleball-related information and tips
 - Partnership benefits and discount information
 
 #### 2. Delivery Methods
@@ -393,7 +393,7 @@ Lightning Tennis app serves as a platform to connect individual tennis players.
 
 #### 🌈 Diversity & Inclusion Policy and Disclaimer
 
-Lightning Tennis is a platform open to all users.
+Lightning Pickleball is a platform open to all users.
 
 #### 1. Inclusivity Principles
 
@@ -421,9 +421,9 @@ Lightning Tennis is a platform open to all users.
 서비스 관련 문의사항이 있으시면 아래로 연락해 주세요:
 For any inquiries about our service, please contact us at:
 
-- Email: support@lightningtennis.com
-- Website: https://lightningtennis.com
+- Email: support@lightningpickleball.com
+- Website: https://lightningpickleball.com
 
 ---
 
-_© 2024 Lightning Tennis. All rights reserved._
+_© 2024 Lightning Pickleball. All rights reserved._

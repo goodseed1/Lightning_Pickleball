@@ -38,9 +38,9 @@ async function checkRegularMeetups() {
     }
   }
 
-  // tennis_clubs의 모든 필드 확인
-  console.log('\n\n🏟️ tennis_clubs 필드 확인...\n');
-  const clubsSnap = await db.collection('tennis_clubs').get();
+  // pickleball_clubs의 모든 필드 확인
+  console.log('\n\n🏟️ pickleball_clubs 필드 확인...\n');
+  const clubsSnap = await db.collection('pickleball_clubs').get();
 
   for (const doc of clubsSnap.docs) {
     const data = doc.data();

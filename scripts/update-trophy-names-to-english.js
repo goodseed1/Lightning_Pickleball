@@ -17,7 +17,7 @@ if (!admin.apps.length) {
 
 const db = admin.firestore();
 
-// Lightning Tennis Club ID
+// Lightning Pickleball Club ID
 const CLUB_ID = 'WsetxkWODywjt0BBcqrs';
 
 // 한국어 → 영어 매핑

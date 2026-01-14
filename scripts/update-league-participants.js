@@ -35,7 +35,7 @@ async function updateLeagueParticipants() {
   });
   console.log(`   ✅ ${userMap.size}명의 사용자 displayName 로드 완료\n`);
 
-  // 2. Lightning Tennis Club의 리그 가져오기
+  // 2. Lightning Pickleball Club의 리그 가져오기
   const clubId = 'WsetxkWODywjt0BBcqrs';
   const leaguesSnap = await db.collection('leagues').where('clubId', '==', clubId).get();
 

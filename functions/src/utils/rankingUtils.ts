@@ -1,12 +1,12 @@
 /**
  * 🏛️ PROJECT OLYMPUS - Ranking Utilities
- * Shared utility functions for ELO and LTR conversions
+ * Shared utility functions for ELO and LPR conversions
  *
- * @updated 2025-12-30 - NTRP → LTR migration
+ * @updated 2025-12-30 - NTRP → LPR migration
  */
 
 /**
- * Convert ELO rating to LTR value (1-10 integer scale)
+ * Convert ELO rating to LPR value (1-10 integer scale)
  * Same logic as src/utils/unifiedRankingUtils.ts for consistency
  */
 export function convertEloToLtr(elo: number): number {

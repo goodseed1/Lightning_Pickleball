@@ -13,7 +13,7 @@ import { Ionicons } from '@expo/vector-icons';
 import AIAssistantIcon from '../../../components/ai/AIAssistantIcon';
 import { useNavigation, useTheme } from '@react-navigation/native';
 import { useTheme as useLTTheme } from '../../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../../theme';
+import { getLightningPickleballTheme } from '../../../theme';
 import { useClub } from '../../../contexts/ClubContext';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useLanguage } from '../../../contexts/LanguageContext';
@@ -74,7 +74,7 @@ const ClubOverviewScreen: React.FC<ClubOverviewScreenProps> = ({
   const navigation = useNavigation();
   const theme = useTheme();
   const { theme: currentTheme } = useLTTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
   const { announcement, isLoadingAnnouncement } = useClub();
   const { currentUser } = useAuth();
@@ -326,12 +326,12 @@ const ClubOverviewScreen: React.FC<ClubOverviewScreenProps> = ({
 
     console.log('🎯 [KIM] Subscribing to active tournaments & leagues...', { clubId });
 
-    // Active tournament statuses: registration, bracket_generation, in_progress
+    // Active tournament statuses: registration, bpaddle_generation, in_progress
     const tournamentsRef = collection(db, 'tournaments');
     const tournamentsQuery = query(
       tournamentsRef,
       where('clubId', '==', clubId),
-      where('status', 'in', ['registration', 'bracket_generation', 'in_progress']),
+      where('status', 'in', ['registration', 'bpaddle_generation', 'in_progress']),
       orderBy('createdAt', 'desc'),
       limit(5)
     );
@@ -761,7 +761,7 @@ const ClubOverviewScreen: React.FC<ClubOverviewScreenProps> = ({
                             ? t('clubOverviewScreen.registrationOpen')
                             : tournament.status === 'in_progress'
                               ? t('clubOverviewScreen.inProgress')
-                              : t('clubOverviewScreen.bracketGeneration')}
+                              : t('clubOverviewScreen.bpaddleGeneration')}
                         </Chip>
                         <PaperText variant='bodySmall' style={styles.activityParticipants}>
                           👥 {tournament.participants?.length || 0}/
@@ -860,7 +860,7 @@ const ClubOverviewScreen: React.FC<ClubOverviewScreenProps> = ({
                       activeOpacity={0.7}
                     >
                       <View style={styles.activityIconContainer}>
-                        <Ionicons name='tennisball' size={20} color={themeColors.colors.primary} />
+                        <Ionicons name='pickleballball' size={20} color={themeColors.colors.primary} />
                       </View>
                       <View style={styles.activityContent}>
                         <PaperText variant='bodyMedium' style={styles.activityTitle}>

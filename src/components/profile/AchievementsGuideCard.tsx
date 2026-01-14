@@ -19,7 +19,7 @@ import {
 import { Card, Text, Divider } from 'react-native-paper';
 import { Ionicons, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { SEASON_TROPHIES } from '../../constants/seasonTrophies';
 import { ACHIEVEMENT_DEFINITIONS, ACHIEVEMENT_CATEGORIES } from '../../constants/achievements';
@@ -40,7 +40,7 @@ const AchievementsGuideCard: React.FC<AchievementsGuideCardProps> = ({
   scrollViewRef,
 }) => {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const { t } = useLanguage();
   const [expanded, setExpanded] = useState(defaultExpanded);
   const cardYPosition = useRef<number>(0);

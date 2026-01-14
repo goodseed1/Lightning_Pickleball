@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
@@ -16,7 +16,7 @@ import { db } from '../../firebase';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
 import { useAuth } from '../../contexts/AuthContext';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { formatDistance } from '../../utils/unitUtils';
 import { formatCompactScore } from '../../utils/scoreUtils';
 import {
@@ -143,16 +143,16 @@ const EventCard: React.FC<EventCardProps> = ({
   const { t } = useLanguage();
   const { theme: currentTheme } = useTheme();
   const { currentUser } = useAuth();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(
     themeColors.colors as unknown as Record<string, string>,
     currentTheme
   );
 
-  // 🎯 [KIM FIX] State for host partner's LTR (for doubles combined LTR display)
+  // 🎯 [KIM FIX] State for host partner's LPR (for doubles combined LPR display)
   const [hostPartnerLtrLevel, setHostPartnerLtrLevel] = useState<number | null>(null);
 
-  // 🎯 [KIM FIX] Fetch host partner's LTR for doubles matches
+  // 🎯 [KIM FIX] Fetch host partner's LPR for doubles matches
   useEffect(() => {
     const isDoubles = event.gameType?.toLowerCase().includes('doubles');
 
@@ -195,13 +195,13 @@ const EventCard: React.FC<EventCardProps> = ({
             const ltr = convertEloToLtr(partnerElo);
             setHostPartnerLtrLevel(ltr);
           } else {
-            // Default LTR if no ELO found
+            // Default LPR if no ELO found
             setHostPartnerLtrLevel(null);
           }
         }
       },
       error => {
-        console.warn('[EventCard] Error fetching host partner LTR:', error);
+        console.warn('[EventCard] Error fetching host partner LPR:', error);
         setHostPartnerLtrLevel(null);
       }
     );
@@ -256,14 +256,14 @@ const EventCard: React.FC<EventCardProps> = ({
     return null;
   };
 
-  const userLtr = getUserNtrp(); // Returns LTR (1-10) now
+  const userLtr = getUserNtrp(); // Returns LPR (1-10) now
   const canApplyByNtrp = (): { canApply: boolean; reason?: string } => {
-    // If no LTR requirements, allow
+    // If no LPR requirements, allow
     if (!event.minLtr && !event.maxLtr) {
       return { canApply: true };
     }
 
-    // If user has no LTR, allow (new users)
+    // If user has no LPR, allow (new users)
     if (userLtr === null) {
       return { canApply: true };
     }
@@ -271,47 +271,47 @@ const EventCard: React.FC<EventCardProps> = ({
     const minLtr = event.minLtr || 0;
     const maxLtr = event.maxLtr || 10;
 
-    // 🎯 [2025.01 RULE CHANGE] LTR tolerance varies by game type:
-    // - Doubles/Mixed: ±2 (more relaxed for team play) - uses TEAM LTR
+    // 🎯 [2025.01 RULE CHANGE] LPR tolerance varies by game type:
+    // - Doubles/Mixed: ±2 (more relaxed for team play) - uses TEAM LPR
     // - Singles: 0~+1 only (user can only apply if same level or 1 level below host)
     const gameType = event.gameType?.toLowerCase() || '';
     const isSingles = gameType.includes('singles');
     const isDoubles = gameType.includes('doubles') || gameType.includes('mixed');
 
-    // 🎯 [KIM FIX v27] For doubles, use TEAM LTR (host + partner), not individual host LTR
+    // 🎯 [KIM FIX v27] For doubles, use TEAM LPR (host + partner), not individual host LPR
     let hostLtr: number;
     if (isDoubles && event.hostLtrLevel && hostPartnerLtrLevel) {
-      // Doubles with partner: use team LTR
+      // Doubles with partner: use team LPR
       hostLtr = Math.round(event.hostLtrLevel) + Math.round(hostPartnerLtrLevel);
       console.log(
-        `🎾 [EventCard] Doubles Team LTR: ${event.hostLtrLevel} + ${hostPartnerLtrLevel} = ${hostLtr}`
+        `🎾 [EventCard] Doubles Team LPR: ${event.hostLtrLevel} + ${hostPartnerLtrLevel} = ${hostLtr}`
       );
     } else {
-      // Singles or doubles without partner yet: use individual host LTR
+      // Singles or doubles without partner yet: use individual host LPR
       const rawHostLtr = event.hostLtrLevel || (minLtr + maxLtr) / 2;
       hostLtr = Math.round(rawHostLtr);
     }
-    const roundedUserLtr = Math.round(userLtr); // Round user LTR too for fair comparison
+    const roundedUserLtr = Math.round(userLtr); // Round user LPR too for fair comparison
 
     // Calculate allowed range based on game type
     let minAllowed: number;
     let maxAllowed: number;
 
     if (isSingles) {
-      // 🎯 [LTR FIX v6] Singles: Use stored minLtr/maxLtr (hostLtr ± 1)
+      // 🎯 [LPR FIX v6] Singles: Use stored minLtr/maxLtr (hostLtr ± 1)
       // CreateEventForm stores the correct range in Firestore
       minAllowed = Math.round(minLtr);
       maxAllowed = Math.round(maxLtr);
     } else {
-      // 🎯 [KIM FIX v28] Doubles/Mixed: 개인 LTR이 호스트 팀 LTR보다 크지 않으면 신청 가능
-      // 하한선 없음 - 파트너 초대 시 팀 LTR 범위로 필터링됨
-      // 상한선 = 호스트 팀 LTR (개인이 호스트 팀보다 높으면 불가)
-      minAllowed = 1; // 최소 LTR (하한선 없음)
-      maxAllowed = hostLtr; // 호스트 팀 LTR이 상한선
+      // 🎯 [KIM FIX v28] Doubles/Mixed: 개인 LPR이 호스트 팀 LPR보다 크지 않으면 신청 가능
+      // 하한선 없음 - 파트너 초대 시 팀 LPR 범위로 필터링됨
+      // 상한선 = 호스트 팀 LPR (개인이 호스트 팀보다 높으면 불가)
+      minAllowed = 1; // 최소 LPR (하한선 없음)
+      maxAllowed = hostLtr; // 호스트 팀 LPR이 상한선
     }
 
-    // 🔍 [DEBUG] Log LTR comparison for debugging
-    console.log(`[EventCard] 🎾 LTR Check for "${event.title}":`, {
+    // 🔍 [DEBUG] Log LPR comparison for debugging
+    console.log(`[EventCard] 🎾 LPR Check for "${event.title}":`, {
       userLtr,
       roundedUserLtr,
       hostLtr,
@@ -325,7 +325,7 @@ const EventCard: React.FC<EventCardProps> = ({
       canApply: roundedUserLtr >= minAllowed && roundedUserLtr <= maxAllowed,
     });
 
-    // 🎯 [2025.01 RULE CHANGE] Check if user LTR is within allowed range
+    // 🎯 [2025.01 RULE CHANGE] Check if user LPR is within allowed range
     if (roundedUserLtr < minAllowed || roundedUserLtr > maxAllowed) {
       return {
         canApply: false,
@@ -1179,7 +1179,7 @@ const EventCard: React.FC<EventCardProps> = ({
               >
                 <Ionicons
                   name={
-                    isBlocked ? 'close-circle' : isMeetup ? 'people-outline' : 'tennisball-outline'
+                    isBlocked ? 'close-circle' : isMeetup ? 'people-outline' : 'pickleballball-outline'
                   }
                   size={16}
                   color={isBlocked ? '#9CA3AF' : currentTheme === 'dark' ? '#4CAF50' : '#2E7D32'}
@@ -1447,27 +1447,27 @@ const EventCard: React.FC<EventCardProps> = ({
                             </TouchableOpacity>
                           </>
                         )}
-                      {/* 🎯 [KIM FIX] Show host LTR level with game type - combined for doubles */}
+                      {/* 🎯 [KIM FIX] Show host LPR level with game type - combined for doubles */}
                       {(() => {
                         const isDoublesMatch = event.gameType?.toLowerCase().includes('doubles');
 
-                        // For doubles: show combined LTR if we have both host and partner LTR
-                        // 🎯 [LTR FIX v5] "복식팀 LTR" 표기로 변경
+                        // For doubles: show combined LPR if we have both host and partner LPR
+                        // 🎯 [LPR FIX v5] "복식팀 LPR" 표기로 변경
                         if (isDoublesMatch && event.hostLtrLevel && hostPartnerLtrLevel) {
                           const combinedLtr =
                             Math.round(event.hostLtrLevel) + Math.round(hostPartnerLtrLevel);
                           return (
                             <Text style={styles.hostLtrText}>
-                              {` (${t('eventCard.labels.doublesTeam')} LTR ${combinedLtr})`}
+                              {` (${t('eventCard.labels.doublesTeam')} LPR ${combinedLtr})`}
                             </Text>
                           );
                         }
 
-                        // For singles or if partner LTR not yet loaded: show host LTR only
+                        // For singles or if partner LPR not yet loaded: show host LPR only
                         if (event.hostLtrLevel) {
                           return (
                             <Text style={styles.hostLtrText}>
-                              {` (${isDoublesMatch ? t('eventCard.labels.doublesTeam') : t('eventCard.labels.singles')} LTR ${Math.round(event.hostLtrLevel)})`}
+                              {` (${isDoublesMatch ? t('eventCard.labels.doublesTeam') : t('eventCard.labels.singles')} LPR ${Math.round(event.hostLtrLevel)})`}
                             </Text>
                           );
                         }
@@ -1514,24 +1514,24 @@ const EventCard: React.FC<EventCardProps> = ({
                       ? ntrpEligibility.reason
                       : event.minLtr && event.maxLtr
                         ? (() => {
-                            // 🎯 [LTR FIX v5] Show allowed range based on game type
-                            // - Doubles (mens/womens/mixed): Team LTR range
-                            // - Singles: Individual LTR range
+                            // 🎯 [LPR FIX v5] Show allowed range based on game type
+                            // - Doubles (mens/womens/mixed): Team LPR range
+                            // - Singles: Individual LPR range
                             const gt = event.gameType?.toLowerCase() || '';
                             const isDoubles = gt.includes('doubles'); // Includes mixed_doubles
 
                             if (isDoubles) {
-                              // 🎯 [LTR FIX v5] Doubles: Show TEAM LTR range
-                              // Host team LTR = hostLtr + partnerLtr (from minLtr*2 or actual calculation)
+                              // 🎯 [LPR FIX v5] Doubles: Show TEAM LPR range
+                              // Host team LPR = hostLtr + partnerLtr (from minLtr*2 or actual calculation)
                               const hostTeamLtr = event.minLtr + event.maxLtr; // minLtr = maxLtr = avg, so sum = teamLtr
                               const minTeamAllowed = hostTeamLtr - 2;
                               const maxTeamAllowed = hostTeamLtr + 2;
                               return t('eventCard.requirements.canApplyDoublesTeam', {
-                                minLtr: Math.max(2, minTeamAllowed), // Minimum team LTR = 2 (1+1)
-                                maxLtr: Math.min(20, maxTeamAllowed), // Maximum team LTR = 20 (10+10)
+                                minLtr: Math.max(2, minTeamAllowed), // Minimum team LPR = 2 (1+1)
+                                maxLtr: Math.min(20, maxTeamAllowed), // Maximum team LPR = 20 (10+10)
                               });
                             } else {
-                              // 🎯 [LTR FIX v6] Singles: Use stored minLtr/maxLtr directly
+                              // 🎯 [LPR FIX v6] Singles: Use stored minLtr/maxLtr directly
                               // CreateEventForm stores hostLtr ± 1 range
                               return t('eventCard.requirements.canApply', {
                                 minLtr: Math.round(event.minLtr),

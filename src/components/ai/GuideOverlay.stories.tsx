@@ -20,7 +20,7 @@ export const Default: Story = {
   args: {
     visible: true,
     message:
-      '안녕하세요! Lightning Tennis에 오신 것을 환영합니다. 이제 첫 번째 단계를 시작해볼까요?',
+      '안녕하세요! Lightning Pickleball에 오신 것을 환영합니다. 이제 첫 번째 단계를 시작해볼까요?',
     showCloseButton: true,
     onClose: () => console.log('닫기'),
   },
@@ -102,7 +102,7 @@ export const TooltipLeft: Story = {
 export const EnglishVersion: Story = {
   args: {
     visible: true,
-    message: "Welcome to Lightning Tennis! Let's get you started with finding your first match.",
+    message: "Welcome to Lightning Pickleball! Let's get you started with finding your first match.",
     showCloseButton: true,
     nextButtonText: "Let's go!",
     onNext: () => console.log('Next'),

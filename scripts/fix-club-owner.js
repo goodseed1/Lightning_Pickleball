@@ -59,7 +59,7 @@ async function fixClubOwner() {
     console.log(`   Setting adminIds to: [${adminIds.join(', ')}]`);
 
     await db
-      .collection('tennis_clubs')
+      .collection('pickleball_clubs')
       .doc(clubId)
       .update({
         ownerId: ownerId,
@@ -73,7 +73,7 @@ async function fixClubOwner() {
   }
 
   // Verify
-  const verifyDoc = await db.collection('tennis_clubs').doc(clubId).get();
+  const verifyDoc = await db.collection('pickleball_clubs').doc(clubId).get();
   console.log('\n📋 Final club data:');
   console.log(`  ownerId: ${verifyDoc.data().ownerId}`);
   console.log(`  adminIds: [${verifyDoc.data().adminIds?.join(', ') || ''}]`);

@@ -336,8 +336,8 @@
     "enValue": "Walkover"
   },
   {
-    "key": "services.activity.tennisUserFallback",
-    "enValue": "TennisUser{{id}}"
+    "key": "services.activity.pickleballUserFallback",
+    "enValue": "PickleballUser{{id}}"
   },
   {
     "key": "aiMatching.candidate.strengths.volley",

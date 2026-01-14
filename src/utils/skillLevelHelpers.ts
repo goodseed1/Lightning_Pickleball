@@ -8,8 +8,8 @@
  * - Legacy numeric format: 0-100 (from old onboarding)
  * - Nested profile structures
  *
- * 📝 LTR vs NTRP 네이밍 규칙
- * UI 표시: "LTR" (Lightning Tennis Rating)
+ * 📝 LPR vs NTRP 네이밍 규칙
+ * UI 표시: "LPR" (Lightning Pickleball Rating)
  * 코드/DB: "ntrp" (변수명, 특히 ltrLevel)
  * 이유: Firestore 필드명 변경 위험 방지
  */

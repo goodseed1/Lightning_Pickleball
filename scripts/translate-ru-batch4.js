@@ -121,8 +121,8 @@ const dict = {
   'Insufficient players to create next round.':
     'Недостаточно игроков для создания следующего раунда.',
   'Add Participant Manually': 'Добавить участника вручную',
-  'Generating Bracket...': 'Создание сетки...',
-  'View Bracket': 'Просмотр сетки',
+  'Generating Bpaddle...': 'Создание сетки...',
+  'View Bpaddle': 'Просмотр сетки',
   'Start Tournament': 'Начать турнир',
   'Tournament started successfully!': 'Турнир успешно начался!',
   'Failed to start tournament.': 'Не удалось начать турнир.',
@@ -303,7 +303,7 @@ const dict = {
 
   // Profile Settings
   'Personal Information': 'Личная информация',
-  'Tennis Information': 'Теннисная информация',
+  'Pickleball Information': 'Теннисная информация',
   'Privacy Settings': 'Настройки приватности',
   'Notification Settings': 'Настройки уведомлений',
   'Account Settings': 'Настройки аккаунта',
@@ -317,7 +317,7 @@ const dict = {
   'Backhand Type': 'Тип бэкхенда',
   'Playing Style': 'Стиль игры',
   'Years of Experience': 'Лет опыта',
-  'Tennis Goals': 'Теннисные цели',
+  'Pickleball Goals': 'Теннисные цели',
   'Profile Visibility': 'Видимость профиля',
   'Show Email': 'Показывать email',
   'Show Phone Number': 'Показывать номер телефона',

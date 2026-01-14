@@ -14,7 +14,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { useLanguage } from '../contexts/LanguageContext';
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import { useAuth } from '../contexts/AuthContext';
 import clubService from '../services/clubService';
 
@@ -26,7 +26,7 @@ const MyClubSettingsScreen: React.FC = () => {
   const route = useRoute<MyClubSettingsScreenRouteProp>();
   const { t } = useLanguage();
   const { theme } = useTheme();
-  const themeColors = getLightningTennisTheme(theme);
+  const themeColors = getLightningPickleballTheme(theme);
 
   const { currentUser } = useAuth();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

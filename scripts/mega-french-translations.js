@@ -124,7 +124,7 @@ const MEGA_TRANSLATIONS = {
   Seeds: 'Têtes de série',
   Draw: 'Tirage au sort',
   'Generate Draw': 'Générer le tirage',
-  'Bracket View': 'Vue du tableau',
+  'Bpaddle View': 'Vue du tableau',
   Matches: 'Matchs',
   'Match Schedule': 'Calendrier des matchs',
   'Court Assignment': 'Attribution des courts',

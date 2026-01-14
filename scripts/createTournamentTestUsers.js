@@ -5,7 +5,7 @@
  *
  * 대상 클럽: 테스트 클럽 (WsetxkWODywjt0BBcqrs)
  * 회원 수: 25명
- * LTR 범위: 2.5 ~ 3.5
+ * LPR 범위: 2.5 ~ 3.5
  * 성별: 전원 남성 (male)
  *
  * 실행: node scripts/createTournamentTestUsers.js
@@ -33,31 +33,31 @@ const CLUB_NAME = '테스트 클럽';
 const DEFAULT_PASSWORD = '123456';
 const NUM_USERS = 25;
 
-// LTR 범위: 2.5 ~ 3.5
-const MIN_LTR = 2.5;
-const MAX_LTR = 3.5;
+// LPR 범위: 2.5 ~ 3.5
+const MIN_LPR = 2.5;
+const MAX_LPR = 3.5;
 
 // ==================== 유틸리티 함수 ====================
 
 /**
- * 2.5 ~ 3.5 사이의 랜덤 LTR 값 생성 (소수점 1자리)
+ * 2.5 ~ 3.5 사이의 랜덤 LPR 값 생성 (소수점 1자리)
  */
-function getRandomLTR() {
-  const ltr = MIN_LTR + Math.random() * (MAX_LTR - MIN_LTR);
+function getRandomLPR() {
+  const ltr = MIN_LPR + Math.random() * (MAX_LPR - MIN_LPR);
   return Math.round(ltr * 10) / 10;  // 소수점 1자리로 반올림
 }
 
 /**
- * LTR 값에 따른 selfAssessed 문자열 반환
+ * LPR 값에 따른 selfAssessed 문자열 반환
  */
-function getSelfAssessedFromLTR(ltr) {
+function getSelfAssessedFromLPR(ltr) {
   if (ltr < 2.75) return '2.5-3.0';
   if (ltr < 3.25) return '3.0-3.5';
   return '3.0-3.5';
 }
 
 /**
- * LTR 값에 따른 profile.skillLevel 문자열 반환
+ * LPR 값에 따른 profile.skillLevel 문자열 반환
  */
 function getProfileSkillLevel(ltr) {
   if (ltr < 3.0) return 'beginner';
@@ -111,7 +111,7 @@ async function createTournamentTestUsers() {
   console.log('🎾 =====================================================\n');
   console.log(`📍 대상 클럽: ${CLUB_NAME} (${CLUB_ID})`);
   console.log(`👥 생성할 회원 수: ${NUM_USERS}명`);
-  console.log(`📊 LTR 범위: ${MIN_LTR} ~ ${MAX_LTR}`);
+  console.log(`📊 LPR 범위: ${MIN_LPR} ~ ${MAX_LPR}`);
   console.log(`👨 성별: 전원 남성 (male)\n`);
 
   let successCount = 0;
@@ -122,7 +122,7 @@ async function createTournamentTestUsers() {
   for (let i = 1; i <= NUM_USERS; i++) {
     const email = `testplayer${i}@t.com`;
     const displayName = `테스트선수${i}`;
-    const ltr = getRandomLTR();
+    const ltr = getRandomLPR();
 
     console.log(`\n[${i}/${NUM_USERS}] 처리 중: ${displayName} (${email})`);
 
@@ -176,7 +176,7 @@ async function createTournamentTestUsers() {
         },
 
         skillLevel: {
-          selfAssessed: getSelfAssessedFromLTR(ltr),
+          selfAssessed: getSelfAssessedFromLPR(ltr),
           calculated: ltr,
           confidence: 0.75,
           lastUpdated: now,
@@ -271,7 +271,7 @@ async function createTournamentTestUsers() {
       });
 
       successCount++;
-      console.log(`   🎉 완료! LTR: ${ltr}`);
+      console.log(`   🎉 완료! LPR: ${ltr}`);
 
     } catch (error) {
       console.error(`   ❌ 오류 발생:`, error.message);
@@ -283,7 +283,7 @@ async function createTournamentTestUsers() {
   if (successCount > 0) {
     console.log(`\n📊 클럽 통계 업데이트 중...`);
     try {
-      await db.collection('tennis_clubs').doc(CLUB_ID).update({
+      await db.collection('pickleball_clubs').doc(CLUB_ID).update({
         'statistics.activeMembers': admin.firestore.FieldValue.increment(successCount),
         'statistics.totalMembers': admin.firestore.FieldValue.increment(successCount),
         updatedAt: admin.firestore.FieldValue.serverTimestamp(),
@@ -305,7 +305,7 @@ async function createTournamentTestUsers() {
 
   if (createdUsers.length > 0) {
     console.log('📋 생성된 회원 목록:');
-    console.log('   이름\t\t\tLTR\t이메일');
+    console.log('   이름\t\t\tLPR\t이메일');
     console.log('   ' + '-'.repeat(50));
     createdUsers.forEach(user => {
       console.log(`   ${user.displayName}\t${user.ltr}\t${user.email}`);

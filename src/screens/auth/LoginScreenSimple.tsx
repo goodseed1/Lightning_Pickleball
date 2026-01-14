@@ -157,11 +157,11 @@ const LoginScreenSimple: React.FC<LoginScreenSimpleProps> = ({ onNavigateToEmail
             <View style={styles.titleContainer}>
               <Image
                 // eslint-disable-next-line @typescript-eslint/no-require-imports
-                source={require('../../../assets/images/lightning-tennis-icon.png')}
+                source={require('../../../assets/images/lightning-pickleball-icon.png')}
                 style={styles.appIcon}
                 resizeMode='contain'
               />
-              <Text style={styles.appTitle}>Lightning Tennis</Text>
+              <Text style={styles.appTitle}>Lightning Pickleball</Text>
             </View>
             <Text style={styles.tagline}>{t('home.subtitle')}</Text>
             <Text style={styles.description}>{t('auth.loginDescription')}</Text>
@@ -229,7 +229,7 @@ const LoginScreenSimple: React.FC<LoginScreenSimpleProps> = ({ onNavigateToEmail
               <View style={styles.featureItem}>
                 <Image
                   // eslint-disable-next-line @typescript-eslint/no-require-imports
-                  source={require('../../../assets/images/lightning-tennis-icon.png')}
+                  source={require('../../../assets/images/lightning-pickleball-icon.png')}
                   style={styles.featureAppIcon}
                   resizeMode='contain'
                 />

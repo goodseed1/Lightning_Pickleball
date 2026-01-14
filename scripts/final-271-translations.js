@@ -159,7 +159,7 @@ const final271 = {
       assign: 'Atribuir',
     },
     emptyStates: {
-      bracketNotGenerated: 'Chave ainda não gerada',
+      bpaddleNotGenerated: 'Chave ainda não gerada',
     },
     labels: {
       participantCount: 'Participantes: {{current}}/{{max}}',

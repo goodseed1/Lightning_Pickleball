@@ -145,7 +145,7 @@ const translations = {
   'Not specified': 'Non spécifié',
   'Not applicable': 'Non applicable',
 
-  // Tennis specific
+  // Pickleball specific
   Match: 'Match',
   Matches: 'Matchs',
   Tournament: 'Tournoi',
@@ -568,7 +568,7 @@ const translations = {
   'Double Elimination': 'Élimination double',
   'Swiss System': 'Système suisse',
   Ladder: 'Échelle',
-  Bracket: 'Tableau',
+  Bpaddle: 'Tableau',
   Pool: 'Poule',
   Pools: 'Poules',
   Group: 'Groupe',
@@ -822,7 +822,7 @@ const translations = {
   'Tournament Format': 'Format du tournoi',
   'Tournament Schedule': 'Calendrier du tournoi',
   'Tournament Draw': 'Tableau du tournoi',
-  'Tournament Bracket': 'Grille du tournoi',
+  'Tournament Bpaddle': 'Grille du tournoi',
   'Tournament Registration': 'Inscription au tournoi',
   'Tournament Fee': "Frais d'inscription au tournoi",
   'Tournament Director': 'Directeur du tournoi',

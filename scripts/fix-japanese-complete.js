@@ -727,7 +727,7 @@ const japaneseTranslations = {
     state: '州',
     country: '国',
 
-    tennisInfo: 'テニス情報',
+    pickleballInfo: 'テニス情報',
     skillLevel: 'スキルレベル',
     playingStyle: 'プレースタイル',
     dominantHand: '利き手',

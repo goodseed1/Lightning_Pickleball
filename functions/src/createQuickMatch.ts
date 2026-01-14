@@ -3,13 +3,13 @@
  *
  * Creates a quick match (⚡) invitation with validation:
  * - Gender matching (same gender only)
- * - LTR validation (target.ltr <= host.ltr + 1)
+ * - LPR validation (target.ltr <= host.ltr + 1)
  * - Auto-creates event chat room
  * - Sends push notification to target
  *
  * @author Kim
  * @date 2025-12-11
- * @updated 2025-12-30 - NTRP → LTR migration
+ * @updated 2025-12-30 - NTRP → LPR migration
  */
 
 import { onCall, HttpsError } from 'firebase-functions/v2/https';
@@ -34,7 +34,7 @@ interface CreateQuickMatchRequest {
 }
 
 /**
- * Extract numeric LTR from user data
+ * Extract numeric LPR from user data
  * Priority: skillLevel (number) → profile.skillLevel.selfAssessed → default 5
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -58,7 +58,7 @@ const getNumericLtr = (userData: Record<string, any>): number => {
     return isNaN(value) ? 5 : Math.round(value);
   }
 
-  // 3. Default LTR
+  // 3. Default LPR
   return 5; // Platinum I
 };
 
@@ -164,11 +164,11 @@ export const createQuickMatch = onCall<CreateQuickMatchRequest>(async request =>
       );
     }
 
-    // 6. LTR validation: target.ltr <= host.ltr + 1
+    // 6. LPR validation: target.ltr <= host.ltr + 1
     if (targetLtr > hostLtr + 1) {
       throw new HttpsError(
         'invalid-argument',
-        `퀵 매치는 본인 LTR + 1 이하의 상대에게만 신청 가능합니다. (당신: ${hostLtr}, 상대: ${targetLtr})`
+        `퀵 매치는 본인 LPR + 1 이하의 상대에게만 신청 가능합니다. (당신: ${hostLtr}, 상대: ${targetLtr})`
       );
     }
 

@@ -48,13 +48,13 @@ async function analyzeClubMembers() {
   );
 
   for (const [clubId, clubData] of sortedClubs) {
-    // Get club info from tennis_clubs
+    // Get club info from pickleball_clubs
     try {
-      const clubDoc = await db.collection('tennis_clubs').doc(clubId).get();
+      const clubDoc = await db.collection('pickleball_clubs').doc(clubId).get();
       const clubInfo = clubDoc.exists ? clubDoc.data() : null;
 
       console.log(`🏢 Club ID: ${clubId}`);
-      console.log(`   Name in tennis_clubs: "${clubInfo?.name || '(not found/empty)'}"`);
+      console.log(`   Name in pickleball_clubs: "${clubInfo?.name || '(not found/empty)'}"`);
       console.log(`   Member Count: ${clubData.members.length}`);
       console.log(`   Members:`);
 

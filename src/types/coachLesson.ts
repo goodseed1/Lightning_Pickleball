@@ -1,6 +1,6 @@
 /**
  * 코치 레슨 게시판 타입 정의
- * 테니스 레슨 공지를 위한 게시판 데이터 구조
+ * 피클볼 레슨 공지를 위한 게시판 데이터 구조
  */
 
 import { Timestamp } from 'firebase/firestore';

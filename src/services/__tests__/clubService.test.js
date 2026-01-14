@@ -219,8 +219,8 @@ describe.skip('ClubService Integration Tests', () => {
     it('should create club with valid authenticated user', async () => {
       // Arrange
       const clubData = {
-        name: 'Test Tennis Club',
-        description: 'A great tennis club',
+        name: 'Test Pickleball Club',
+        description: 'A great pickleball club',
         location: 'Seoul, Korea',
       };
       const mockClubId = 'club123';

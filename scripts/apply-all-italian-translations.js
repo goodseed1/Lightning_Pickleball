@@ -314,7 +314,7 @@ const completeItalianTranslations = {
     unregisterFromTournament: 'Annulla Iscrizione',
     confirmRegistration: 'Conferma Iscrizione',
     paymentRequired: 'Pagamento Richiesto',
-    viewBracket: 'Visualizza Tabellone',
+    viewBpaddle: 'Visualizza Tabellone',
     updateScore: 'Aggiorna Punteggio',
     reportWinner: 'Dichiara Vincitore',
     tournamentWinner: 'Vincitore Torneo',
@@ -1128,7 +1128,7 @@ const completeItalianTranslations = {
     title: 'Modifica Profilo',
     personalInfo: 'Informazioni Personali',
     contactInfo: 'Informazioni di Contatto',
-    tennisInfo: 'Informazioni Tennis',
+    pickleballInfo: 'Informazioni Pickleball',
     saveChanges: 'Salva Modifiche',
     cancel: 'Annulla',
     uploadPhoto: 'Carica Foto',
@@ -1568,7 +1568,7 @@ const completeItalianTranslations = {
   },
 
   tournamentDetail: {
-    bracket: 'Tabellone',
+    bpaddle: 'Tabellone',
     participants: 'Partecipanti',
     schedule: 'Calendario',
     results: 'Risultati',
@@ -1601,7 +1601,7 @@ const completeItalianTranslations = {
   },
 
   ntrpSelector: {
-    title: 'Seleziona Livello LTR',
+    title: 'Seleziona Livello LPR',
     beginner: 'Principiante',
     advanced: 'Avanzato',
   },
@@ -1642,7 +1642,7 @@ const completeItalianTranslations = {
 
   tournament: {
     register: 'Iscriviti',
-    bracket: 'Tabellone',
+    bpaddle: 'Tabellone',
   },
 
   lessonCard: {

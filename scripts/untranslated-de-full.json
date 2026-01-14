@@ -75,7 +75,7 @@
     "targetValue": "Manager"
   },
   {
-    "key": "alert.tournamentBracket.info",
+    "key": "alert.tournamentBpaddle.info",
     "enValue": "Info",
     "targetValue": "Info"
   },
@@ -405,9 +405,9 @@
     "targetValue": "Walkover"
   },
   {
-    "key": "services.activity.tennisUserFallback",
-    "enValue": "TennisUser{{id}}",
-    "targetValue": "TennisUser{{id}}"
+    "key": "services.activity.pickleballUserFallback",
+    "enValue": "PickleballUser{{id}}",
+    "targetValue": "PickleballUser{{id}}"
   },
   {
     "key": "aiMatching.candidate.strengths.volley",

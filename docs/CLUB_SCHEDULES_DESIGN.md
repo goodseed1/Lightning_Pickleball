@@ -1,8 +1,8 @@
-# 📅 Lightning Tennis 클럽 정기 모임 일정 시스템 설계
+# 📅 Lightning Pickleball 클럽 정기 모임 일정 시스템 설계
 
 ## 🎯 개요
 
-Lightning Tennis의 **클럽 정기 모임 일정(Club Schedules)** 시스템은 테니스 클럽들이 매주 반복되는 정기 모임, 연습, 리그 경기 등을 효율적으로 관리할 수 있도록 설계되었습니다. 이 시스템을 통해 클럽 회원들은 정기적인 테니스 활동을 쉽게 확인하고 참여할 수 있습니다.
+Lightning Pickleball의 **클럽 정기 모임 일정(Club Schedules)** 시스템은 피클볼 클럽들이 매주 반복되는 정기 모임, 연습, 리그 경기 등을 효율적으로 관리할 수 있도록 설계되었습니다. 이 시스템을 통해 클럽 회원들은 정기적인 피클볼 활동을 쉽게 확인하고 참여할 수 있습니다.
 
 ## 🏗️ 시스템 아키텍처
 
@@ -54,7 +54,7 @@ graph TD
 
   // 장소 정보
   location: {
-    name: string,             // "Central Park Tennis Courts"
+    name: string,             // "Central Park Pickleball Courts"
     address: string,          // 전체 주소
     courtIds: [string],       // 특정 코트 ID들
     coordinates: {            // GPS 좌표
@@ -193,12 +193,12 @@ graph TD
 }
 ```
 
-### 2. 친목 테니스 (Social Tennis)
+### 2. 친목 피클볼 (Social Pickleball)
 
 ```typescript
 {
   scheduleType: 'social',
-  title: '토요일 아침 친목 테니스',
+  title: '토요일 아침 친목 피클볼',
   dayOfWeek: 6, // Saturday
   time: '09:00',
   duration: 180,
@@ -334,7 +334,7 @@ exceptions: [
     type: 'location_change',
     alternativeDetails: {
       location: {
-        name: 'Brooklyn Tennis Center',
+        name: 'Brooklyn Pickleball Center',
         address: '123 Brooklyn St',
       },
     },
@@ -414,13 +414,13 @@ const DAY_OF_WEEK_LABELS = {
 const SCHEDULE_TYPE_LABELS = {
   en: {
     practice: 'Practice Session',
-    social: 'Social Tennis',
+    social: 'Social Pickleball',
     league_match: 'League Match',
     clinic: 'Training Clinic',
   },
   ko: {
     practice: '연습 세션',
-    social: '친목 테니스',
+    social: '친목 피클볼',
     league_match: '리그 경기',
     clinic: '트레이닝 클리닉',
   },
@@ -535,4 +535,4 @@ reminders: {
 
 ---
 
-Lightning Tennis의 클럽 정기 모임 일정 시스템은 테니스 클럽들이 체계적으로 운영될 수 있도록 돕는 핵심 기능입니다. 자동화된 이벤트 생성과 유연한 반복 규칙을 통해 클럽 관리자의 부담을 줄이고, 회원들에게는 예측 가능한 테니스 활동을 제공합니다.
+Lightning Pickleball의 클럽 정기 모임 일정 시스템은 피클볼 클럽들이 체계적으로 운영될 수 있도록 돕는 핵심 기능입니다. 자동화된 이벤트 생성과 유연한 반복 규칙을 통해 클럽 관리자의 부담을 줄이고, 회원들에게는 예측 가능한 피클볼 활동을 제공합니다.

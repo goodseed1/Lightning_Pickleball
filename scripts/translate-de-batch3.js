@@ -73,7 +73,7 @@ const germanTranslations = {
       notifications: {
         playoffsQualifiedTitle: '🏆 Playoffs qualifiziert!',
       },
-      tennisUserFallback: 'TennisUser{{id}}',
+      pickleballUserFallback: 'PickleballUser{{id}}',
     },
     camera: {
       permissionMessage: 'Kameraberechtigung wird benötigt, um Profilfotos aufzunehmen.',
@@ -245,7 +245,7 @@ const germanTranslations = {
       rally: 'Rally/Training',
     },
     skillDescriptions: {
-      beginner: 'Anfänger - Neu im Tennis oder lernt grundlegende Schläge',
+      beginner: 'Anfänger - Neu im Pickleball oder lernt grundlegende Schläge',
       elementary:
         'Grundkenntnisse - Kann grundlegende Schläge ausführen, versteht Doppel-Grundlagen',
       intermediate: 'Fortgeschritten - Konsistente Schläge, strategisches Spiel',
@@ -439,7 +439,7 @@ const germanTranslations = {
   editProfile: {
     sections: {
       personal: 'Persönlich',
-      tennis: 'Tennis',
+      pickleball: 'Pickleball',
       contact: 'Kontakt',
       preferences: 'Präferenzen',
     },

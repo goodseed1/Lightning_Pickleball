@@ -1,23 +1,23 @@
 /**
  * League Type Definitions
- * Lightning Tennis 클럽 리그 시스템 타입 정의
+ * Lightning Pickleball 클럽 리그 시스템 타입 정의
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 
 import { Timestamp as FirebaseTimestamp } from 'firebase/firestore';
 
 /**
- * ⭐ 핵심 추가: Tennis Event Types - 테니스 경기 종류
+ * ⭐ 핵심 추가: Pickleball Event Types - 피클볼 경기 종류
  * 성별과 경기 형태를 조합한 분류
  */
-export type TennisEventType =
+export type PickleballEventType =
   | 'mens_singles' // 남자 단식
   | 'womens_singles' // 여자 단식
   | 'mens_doubles' // 남자 복식
@@ -56,7 +56,7 @@ export type LeagueFormat =
 // 점수 시스템
 export type ScoringSystem =
   | 'standard' // 승리 3점, 무승부 1점, 패배 0점
-  | 'tennis' // 승리 2점, 패배 0점
+  | 'pickleball' // 승리 2점, 패배 0점
   | 'custom'; // 사용자 정의
 
 // 매치 상태
@@ -207,7 +207,7 @@ export interface LeagueParticipant {
 export interface LeagueMatch {
   id: string;
   leagueId: string;
-  eventType: TennisEventType; // 매치의 경기 종류
+  eventType: PickleballEventType; // 매치의 경기 종류
   round: number; // 라운드
   matchNumber?: number; // 고유 경기 번호 (생성 순서 기준, optional for backward compatibility)
 
@@ -303,8 +303,8 @@ export interface League {
   name: string; // 시즌 이름 (요구사항: name 필드)
   seasonNumber?: number; // 시즌 번호
 
-  // ⭐ 핵심: 테니스 경기 종류
-  eventType: TennisEventType; // 남자단식, 여자단식, 남자복식, 여자복식, 혼합복식
+  // ⭐ 핵심: 피클볼 경기 종류
+  eventType: PickleballEventType; // 남자단식, 여자단식, 남자복식, 여자복식, 혼합복식
 
   // 기본 정보
   description?: string;
@@ -427,7 +427,7 @@ export interface CreateLeagueRequest {
   clubId: string;
   seasonName: string;
   title: string;
-  eventType: TennisEventType; // ⭐ 핵심: 경기 종류 선택
+  eventType: PickleballEventType; // ⭐ 핵심: 경기 종류 선택
   description?: string;
   settings: LeagueSettings;
   startDate: Date;
@@ -502,7 +502,7 @@ export const calculatePlayerPoints = (
 };
 
 /**
- * 번개 테니스 공식 리그 타이브레이커 규정 v1.0
+ * 번개 피클볼 공식 리그 타이브레이커 규정 v1.0
  *
  * 리그 순위표 정렬 함수 (동점자 처리 포함)
  *
@@ -627,7 +627,7 @@ export const getPlayerForm = (matches: LeagueMatch[], playerId: string, limit = 
 /**
  * 경기 종류로부터 매치 형태 추출
  */
-export const getMatchFormatFromEventType = (eventType: TennisEventType): MatchFormat => {
+export const getMatchFormatFromEventType = (eventType: PickleballEventType): MatchFormat => {
   if (eventType.includes('singles')) return 'singles';
   return 'doubles';
 };
@@ -635,7 +635,7 @@ export const getMatchFormatFromEventType = (eventType: TennisEventType): MatchFo
 /**
  * 경기 종류에 필요한 성별 검증
  */
-export const getRequiredGendersForEvent = (eventType: TennisEventType): Gender[] => {
+export const getRequiredGendersForEvent = (eventType: PickleballEventType): Gender[] => {
   switch (eventType) {
     case 'mens_singles':
     case 'mens_doubles':
@@ -652,14 +652,14 @@ export const getRequiredGendersForEvent = (eventType: TennisEventType): Gender[]
 
 /**
  * 참가자 성별이 경기 종류에 적합한지 검증
- * @param eventType - Tennis event type
+ * @param eventType - Pickleball event type
  * @param playerGender - Player's gender
  * @param partnerGender - Partner's gender (for doubles)
  * @param t - i18n translation function
  * @returns Validation result with translated error message
  */
 export const validateParticipantGender = (
-  eventType: TennisEventType,
+  eventType: PickleballEventType,
   playerGender: Gender,
   partnerGender?: Gender,
   t?: (key: string, params?: Record<string, string>) => string
@@ -728,17 +728,17 @@ export const validateParticipantGender = (
 
 /**
  * 경기 종류별 표시명
- * @param eventType - Tennis event type
+ * @param eventType - Pickleball event type
  * @param t - i18n translation function
  * @returns Translated event type display name
  */
-export const getTennisEventTypeDisplayName = (
-  eventType: TennisEventType,
+export const getPickleballEventTypeDisplayName = (
+  eventType: PickleballEventType,
   t?: (key: string) => string
 ): string => {
   // Convert snake_case to camelCase for translation key
   // e.g., 'mens_singles' → 'mensSingles'
-  const eventTypeKeyMap: Record<TennisEventType, string> = {
+  const eventTypeKeyMap: Record<PickleballEventType, string> = {
     mens_singles: 'mensSingles',
     womens_singles: 'womensSingles',
     mens_doubles: 'mensDoubles',
@@ -752,7 +752,7 @@ export const getTennisEventTypeDisplayName = (
   }
 
   // Fallback to Korean if no translation function provided
-  const eventTypeNames: Record<TennisEventType, string> = {
+  const eventTypeNames: Record<PickleballEventType, string> = {
     mens_singles: '남자 단식',
     womens_singles: '여자 단식',
     mens_doubles: '남자 복식',
@@ -767,7 +767,7 @@ export const getTennisEventTypeDisplayName = (
  * 리그에서 필요한 최소/최대 참가자 수 계산
  */
 export const calculateParticipantLimits = (
-  eventType: TennisEventType,
+  eventType: PickleballEventType,
   format: LeagueFormat
 ): { minParticipants: number; maxParticipants: number } => {
   const isDoubles = getMatchFormatFromEventType(eventType) === 'doubles';

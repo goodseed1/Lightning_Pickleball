@@ -8,7 +8,7 @@ if (!admin.apps.length) {
 }
 
 const db = admin.firestore();
-const clubId = 'TwT7LfZ5wKxvdhc89igj'; // Lightning Tennis Club
+const clubId = 'TwT7LfZ5wKxvdhc89igj'; // Lightning Pickleball Club
 
 async function checkEvents() {
   const today = new Date();
@@ -90,7 +90,7 @@ async function checkEvents() {
   console.log('');
 
   const total = upcomingMeetups + recentEvents + activeLeagues + activeTournaments;
-  console.log('=== TOTAL for Lightning Tennis Club ===');
+  console.log('=== TOTAL for Lightning Pickleball Club ===');
   console.log(`  🎾 Meetups (upcoming): ${upcomingMeetups}`);
   console.log(`  📅 Events (30d): ${recentEvents}`);
   console.log(`  🏆 Leagues (active): ${activeLeagues}`);

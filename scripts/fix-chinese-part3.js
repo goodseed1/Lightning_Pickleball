@@ -49,9 +49,9 @@ const chineseTranslations = {
       website: '网站',
       socialMedia: '社交媒体',
     },
-    tennisInfo: {
+    pickleballInfo: {
       skillLevel: '技能等级',
-      ltrRating: 'LTR评级',
+      ltrRating: 'LPR评级',
       playingSince: '打球年限',
       playingStyle: '打球风格',
       favoriteShot: '最喜欢的击球',

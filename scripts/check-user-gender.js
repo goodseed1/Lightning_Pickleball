@@ -20,9 +20,9 @@ async function checkUserLocations() {
   console.log('║  🔍 User Location Structure Check (DETAILED)               ║');
   console.log('╚════════════════════════════════════════════════════════════╝\n');
 
-  // Get authors from coach_lessons and tennis_services
+  // Get authors from coach_lessons and pickleball_services
   const lessonsSnapshot = await db.collection('coach_lessons').get();
-  const servicesSnapshot = await db.collection('tennis_services').get();
+  const servicesSnapshot = await db.collection('pickleball_services').get();
 
   const authorIds = new Set();
   lessonsSnapshot.docs.forEach(doc => authorIds.add(doc.data().authorId));

@@ -1,5 +1,5 @@
 /**
- * ELO Rating Service for Lightning Tennis
+ * ELO Rating Service for Lightning Pickleball
  * Calculates and manages player ELO ratings based on match results
  */
 

@@ -241,7 +241,7 @@ function autoTranslate(text) {
     Favorite: 'お気に入り',
     Favorites: 'お気に入り',
 
-    // Tennis-specific
+    // Pickleball-specific
     Singles: 'シングルス',
     Doubles: 'ダブルス',
     Mixed: 'ミックス',
@@ -263,7 +263,7 @@ function autoTranslate(text) {
     Opponent: '対戦相手',
     Partner: 'パートナー',
     Round: 'ラウンド',
-    Bracket: 'トーナメント表',
+    Bpaddle: 'トーナメント表',
     Schedule: 'スケジュール',
     Venue: '会場',
     Practice: '練習',

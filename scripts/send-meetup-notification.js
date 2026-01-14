@@ -36,7 +36,7 @@ function formatMeetupTime(timestamp) {
  * 클럽 이름 가져오기
  */
 async function getClubName(clubId) {
-  const clubDoc = await db.collection('tennis_clubs').doc(clubId).get();
+  const clubDoc = await db.collection('pickleball_clubs').doc(clubId).get();
   if (clubDoc.exists) {
     const data = clubDoc.data();
     return data?.profile?.clubName || data?.name || '클럽';

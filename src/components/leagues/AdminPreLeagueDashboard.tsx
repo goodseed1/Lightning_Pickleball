@@ -23,7 +23,7 @@ import { Timestamp } from 'firebase/firestore';
 
 interface AdminPreLeagueDashboardProps {
   league: League | null;
-  onGenerateBracket: () => void;
+  onGenerateBpaddle: () => void;
   isGenerating: boolean;
 }
 
@@ -52,7 +52,7 @@ interface Application {
 export const AdminPreLeagueDashboard: React.FC<AdminPreLeagueDashboardProps> = ({
   league,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onGenerateBracket: _onGenerateBracket,
+  onGenerateBpaddle: _onGenerateBpaddle,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   isGenerating: _isGenerating,
 }) => {

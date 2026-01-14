@@ -23,7 +23,7 @@ async function addRandomMembers() {
   console.log(`🎾 Finding club by ID: ${CLUB_ID}...\n`);
 
   // 1. Find the club by ID
-  const clubDoc = await db.collection('tennis_clubs').doc(CLUB_ID).get();
+  const clubDoc = await db.collection('pickleball_clubs').doc(CLUB_ID).get();
 
   if (!clubDoc.exists) {
     console.log(`❌ Club not found!`);

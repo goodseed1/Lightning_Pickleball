@@ -10,9 +10,9 @@ if (!admin.apps.length) {
 const db = admin.firestore();
 
 async function clearClubChat() {
-  const clubId = 'WsetxkWODywjt0BBcqrs'; // Lightning Tennis Club
+  const clubId = 'WsetxkWODywjt0BBcqrs'; // Lightning Pickleball Club
 
-  console.log('🧹 Lightning Tennis Club 대화방 메시지 삭제\n');
+  console.log('🧹 Lightning Pickleball Club 대화방 메시지 삭제\n');
   console.log('='.repeat(60));
 
   // 1. clubChat 컬렉션에서 해당 클럽 메시지 삭제

@@ -131,7 +131,7 @@ export const onClubJoinRequestCreated = onDocumentCreated(
 
       // 🔍 Fetch club data to get club name
       console.log('🔔 [CLUB JOIN TRIGGER] Fetching club data...');
-      const clubRef = db.doc(`tennis_clubs/${clubId}`);
+      const clubRef = db.doc(`pickleball_clubs/${clubId}`);
       const clubSnap = await clubRef.get();
 
       if (!clubSnap.exists) {

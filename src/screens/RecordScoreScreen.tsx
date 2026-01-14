@@ -1,11 +1,11 @@
 /**
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, ScrollView, Alert, TextInput as RNTextInput } from 'react-native';
@@ -16,7 +16,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/AppNavigator';
 
 import { useTheme } from '../hooks/useTheme';
-import { getLightningTennisTheme } from '../theme';
+import { getLightningPickleballTheme } from '../theme';
 import { useAuth } from '../contexts/AuthContext';
 import ActivityService from '../services/activityService';
 import userService from '../services/userService';
@@ -64,7 +64,7 @@ export default function RecordScoreScreen() {
   const route = useRoute<RecordScoreRouteProp>();
   const { currentUser } = useAuth();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const { t } = useLanguage();
 
   const { eventId } = route.params;
@@ -130,8 +130,8 @@ export default function RecordScoreScreen() {
     []
   );
 
-  // Tennis score validation function
-  const isValidTennisScore = (score1: number, score2: number): boolean => {
+  // Pickleball score validation function
+  const isValidPickleballScore = (score1: number, score2: number): boolean => {
     const maxScore = Math.max(score1, score2);
     const minScore = Math.min(score1, score2);
 
@@ -415,7 +415,7 @@ export default function RecordScoreScreen() {
       return false;
     }
 
-    // Comprehensive tennis rules validation
+    // Comprehensive pickleball rules validation
     let completedSets = 0;
     const setsToCheck = calculateSetsToDisplay();
 
@@ -438,7 +438,7 @@ export default function RecordScoreScreen() {
         return false;
       }
 
-      // Tennis scoring rules validation
+      // Pickleball scoring rules validation
       const isTiebreakSet = score1 === 6 && score2 === 6;
 
       if (isTiebreakSet) {
@@ -518,7 +518,7 @@ export default function RecordScoreScreen() {
           } else {
             Alert.alert(
               t('recordScore.alerts.notice'),
-              t('recordScore.alerts.invalidTennisScore', { set: i + 1 })
+              t('recordScore.alerts.invalidPickleballScore', { set: i + 1 })
             );
             return false;
           }
@@ -576,7 +576,7 @@ export default function RecordScoreScreen() {
         const player2Games = parseInt(set.player2, 10);
         let scoreString = `${set.player1}-${set.player2}`;
 
-        // Add tiebreak scores in proper tennis format for 6-6 sets
+        // Add tiebreak scores in proper pickleball format for 6-6 sets
         const isTiebreakSet = player1Games === 6 && player2Games === 6;
 
         if (isTiebreakSet && (set.player1_tb || set.player2_tb)) {
@@ -771,9 +771,9 @@ export default function RecordScoreScreen() {
     const player1Score = parseInt(newScoreSets[setIndex].player1 || '0', 10);
     const player2Score = parseInt(newScoreSets[setIndex].player2 || '0', 10);
 
-    // 테니스 규칙 검증 (둘 다 점수가 입력된 경우에만)
+    // 피클볼 규칙 검증 (둘 다 점수가 입력된 경우에만)
     if (newScoreSets[setIndex].player1 && newScoreSets[setIndex].player2) {
-      if (!isValidTennisScore(player1Score, player2Score)) {
+      if (!isValidPickleballScore(player1Score, player2Score)) {
         // 유효하지 않은 점수면 경고 표시하고 입력 차단
         Alert.alert(
           t('recordScore.alerts.invalidScore'),
@@ -820,7 +820,7 @@ export default function RecordScoreScreen() {
     const isStandardTiebreak = currentSet.player1 === '6' && currentSet.player2 === '6';
     const showTiebreak = isStandardTiebreak;
 
-    // Determine tiebreak type based on official tennis rules:
+    // Determine tiebreak type based on official pickleball rules:
     // - 1st/2nd set at 6-6: 7-point tiebreak
     // - 3rd set at 6-6: 10-point super tiebreak
     let tiebreakType = 'standard';
@@ -887,7 +887,7 @@ export default function RecordScoreScreen() {
                   {participants[0]?.displayName || 'Player 1'}
                 </Text>
                 <View style={styles.tiebreakInputWrapper}>
-                  <Text style={styles.tiebreakBracket}>(</Text>
+                  <Text style={styles.tiebreakBpaddle}>(</Text>
                   <RNTextInput
                     value={currentSet.player1_tb || ''}
                     onChangeText={value => updateScore(setIndex, 'player1_tb', value)}
@@ -897,7 +897,7 @@ export default function RecordScoreScreen() {
                     placeholder={tiebreakType === 'match' || tiebreakType === 'super' ? '10' : '7'}
                     placeholderTextColor={themeColors.colors.onSurfaceVariant}
                   />
-                  <Text style={styles.tiebreakBracket}>)</Text>
+                  <Text style={styles.tiebreakBpaddle}>)</Text>
                 </View>
               </View>
 
@@ -908,7 +908,7 @@ export default function RecordScoreScreen() {
                   {participants[1]?.displayName || 'Player 2'}
                 </Text>
                 <View style={styles.tiebreakInputWrapper}>
-                  <Text style={styles.tiebreakBracket}>(</Text>
+                  <Text style={styles.tiebreakBpaddle}>(</Text>
                   <RNTextInput
                     value={currentSet.player2_tb || ''}
                     onChangeText={value => updateScore(setIndex, 'player2_tb', value)}
@@ -918,7 +918,7 @@ export default function RecordScoreScreen() {
                     placeholder={tiebreakType === 'match' || tiebreakType === 'super' ? '10' : '7'}
                     placeholderTextColor={themeColors.colors.onSurfaceVariant}
                   />
-                  <Text style={styles.tiebreakBracket}>)</Text>
+                  <Text style={styles.tiebreakBpaddle}>)</Text>
                 </View>
               </View>
             </View>
@@ -1261,7 +1261,7 @@ const createStyles = (colors: Record<string, string>, isDarkMode: boolean) =>
       flexDirection: 'row',
       alignItems: 'center',
     },
-    tiebreakBracket: {
+    tiebreakBpaddle: {
       fontSize: 18,
       fontWeight: 'bold',
       color: colors.primary,

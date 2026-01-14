@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useTranslation } from 'react-i18next';
 
 export type MainTabType = 'information' | 'stats' | 'activity' | 'friends' | 'settings';
@@ -23,7 +23,7 @@ const ProfileTabNavigation: React.FC<ProfileTabNavigationProps> = ({
   unreadEventChatCount = 0, // 🎯 [KIM FIX] Red badge - unread chat messages
 }) => {
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors);
   const { t } = useTranslation();
 

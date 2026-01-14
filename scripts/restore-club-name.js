@@ -11,10 +11,10 @@ async function restoreClubName() {
   console.log('🔧 Restoring club name...\n');
 
   const clubId = 'WsetxkWODywjt0BBcqrs';
-  const newName = 'Lightning Tennis Club';
+  const newName = 'Lightning Pickleball Club';
 
   // Check current state
-  const clubRef = db.collection('tennis_clubs').doc(clubId);
+  const clubRef = db.collection('pickleball_clubs').doc(clubId);
   const clubDoc = await clubRef.get();
 
   if (clubDoc.exists) {

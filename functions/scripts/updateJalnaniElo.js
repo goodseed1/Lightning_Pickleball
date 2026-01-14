@@ -4,7 +4,7 @@
  */
 
 const admin = require('firebase-admin');
-const serviceAccount = require('/Volumes/DevSSD/development/Projects/lightning-tennis-react/lightning-tennis-simple/service-account-key.json');
+const serviceAccount = require('/Volumes/DevSSD/development/Projects/lightning-pickleball-react/lightning-pickleball-simple/service-account-key.json');
 
 if (!admin.apps.length) {
   admin.initializeApp({

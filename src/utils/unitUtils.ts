@@ -1,5 +1,5 @@
 /**
- * Unit Conversion Utilities for Lightning Tennis
+ * Unit Conversion Utilities for Lightning Pickleball
  * Global Unit Control Room - Centralized distance formatting system
  *
  * Handles automatic km/miles conversion based on user country and language

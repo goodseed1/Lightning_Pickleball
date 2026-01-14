@@ -10,7 +10,7 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { PieChart } from 'react-native-chart-kit';
 import { Card, useTheme as usePaperTheme } from 'react-native-paper';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const screenWidth = Dimensions.get('window').width;
@@ -18,7 +18,7 @@ const screenWidth = Dimensions.get('window').width;
 const WinRateChart = ({ stats }) => {
   const { theme: currentTheme } = useTheme();
   const paperTheme = usePaperTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const { t } = useLanguage();
 
   if (!stats || (stats.wins === 0 && stats.losses === 0)) {

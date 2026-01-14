@@ -12,7 +12,7 @@ const translations = {
       subtitle: '캐주얼 모임',
     },
     createClub: {
-      subtitle: '테니스 커뮤니티',
+      subtitle: '피클볼 커뮤니티',
     },
   },
   createModal: {

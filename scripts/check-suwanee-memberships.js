@@ -16,7 +16,7 @@ async function checkMemberships() {
   console.log('🔍 Checking memberships for Suwanee Weekend Warriors...\n');
 
   // Check club data first
-  const clubDoc = await db.collection('tennis_clubs').doc(CLUB_ID).get();
+  const clubDoc = await db.collection('pickleball_clubs').doc(CLUB_ID).get();
   const clubData = clubDoc.data();
   console.log('📊 Club Data:');
   console.log('  memberCount:', clubData.memberCount);

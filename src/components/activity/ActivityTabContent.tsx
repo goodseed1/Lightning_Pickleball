@@ -2,13 +2,13 @@
  * Enhanced Activity Tab Content Component
  * Handles all three activity tabs with proper data management
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 
 import React, { useState, useMemo, useEffect } from 'react';
@@ -27,7 +27,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTheme } from '../../hooks/useTheme';
 import { useAuth } from '../../contexts/AuthContext';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { EventWithParticipation } from '../../types/activity';
 import { PartnerInvitation } from '../../types/match';
 import { FriendInvitation } from '../cards/FriendInvitationCard';
@@ -120,7 +120,7 @@ const ActivityTabContent: React.FC<ActivityTabContentProps> = ({
   const { theme: currentTheme } = useTheme();
   const { currentUser } = useAuth();
   const { t } = useLanguage();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors as unknown as { [key: string]: string });
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const [activeTab, setActiveTab] = useState<'applied' | 'hosted' | 'past'>(initialTab);

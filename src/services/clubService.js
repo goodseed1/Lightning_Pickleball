@@ -1,5 +1,5 @@
 /**
- * Club Management Service for Lightning Tennis
+ * Club Management Service for Lightning Pickleball
  * Handles all club-related operations including creation, membership, events, and chat
  */
 
@@ -35,7 +35,7 @@ import pushNotificationService from './pushNotificationService';
 
 // 🏗️ CENTRALIZED COLLECTION REFERENCES - DRY Principle Applied
 // Single source of truth for all Firestore collection references
-const clubsCollectionRef = collection(db, 'tennis_clubs');
+const clubsCollectionRef = collection(db, 'pickleball_clubs');
 
 /**
  * Club Service Class
@@ -189,7 +189,7 @@ class ClubService {
   // ============ CLUB MANAGEMENT ============
 
   /**
-   * Create a new tennis club
+   * Create a new pickleball club
    * @param {Object} clubData - Club information
    * @returns {Promise<string>} Created club ID
    */
@@ -497,7 +497,7 @@ class ClubService {
   }
 
   /**
-   * Update existing tennis club
+   * Update existing pickleball club
    * @param {string} clubId - Club ID to update
    * @param {Object} clubData - Updated club information
    * @returns {Promise<void>}
@@ -521,7 +521,7 @@ class ClubService {
 
       // Try Firebase, fallback to mock if unavailable
       try {
-        const clubRef = doc(db, 'tennis_clubs', clubId);
+        const clubRef = doc(db, 'pickleball_clubs', clubId);
 
         // Prepare updated club document
         const updateData = {
@@ -590,7 +590,7 @@ class ClubService {
       }
 
       // Try Firebase for regular clubs
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       const clubSnap = await getDoc(clubRef);
 
       if (!clubSnap.exists()) {
@@ -752,41 +752,41 @@ class ClubService {
         const mockClubs = [
           {
             id: 'mock-public-club-1',
-            name: '서울 중앙 테니스 클럽',
-            description: '서울 중심가에서 활동하는 다양한 레벨의 테니스 동호회입니다.',
+            name: '서울 중앙 피클볼 클럽',
+            description: '서울 중심가에서 활동하는 다양한 레벨의 피클볼 동호회입니다.',
             location: '서울시 강남구',
             fullAddress: '서울특별시 강남구 테헤란로 123',
             logoUrl: null,
             memberCount: 45,
             maxMembers: 60,
             isPublic: true,
-            tags: ['테니스', '동호회', '강남'],
+            tags: ['피클볼', '동호회', '강남'],
             establishedDate: new Date('2023-01-01'),
           },
           {
             id: 'mock-public-club-2',
-            name: '부산 해운대 테니스 클럽',
-            description: '해변에서 즐기는 테니스의 매력을 느껴보세요.',
+            name: '부산 해운대 피클볼 클럽',
+            description: '해변에서 즐기는 피클볼의 매력을 느껴보세요.',
             location: '부산시 해운대구',
             fullAddress: '부산광역시 해운대구 해운대해변로 264',
             logoUrl: null,
             memberCount: 28,
             maxMembers: 40,
             isPublic: true,
-            tags: ['테니스', '해변', '부산'],
+            tags: ['피클볼', '해변', '부산'],
             establishedDate: new Date('2023-06-01'),
           },
           {
             id: 'mock-public-club-3',
-            name: '대전 유성 테니스 클럽',
-            description: '과학도시 대전에서 함께하는 테니스 커뮤니티입니다.',
+            name: '대전 유성 피클볼 클럽',
+            description: '과학도시 대전에서 함께하는 피클볼 커뮤니티입니다.',
             location: '대전시 유성구',
             fullAddress: '대전광역시 유성구 대학로 291',
             logoUrl: null,
             memberCount: 32,
             maxMembers: 50,
             isPublic: true,
-            tags: ['테니스', '유성', '대전'],
+            tags: ['피클볼', '유성', '대전'],
             establishedDate: new Date('2023-03-15'),
           },
         ];
@@ -1118,7 +1118,7 @@ class ClubService {
               skillLevel: 3.5,
               status: 'pending',
               requestedAt: new Date(),
-              message: '테니스를 좋아하는 직장인입니다. 함께 운동하고 싶어요!',
+              message: '피클볼를 좋아하는 직장인입니다. 함께 운동하고 싶어요!',
             },
             {
               id: 'mock-request-2',
@@ -1230,7 +1230,7 @@ class ClubService {
 
       // Try Firebase first
       try {
-        const clubRef = doc(db, 'tennis_clubs', clubId);
+        const clubRef = doc(db, 'pickleball_clubs', clubId);
         const clubDoc = await getDoc(clubRef);
 
         if (clubDoc.exists()) {
@@ -1295,21 +1295,21 @@ class ClubService {
         // Return mock data for testing
         return {
           id: clubId,
-          name: 'Mock Tennis Club',
-          description: 'This is a mock tennis club for testing purposes.',
+          name: 'Mock Pickleball Club',
+          description: 'This is a mock pickleball club for testing purposes.',
           logoUri: '',
           region: 'Seoul',
           isPublic: true,
           maxMembers: 100,
           membershipFee: 0,
-          tags: ['tennis', 'sports'],
+          tags: ['pickleball', 'sports'],
           contactInfo: null,
           establishedDate: new Date(),
           createdBy: 'mock-user',
           status: 'active',
           homeCourtAddress: {
             name: 'Club Home Courts',
-            address: '1234 Tennis Drive, Atlanta, GA 30309',
+            address: '1234 Pickleball Drive, Atlanta, GA 30309',
             coordinates: { lat: 33.749, lng: -84.388 },
           },
         };
@@ -1345,7 +1345,7 @@ class ClubService {
 
       // Try Firebase update
       try {
-        const clubRef = doc(db, 'tennis_clubs', clubId);
+        const clubRef = doc(db, 'pickleball_clubs', clubId);
 
         // Prepare update document with proper structure
         const updateFields = {
@@ -1715,7 +1715,7 @@ class ClubService {
             joinedAt: memberData.joinedAt?.toDate() || memberData.createdAt?.toDate() || new Date(),
             lastActive: memberData.clubActivity?.lastActiveAt?.toDate(),
             eventsAttended: memberData.clubActivity?.eventsAttended || 0,
-            // 🎯 [KIM FIX] Include club stats for LTR display
+            // 🎯 [KIM FIX] Include club stats for LPR display
             clubStats: memberData.clubStats,
           };
         });
@@ -1929,12 +1929,12 @@ class ClubService {
           });
 
           // 2.1 🎯 [KIM FIX v3] 공지사항 카운트 (지난 7일)
-          // 공지사항은 tennis_clubs/{clubId} 문서의 announcement 필드에 저장됨
+          // 공지사항은 pickleball_clubs/{clubId} 문서의 announcement 필드에 저장됨
           // clubAnnouncements 컬렉션이 아님!
           const sevenDaysAgoDate = sevenDaysAgo; // JavaScript Date 객체
           for (const clubId of batch) {
             try {
-              const clubRef = doc(db, 'tennis_clubs', clubId);
+              const clubRef = doc(db, 'pickleball_clubs', clubId);
               const clubDoc = await getDoc(clubRef);
               if (clubDoc.exists()) {
                 const clubData = clubDoc.data();
@@ -2030,7 +2030,7 @@ class ClubService {
         // 4. Fetch monthly fees from club settings
         try {
           for (const clubId of batch) {
-            const clubRef = doc(db, 'tennis_clubs', clubId);
+            const clubRef = doc(db, 'pickleball_clubs', clubId);
             const clubDoc = await getDoc(clubRef);
             if (clubDoc.exists()) {
               const data = clubDoc.data();
@@ -2087,7 +2087,7 @@ class ClubService {
           transaction.delete(memberRef);
 
           // Update club stats
-          const clubRef = doc(db, 'tennis_clubs', clubId);
+          const clubRef = doc(db, 'pickleball_clubs', clubId);
           transaction.update(clubRef, {
             'statistics.totalMembers': increment(-1),
             'statistics.activeMembers': increment(-1),
@@ -2412,7 +2412,7 @@ class ClubService {
         const memberData = memberDoc.data();
         console.log('🔍 Processing membership:', memberDoc.id, memberData);
 
-        const clubRef = doc(db, 'tennis_clubs', memberData.clubId);
+        const clubRef = doc(db, 'pickleball_clubs', memberData.clubId);
         console.log('🔍 Getting club info for:', memberData.clubId);
 
         try {
@@ -2608,7 +2608,7 @@ class ClubService {
           transaction.set(memberRef, memberDoc);
 
           // Update club stats
-          const clubRef = doc(db, 'tennis_clubs', clubId);
+          const clubRef = doc(db, 'pickleball_clubs', clubId);
           transaction.update(clubRef, {
             'statistics.totalMembers': increment(1),
             'statistics.activeMembers': increment(1),
@@ -3445,7 +3445,7 @@ class ClubService {
             id: 'mock-schedule-1',
             clubId: clubId,
             title: '주말 단식 연습',
-            location: '중앙공원 테니스장',
+            location: '중앙공원 피클볼장',
             dayOfWeek: 6, // 토요일
             startTime: '09:00',
             endTime: '11:00',
@@ -3458,7 +3458,7 @@ class ClubService {
             id: 'mock-schedule-2',
             clubId: clubId,
             title: '평일 저녁 복식',
-            location: '시립 테니스장',
+            location: '시립 피클볼장',
             dayOfWeek: 3, // 수요일
             startTime: '19:00',
             endTime: '21:00',
@@ -3761,7 +3761,7 @@ class ClubService {
 
         // Get club details
         try {
-          const clubDoc = await getDoc(doc(db, 'tennis_clubs', clubId));
+          const clubDoc = await getDoc(doc(db, 'pickleball_clubs', clubId));
           if (clubDoc.exists()) {
             const clubData = clubDoc.data();
             adminClubs.push({
@@ -4000,7 +4000,7 @@ class ClubService {
                   try {
                     const userProfile = await authService.getUserProfile(requestData.userId);
 
-                    // 🎯 [KIM FIX] Extract ELO and convert to NTRP for accurate LTR display
+                    // 🎯 [KIM FIX] Extract ELO and convert to NTRP for accurate LPR display
                     const eloRatings = userProfile.eloRatings;
                     const stats = userProfile.stats;
                     const singlesElo =
@@ -4010,7 +4010,7 @@ class ClubService {
                     const mixedElo =
                       eloRatings?.mixed?.current || stats?.publicStats?.mixed_doubles?.elo;
 
-                    // 🎯 [KIM FIX v19] ELO to LTR conversion (1-10 scale)
+                    // 🎯 [KIM FIX v19] ELO to LPR conversion (1-10 scale)
                     const eloToLtr = elo => {
                       if (elo < 1000) return 1;
                       if (elo < 1100) return 2;
@@ -4049,7 +4049,7 @@ class ClubService {
                         gender: userProfile.profile?.gender,
                         joinedAt: userProfile.profile?.joinedAt,
                       },
-                      // 🎯 [KIM FIX v19] Include calculated LTR values (1-10 scale)
+                      // 🎯 [KIM FIX v19] Include calculated LPR values (1-10 scale)
                       singlesLtr,
                       doublesLtr,
                       mixedLtr,
@@ -4207,7 +4207,7 @@ class ClubService {
       if (oldRole === 'member' && newRole === 'manager') {
         try {
           // Get club name for notification
-          const clubDoc = await getDoc(doc(db, 'tennis_clubs', clubId));
+          const clubDoc = await getDoc(doc(db, 'pickleball_clubs', clubId));
           const clubData = clubDoc.data();
           const clubName = clubData?.profile?.name || clubData?.name || 'Unknown Club';
 
@@ -4271,7 +4271,7 @@ class ClubService {
       if (oldRole === 'manager' && newRole === 'member') {
         try {
           // Get club name for notification
-          const clubDoc = await getDoc(doc(db, 'tennis_clubs', clubId));
+          const clubDoc = await getDoc(doc(db, 'pickleball_clubs', clubId));
           const clubData = clubDoc.data();
           const clubName = clubData?.profile?.name || clubData?.name || 'Unknown Club';
 
@@ -4414,7 +4414,7 @@ class ClubService {
     try {
       console.log('💳 Getting payment methods for club:', clubId);
 
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       const clubSnap = await getDoc(clubRef);
 
       if (!clubSnap.exists()) {
@@ -4439,7 +4439,7 @@ class ClubService {
     try {
       console.log('💳 Updating payment methods for club:', clubId);
 
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       await updateDoc(clubRef, {
         paymentMethods,
         updatedAt: serverTimestamp(),
@@ -4484,7 +4484,7 @@ class ClubService {
         throw new Error('Only club administrators or managers can modify visibility settings');
       }
 
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       await updateDoc(clubRef, {
         'settings.visibility': visibility,
         'settings.isPublic': visibility !== 'private', // Sync isPublic for Discovery queries
@@ -4505,7 +4505,7 @@ class ClubService {
    */
   async getClubVisibility(clubId) {
     try {
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       const clubSnap = await getDoc(clubRef);
 
       if (!clubSnap.exists()) {
@@ -4612,7 +4612,7 @@ class ClubService {
   getClubAnnouncementStream(clubId, onUpdate) {
     console.log('📢 Setting up club announcement stream for club:', clubId);
 
-    const clubRef = doc(db, 'tennis_clubs', clubId);
+    const clubRef = doc(db, 'pickleball_clubs', clubId);
 
     return onSnapshot(
       clubRef,
@@ -4649,7 +4649,7 @@ class ClubService {
         throw new Error('User not authenticated');
       }
 
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
 
       const announcement = {
         ...announcementData,
@@ -4679,7 +4679,7 @@ class ClubService {
     try {
       console.log('📢 Deleting club announcement for club:', clubId);
 
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
 
       // Use FieldValue.delete() to remove the field entirely
       await updateDoc(clubRef, {
@@ -4748,7 +4748,7 @@ class ClubService {
         let clubName = membershipData.clubName;
         if (!clubName) {
           try {
-            const clubDoc = await getDoc(doc(db, 'tennis_clubs', clubId));
+            const clubDoc = await getDoc(doc(db, 'pickleball_clubs', clubId));
             if (clubDoc.exists()) {
               const clubData = clubDoc.data();
               clubName = clubData.profile?.name || clubData.name || 'Unknown Club';
@@ -4844,7 +4844,7 @@ class ClubService {
         let clubName = membershipData.clubName;
         if (!clubName) {
           try {
-            const clubDoc = await getDoc(doc(db, 'tennis_clubs', clubId));
+            const clubDoc = await getDoc(doc(db, 'pickleball_clubs', clubId));
             if (clubDoc.exists()) {
               const clubData = clubDoc.data();
               // Try multiple possible locations for club name
@@ -4867,7 +4867,7 @@ class ClubService {
         });
 
         // Get club document to find all members
-        const clubDoc = await getDoc(doc(db, 'tennis_clubs', clubId));
+        const clubDoc = await getDoc(doc(db, 'pickleball_clubs', clubId));
         let memberIds = [];
 
         if (clubDoc.exists()) {
@@ -5044,7 +5044,7 @@ class ClubService {
     try {
       console.log('📢 Fetching club announcement for club:', clubId);
 
-      const clubRef = doc(db, 'tennis_clubs', clubId);
+      const clubRef = doc(db, 'pickleball_clubs', clubId);
       const clubDoc = await getDoc(clubRef);
 
       if (clubDoc.exists()) {

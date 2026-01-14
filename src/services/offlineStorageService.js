@@ -1,5 +1,5 @@
 /**
- * Offline Storage Service for Lightning Tennis
+ * Offline Storage Service for Lightning Pickleball
  * Handles offline data storage and synchronization when connection is restored
  */
 

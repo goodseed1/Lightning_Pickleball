@@ -158,7 +158,7 @@ async function generateClubAnnualReport(clubId: string, year: number): Promise<v
     const collectionRate = expectedRevenue > 0 ? (totalRevenue / expectedRevenue) * 100 : 100;
 
     // 6. 통화 조회
-    const clubRef = db.doc(`tennis_clubs/${clubId}`);
+    const clubRef = db.doc(`pickleball_clubs/${clubId}`);
     const clubSnap = await clubRef.get();
     const currency = clubSnap.data()?.settings?.currency || 'USD';
 
@@ -223,7 +223,7 @@ export const generateAnnualDuesReports = onSchedule(
 
     try {
       // 모든 클럽 조회
-      const clubsRef = db.collection('tennis_clubs');
+      const clubsRef = db.collection('pickleball_clubs');
       const clubsSnapshot = await clubsRef.get();
 
       console.log(

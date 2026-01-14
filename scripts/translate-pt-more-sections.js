@@ -89,7 +89,7 @@ const profileTranslations = {
   phonePlaceholder: '+55 (11) 1234-5678',
   location: 'Localização',
   selectLocation: 'Selecionar Localização',
-  tennisInfo: 'Informações de Tênis',
+  pickleballInfo: 'Informações de Tênis',
   skillLevel: 'Nível de Habilidade',
   playStyle: 'Estilo de Jogo',
   yearsPlaying: 'Anos Jogando',

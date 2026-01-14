@@ -11,7 +11,7 @@ import { onSnapshot, doc, DocumentSnapshot, getDoc } from 'firebase/firestore';
 import { useTheme } from '../../hooks/useTheme';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useAuth } from '../../contexts/AuthContext';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { db } from '../../firebase/config';
 import { formatDistance } from '../../utils/unitUtils';
 
@@ -81,7 +81,7 @@ const PastEventCard: React.FC<PastEventCardProps> = ({
   const { theme: currentTheme } = useTheme();
   const { t, currentLanguage: contextLanguage } = useLanguage();
   const { currentUser } = useAuth();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const styles = createStyles(themeColors.colors, currentTheme);
 
   // 🌍 [KIM FIX] Get user's country for distance unit display
@@ -191,7 +191,7 @@ const PastEventCard: React.FC<PastEventCardProps> = ({
       case 'meetup':
         return '👥'; // Match AppliedEventCard icon
       case 'match':
-        return '🎾'; // Changed from 🎯 to 🎾 (tennis ball)
+        return '🎾'; // Changed from 🎯 to 🎾 (pickleball ball)
       default:
         return '📅';
     }

@@ -1,6 +1,6 @@
 {
-  "name": "lightning-tennis-functions",
-  "description": "Firebase Cloud Functions for Lightning Tennis",
+  "name": "lightning-pickleball-functions",
+  "description": "Firebase Cloud Functions for Lightning Pickleball",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",

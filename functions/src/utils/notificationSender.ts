@@ -571,7 +571,7 @@ const NOTIFICATION_TEXTS = {
       chatCreated: '매치가 생성되었습니다. 장소와 시간을 협의해주세요!',
       requestTitle: '⚡ 퀵 매치 신청!',
       requestBodyRanked: (hostNickname: string, hostLtr: number) =>
-        `${hostNickname}님이 기록 매치를 신청했습니다! (LTR ${hostLtr})`,
+        `${hostNickname}님이 기록 매치를 신청했습니다! (LPR ${hostLtr})`,
       requestBodyFriendly: (hostNickname: string) =>
         `${hostNickname}님이 친선 매치를 신청했습니다! (기록경기 불가)`,
     },
@@ -579,7 +579,7 @@ const NOTIFICATION_TEXTS = {
       chatCreated: 'Match created. Please coordinate the location and time!',
       requestTitle: '⚡ Quick Match Request!',
       requestBodyRanked: (hostNickname: string, hostLtr: number) =>
-        `${hostNickname} requested a ranked match! (LTR ${hostLtr})`,
+        `${hostNickname} requested a ranked match! (LPR ${hostLtr})`,
       requestBodyFriendly: (hostNickname: string) =>
         `${hostNickname} requested a friendly match! (Unranked)`,
     },
@@ -587,7 +587,7 @@ const NOTIFICATION_TEXTS = {
       chatCreated: 'マッチが作成されました。場所と時間を調整してください！',
       requestTitle: '⚡ クイックマッチ申請！',
       requestBodyRanked: (hostNickname: string, hostLtr: number) =>
-        `${hostNickname}さんが記録マッチを申請しました！(LTR ${hostLtr})`,
+        `${hostNickname}さんが記録マッチを申請しました！(LPR ${hostLtr})`,
       requestBodyFriendly: (hostNickname: string) =>
         `${hostNickname}さんが親善マッチを申請しました！(記録なし)`,
     },
@@ -595,14 +595,14 @@ const NOTIFICATION_TEXTS = {
       chatCreated: '比赛已创建。请协调地点和时间！',
       requestTitle: '⚡ 快速比赛申请！',
       requestBodyRanked: (hostNickname: string, hostLtr: number) =>
-        `${hostNickname}申请了记录比赛！(LTR ${hostLtr})`,
+        `${hostNickname}申请了记录比赛！(LPR ${hostLtr})`,
       requestBodyFriendly: (hostNickname: string) => `${hostNickname}申请了友谊赛！(不计分)`,
     },
     de: {
       chatCreated: 'Match erstellt. Bitte koordinieren Sie Ort und Zeit!',
       requestTitle: '⚡ Schnellmatch-Anfrage!',
       requestBodyRanked: (hostNickname: string, hostLtr: number) =>
-        `${hostNickname} hat ein gewertetes Match angefordert! (LTR ${hostLtr})`,
+        `${hostNickname} hat ein gewertetes Match angefordert! (LPR ${hostLtr})`,
       requestBodyFriendly: (hostNickname: string) =>
         `${hostNickname} hat ein Freundschaftsmatch angefordert! (Nicht gewertet)`,
     },
@@ -610,7 +610,7 @@ const NOTIFICATION_TEXTS = {
       chatCreated: 'Match créé. Veuillez coordonner le lieu et l\'heure !',
       requestTitle: '⚡ Demande de match rapide !',
       requestBodyRanked: (hostNickname: string, hostLtr: number) =>
-        `${hostNickname} a demandé un match classé ! (LTR ${hostLtr})`,
+        `${hostNickname} a demandé un match classé ! (LPR ${hostLtr})`,
       requestBodyFriendly: (hostNickname: string) =>
         `${hostNickname} a demandé un match amical ! (Non classé)`,
     },
@@ -618,7 +618,7 @@ const NOTIFICATION_TEXTS = {
       chatCreated: '¡Partido creado. Por favor coordinen el lugar y la hora!',
       requestTitle: '⚡ ¡Solicitud de partido rápido!',
       requestBodyRanked: (hostNickname: string, hostLtr: number) =>
-        `¡${hostNickname} solicitó un partido clasificado! (LTR ${hostLtr})`,
+        `¡${hostNickname} solicitó un partido clasificado! (LPR ${hostLtr})`,
       requestBodyFriendly: (hostNickname: string) =>
         `¡${hostNickname} solicitó un partido amistoso! (Sin clasificar)`,
     },
@@ -626,7 +626,7 @@ const NOTIFICATION_TEXTS = {
       chatCreated: 'Partita creata. Coordinate luogo e ora!',
       requestTitle: '⚡ Richiesta di match rapido!',
       requestBodyRanked: (hostNickname: string, hostLtr: number) =>
-        `${hostNickname} ha richiesto una partita classificata! (LTR ${hostLtr})`,
+        `${hostNickname} ha richiesto una partita classificata! (LPR ${hostLtr})`,
       requestBodyFriendly: (hostNickname: string) =>
         `${hostNickname} ha richiesto una partita amichevole! (Non classificata)`,
     },
@@ -634,7 +634,7 @@ const NOTIFICATION_TEXTS = {
       chatCreated: 'Partida criada. Coordenem o local e o horário!',
       requestTitle: '⚡ Solicitação de partida rápida!',
       requestBodyRanked: (hostNickname: string, hostLtr: number) =>
-        `${hostNickname} solicitou uma partida ranqueada! (LTR ${hostLtr})`,
+        `${hostNickname} solicitou uma partida ranqueada! (LPR ${hostLtr})`,
       requestBodyFriendly: (hostNickname: string) =>
         `${hostNickname} solicitou uma partida amistosa! (Não ranqueada)`,
     },
@@ -642,7 +642,7 @@ const NOTIFICATION_TEXTS = {
       chatCreated: 'Матч создан. Согласуйте место и время!',
       requestTitle: '⚡ Запрос быстрого матча!',
       requestBodyRanked: (hostNickname: string, hostLtr: number) =>
-        `${hostNickname} запросил рейтинговый матч! (LTR ${hostLtr})`,
+        `${hostNickname} запросил рейтинговый матч! (LPR ${hostLtr})`,
       requestBodyFriendly: (hostNickname: string) =>
         `${hostNickname} запросил товарищеский матч! (Без рейтинга)`,
     },

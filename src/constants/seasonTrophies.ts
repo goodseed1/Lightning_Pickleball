@@ -3,8 +3,8 @@
  * Season Trophy Definitions
  *
  * Trophies awarded at season end to official rankers:
- * - Season Champions (Gold/Silver/Bronze) - Top 3 in each LTR grade group
- * - Rank Up - Improved LTR grade during season
+ * - Season Champions (Gold/Silver/Bronze) - Top 3 in each LPR grade group
+ * - Rank Up - Improved LPR grade during season
  * - Iron Man - Top 10% in matches played
  * - Ace - Top 5% win rate with 10+ matches
  */
@@ -14,8 +14,8 @@ export const SEASON_TROPHIES = {
     id: 'season_champion_gold',
     name: 'Season Champion',
     nameKo: '시즌 챔피언',
-    description: 'Achieved 1st place in your LTR grade group',
-    descriptionKo: 'LTR 등급 그룹 내 1위 달성',
+    description: 'Achieved 1st place in your LPR grade group',
+    descriptionKo: 'LPR 등급 그룹 내 1위 달성',
     icon: {
       set: 'MaterialCommunityIcons' as const,
       name: 'trophy',
@@ -27,8 +27,8 @@ export const SEASON_TROPHIES = {
     id: 'season_champion_silver',
     name: 'Season Runner-up',
     nameKo: '시즌 준우승',
-    description: 'Achieved 2nd place in your LTR grade group',
-    descriptionKo: 'LTR 등급 그룹 내 2위 달성',
+    description: 'Achieved 2nd place in your LPR grade group',
+    descriptionKo: 'LPR 등급 그룹 내 2위 달성',
     icon: {
       set: 'MaterialCommunityIcons' as const,
       name: 'trophy',
@@ -40,8 +40,8 @@ export const SEASON_TROPHIES = {
     id: 'season_champion_bronze',
     name: 'Season 3rd Place',
     nameKo: '시즌 3위',
-    description: 'Achieved 3rd place in your LTR grade group',
-    descriptionKo: 'LTR 등급 그룹 내 3위 달성',
+    description: 'Achieved 3rd place in your LPR grade group',
+    descriptionKo: 'LPR 등급 그룹 내 3위 달성',
     icon: {
       set: 'MaterialCommunityIcons' as const,
       name: 'trophy',
@@ -53,8 +53,8 @@ export const SEASON_TROPHIES = {
     id: 'rank_up',
     name: 'Rank Up',
     nameKo: '랭크업',
-    description: 'Improved your LTR grade during the season',
-    descriptionKo: '시즌 중 LTR 등급 상승',
+    description: 'Improved your LPR grade during the season',
+    descriptionKo: '시즌 중 LPR 등급 상승',
     icon: {
       set: 'MaterialCommunityIcons' as const,
       name: 'rocket-launch',

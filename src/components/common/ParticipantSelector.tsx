@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 
 interface ParticipantSelectorProps {
   initialValue?: number;
@@ -15,7 +15,7 @@ const ParticipantSelector: React.FC<ParticipantSelectorProps> = ({
 }) => {
   const { t } = useLanguage();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   const isDark = currentTheme === 'dark';
   const [participants, setParticipants] = useState<number>(initialValue);
   const [customInput, setCustomInput] = useState<string>('');

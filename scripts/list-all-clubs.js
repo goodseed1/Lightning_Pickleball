@@ -14,10 +14,10 @@ if (!admin.apps.length) {
 const db = admin.firestore();
 
 async function findAllClubs() {
-  const clubsRef = db.collection('tennis_clubs');
+  const clubsRef = db.collection('pickleball_clubs');
   const snapshot = await clubsRef.get();
 
-  console.log('🔍 Found', snapshot.size, 'clubs in tennis_clubs collection:\n');
+  console.log('🔍 Found', snapshot.size, 'clubs in pickleball_clubs collection:\n');
 
   snapshot.docs.forEach((doc, i) => {
     const data = doc.data();

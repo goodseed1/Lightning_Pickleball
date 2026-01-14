@@ -184,4 +184,4 @@ To test TTL functionality without waiting 1 year:
 ---
 
 **Last Updated**: 2025-11-21
-**Maintained By**: Lightning Tennis Team
+**Maintained By**: Lightning Pickleball Team

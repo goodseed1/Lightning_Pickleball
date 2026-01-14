@@ -91,7 +91,7 @@ discover.alerts.quickMatch.challenge: "Challenge"
 discover.alerts.quickMatch.cancel: "Cancel"
 discover.alerts.quickMatch.success: "Challenge Sent!"
 discover.alerts.quickMatch.sameGenderOnly: "You can only challenge players of the same gender."
-discover.alerts.quickMatch.ntrpOutOfRange: "LTR {{ntrp}} is beyond your challenge range. (max +1.0)"
+discover.alerts.quickMatch.ntrpOutOfRange: "LPR {{ntrp}} is beyond your challenge range. (max +1.0)"
 ```
 
 ---
@@ -216,7 +216,7 @@ Expected keys:
 - Lightning Meetup
 - Casual Meetup
 - Create Club
-- Tennis Community
+- Pickleball Community
 
 ---
 
@@ -256,7 +256,7 @@ These English phrases appear untranslated in **ALL non-Korean languages:**
 - "Challenge {{name}} to a match?"
 - "Challenge Sent!"
 - "You can only challenge players of the same gender."
-- "LTR {{ntrp}} is beyond your challenge range. (max +1.0)"
+- "LPR {{ntrp}} is beyond your challenge range. (max +1.0)"
 
 ### League Administration
 

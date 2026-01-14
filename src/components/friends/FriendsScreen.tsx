@@ -17,7 +17,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 import { Friend, FriendRequest, FriendSearchResult } from '../../types/friendship';
 import friendshipService from '../../services/friendshipService';
 import { convertEloToLtr } from '../../utils/ltrUtils';
@@ -36,7 +36,7 @@ interface FriendsScreenProps {
 const FriendsScreen: React.FC<FriendsScreenProps> = ({ currentUserId }) => {
   const { t } = useLanguage();
   const { theme: currentTheme } = useTheme();
-  const themeColors = getLightningTennisTheme(currentTheme);
+  const themeColors = getLightningPickleballTheme(currentTheme);
   // 🔧 [TS-FIX] Cast colors to Record<string, string> to avoid type error
   /* eslint-disable @typescript-eslint/no-explicit-any */
   const styles = createStyles(themeColors.colors as any as Record<string, string>);
@@ -273,9 +273,9 @@ const FriendsScreen: React.FC<FriendsScreenProps> = ({ currentUserId }) => {
 
             <View style={styles.friendInfo}>
               <Text style={styles.friendName}>{friend.name}</Text>
-              {/* 🎾 LTR Display - Use ELO-based calculation for consistency */}
+              {/* 🎾 LPR Display - Use ELO-based calculation for consistency */}
               {friend.singlesElo && (
-                <Text style={styles.friendSkill}>LTR {convertEloToLtr(friend.singlesElo)}</Text>
+                <Text style={styles.friendSkill}>LPR {convertEloToLtr(friend.singlesElo)}</Text>
               )}
               {/* 🎯 [KIM FIX] Privacy: Only show city, never expose street address */}
               {friend.location &&
@@ -335,10 +335,10 @@ const FriendsScreen: React.FC<FriendsScreenProps> = ({ currentUserId }) => {
               onPress={() => handleViewProfile(request.requesterId)}
             >
               <Text style={styles.friendName}>{request.requesterName}</Text>
-              {/* 🎾 LTR Display - Use ELO-based calculation for consistency */}
+              {/* 🎾 LPR Display - Use ELO-based calculation for consistency */}
               {request.requesterSinglesElo && (
                 <Text style={styles.friendSkill}>
-                  LTR {convertEloToLtr(request.requesterSinglesElo)}
+                  LPR {convertEloToLtr(request.requesterSinglesElo)}
                 </Text>
               )}
               <Text style={styles.requestTime}>
@@ -424,9 +424,9 @@ const FriendsScreen: React.FC<FriendsScreenProps> = ({ currentUserId }) => {
                   onPress={() => handleViewProfile(user.id)}
                 >
                   <Text style={styles.friendName}>{user.nickname}</Text>
-                  {/* 🎾 LTR Display - Use ELO-based calculation for consistency */}
+                  {/* 🎾 LPR Display - Use ELO-based calculation for consistency */}
                   {user.singlesElo && (
-                    <Text style={styles.friendSkill}>LTR {convertEloToLtr(user.singlesElo)}</Text>
+                    <Text style={styles.friendSkill}>LPR {convertEloToLtr(user.singlesElo)}</Text>
                   )}
                   {/* 🎯 [KIM FIX] Privacy: Only show city, never expose street address */}
                   {user.location &&

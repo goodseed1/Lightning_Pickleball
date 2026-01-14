@@ -1,14 +1,14 @@
 /**
- * Activity Types for Lightning Tennis App
+ * Activity Types for Lightning Pickleball App
  * Complete data models for events, applications, and participants
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  */
 
 // Google Place Details Interface - preserves rich location data from Places API
@@ -88,10 +88,10 @@ export interface LightningEvent {
   autoApproval: boolean;
   participationFee?: number;
 
-  // 🎯 [LTR FIX] LTR range for skill matching
-  minLtr?: number; // Minimum LTR (for singles: hostLtr, for doubles: combinedLtr/2)
-  maxLtr?: number; // Maximum LTR (same as minLtr in auto-calculated system)
-  hostLtr?: number; // 🎯 [LTR FIX] Host's individual LTR for partner filtering
+  // 🎯 [LPR FIX] LPR range for skill matching
+  minLtr?: number; // Minimum LPR (for singles: hostLtr, for doubles: combinedLtr/2)
+  maxLtr?: number; // Maximum LPR (same as minLtr in auto-calculated system)
+  hostLtr?: number; // 🎯 [LPR FIX] Host's individual LPR for partner filtering
 
   // Status
   status: EventStatus;

@@ -48,7 +48,7 @@ const titleTranslations = {
 async function updateLeagueTitlesToEnglish() {
   console.log('🎾 리그 제목 영어로 변경 시작...\n');
 
-  // Lightning Tennis Club의 리그 가져오기
+  // Lightning Pickleball Club의 리그 가져오기
   const clubId = 'WsetxkWODywjt0BBcqrs';
   const leaguesSnap = await db.collection('leagues').where('clubId', '==', clubId).get();
 

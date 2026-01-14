@@ -1,5 +1,5 @@
 /**
- * Shared Modal Styles for Lightning Tennis
+ * Shared Modal Styles for Lightning Pickleball
  * Centralized modal styling to prevent duplication and maintain consistency
  */
 

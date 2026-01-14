@@ -84,7 +84,7 @@ export const deleteClub = onCall<DeleteClubRequest, Promise<DeleteClubResponse>>
       // ==========================================================================
       // Step 2: Validate Club Exists & Get Data
       // ==========================================================================
-      const clubRef = db.collection('tennis_clubs').doc(clubId);
+      const clubRef = db.collection('pickleball_clubs').doc(clubId);
       const clubSnap = await clubRef.get();
 
       if (!clubSnap.exists) {

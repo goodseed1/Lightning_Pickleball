@@ -10,12 +10,12 @@ import {
   SUPPORTED_LANGUAGES,
 } from '../../contexts/LanguageContext';
 import { useTheme } from '../../hooks/useTheme';
-import { getLightningTennisTheme } from '../../theme';
+import { getLightningPickleballTheme } from '../../theme';
 
 const LanguageSelectionScreen: React.FC = () => {
   const { currentLanguage, setLanguage, t } = useLanguage();
   const { theme: currentTheme } = useTheme();
-  const paperTheme = getLightningTennisTheme(currentTheme);
+  const paperTheme = getLightningPickleballTheme(currentTheme);
   const navigation = useNavigation();
 
   const isDark = currentTheme === 'dark';

@@ -1,5 +1,5 @@
 /**
- * Compare Lightning Tennis Club vs Suwanee Weekend Warriors memberships
+ * Compare Lightning Pickleball Club vs Suwanee Weekend Warriors memberships
  */
 
 const admin = require('firebase-admin');
@@ -17,8 +17,8 @@ const SUWANEE_CLUB_ID = 'dRxu8Xnwmfoj0zzyQjVu';
 async function compareClubs() {
   console.log('🔍 Comparing club membership structures...\n');
 
-  // Lightning Tennis Club
-  console.log('=== Lightning Tennis Club ===');
+  // Lightning Pickleball Club
+  console.log('=== Lightning Pickleball Club ===');
   const lightningMembers = await db
     .collection('club_memberships')
     .where('clubId', '==', LIGHTNING_CLUB_ID)

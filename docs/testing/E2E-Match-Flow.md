@@ -1,6 +1,6 @@
 # E2E Test Scenario: Core Match Flow
 
-> **Lightning Tennis 핵심 매치 플로우 E2E 테스트 시나리오**
+> **Lightning Pickleball 핵심 매치 플로우 E2E 테스트 시나리오**
 >
 > 이 문서는 번개매치 생성부터 랭킹 업데이트까지의 완전한 사용자 여정을 단계별로 기술합니다.
 > 향후 자동화된 E2E 테스트 (Detox, Maestro 등)의 청사진 역할을 합니다.
@@ -17,8 +17,8 @@
 
 ### 👥 테스트 계정
 
-- **Host User (매치 생성자):** `host-tester@lightningtennis.com`
-- **Participant User (참가자):** `participant-tester@lightningtennis.com`
+- **Host User (매치 생성자):** `host-tester@lightningpickleball.com`
+- **Participant User (참가자):** `participant-tester@lightningpickleball.com`
 
 ### ⏱️ 예상 테스트 시간
 
@@ -35,7 +35,7 @@
 
    ```
    ✓ 앱 실행
-   ✓ 로그인 화면에서 host-tester@lightningtennis.com 로그인
+   ✓ 로그인 화면에서 host-tester@lightningpickleball.com 로그인
    ✓ 메인 피드 화면 진입 확인
    ```
 
@@ -53,13 +53,13 @@
    매치 유형: 🏆 번개 매치 (랭크드) 선택
    제목: "E2E 자동화 테스트 매치"
    설명: "자동화된 테스트를 위한 매치입니다"
-   장소: "테스트 테니스장"
+   장소: "테스트 피클볼장"
    날짜: 내일 날짜 선택
    시작시간: 오후 3:00 선택
    종료시간: 오후 5:00 선택
    최대참가자: 4명 (슬라이더 조정)
-   최소 LTR: 3.0 선택
-   최대 LTR: 4.5 선택
+   최소 LPR: 3.0 선택
+   최대 LPR: 4.5 선택
    ```
 
 4. **매치 생성 완료**
@@ -92,7 +92,7 @@
 1. **로그인 & 매치 검색**
 
    ```
-   ✓ participant-tester@lightningtennis.com 로그인
+   ✓ participant-tester@lightningpickleball.com 로그인
    ✓ 메인 피드에서 매치 카드 확인
    ✓ "E2E 자동화 테스트 매치" 제목 확인
    ```
@@ -101,7 +101,7 @@
 
    ```
    ✓ 매치 카드 탭하여 상세 화면 진입
-   ✓ 매치 정보 (시간, 장소, LTR 범위) 표시 확인
+   ✓ 매치 정보 (시간, 장소, LPR 범위) 표시 확인
    ✓ '참가 신청' 버튼 활성화 상태 확인
    ```
 
@@ -134,7 +134,7 @@
 1. **재로그인 & 알림 확인**
 
    ```
-   ✓ host-tester@lightningtennis.com 재로그인
+   ✓ host-tester@lightningpickleball.com 재로그인
    ✓ 새로운 참가 신청 알림 확인
    ✓ 나의 활동 → 생성한 매치 진입
    ```
@@ -223,7 +223,7 @@ describe('Core Match Flow E2E', () => {
 
   it('should complete full match creation to ranking update flow', async () => {
     // Phase 1: 매치 생성
-    await element(by.id('loginEmail')).typeText('host-tester@lightningtennis.com');
+    await element(by.id('loginEmail')).typeText('host-tester@lightningpickleball.com');
     await element(by.id('loginPassword')).typeText('testpassword123');
     await element(by.id('loginButton')).tap();
 
@@ -238,7 +238,7 @@ describe('Core Match Flow E2E', () => {
 
     // Phase 2: 참가 신청 (계정 전환)
     await element(by.id('logoutButton')).tap();
-    await element(by.id('loginEmail')).replaceText('participant-tester@lightningtennis.com');
+    await element(by.id('loginEmail')).replaceText('participant-tester@lightningpickleball.com');
     // ... 참가 신청 로직
 
     // Phase 3 & 4: 승인 및 검증
@@ -314,7 +314,7 @@ const testIDs = {
 ---
 
 **마지막 업데이트**: 2025년 9월 3일  
-**작성자**: Lightning Tennis Development Team  
+**작성자**: Lightning Pickleball Development Team  
 **버전**: 1.0.0
 
 > 💡 **참고**: 이 시나리오는 실제 사용자 행동 패턴을 기반으로 작성되었으며,

@@ -34,7 +34,7 @@ async function updateTournamentParticipants() {
   });
   console.log(`   ✅ ${userMap.size}명의 사용자 displayName 로드 완료\n`);
 
-  // 2. Lightning Tennis Club의 토너먼트 가져오기
+  // 2. Lightning Pickleball Club의 토너먼트 가져오기
   const clubId = 'WsetxkWODywjt0BBcqrs';
   const tournamentsSnap = await db.collection('tournaments').where('clubId', '==', clubId).get();
 

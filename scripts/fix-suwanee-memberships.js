@@ -18,7 +18,7 @@ async function fixMemberships() {
   console.log('🔧 Fixing memberships for Suwanee Weekend Warriors...\n');
 
   // 1. Get club data to find admin
-  const clubDoc = await db.collection('tennis_clubs').doc(CLUB_ID).get();
+  const clubDoc = await db.collection('pickleball_clubs').doc(CLUB_ID).get();
   const clubData = clubDoc.data();
   const adminId = clubData.adminId || clubData.ownerId || clubData.createdBy;
 

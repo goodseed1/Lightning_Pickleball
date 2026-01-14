@@ -14,7 +14,7 @@ const db = admin.firestore();
 async function deleteKwangyeolService() {
   console.log('🔍 Finding Kwangyeol Bae service cards...\n');
 
-  const snapshot = await db.collection('tennis_services').get();
+  const snapshot = await db.collection('pickleball_services').get();
   console.log('📋 Total services:', snapshot.size);
 
   let deleted = 0;

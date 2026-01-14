@@ -1,7 +1,7 @@
 /**
  * 🎾 테스트 사용자 마이그레이션 스크립트
  *
- * 1. 레벨 미설정 사용자들 → ELO 1150, LTR 3 설정
+ * 1. 레벨 미설정 사용자들 → ELO 1150, LPR 3 설정
  * 2. '테스트선수'로 시작하는 사용자들 → Duluth, GA 위치 설정
  * 3. '테스트선수'로 시작하는 사용자들 → 영어 이름으로 변경 (중복 없이)
  */
@@ -130,9 +130,9 @@ const DULUTH_LOCATION = {
   formattedAddress: 'Duluth, GA, USA',
 };
 
-// 기본 ELO/LTR 설정
+// 기본 ELO/LPR 설정
 const DEFAULT_ELO = 1150;
-const DEFAULT_LTR = 3;
+const DEFAULT_LPR = 3;
 
 async function migrateTestUsers() {
   console.log('🚀 테스트 사용자 마이그레이션 시작...\n');
@@ -188,14 +188,14 @@ async function migrateTestUsers() {
         doubles: { elo: DEFAULT_ELO, matchCount: 0 },
         mixed: { elo: DEFAULT_ELO, matchCount: 0 },
       };
-      updateData.ltrLevel = DEFAULT_LTR;
+      updateData.ltrLevel = DEFAULT_LPR;
       updateData.skillLevel = {
-        selfAssessed: String(DEFAULT_LTR),
-        ltr: DEFAULT_LTR,
+        selfAssessed: String(DEFAULT_LPR),
+        ltr: DEFAULT_LPR,
         lastUpdated: new Date().toISOString(),
         source: 'migration',
       };
-      updateReasons.push(`ELO ${DEFAULT_ELO}, LTR ${DEFAULT_LTR} 설정`);
+      updateReasons.push(`ELO ${DEFAULT_ELO}, LPR ${DEFAULT_LPR} 설정`);
       eloUpdateCount++;
     }
 
@@ -246,7 +246,7 @@ async function migrateTestUsers() {
   console.log('='.repeat(50));
   console.log(`📊 업데이트 요약:`);
   console.log(`   - 총 업데이트 대상: ${updateCount}명`);
-  console.log(`   - ELO/LTR 설정: ${eloUpdateCount}명`);
+  console.log(`   - ELO/LPR 설정: ${eloUpdateCount}명`);
   console.log(`   - 위치 설정 (Duluth, GA): ${locationUpdateCount}명`);
   console.log(`   - 이름 변경: ${nameUpdateCount}명`);
   console.log('='.repeat(50));

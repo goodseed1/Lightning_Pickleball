@@ -103,7 +103,7 @@ export const withdrawFromTournament = onCall<
     // Check if caller is club admin (if tournament belongs to a club)
     let isClubAdmin = false;
     if (tournamentData.clubId) {
-      const clubRef = db.collection('tennis_clubs').doc(tournamentData.clubId);
+      const clubRef = db.collection('pickleball_clubs').doc(tournamentData.clubId);
       const clubSnap = await clubRef.get();
 
       if (clubSnap.exists) {

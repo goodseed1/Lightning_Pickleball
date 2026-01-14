@@ -96,7 +96,7 @@ export default function MatchDetailScreen() {
         },
         court: {
           id: '1',
-          name: '올림픽공원 테니스장',
+          name: '올림픽공원 피클볼장',
           address: '서울특별시 송파구 올림픽로 424',
           latitude: 37.5219,
           longitude: 127.1267,

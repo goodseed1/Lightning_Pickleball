@@ -62,7 +62,7 @@ Run `node scripts/complete-italian-translations.js` to verify 0 remaining keys.
 
 ## Translation Guidelines
 
-### Tennis-Specific Terms
+### Pickleball-Specific Terms
 
 - "Match" → "Partita" or "Incontro"
 - "Court" → "Campo"

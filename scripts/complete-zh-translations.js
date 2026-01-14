@@ -411,7 +411,7 @@ const translations = {
       team: '团体',
     },
 
-    bracket: {
+    bpaddle: {
       title: '对阵表',
       round: '轮次',
       match: '比赛',
@@ -422,7 +422,7 @@ const translations = {
     actions: {
       register: '报名',
       withdraw: '退出',
-      viewBracket: '查看对阵表',
+      viewBpaddle: '查看对阵表',
       submitScore: '提交比分',
     },
 
@@ -533,7 +533,7 @@ const translations = {
     cart: '购物车',
 
     categories: {
-      rackets: '球拍',
+      paddles: '球拍',
       balls: '网球',
       shoes: '鞋',
       apparel: '服装',

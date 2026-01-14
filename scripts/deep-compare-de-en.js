@@ -80,7 +80,7 @@ const universalPatterns = [
   /^Name$/i,
   /^Optional$/i,
   /한국어|English|中文|日本語|Español|Français/,
-  /Kim|Lee|Park|TennisUser/,
+  /Kim|Lee|Park|PickleballUser/,
   /\{\{.*\}\}/, // Templates
   /^\d/, // Starts with number
   /^🥇/, // Emoji

@@ -193,7 +193,7 @@
   },
   {
     "path": "eventCard.requirements.levelMismatch",
-    "en": "Level mismatch (Your LTR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})"
+    "en": "Level mismatch (Your LPR: {{userNtrp}}, Allowed: {{minNtrp}}~{{maxNtrp}})"
   },
   {
     "path": "eventCard.requirements.genderMismatch",
@@ -209,7 +209,7 @@
   },
   {
     "path": "eventCard.requirements.canApply",
-    "en": "Apply: LTR {{minNtrp}} - {{maxNtrp}}"
+    "en": "Apply: LPR {{minNtrp}} - {{maxNtrp}}"
   },
   {
     "path": "eventCard.requirements.level",
@@ -273,7 +273,7 @@
   },
   {
     "path": "createEvent.skillDescriptions.beginner",
-    "en": "Beginner - New to tennis or learning basic strokes"
+    "en": "Beginner - New to pickleball or learning basic strokes"
   },
   {
     "path": "createEvent.skillDescriptions.elementary",
@@ -293,23 +293,23 @@
   },
   {
     "path": "createEvent.autoNtrp.hostLevel",
-    "en": "Host LTR: {{level}} ({{gameType}})"
+    "en": "Host LPR: {{level}} ({{gameType}})"
   },
   {
     "path": "createEvent.autoNtrp.partnerLevel",
-    "en": "Partner LTR: {{level}} ({{gameType}})"
+    "en": "Partner LPR: {{level}} ({{gameType}})"
   },
   {
     "path": "createEvent.autoNtrp.combinedLevel",
-    "en": "Combined LTR: {{level}}"
+    "en": "Combined LPR: {{level}}"
   },
   {
     "path": "createEvent.autoNtrp.hostLevelWithType",
-    "en": "Host LTR: {{level}} ({{type}})"
+    "en": "Host LPR: {{level}} ({{type}})"
   },
   {
     "path": "createEvent.autoNtrp.partnerLevelWithType",
-    "en": "Partner LTR: {{level}} ({{type}})"
+    "en": "Partner LPR: {{level}} ({{type}})"
   },
   {
     "path": "createEvent.helperText.languageSelection",
@@ -321,11 +321,11 @@
   },
   {
     "path": "createEvent.helperText.doublesMatchLevel",
-    "en": "* Doubles match level is automatically set from host and partner LTR sum."
+    "en": "* Doubles match level is automatically set from host and partner LPR sum."
   },
   {
     "path": "createEvent.helperText.singlesMatchLevel",
-    "en": "* Singles match level is automatically set from host LTR. (±0.5 tolerance)"
+    "en": "* Singles match level is automatically set from host LPR. (±0.5 tolerance)"
   },
   {
     "path": "createEvent.toggleDescriptions.autoApproval",
@@ -345,7 +345,7 @@
   },
   {
     "path": "createEvent.sms.invitationMessage",
-    "en": "[Lightning Tennis] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}"
+    "en": "[Lightning Pickleball] {{sender}} invited you to \"{{eventTitle}}\"! Download app: {{link}}"
   },
   {
     "path": "createEvent.sms.defaultSender",
@@ -1225,7 +1225,7 @@
   },
   {
     "path": "badgeGallery.badges.first_club_join.description",
-    "en": "You joined your first tennis club! 🏟️"
+    "en": "You joined your first pickleball club! 🏟️"
   },
   {
     "path": "badgeGallery.badges.streak_5.name",
@@ -1673,7 +1673,7 @@
   },
   {
     "path": "ntrpSelector.levels.beginner.description",
-    "en": "Just started playing tennis"
+    "en": "Just started playing pickleball"
   },
   {
     "path": "ntrpSelector.levels.intermediate.label",
@@ -1761,7 +1761,7 @@
   },
   {
     "path": "contexts.notification.matchNotificationBody",
-    "en": "You have a tennis match scheduled in 30 minutes."
+    "en": "You have a pickleball match scheduled in 30 minutes."
   },
   {
     "path": "roleManagement.statsTitle",
@@ -1865,7 +1865,7 @@
   },
   {
     "path": "clubOverviewScreen.aiHelperSubtext",
-    "en": "Ask questions about tennis or how to use the app!"
+    "en": "Ask questions about pickleball or how to use the app!"
   },
   {
     "path": "types.match.matchTypes.league",
@@ -1921,7 +1921,7 @@
   },
   {
     "path": "types.clubSchedule.scheduleTypes.social",
-    "en": "Social Tennis"
+    "en": "Social Pickleball"
   },
   {
     "path": "types.clubSchedule.scheduleTypes.league_match",
@@ -2341,7 +2341,7 @@
   },
   {
     "path": "matches.createModal.location.placeholder",
-    "en": "e.g., Central Park Tennis Courts"
+    "en": "e.g., Central Park Pickleball Courts"
   },
   {
     "path": "matches.createModal.dateTime.label",
@@ -2589,7 +2589,7 @@
   },
   {
     "path": "services.matching.newRequestBody",
-    "en": "{{senderName}} has requested a tennis match with you."
+    "en": "{{senderName}} has requested a pickleball match with you."
   },
   {
     "path": "services.event.untitled",
@@ -2680,8 +2680,8 @@
     "en": "League"
   },
   {
-    "path": "services.activity.tennisUserFallback",
-    "en": "TennisUser{{id}}"
+    "path": "services.activity.pickleballUserFallback",
+    "en": "PickleballUser{{id}}"
   },
   {
     "path": "services.camera.simulatorError",

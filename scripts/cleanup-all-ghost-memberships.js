@@ -16,7 +16,7 @@ async function cleanupGhostMemberships() {
   console.log('🔍 Scanning ALL memberships for ghosts...\n');
 
   // 1. Get all valid club IDs
-  const clubsSnapshot = await db.collection('tennis_clubs').get();
+  const clubsSnapshot = await db.collection('pickleball_clubs').get();
   const validClubIds = new Set(clubsSnapshot.docs.map(doc => doc.id));
   console.log('✅ Valid clubs:', validClubIds.size);
   clubsSnapshot.docs.forEach(doc => {

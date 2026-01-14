@@ -20,7 +20,7 @@ export const transformOnboardingData = onboardingData => {
     gender,
     zipCode,
 
-    // Tennis specific
+    // Pickleball specific
     skillLevel,
     playingStyle,
     activityRegions,
@@ -46,7 +46,7 @@ export const transformOnboardingData = onboardingData => {
     gender: gender || profile.gender || '',
     zipCode: zipCode || profile.zipCode || '',
 
-    // Tennis specific
+    // Pickleball specific
     skillLevel: skillLevel || profile.skillLevel || 'beginner',
     playingStyle: playingStyle || profile.playingStyle || [],
     activityRegions: activityRegions || profile.activityRegions || [],

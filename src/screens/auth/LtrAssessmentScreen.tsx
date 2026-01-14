@@ -1,7 +1,7 @@
 /**
- * 🎾 LTR (Lightning Tennis Rating) Assessment Screen
+ * 🎾 LPR (Lightning Pickleball Rating) Assessment Screen
  *
- * Self-assessment questionnaire to determine user's LTR level (1-10)
+ * Self-assessment questionnaire to determine user's LPR level (1-10)
  */
 import React, { useState, useLayoutEffect } from 'react';
 import {
@@ -17,7 +17,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { lightningTennisDarkTheme } from '../../theme';
+import { lightningPickleballDarkTheme } from '../../theme';
 import { getQuestionsForPage, QUESTION_PAGES } from '../../constants/ltrQuestions';
 import { calculateRecommendedLtr, Answer, AssessmentResult } from '../../utils/ltrAssessment';
 import { getLtrDetails } from '../../utils/ltrUtils';
@@ -44,7 +44,7 @@ interface NtrpAssessmentScreenProps {
 
 const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation, route }) => {
   const { currentLanguage, t } = useLanguage();
-  const themeColors = lightningTennisDarkTheme.colors;
+  const themeColors = lightningPickleballDarkTheme.colors;
 
   // Set header title dynamically with i18n
   useLayoutEffect(() => {

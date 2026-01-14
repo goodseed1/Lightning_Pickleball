@@ -1,6 +1,6 @@
 /**
  * Tournament List Page Component
- * Browse and join tennis tournaments
+ * Browse and join pickleball tournaments
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
@@ -286,7 +286,7 @@ const TournamentListPage = () => {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Tennis Tournaments</Text>
+        <Text style={styles.headerTitle}>Pickleball Tournaments</Text>
         <TouchableOpacity
           style={styles.createButton}
           // eslint-disable-next-line @typescript-eslint/no-explicit-any

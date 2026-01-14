@@ -2,13 +2,13 @@
  * AI Service - 3중 방어벽 검증 테스트
  * TDD 접근: 테스트 먼저 작성 → 실패 확인 → 구현 → 통과 확인
  *
- * 📝 LTR vs NTRP 네이밍 규칙
+ * 📝 LPR vs NTRP 네이밍 규칙
  *
- * UI 표시: "LTR" (Lightning Tennis Rating) - 사용자에게 보이는 텍스트
+ * UI 표시: "LPR" (Lightning Pickleball Rating) - 사용자에게 보이는 텍스트
  * 코드/DB: "ntrp" - 변수명, 함수명, Firestore 필드명
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
- *       UI 텍스트만 LTR로 변경하고 코드는 ntrp를 유지합니다.
+ *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
  *
  * 테스트 대상:
  * - 방어벽 1: 시스템 프롬프트 (Gemini API 레벨)
@@ -41,7 +41,7 @@ jest.mock('../knowledgeBaseService', () => ({
       {
         id: '1',
         question: '포핸드 그립 종류는?',
-        answer: '테니스 그립에는 컨티넨탈, 이스턴, 세미웨스턴, 웨스턴 그립이 있습니다.',
+        answer: '피클볼 그립에는 컨티넨탈, 이스턴, 세미웨스턴, 웨스턴 그립이 있습니다.',
         keywords: ['포핸드', 'grip', '그립'],
         priority: 1,
       },
@@ -63,7 +63,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
   beforeEach(() => {
     jest.clearAllMocks();
 
-    // Default mock: Gemini API returns tennis-related response
+    // Default mock: Gemini API returns pickleball-related response
     (global.fetch as jest.Mock).mockResolvedValue({
       ok: true,
       json: () =>
@@ -73,7 +73,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
               content: {
                 parts: [
                   {
-                    text: '테니스 그립에는 여러 종류가 있습니다. 컨티넨탈, 이스턴, 세미웨스턴 그립 등이 있어요.',
+                    text: '피클볼 그립에는 여러 종류가 있습니다. 컨티넨탈, 이스턴, 세미웨스턴 그립 등이 있어요.',
                   },
                 ],
               },
@@ -90,11 +90,11 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
           language: 'ko',
         });
 
-        // 거절 응답에 테니스 이모지와 정중한 거절이 포함되어야 함
+        // 거절 응답에 피클볼 이모지와 정중한 거절이 포함되어야 함
         expect(result.answer).toContain('🎾');
         expect(result.answer).toMatch(/죄송|어려/);
-        // 실제 응답: "테니스나 Lightning Tennis 앱에 관해 궁금한 점이 있으시면 말씀해주세요!"
-        expect(result.answer).toMatch(/테니스/);
+        // 실제 응답: "피클볼나 Lightning Pickleball 앱에 관해 궁금한 점이 있으시면 말씀해주세요!"
+        expect(result.answer).toMatch(/피클볼/);
 
         // 금지어가 답변에 포함되지 않아야 함
         expect(result.answer).not.toMatch(/대통령|선거|정치/);
@@ -110,7 +110,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
 
         expect(result.answer).toContain('🎾');
         expect(result.answer).toMatch(/sorry|cannot/i);
-        expect(result.answer).toMatch(/tennis/i);
+        expect(result.answer).toMatch(/pickleball/i);
         expect(result.answer).not.toMatch(/election|politics/i);
         expect(result.filtered).toBe(true);
       });
@@ -135,12 +135,12 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
     });
 
     describe('주제 이탈 차단', () => {
-      it('날씨 질문을 차단해야 함 (테니스 맥락 없을 때)', async () => {
+      it('날씨 질문을 차단해야 함 (피클볼 맥락 없을 때)', async () => {
         const result = await aiService.processQuery('오늘 날씨 어때?', { language: 'ko' });
 
         expect(result.answer).toContain('🎾');
         expect(result.answer).toMatch(/죄송|어려워/);
-        expect(result.answer).toMatch(/테니스/);
+        expect(result.answer).toMatch(/피클볼/);
       });
 
       it('영화 추천 질문을 차단해야 함', async () => {
@@ -169,7 +169,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
 
         expect(result.answer).toContain('🎾');
         expect(result.answer).toMatch(/sorry|cannot|can't/i);
-        expect(result.answer).toMatch(/tennis/i);
+        expect(result.answer).toMatch(/pickleball/i);
         expect(result.filtered).toBe(true);
       });
     });
@@ -185,7 +185,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
             candidates: [
               {
                 content: {
-                  parts: [{ text: '테니스 그립에는 여러 종류가 있습니다...' }],
+                  parts: [{ text: '피클볼 그립에는 여러 종류가 있습니다...' }],
                 },
               },
             ],
@@ -193,7 +193,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
       });
     });
 
-    it('테니스 기술 질문에 정상 응답해야 함', async () => {
+    it('피클볼 기술 질문에 정상 응답해야 함', async () => {
       const result = await aiService.processQuery('포핸드 그립 종류가 뭐가 있어?', {
         language: 'ko',
       });
@@ -219,19 +219,19 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
       expect(result.answer).not.toMatch(/죄송합니다.*도움드리기.*어려/);
     });
 
-    it('should respond to tennis technique questions (English)', async () => {
+    it('should respond to pickleball technique questions (English)', async () => {
       const result = await aiService.processQuery('How do I improve my serve?', { language: 'en' });
 
       expect(result.filtered).toBeFalsy();
       expect(result.answer).not.toMatch(/sorry.*outside.*expertise/i);
     });
 
-    it('테니스 맥락이 있는 날씨 질문은 허용해야 함', async () => {
-      const result = await aiService.processQuery('테니스 치기 좋은 날씨는 어때야 해?', {
+    it('피클볼 맥락이 있는 날씨 질문은 허용해야 함', async () => {
+      const result = await aiService.processQuery('피클볼 치기 좋은 날씨는 어때야 해?', {
         language: 'ko',
       });
 
-      // 테니스 맥락이 있으므로 차단되지 않아야 함
+      // 피클볼 맥락이 있으므로 차단되지 않아야 함
       expect(result.filtered).toBeFalsy();
       expect(result.answer).not.toMatch(/죄송합니다.*도움드리기.*어려/);
     });
@@ -248,7 +248,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
       const filterResult = (aiService as any).filterOutput('오늘의 날씨는 맑고 화창합니다.', 'ko');
       expect(filterResult.filtered).toBe(true);
       expect(filterResult.fallbackResponse).toContain('🎾');
-      expect(filterResult.fallbackResponse).toContain('테니스');
+      expect(filterResult.fallbackResponse).toContain('피클볼');
     });
 
     it('filterOutput이 정치 관련 응답을 감지해야 함', () => {
@@ -263,10 +263,10 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
       const filterResult = (aiService as any).filterOutput('You should invest in Bitcoin.', 'en');
       expect(filterResult.filtered).toBe(true);
       expect(filterResult.fallbackResponse).toContain('🎾');
-      expect(filterResult.fallbackResponse).toMatch(/tennis/i);
+      expect(filterResult.fallbackResponse).toMatch(/pickleball/i);
     });
 
-    it('filterOutput이 테니스 관련 응답은 통과시켜야 함', () => {
+    it('filterOutput이 피클볼 관련 응답은 통과시켜야 함', () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const filterResult = (aiService as any).filterOutput(
         '포핸드 그립에는 여러 종류가 있습니다.',
@@ -275,10 +275,10 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
       expect(filterResult.filtered).toBe(false);
     });
 
-    it('filterOutput이 영어 테니스 응답은 통과시켜야 함', () => {
+    it('filterOutput이 영어 피클볼 응답은 통과시켜야 함', () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const filterResult = (aiService as any).filterOutput(
-        'The serve is the most important shot in tennis.',
+        'The serve is the most important shot in pickleball.',
         'en'
       );
       expect(filterResult.filtered).toBe(false);
@@ -286,7 +286,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
   });
 
   describe('📝 거절 응답 형식 검증', () => {
-    it('거절 시 테니스 이모지(🎾)를 포함해야 함', async () => {
+    it('거절 시 피클볼 이모지(🎾)를 포함해야 함', async () => {
       const result = await aiService.processQuery('정치에 대해 알려줘', { language: 'ko' });
       expect(result.answer).toContain('🎾');
     });
@@ -296,15 +296,15 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
       expect(result.answer).toMatch(/죄송|어려워/);
     });
 
-    it('거절 시 테니스 질문으로 유도해야 함', async () => {
+    it('거절 시 피클볼 질문으로 유도해야 함', async () => {
       const result = await aiService.processQuery('맛집 추천해줘', { language: 'ko' });
-      expect(result.answer).toMatch(/테니스.*질문|물어/);
+      expect(result.answer).toMatch(/피클볼.*질문|물어/);
     });
 
     it('should use polite tone in rejection (English)', async () => {
       const result = await aiService.processQuery('Tell me about politics', { language: 'en' });
       expect(result.answer).toMatch(/sorry|cannot|unable/i);
-      expect(result.answer).toMatch(/tennis/i);
+      expect(result.answer).toMatch(/pickleball/i);
       expect(result.filtered).toBe(true);
     });
   });
@@ -318,11 +318,11 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
     });
 
     it('매우 긴 질문에 대한 처리', async () => {
-      const longQuery = '테니스 '.repeat(100) + '어떻게 쳐요?';
+      const longQuery = '피클볼 '.repeat(100) + '어떻게 쳐요?';
       const result = await aiService.processQuery(longQuery, { language: 'ko' });
 
       expect(result.answer).toBeTruthy();
-      // 테니스 관련 질문이므로 차단되지 않아야 함
+      // 피클볼 관련 질문이므로 차단되지 않아야 함
       expect(result.filtered).toBeFalsy();
     });
 
@@ -336,7 +336,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
       const result = await aiService.processQuery('How do I 포핸드를 improve?', { language: 'ko' });
 
       expect(result.answer).toBeTruthy();
-      // 테니스 관련 질문이므로 차단되지 않아야 함
+      // 피클볼 관련 질문이므로 차단되지 않아야 함
       expect(result.filtered).toBeFalsy();
     });
   });
@@ -442,9 +442,9 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
         expect(result.nextHint).toBeTruthy();
       });
 
-      it('라켓/장비 서비스 선택 시 올바른 응답 반환', () => {
+      it('패들/장비 서비스 선택 시 올바른 응답 반환', () => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const result = (aiService as any).handleOnboardingAction('racket_service', 'ko');
+        const result = (aiService as any).handleOnboardingAction('paddle_service', 'ko');
 
         expect(result.message).toContain('장비');
         expect(result.command).toEqual({
@@ -522,7 +522,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
         expect(actionIds).toContain('create_club');
         expect(actionIds).toContain('find_partner');
         expect(actionIds).toContain('find_coach');
-        expect(actionIds).toContain('racket_service');
+        expect(actionIds).toContain('paddle_service');
       });
 
       it('각 옵션은 이모지 icon을 가져야 함', () => {
@@ -737,7 +737,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
         });
       });
 
-      describe('General Tennis Questions', () => {
+      describe('General Pickleball Questions', () => {
         it('should parse "서브 잘 넣는 방법 알려줘" into askQuestion command', async () => {
           (global.fetch as jest.Mock).mockResolvedValue({
             ok: true,
@@ -769,7 +769,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
           expect(result.confidence).toBeGreaterThan(0.8);
         });
 
-        it('should parse "What are tennis rules?" into askQuestion command', async () => {
+        it('should parse "What are pickleball rules?" into askQuestion command', async () => {
           (global.fetch as jest.Mock).mockResolvedValue({
             ok: true,
             json: () =>
@@ -779,7 +779,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
                     content: {
                       parts: [
                         {
-                          text: '{"command":"askQuestion","params":{"topic":"rules"},"confidence":0.90,"originalQuery":"What are tennis rules?"}',
+                          text: '{"command":"askQuestion","params":{"topic":"rules"},"confidence":0.90,"originalQuery":"What are pickleball rules?"}',
                         },
                       ],
                     },
@@ -790,7 +790,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
 
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const result = await (aiService as any).parseUserQueryToCommand(
-            'What are tennis rules?',
+            'What are pickleball rules?',
             'en'
           );
 
@@ -947,7 +947,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
                   content: {
                     parts: [
                       {
-                        text: '서브를 잘 넣으려면 토스를 일정하게 하고, 라켓 스윙을 부드럽게 해야 합니다.',
+                        text: '서브를 잘 넣으려면 토스를 일정하게 하고, 패들 스윙을 부드럽게 해야 합니다.',
                       },
                     ],
                   },
