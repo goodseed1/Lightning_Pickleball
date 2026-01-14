@@ -16,13 +16,16 @@ export interface ServiceLocation {
 }
 
 /**
- * 서비스 카테고리
+ * 서비스 카테고리 - 피클볼용
+ * Note: 'stringing' 제거됨 - 패들에는 줄이 없음!
  */
 export type ServiceCategory =
-  | 'stringing' // 줄 교체
-  | 'repair' // 패들 수리
+  | 'paddle_sales' // 패들 판매
+  | 'paddle_rental' // 패들 대여
   | 'used_paddle' // 중고 패들
   | 'used_equipment' // 중고 장비 (볼머신 등)
+  | 'court_rental' // 코트 대여
+  | 'lessons' // 레슨
   | 'other'; // 기타
 
 /**

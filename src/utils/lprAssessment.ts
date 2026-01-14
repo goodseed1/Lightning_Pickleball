@@ -12,7 +12,7 @@
 import {
   shouldShowOverEstimationWarning,
   shouldShowUnderEstimationRecommendation,
-} from './ltrUtils';
+} from './lprUtils';
 import i18n from '../i18n';
 
 // ============================================================================
@@ -259,7 +259,7 @@ function detectWarnings(result: AssessmentResult): string[] {
   const experiencePercentage = scoreBreakdown.experience / CATEGORY_MAX_SCORES.experience;
 
   if (skillsPercentage > 0.7 && experiencePercentage < 0.3) {
-    warnings.push(i18n.t('utils.ltrAssessment.warnings.highSkillLowExperience'));
+    warnings.push(i18n.t('utils.lprAssessment.warnings.highSkillLowExperience'));
   }
 
   // Self-Assessment vs Objective Scores Mismatch
@@ -272,19 +272,19 @@ function detectWarnings(result: AssessmentResult): string[] {
   const selfPercentage = scoreBreakdown.selfAssessment / CATEGORY_MAX_SCORES.selfAssessment;
 
   if (selfPercentage - objectivePercentage > 0.3) {
-    warnings.push(i18n.t('utils.ltrAssessment.warnings.selfOverEstimation'));
+    warnings.push(i18n.t('utils.lprAssessment.warnings.selfOverEstimation'));
   } else if (objectivePercentage - selfPercentage > 0.3) {
-    warnings.push(i18n.t('utils.ltrAssessment.warnings.selfUnderEstimation'));
+    warnings.push(i18n.t('utils.lprAssessment.warnings.selfUnderEstimation'));
   }
 
   // Over-estimation Warning (using existing util)
   if (shouldShowOverEstimationWarning(recommendedLtr)) {
-    warnings.push(i18n.t('utils.ltrAssessment.warnings.highLevelWarning'));
+    warnings.push(i18n.t('utils.lprAssessment.warnings.highLevelWarning'));
   }
 
   // Under-estimation Recommendation (using existing util)
   if (shouldShowUnderEstimationRecommendation(recommendedLtr)) {
-    warnings.push(i18n.t('utils.ltrAssessment.warnings.beginnerEncouragement'));
+    warnings.push(i18n.t('utils.lprAssessment.warnings.beginnerEncouragement'));
   }
 
   return warnings;

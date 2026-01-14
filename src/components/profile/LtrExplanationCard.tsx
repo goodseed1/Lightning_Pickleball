@@ -28,7 +28,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../hooks/useTheme';
 import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { LPR_TIERS, LPR_LEVELS, getLocalizedText } from '../../constants/ltr';
+import { LPR_TIERS, LPR_LEVELS, getLocalizedText } from '../../constants/lpr';
 
 // Enable LayoutAnimation for Android
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {

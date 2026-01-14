@@ -1471,7 +1471,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
         // 🧠 OPERATION RECALL: Create comprehensive Firestore structure that preserves ALL memories
         // 🛡️ Initialize ELO from LPR level
-        const { getInitialEloFromLtr } = await import('../utils/ltrUtils');
+        const { getInitialEloFromLtr } = await import('../utils/lprUtils');
         let initialElo = 1200; // Default
         if (profileData?.skillLevel && typeof profileData.skillLevel === 'number') {
           initialElo = getInitialEloFromLtr(profileData.skillLevel);

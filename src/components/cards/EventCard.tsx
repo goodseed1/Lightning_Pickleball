@@ -25,7 +25,7 @@ import {
   safeMatchResult,
   formatSmartSkillLevel,
 } from '../../utils/dataUtils';
-import { convertEloToLtr } from '../../utils/ltrUtils';
+import { convertEloToLtr } from '../../utils/lprUtils';
 import InfoTag from '../common/InfoTag';
 import StatIcon from '../common/StatIcon';
 import StatusChip from '../common/StatusChip';

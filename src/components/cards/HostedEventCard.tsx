@@ -35,7 +35,7 @@ import PublicMatchScoreModal from '../match/PublicMatchScoreModal';
 import { participationApplicationService } from '../../services/participationApplicationService';
 import weatherService from '../../services/weatherService';
 import userService from '../../services/userService';
-import { convertEloToLtr } from '../../utils/ltrUtils';
+import { convertEloToLtr } from '../../utils/lprUtils';
 
 // Type definitions matching cards/EventCard interface
 interface SimpleEvent {

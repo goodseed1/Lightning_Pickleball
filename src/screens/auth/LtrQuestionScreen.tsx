@@ -24,8 +24,8 @@ import {
   getQuestionsForPage,
   QUESTION_PAGES,
   SupportedLanguage,
-} from '../../constants/ltrQuestions';
-import { Answer } from '../../utils/ltrAssessment';
+} from '../../constants/lprQuestions';
+import { Answer } from '../../utils/lprAssessment';
 
 // ============================================================================
 // Type Definitions
@@ -53,7 +53,7 @@ const LtrQuestionScreen: React.FC<LtrQuestionScreenProps> = ({
   const { currentLanguage, t } = useLanguage();
   const themeColors = lightningPickleballDarkTheme.colors;
 
-  // 🌐 All 10 languages are now supported in ltrQuestions.ts
+  // 🌐 All 10 languages are now supported in lprQuestions.ts
   const supportedLangs: SupportedLanguage[] = [
     'ko',
     'en',

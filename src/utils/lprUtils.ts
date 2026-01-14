@@ -31,7 +31,7 @@ import {
   type LtrTier,
   type LtrTierName,
   type SupportedLanguage,
-} from '../constants/ltr';
+} from '../constants/lpr';
 import i18n from '../i18n';
 
 // Re-export core functions from ltr.ts for convenience

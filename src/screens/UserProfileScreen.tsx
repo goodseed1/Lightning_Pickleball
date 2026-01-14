@@ -23,7 +23,7 @@ import rankingService from '../services/rankingService';
 import clubService from '../services/clubService';
 import friendshipService from '../services/friendshipService';
 import RankingsCard, { GlobalRankingData } from '../components/stats/RankingsCard';
-import { convertEloToLtr } from '../utils/ltrUtils';
+import { convertEloToLtr } from '../utils/lprUtils';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../hooks/useTheme';
 import { getLightningPickleballTheme } from '../theme';

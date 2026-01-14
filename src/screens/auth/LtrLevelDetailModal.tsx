@@ -19,7 +19,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { lightningPickleballDarkTheme } from '../../theme';
-import { LPR_LEVELS, getLocalizedText } from '../../constants/ltr';
+import { LPR_LEVELS, getLocalizedText } from '../../constants/lpr';
 
 // ============================================================================
 // Type Definitions

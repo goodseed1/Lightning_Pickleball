@@ -15,7 +15,7 @@ import { Text as PaperText } from 'react-native-paper';
 import { useTheme } from '../../hooks/useTheme';
 import { getLightningPickleballTheme } from '../../theme';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { convertEloToLtr } from '../../constants/ltr';
+import { convertEloToLtr } from '../../constants/lpr';
 
 // ==================== TYPE DEFINITIONS ====================
 

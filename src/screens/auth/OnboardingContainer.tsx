@@ -20,7 +20,7 @@ import LanguageSelectionScreen from '../LanguageSelectionScreen';
 import TermsAndConditionsScreen from './TermsAndConditionsScreen';
 import ProfileSetupScreen, { ProfileData } from './ProfileSetupScreen';
 // 🎨 [REMOVED] ThemeSelectionScreen - 테마 선택은 온보딩에서 제거됨 (기본값: 다크 모드)
-import { Answer, AssessmentResult, calculateRecommendedLtr } from '../../utils/ltrAssessment';
+import { Answer, AssessmentResult, calculateRecommendedLtr } from '../../utils/lprAssessment';
 import LtrQuestionScreen from './LtrQuestionScreen';
 import LtrResultScreen from './LtrResultScreen';
 import LtrLevelSelectScreen from './LtrLevelSelectScreen';

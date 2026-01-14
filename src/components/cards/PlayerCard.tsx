@@ -14,7 +14,7 @@ import { useTheme } from '../../hooks/useTheme';
 import { getLightningPickleballTheme } from '../../theme';
 import { useTranslation } from 'react-i18next';
 import { getNtrpDescription, getNtrpDescriptionFromRange } from '../../utils/eloUtils';
-import { convertEloToLtr } from '../../utils/ltrUtils';
+import { convertEloToLtr } from '../../utils/lprUtils';
 import InfoTag from '../common/InfoTag';
 import StatIcon from '../common/StatIcon';
 import StatusChip from '../common/StatusChip';

@@ -18,9 +18,9 @@ import { RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { lightningPickleballDarkTheme } from '../../theme';
-import { getQuestionsForPage, QUESTION_PAGES } from '../../constants/ltrQuestions';
-import { calculateRecommendedLtr, Answer, AssessmentResult } from '../../utils/ltrAssessment';
-import { getLtrDetails } from '../../utils/ltrUtils';
+import { getQuestionsForPage, QUESTION_PAGES } from '../../constants/lprQuestions';
+import { calculateRecommendedLtr, Answer, AssessmentResult } from '../../utils/lprAssessment';
+import { getLtrDetails } from '../../utils/lprUtils';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
 
 // ============================================================================
@@ -49,7 +49,7 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
   // Set header title dynamically with i18n
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: t('navigation.ltrAssessment'),
+      title: t('navigation.lprAssessment'),
     });
   }, [navigation, t]);
 
@@ -239,7 +239,7 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
         <View style={styles.resultContainer}>
           <Ionicons name='trophy' size={64} color='#FFD700' />
 
-          <Text style={styles.resultTitle}>{t('ltrAssessment.recommendedLevel')}</Text>
+          <Text style={styles.resultTitle}>{t('lprAssessment.recommendedLevel')}</Text>
 
           <Text style={styles.resultNtrp}>{displayNtrp.toFixed(1)}</Text>
 
@@ -257,7 +257,7 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
             ]}
           >
             <Text style={styles.confidenceText}>
-              {t('ltrAssessment.confidence')}:{' '}
+              {t('lprAssessment.confidence')}:{' '}
               {t(
                 `ntrpAssessment.confidence${result.confidence.charAt(0).toUpperCase() + result.confidence.slice(1)}`
               )}
@@ -266,28 +266,28 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
 
           {/* Score Breakdown */}
           <View style={styles.scoreBreakdown}>
-            <Text style={styles.breakdownTitle}>{t('ltrAssessment.scoreBreakdown')}</Text>
+            <Text style={styles.breakdownTitle}>{t('lprAssessment.scoreBreakdown')}</Text>
             <View style={styles.breakdownRow}>
-              <Text style={styles.breakdownLabel}>{t('ltrAssessment.skills')}</Text>
+              <Text style={styles.breakdownLabel}>{t('lprAssessment.skills')}</Text>
               <Text style={styles.breakdownValue}>{result.scoreBreakdown.skills} / 50</Text>
             </View>
             <View style={styles.breakdownRow}>
-              <Text style={styles.breakdownLabel}>{t('ltrAssessment.tactics')}</Text>
+              <Text style={styles.breakdownLabel}>{t('lprAssessment.tactics')}</Text>
               <Text style={styles.breakdownValue}>{result.scoreBreakdown.tactics} / 40</Text>
             </View>
             <View style={styles.breakdownRow}>
-              <Text style={styles.breakdownLabel}>{t('ltrAssessment.experience')}</Text>
+              <Text style={styles.breakdownLabel}>{t('lprAssessment.experience')}</Text>
               <Text style={styles.breakdownValue}>{result.scoreBreakdown.experience} / 30</Text>
             </View>
             <View style={styles.breakdownRow}>
-              <Text style={styles.breakdownLabel}>{t('ltrAssessment.selfAssessment')}</Text>
+              <Text style={styles.breakdownLabel}>{t('lprAssessment.selfAssessment')}</Text>
               <Text style={styles.breakdownValue}>{result.scoreBreakdown.selfAssessment} / 20</Text>
             </View>
           </View>
 
           {/* ±1 Level Adjustment */}
           <View style={styles.adjustmentContainer}>
-            <Text style={styles.adjustmentTitle}>{t('ltrAssessment.adjustLevel')}</Text>
+            <Text style={styles.adjustmentTitle}>{t('lprAssessment.adjustLevel')}</Text>
             <View style={styles.adjustmentButtons}>
               <TouchableOpacity
                 style={[styles.adjustButton, displayNtrp <= 2.0 && styles.disabledButton]}
@@ -305,7 +305,7 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.resetButton} onPress={() => setAdjustedNtrp(null)}>
-                <Text style={styles.resetButtonText}>{t('ltrAssessment.reset')}</Text>
+                <Text style={styles.resetButtonText}>{t('lprAssessment.reset')}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -339,7 +339,7 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
 
           {/* Complete Button */}
           <TouchableOpacity style={styles.completeButton} onPress={handleComplete}>
-            <Text style={styles.completeButtonText}>{t('ltrAssessment.complete')}</Text>
+            <Text style={styles.completeButtonText}>{t('lprAssessment.complete')}</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -358,7 +358,7 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
           <Ionicons name='arrow-back' size={24} color={themeColors.onBackground} />
         </TouchableOpacity>
         <Text style={[styles.headerTitle, { color: themeColors.onBackground }]}>
-          {t('ltrAssessment.title')}
+          {t('lprAssessment.title')}
         </Text>
         <View style={styles.headerSpacer} />
       </View>
@@ -379,7 +379,7 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
       {!showResultScreen && (
         <View style={styles.navigationContainer}>
           <TouchableOpacity onPress={handleBack} style={styles.backNavButton}>
-            <Text style={styles.backNavButtonText}>{t('ltrAssessment.back')}</Text>
+            <Text style={styles.backNavButtonText}>{t('lprAssessment.back')}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -388,7 +388,7 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
             disabled={!isPageComplete()}
           >
             <Text style={styles.nextButtonText}>
-              {currentPage === 4 ? t('ltrAssessment.viewResult') : t('ltrAssessment.next')}
+              {currentPage === 4 ? t('lprAssessment.viewResult') : t('lprAssessment.next')}
             </Text>
           </TouchableOpacity>
         </View>

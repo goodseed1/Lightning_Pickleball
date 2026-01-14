@@ -41,7 +41,7 @@ import { functions, db } from '../firebase/config';
 // 🎥 CCTV: Enhanced logging for refresh behavior tracking
 import { cctvLog, CCTV_PHASES } from '../utils/cctvLogger';
 // 🛡️ CAPTAIN AMERICA: NTRP utils for number type handling
-import { getLtrLevelDescription } from '../utils/ltrUtils';
+import { getLtrLevelDescription } from '../utils/lprUtils';
 // 🎯 [OPERATION DUO] Partner invitation types
 import { PartnerInvitation } from '../types/match';
 // 🎯 [FRIEND INVITE] Friend invitation types

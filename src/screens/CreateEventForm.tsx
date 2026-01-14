@@ -35,7 +35,7 @@ import { CreationStackParamList } from '../navigation/CreationNavigator';
 import ParticipantSelector from '../components/common/ParticipantSelector';
 import activityService from '../services/activityService';
 import { collection, query, where, getDocs, limit as firestoreLimit } from 'firebase/firestore';
-import { convertEloToLtr } from '../utils/ltrUtils';
+import { convertEloToLtr } from '../utils/lprUtils';
 import { formatDistance } from '../utils/unitUtils';
 import { useLocation } from '../contexts/LocationContext';
 import { getCurrencySymbolByCountry } from '../utils/currencyUtils';

@@ -27,7 +27,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 import { getDistanceUnit } from '../utils/unitUtils';
-import { convertEloToLtr } from '../utils/ltrUtils';
+import { convertEloToLtr } from '../utils/lprUtils';
 import { useTheme } from '../hooks/useTheme';
 import { getLightningPickleballTheme } from '../theme';
 import CameraService from '../services/CameraService';

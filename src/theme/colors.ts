@@ -15,10 +15,11 @@ import { Platform } from 'react-native';
  * These are the primary brand colors that define Lightning Pickleball identity
  */
 export const LightningPickleballBrandColors = {
-  // Primary brand colors
-  primary: '#1976D2', // Lightning Pickleball Blue
-  secondary: '#FF6B35', // Pickleball Orange
-  accent: '#00BCD4', // Electric Cyan
+  // Primary brand colors - GREEN THEME 🏓
+  primary: '#2E7D32', // Forest Green (피클볼 메인 컬러)
+  primaryLight: '#4CAF50', // Material Green
+  secondary: '#FFC107', // Yellow (피클볼 볼 색상)
+  accent: '#81C784', // Light Green
 
   // Status colors
   success: '#4CAF50', // Success Green
@@ -38,10 +39,11 @@ export const LightningPickleballBrandColors = {
  * Optimized for dark backgrounds while maintaining brand identity
  */
 export const LightningPickleballDarkColors = {
-  // Primary brand colors (softened for dark mode)
-  primary: '#42A5F5', // Lighter Lightning Blue
-  secondary: '#FF8A50', // Softer Pickleball Orange
-  accent: '#26C6DA', // Brighter Electric Cyan
+  // Primary brand colors (softened for dark mode) - GREEN THEME 🏓
+  primary: '#66BB6A', // Lighter Green
+  primaryLight: '#81C784', // Light Green
+  secondary: '#FFD54F', // Softer Yellow
+  accent: '#A5D6A7', // Brighter Light Green
 
   // Status colors (dark mode optimized)
   success: '#66BB6A', // Softer Success Green
@@ -55,11 +57,11 @@ export const LightningPickleballDarkColors = {
   lightningGlow: '#FFC107', // Lightning Gold Glow
 
   // Enhanced primary colors for dark mode depth
-  primaryElevated: '#64B5F6', // Elevated Primary Blue
-  primaryGlow: '#1976D2', // Primary Blue Glow
+  primaryElevated: '#81C784', // Elevated Primary Green
+  primaryGlow: '#2E7D32', // Primary Green Glow
 
   // Enhanced accent colors
-  accentSoft: '#4DD0E1', // Soft Cyan for elevated elements
+  accentSoft: '#A5D6A7', // Soft Green for elevated elements
 
   // Interaction colors (dark mode optimized)
   likeActive: '#F48FB1', // Like/Heart Active State (softer pink for dark mode)
@@ -102,7 +104,7 @@ export const LightModeColors = {
   // Inverse colors (for dark elements on light background)
   inverseSurface: '#1F2937',
   inverseOnSurface: '#FFFFFF',
-  inversePrimary: '#42A5F5',
+  inversePrimary: '#66BB6A', // Green for dark mode
 } as const;
 
 /**
@@ -144,7 +146,7 @@ export const DarkModeColors = {
   // Inverse colors (for light elements on dark background)
   inverseSurface: '#FFFFFF',
   inverseOnSurface: '#1F2937',
-  inversePrimary: '#1976D2',
+  inversePrimary: '#2E7D32', // Green for light mode
 } as const;
 
 // ==================== PLATFORM-SPECIFIC COLORS ====================

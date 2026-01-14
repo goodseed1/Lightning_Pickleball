@@ -29,8 +29,8 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { lightningPickleballDarkTheme } from '../../theme';
-import { getInitialEloFromLtr, getLocalizedText } from '../../constants/ltr';
-import { LPR_LEVELS, getOnboardingLtrLevels } from '../../constants/ltr';
+import { getInitialEloFromLtr, getLocalizedText } from '../../constants/lpr';
+import { LPR_LEVELS, getOnboardingLtrLevels } from '../../constants/lpr';
 import LtrLevelDetailModal from './LtrLevelDetailModal';
 
 // ============================================================================

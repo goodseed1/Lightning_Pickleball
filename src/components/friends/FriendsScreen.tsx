@@ -20,7 +20,7 @@ import { useTheme } from '../../hooks/useTheme';
 import { getLightningPickleballTheme } from '../../theme';
 import { Friend, FriendRequest, FriendSearchResult } from '../../types/friendship';
 import friendshipService from '../../services/friendshipService';
-import { convertEloToLtr } from '../../utils/ltrUtils';
+import { convertEloToLtr } from '../../utils/lprUtils';
 // 🔧 [TS-FIX] Local type definition to avoid import errors
 type RootStackParamList = {
   UserProfile: { userId: string };

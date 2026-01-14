@@ -19,8 +19,8 @@ import {
   getTierNameByLevel,
   getTierColorByLevel,
   getTierThemeByLevel,
-} from './ltrUtils';
-import { LPR_LEVELS, getLocalizedText } from '../constants/ltr';
+} from './lprUtils';
+import { LPR_LEVELS, getLocalizedText } from '../constants/lpr';
 import i18n from '../i18n';
 
 /**

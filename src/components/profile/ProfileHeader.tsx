@@ -15,7 +15,7 @@ import { useTheme } from '../../hooks/useTheme';
 import { getLightningPickleballTheme } from '../../theme';
 import { LocationProfile } from '../../types';
 import { getLtrProfileDisplay } from '../../utils/eloUtils';
-import { convertEloToLtr } from '../../constants/ltr';
+import { convertEloToLtr } from '../../constants/lpr';
 
 interface RankingData {
   monthly: {

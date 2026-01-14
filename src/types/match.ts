@@ -5,6 +5,93 @@
 
 import { Timestamp } from 'firebase/firestore';
 
+// ============ PICKLEBALL SPECIFIC TYPES ============
+// 🏓 피클볼 점수 시스템 (11점 또는 15점, 2점 차이로 승리)
+
+export type PickleballGameTarget = 11 | 15;
+export type PickleballMatchFormat = 'single_game' | 'best_of_3';
+
+/**
+ * Pickleball Game Score (Rally Scoring)
+ * 피클볼 게임 점수 (랠리 스코어링)
+ */
+export interface PickleballGameScore {
+  player1Points: number;  // 0-25+ (랠리 포인트)
+  player2Points: number;
+  winner: 'player1' | 'player2' | null;
+}
+
+/**
+ * Pickleball Match Score
+ * 피클볼 매치 점수 (단일 게임 또는 Best of 3)
+ */
+export interface PickleballMatchScore {
+  format: PickleballMatchFormat;           // 단일 게임 vs Best of 3
+  targetScore: PickleballGameTarget;       // 11 (기본, 표준) or 15
+  games: PickleballGameScore[];            // 최대 3게임
+  matchWinner: 'player1' | 'player2' | null;
+  isComplete: boolean;
+}
+
+/**
+ * Validate Pickleball Game Score (Rally Scoring)
+ * 피클볼 게임 점수 검증 - 2점 차이로 targetScore 도달 시 승리
+ */
+export const validatePickleballGameScore = (
+  p1: number,
+  p2: number,
+  target: PickleballGameTarget
+): boolean => {
+  const max = Math.max(p1, p2);
+  const diff = Math.abs(p1 - p2);
+  return max >= target && diff >= 2;
+};
+
+/**
+ * Determine Pickleball Game Winner
+ * 피클볼 게임 승자 결정
+ */
+export const determinePickleballGameWinner = (
+  p1: number,
+  p2: number,
+  target: PickleballGameTarget
+): 'player1' | 'player2' | null => {
+  const diff = Math.abs(p1 - p2);
+  if (diff < 2) return null;
+  if (p1 >= target && p1 > p2) return 'player1';
+  if (p2 >= target && p2 > p1) return 'player2';
+  return null;
+};
+
+/**
+ * Determine Best of 3 Match Winner
+ * Best of 3 매치 승자 결정 (2게임 먼저 승리)
+ */
+export const determineBestOf3Winner = (
+  games: PickleballGameScore[]
+): 'player1' | 'player2' | null => {
+  const p1Wins = games.filter(g => g.winner === 'player1').length;
+  const p2Wins = games.filter(g => g.winner === 'player2').length;
+  if (p1Wins >= 2) return 'player1';
+  if (p2Wins >= 2) return 'player2';
+  return null; // 아직 진행 중
+};
+
+/**
+ * Create Empty Pickleball Match Score
+ * 빈 피클볼 매치 점수 생성
+ */
+export const createEmptyPickleballScore = (
+  format: PickleballMatchFormat = 'single_game',
+  targetScore: PickleballGameTarget = 11
+): PickleballMatchScore => ({
+  format,
+  targetScore,
+  games: [{ player1Points: 0, player2Points: 0, winner: null }],
+  matchWinner: null,
+  isComplete: false,
+});
+
 // ============ ENUMS & CONSTANTS ============
 
 export type MatchType = 'league' | 'tournament' | 'lightning_match' | 'practice';

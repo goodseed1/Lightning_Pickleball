@@ -25,9 +25,9 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { lightningPickleballDarkTheme } from '../../theme';
-import { Answer, AssessmentResult } from '../../utils/ltrAssessment';
-import { getLtrDetails, getInitialEloFromLtr } from '../../utils/ltrUtils';
-import { LPR_LEVELS } from '../../constants/ltr';
+import { Answer, AssessmentResult } from '../../utils/lprAssessment';
+import { getLtrDetails, getInitialEloFromLtr } from '../../utils/lprUtils';
+import { LPR_LEVELS } from '../../constants/lpr';
 import LtrLevelDetailModal from './LtrLevelDetailModal';
 
 // ============================================================================

@@ -34,7 +34,7 @@ import { db } from '../../firebase/config';
 import activityService from '../../services/activityService';
 import weatherService from '../../services/weatherService';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { convertEloToLtr } from '../../utils/ltrUtils';
+import { convertEloToLtr } from '../../utils/lprUtils';
 import { createFeedItem } from '../../services/feedService';
 
 // Type definitions matching cards/EventCard interface
