@@ -395,7 +395,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
         if (isNaN(tb1) || isNaN(tb2)) {
           Alert.alert(
             t('recordScore.alerts.notice'),
-            t('recordScore.alerts.tiebreakRequired', { set: i + 1 })
+            `${t('recordScore.alerts.tiebreakRequired')} ${i + 1}`
           );
           return false;
         }
@@ -407,7 +407,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
         if (!isValidTiebreak) {
           Alert.alert(
             t('recordScore.alerts.notice'),
-            t('recordScore.alerts.tiebreakInvalid', { set: i + 1 })
+            `${t('recordScore.alerts.tiebreakInvalid')} ${i + 1}`
           );
           return false;
         }
@@ -416,13 +416,13 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
           if (score1 !== 6) {
             Alert.alert(
               t('recordScore.alerts.notice'),
-              t('recordScore.alerts.tieOnly66', { set: i + 1 })
+              `${t('recordScore.alerts.tieOnly66')} ${i + 1}`
             );
             return false;
           }
           Alert.alert(
             t('recordScore.alerts.notice'),
-            t('recordScore.alerts.tiebreakAt66', { set: i + 1 })
+            `${t('recordScore.alerts.tiebreakAt66')} ${i + 1}`
           );
           return false;
         }
@@ -437,21 +437,21 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
             if (minScore === 6) {
               Alert.alert(
                 t('recordScore.alerts.notice'),
-                t('recordScore.alerts.tiebreakRequired76', { set: i + 1 })
+                `${t('recordScore.alerts.tiebreakRequired76')} ${i + 1}`
               );
               return false;
             }
           } else {
             Alert.alert(
               t('recordScore.alerts.notice'),
-              t('recordScore.alerts.invalidPickleballScore', { set: i + 1 })
+              `${t('recordScore.alerts.invalidPickleballScore')} ${i + 1}`
             );
             return false;
           }
         } else {
           Alert.alert(
             t('recordScore.alerts.notice'),
-            t('recordScore.alerts.minGamesRequired', { set: i + 1 })
+            `${t('recordScore.alerts.minGamesRequired')} ${i + 1}`
           );
           return false;
         }
@@ -591,7 +591,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
 
     return (
       <View key={setIndex} style={styles.scoreSetContainer}>
-        <Text style={styles.setLabel}>{t('recordScore.setN', { n: setIndex + 1 })}</Text>
+        <Text style={styles.setLabel}>{`${t('recordScore.set')} ${setIndex + 1}`}</Text>
 
         <View style={styles.scoreInputRow}>
           <View style={styles.playerInputContainer}>
@@ -688,7 +688,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
         {showTiebreak && (
           <View style={styles.tiebreakContainer}>
             <Text style={styles.tiebreakLabel}>
-              {t('recordScore.tiebreakLabel', { placeholder: tiebreakPlaceholder })}
+              {`${t('recordScore.tiebreakLabel')} (${tiebreakPlaceholder})`}
             </Text>
             <View style={styles.tiebreakInputRow}>
               <View style={styles.tiebreakPlayerContainer}>
@@ -846,7 +846,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
 
               <View style={styles.scoreContainer}>
                 {Array.from({ length: calculateSetsToDisplay() }, (_, index) =>
-                  renderScoreInput(index, t('recordScore.setN', { n: index + 1 }))
+                  renderScoreInput(index, `${t('recordScore.set')} ${index + 1}`)
                 )}
               </View>
 

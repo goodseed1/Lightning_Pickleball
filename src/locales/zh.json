@@ -699,7 +699,27 @@
         "evening": "傍晚",
         "night": "晚上",
         "brunch": "早午餐时间"
+      },
+      "block": {
+        "title": "屏蔽用户",
+        "confirmTitle": "屏蔽 {{nickname}}？",
+        "confirmMessage": "您将不再看到该用户的内容，对方也无法联系您。",
+        "cancel": "取消",
+        "confirm": "屏蔽",
+        "success": "已屏蔽用户",
+        "error": "屏蔽用户失败",
+        "unblockTitle": "取消屏蔽",
+        "unblockConfirmTitle": "取消屏蔽 {{nickname}}？",
+        "unblockConfirmMessage": "对方将能够再次联系您。",
+        "unblockSuccess": "已取消屏蔽"
       }
+    },
+    "blockedUsers": {
+      "title": "已屏蔽用户",
+      "noBlockedUsers": "暂无已屏蔽用户",
+      "noBlockedUsersDesc": "您屏蔽的用户将显示在这里。",
+      "unblock": "取消屏蔽",
+      "blockedOn": "{{date}}屏蔽"
     },
     "title": "个人资料",
     "edit": {
@@ -15273,5 +15293,113 @@
     "successMessage": "迁移完成！",
     "errorTitle": "❌ 错误",
     "resetSuccessMessage": "所有比赛数据已重置！"
+  },
+  "communityGuidelines": {
+    "title": "社区指南",
+    "introduction": "欢迎来到Lightning Pickleball！为了确保所有球员都能获得积极的体验，请遵循以下社区指南。",
+    "sections": {
+      "respect": {
+        "title": "尊重与礼貌",
+        "items": [
+          "以尊重和友善的态度对待所有球员",
+          "在所有沟通中使用适当的语言",
+          "尊重不同的背景、技术水平和打球风格",
+          "支持和鼓励新球员"
+        ]
+      },
+      "prohibited": {
+        "title": "禁止行为",
+        "items": [
+          "垃圾邮件、广告或推广内容",
+          "骚扰、欺凌或恐吓",
+          "仇恨言论或歧视性语言",
+          "分享不当或冒犯性内容",
+          "冒充其他用户或虚假资料",
+          "欺诈、诈骗或欺骗行为"
+        ]
+      },
+      "matchEtiquette": {
+        "title": "比赛礼仪",
+        "items": [
+          "遵守比赛承诺",
+          "如需取消请及时通知",
+          "准时参加预定的比赛",
+          "公平比赛并遵守匹克球规则",
+          "优雅地接受比赛结果"
+        ]
+      },
+      "violations": {
+        "title": "违规后果",
+        "items": [
+          "首次违规：警告",
+          "第二次违规：删除内容",
+          "第三次违规：临时封禁",
+          "严重违规：永久封禁"
+        ]
+      }
+    },
+    "footerNote": "违反这些指南可能会导致警告、内容删除或账户封禁。让我们一起为所有匹克球爱好者维护一个友好的社区！"
+  },
+  "banned": {
+    "title": "账户已停用",
+    "subtitle": "由于违反社区指南，您的账户已被停用。您可以提交申诉请求重新审核此决定。",
+    "whyBanned": "为什么我的账户被停用？",
+    "reason": "您的账户因违反社区指南而被停用。这可能包括骚扰、垃圾邮件、不当内容或其他禁止的活动。",
+    "bannedOn": "停用日期",
+    "previousWarnings": "之前的警告次数",
+    "submitAppeal": "提交申诉",
+    "viewGuidelines": "查看社区指南",
+    "guidelinesError": "无法打开社区指南。请稍后再试。",
+    "appeal": {
+      "title": "申诉",
+      "description": "请解释为什么您认为您的账户应该被恢复。包括任何可能有助于我们审核的相关信息。",
+      "placeholder": "解释为什么您认为您的账户应该被恢复...",
+      "submit": "提交申诉",
+      "submitted": "申诉已提交",
+      "submittedMessage": "您的申诉已成功提交。我们将在3-5个工作日内审核并与您联系。",
+      "error": "错误",
+      "emptyMessage": "请输入申诉内容。",
+      "tooShort": "您的申诉内容太短。请提供更多细节（至少20个字符）。",
+      "submitError": "提交申诉失败。请稍后再试。",
+      "alreadySubmitted": "已提交申诉",
+      "waitingReview": "您的申诉正在审核中。决定作出后我们会通知您。"
+    },
+    "report": {
+      "title": "举报内容",
+      "selectUser": "您要举报谁？",
+      "selectUserInfo": "选择您要举报的用户。",
+      "noMembersToReport": "没有可举报的成员。",
+      "reportingUser": "举报对象",
+      "selectReasonTitle": "请选择举报原因",
+      "additionalDetails": "补充说明（可选）",
+      "descriptionPlaceholder": "提供更多关于举报的详情...",
+      "submit": "提交举报",
+      "success": "举报已提交",
+      "successMessage": "感谢您的举报。我们将在24小时内进行审核。",
+      "error": "错误",
+      "selectReason": "请选择举报原因。",
+      "alreadyReported": "已举报",
+      "alreadyReportedMessage": "您已经举报过此内容。",
+      "submitError": "提交举报失败。请重试。",
+      "reasons": {
+        "spam": "垃圾信息",
+        "harassment": "骚扰或欺凌",
+        "inappropriate": "不当内容",
+        "hate_speech": "仇恨言论",
+        "violence": "暴力或威胁",
+        "other": "其他"
+      }
+    },
+    "logout": {
+      "title": "退出登录",
+      "message": "确定要退出登录吗？"
+    }
+  },
+  "location": {
+    "alerts": {
+      "permissionTitle": "位置权限",
+      "permissionMessage": "需要位置权限才能找到附近的玩家和活动。请在设置中启用。",
+      "openSettings": "打开设置"
+    }
   }
 }

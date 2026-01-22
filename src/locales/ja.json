@@ -479,7 +479,27 @@
       "editButton": "編集",
       "followButton": "フォロー",
       "unfollowButton": "フォロー解除",
-      "messageButton": "メッセージ"
+      "messageButton": "メッセージ",
+      "block": {
+        "title": "ユーザーをブロック",
+        "confirmTitle": "{{nickname}}をブロックしますか？",
+        "confirmMessage": "このユーザーのコンテンツが表示されなくなり、相手もあなたに連絡できなくなります。",
+        "cancel": "キャンセル",
+        "confirm": "ブロック",
+        "success": "ユーザーをブロックしました",
+        "error": "ユーザーのブロックに失敗しました",
+        "unblockTitle": "ブロック解除",
+        "unblockConfirmTitle": "{{nickname}}のブロックを解除しますか？",
+        "unblockConfirmMessage": "相手が再びあなたに連絡できるようになります。",
+        "unblockSuccess": "ブロックを解除しました"
+      }
+    },
+    "blockedUsers": {
+      "title": "ブロックしたユーザー",
+      "noBlockedUsers": "ブロックしたユーザーはいません",
+      "noBlockedUsersDesc": "ブロックしたユーザーがここに表示されます。",
+      "unblock": "ブロック解除",
+      "blockedOn": "{{date}}にブロック"
     }
   },
   "friends": {
@@ -4120,6 +4140,10 @@
     "unknown": "不明",
     "report": "レポート",
     "hide": "非表示",
+    "contentWarning": "コンテンツがポリシー違反として報告されました",
+    "contentRemoved": "コンテンツがモデレーターによって削除されました",
+    "reportResolved": "報告に対して措置が取られました",
+    "accountBanned": "アカウントが停止されました",
     "like": "いいね",
     "comment": "コメント",
     "share": "共有",
@@ -9801,5 +9825,113 @@
     "successMessage": "移行が完了しました！",
     "errorTitle": "❌ エラー",
     "resetSuccessMessage": "すべての試合データがリセットされました！"
+  },
+  "communityGuidelines": {
+    "title": "コミュニティガイドライン",
+    "introduction": "Lightning Pickleballへようこそ！すべてのプレイヤーにポジティブな体験を保証するため、以下のコミュニティガイドラインに従ってください。",
+    "sections": {
+      "respect": {
+        "title": "尊重と礼儀",
+        "items": [
+          "すべてのプレイヤーを尊重と親切さをもって扱う",
+          "すべてのコミュニケーションで適切な言葉を使用する",
+          "多様な背景、スキルレベル、プレイスタイルを尊重する",
+          "新しいプレイヤーをサポートし励ます"
+        ]
+      },
+      "prohibited": {
+        "title": "禁止行為",
+        "items": [
+          "スパム、広告、または宣伝コンテンツ",
+          "ハラスメント、いじめ、または脅迫",
+          "ヘイトスピーチまたは差別的な言葉",
+          "不適切または攻撃的なコンテンツの共有",
+          "他のユーザーのなりすましまたは虚偽のプロフィール",
+          "詐欺、詐欺行為、または欺瞞的行為"
+        ]
+      },
+      "matchEtiquette": {
+        "title": "マッチエチケット",
+        "items": [
+          "マッチの約束を守る",
+          "キャンセルが必要な場合は速やかに通知する",
+          "予定されたマッチに時間通りに到着する",
+          "フェアにプレイしピックルボールのルールに従う",
+          "マッチ結果を品よく受け入れる"
+        ]
+      },
+      "violations": {
+        "title": "違反時の措置",
+        "items": [
+          "初回違反：警告",
+          "2回目の違反：コンテンツ削除",
+          "3回目の違反：一時的な停止",
+          "重大な違反：永久禁止"
+        ]
+      }
+    },
+    "footerNote": "これらのガイドラインに違反すると、警告、コンテンツ削除、またはアカウント停止につながる場合があります。すべてのピックルボール愛好家のための歓迎的なコミュニティを一緒に維持しましょう！"
+  },
+  "banned": {
+    "title": "アカウント停止",
+    "subtitle": "コミュニティガイドライン違反により、アカウントが停止されました。異議申し立てを提出して、この決定の再検討を要求できます。",
+    "whyBanned": "なぜアカウントが停止されたのですか？",
+    "reason": "コミュニティガイドライン違反により、アカウントが停止されました。これには、ハラスメント、スパム、不適切なコンテンツ、その他の禁止された活動が含まれる場合があります。",
+    "bannedOn": "停止日",
+    "previousWarnings": "過去の警告回数",
+    "submitAppeal": "異議申し立てを提出",
+    "viewGuidelines": "コミュニティガイドラインを表示",
+    "guidelinesError": "コミュニティガイドラインを開けませんでした。後でもう一度お試しください。",
+    "appeal": {
+      "title": "異議申し立て",
+      "description": "アカウントを復元すべき理由を説明してください。審査に役立つ関連情報を含めてください。",
+      "placeholder": "アカウントを復元すべき理由を説明してください...",
+      "submit": "異議申し立てを提出",
+      "submitted": "異議申し立て完了",
+      "submittedMessage": "異議申し立てが正常に提出されました。3〜5営業日以内に審査してご連絡いたします。",
+      "error": "エラー",
+      "emptyMessage": "異議申し立ての内容を入力してください。",
+      "tooShort": "異議申し立ての内容が短すぎます。最低20文字以上入力してください。",
+      "submitError": "異議申し立ての提出に失敗しました。後でもう一度お試しください。",
+      "alreadySubmitted": "既に提出済み",
+      "waitingReview": "異議申し立ては現在審査中です。決定が下されたらお知らせします。"
+    },
+    "report": {
+      "title": "コンテンツを報告",
+      "selectUser": "誰を報告しますか？",
+      "selectUserInfo": "報告したいユーザーを選択してください。",
+      "noMembersToReport": "報告できるメンバーがいません。",
+      "reportingUser": "報告対象",
+      "selectReasonTitle": "報告理由を選択してください",
+      "additionalDetails": "追加の詳細（任意）",
+      "descriptionPlaceholder": "報告の詳細を入力してください...",
+      "submit": "報告する",
+      "success": "報告完了",
+      "successMessage": "報告が受理されました。24時間以内に確認いたします。",
+      "error": "エラー",
+      "selectReason": "報告理由を選択してください。",
+      "alreadyReported": "既に報告済み",
+      "alreadyReportedMessage": "このコンテンツは既に報告されています。",
+      "submitError": "報告の提出に失敗しました。もう一度お試しください。",
+      "reasons": {
+        "spam": "スパム",
+        "harassment": "ハラスメントまたはいじめ",
+        "inappropriate": "不適切なコンテンツ",
+        "hate_speech": "ヘイトスピーチ",
+        "violence": "暴力または脅迫",
+        "other": "その他"
+      }
+    },
+    "logout": {
+      "title": "サインアウト",
+      "message": "サインアウトしてもよろしいですか？"
+    }
+  },
+  "location": {
+    "alerts": {
+      "permissionTitle": "位置情報の許可",
+      "permissionMessage": "近くのプレイヤーやイベントを見つけるには、位置情報の許可が必要です。設定で有効にしてください。",
+      "openSettings": "設定を開く"
+    }
   }
 }

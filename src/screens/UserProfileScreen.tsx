@@ -29,6 +29,8 @@ import { useTheme } from '../hooks/useTheme';
 import { getLightningPickleballTheme } from '../theme';
 import { useLanguage } from '../contexts/LanguageContext';
 import HallOfFameSection from '../components/profile/HallOfFameSection';
+import { blockUser, unblockUser, isUserBlocked } from '../services/blockService';
+import { ReportContentModal } from '../components/modals/ReportContentModal';
 
 // Types
 
@@ -240,6 +242,9 @@ const UserProfileScreen: React.FC = () => {
     alltime: { currentRank: null, totalPlayers: 0 },
   });
   const [isLoadingRankings, setIsLoadingRankings] = useState(true);
+  const [isBlocked, setIsBlocked] = useState(false);
+  const [isBlocking, setIsBlocking] = useState(false);
+  const [showReportModal, setShowReportModal] = useState(false);
 
   // Time slot translation mapping
   const getTimeSlotLabel = (timeCode: string): string => {
@@ -457,6 +462,74 @@ const UserProfileScreen: React.FC = () => {
     loadUserProfile();
   }, [userId, loadUserProfile]);
 
+  // 🚫 [Apple 1.2] Check if user is blocked
+  useEffect(() => {
+    const checkBlockStatus = async () => {
+      if (!currentUser?.uid || !userId || currentUser.uid === userId) return;
+      try {
+        const blocked = await isUserBlocked(currentUser.uid, userId);
+        setIsBlocked(blocked);
+      } catch (error) {
+        console.error('Error checking block status:', error);
+      }
+    };
+    checkBlockStatus();
+  }, [currentUser?.uid, userId]);
+
+  // 🚫 [Apple 1.2] Block/Unblock user handler
+  const handleBlockUser = useCallback(async () => {
+    if (!currentUser?.uid || !userId || !userProfile) return;
+
+    const action = isBlocked ? 'unblock' : 'block';
+    const actionLabel = isBlocked
+      ? t('blockedUsers.unblock', 'Unblock')
+      : t('userProfile.blockUser', 'Block');
+
+    // 🎯 [KIM FIX] Use profile.nickname for blocked user name
+    const userName = userProfile.profile?.nickname || 'User';
+    const userPhotoURL = userProfile.photoURL; // 🎯 [KIM FIX] For profile photo in blocked users list
+
+    Alert.alert(
+      actionLabel,
+      isBlocked
+        ? t('blockedUsers.unblockConfirm', {
+            name: userName,
+            defaultValue: `Are you sure you want to unblock ${userName}?`,
+          })
+        : t('userProfile.blockConfirm', {
+            name: userName,
+            defaultValue: `Are you sure you want to block ${userName}? They will not be able to see your content or send you messages.`,
+          }),
+      [
+        { text: t('common.cancel', 'Cancel'), style: 'cancel' },
+        {
+          text: actionLabel,
+          style: 'destructive',
+          onPress: async () => {
+            try {
+              setIsBlocking(true);
+              if (isBlocked) {
+                await unblockUser(currentUser.uid, userId);
+                setIsBlocked(false);
+              } else {
+                await blockUser(currentUser.uid, userId, userName, userPhotoURL);
+                setIsBlocked(true);
+              }
+            } catch (error) {
+              console.error(`Error ${action}ing user:`, error);
+              Alert.alert(
+                t('common.error', 'Error'),
+                t(`userProfile.${action}Error`, `Failed to ${action} user. Please try again.`)
+              );
+            } finally {
+              setIsBlocking(false);
+            }
+          },
+        },
+      ]
+    );
+  }, [currentUser?.uid, userId, userProfile, isBlocked, t]);
+
   // 🆕 [KIM] Rankings loading function with gender filter
   const fetchRankings = useCallback(async () => {
     setIsLoadingRankings(true);
@@ -645,7 +718,37 @@ const UserProfileScreen: React.FC = () => {
         <Text style={[styles.screenHeaderTitle, { color: themeColors.colors.onSurface }]}>
           {t('profile.userProfile.screenTitle')}
         </Text>
-        <View style={styles.headerSpacer} />
+        {/* 🚫 Block User Button & Report Button */}
+        {userProfile && currentUser?.uid !== userId && (
+          <View style={styles.headerActions}>
+            {/* 🚨 [Apple 1.2] Report User Button */}
+            <TouchableOpacity
+              onPress={() => setShowReportModal(true)}
+              style={styles.headerActionButton}
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+            >
+              <Ionicons name='flag-outline' size={22} color={themeColors.colors.onSurfaceVariant} />
+            </TouchableOpacity>
+            {/* Block Button */}
+            <TouchableOpacity
+              onPress={handleBlockUser}
+              style={styles.headerActionButton}
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+              disabled={isBlocking}
+            >
+              {isBlocking ? (
+                <ActivityIndicator size='small' color={themeColors.colors.onSurfaceVariant} />
+              ) : (
+                <Ionicons
+                  name={isBlocked ? 'ban' : 'ban-outline'}
+                  size={22}
+                  color={isBlocked ? themeColors.colors.error : themeColors.colors.onSurfaceVariant}
+                />
+              )}
+            </TouchableOpacity>
+          </View>
+        )}
+        {(!userProfile || currentUser?.uid === userId) && <View style={styles.headerSpacer} />}
       </View>
       <ScrollView
         style={[styles.container, { backgroundColor: themeColors.colors.background }]}
@@ -1160,6 +1263,26 @@ const UserProfileScreen: React.FC = () => {
           </Card>
         ) : null}
       </ScrollView>
+
+      {/* 🚨 [Apple 1.2] Report User Modal */}
+      <ReportContentModal
+        visible={showReportModal}
+        onClose={() => setShowReportModal(false)}
+        targetType='user'
+        targetId={userId}
+        targetOwnerId={userId}
+        targetOwnerName={userProfile?.profile?.nickname || 'Unknown'}
+        targetSnapshot={{
+          userId: userId,
+          displayName: userProfile?.profile?.nickname || 'Unknown',
+          photoURL: userProfile?.photoURL || null,
+          location:
+            typeof userProfile?.profile?.location === 'object'
+              ? userProfile?.profile?.location?.city || null
+              : null,
+          bio: userProfile?.profile?.bio || null,
+        }}
+      />
     </SafeAreaView>
   );
 };
@@ -1219,6 +1342,17 @@ const createStyles = (colors: Record<string, any>, theme: 'light' | 'dark') =>
     },
     headerSpacer: {
       width: 40, // Same width as back button for centering
+    },
+    // 🚫 Header actions container for block button
+    headerActions: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 4,
+    },
+    headerActionButton: {
+      padding: 8,
+      width: 36,
+      alignItems: 'center',
     },
     // 🎨 [DARK GLASS] Header card with glass border effect
     headerCard: {

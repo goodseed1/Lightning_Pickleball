@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState, useRef, ReactNode } from 'react';
-import { Alert, Linking, Platform, AppState, AppStateStatus } from 'react-native';
+import { Alert, AppState, AppStateStatus } from 'react-native';
 import * as Location from 'expo-location';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from './AuthContext';
@@ -19,7 +19,7 @@ interface LocationContextType {
   location: LocationProfile | null;
   isLoading: boolean;
   error: string | null;
-  requestLocationPermission: () => Promise<boolean>;
+  requestLocationPermission: (showAlert?: boolean) => Promise<boolean>;
   getCurrentLocation: () => Promise<LocationProfile | null>;
   watchLocation: () => void;
   stopWatchingLocation: () => void;
@@ -55,8 +55,6 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({ children }) 
   // 🔄 AppState tracking for auto-refresh when returning from Settings
   const appState = useRef<AppStateStatus>(AppState.currentState);
   const wasPermissionDenied = useRef<boolean>(false);
-  // 📍 [KIM FIX v5] Settings Alert 세션당 한 번만 표시
-  const hasShownSettingsAlertThisSession = useRef<boolean>(false);
 
   // 🎥 CCTV: LocationContext initialization
   cctvLog('LocationContext', CCTV_PHASES.INIT, 'LocationProvider initialized', {
@@ -102,7 +100,8 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({ children }) 
         await checkLocationPermission();
 
         // If permission is granted, try to get current location
-        const hasPermission = await requestLocationPermission();
+        // 🎯 [KIM FIX v14] 앱 자동 호출이므로 showAlert: false → Settings Alert 표시 안 함
+        const hasPermission = await requestLocationPermission(false);
         if (hasPermission) {
           cctvLog(
             'LocationContext',
@@ -152,19 +151,27 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({ children }) 
       // App came to foreground from background/inactive
       if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
         console.log('🔄 [LocationContext] App returned to foreground, checking permission...');
+        console.log('🔄 [LocationContext] Current state:', {
+          isLocationEnabled,
+          wasPermissionDenied: wasPermissionDenied.current,
+          hasLocation: !!location,
+          hasUser: !!currentUser,
+        });
 
-        // Check if permission was previously denied (user might have gone to Settings)
-        if (!isLocationEnabled || wasPermissionDenied.current) {
-          const { status } = await Location.getForegroundPermissionsAsync();
-          console.log('🔄 [LocationContext] Permission status after return:', status);
+        // 🎯 [KIM FIX v16] Settings에서 돌아왔을 때 항상 권한 체크
+        // wasPermissionDenied 플래그와 관계없이 권한 상태 확인
+        const { status } = await Location.getForegroundPermissionsAsync();
+        console.log('🔄 [LocationContext] Permission status after return:', status);
 
-          if (status === 'granted') {
+        if (status === 'granted') {
+          // 🎯 [KIM FIX v16] 권한이 granted인데 위치가 없거나 비활성화 상태면 새로고침
+          if (!isLocationEnabled || !location) {
             console.log('✅ [LocationContext] Permission granted! Fetching location...');
             setIsLocationEnabled(true);
             wasPermissionDenied.current = false;
 
             // Auto-fetch location when permission is newly granted
-            if (currentUser && !location) {
+            if (currentUser) {
               try {
                 const newLocation = await getCurrentLocation();
                 if (newLocation) {
@@ -227,52 +234,36 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({ children }) 
     }
   };
 
-  const requestLocationPermission = async (): Promise<boolean> => {
+  /**
+   * 🎯 [KIM FIX v14] 위치 권한 요청 함수
+   * @param showAlert - Settings Alert를 표시할지 여부 (기본값: true)
+   *                   - true: 사용자가 버튼을 클릭해서 호출 → Alert 표시
+   *                   - false: 앱 자동 호출 (로그인 시 등) → Alert 표시 안 함
+   */
+  const requestLocationPermission = async (showAlert: boolean = true): Promise<boolean> => {
     try {
-      // 🎯 [KIM FIX] 먼저 현재 권한 상태 확인
-      // iOS는 권한 다이얼로그를 한 번만 보여주기 때문에 상태에 따라 다르게 처리
-      const { status: currentStatus } = await Location.getForegroundPermissionsAsync();
+      // 🎯 [KIM FIX v13] Apple Guideline 5.1.1 - 항상 시스템 권한 요청 먼저 시도
+      // "Set Up Location" 버튼을 눌렀다면 사용자는 위치 권한을 주고 싶어하는 것
+      // iOS: undetermined일 때만 시스템 다이얼로그 표시, denied면 바로 denied 반환
+      console.log('🔄 [LocationContext] requestLocationPermission called, showAlert:', showAlert);
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      console.log('🔄 [LocationContext] Permission status:', status);
 
-      // 이미 허용된 경우
-      if (currentStatus === 'granted') {
+      if (status === 'granted') {
         setIsLocationEnabled(true);
         return true;
       }
 
-      // 아직 결정되지 않은 경우 (처음 요청) - 시스템 다이얼로그 표시
-      if (currentStatus === 'undetermined') {
-        const { status: newStatus } = await Location.requestForegroundPermissionsAsync();
-        const isGranted = newStatus === 'granted';
-        setIsLocationEnabled(isGranted);
-        return isGranted;
-      }
+      // 권한이 여전히 거부된 경우 - Settings로 안내
+      setIsLocationEnabled(false);
 
-      // 🚨 이미 거부된 경우 - Settings로 안내 (iOS는 다시 묻지 않음!)
       // 🔄 Mark as denied so AppState listener will auto-check when returning
       wasPermissionDenied.current = true;
 
-      // 📍 [KIM FIX v5] 세션당 한 번만 Settings Alert 표시 - 중복 표시 방지
-      if (!hasShownSettingsAlertThisSession.current) {
-        hasShownSettingsAlertThisSession.current = true;
-        Alert.alert(
-          t('contexts.location.permissionTitle'),
-          t('contexts.location.permissionMessage'),
-          [
-            { text: t('common.cancel'), style: 'cancel' },
-            {
-              text: t('contexts.location.openSettings') || 'Open Settings',
-              onPress: () => {
-                // iOS: 앱 설정으로 이동, Android: 앱 설정으로 이동
-                if (Platform.OS === 'ios') {
-                  Linking.openURL('app-settings:');
-                } else {
-                  Linking.openSettings();
-                }
-              },
-            },
-          ]
-        );
-      }
+      // 🍎 [APPLE 5.1.1] 권한 거부 직후 Alert 표시 금지
+      // showAlert 파라미터와 관계없이 Alert 없이 조용히 false 반환
+      // 사용자가 기능을 사용하려 할 때 (Discover, CreateEvent 등) 별도 UI로 안내
+      console.log('🍎 [LocationContext] Permission denied - no Alert (Apple Guideline 5.1.1)');
 
       return false;
     } catch (error) {

@@ -622,3 +622,34 @@ export const getAllUsersForAdmin = async (): Promise<AdminUserData[]> => {
     throw error;
   }
 };
+
+/**
+ * 📊 [THOR - KPI] Manually trigger daily user stats calculation
+ * Admin only - recalculates DAU/WAU/MAU immediately
+ */
+export interface ManualStatsResult {
+  success: boolean;
+  dateKey: string;
+  totalUsers: number;
+  dau: number;
+  wau: number;
+  mau: number;
+}
+
+export const calculateUserStatsManually = async (): Promise<ManualStatsResult> => {
+  try {
+    const { getFunctions, httpsCallable } = await import('firebase/functions');
+    const functions = getFunctions(undefined, 'asia-northeast3');
+    const calculateStats = httpsCallable<void, ManualStatsResult>(
+      functions,
+      'calculateDailyUserStatsManual'
+    );
+
+    const result = await calculateStats();
+    console.log('[adminService] Manual stats calculation result:', result.data);
+    return result.data;
+  } catch (error) {
+    console.error('[adminService] Error calculating stats manually:', error);
+    throw error;
+  }
+};

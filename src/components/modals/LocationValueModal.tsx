@@ -17,7 +17,7 @@ export type LocationTriggerContext = 'events' | 'players' | 'clubs' | 'general';
 interface LocationValueModalProps {
   visible: boolean;
   onRequestPermission: () => void;
-  onSkip: () => void;
+  onSkip?: () => void; // 🍎 [Guideline 5.1.1] Optional - no longer used (kept for backward compatibility)
   triggerContext?: LocationTriggerContext;
 }
 
@@ -74,7 +74,7 @@ const FALLBACK_TRANSLATIONS: Record<string, Record<string, string>> = {
     'location.valueModal.point5Title': 'Unit Settings',
     'location.valueModal.point5Description':
       'Distance, weather, and currency units may display incorrectly without your location.',
-    'location.valueModal.allowButton': 'Enable Location',
+    'location.valueModal.allowButton': 'Continue',
     'location.valueModal.skipButton': 'Maybe Later',
   },
   ko: {
@@ -92,7 +92,7 @@ const FALLBACK_TRANSLATIONS: Record<string, Record<string, string>> = {
     'location.valueModal.point5Title': '단위 설정',
     'location.valueModal.point5Description':
       '위치 없이는 거리, 날씨, 통화 단위가 잘못 표시될 수 있습니다.',
-    'location.valueModal.allowButton': '위치 허용',
+    'location.valueModal.allowButton': '계속',
     'location.valueModal.skipButton': '나중에',
   },
 };
@@ -175,14 +175,7 @@ export const LocationValueModal: React.FC<LocationValueModalProps> = ({
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
-            style={[styles.secondaryButton, { borderColor: theme.colors.outline }]}
-            onPress={onSkip}
-          >
-            <Text style={[styles.secondaryButtonText, { color: theme.colors.onSurfaceVariant }]}>
-              {getText('location.valueModal.skipButton')}
-            </Text>
-          </TouchableOpacity>
+          {/* 🎯 [KIM FIX v12] Apple Guideline 5.1.1 - "Maybe Later" 버튼 제거됨 */}
         </View>
       </SafeAreaView>
     </Modal>

@@ -1,22 +1,26 @@
 /**
- * 🔒 Admin Dashboard Screen
+ * Admin Dashboard Screen
  * 관리자 전용 대시보드 - 최고 등급 인가
  */
 
 import React from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView, View, Text } from 'react-native';
 import { Card, Title, List, useTheme, Appbar } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+import { usePendingAdminAlerts } from '../../hooks/admin/usePendingAdminAlerts';
 
 const AdminDashboardScreen: React.FC = () => {
   const { colors } = useTheme();
   const navigation = useNavigation();
 
+  // Get pending counts for badges
+  const { pendingReportsCount, pendingFeedbackCount } = usePendingAdminAlerts();
+
   return (
     <>
       <Appbar.Header>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
-        <Appbar.Content title='🔒 관리자 대시보드' />
+        <Appbar.Content title='관리자 대시보드' />
       </Appbar.Header>
 
       <ScrollView style={[styles.container, { backgroundColor: colors.background }]}>
@@ -35,8 +39,38 @@ const AdminDashboardScreen: React.FC = () => {
               title='사용자 피드백'
               description='프로젝트 센티넬 - 사용자 이슈 리포트'
               left={props => <List.Icon {...props} icon='alert-circle' color='#f44336' />}
-              right={props => <List.Icon {...props} icon='chevron-right' />}
+              right={props => (
+                <View style={styles.rightContainer}>
+                  {pendingFeedbackCount > 0 && (
+                    <View style={styles.badge}>
+                      <Text style={styles.badgeText}>
+                        {pendingFeedbackCount > 99 ? '99+' : pendingFeedbackCount}
+                      </Text>
+                    </View>
+                  )}
+                  <List.Icon {...props} icon='chevron-right' />
+                </View>
+              )}
               onPress={() => navigation.navigate('UserFeedback' as never)}
+            />
+
+            <List.Item
+              title='콘텐츠 신고'
+              description='Apple 1.2 컴플라이언스 - 콘텐츠 신고 관리'
+              left={props => <List.Icon {...props} icon='flag' color='#ff5722' />}
+              right={props => (
+                <View style={styles.rightContainer}>
+                  {pendingReportsCount > 0 && (
+                    <View style={styles.badge}>
+                      <Text style={styles.badgeText}>
+                        {pendingReportsCount > 99 ? '99+' : pendingReportsCount}
+                      </Text>
+                    </View>
+                  )}
+                  <List.Icon {...props} icon='chevron-right' />
+                </View>
+              )}
+              onPress={() => navigation.navigate('ContentReports' as never)}
             />
 
             <List.Item
@@ -79,6 +113,25 @@ const styles = StyleSheet.create({
   card: {
     margin: 16,
     marginTop: 0,
+  },
+  rightContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  badge: {
+    backgroundColor: '#34C759', // Green badge
+    borderRadius: 10,
+    minWidth: 20,
+    height: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 6,
+    marginRight: 4,
+  },
+  badgeText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: 'bold',
   },
 });
 

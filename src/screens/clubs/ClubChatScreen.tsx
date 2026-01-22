@@ -10,6 +10,7 @@ import {
   Platform,
   Alert,
   ActivityIndicator,
+  Keyboard, // 🎯 [KIM FIX] For keyboard event listening
 } from 'react-native';
 import {
   Card,
@@ -86,6 +87,22 @@ const ClubChatScreen: React.FC = () => {
   >(new Map());
 
   const flatListRef = useRef<FlatList>(null);
+
+  // 🎯 [KIM FIX] Scroll to end when keyboard appears
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow',
+      () => {
+        setTimeout(() => {
+          flatListRef.current?.scrollToEnd({ animated: true });
+        }, 100);
+      }
+    );
+
+    return () => {
+      keyboardDidShowListener.remove();
+    };
+  }, []);
 
   // Memoize styles to prevent re-creation on every render (CRITICAL for TextInput focus stability)
   const styles = useMemo(() => createStyles(paperTheme), [paperTheme]);
@@ -457,7 +474,7 @@ const ClubChatScreen: React.FC = () => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       {/* Header */}
       <Surface style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
@@ -475,8 +492,12 @@ const ClubChatScreen: React.FC = () => {
         </TouchableOpacity>
       </Surface>
 
-      {/* Chat Content */}
-      <View style={styles.chatContainer}>
+      {/* Chat Content - 🎯 [KIM FIX] KeyboardAvoidingView wraps BOTH FlatList and input */}
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.chatContainer}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
+      >
         <FlatList
           ref={flatListRef}
           data={messages}
@@ -487,10 +508,8 @@ const ClubChatScreen: React.FC = () => {
           showsVerticalScrollIndicator={false}
         />
 
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          style={styles.inputContainer}
-        >
+        {/* Input Area */}
+        <View style={styles.inputContainer}>
           <View style={styles.inputRow}>
             <TextInput
               style={styles.textInput}
@@ -517,8 +536,9 @@ const ClubChatScreen: React.FC = () => {
               )}
             </TouchableOpacity>
           </View>
-        </KeyboardAvoidingView>
-      </View>
+        </View>
+      </KeyboardAvoidingView>
+      {/* 🎯 [KIM FIX] KeyboardAvoidingView now properly wraps FlatList + Input */}
     </SafeAreaView>
   );
 };

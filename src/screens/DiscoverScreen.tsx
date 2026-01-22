@@ -15,6 +15,7 @@ import {
   RefreshControl,
   TouchableOpacity,
   Alert,
+  Linking,
   Text,
 } from 'react-native';
 import { Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -58,6 +59,7 @@ import { collection, query, where, onSnapshot, doc, getDoc } from 'firebase/fire
 import { convertEloToLtr } from '../utils/eloUtils'; // 🎯 [LPR FIX v4] Real-time ELO → LPR conversion
 import { httpsCallable } from 'firebase/functions';
 import { db, functions } from '../firebase/config';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type DiscoverScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 type DiscoverScreenRouteProp = RouteProp<DiscoverStackParamList, 'DiscoverMain'>;
@@ -96,22 +98,46 @@ export default function DiscoverScreen() {
   const themeColors = getLightningPickleballTheme(currentTheme);
 
   // 🎯 [KIM UPDATE] 위치 권한 선택 - 위치 컨텍스트 및 모달 상태
-  // isLocationEnabled: 권한 허용 여부 (true = 허용됨, false = 미허용)
-  const { requestLocationPermission, isLocationEnabled } = useLocation();
+  // location: 실제 위치 데이터 (lat, lng 등)
+  const { requestLocationPermission, location: contextLocation } = useLocation();
+
+  // 🎯 [KIM FIX v7] 실제 좌표 존재 여부만 체크 - 권한과 무관하게 좌표가 있어야 목록 표시
+  // - isLocationEnabled 제거: 권한이 있어도 좌표가 없으면 거리 계산 불가
+  // - 실제 lat 값이 있을 때만 hasValidLocation = true
+  const hasValidLocation = Boolean(contextLocation?.lat || currentUser?.profile?.location?.lat);
   const [showLocationValueModal, setShowLocationValueModal] = React.useState(false);
   // 📍 [KIM FIX v5] 세션당 한 번만 모달 표시 - 중복 표시 방지
   const hasShownLocationModalThisSession = React.useRef(false);
-  // 🎯 [KIM FIX v4] 탐색 화면 포커스될 때 권한 미허용이면 자동으로 LocationValueModal 표시
+  // 🍎 [APPLE 5.1.1] 권한 거부 후 모달 재표시 방지
+  const [hasUserDeclinedLocation, setHasUserDeclinedLocation] = React.useState(false);
+
+  // 🍎 [APPLE 5.1.1] 앱 시작 시 거부 상태 로드
+  React.useEffect(() => {
+    const loadDeclinedStatus = async () => {
+      const declined = await AsyncStorage.getItem('locationPermissionDeclined');
+      if (declined === 'true') {
+        setHasUserDeclinedLocation(true);
+      }
+    };
+    loadDeclinedStatus();
+  }, []);
+
+  // 🎯 [KIM FIX v6] 탐색 화면 포커스될 때 위치 없으면 자동으로 LocationValueModal 표시
   useFocusEffect(
     React.useCallback(() => {
-      // 📍 [KIM FIX v5] 세션당 한 번만 모달 표시
-      // - 권한이 미허용일 때만
+      // 📍 [KIM FIX v6] 세션당 한 번만 모달 표시
+      // - 유효한 위치가 없을 때만 (권한 미허용 OR 좌표 없음)
       // - 이 세션에서 아직 모달을 보여주지 않았을 때만
-      if (!isLocationEnabled && !hasShownLocationModalThisSession.current) {
+      // 🍎 [APPLE 5.1.1] 사용자가 이전에 거부한 경우 모달 표시 안 함
+      if (
+        !hasValidLocation &&
+        !hasShownLocationModalThisSession.current &&
+        !hasUserDeclinedLocation
+      ) {
         hasShownLocationModalThisSession.current = true;
         setShowLocationValueModal(true);
       }
-    }, [isLocationEnabled])
+    }, [hasValidLocation, hasUserDeclinedLocation])
   );
   /* eslint-disable @typescript-eslint/no-explicit-any */
   const styles = createStyles(themeColors.colors as any);
@@ -1243,8 +1269,8 @@ export default function DiscoverScreen() {
             />
           )}
 
-          {/* 🎯 [KIM FIX v4] 권한 미허용이면 위치 필요 안내 표시 (GPS 실패와 구분) */}
-          {!isLocationEnabled ? (
+          {/* 🎯 [KIM FIX v7] 위치 없으면 위치 필요 안내 표시 (좌표 기준) */}
+          {!hasValidLocation ? (
             <View style={styles.locationRequiredContainer}>
               <View style={styles.locationRequiredCard}>
                 <Ionicons
@@ -1399,7 +1425,7 @@ export default function DiscoverScreen() {
             isPartnerSelection={true}
           />
 
-          {/* 🎯 [KIM UPDATE] 위치 권한 가치 설명 모달 */}
+          {/* 🎯 [KIM UPDATE v2] 위치 권한 가치 설명 모달 - Apple Guideline 5.1.1 준수 */}
           <LocationValueModal
             visible={showLocationValueModal}
             onRequestPermission={async () => {
@@ -1408,9 +1434,28 @@ export default function DiscoverScreen() {
               if (granted) {
                 // 위치 권한 허용됨 - 데이터 새로고침
                 refreshData();
+                // 🍎 [APPLE 5.1.1] 허용됨 - 거부 상태 초기화
+                await AsyncStorage.removeItem('locationPermissionDeclined');
+                setHasUserDeclinedLocation(false);
+              } else {
+                // 🍎 [APPLE 5.1.1] 거부됨 - 상태 저장하여 다시 모달 표시 안 함
+                await AsyncStorage.setItem('locationPermissionDeclined', 'true');
+                setHasUserDeclinedLocation(true);
+                // ✅ 사용자가 명시적으로 Continue 버튼을 눌렀을 때만 Alert 표시
+                Alert.alert(
+                  t('location.alerts.permissionTitle'),
+                  t('location.alerts.permissionMessage'),
+                  [
+                    { text: t('common.cancel'), style: 'cancel' },
+                    {
+                      text: t('location.alerts.openSettings'),
+                      onPress: () => Linking.openSettings(),
+                    },
+                  ]
+                );
               }
             }}
-            onSkip={() => setShowLocationValueModal(false)}
+            // 🎯 [KIM FIX v12] Apple Guideline 5.1.1 - onSkip prop 제거됨 (Maybe Later 버튼 삭제)
           />
         </SafeAreaView>
       </GestureDetector>

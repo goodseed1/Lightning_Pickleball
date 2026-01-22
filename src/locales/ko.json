@@ -531,7 +531,27 @@
         "evening": "저녁",
         "night": "밤",
         "brunch": "브런치"
+      },
+      "block": {
+        "title": "사용자 차단",
+        "confirmTitle": "{{nickname}}님을 차단하시겠습니까?",
+        "confirmMessage": "이 사용자의 콘텐츠가 더 이상 표시되지 않으며, 상대방도 회원님께 연락할 수 없게 됩니다.",
+        "cancel": "취소",
+        "confirm": "차단",
+        "success": "사용자를 차단했습니다",
+        "error": "사용자 차단에 실패했습니다",
+        "unblockTitle": "차단 해제",
+        "unblockConfirmTitle": "{{nickname}}님의 차단을 해제하시겠습니까?",
+        "unblockConfirmMessage": "상대방이 다시 회원님께 연락할 수 있게 됩니다.",
+        "unblockSuccess": "차단이 해제되었습니다"
       }
+    },
+    "blockedUsers": {
+      "title": "차단한 사용자",
+      "noBlockedUsers": "차단한 사용자가 없습니다",
+      "noBlockedUsersDesc": "차단한 사용자가 여기에 표시됩니다.",
+      "unblock": "차단 해제",
+      "blockedOn": "{{date}}에 차단됨"
     }
   },
   "profileSetup": {
@@ -1149,7 +1169,9 @@
       "invalidScore": "잘못된 점수",
       "matchNotComplete": "경기가 완료되지 않았습니다",
       "selectWinner": "승자 선택",
-      "selectWinnerWalkover": "워크오버 승자를 선택해주세요"
+      "selectWinnerWalkover": "부전승 승자를 선택해주세요.",
+      "pickleballInvalidScore": "올바른 피클볼 점수를 입력해주세요 (목표 점수 선취, 2점 차 승리).",
+      "pickleballBestOf3Incomplete": "3판 2선승에서는 한 선수가 2게임을 이겨야 합니다."
     },
     "league": {
       "loadFailed": "리그를 불러오지 못했습니다",
@@ -4823,7 +4845,10 @@
       "superTiebreak": "슈퍼 타이브레이크",
       "standardTiebreak": "타이브레이크",
       "globalRanking": "글로벌",
-      "clubRanking": "{{clubName}} 클럽"
+      "clubRanking": "{{clubName}} 클럽",
+      "pickleballMinScore": "최소 점수:",
+      "pickleballWinBy2": "최소 2점 차이로 이겨야 합니다.",
+      "pickleballBestOf3Incomplete": "3판 2선승에서는 한 선수가 2게임을 이겨야 합니다."
     },
     "specialCases": "특수 상황",
     "specialCasesDescription": "기권 또는 부전승이 있었다면 선택하세요.",
@@ -4834,7 +4859,22 @@
     "selectPlayerWhoDidNotRetire": "기권하지 않은 선수를 선택하세요",
     "selectPlayerWhoShowedUp": "출석한 선수를 선택하세요",
     "submitNoteLightning": "제출 후 매치 기록이 저장됩니다.",
-    "submitNoteTournament": "제출 후 토너먼트 결과가 업데이트됩니다."
+    "submitNoteTournament": "제출 후 토너먼트 결과가 업데이트됩니다.",
+    "pickleballFormat": "경기 형식",
+    "pickleballSingleGame": "단일 게임",
+    "pickleballBestOf3": "3판 2선승",
+    "pickleballTargetScore": "목표 점수",
+    "pickleballPoints": "점",
+    "pickleballStandard": "표준",
+    "pickleballWinBy2Hint": "🏓 2점 차이로 승리",
+    "pickleballGame": "게임",
+    "pickleballGameN": "게임",
+    "pickleballWins": "승리!",
+    "pickleballScoreDescription": "점수를 입력하세요. 목표:",
+    "submitNotePickleball": "점수가 기록되고 양 선수의 레이팅이 업데이트됩니다.",
+    "matchResultType": "경기 결과 유형",
+    "completed": "완료",
+    "selectWinner": "승자 선택"
   },
   "directChat": {
     "loading": "메시지 로딩 중...",
@@ -5147,7 +5187,6 @@
     "playoffRankings": "플레이오프 순위",
     "standingsTable": "순위표",
     "player": "선수",
-    "matches": "경기",
     "playoffBpaddle": "플레이오프 대진표",
     "leagueManagement": "관리",
     "noMatchesYet": "아직 경기가 없습니다",
@@ -6606,7 +6645,11 @@
     "notification": "알림",
     "unknown": "알 수 없음",
     "report": "신고",
-    "hide": "숨기기"
+    "hide": "숨기기",
+    "contentWarning": "콘텐츠가 정책 위반으로 신고되었습니다",
+    "contentRemoved": "콘텐츠가 관리자에 의해 삭제되었습니다",
+    "reportResolved": "신고하신 내용에 대해 조치가 취해졌습니다",
+    "accountBanned": "계정이 정지되었습니다"
   },
   "createNew": {
     "title": "새로 만들기",
@@ -7069,5 +7112,113 @@
     "memberLeftClub": "'{{memberName}}'님이 '{{clubName}}' 클럽을 탈퇴했습니다.",
     "clubJoinRequestTitle": "새로운 가입 신청",
     "clubJoinRequest": "{{applicantName}}님이 클럽 가입을 신청했습니다."
+  },
+  "communityGuidelines": {
+    "title": "커뮤니티 가이드라인",
+    "introduction": "Lightning Pickleball에 오신 것을 환영합니다! 모든 플레이어에게 긍정적인 경험을 보장하기 위해 다음 커뮤니티 가이드라인을 따라주세요.",
+    "sections": {
+      "respect": {
+        "title": "존중과 예의",
+        "items": [
+          "모든 플레이어를 존중과 친절로 대하세요",
+          "모든 대화에서 적절한 언어를 사용하세요",
+          "다양한 배경, 실력 수준, 플레이 스타일을 존중하세요",
+          "새로운 플레이어를 지지하고 격려하세요"
+        ]
+      },
+      "prohibited": {
+        "title": "금지된 행위",
+        "items": [
+          "스팸, 광고 또는 홍보성 콘텐츠",
+          "괴롭힘, 따돌림 또는 협박",
+          "혐오 발언 또는 차별적 언어",
+          "부적절하거나 불쾌한 콘텐츠 공유",
+          "다른 사용자 사칭 또는 허위 프로필",
+          "사기, 속임수 또는 기만적 행위"
+        ]
+      },
+      "matchEtiquette": {
+        "title": "매치 에티켓",
+        "items": [
+          "매치 약속을 지키세요",
+          "취소가 필요하면 신속히 알려주세요",
+          "예정된 매치에 시간에 맞춰 도착하세요",
+          "공정하게 플레이하고 피클볼 규칙을 따르세요",
+          "매치 결과를 품위 있게 받아들이세요"
+        ]
+      },
+      "violations": {
+        "title": "위반 시 조치",
+        "items": [
+          "1차 위반: 경고",
+          "2차 위반: 콘텐츠 삭제",
+          "3차 위반: 일시적 정지",
+          "심각한 위반: 영구 정지"
+        ]
+      }
+    },
+    "footerNote": "이 가이드라인을 위반하면 경고, 콘텐츠 삭제 또는 계정 정지가 발생할 수 있습니다. 모든 피클볼 애호가들을 위한 환영하는 커뮤니티를 함께 만들어주세요!"
+  },
+  "banned": {
+    "title": "계정 정지",
+    "subtitle": "커뮤니티 가이드라인 위반으로 계정이 정지되었습니다. 이의 제기를 통해 결정에 대한 재검토를 요청할 수 있습니다.",
+    "whyBanned": "왜 계정이 정지되었나요?",
+    "reason": "커뮤니티 가이드라인 위반으로 계정이 정지되었습니다. 이는 괴롭힘, 스팸, 부적절한 콘텐츠 또는 기타 금지된 활동을 포함할 수 있습니다.",
+    "bannedOn": "정지 일자",
+    "previousWarnings": "이전 경고 횟수",
+    "submitAppeal": "이의 제기하기",
+    "viewGuidelines": "커뮤니티 가이드라인 보기",
+    "guidelinesError": "커뮤니티 가이드라인을 열 수 없습니다. 나중에 다시 시도해 주세요.",
+    "appeal": {
+      "title": "이의 제기",
+      "description": "계정이 복구되어야 한다고 생각하는 이유를 설명해 주세요. 검토에 도움이 될 수 있는 관련 정보를 포함해 주세요.",
+      "placeholder": "계정이 복구되어야 한다고 생각하는 이유를 설명해 주세요...",
+      "submit": "이의 제기 제출",
+      "submitted": "이의 제기 완료",
+      "submittedMessage": "이의 제기가 성공적으로 제출되었습니다. 3-5 영업일 내에 검토 후 연락드리겠습니다.",
+      "error": "오류",
+      "emptyMessage": "이의 제기 내용을 입력해 주세요.",
+      "tooShort": "이의 제기 내용이 너무 짧습니다. 최소 20자 이상 작성해 주세요.",
+      "submitError": "이의 제기 제출에 실패했습니다. 잠시 후 다시 시도해 주세요.",
+      "alreadySubmitted": "이미 제출됨",
+      "waitingReview": "이의 제기가 현재 검토 중입니다. 결정이 내려지면 알려드리겠습니다."
+    },
+    "report": {
+      "title": "콘텐츠 신고",
+      "selectUser": "누구를 신고하시겠습니까?",
+      "selectUserInfo": "신고하려는 사용자를 선택하세요.",
+      "noMembersToReport": "신고할 수 있는 멤버가 없습니다.",
+      "reportingUser": "신고 대상",
+      "selectReasonTitle": "신고 사유를 선택하세요",
+      "additionalDetails": "추가 설명 (선택사항)",
+      "descriptionPlaceholder": "신고에 대한 자세한 내용을 입력해 주세요...",
+      "submit": "신고하기",
+      "success": "신고 접수 완료",
+      "successMessage": "신고가 접수되었습니다. 24시간 내에 검토하겠습니다.",
+      "error": "오류",
+      "selectReason": "신고 사유를 선택해 주세요.",
+      "alreadyReported": "이미 신고함",
+      "alreadyReportedMessage": "이미 해당 콘텐츠를 신고하셨습니다.",
+      "submitError": "신고 제출에 실패했습니다. 다시 시도해 주세요.",
+      "reasons": {
+        "spam": "스팸",
+        "harassment": "괴롭힘 또는 따돌림",
+        "inappropriate": "부적절한 콘텐츠",
+        "hate_speech": "혐오 발언",
+        "violence": "폭력 또는 위협",
+        "other": "기타"
+      }
+    },
+    "logout": {
+      "title": "로그아웃",
+      "message": "로그아웃 하시겠습니까?"
+    }
+  },
+  "location": {
+    "alerts": {
+      "permissionTitle": "위치 권한",
+      "permissionMessage": "주변 플레이어와 이벤트를 찾으려면 위치 권한이 필요합니다. 설정에서 활성화해 주세요.",
+      "openSettings": "설정 열기"
+    }
   }
 }

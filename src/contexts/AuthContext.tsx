@@ -87,6 +87,10 @@ interface User {
   notificationPermissionGranted?: boolean;
   // 🎯 [KIM FIX] User registration date for profile display
   createdAt?: string | Date | { toDate: () => Date };
+  // 🚫 [APPLE 1.2] Ban status - for account suspension flow
+  isBanned?: boolean;
+  bannedAt?: Date | null;
+  warningCount?: number;
 }
 
 interface AuthResult {
@@ -511,6 +515,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 profileData.preferredTimesWeekends ||
                 userData.settings?.preferredTimesWeekends ||
                 [],
+              // 🚫 [APPLE 1.2] Ban status - for account suspension flow
+              isBanned: userData.isBanned === true,
+              bannedAt: userData.bannedAt?.toDate?.() || userData.bannedAt || null,
+              warningCount: userData.warningCount || 0,
             };
 
             // 🎥 CCTV: Data processing and state update
@@ -747,6 +755,19 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             registerPushToken(firebaseUser.uid).catch(error => {
               console.warn('Push token registration failed, but continuing:', error);
             });
+
+            // 5. 📊 [KIM FIX] Update lastActiveAt for DAU/WAU/MAU tracking
+            try {
+              const { doc, updateDoc, serverTimestamp } = await import('firebase/firestore');
+              const userDocRef = doc(db, 'users', firebaseUser.uid);
+              await updateDoc(userDocRef, {
+                lastActiveAt: serverTimestamp(),
+              });
+              console.log('📊 [AuthContext] lastActiveAt updated for user:', firebaseUser.uid);
+            } catch (lastActiveError) {
+              console.warn('📊 [AuthContext] Failed to update lastActiveAt:', lastActiveError);
+              // Don't throw - this is not critical for user experience
+            }
           } catch (error) {
             console.error('❌ Error loading user profile:', error);
             // Fallback to basic user data WITHOUT using firebaseUser.displayName
@@ -1888,6 +1909,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         eloRatings: userData.eloRatings || currentUser.eloRatings, // 🎯 Include ELO ratings
         // 🎯 [KIM FIX] Include createdAt for join date display
         createdAt: userData.createdAt,
+        // 🚫 [APPLE 1.2] Ban status - for account suspension flow
+        isBanned: userData.isBanned === true,
+        bannedAt: userData.bannedAt?.toDate?.() || userData.bannedAt || null,
+        warningCount: userData.warningCount || 0,
       };
 
       // 🔍 DEBUG: Check if eloRatings is missing from refreshedUser

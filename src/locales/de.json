@@ -603,7 +603,27 @@
         "evening": "Abend",
         "night": "Nacht",
         "brunch": "Brunch"
+      },
+      "block": {
+        "title": "Benutzer blockieren",
+        "confirmTitle": "{{nickname}} blockieren?",
+        "confirmMessage": "Sie werden deren Inhalte nicht mehr sehen und sie können Sie nicht mehr kontaktieren.",
+        "cancel": "Abbrechen",
+        "confirm": "Blockieren",
+        "success": "Benutzer blockiert",
+        "error": "Blockierung fehlgeschlagen",
+        "unblockTitle": "Benutzer freigeben",
+        "unblockConfirmTitle": "{{nickname}} freigeben?",
+        "unblockConfirmMessage": "Sie können Sie wieder kontaktieren.",
+        "unblockSuccess": "Benutzer freigegeben"
       }
+    },
+    "blockedUsers": {
+      "title": "Blockierte Benutzer",
+      "noBlockedUsers": "Keine blockierten Benutzer",
+      "noBlockedUsersDesc": "Blockierte Benutzer werden hier angezeigt.",
+      "unblock": "Freigeben",
+      "blockedOn": "Blockiert am {{date}}"
     },
     "title": "Profil",
     "viewProfile": "Profil anzeigen",
@@ -10476,5 +10496,113 @@
     "successMessage": "Migration erfolgreich abgeschlossen!",
     "errorTitle": "❌ Fehler",
     "resetSuccessMessage": "Alle Spieldaten wurden zurückgesetzt!"
+  },
+  "communityGuidelines": {
+    "title": "Community-Richtlinien",
+    "introduction": "Willkommen bei Lightning Pickleball! Um eine positive Erfahrung für alle Spieler zu gewährleisten, befolgen Sie bitte diese Community-Richtlinien.",
+    "sections": {
+      "respect": {
+        "title": "Respekt & Höflichkeit",
+        "items": [
+          "Behandeln Sie alle Spieler mit Respekt und Freundlichkeit",
+          "Verwenden Sie in allen Kommunikationen angemessene Sprache",
+          "Respektieren Sie unterschiedliche Hintergründe, Spielstärken und Spielstile",
+          "Seien Sie unterstützend und ermutigend gegenüber neuen Spielern"
+        ]
+      },
+      "prohibited": {
+        "title": "Verbotenes Verhalten",
+        "items": [
+          "Spam, Werbung oder Werbeinhalte",
+          "Belästigung, Mobbing oder Einschüchterung",
+          "Hassrede oder diskriminierende Sprache",
+          "Teilen unangemessener oder anstößiger Inhalte",
+          "Identitätsdiebstahl oder falsche Profile",
+          "Betrug oder betrügerische Praktiken"
+        ]
+      },
+      "matchEtiquette": {
+        "title": "Match-Etikette",
+        "items": [
+          "Halten Sie Ihre Match-Verpflichtungen ein",
+          "Benachrichtigen Sie andere umgehend bei Absagen",
+          "Erscheinen Sie pünktlich zu geplanten Matches",
+          "Spielen Sie fair und befolgen Sie die Pickleball-Regeln",
+          "Akzeptieren Sie Match-Ergebnisse mit Würde"
+        ]
+      },
+      "violations": {
+        "title": "Konsequenzen bei Verstößen",
+        "items": [
+          "Erster Verstoß: Verwarnung",
+          "Zweiter Verstoß: Inhalt entfernt",
+          "Dritter Verstoß: Temporäre Sperre",
+          "Schwere Verstöße: Permanente Sperre"
+        ]
+      }
+    },
+    "footerNote": "Verstöße gegen diese Richtlinien können zu Verwarnungen, Inhaltsentfernung oder Kontosperrung führen. Helfen Sie uns, eine einladende Community für alle Pickleball-Enthusiasten zu erhalten!"
+  },
+  "banned": {
+    "title": "Konto gesperrt",
+    "subtitle": "Ihr Konto wurde wegen Verstößen gegen unsere Community-Richtlinien gesperrt. Sie können eine Beschwerde einreichen, um eine Überprüfung dieser Entscheidung zu beantragen.",
+    "whyBanned": "Warum wurde mein Konto gesperrt?",
+    "reason": "Ihr Konto wurde gesperrt, weil Ihr Verhalten gegen unsere Community-Richtlinien verstößt. Dies kann Belästigung, Spam, unangemessene Inhalte oder andere verbotene Aktivitäten umfassen.",
+    "bannedOn": "Gesperrt am",
+    "previousWarnings": "Vorherige Verwarnungen",
+    "submitAppeal": "Beschwerde einreichen",
+    "viewGuidelines": "Community-Richtlinien anzeigen",
+    "guidelinesError": "Community-Richtlinien können nicht geöffnet werden. Bitte versuchen Sie es später erneut.",
+    "appeal": {
+      "title": "Beschwerde",
+      "description": "Bitte erklären Sie, warum Sie glauben, dass Ihr Konto wiederhergestellt werden sollte. Fügen Sie relevante Informationen hinzu, die bei der Überprüfung helfen können.",
+      "placeholder": "Erklären Sie, warum Ihr Konto wiederhergestellt werden sollte...",
+      "submit": "Beschwerde einreichen",
+      "submitted": "Beschwerde eingereicht",
+      "submittedMessage": "Ihre Beschwerde wurde erfolgreich eingereicht. Wir werden sie überprüfen und uns innerhalb von 3-5 Werktagen bei Ihnen melden.",
+      "error": "Fehler",
+      "emptyMessage": "Bitte geben Sie Ihre Beschwerdenachricht ein.",
+      "tooShort": "Ihre Beschwerdenachricht ist zu kurz. Bitte geben Sie mehr Details an (mindestens 20 Zeichen).",
+      "submitError": "Beschwerde konnte nicht eingereicht werden. Bitte versuchen Sie es später erneut.",
+      "alreadySubmitted": "Beschwerde bereits eingereicht",
+      "waitingReview": "Ihre Beschwerde wird derzeit überprüft. Wir werden Sie benachrichtigen, sobald eine Entscheidung getroffen wurde."
+    },
+    "report": {
+      "title": "Inhalt melden",
+      "selectUser": "Wen möchten Sie melden?",
+      "selectUserInfo": "Wählen Sie die Person aus, deren Verhalten Sie melden möchten.",
+      "noMembersToReport": "Keine weiteren Mitglieder zum Melden.",
+      "reportingUser": "Gemeldet wird",
+      "selectReasonTitle": "Warum melden Sie dies?",
+      "additionalDetails": "Zusätzliche Details (optional)",
+      "descriptionPlaceholder": "Geben Sie weitere Details zu Ihrer Meldung an...",
+      "submit": "Meldung einreichen",
+      "success": "Meldung eingereicht",
+      "successMessage": "Vielen Dank für Ihre Meldung. Wir werden sie innerhalb von 24 Stunden überprüfen.",
+      "error": "Fehler",
+      "selectReason": "Bitte wählen Sie einen Grund für Ihre Meldung.",
+      "alreadyReported": "Bereits gemeldet",
+      "alreadyReportedMessage": "Sie haben diesen Inhalt bereits gemeldet.",
+      "submitError": "Meldung konnte nicht eingereicht werden. Bitte versuchen Sie es erneut.",
+      "reasons": {
+        "spam": "Spam",
+        "harassment": "Belästigung oder Mobbing",
+        "inappropriate": "Unangemessener Inhalt",
+        "hate_speech": "Hassrede",
+        "violence": "Gewalt oder Drohungen",
+        "other": "Sonstiges"
+      }
+    },
+    "logout": {
+      "title": "Abmelden",
+      "message": "Möchten Sie sich wirklich abmelden?"
+    }
+  },
+  "location": {
+    "alerts": {
+      "permissionTitle": "Standortberechtigung",
+      "permissionMessage": "Standortberechtigung wird benötigt, um Spieler und Events in der Nähe zu finden. Bitte in den Einstellungen aktivieren.",
+      "openSettings": "Einstellungen öffnen"
+    }
   }
 }

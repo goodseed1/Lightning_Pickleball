@@ -1,6 +1,10 @@
 /**
- * Score Input Modal Component
- * Modal for entering pickleball match scores with validation
+ * Common Score Input Modal Component
+ * 공통 피클볼 점수 입력 모달 (간소화 버전)
+ *
+ * 🏓 Pickleball Scoring:
+ * - Rally scoring to 11 or 15 points
+ * - Win by 2 points
  */
 
 import React, { useState } from 'react';
@@ -16,6 +20,11 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
+import {
+  PickleballGameTarget,
+  PickleballMatchFormat,
+  determinePickleballGameWinner,
+} from '../../types/match';
 
 interface Player {
   playerId: string;
@@ -28,21 +37,17 @@ interface ScoreInputModalProps {
   player2: Player;
   onSubmit: (result: MatchResult) => void;
   onClose: () => void;
-  matchFormat?: {
-    sets: number; // Best of 3 or 5
-    tiebreak: boolean;
-  };
 }
 
 interface MatchResult {
   winner: string;
   loser: string;
   score: {
-    sets: [number, number];
-    games: [number, number][];
-    tiebreaks?: [number, number][];
+    games: { player1Points: number; player2Points: number }[];
   };
   matchType: 'completed' | 'retired' | 'walkover';
+  format: PickleballMatchFormat;
+  targetScore: PickleballGameTarget;
 }
 
 const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
@@ -51,11 +56,10 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
   player2,
   onSubmit,
   onClose,
-  matchFormat = { sets: 3, tiebreak: true },
 }) => {
   const { t } = useLanguage();
 
-  // 🎯 [KIM FIX] 복식 팀 이름을 개별 선수로 분리 (a/b 형태)
+  // 🎯 복식 팀 이름 분리
   const isDoublesName = (name: string) => name.includes(' / ');
   const splitDoublesName = (name: string) => {
     if (isDoublesName(name)) {
@@ -64,108 +68,87 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
     }
     return null;
   };
-  const [sets, setSets] = useState<Array<[number, number]>>([[0, 0]]);
-  const [tiebreaks, setTiebreaks] = useState<Array<[number, number]>>([]);
+
+  // 🏓 피클볼 스코어링 상태
+  const [matchFormat, setMatchFormat] = useState<PickleballMatchFormat>('single_game');
+  const [targetScore, setTargetScore] = useState<PickleballGameTarget>(11);
+  const [games, setGames] = useState<{ p1: string; p2: string }[]>([{ p1: '', p2: '' }]);
   const [selectedWinner, setSelectedWinner] = useState<string | null>(null);
   const [matchType, setMatchType] = useState<'completed' | 'retired' | 'walkover'>('completed');
 
   const resetForm = () => {
-    setSets([[0, 0]]);
-    setTiebreaks([]);
+    setMatchFormat('single_game');
+    setTargetScore(11);
+    setGames([{ p1: '', p2: '' }]);
     setSelectedWinner(null);
     setMatchType('completed');
   };
 
-  const addSet = () => {
-    if (sets.length < matchFormat.sets) {
-      setSets([...sets, [0, 0]]);
-    }
-  };
-
-  const updateSetScore = (setIndex: number, playerIndex: number, score: string) => {
-    const newSets = [...sets];
+  const updateGameScore = (gameIndex: number, player: 'p1' | 'p2', score: string) => {
     const numScore = parseInt(score) || 0;
+    if (score !== '' && (numScore < 0 || numScore > 30)) return;
 
-    // Validate score
-    if (numScore < 0 || numScore > 20) return;
+    const newGames = [...games];
+    newGames[gameIndex][player] = score;
+    setGames(newGames);
 
-    newSets[setIndex][playerIndex] = numScore;
-    setSets(newSets);
+    // Best of 3에서 자동으로 다음 게임 추가
+    if (matchFormat === 'best_of_3' && newGames.length < 3) {
+      const p1Score = parseInt(newGames[gameIndex].p1) || 0;
+      const p2Score = parseInt(newGames[gameIndex].p2) || 0;
+      const winner = determinePickleballGameWinner(p1Score, p2Score, targetScore);
 
-    // Check if tiebreak is needed
-    if (matchFormat.tiebreak && newSets[setIndex][0] === 6 && newSets[setIndex][1] === 6) {
-      // Add tiebreak slot if not exists
-      const newTiebreaks = [...tiebreaks];
-      if (!newTiebreaks[setIndex]) {
-        newTiebreaks[setIndex] = [0, 0];
-        setTiebreaks(newTiebreaks);
+      if (winner && gameIndex === newGames.length - 1) {
+        const p1Wins = newGames.filter(g => {
+          const s1 = parseInt(g.p1) || 0;
+          const s2 = parseInt(g.p2) || 0;
+          return determinePickleballGameWinner(s1, s2, targetScore) === 'player1';
+        }).length;
+        const p2Wins = newGames.filter(g => {
+          const s1 = parseInt(g.p1) || 0;
+          const s2 = parseInt(g.p2) || 0;
+          return determinePickleballGameWinner(s1, s2, targetScore) === 'player2';
+        }).length;
+
+        if (p1Wins < 2 && p2Wins < 2) {
+          setGames([...newGames, { p1: '', p2: '' }]);
+        }
       }
     }
-  };
-
-  const updateTiebreakScore = (setIndex: number, playerIndex: number, score: string) => {
-    const newTiebreaks = [...tiebreaks];
-    const numScore = parseInt(score) || 0;
-
-    if (numScore < 0 || numScore > 20) return;
-
-    if (!newTiebreaks[setIndex]) {
-      newTiebreaks[setIndex] = [0, 0];
-    }
-    newTiebreaks[setIndex][playerIndex] = numScore;
-    setTiebreaks(newTiebreaks);
   };
 
   const validateScore = (): boolean => {
     if (matchType !== 'completed') return true;
 
-    let player1Sets = 0;
-    let player2Sets = 0;
+    let p1Wins = 0;
+    let p2Wins = 0;
 
-    // Count sets won
-    for (let i = 0; i < sets.length; i++) {
-      const set = sets[i];
-      const tiebreak = tiebreaks[i];
+    for (const game of games) {
+      const p1Score = parseInt(game.p1) || 0;
+      const p2Score = parseInt(game.p2) || 0;
 
-      if (set[0] === 0 && set[1] === 0) continue; // Skip empty sets
+      if (p1Score === 0 && p2Score === 0) continue;
 
-      let winner = null;
-
-      if (tiebreak && tiebreak[0] > 0 && tiebreak[1] > 0) {
-        // Tiebreak set
-        if (set[0] === 6 && set[1] === 6) {
-          if (tiebreak[0] >= 7 && tiebreak[0] - tiebreak[1] >= 2) {
-            winner = 0;
-          } else if (tiebreak[1] >= 7 && tiebreak[1] - tiebreak[0] >= 2) {
-            winner = 1;
-          }
-        }
-      } else {
-        // Regular set
-        if (set[0] >= 6 && set[0] - set[1] >= 2) {
-          winner = 0;
-        } else if (set[1] >= 6 && set[1] - set[0] >= 2) {
-          winner = 1;
-        } else if (set[0] === 7 && set[1] === 6) {
-          winner = 0;
-        } else if (set[1] === 7 && set[0] === 6) {
-          winner = 1;
-        }
-      }
-
-      if (winner === 0) player1Sets++;
-      else if (winner === 1) player2Sets++;
+      const winner = determinePickleballGameWinner(p1Score, p2Score, targetScore);
+      if (winner === 'player1') p1Wins++;
+      else if (winner === 'player2') p2Wins++;
     }
 
-    const setsToWin = Math.ceil(matchFormat.sets / 2);
-
-    if (player1Sets < setsToWin && player2Sets < setsToWin) {
-      Alert.alert(t('alert.score.invalidScore'), t('alert.score.matchNotComplete'));
-      return false;
+    if (matchFormat === 'single_game') {
+      if (p1Wins === 0 && p2Wins === 0) {
+        Alert.alert(t('alert.score.invalidScore'), t('alert.score.pickleballInvalidScore'));
+        return false;
+      }
+    } else {
+      // Best of 3
+      if (p1Wins < 2 && p2Wins < 2) {
+        Alert.alert(t('alert.score.invalidScore'), t('alert.score.pickleballBestOf3Incomplete'));
+        return false;
+      }
     }
 
     // Set winner
-    if (player1Sets > player2Sets) {
+    if (p1Wins > p2Wins) {
       setSelectedWinner(player1.playerId);
     } else {
       setSelectedWinner(player2.playerId);
@@ -185,37 +168,22 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
     const winner = selectedWinner || '';
     const loser = winner === player1.playerId ? player2.playerId : player1.playerId;
 
-    // Calculate final sets score
-    let player1Sets = 0;
-    let player2Sets = 0;
-
-    sets.forEach((set, index) => {
-      const tiebreak = tiebreaks[index];
-      let setWinner = null;
-
-      if (tiebreak && tiebreak[0] > 0 && tiebreak[1] > 0) {
-        if (set[0] === 6 && set[1] === 6) {
-          if (tiebreak[0] > tiebreak[1]) setWinner = 0;
-          else setWinner = 1;
-        }
-      } else {
-        if (set[0] > set[1]) setWinner = 0;
-        else if (set[1] > set[0]) setWinner = 1;
-      }
-
-      if (setWinner === 0) player1Sets++;
-      else if (setWinner === 1) player2Sets++;
-    });
+    const validGames = games
+      .filter(g => (parseInt(g.p1) || 0) > 0 || (parseInt(g.p2) || 0) > 0)
+      .map(g => ({
+        player1Points: parseInt(g.p1) || 0,
+        player2Points: parseInt(g.p2) || 0,
+      }));
 
     const result: MatchResult = {
       winner,
       loser,
       score: {
-        sets: [player1Sets, player2Sets] as [number, number],
-        games: sets.filter(set => set[0] > 0 || set[1] > 0) as [number, number][],
-        tiebreaks: tiebreaks.filter(tb => tb && (tb[0] > 0 || tb[1] > 0)) as [number, number][],
+        games: validGames,
       },
       matchType,
+      format: matchFormat,
+      targetScore,
     };
 
     onSubmit(result);
@@ -227,7 +195,7 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
     if (matchType === 'walkover') {
       return (
         <View style={styles.walkoverContainer}>
-          <Text style={styles.walkoverTitle}>Select Winner</Text>
+          <Text style={styles.walkoverTitle}>{t('recordScore.selectWinner')}</Text>
           <TouchableOpacity
             style={[
               styles.playerSelector,
@@ -235,7 +203,6 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
             ]}
             onPress={() => setSelectedWinner(player1.playerId)}
           >
-            {/* 🎯 [KIM FIX] 복식: 각 선수 이름 개별 truncate */}
             {splitDoublesName(player1.playerName) ? (
               <View style={styles.doublesNameContainer}>
                 <Text style={styles.playerName} numberOfLines={1} ellipsizeMode='tail'>
@@ -261,7 +228,6 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
             ]}
             onPress={() => setSelectedWinner(player2.playerId)}
           >
-            {/* 🎯 [KIM FIX] 복식: 각 선수 이름 개별 truncate */}
             {splitDoublesName(player2.playerName) ? (
               <View style={styles.doublesNameContainer}>
                 <Text style={styles.playerName} numberOfLines={1} ellipsizeMode='tail'>
@@ -287,7 +253,6 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
       <View style={styles.scoreContainer}>
         {/* Header */}
         <View style={styles.scoreHeader}>
-          {/* 🎯 [KIM FIX] 복식: 각 선수 이름 개별 truncate */}
           {splitDoublesName(player1.playerName) ? (
             <View style={styles.headerDoublesNameContainer}>
               <Text style={styles.playerHeaderName} numberOfLines={1} ellipsizeMode='tail'>
@@ -316,64 +281,63 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
           )}
         </View>
 
-        {/* Sets */}
-        {sets.map((set, setIndex) => (
-          <View key={setIndex} style={styles.setRow}>
-            <Text style={styles.setLabel}>Set {setIndex + 1}</Text>
+        {/* Target Score Selection */}
+        <View style={styles.targetScoreSection}>
+          <Text style={styles.targetScoreLabel}>{t('recordScore.pickleballTargetScore')}</Text>
+          <View style={styles.targetScoreButtons}>
+            <TouchableOpacity
+              style={[styles.targetBtn, targetScore === 11 && styles.targetBtnActive]}
+              onPress={() => setTargetScore(11)}
+            >
+              <Text style={[styles.targetBtnText, targetScore === 11 && styles.targetBtnTextActive]}>
+                11 ({t('recordScore.pickleballStandard')})
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.targetBtn, targetScore === 15 && styles.targetBtnActive]}
+              onPress={() => setTargetScore(15)}
+            >
+              <Text style={[styles.targetBtnText, targetScore === 15 && styles.targetBtnTextActive]}>
+                15
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* Games */}
+        {games.map((game, gameIndex) => (
+          <View key={gameIndex} style={styles.gameRow}>
+            <Text style={styles.gameLabel}>
+              {matchFormat === 'single_game'
+                ? t('recordScore.pickleballGame')
+                : `${t('recordScore.pickleballGame')} ${gameIndex + 1}`}
+            </Text>
 
             <View style={styles.scoreInputs}>
               <TextInput
                 style={styles.scoreInput}
-                value={set[0].toString()}
-                onChangeText={text => updateSetScore(setIndex, 0, text)}
+                value={game.p1}
+                onChangeText={text => updateGameScore(gameIndex, 'p1', text)}
                 keyboardType='numeric'
                 maxLength={2}
+                placeholder='0'
               />
 
               <Text style={styles.scoreSeparator}>-</Text>
 
               <TextInput
                 style={styles.scoreInput}
-                value={set[1].toString()}
-                onChangeText={text => updateSetScore(setIndex, 1, text)}
+                value={game.p2}
+                onChangeText={text => updateGameScore(gameIndex, 'p2', text)}
                 keyboardType='numeric'
                 maxLength={2}
+                placeholder='0'
               />
             </View>
-
-            {/* Tiebreak */}
-            {tiebreaks[setIndex] && (
-              <View style={styles.tiebreakRow}>
-                <Text style={styles.tiebreakLabel}>TB</Text>
-                <View style={styles.scoreInputs}>
-                  <TextInput
-                    style={styles.tiebreakInput}
-                    value={tiebreaks[setIndex][0].toString()}
-                    onChangeText={text => updateTiebreakScore(setIndex, 0, text)}
-                    keyboardType='numeric'
-                    maxLength={2}
-                  />
-                  <Text style={styles.scoreSeparator}>-</Text>
-                  <TextInput
-                    style={styles.tiebreakInput}
-                    value={tiebreaks[setIndex][1].toString()}
-                    onChangeText={text => updateTiebreakScore(setIndex, 1, text)}
-                    keyboardType='numeric'
-                    maxLength={2}
-                  />
-                </View>
-              </View>
-            )}
           </View>
         ))}
 
-        {/* Add Set Button */}
-        {sets.length < matchFormat.sets && (
-          <TouchableOpacity style={styles.addSetButton} onPress={addSet}>
-            <Ionicons name='add' size={20} color='#2196F3' />
-            <Text style={styles.addSetText}>Add Set</Text>
-          </TouchableOpacity>
-        )}
+        <Text style={styles.winBy2Hint}>{t('recordScore.pickleballWinBy2Hint')}</Text>
       </View>
     );
   };
@@ -391,22 +355,62 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
           <TouchableOpacity onPress={onClose}>
             <Ionicons name='close' size={24} color='#666' />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>Enter Score</Text>
+          <Text style={styles.headerTitle}>{t('recordScore.title')}</Text>
           <TouchableOpacity onPress={handleSubmit}>
-            <Text style={styles.submitText}>Submit</Text>
+            <Text style={styles.submitText}>{t('recordScore.submit')}</Text>
           </TouchableOpacity>
         </View>
 
         <ScrollView style={styles.content}>
+          {/* Match Format Selector */}
+          <View style={styles.formatContainer}>
+            <Text style={styles.sectionTitle}>{t('recordScore.pickleballFormat')}</Text>
+            <View style={styles.formatButtons}>
+              <TouchableOpacity
+                style={[styles.formatButton, matchFormat === 'single_game' && styles.activeFormat]}
+                onPress={() => {
+                  setMatchFormat('single_game');
+                  setGames([{ p1: '', p2: '' }]);
+                }}
+              >
+                <Text
+                  style={[
+                    styles.formatText,
+                    matchFormat === 'single_game' && styles.activeFormatText,
+                  ]}
+                >
+                  {t('recordScore.pickleballSingleGame')}
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.formatButton, matchFormat === 'best_of_3' && styles.activeFormat]}
+                onPress={() => {
+                  setMatchFormat('best_of_3');
+                  setGames([
+                    { p1: '', p2: '' },
+                    { p1: '', p2: '' },
+                  ]);
+                }}
+              >
+                <Text
+                  style={[
+                    styles.formatText,
+                    matchFormat === 'best_of_3' && styles.activeFormatText,
+                  ]}
+                >
+                  {t('recordScore.pickleballBestOf3')}
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+
           {/* Match Type Selector */}
           <View style={styles.matchTypeContainer}>
-            <Text style={styles.sectionTitle}>Match Result Type</Text>
+            <Text style={styles.sectionTitle}>{t('recordScore.matchResultType')}</Text>
             <View style={styles.matchTypeButtons}>
               <TouchableOpacity
-                style={[
-                  styles.matchTypeButton,
-                  matchType === 'completed' && styles.activeMatchType,
-                ]}
+                style={[styles.matchTypeButton, matchType === 'completed' && styles.activeMatchType]}
                 onPress={() => setMatchType('completed')}
               >
                 <Text
@@ -415,7 +419,7 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
                     matchType === 'completed' && styles.activeMatchTypeText,
                   ]}
                 >
-                  Completed
+                  {t('recordScore.completed')}
                 </Text>
               </TouchableOpacity>
 
@@ -429,7 +433,7 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
                     matchType === 'retired' && styles.activeMatchTypeText,
                   ]}
                 >
-                  Retired
+                  {t('recordScore.retired')}
                 </Text>
               </TouchableOpacity>
 
@@ -443,7 +447,7 @@ const ScoreInputModal: React.FC<ScoreInputModalProps> = ({
                     matchType === 'walkover' && styles.activeMatchTypeText,
                   ]}
                 >
-                  Walkover
+                  {t('recordScore.walkover')}
                 </Text>
               </TouchableOpacity>
             </View>
@@ -479,7 +483,7 @@ const styles = StyleSheet.create({
   submitText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#2196F3',
+    color: '#4CAF50',
   },
   content: {
     flex: 1,
@@ -490,6 +494,32 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#333',
     marginBottom: 12,
+  },
+  formatContainer: {
+    marginBottom: 24,
+  },
+  formatButtons: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  formatButton: {
+    flex: 1,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    backgroundColor: '#f0f0f0',
+    alignItems: 'center',
+  },
+  activeFormat: {
+    backgroundColor: '#4CAF50',
+  },
+  formatText: {
+    fontSize: 14,
+    color: '#666',
+  },
+  activeFormatText: {
+    color: 'white',
+    fontWeight: '500',
   },
   matchTypeContainer: {
     marginBottom: 24,
@@ -507,7 +537,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   activeMatchType: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#4CAF50',
   },
   matchTypeText: {
     fontSize: 14,
@@ -535,14 +565,47 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#333',
   },
-  setRow: {
+  targetScoreSection: {
+    marginBottom: 20,
+  },
+  targetScoreLabel: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 8,
+  },
+  targetScoreButtons: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  targetBtn: {
+    flex: 1,
+    paddingVertical: 10,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    alignItems: 'center',
+  },
+  targetBtnActive: {
+    borderColor: '#4CAF50',
+    backgroundColor: 'rgba(76, 175, 80, 0.1)',
+  },
+  targetBtnText: {
+    fontSize: 14,
+    color: '#666',
+  },
+  targetBtnTextActive: {
+    color: '#4CAF50',
+    fontWeight: '600',
+  },
+  gameRow: {
     marginBottom: 16,
   },
-  setLabel: {
+  gameLabel: {
     fontSize: 14,
     fontWeight: '600',
     color: '#666',
     marginBottom: 8,
+    textAlign: 'center',
   },
   scoreInputs: {
     flexDirection: 'row',
@@ -551,55 +614,27 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   scoreInput: {
-    width: 60,
-    height: 40,
-    borderWidth: 1,
+    width: 70,
+    height: 50,
+    borderWidth: 2,
     borderColor: '#e0e0e0',
-    borderRadius: 8,
+    borderRadius: 10,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: '600',
     backgroundColor: 'white',
   },
   scoreSeparator: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: '600',
     color: '#666',
   },
-  tiebreakRow: {
-    marginTop: 8,
-    alignItems: 'center',
-  },
-  tiebreakLabel: {
+  winBy2Hint: {
     fontSize: 12,
     color: '#999',
-    marginBottom: 4,
-  },
-  tiebreakInput: {
-    width: 50,
-    height: 32,
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-    borderRadius: 6,
     textAlign: 'center',
-    fontSize: 14,
-    fontWeight: '600',
-    backgroundColor: '#f8f9fa',
-  },
-  addSetButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    borderWidth: 1,
-    borderColor: '#2196F3',
-    borderRadius: 8,
-    borderStyle: 'dashed',
-  },
-  addSetText: {
-    fontSize: 14,
-    color: '#2196F3',
-    marginLeft: 8,
+    marginTop: 16,
+    fontStyle: 'italic',
   },
   walkoverContainer: {
     backgroundColor: 'white',
@@ -633,7 +668,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#333',
   },
-  // 🎯 [KIM FIX] 복식 선수 이름 스타일
   doublesNameContainer: {
     flexDirection: 'row',
     alignItems: 'center',

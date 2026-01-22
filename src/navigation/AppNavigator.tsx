@@ -22,6 +22,7 @@ import AdminDashboardScreen from '../screens/admin/AdminDashboardScreen';
 import UserFeedbackScreen from '../screens/admin/UserFeedbackScreen';
 import DeveloperToolsScreen from '../screens/admin/DeveloperToolsScreen';
 import UserStatsScreen from '../screens/admin/UserStatsScreen';
+import ContentReportsScreen from '../screens/admin/ContentReportsScreen';
 import ContentManagementScreen from '../screens/admin/ContentManagementScreen';
 import SystemLogScreen from '../screens/admin/SystemLogScreen';
 import LogDetailScreen from '../screens/admin/LogDetailScreen';
@@ -145,6 +146,7 @@ export type RootStackParamList = {
   AdminDashboard: undefined;
   UserFeedback: undefined;
   UserStats: undefined;
+  ContentReports: undefined;
   ContentManagement: undefined;
   SystemLog: undefined;
   LogDetail: { logType: 'auth' | 'error' | 'performance' };
@@ -178,6 +180,7 @@ export type AdminStackParamList = Pick<
   | 'AdminDashboard'
   | 'UserFeedback'
   | 'UserStats'
+  | 'ContentReports'
   | 'ContentManagement'
   | 'SystemLog'
   | 'LogDetail'
@@ -1266,6 +1269,14 @@ export default function AppNavigator() {
             component={UserStatsScreen}
             options={{
               title: t('appNavigator.screens.userStats'),
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name='ContentReports'
+            component={ContentReportsScreen}
+            options={{
+              title: t('appNavigator.screens.contentReports', 'Content Reports'),
               headerShown: false,
             }}
           />

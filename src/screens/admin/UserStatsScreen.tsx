@@ -4,7 +4,15 @@
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { StyleSheet, ScrollView, View, Dimensions, FlatList, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  Dimensions,
+  FlatList,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import {
   Appbar,
   Card,
@@ -15,7 +23,7 @@ import {
   Chip,
   Divider,
 } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, CommonActions } from '@react-navigation/native';
 import { LineChart } from 'react-native-chart-kit';
 import { useTranslation } from 'react-i18next';
 import {
@@ -25,6 +33,7 @@ import {
   DailyStats,
   getAllUsersForAdmin,
   AdminUserData,
+  calculateUserStatsManually,
 } from '../../services/adminService';
 import { convertEloToLtr } from '../../utils/unifiedRankingUtils';
 
@@ -39,6 +48,7 @@ const UserStatsScreen: React.FC = () => {
   const [userList, setUserList] = useState<AdminUserData[]>([]);
   const [loadingUsers, setLoadingUsers] = useState(false);
   const [showUserList, setShowUserList] = useState(false);
+  const [recalculating, setRecalculating] = useState(false);
 
   // Real-time subscription to app stats
   useEffect(() => {
@@ -72,6 +82,46 @@ const UserStatsScreen: React.FC = () => {
     } catch (error) {
       console.error('[UserStatsScreen] Error loading stats history:', error);
     }
+  };
+
+  // 📊 Manual recalculation of stats
+  const handleRecalculateStats = async () => {
+    Alert.alert(
+      t('admin.stats.recalculate.title', '통계 재계산'),
+      t(
+        'admin.stats.recalculate.message',
+        'DAU/WAU/MAU 통계를 지금 바로 재계산합니다. 계속하시겠습니까?'
+      ),
+      [
+        { text: t('common.cancel', '취소'), style: 'cancel' },
+        {
+          text: t('common.confirm', '확인'),
+          onPress: async () => {
+            setRecalculating(true);
+            try {
+              const result = await calculateUserStatsManually();
+              Alert.alert(
+                t('admin.stats.recalculate.success', '재계산 완료'),
+                t(
+                  'admin.stats.recalculate.successMessage',
+                  `DAU: ${result.dau}, WAU: ${result.wau}, MAU: ${result.mau}`
+                )
+              );
+              // Reload history after recalculation
+              loadStatsHistory();
+            } catch (error) {
+              console.error('[UserStatsScreen] Error recalculating stats:', error);
+              Alert.alert(
+                t('admin.stats.recalculate.error', '오류'),
+                t('admin.stats.recalculate.errorMessage', '통계 재계산 중 오류가 발생했습니다.')
+              );
+            } finally {
+              setRecalculating(false);
+            }
+          },
+        },
+      ]
+    );
   };
 
   // Load user list when toggled
@@ -216,10 +266,20 @@ const UserStatsScreen: React.FC = () => {
     );
   };
 
+  // Navigate to user profile
+  const handleUserPress = (userId: string) => {
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: 'UserProfile',
+        params: { userId },
+      })
+    );
+  };
+
   const renderUserItem = ({ item }: { item: AdminUserData }) => {
-    const singlesLtr = item.eloRatings.singles ? convertEloToLtr(item.eloRatings.singles) : '-';
-    const doublesLtr = item.eloRatings.doubles ? convertEloToLtr(item.eloRatings.doubles) : '-';
-    const mixedLtr = item.eloRatings.mixed ? convertEloToLtr(item.eloRatings.mixed) : '-';
+    const singlesLpr = item.eloRatings.singles ? convertEloToLtr(item.eloRatings.singles) : '-';
+    const doublesLpr = item.eloRatings.doubles ? convertEloToLtr(item.eloRatings.doubles) : '-';
+    const mixedLpr = item.eloRatings.mixed ? convertEloToLtr(item.eloRatings.mixed) : '-';
 
     return (
       <View
@@ -227,9 +287,14 @@ const UserStatsScreen: React.FC = () => {
       >
         {/* Row 1: Nickname & Email */}
         <View style={styles.userRow}>
-          <Text style={[styles.userName, { color: colors.onSurface }]} numberOfLines={1}>
-            {item.displayName}
-          </Text>
+          <TouchableOpacity onPress={() => handleUserPress(item.uid)}>
+            <Text
+              style={[styles.userName, styles.userNameClickable, { color: colors.primary }]}
+              numberOfLines={1}
+            >
+              {item.displayName}
+            </Text>
+          </TouchableOpacity>
           <Text style={[styles.userEmail, { color: colors.onSurfaceVariant }]} numberOfLines={1}>
             {item.email}
           </Text>
@@ -248,15 +313,15 @@ const UserStatsScreen: React.FC = () => {
         {/* Row 3: LPR */}
         <View style={styles.userRow}>
           <Text style={[styles.label, { color: colors.onSurfaceVariant }]}>LPR:</Text>
-          <View style={styles.ltrGroup}>
-            <Chip compact style={styles.ltrChip} textStyle={styles.ltrText}>
-              단식: {singlesLtr}
+          <View style={styles.lprGroup}>
+            <Chip compact style={styles.lprChip} textStyle={styles.lprText}>
+              단식: {singlesLpr}
             </Chip>
-            <Chip compact style={styles.ltrChip} textStyle={styles.ltrText}>
-              복식: {doublesLtr}
+            <Chip compact style={styles.lprChip} textStyle={styles.lprText}>
+              복식: {doublesLpr}
             </Chip>
-            <Chip compact style={styles.ltrChip} textStyle={styles.ltrText}>
-              혼복: {mixedLtr}
+            <Chip compact style={styles.lprChip} textStyle={styles.lprText}>
+              혼복: {mixedLpr}
             </Chip>
           </View>
         </View>
@@ -314,14 +379,29 @@ const UserStatsScreen: React.FC = () => {
       <Appbar.Header>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
         <Appbar.Content title={t('admin.stats.title')} />
+        <Appbar.Action icon='refresh' onPress={handleRecalculateStats} disabled={recalculating} />
       </Appbar.Header>
 
+      {recalculating && (
+        <View style={styles.recalculatingBanner}>
+          <ActivityIndicator size='small' color='#fff' />
+          <Text style={styles.recalculatingText}>
+            {t('admin.stats.recalculating', '통계 재계산 중...')}
+          </Text>
+        </View>
+      )}
+
       <ScrollView style={[styles.container, { backgroundColor: colors.background }]}>
+        {/* 📊 KPI Grid - 2x2 Layout */}
         <View style={styles.kpiGrid}>
-          {renderKPICard(t('admin.stats.totalUsers'), appStats?.totalUsers || 0, '👥', '#2196f3')}
-          {renderKPICard(t('admin.stats.dau'), appStats?.dau || 0, '📊', '#4caf50')}
-          {renderKPICard(t('admin.stats.wau'), appStats?.wau || 0, '📈', '#ff9800')}
-          {renderKPICard(t('admin.stats.mau'), appStats?.mau || 0, '📉', '#f44336')}
+          <View style={styles.kpiRow}>
+            {renderKPICard(t('admin.stats.totalUsers'), appStats?.totalUsers || 0, '👥', '#2196f3')}
+            {renderKPICard(t('admin.stats.dau'), appStats?.dau || 0, '📊', '#4caf50')}
+          </View>
+          <View style={styles.kpiRow}>
+            {renderKPICard(t('admin.stats.wau'), appStats?.wau || 0, '📈', '#ff9800')}
+            {renderKPICard(t('admin.stats.mau'), appStats?.mau || 0, '📉', '#f44336')}
+          </View>
         </View>
 
         {renderChart()}
@@ -416,13 +496,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   kpiGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
     padding: 8,
   },
+  kpiRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 8,
+  },
   kpiCard: {
-    width: '48%',
-    margin: 4,
+    flex: 1,
+    marginHorizontal: 4,
     borderRadius: 12,
     borderWidth: 1,
   },
@@ -502,8 +585,10 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: 16,
     fontWeight: '600',
-    flex: 1,
     minWidth: 100,
+  },
+  userNameClickable: {
+    textDecorationLine: 'underline',
   },
   userEmail: {
     fontSize: 13,
@@ -514,7 +599,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
-  ltrGroup: {
+  lprGroup: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
@@ -528,10 +613,10 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '500',
   },
-  ltrChip: {
+  lprChip: {
     height: 28,
   },
-  ltrText: {
+  lprText: {
     fontSize: 12,
   },
   clubsContainer: {
@@ -546,6 +631,19 @@ const styles = StyleSheet.create({
   },
   clubText: {
     fontSize: 11,
+  },
+  recalculatingBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#2196f3',
+    paddingVertical: 8,
+    gap: 8,
+  },
+  recalculatingText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: '500',
   },
 });
 

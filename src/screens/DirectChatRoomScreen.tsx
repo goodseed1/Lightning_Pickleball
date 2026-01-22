@@ -10,6 +10,7 @@ import {
   Platform,
   ActivityIndicator,
   Alert,
+  Keyboard, // 🎯 [KIM FIX] For keyboard event listening
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Avatar, useTheme, MD3Theme } from 'react-native-paper';
@@ -77,6 +78,22 @@ const DirectChatRoomScreen: React.FC = () => {
   useEffect(() => {
     isFocusedRef.current = isFocused;
   }, [isFocused]);
+
+  // 🎯 [KIM FIX] Scroll to end when keyboard appears
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow',
+      () => {
+        setTimeout(() => {
+          flatListRef.current?.scrollToEnd({ animated: true });
+        }, 100);
+      }
+    );
+
+    return () => {
+      keyboardDidShowListener.remove();
+    };
+  }, []);
 
   // Generate consistent color based on user ID
   const getAvatarColor = (userId: string): string => {
@@ -483,7 +500,7 @@ const DirectChatRoomScreen: React.FC = () => {
   const styles = createStyles(theme);
 
   return (
-    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
@@ -506,29 +523,31 @@ const DirectChatRoomScreen: React.FC = () => {
         <View style={{ width: 24 }} />
       </View>
 
-      {/* Messages List */}
-      {loading ? (
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size='large' color={theme.colors.primary} />
-          <Text style={styles.loadingText}>{t('directChat.loading')}</Text>
-        </View>
-      ) : (
-        <FlatList
-          ref={flatListRef}
-          data={messages}
-          renderItem={renderMessageBubble}
-          keyExtractor={item => item.id}
-          contentContainerStyle={styles.messagesList}
-          showsVerticalScrollIndicator={false}
-          onContentSizeChange={() => flatListRef.current?.scrollToEnd({ animated: false })}
-        />
-      )}
-
-      {/* Input Area */}
+      {/* 🎯 [KIM FIX] KeyboardAvoidingView wraps BOTH FlatList and input for proper keyboard handling */}
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.keyboardAvoidingContainer}
         keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
       >
+        {/* Messages List */}
+        {loading ? (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size='large' color={theme.colors.primary} />
+            <Text style={styles.loadingText}>{t('directChat.loading')}</Text>
+          </View>
+        ) : (
+          <FlatList
+            ref={flatListRef}
+            data={messages}
+            renderItem={renderMessageBubble}
+            keyExtractor={item => item.id}
+            contentContainerStyle={styles.messagesList}
+            showsVerticalScrollIndicator={false}
+            onContentSizeChange={() => flatListRef.current?.scrollToEnd({ animated: false })}
+          />
+        )}
+
+        {/* Input Area */}
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.textInput}
@@ -561,6 +580,7 @@ const DirectChatRoomScreen: React.FC = () => {
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
+      {/* 🎯 [KIM FIX] KeyboardAvoidingView now properly wraps FlatList + Input */}
     </SafeAreaView>
   );
 };
@@ -570,6 +590,10 @@ const createStyles = (theme: MD3Theme) =>
     container: {
       flex: 1,
       backgroundColor: theme.colors.background,
+    },
+    // 🎯 [KIM FIX] KeyboardAvoidingView container - must have flex: 1 to work properly
+    keyboardAvoidingContainer: {
+      flex: 1,
     },
     header: {
       flexDirection: 'row',

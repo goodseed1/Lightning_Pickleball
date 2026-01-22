@@ -489,7 +489,27 @@
         "evening": "Soir",
         "night": "Nuit",
         "brunch": "Brunch"
+      },
+      "block": {
+        "title": "Bloquer l'utilisateur",
+        "confirmTitle": "Bloquer {{nickname}} ?",
+        "confirmMessage": "Vous ne verrez plus son contenu et il ne pourra plus vous contacter.",
+        "cancel": "Annuler",
+        "confirm": "Bloquer",
+        "success": "Utilisateur bloqué",
+        "error": "Échec du blocage",
+        "unblockTitle": "Débloquer l'utilisateur",
+        "unblockConfirmTitle": "Débloquer {{nickname}} ?",
+        "unblockConfirmMessage": "Il pourra à nouveau vous contacter.",
+        "unblockSuccess": "Utilisateur débloqué"
       }
+    },
+    "blockedUsers": {
+      "title": "Utilisateurs bloqués",
+      "noBlockedUsers": "Aucun utilisateur bloqué",
+      "noBlockedUsersDesc": "Les utilisateurs que vous bloquez apparaîtront ici.",
+      "unblock": "Débloquer",
+      "blockedOn": "Bloqué le {{date}}"
     }
   },
   "profileSetup": {
@@ -7316,5 +7336,113 @@
     "successMessage": "Migration terminée avec succès !",
     "errorTitle": "❌ Erreur",
     "resetSuccessMessage": "Toutes les données de match ont été réinitialisées !"
+  },
+  "communityGuidelines": {
+    "title": "Règles de la communauté",
+    "introduction": "Bienvenue sur Lightning Pickleball ! Pour garantir une expérience positive pour tous les joueurs, veuillez suivre ces règles de la communauté.",
+    "sections": {
+      "respect": {
+        "title": "Respect et courtoisie",
+        "items": [
+          "Traitez tous les joueurs avec respect et gentillesse",
+          "Utilisez un langage approprié dans toutes les communications",
+          "Respectez les différents parcours, niveaux de compétence et styles de jeu",
+          "Soutenez et encouragez les nouveaux joueurs"
+        ]
+      },
+      "prohibited": {
+        "title": "Comportement interdit",
+        "items": [
+          "Spam, publicité ou contenu promotionnel",
+          "Harcèlement, intimidation ou menaces",
+          "Discours haineux ou langage discriminatoire",
+          "Partage de contenu inapproprié ou offensant",
+          "Usurpation d'identité ou faux profils",
+          "Fraude, escroquerie ou pratiques trompeuses"
+        ]
+      },
+      "matchEtiquette": {
+        "title": "Étiquette de match",
+        "items": [
+          "Honorez vos engagements de match",
+          "Prévenez rapidement les autres si vous devez annuler",
+          "Arrivez à l'heure pour les matchs programmés",
+          "Jouez équitablement et suivez les règles du pickleball",
+          "Acceptez les résultats des matchs avec grâce"
+        ]
+      },
+      "violations": {
+        "title": "Conséquences des violations",
+        "items": [
+          "Première violation : Avertissement",
+          "Deuxième violation : Suppression du contenu",
+          "Troisième violation : Suspension temporaire",
+          "Violations graves : Bannissement permanent"
+        ]
+      }
+    },
+    "footerNote": "Les violations de ces règles peuvent entraîner des avertissements, la suppression de contenu ou la suspension du compte. Aidez-nous à maintenir une communauté accueillante pour tous les passionnés de pickleball !"
+  },
+  "banned": {
+    "title": "Compte suspendu",
+    "subtitle": "Votre compte a été suspendu en raison de violations de nos règles de la communauté. Vous pouvez soumettre un appel pour demander une révision de cette décision.",
+    "whyBanned": "Pourquoi mon compte a-t-il été suspendu ?",
+    "reason": "Votre compte a été suspendu car votre comportement a violé nos règles de la communauté. Cela peut inclure le harcèlement, le spam, le contenu inapproprié ou d'autres activités interdites.",
+    "bannedOn": "Suspendu le",
+    "previousWarnings": "Avertissements précédents",
+    "submitAppeal": "Soumettre un appel",
+    "viewGuidelines": "Voir les règles de la communauté",
+    "guidelinesError": "Impossible d'ouvrir les règles de la communauté. Veuillez réessayer plus tard.",
+    "appeal": {
+      "title": "Appel",
+      "description": "Veuillez expliquer pourquoi vous pensez que votre compte devrait être rétabli. Incluez toute information pertinente qui pourrait nous aider à examiner votre cas.",
+      "placeholder": "Expliquez pourquoi vous pensez que votre compte devrait être restauré...",
+      "submit": "Soumettre l'appel",
+      "submitted": "Appel soumis",
+      "submittedMessage": "Votre appel a été soumis avec succès. Nous l'examinerons et vous répondrons dans les 3 à 5 jours ouvrables.",
+      "error": "Erreur",
+      "emptyMessage": "Veuillez entrer votre message d'appel.",
+      "tooShort": "Votre message d'appel est trop court. Veuillez fournir plus de détails (minimum 20 caractères).",
+      "submitError": "Échec de la soumission de votre appel. Veuillez réessayer plus tard.",
+      "alreadySubmitted": "Appel déjà soumis",
+      "waitingReview": "Votre appel est actuellement en cours d'examen. Nous vous informerons une fois qu'une décision aura été prise."
+    },
+    "report": {
+      "title": "Signaler du contenu",
+      "selectUser": "Qui voulez-vous signaler ?",
+      "selectUserInfo": "Sélectionnez la personne dont vous souhaitez signaler le comportement.",
+      "noMembersToReport": "Aucun autre membre à signaler.",
+      "reportingUser": "Signalement de",
+      "selectReasonTitle": "Pourquoi signalez-vous ceci ?",
+      "additionalDetails": "Détails supplémentaires (optionnel)",
+      "descriptionPlaceholder": "Fournissez plus de détails sur votre signalement...",
+      "submit": "Soumettre le signalement",
+      "success": "Signalement soumis",
+      "successMessage": "Merci pour votre signalement. Nous l'examinerons dans les 24 heures.",
+      "error": "Erreur",
+      "selectReason": "Veuillez sélectionner une raison pour votre signalement.",
+      "alreadyReported": "Déjà signalé",
+      "alreadyReportedMessage": "Vous avez déjà signalé ce contenu.",
+      "submitError": "Échec de la soumission du signalement. Veuillez réessayer.",
+      "reasons": {
+        "spam": "Spam",
+        "harassment": "Harcèlement ou intimidation",
+        "inappropriate": "Contenu inapproprié",
+        "hate_speech": "Discours haineux",
+        "violence": "Violence ou menaces",
+        "other": "Autre"
+      }
+    },
+    "logout": {
+      "title": "Déconnexion",
+      "message": "Êtes-vous sûr de vouloir vous déconnecter ?"
+    }
+  },
+  "location": {
+    "alerts": {
+      "permissionTitle": "Autorisation de localisation",
+      "permissionMessage": "L'autorisation de localisation est nécessaire pour trouver des joueurs et des événements à proximité. Veuillez l'activer dans les paramètres.",
+      "openSettings": "Ouvrir les paramètres"
+    }
   }
 }

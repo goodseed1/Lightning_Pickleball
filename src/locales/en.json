@@ -569,7 +569,27 @@
         "evening": "Evening",
         "night": "Night",
         "brunch": "Brunch"
+      },
+      "block": {
+        "title": "Block User",
+        "confirmTitle": "Block {{nickname}}?",
+        "confirmMessage": "You won't see their content and they won't be able to contact you.",
+        "cancel": "Cancel",
+        "confirm": "Block",
+        "success": "User blocked",
+        "error": "Failed to block user",
+        "unblockTitle": "Unblock User",
+        "unblockConfirmTitle": "Unblock {{nickname}}?",
+        "unblockConfirmMessage": "They will be able to contact you again.",
+        "unblockSuccess": "User unblocked"
       }
+    },
+    "blockedUsers": {
+      "title": "Blocked Users",
+      "noBlockedUsers": "No blocked users",
+      "noBlockedUsersDesc": "Users you block will appear here.",
+      "unblock": "Unblock",
+      "blockedOn": "Blocked on {{date}}"
     }
   },
   "profileSetup": {
@@ -1214,7 +1234,9 @@
       "invalidScore": "Invalid Score",
       "matchNotComplete": "Match is not complete",
       "selectWinner": "Select Winner",
-      "selectWinnerWalkover": "Please select the winner for walkover"
+      "selectWinnerWalkover": "Please select the winner for walkover.",
+      "pickleballInvalidScore": "Please enter a valid pickleball score (first to target, win by 2).",
+      "pickleballBestOf3Incomplete": "Best of 3 requires one player to win 2 games."
     },
     "league": {
       "loadFailed": "Failed to load leagues",
@@ -4653,56 +4675,10 @@
       "mental_fortress": "#MentalFortress",
       "court_jester": "#CourtJester"
     },
-    "badges": {
-      "first_victory": {
-        "name": "First Victory",
-        "description": "Win your first match"
-      },
-      "league_champion": {
-        "name": "League Champion",
-        "description": "Win a league championship"
-      },
-      "tournament_champion": {
-        "name": "Tournament Champion",
-        "description": "Win a tournament"
-      },
-      "lightning_host": {
-        "name": "Lightning Host",
-        "description": "Host lightning matches"
-      },
-      "social_player": {
-        "name": "Social Player",
-        "description": "Play with many different players"
-      },
-      "winning_streak_3": {
-        "name": "3 Win Streak",
-        "description": "Win 3 matches in a row"
-      },
-      "winning_streak_5": {
-        "name": "5 Win Streak",
-        "description": "Win 5 matches in a row"
-      },
-      "winning_streak_10": {
-        "name": "10 Win Streak",
-        "description": "Win 10 matches in a row"
-      },
-      "match_milestone_10": {
-        "name": "10 Matches",
-        "description": "Play 10 matches"
-      },
-      "match_milestone_50": {
-        "name": "50 Matches",
-        "description": "Play 50 matches"
-      },
-      "match_milestone_100": {
-        "name": "100 Matches",
-        "description": "Play 100 matches"
-      }
-    },
+    "badges": "badges",
     "joined": "Joined",
     "totalTrophies": "Total Trophies",
     "trophies": "trophies",
-    "badges": "badges",
     "winner": "Winner",
     "runnerUp": "Runner-up"
   },
@@ -5040,8 +5016,25 @@
       "superTiebreak": "Super Tiebreak",
       "standardTiebreak": "Tiebreak",
       "globalRanking": "Global",
-      "clubRanking": "{{clubName}} Club"
-    }
+      "clubRanking": "{{clubName}} Club",
+      "pickleballMinScore": "Minimum score required:",
+      "pickleballWinBy2": "Must win by at least 2 points.",
+      "pickleballBestOf3Incomplete": "Best of 3 requires one player to win 2 games."
+    },
+    "pickleballFormat": "Match Format",
+    "pickleballSingleGame": "Single Game",
+    "pickleballBestOf3": "Best of 3",
+    "pickleballTargetScore": "Target Score",
+    "pickleballPoints": "points",
+    "pickleballStandard": "Standard",
+    "pickleballWinBy2Hint": "🏓 Win by 2 points",
+    "pickleballGame": "Game",
+    "pickleballGameN": "Game",
+    "pickleballWins": "wins!",
+    "pickleballScoreDescription": "Enter final score. Target:",
+    "submitNotePickleball": "Score will be recorded and both players' ratings will be updated.",
+    "matchResultType": "Match Result Type",
+    "completed": "Completed"
   },
   "scoreConfirmation": {
     "title": "Confirm Score",
@@ -6976,7 +6969,11 @@
     "notification": "Notification",
     "unknown": "Unknown",
     "report": "Report",
-    "hide": "Hide"
+    "hide": "Hide",
+    "contentWarning": "Your content has been flagged for policy violation",
+    "contentRemoved": "Your content has been removed by moderators",
+    "reportResolved": "Action has been taken on your report",
+    "accountBanned": "Your account has been suspended"
   },
   "tournamentRankings": {
     "noRankingsYet": "No rankings yet",
@@ -7336,5 +7333,113 @@
     "successMessage": "Migration completed successfully!",
     "errorTitle": "❌ Error",
     "resetSuccessMessage": "All match data has been reset!"
+  },
+  "communityGuidelines": {
+    "title": "Community Guidelines",
+    "introduction": "Welcome to Lightning Pickleball! To ensure a positive experience for all players, please follow these community guidelines.",
+    "sections": {
+      "respect": {
+        "title": "Respect & Courtesy",
+        "items": [
+          "Treat all players with respect and kindness",
+          "Use appropriate language in all communications",
+          "Respect diverse backgrounds, skill levels, and playing styles",
+          "Be supportive and encouraging to new players"
+        ]
+      },
+      "prohibited": {
+        "title": "Prohibited Behavior",
+        "items": [
+          "Spam, advertising, or promotional content",
+          "Harassment, bullying, or intimidation",
+          "Hate speech or discriminatory language",
+          "Sharing inappropriate or offensive content",
+          "Impersonating other users or false profiles",
+          "Fraud, scams, or deceptive practices"
+        ]
+      },
+      "matchEtiquette": {
+        "title": "Match Etiquette",
+        "items": [
+          "Honor your match commitments",
+          "Notify others promptly if you need to cancel",
+          "Arrive on time for scheduled matches",
+          "Play fairly and follow pickleball rules",
+          "Accept match results gracefully"
+        ]
+      },
+      "violations": {
+        "title": "Violation Consequences",
+        "items": [
+          "First violation: Warning",
+          "Second violation: Content removal",
+          "Third violation: Temporary suspension",
+          "Severe violations: Permanent ban"
+        ]
+      }
+    },
+    "footerNote": "Violations of these guidelines may result in warnings, content removal, or account suspension. Help us maintain a welcoming community for all pickleball enthusiasts!"
+  },
+  "banned": {
+    "title": "Account Suspended",
+    "subtitle": "Your account has been suspended due to violations of our community guidelines. You can submit an appeal to request a review of this decision.",
+    "whyBanned": "Why was my account suspended?",
+    "reason": "Your account was suspended because your behavior violated our community guidelines. This may include harassment, spam, inappropriate content, or other prohibited activities.",
+    "bannedOn": "Suspended on",
+    "previousWarnings": "Previous warnings",
+    "submitAppeal": "Submit an Appeal",
+    "viewGuidelines": "View Community Guidelines",
+    "guidelinesError": "Unable to open community guidelines. Please try again later.",
+    "appeal": {
+      "title": "Appeal Your Suspension",
+      "description": "Please explain why you believe your account should be reinstated. Include any relevant information that may help us review your case.",
+      "placeholder": "Explain why you think your account should be restored...",
+      "submit": "Submit Appeal",
+      "submitted": "Appeal Submitted",
+      "submittedMessage": "Your appeal has been submitted successfully. We will review it and get back to you within 3-5 business days.",
+      "error": "Error",
+      "emptyMessage": "Please enter your appeal message.",
+      "tooShort": "Your appeal message is too short. Please provide more detail (minimum 20 characters).",
+      "submitError": "Failed to submit your appeal. Please try again later.",
+      "alreadySubmitted": "Appeal Already Submitted",
+      "waitingReview": "Your appeal is currently under review. We will notify you once a decision has been made."
+    },
+    "report": {
+      "title": "Report Content",
+      "selectUser": "Who do you want to report?",
+      "selectUserInfo": "Select the person whose behavior you want to report.",
+      "noMembersToReport": "No other members to report.",
+      "reportingUser": "Reporting",
+      "selectReasonTitle": "Why are you reporting this?",
+      "additionalDetails": "Additional details (optional)",
+      "descriptionPlaceholder": "Provide more details about your report...",
+      "submit": "Submit Report",
+      "success": "Report Submitted",
+      "successMessage": "Thank you for your report. We will review it within 24 hours.",
+      "error": "Error",
+      "selectReason": "Please select a reason for your report.",
+      "alreadyReported": "Already Reported",
+      "alreadyReportedMessage": "You have already reported this content.",
+      "submitError": "Failed to submit report. Please try again.",
+      "reasons": {
+        "spam": "Spam",
+        "harassment": "Harassment or Bullying",
+        "inappropriate": "Inappropriate Content",
+        "hate_speech": "Hate Speech",
+        "violence": "Violence or Threats",
+        "other": "Other"
+      }
+    },
+    "logout": {
+      "title": "Sign Out",
+      "message": "Are you sure you want to sign out?"
+    }
+  },
+  "location": {
+    "alerts": {
+      "permissionTitle": "Location Permission",
+      "permissionMessage": "Location permission is needed to find nearby players and events. Please enable it in Settings.",
+      "openSettings": "Open Settings"
+    }
   }
 }
