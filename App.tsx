@@ -38,6 +38,7 @@ import './src/utils/addMatchResultsToExisting'; // Import utilities to add resul
 import './src/utils/debugEventData'; // Import event data debugging utilities
 import ErrorBoundary from './src/components/common/ErrorBoundary';
 import { FloatingChatButton } from './src/components/ai';
+import { useOTAUpdates } from './src/hooks/useOTAUpdates';
 
 // Uncomment this line to enable Storybook
 // import StorybookUIRoot from './.storybook/Storybook';
@@ -46,6 +47,11 @@ import { FloatingChatButton } from './src/components/ai';
 // Theme-aware component that provides the main app content
 const ThemedAppContent: React.FC = () => {
   const { theme, isThemeReady, paperTheme, navigationTheme } = useTheme();
+
+  // 🔄 [OTA Updates] EAS Update 확인 및 자동 다운로드
+  // - 앱 시작 시 업데이트 확인
+  // - 업데이트가 있으면 다운로드 후 재시작 알림
+  useOTAUpdates();
 
   // 🛡️ IRON WALL GUARD: Absolutely NO rendering until theme is bulletproof ready
   // This prevents ANY component from accessing unready theme objects during hot reload

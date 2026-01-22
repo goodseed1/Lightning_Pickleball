@@ -3808,15 +3808,15 @@ class ClubService {
         // Skip the new member
         if (memberData.userId === newMemberData.uid) continue;
 
-        // Get member's FCM token
+        // Get member's push token
         try {
           const userRef = doc(db, 'users', memberData.userId);
           const userDoc = await getDoc(userRef);
           const userData = userDoc.data();
 
-          if (userData?.fcmToken) {
+          if (userData?.pushToken) {
             memberTokens.push({
-              token: userData.fcmToken,
+              token: userData.pushToken,
               userId: memberData.userId,
             });
           }

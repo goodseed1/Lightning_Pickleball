@@ -432,15 +432,18 @@ const SettingsTabSection: React.FC<SettingsTabSectionProps> = ({
       </View>
 
       {/* Danger Zone - Delete Account (Separated for safety) */}
-      <View style={styles.dangerSection}>
-        <Text style={styles.dangerSectionTitle}>{t('profile.settingsTab.dangerZone')}</Text>
-        <Text style={styles.dangerWarningText}>{t('profile.settingsTab.dangerZoneWarning')}</Text>
+      {/* Admin users cannot delete their account - hide danger zone */}
+      {!isAdmin && (
+        <View style={styles.dangerSection}>
+          <Text style={styles.dangerSectionTitle}>{t('profile.settingsTab.dangerZone')}</Text>
+          <Text style={styles.dangerWarningText}>{t('profile.settingsTab.dangerZoneWarning')}</Text>
 
-        <TouchableOpacity style={styles.deleteAccountButton} onPress={onDeleteAccount}>
-          <Ionicons name='warning-outline' size={24} color={themeColors.colors.error} />
-          <Text style={styles.deleteAccountText}>{t('profile.settingsTab.deleteAccount')}</Text>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity style={styles.deleteAccountButton} onPress={onDeleteAccount}>
+            <Ionicons name='warning-outline' size={24} color={themeColors.colors.error} />
+            <Text style={styles.deleteAccountText}>{t('profile.settingsTab.deleteAccount')}</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </ScrollView>
   );
 };
