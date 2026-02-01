@@ -11,19 +11,14 @@
       "resizeMode": "contain",
       "backgroundColor": "#001930"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.lightningpickleball.community",
       "googleServicesFile": "./GoogleService-Info.plist",
-      "buildNumber": "1",
+      "buildNumber": "2",
       "entitlements": {
-        "com.apple.developer.applesignin": [
-          "Default",
-          "Default"
-        ]
+        "com.apple.developer.applesignin": ["Default", "Default"]
       },
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
@@ -50,7 +45,7 @@
         "backgroundColor": "#001930"
       },
       "package": "com.lightningpickleball.app",
-      "versionCode": 1,
+      "versionCode": 2,
       "googleServicesFile": "./google-services.json",
       "permissions": [
         "CAMERA",
@@ -79,18 +74,14 @@
     "scheme": "lightning-pickleball",
     "extra": {
       "eas": {
-        "projectId": "21147a75-4071-46b1-b5c2-41916ccce97a"
+        "projectId": "1cff69f9-b1a3-40c0-9686-e15c2534a359"
       }
     },
     "owner": "goodseed1",
-    "plugins": [
-      "@react-native-community/datetimepicker",
-      "expo-localization",
-      "expo-font"
-    ],
+    "plugins": ["@react-native-community/datetimepicker", "expo-localization", "expo-font"],
     "runtimeVersion": "1.0.0",
     "updates": {
-      "url": "https://u.expo.dev/21147a75-4071-46b1-b5c2-41916ccce97a"
+      "url": "https://u.expo.dev/1cff69f9-b1a3-40c0-9686-e15c2534a359"
     }
   }
 }
