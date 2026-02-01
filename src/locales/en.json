@@ -5456,7 +5456,7 @@
     "deleteLeague": "Delete League",
     "dangerZone": "Danger Zone",
     "minParticipantsRequired": "Minimum {{min}} participants required to start. Current: {{current}}",
-    "minParticipantsDoublesWarning": "Doubles league requires minimum 2 teams (4 players). Current: {{current}}",
+    "minParticipantsDoublesWarning": "Doubles league requires minimum 2 teams (4 players). Current: {{current}} teams",
     "minParticipantsSinglesWarning": "Minimum 2 participants required to start league. Current: {{current}}"
   },
   "friends": {

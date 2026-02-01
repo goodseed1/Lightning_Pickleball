@@ -24,7 +24,7 @@ interface HostedEventsSectionProps {
     isHosted: boolean,
     uniqueKey?: string,
     handleReinvite?: (eventId: string, gameType?: string) => void
-  ) => JSX.Element;
+  ) => React.ReactElement;
 }
 
 const HostedEventsSection: React.FC<HostedEventsSectionProps> = ({
@@ -36,20 +36,20 @@ const HostedEventsSection: React.FC<HostedEventsSectionProps> = ({
   const { currentUser } = useAuth();
   const { t } = useLanguage();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
 
   // 🛡️ [CAPTAIN AMERICA] Partner re-invite hook for DOUBLES (Phase 2: Extracted to custom hook)
   const { openReinviteModal: openPartnerReinviteModal, userSearchModalProps: partnerModalProps } =
     usePartnerReinvite({
       currentUserId: currentUser?.uid,
-      events: hostedEvents,
+      events: hostedEvents as unknown as import('../../types/activity').EventData[],
       onSuccess: () => onRefresh(),
     });
 
   // 🎯 [SINGLES REINVITE] Friend re-invite hook for SINGLES
   const { openFriendReinviteModal, userSearchModalProps: friendModalProps } = useFriendReinvite({
     currentUserId: currentUser?.uid,
-    events: hostedEvents,
+    events: hostedEvents as unknown as import('../../types/activity').EventData[],
     onSuccess: () => onRefresh(),
   });
 

@@ -19,19 +19,19 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useAIChat } from '../../contexts/AiChatContext';
-import ChatMessage from './ChatMessage';
+import ChatMessageComponent from './ChatMessage';
 import QuickActionButtons from './QuickActionButtons';
 import TypingIndicator from './TypingIndicator';
 
 interface ChatMessage {
   id: string;
   content: string;
-  sender: 'user' | 'ai';
+  sender: 'user' | 'ai' | 'system';
   timestamp: Date;
   language: string;
   relevantKnowledge?: number;
   confidence?: number;
-  type: 'message' | 'tip' | 'analysis' | 'advice';
+  type: 'message' | 'tip' | 'analysis' | 'advice' | 'navigation' | 'search_result' | 'admin_feedback_request' | 'admin_feedback_confirm';
 }
 
 interface AIChatInterfaceProps {
@@ -90,7 +90,7 @@ const AIChatInterface: React.FC<AIChatInterfaceProps> = ({ onClose, showHeader =
   };
 
   const renderMessage = ({ item, index }: { item: ChatMessage; index: number }) => (
-    <ChatMessage message={item} isLastMessage={index === messages.length - 1} />
+    <ChatMessageComponent message={item} isLastMessage={index === messages.length - 1} />
   );
 
   const renderEmptyState = () => (

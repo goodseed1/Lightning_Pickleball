@@ -47,7 +47,7 @@ const AIAssistantIcon: React.FC<AIAssistantIconProps> = ({
   return (
     <View style={styles.container}>
       {/* 메인 아이콘: 피클볼 볼 🎾 */}
-      <Ionicons name="pickleballball" size={iconSize} color={color} />
+      <Ionicons name="ellipse" size={iconSize} color={color} />
 
       {/* AI 배지: 텍스트로 "AI" 표시 */}
       {showAIBadge && (

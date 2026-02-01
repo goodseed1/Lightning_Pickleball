@@ -52,7 +52,7 @@ import MemberDuesPaymentScreen from '../screens/clubs/MemberDuesPaymentScreen';
 import EventParticipationScreen from '../screens/clubs/EventParticipationScreen';
 import ClubLeagueManagementScreen from '../screens/clubs/ClubLeagueManagementScreen';
 import ClubTournamentManagementScreen from '../screens/clubs/ClubTournamentManagementScreen';
-import TournamentBpaddleScreen from '../screens/tournaments/TournamentBpaddleScreen';
+import TournamentBracketScreen from '../screens/tournaments/TournamentBracketScreen';
 import TournamentDetailScreen from '../screens/tournaments/TournamentDetailScreen';
 // ClubMemberManagementScreen removed - functionality moved to ClubDetail's Members tab
 import ClubChatScreen from '../screens/clubs/ClubChatScreen';
@@ -216,6 +216,7 @@ import { UserData } from '../screens/auth/OnboardingContainer';
 
 // OnboardingScreen wrapper to provide navigation context
 const OnboardingScreen = () => {
+  console.log('🚀 OnboardingScreen RENDER - Component mounted!');
   const { markOnboardingComplete } = useAuth();
 
   const handleOnboardingComplete = (userData: UserData) => {
@@ -352,6 +353,7 @@ export type DiscoverStackParamList = {
     fallbackClub?: unknown;
     initialTab?: string;
     initialSubTab?: 'applications' | 'all_members' | 'roles';
+    isNewClub?: boolean;
   };
 };
 
@@ -362,6 +364,7 @@ export type FeedStackParamList = {
     fallbackClub?: unknown;
     initialTab?: string;
     initialSubTab?: 'applications' | 'all_members' | 'roles';
+    isNewClub?: boolean;
   };
 };
 
@@ -373,6 +376,7 @@ export type MyClubsStackParamList = {
     initialTab?: string;
     initialSubTab?: 'applications' | 'all_members' | 'roles';
     userRole?: string;
+    isNewClub?: boolean;
   };
 };
 
@@ -891,7 +895,9 @@ export default function AppNavigator() {
   }
 
   // 🔄 로딩 상태들을 처리
-  if (isLoading) {
+  // 🔧 [FIX] isProfileLoaded가 true이고 user가 있으면 진행
+  // Firebase 오프라인 상황에서도 앱이 정상 작동하도록 함
+  if (isLoading && !(isProfileLoaded && user)) {
     console.log('🧭 AppNavigator: Showing auth loading state');
     return null; // 또는 로딩 스크린
   }
@@ -1090,7 +1096,7 @@ export default function AppNavigator() {
           />
           <Stack.Screen
             name='TournamentBpaddle'
-            component={TournamentBpaddleScreen}
+            component={TournamentBracketScreen}
             options={{
               title: t('appNavigator.screens.tournamentBpaddle'),
               headerShown: false,
@@ -1276,7 +1282,7 @@ export default function AppNavigator() {
             name='ContentReports'
             component={ContentReportsScreen}
             options={{
-              title: t('appNavigator.screens.contentReports', 'Content Reports'),
+              title: t('appNavigator.screens.contentReports') as string,
               headerShown: false,
             }}
           />

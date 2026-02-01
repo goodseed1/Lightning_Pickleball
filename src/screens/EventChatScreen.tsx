@@ -14,8 +14,14 @@ import {
   Platform,
   Alert,
   ActivityIndicator,
+  Image,
+  Modal,
+  Pressable,
+  Dimensions,
+  NativeSyntheticEvent, // 🔧 [FLICKER FIX] For scroll event typing
+  NativeScrollEvent,    // 🔧 [FLICKER FIX] For scroll event typing
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
@@ -24,6 +30,9 @@ import { useNavigation, useRoute, RouteProp, useIsFocused } from '@react-navigat
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import ActivityService from '../services/activityService';
 import { useChatNotification } from '../contexts/ChatNotificationContext';
+import LinkableText from '../components/common/LinkableText';
+import CameraService from '../services/CameraService';
+import ChatImageService from '../services/ChatImageService';
 
 // 타입 정의
 interface ChatMessage {
@@ -33,8 +42,10 @@ interface ChatMessage {
   senderName: string;
   message: string;
   timestamp: Date;
-  type: 'text' | 'system' | 'notification';
+  type: 'text' | 'system' | 'notification' | 'image';
   readBy?: string[]; // 📖 [READ RECEIPT] 읽은 사용자 ID 배열
+  imageUrl?: string;
+  storagePath?: string;
 }
 
 interface EventInfo {
@@ -60,6 +71,7 @@ const EventChatScreen: React.FC = () => {
   const route = useRoute<EventChatRouteProp>();
   const { showNotification } = useChatNotification();
   const isFocused = useIsFocused();
+  const insets = useSafeAreaInsets(); // 🔧 [FIX] Android navigation bar overlap
 
   const { eventId, eventTitle } = route.params;
 
@@ -71,9 +83,33 @@ const EventChatScreen: React.FC = () => {
   const [eventInfo, setEventInfo] = useState<EventInfo | null>(null);
   const [chatRoomId, setChatRoomId] = useState<string | null>(null);
   const [isInitializing, setIsInitializing] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const flatListRef = useRef<FlatList>(null);
   const unsubscribeRef = useRef<(() => void) | null>(null);
+
+  // 🔧 [FLICKER FIX] Smart scroll state - prevents flickering on new messages
+  const [isNearBottom, setIsNearBottom] = useState(true);
+  const prevMessageCount = useRef(0);
+
+  // 🔧 [FLICKER FIX] Detect scroll position to enable smart auto-scroll
+  const handleScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
+    const paddingToBottom = 100;
+    const isCloseToBottom = layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom;
+    setIsNearBottom(isCloseToBottom);
+  }, []);
+
+  // 🔧 [FLICKER FIX] Only scroll to end when NEW messages are added AND user is near bottom
+  useEffect(() => {
+    if (messages.length > prevMessageCount.current && isNearBottom) {
+      setTimeout(() => {
+        flatListRef.current?.scrollToEnd({ animated: true });
+      }, 50);
+    }
+    prevMessageCount.current = messages.length;
+  }, [messages.length, isNearBottom]);
 
   const initializeChatRoom = useCallback(async () => {
     // Prevent multiple initialization attempts
@@ -93,7 +129,7 @@ const EventChatScreen: React.FC = () => {
       if (event) {
         console.log('✅ [initializeChatRoom] Event loaded:', event.title);
         // 📖 [READ RECEIPT] 참가자 수 계산 (호스트 + 참가자들)
-        const participantCount = (event.participants?.length || 0) + 1; // +1 for host
+        const participantCount = ((event as { participants?: string[] }).participants?.length || 0) + 1; // +1 for host
         setEventInfo({
           id: event.id,
           title: event.title,
@@ -141,11 +177,7 @@ const EventChatScreen: React.FC = () => {
         messages => {
           console.log('💬 [initializeChatRoom] Received chat messages update:', messages.length);
           setMessages(messages);
-
-          // 새 메시지가 있을 때 자동 스크롤
-          setTimeout(() => {
-            flatListRef.current?.scrollToEnd({ animated: true });
-          }, 100);
+          // 🔧 [FLICKER FIX] Removed manual scrollToEnd - handled by smart scroll useEffect
         },
         currentUser!.uid,
         handleNewMessage
@@ -292,6 +324,61 @@ const EventChatScreen: React.FC = () => {
     }
   };
 
+  // 📷 Send image message
+  const sendImage = async () => {
+    if (!currentUser || !chatRoomId) return;
+
+    try {
+      const result = await CameraService.showImagePicker({
+        mediaTypes: 'images',
+        allowsEditing: false,
+        quality: 0.8,
+      });
+
+      if (!result) return;
+
+      setUploadingImage(true);
+
+      // Upload image to Firebase Storage (event limit: 30 images)
+      const uploadResult = await ChatImageService.uploadChatImage(
+        'event',
+        eventId,
+        result,
+        currentUser.uid
+      );
+
+      if (!uploadResult.success || !uploadResult.imageUrl) {
+        Alert.alert(t('common.error'), t('eventChat.errors.imageUploadError') || 'Failed to upload image');
+        return;
+      }
+
+      const messageData: ChatMessage = {
+        id: `msg-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        eventId,
+        senderId: currentUser.uid,
+        senderName: currentUser.displayName || 'User',
+        message: '📷 Photo',
+        timestamp: new Date(),
+        type: 'image',
+        imageUrl: uploadResult.imageUrl,
+        storagePath: uploadResult.storagePath,
+      };
+
+      await ActivityService.saveChatMessage(chatRoomId, messageData);
+
+      try {
+        await ActivityService.markEventChatAsRead(eventId, currentUser.uid);
+      } catch (markError) {
+        console.warn('Failed to mark as read after sending:', markError);
+      }
+    } catch (error) {
+      console.error('Error sending image:', error);
+      Alert.alert(t('common.error'), t('eventChat.errors.imageSendError') || 'Failed to send image');
+    } finally {
+      setUploadingImage(false);
+    }
+  };
+
   const formatMessageTime = (timestamp: Date) => {
     return timestamp.toLocaleTimeString(t('common.locale'), {
       hour: '2-digit',
@@ -341,16 +428,31 @@ const EventChatScreen: React.FC = () => {
           style={[
             styles.messageBubble,
             isMyMessage ? styles.myMessageBubble : styles.otherMessageBubble,
+            item.type === 'image' && styles.imageBubble,
           ]}
         >
-          <Text
-            style={[
-              styles.messageText,
-              isMyMessage ? styles.myMessageText : styles.otherMessageText,
-            ]}
-          >
-            {item.message}
-          </Text>
+          {item.type === 'image' && item.imageUrl ? (
+            <TouchableOpacity
+              onPress={() => setSelectedImage(item.imageUrl!)}
+              activeOpacity={0.9}
+            >
+              <Image
+                source={{ uri: item.imageUrl }}
+                style={styles.chatImage}
+                resizeMode="cover"
+              />
+            </TouchableOpacity>
+          ) : (
+            <LinkableText
+              style={[
+                styles.messageText,
+                isMyMessage ? styles.myMessageText : styles.otherMessageText,
+              ]}
+              linkStyle={isMyMessage ? { color: '#90CAF9' } : { color: '#2196F3' }}
+            >
+              {item.message}
+            </LinkableText>
+          )}
         </View>
         <View style={styles.messageFooter}>
           <Text style={styles.messageTime}>{formatMessageTime(item.timestamp)}</Text>
@@ -517,6 +619,42 @@ const EventChatScreen: React.FC = () => {
     sendButtonDisabled: {
       backgroundColor: paperTheme.colors.outline,
     },
+    // 📷 Attachment Button
+    attachButton: {
+      width: 40,
+      height: 40,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginRight: 8,
+    },
+    // 📷 Chat Image Styles
+    imageBubble: {
+      padding: 4,
+      backgroundColor: 'transparent',
+    },
+    chatImage: {
+      width: 200,
+      height: 200,
+      borderRadius: 12,
+    },
+    // 📷 Full-screen Image Viewer
+    imageViewerOverlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.95)',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    closeImageButton: {
+      position: 'absolute',
+      top: 50,
+      right: 20,
+      zIndex: 10,
+      padding: 10,
+    },
+    fullScreenImage: {
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').height * 0.8,
+    },
   });
 
   if (loading) {
@@ -559,14 +697,31 @@ const EventChatScreen: React.FC = () => {
         style={styles.messagesList}
         contentContainerStyle={styles.messagesContent}
         showsVerticalScrollIndicator={false}
+        // 🔧 [FLICKER FIX] Removed onContentSizeChange, using smart scroll instead
+        onScroll={handleScroll}
+        scrollEventThrottle={100}
+        keyboardShouldPersistTaps="handled"
       />
 
-      {/* 메시지 입력 */}
+      {/* 메시지 입력 - 🔧 [FIX] Android navigation bar padding + keyboard scroll */}
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.inputContainer}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        style={[styles.inputContainer, { paddingBottom: Math.max(insets.bottom, 8) }]}
       >
         <View style={styles.inputRow}>
+          {/* 📷 Attachment Button */}
+          <TouchableOpacity
+            onPress={sendImage}
+            disabled={uploadingImage}
+            style={styles.attachButton}
+          >
+            {uploadingImage ? (
+              <ActivityIndicator size='small' color={paperTheme.colors.primary} />
+            ) : (
+              <Ionicons name='camera' size={24} color={paperTheme.colors.primary} />
+            )}
+          </TouchableOpacity>
+
           <TextInput
             style={styles.textInput}
             value={newMessage}
@@ -592,6 +747,33 @@ const EventChatScreen: React.FC = () => {
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
+
+      {/* 📷 Full-screen Image Viewer Modal */}
+      <Modal
+        visible={!!selectedImage}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setSelectedImage(null)}
+      >
+        <Pressable
+          style={styles.imageViewerOverlay}
+          onPress={() => setSelectedImage(null)}
+        >
+          <TouchableOpacity
+            style={styles.closeImageButton}
+            onPress={() => setSelectedImage(null)}
+          >
+            <Ionicons name="close" size={28} color="white" />
+          </TouchableOpacity>
+          {selectedImage && (
+            <Image
+              source={{ uri: selectedImage }}
+              style={styles.fullScreenImage}
+              resizeMode="contain"
+            />
+          )}
+        </Pressable>
+      </Modal>
     </SafeAreaView>
   );
 };

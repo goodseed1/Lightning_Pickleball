@@ -25,7 +25,7 @@ const COMPREHENSIVE_TRANSLATIONS = {
   'Permission Error': 'Errore Permesso',
 
   // Tournament Management
-  'Generating Bpaddle': 'Generazione Tabellone',
+  'Generating Bracket': 'Generazione Tabellone',
   'Participants Overview': 'Panoramica Partecipanti',
   'Current Participants': 'Partecipanti Attuali',
   'Max Participants': 'Partecipanti Massimi',

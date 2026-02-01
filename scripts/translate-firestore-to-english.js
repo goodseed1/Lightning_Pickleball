@@ -33,8 +33,8 @@ if (!GEMINI_API_KEY) {
 }
 
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-// gemini-2.0-flash-exp (무료 모델, 분당 10개 제한)
-const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+// gemini-2.5-flash (최신 안정 모델)
+const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
 // ====================
 // 설정

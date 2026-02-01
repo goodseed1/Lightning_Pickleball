@@ -269,9 +269,10 @@ const MeetupDetailScreen = () => {
       // 🔴 [MEETUP CHAT] Mark chat as read when entering the screen
       meetupService.markChatAsRead(meetupId);
 
-      const unsubscribe = meetupService.getChatMessagesRealtime(meetupId, messages => {
+      const unsubscribe = meetupService.getChatMessagesRealtime(meetupId, (messages: unknown[]) => {
         console.log('💬 Chat messages received:', messages.length);
-        setChatMessages(messages);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        setChatMessages(messages as any);
       });
 
       setChatUnsubscribe(() => unsubscribe);
@@ -613,7 +614,7 @@ const MeetupDetailScreen = () => {
               statusKey={stats.statusKey}
               waitingCount={stats.waitingCount}
               statusColor={stats.statusColor}
-              language={currentLanguage}
+              language={currentLanguage as 'en' | 'ko'}
             />
           )}
 

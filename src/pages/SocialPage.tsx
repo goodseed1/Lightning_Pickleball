@@ -25,7 +25,7 @@ interface SocialPageProps {
 
 const SocialPage: React.FC<SocialPageProps> = () => {
   const { t } = useLanguage();
-  const { friendRequests, getPlayerRecommendations, sendFriendRequest } = useSocial();
+  const { friendRequests, friends, getPlayerRecommendations, sendFriendRequest } = useSocial();
 
   const [pendingRequestsCount, setPendingRequestsCount] = useState(0);
 
@@ -109,8 +109,8 @@ const SocialPage: React.FC<SocialPageProps> = () => {
               await sendFriendRequest(userId, t('social.defaultFriendMessage'));
               Alert.alert(t('common.success'), t('social.friendRequestSent'));
               loadRecommendations(); // Refresh to remove sent request
-            } catch (error: Error | unknown) {
-              Alert.alert(t('common.error'), error.message);
+            } catch (error) {
+              Alert.alert(t('common.error'), error instanceof Error ? error.message : t('common.unknownError'));
             }
           },
         },

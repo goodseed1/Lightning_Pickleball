@@ -12,12 +12,12 @@ interface ChatMessageProps {
   message: {
     id: string;
     content: string;
-    sender: 'user' | 'ai';
+    sender: 'user' | 'ai' | 'system';
     timestamp: Date;
     language: string;
     relevantKnowledge?: number;
     confidence?: number;
-    type: 'message' | 'tip' | 'analysis' | 'advice';
+    type: 'message' | 'tip' | 'analysis' | 'advice' | 'navigation' | 'search_result' | 'admin_feedback_request' | 'admin_feedback_confirm';
   };
   isLastMessage?: boolean;
 }

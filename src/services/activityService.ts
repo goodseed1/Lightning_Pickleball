@@ -593,8 +593,15 @@ class ActivityService {
 
       // Sort by application time (most recent applications first)
       return events.sort((a, b) => {
-        const aAppliedTime = a.myApplication?.appliedAt?.getTime() || 0;
-        const bAppliedTime = b.myApplication?.appliedAt?.getTime() || 0;
+        const getTimestamp = (val: unknown): number => {
+          if (!val) return 0;
+          if (val instanceof Date) return val.getTime();
+          if (typeof val === 'object' && 'seconds' in (val as { seconds?: number })) return ((val as { seconds: number }).seconds * 1000);
+          if (typeof val === 'string') return new Date(val).getTime() || 0;
+          return 0;
+        };
+        const aAppliedTime = getTimestamp(a.myApplication?.appliedAt);
+        const bAppliedTime = getTimestamp(b.myApplication?.appliedAt);
         return bAppliedTime - aAppliedTime;
       });
     } catch (error) {
@@ -1657,6 +1664,7 @@ class ActivityService {
               id: doc.id,
               eventId: data.eventId as string,
               partnerStatus: data.partnerStatus as string | undefined,
+              status: data.status as string | undefined,
               ...data,
             };
           })
@@ -4184,7 +4192,9 @@ class ActivityService {
       senderName: string;
       message: string;
       timestamp: Date;
-      type: 'text' | 'system' | 'notification';
+      type: 'text' | 'system' | 'notification' | 'image';
+      imageUrl?: string;
+      storagePath?: string;
     }
   ): Promise<void> {
     try {
@@ -4210,6 +4220,8 @@ class ActivityService {
         senderName: messageData.senderName,
         message: messageData.message,
         type: messageData.type,
+        ...(messageData.imageUrl && { imageUrl: messageData.imageUrl }),
+        ...(messageData.storagePath && { storagePath: messageData.storagePath }),
       });
 
       console.log('✅ [saveChatMessage] Message saved via Cloud Function:', result.data);
@@ -4242,7 +4254,9 @@ class ActivityService {
         senderName: string;
         message: string;
         timestamp: Date;
-        type: 'text' | 'system' | 'notification';
+        type: 'text' | 'system' | 'notification' | 'image';
+        imageUrl?: string;
+        storagePath?: string;
       }>
     ) => void,
     currentUserId?: string,

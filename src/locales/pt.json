@@ -8351,7 +8351,7 @@
     "generateBpaddleAndStartLeague": "Gerar chaves e iniciar liga",
     "deleteLeagueConfirm": "Tem certeza de que deseja excluir «{{leagueName}}»?\n\nEsta ação não pode ser desfeita e todos os dados de partidas e informações dos participantes serão excluídos.",
     "minParticipantsRequired": "Mínimo de {{min}} participantes necessários para iniciar. Atual: {{current}}",
-    "minParticipantsDoublesWarning": "A liga de duplas requer no mínimo 2 times (4 jogadores). Atual: {{current}}",
+    "minParticipantsDoublesWarning": "A liga de duplas requer no mínimo 2 times (4 jogadores). Atual: {{current}} times",
     "minParticipantsSinglesWarning": "Mínimo de 2 participantes necessários para iniciar a liga. Atual: {{current}}"
   },
   "cards": {

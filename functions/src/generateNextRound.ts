@@ -14,14 +14,14 @@ import { onCall, HttpsError } from 'firebase-functions/v2/https';
 import {
   GenerateNextRoundRequest,
   GenerateNextRoundResponse,
-  BpaddleMatch,
+  BracketMatch,
 } from './types/tournament';
 import { logger } from 'firebase-functions/v2';
 
 const db = admin.firestore();
 
 // Extended match type with internal _winner field
-interface MatchWithWinner extends BpaddleMatch {
+interface MatchWithWinner extends BracketMatch {
   _winner?: string;
 }
 

@@ -792,7 +792,7 @@ const chineseTranslations = {
       export: '导出',
       notify: '通知',
       viewStandings: '查看排名',
-      viewBpaddle: '查看对阵图',
+      viewBracket: '查看对阵图',
       viewSchedule: '查看赛程',
     },
     registration: {

@@ -164,7 +164,7 @@ const translations = {
     completed: 'Concluído',
     cancelled: 'Cancelado',
     registerParticipants: 'Registrar Participantes',
-    generateBpaddles: 'Gerar Chaves',
+    generateBrackets: 'Gerar Chaves',
     updateResults: 'Atualizar Resultados',
     publishTournament: 'Publicar Torneio',
     cancelTournament: 'Cancelar Torneio',

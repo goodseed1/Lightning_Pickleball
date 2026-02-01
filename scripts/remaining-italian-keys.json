@@ -203,7 +203,7 @@
       "section": "clubTournamentManagement"
     },
     {
-      "path": "clubTournamentManagement.management.generateBpaddleInstructions",
+      "path": "clubTournamentManagement.management.generateBracketInstructions",
       "en": "Generate bpaddle using {{method}} seeding and start the tournament",
       "section": "clubTournamentManagement"
     },

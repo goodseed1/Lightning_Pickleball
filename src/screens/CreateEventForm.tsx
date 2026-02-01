@@ -99,7 +99,7 @@ const CreateEventForm = () => {
   const { currentUser } = useAuth();
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
 
   // 🌍 [KIM FIX] Get user's country for distance unit display
   const userCountry = currentUser?.profile?.location?.country;
@@ -209,7 +209,7 @@ const CreateEventForm = () => {
 
   // 🎯 [STALE CLOSURE FIX v3] Ref to always hold the latest searchFriendsToInvite function
   const searchFriendsToInviteRef =
-    useRef<(searchText?: string, gameTypeParam?: string) => Promise<void>>();
+    useRef<((searchText?: string, gameTypeParam?: string) => Promise<void>) | undefined>(undefined);
 
   // ✅ 날짜/시간 관련 상태 (수정 모드 지원)
   const getInitialDate = () => {

@@ -188,7 +188,7 @@ const i18nPushMessages = {
     bpaddle_generation: {
       title: {
         ko: '🎾 대진표 생성 중',
-        en: '🎾 Generating Bpaddle',
+        en: '🎾 Generating Bracket',
         ja: '🎾 対戦表作成中',
         zh: '🎾 生成对阵表中',
         de: '🎾 Auslosung wird erstellt',
@@ -319,7 +319,7 @@ const i18nPushMessages = {
   bpaddlePublished: {
     title: {
       ko: '🎾 대진표 발표!',
-      en: '🎾 Bpaddle Published!',
+      en: '🎾 Bracket Published!',
       ja: '🎾 対戦表発表！',
       zh: '🎾 对阵表已公布！',
       de: '🎾 Auslosung veröffentlicht!',
@@ -924,7 +924,7 @@ export async function sendTournamentStatusChangeNotification(
  * Send bpaddle published notification to all participants
  * 🌍 Supports 10 languages based on recipient's preferredLanguage
  */
-export async function sendBpaddlePublishedNotification(
+export async function sendBracketPublishedNotification(
   tournamentId: string,
   tournamentName: string,
   participantIds: string[]
@@ -971,7 +971,7 @@ export async function sendBpaddlePublishedNotification(
     await Promise.all(notifications);
 
     console.log(
-      `✅ [NOTIFICATION] Bpaddle published notifications sent to ${notifications.length} participants`
+      `✅ [NOTIFICATION] Bracket published notifications sent to ${notifications.length} participants`
     );
 
     return { success: true };

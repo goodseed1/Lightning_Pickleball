@@ -146,16 +146,39 @@ export const applyForLeagueAsTeam = onCall<
     }
 
     // ==========================================================================
-    // Step 8: Check Duplicate Team Application
+    // Step 8: Check Duplicate Team Application (by player combination, not just teamId)
     // ==========================================================================
-    const existingTeamQuery = await db
+    // 🔧 [FIX] Check for duplicate teams by player combination (order-independent)
+    // This prevents the case where A invites B → Team1, and B invites A → Team2
+    // Both teams have the same players but different teamIds
+    const existingParticipantsQuery = await db
       .collection('league_participants')
       .where('leagueId', '==', leagueId)
-      .where('teamId', '==', teamId)
       .get();
 
-    if (!existingTeamQuery.empty) {
-      throw new HttpsError('already-exists', 'This team has already applied for this league');
+    for (const participantDoc of existingParticipantsQuery.docs) {
+      const existing = participantDoc.data();
+      const existingPlayer1 = existing.userId || existing.player1Id;
+      const existingPlayer2 = existing.partnerId || existing.player2Id;
+
+      // Skip if not a team (singles participant)
+      if (!existingPlayer2) continue;
+
+      // Check if same player combination (order-independent)
+      const sameTeam1 = existingPlayer1 === player1Id && existingPlayer2 === player2Id;
+      const sameTeam2 = existingPlayer1 === player2Id && existingPlayer2 === player1Id;
+
+      if (sameTeam1 || sameTeam2) {
+        logger.warn('⚠️ [APPLY_FOR_LEAGUE_AS_TEAM] Duplicate team detected!', {
+          existingTeamId: existing.teamId,
+          newTeamId: teamId,
+          players: [player1Id, player2Id],
+        });
+        throw new HttpsError(
+          'already-exists',
+          'A team with these players has already registered for this league'
+        );
+      }
     }
 
     // ==========================================================================

@@ -22,9 +22,10 @@ import { Platform, Linking } from 'react-native';
 import { db } from '../firebase/config';
 
 // 기본값 (Firestore 연결 실패 시 사용)
+// ⚠️ Lightning Pickleball은 아직 1.0.0 - 버전 체크 비활성화
 const DEFAULT_CONFIG = {
   minimum_version: '1.0.0',
-  latest_version: '2.0.8',
+  latest_version: '1.0.0', // 🎯 [PICKLEBALL] 현재 버전과 동일하게 설정하여 업데이트 모달 비활성화
   update_message_ko: '새로운 버전이 출시되었습니다. 업데이트하여 최신 기능을 사용해보세요!',
   update_message_en: 'A new version is available. Update now to enjoy the latest features!',
   app_store_url: 'https://apps.apple.com/app/id6749823614',

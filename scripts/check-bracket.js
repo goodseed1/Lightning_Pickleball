@@ -12,7 +12,7 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-async function checkBpaddle() {
+async function checkBracket() {
   const tournamentId = 'lWfpYmba4WCMRLddUHGu';
 
   try {
@@ -31,7 +31,7 @@ async function checkBpaddle() {
 
     console.log('📊 Tournament Status:', tournament.status);
     console.log('📊 Participants Count:', tournament.participants?.length || 0);
-    console.log('📊 Bpaddle Rounds:', tournament.bpaddle?.length || 0);
+    console.log('📊 Bracket Rounds:', tournament.bpaddle?.length || 0);
 
     // Check bpaddle structure
     if (tournament.bpaddle && tournament.bpaddle.length > 0) {
@@ -83,4 +83,4 @@ async function checkBpaddle() {
   }
 }
 
-checkBpaddle();
+checkBracket();

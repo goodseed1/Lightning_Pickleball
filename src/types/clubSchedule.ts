@@ -324,7 +324,7 @@ export const getNextOccurrence = (schedule: ClubSchedule, fromDate: Date = new D
 export const formatScheduleTime = (
   time: string,
   duration: number,
-  locale: 'en' | 'ko' = 'en',
+  locale: string = 'en', // Supports all languages, defaults to 'en'
   t?: (key: string) => string
 ): string => {
   const [hours, minutes] = time.split(':').map(Number);

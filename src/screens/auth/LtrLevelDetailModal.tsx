@@ -72,7 +72,7 @@ const LtrLevelDetailModal: React.FC<LtrLevelDetailModalProps> = ({ visible, ltr,
             {/* Skills */}
             <View style={styles.section}>
               <View style={styles.sectionHeader}>
-                <Ionicons name='pickleballball' size={20} color='#FFD700' />
+                <Ionicons name='ellipse' size={20} color='#FFD700' />
                 <Text style={[styles.sectionTitle, { color: '#FFD700' }]}>
                   {t('ltrLevelDetail.skills')}
                 </Text>

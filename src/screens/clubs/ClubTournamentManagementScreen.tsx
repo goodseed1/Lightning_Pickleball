@@ -33,7 +33,7 @@ import {
 } from '../../types/tournament';
 import { ScoreInputForm, Match } from '../../types/match';
 import CreateClubTournamentForm from '../../components/clubs/tournaments/CreateClubTournamentForm';
-import TournamentBpaddleView from '../../components/tournaments/TournamentBpaddleView';
+import TournamentBpaddleView from '../../components/tournaments/TournamentBracketView';
 import TournamentRankingsTab from '../../components/tournaments/TournamentRankingsTab';
 import ScoreInputContent from '../../components/tournaments/ScoreInputContent';
 import UserSearchModal from '../../components/modals/UserSearchModal';
@@ -743,7 +743,7 @@ const ClubTournamentManagementScreen = () => {
         },
         {
           text: t('clubTournamentManagement.common.assign'),
-          onPress: async seedText => {
+          onPress: async (seedText?: string) => {
             if (!seedText) return;
 
             const seedNumber = parseInt(seedText, 10);
@@ -840,7 +840,7 @@ const ClubTournamentManagementScreen = () => {
         },
         {
           text: t('clubTournamentManagement.common.assign'),
-          onPress: async seedText => {
+          onPress: async (seedText?: string) => {
             // 🎯 [KIM FIX] 빈 값 입력 시 시드 제거
             if (!seedText || seedText.trim() === '') {
               if (!team.seed) {

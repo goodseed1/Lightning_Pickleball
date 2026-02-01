@@ -75,7 +75,7 @@
     "targetValue": "Manager"
   },
   {
-    "key": "alert.tournamentBpaddle.info",
+    "key": "alert.tournamentBracket.info",
     "enValue": "Info",
     "targetValue": "Info"
   },

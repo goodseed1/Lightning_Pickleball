@@ -187,6 +187,7 @@ export default function FindClubScreen() {
     return (
       <Card style={styles.clubCard}>
         <TouchableOpacity
+          // @ts-expect-error ClubDetail navigation params
           onPress={() => navigation.navigate('ClubDetail', { clubId: club.id })}
           activeOpacity={0.7}
         >

@@ -92,7 +92,7 @@ const completeTranslations = {
     club: 'Club',
   },
   alert: {
-    tournamentBpaddle: {
+    tournamentBracket: {
       info: 'Info',
       participants: 'Participants',
       participantsTab: 'Participants',

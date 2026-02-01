@@ -27,6 +27,10 @@ const LanguageSelectionScreen: React.FC<LanguageSelectionScreenProps> = ({
   const { setLanguage } = useLanguage();
   const { theme } = useTheme();
   const themeColors = getLightningPickleballTheme(theme);
+
+  console.log('🌐 LanguageSelectionScreen RENDER - theme:', theme);
+  console.log('🌐 LanguageSelectionScreen RENDER - background:', themeColors.colors.background);
+  console.log('🌐 LanguageSelectionScreen RENDER - onSurface:', themeColors.colors.onSurface);
   const [selectedLanguage, setSelectedLanguage] = React.useState<SupportedLanguage>('en'); // Default to English
   const fadeAnim = React.useRef(new Animated.Value(0)).current;
   const slideAnim = React.useRef(new Animated.Value(50)).current;

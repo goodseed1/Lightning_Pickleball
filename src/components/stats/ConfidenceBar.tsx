@@ -38,7 +38,7 @@ const ConfidenceBar: React.FC<ConfidenceBarProps> = ({
   // 🎨 [DARK GLASS] Theme setup
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors, currentTheme, compact);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>, currentTheme, compact);
   const { t } = useLanguage();
 
   // Calculate confidence level

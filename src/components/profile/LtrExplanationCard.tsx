@@ -50,7 +50,7 @@ const LtrExplanationCard: React.FC<LtrExplanationCardProps> = ({ defaultExpanded
     setExpanded(!expanded);
   };
 
-  const styles = createStyles(themeColors.colors, currentTheme);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>, currentTheme);
 
   return (
     <Card style={styles.card}>

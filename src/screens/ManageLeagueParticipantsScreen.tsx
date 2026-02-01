@@ -463,7 +463,7 @@ const ManageLeagueParticipantsScreen = () => {
         {matches.length === 0 && (
           <View style={styles.emptyState}>
             <Ionicons
-              name='pickleballball-outline'
+              name='ellipse-outline'
               size={64}
               color={paperTheme.colors.outline}
               style={styles.emptyIcon}

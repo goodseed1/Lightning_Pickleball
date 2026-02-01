@@ -232,7 +232,7 @@ const germanTranslations = {
     suggestedLocation: 'Vorgeschlagener Standort',
   },
 
-  tournamentBpaddle: {
+  tournamentBracket: {
     title: 'Turnierbaum',
     round1: 'Runde 1',
     round2: 'Runde 2',

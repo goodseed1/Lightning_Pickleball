@@ -183,7 +183,7 @@ export default function EventDetailScreen() {
       } else {
         // 단식: 직접 참가
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const result = (await eventService.joinEvent(eventId, currentUser.uid)) as any;
+        const result = (await (ActivityService as any).joinEvent(eventId, currentUser.uid)) as any;
 
         if (result && result.status === 'joined') {
           Alert.alert(t('common.success'), t('eventDetail.alerts.joinSuccess.message'));
@@ -221,7 +221,8 @@ export default function EventDetailScreen() {
           onPress: async () => {
             try {
               setJoinLoading(true);
-              await eventService.leaveEvent(eventId, currentUser.uid);
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              await (ActivityService as any).leaveEvent(eventId, currentUser.uid);
               Alert.alert(
                 t('eventDetail.alerts.leaveSuccess.title'),
                 t('eventDetail.alerts.leaveSuccess.message')

@@ -29,7 +29,7 @@ const PartnerInvitationCard: React.FC<Props> = ({
   const { currentLanguage, t } = useLanguage();
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
 
   // 🆕 [KIM] Open location in Maps app
   const openInMaps = () => {
@@ -158,7 +158,7 @@ const PartnerInvitationCard: React.FC<Props> = ({
   return (
     <View style={styles.card}>
       <View style={styles.header}>
-        <Ionicons name='pickleballball' size={24} color={themeColors.colors.primary} />
+        <Ionicons name='ellipse' size={24} color={themeColors.colors.primary} />
         <Text style={styles.title}>{invitation.eventTitle}</Text>
       </View>
 

@@ -180,7 +180,7 @@ const LtrLevelSelectScreen: React.FC<LtrLevelSelectScreenProps> = ({
         {/* Title Section */}
         <View style={styles.titleSection}>
           <View style={styles.iconContainer}>
-            <Ionicons name='pickleballball' size={48} color='#4CAF50' />
+            <Ionicons name='ellipse' size={48} color='#4CAF50' />
           </View>
 
           <Text style={styles.mainTitle}>

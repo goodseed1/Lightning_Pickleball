@@ -46,7 +46,7 @@ export function createMockTournament(overrides?: Partial<Record<string, unknown>
       },
       matchDuration: 90,
       thirdPlaceMatch: false,
-      consolationBpaddle: false,
+      consolationBracket: false,
       allowWalkovers: true,
     },
     participantCount: 0,

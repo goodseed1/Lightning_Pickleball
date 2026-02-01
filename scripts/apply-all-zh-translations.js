@@ -87,7 +87,7 @@ const translationMap = {
   Standings: '排名',
   Schedule: '赛程',
   Register: '报名',
-  Bpaddle: '对阵表',
+  Bracket: '对阵表',
 
   // User/Profile
   Profile: '个人资料',

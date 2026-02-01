@@ -394,7 +394,7 @@ const translationMap = {
   Prize: '賞品',
   'Entry Fee': '参加費',
   Free: '無料',
-  Bpaddle: 'ブラケット',
+  Bracket: 'ブラケット',
   Rounds: 'ラウンド',
   Finals: '決勝',
   'Semi-finals': '準決勝',

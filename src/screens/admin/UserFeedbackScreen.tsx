@@ -34,7 +34,7 @@ type FilterType = 'all' | 'new' | 'in_progress' | 'resolved';
 const UserFeedbackScreen: React.FC = () => {
   const { theme } = useTheme();
   const themeColors = getLightningPickleballTheme(theme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
   const navigation = useNavigation();
   const { t } = useLanguage();
   const { user } = useAuth();
@@ -249,7 +249,7 @@ const UserFeedbackScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: Record<string, string | object>) =>
+const createStyles = (colors: Record<string, string>) =>
   StyleSheet.create({
     container: {
       flex: 1,

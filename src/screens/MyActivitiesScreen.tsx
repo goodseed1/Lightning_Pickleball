@@ -407,12 +407,12 @@ const MyActivitiesScreen = () => {
       ltrLevel: currentUser.ltrLevel,
       playingStyle: currentUser.playingStyle,
       // 🎯 [KIM FIX] Privacy: Only use city, never expose street address
-      location: (() => {
+      location: ((): string => {
         const loc = (currentUser as unknown as { location?: { city?: string; state?: string } })
           .location;
         if (loc?.city && loc?.state) return `${loc.city}, ${loc.state}`;
         if (loc?.city) return loc.city;
-        return undefined;
+        return ''; // Default to empty string
       })(),
       activityRegions: (currentUser as unknown as { activityRegions?: string[] }).activityRegions,
       languages: currentUser.languages,

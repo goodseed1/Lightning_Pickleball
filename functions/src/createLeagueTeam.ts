@@ -81,7 +81,42 @@ export const createLeagueTeam = onCall<CreateLeagueTeamRequest, Promise<CreateLe
 
     try {
       // ========================================================================
-      // Step 2: Check if PENDING team already exists (only reuse pending teams!)
+      // Step 2a: Check if team already registered for this league
+      // ========================================================================
+      // 🔧 [FIX] Prevent duplicate teams: A invites B → Team1, B invites A → Team2
+      // Check if same player combination already exists in this league
+      const existingParticipantsQuery = await db
+        .collection('league_participants')
+        .where('leagueId', '==', leagueId)
+        .get();
+
+      for (const participantDoc of existingParticipantsQuery.docs) {
+        const existing = participantDoc.data();
+        const existingPlayer1 = existing.userId || existing.player1Id;
+        const existingPlayer2 = existing.partnerId || existing.player2Id;
+
+        // Skip singles participants
+        if (!existingPlayer2) continue;
+
+        // Check if same player combination (order-independent)
+        const sameTeam1 = existingPlayer1 === player1Id && existingPlayer2 === player2Id;
+        const sameTeam2 = existingPlayer1 === player2Id && existingPlayer2 === player1Id;
+
+        if (sameTeam1 || sameTeam2) {
+          logger.warn('⚠️ [CREATE_LEAGUE_TEAM] Team already registered for this league!', {
+            existingTeamId: existing.teamId,
+            leagueId,
+            players: [player1Id, player2Id],
+          });
+          throw new HttpsError(
+            'already-exists',
+            'A team with these players is already registered for this league'
+          );
+        }
+      }
+
+      // ========================================================================
+      // Step 2b: Check if PENDING team already exists (only reuse pending teams!)
       // ========================================================================
       // ⚠️ IMPORTANT: Only check for 'pending' teams!
       // - pending: Reuse (partner hasn't responded yet)
@@ -90,10 +125,12 @@ export const createLeagueTeam = onCall<CreateLeagueTeamRequest, Promise<CreateLe
       const teamsRef = db.collection('teams');
       const existingTeamsSnap = await teamsRef
         .where('status', '==', 'pending') // ✅ Only pending teams!
+        .where('leagueId', '==', leagueId) // ✅ Same league only!
         .get();
 
       logger.info('🔍 [CREATE_LEAGUE_TEAM] Checking for existing pending teams', {
         foundCount: existingTeamsSnap.size,
+        leagueId,
       });
 
       // Check each PENDING team to see if it has both players

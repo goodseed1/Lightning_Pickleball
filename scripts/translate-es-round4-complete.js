@@ -430,7 +430,7 @@ const translations = {
     description: 'Descripción',
   },
 
-  tournamentBpaddle: {
+  tournamentBracket: {
     title: 'Cuadro del Torneo',
     round: 'Ronda {{number}}',
     finals: 'Final',

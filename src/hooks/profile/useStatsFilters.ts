@@ -5,7 +5,7 @@ import { MatchTypeValue } from '../../components/stats/MatchTypeSelector';
 export const useStatsFilters = () => {
   // 🆕 [THOR] New unified stats architecture
   const [mainScope, setMainScope] = useState<MainScope>('public');
-  const [clubFilter, setClubFilter] = useState<ClubFilter>('all');
+  const [clubFilter, setClubFilter] = useState<ClubFilter>('league');
   const [matchTypeFilter, setMatchTypeFilter] = useState<MatchTypeValue>('all');
 
   return {

@@ -66,9 +66,9 @@ const translations = {
     },
     buttons: {
       addParticipantManually: 'Добавить участника вручную',
-      generateBpaddle: 'Создание сетки...',
-      viewBpaddle: 'Просмотр сетки',
-      editBpaddle: 'Редактировать сетку',
+      generateBracket: 'Создание сетки...',
+      viewBracket: 'Просмотр сетки',
+      editBracket: 'Редактировать сетку',
       startTournament: 'Начать турнир',
       endTournament: 'Завершить турнир',
       publishResults: 'Опубликовать результаты',

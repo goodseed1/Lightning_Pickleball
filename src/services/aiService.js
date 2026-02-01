@@ -387,7 +387,7 @@ class AIService {
     // Gemini API configuration
     this.geminiApiKey = process.env.EXPO_PUBLIC_GEMINI_API_KEY || '';
     this.geminiEndpoint =
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent';
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
     // Knowledge base cache
     this.knowledgeCache = new Map();

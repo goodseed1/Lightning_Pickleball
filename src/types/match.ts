@@ -313,6 +313,9 @@ export interface ScoreInputForm {
   retiredAt?: number; // 몇 번째 세트에서 기권했는지
   walkover?: boolean;
   notes?: string;
+  // 🏓 피클볼 전용 필드
+  matchFormat?: 'single_game' | 'best_of_3'; // 매치 포맷
+  targetScore?: 11 | 15; // 목표 점수
 }
 
 /**

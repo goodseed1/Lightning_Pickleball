@@ -44,7 +44,7 @@ type MainTabType = 'reports' | 'appeals';
 const ContentReportsScreen: React.FC = () => {
   const { theme } = useTheme();
   const themeColors = getLightningPickleballTheme(theme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
   const navigation = useNavigation();
   const { t } = useTranslation();
   const { user } = useAuth();
@@ -486,7 +486,7 @@ const ContentReportsScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: Record<string, string | object>) =>
+const createStyles = (colors: Record<string, string>) =>
   StyleSheet.create({
     container: {
       flex: 1,

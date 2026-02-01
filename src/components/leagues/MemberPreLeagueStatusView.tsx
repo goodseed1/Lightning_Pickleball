@@ -77,7 +77,7 @@ export const MemberPreLeagueStatusView: React.FC<MemberPreLeagueStatusViewProps>
       <Card style={[styles.statusCard, { backgroundColor: statusConfig.backgroundColor }]}>
         <Card.Content>
           <View style={styles.statusHeader}>
-            <Ionicons name={statusConfig.icon} size={48} color={statusConfig.color} />
+            <Ionicons name={statusConfig.icon as keyof typeof Ionicons.glyphMap} size={48} color={statusConfig.color} />
             <View style={styles.statusText}>
               <Title style={[styles.statusTitle, { color: statusConfig.color }]}>
                 {statusConfig.title}
@@ -128,7 +128,7 @@ export const MemberPreLeagueStatusView: React.FC<MemberPreLeagueStatusViewProps>
                   {t('clubLeaguesTournaments.memberPreLeagueStatus.format')}
                 </PaperText>
                 <PaperText style={styles.infoValue}>
-                  {league?.format ||
+                  {league?.settings?.format ||
                     t('clubLeaguesTournaments.memberPreLeagueStatus.formatTournament')}
                 </PaperText>
               </View>

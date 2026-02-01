@@ -188,8 +188,8 @@ service cloud.firestore {
         request.auth.uid in resource.data.adminIds;
     }
 
-    // ==== Clubs (앱이 실제 사용하는 컬렉션: tennis_clubs) ====
-    match /tennis_clubs/{clubId} {
+    // ==== Clubs (앱이 실제 사용하는 컬렉션: pickleball_clubs) ====
+    match /pickleball_clubs/{clubId} {
       // Read: All club members can read club details (including public clubs for discovery)
       allow read: if request.auth != null && (
         // Public clubs can be read by anyone (for discovery screen)
@@ -671,8 +671,8 @@ service cloud.firestore {
         request.auth.uid in resource.data.participantIds;
     }
 
-    // ==== Tennis Courts ====
-    match /tennis_courts/{courtId} {
+    // ==== Pickleball Courts ====
+    match /pickleball_courts/{courtId} {
       allow read: if request.auth != null;
       allow create: if request.auth != null;
       allow update: if request.auth != null;
@@ -724,8 +724,8 @@ service cloud.firestore {
         resource.data.authorId == request.auth.uid;
     }
 
-    // ==== Tennis Services (서비스 게시판 - 줄 교체, 중고거래 등) ====
-    match /tennis_services/{serviceId} {
+    // ==== Pickleball Services (서비스 게시판 - 패들 판매/대여, 중고거래 등) ====
+    match /pickleball_services/{serviceId} {
       // 누구나 읽기 가능
       allow read: if request.auth != null;
       // 로그인한 사용자 누구나 생성 가능
@@ -749,16 +749,16 @@ service cloud.firestore {
     // Helper function to check if user is club admin or manager
     function isClubAdminOrManager(clubId) {
       return request.auth != null && (
-        request.auth.uid in get(/databases/$(database)/documents/tennis_clubs/$(clubId)).data.adminIds ||
-        request.auth.uid in get(/databases/$(database)/documents/tennis_clubs/$(clubId)).data.managerIds ||
-        request.auth.uid == get(/databases/$(database)/documents/tennis_clubs/$(clubId)).data.createdBy
+        request.auth.uid in get(/databases/$(database)/documents/pickleball_clubs/$(clubId)).data.adminIds ||
+        request.auth.uid in get(/databases/$(database)/documents/pickleball_clubs/$(clubId)).data.managerIds ||
+        request.auth.uid == get(/databases/$(database)/documents/pickleball_clubs/$(clubId)).data.createdBy
       );
     }
     
     // Helper function to check if user is club member
     function isClubMember(clubId) {
       return request.auth != null && (
-        request.auth.uid in get(/databases/$(database)/documents/tennis_clubs/$(clubId)).data.memberIds ||
+        request.auth.uid in get(/databases/$(database)/documents/pickleball_clubs/$(clubId)).data.memberIds ||
         isClubAdminOrManager(clubId)
       );
     }
@@ -1303,6 +1303,16 @@ service cloud.firestore {
       // Delete: User can delete their own tokens
       allow delete: if request.auth != null &&
         request.auth.uid == resource.data.userId;
+    }
+
+    // ==== App Configuration (Version Check) ====
+    // 🔧 [PICKLEBALL] App version configuration for update prompts
+    match /app_config/{configId} {
+      // Read: Any authenticated user can read app config
+      allow read: if request.auth != null;
+
+      // Write: Only Cloud Functions (Admin SDK bypasses rules)
+      allow create, update, delete: if false;
     }
 
     // ==== Default catch-all deny ====

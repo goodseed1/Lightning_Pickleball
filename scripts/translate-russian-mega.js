@@ -119,12 +119,12 @@ const translations = {
     },
 
     actions: {
-      generateBpaddle: 'Создать сетку',
+      generateBracket: 'Создать сетку',
       startTournament: 'Начать турнир',
       completeTournament: 'Завершить турнир',
       cancelTournament: 'Отменить турнир',
       editTournament: 'Редактировать турнир',
-      viewBpaddle: 'Просмотреть сетку',
+      viewBracket: 'Просмотреть сетку',
     },
   },
 

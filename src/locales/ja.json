@@ -5630,7 +5630,7 @@
     "generateBpaddleAndStartLeague": "トーナメント表を作成してリーグ開始",
     "deleteLeagueConfirm": "「{{leagueName}}」を削除してもよろしいですか？\n\nこの操作は取り消せません。すべての試合データと参加者情報が削除されます。",
     "minParticipantsRequired": "開始には最低{{min}}名の参加者が必要です。現在: {{current}}名",
-    "minParticipantsDoublesWarning": "ダブルスリーグは最低2チーム（4名）が必要です。現在: {{current}}名",
+    "minParticipantsDoublesWarning": "ダブルスリーグは最低2チーム（4名）が必要です。現在: {{current}}チーム",
     "minParticipantsSinglesWarning": "リーグ開始には最低2名の参加者が必要です。現在: {{current}}名"
   },
   "cards": {

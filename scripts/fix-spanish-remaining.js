@@ -294,7 +294,7 @@ const translations = {
     },
     buttons: {
       joinTournament: 'Unirse al Torneo',
-      viewBpaddle: 'Ver Bpaddle',
+      viewBracket: 'Ver Bracket',
       joining: 'Uniéndose...',
       participating: 'Participando',
       applyToLeague: 'Aplicar a Liga',
@@ -494,7 +494,7 @@ const translations = {
       ranking: 'Por Ranking',
       manual: 'Manual',
     },
-    bpaddleType: 'Tipo de Bpaddle',
+    bpaddleType: 'Tipo de Bracket',
     bpaddleTypes: {
       singleElimination: 'Eliminación Simple',
       doubleElimination: 'Eliminación Doble',
@@ -894,16 +894,16 @@ const translations = {
     applicationPending: 'Tu aplicación a la liga está pendiente.',
     applicationApproved: '¡Has sido aprobado para unirte a la liga!',
     applicationRejected: 'Tu aplicación a la liga ha sido rechazada.',
-    generateBpaddle: 'Generar Bpaddle',
-    generateBpaddleMessage:
+    generateBracket: 'Generar Bracket',
+    generateBracketMessage:
       'Gestiona aplicaciones en la pestaña Participantes, luego genera el bpaddle en la pestaña Gestión',
-    generateBpaddleMessageSimple:
+    generateBracketMessageSimple:
       'El calendario de partidos aparecerá aquí una vez generado el bpaddle',
     bpaddleGeneratedSuccess:
-      '¡Bpaddle generado exitosamente!\n\nLa lista de partidos aparecerá pronto.',
+      '¡Bracket generado exitosamente!\n\nLa lista de partidos aparecerá pronto.',
     bpaddleGenerateError: 'Error al generar bpaddle.',
     bpaddleDeletedSuccess:
-      'Bpaddle eliminado exitosamente.\n\nAhora puedes generar un nuevo bpaddle.',
+      'Bracket eliminado exitosamente.\n\nAhora puedes generar un nuevo bpaddle.',
     bpaddleDeleteError: 'Error al eliminar bpaddle.',
     startPlayoffs: 'Iniciar Playoffs',
     playoffsStartedSuccess:

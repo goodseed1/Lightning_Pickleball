@@ -98,7 +98,7 @@ const translations = {
     withdraw: 'Отозвать',
     rules: 'Правила',
     prizes: 'Призы',
-    viewBpaddle: 'Просмотреть сетку',
+    viewBracket: 'Просмотреть сетку',
   },
 
   mapAppSelector: {

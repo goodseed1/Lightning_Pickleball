@@ -114,16 +114,14 @@ const ClubManagementScreen: React.FC = () => {
 
   const handleClubPress = (club: Club) => {
     // Navigate to ClubDetail (in MainTabs -> Discover stack)
-    navigation.navigate(
-      'MainTabs' as never,
-      {
-        screen: 'Discover',
-        params: {
-          screen: 'ClubDetail',
-          params: { clubId: club.id },
-        },
-      } as never
-    );
+    // @ts-expect-error Nested navigation params typing
+    navigation.navigate('MainTabs', {
+      screen: 'Discover',
+      params: {
+        screen: 'ClubDetail',
+        params: { clubId: club.id },
+      },
+    });
   };
 
   if (loading) {

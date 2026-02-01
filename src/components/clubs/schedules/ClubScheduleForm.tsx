@@ -86,7 +86,7 @@ const ClubScheduleForm: React.FC<ClubScheduleFormProps> = ({
   showTimePicker,
   setShowTimePicker,
 }) => {
-  const { t, language } = useLanguage();
+  const { t, currentLanguage } = useLanguage();
 
   const CustomSwitch: React.FC<{
     value: boolean;
@@ -181,7 +181,7 @@ const ClubScheduleForm: React.FC<ClubScheduleFormProps> = ({
               {selectedTime.toLocaleTimeString([], {
                 hour: '2-digit',
                 minute: '2-digit',
-                hour12: language === 'en',
+                hour12: currentLanguage === 'en',
               })}
             </Text>
           </TouchableOpacity>
@@ -193,7 +193,7 @@ const ClubScheduleForm: React.FC<ClubScheduleFormProps> = ({
         <DateTimePicker
           value={selectedTime}
           mode='time'
-          is24Hour={language === 'ko'}
+          is24Hour={currentLanguage === 'ko'}
           display='default'
           onChange={(event, selectedDate) => {
             setShowTimePicker(Platform.OS === 'ios');

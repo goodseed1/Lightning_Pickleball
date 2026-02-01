@@ -81,7 +81,7 @@ const DuesManagementScreen: React.FC = () => {
   const { t, currentLanguage } = useLanguage();
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
   const { clubId, clubName, initialTab } = route.params;
 
   const [index, setIndex] = useState(initialTab ?? 1); // Default to '현황' (Status) tab, or use initialTab if provided
@@ -1032,8 +1032,8 @@ const DuesManagementScreen: React.FC = () => {
         ],
         'plain-text',
         '',
-        'default',
-        { placeholder: t('duesManagement.inputs.exemptionReasonPlaceholder') }
+        'default'
+        // Placeholder not supported in Alert.prompt options
       );
     }
   };
@@ -1951,7 +1951,6 @@ const DuesManagementScreen: React.FC = () => {
             {...props}
             indicatorStyle={styles.tabIndicator}
             style={styles.tabBar}
-            labelStyle={styles.tabLabel}
             activeColor={themeColors.colors.primary}
             inactiveColor='#666'
           />
@@ -2320,7 +2319,7 @@ const DuesManagementScreen: React.FC = () => {
                                 hour: '2-digit',
                                 minute: '2-digit',
                               })
-                          : new Date(selectedApprovalDetail.paymentRequestedAt).toLocaleDateString(
+                          : new Date((selectedApprovalDetail.paymentRequestedAt as unknown as { toDate: () => Date }).toDate?.() ?? selectedApprovalDetail.paymentRequestedAt).toLocaleDateString(
                               currentLanguage === 'ko' ? 'ko-KR' : 'en-US',
                               {
                                 month: 'short',

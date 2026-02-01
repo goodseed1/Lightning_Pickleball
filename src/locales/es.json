@@ -7456,7 +7456,7 @@
     "deleteLeague": "Eliminar liga",
     "deleteLeagueConfirm": "¿Está seguro de que desea eliminar «{{leagueName}}»?\n\nEsta acción no se puede deshacer y se eliminarán todos los datos de partidos e información de participantes.",
     "minParticipantsRequired": "Se requieren mínimo {{min}} participantes para iniciar. Actual: {{current}}",
-    "minParticipantsDoublesWarning": "La liga de dobles requiere al menos 2 equipos (4 jugadores). Actual: {{current}}",
+    "minParticipantsDoublesWarning": "La liga de dobles requiere al menos 2 equipos (4 jugadores). Actual: {{current}} equipos",
     "minParticipantsSinglesWarning": "Se requieren mínimo 2 participantes para iniciar la liga. Actual: {{current}}"
   },
   "cards": {

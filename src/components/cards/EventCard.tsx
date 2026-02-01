@@ -1179,7 +1179,7 @@ const EventCard: React.FC<EventCardProps> = ({
               >
                 <Ionicons
                   name={
-                    isBlocked ? 'close-circle' : isMeetup ? 'people-outline' : 'pickleballball-outline'
+                    isBlocked ? 'close-circle' : isMeetup ? 'people-outline' : 'ellipse-outline'
                   }
                   size={16}
                   color={isBlocked ? '#9CA3AF' : currentTheme === 'dark' ? '#4CAF50' : '#2E7D32'}

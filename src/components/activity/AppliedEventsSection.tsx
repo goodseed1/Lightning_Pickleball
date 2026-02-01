@@ -18,6 +18,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 // 🎯 [KIM FIX] Navigation types for EventDetail
 type RootStackParamList = {
   EventDetail: { eventId: string };
+  MainTabs: { screen: string; params?: Record<string, unknown> };
 };
 
 interface AppliedEventsSectionProps {
@@ -38,7 +39,7 @@ interface AppliedEventsSectionProps {
     event: EventWithParticipation,
     isHosted: boolean,
     uniqueKey?: string
-  ) => JSX.Element;
+  ) => React.ReactElement;
 }
 
 const AppliedEventsSection: React.FC<AppliedEventsSectionProps> = ({
@@ -55,7 +56,7 @@ const AppliedEventsSection: React.FC<AppliedEventsSectionProps> = ({
 }) => {
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
   const { t } = useLanguage();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 

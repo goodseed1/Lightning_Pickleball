@@ -700,9 +700,10 @@ const ClubLeaguesTournamentsScreen: React.FC<ClubLeaguesTournamentsScreenProps> 
     // 🔍 Check if user is participant (as player1, player2, or playerId for singles)
     const isParticipant = tournament.participants?.some(p => {
       // For doubles: check player1Id and player2Id
-      if (p.player1Id === currentUser?.uid || p.player2Id === currentUser?.uid) return true;
+      const pAny = p as { player1Id?: string; player2Id?: string; playerId?: string };
+      if (pAny.player1Id === currentUser?.uid || pAny.player2Id === currentUser?.uid) return true;
       // For singles: check playerId
-      if (p.playerId === currentUser?.uid) return true;
+      if (pAny.playerId === currentUser?.uid) return true;
       return false;
     });
 
@@ -848,9 +849,10 @@ const ClubLeaguesTournamentsScreen: React.FC<ClubLeaguesTournamentsScreenProps> 
     const isAlreadyParticipant = league.participants?.some(p => {
       if (typeof p === 'string') return p === currentUser?.uid;
       // For doubles: check player1Id and player2Id
-      if (p.player1Id === currentUser?.uid || p.player2Id === currentUser?.uid) return true;
+      const pAny = p as { player1Id?: string; player2Id?: string; playerId?: string };
+      if (pAny.player1Id === currentUser?.uid || pAny.player2Id === currentUser?.uid) return true;
       // For singles: check playerId
-      if (p.playerId === currentUser?.uid) return true;
+      if (pAny.playerId === currentUser?.uid) return true;
       return false;
     });
 

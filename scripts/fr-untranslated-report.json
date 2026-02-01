@@ -324,22 +324,22 @@
         "frValue": "(missing)"
       },
       {
-        "key": "generateBpaddleButton",
-        "enValue": "Generate Bpaddle & Start League",
+        "key": "generateBracketButton",
+        "enValue": "Generate Bracket & Start League",
         "frValue": "(missing)"
       },
       {
-        "key": "deleteBpaddleButton",
-        "enValue": "Delete Bpaddle",
+        "key": "deleteBracketButton",
+        "enValue": "Delete Bracket",
         "frValue": "(missing)"
       },
       {
-        "key": "deleteBpaddleTitle",
-        "enValue": "Delete Bpaddle",
+        "key": "deleteBracketTitle",
+        "enValue": "Delete Bracket",
         "frValue": "(missing)"
       },
       {
-        "key": "deleteBpaddleDescription",
+        "key": "deleteBracketDescription",
         "enValue": "Delete all matches and reset league. This action cannot be undone.",
         "frValue": "(missing)"
       },
@@ -406,7 +406,7 @@
       },
       {
         "key": "bpaddleToggle",
-        "enValue": "Playoff Bpaddle",
+        "enValue": "Playoff Bracket",
         "frValue": "(missing)"
       },
       {
@@ -998,17 +998,17 @@
         "frValue": "(missing)"
       },
       {
-        "key": "deleteBpaddleTitle",
-        "enValue": "⚠️ Delete Bpaddle",
+        "key": "deleteBracketTitle",
+        "enValue": "⚠️ Delete Bracket",
         "frValue": "(missing)"
       },
       {
-        "key": "deleteBpaddleConfirm",
+        "key": "deleteBracketConfirm",
         "enValue": "Delete all matches in {{leagueName}}?\n\nThis action cannot be undone and the league will be reset to application status.",
         "frValue": "(missing)"
       },
       {
-        "key": "generateBpaddleConfirm",
+        "key": "generateBracketConfirm",
         "enValue": "Generate bpaddle for {{leagueName}}?\n\nThis action cannot be undone and the league will start.",
         "frValue": "(missing)"
       },
@@ -3375,7 +3375,7 @@
       },
       {
         "key": "bpaddleGeneratedMessage",
-        "enValue": "Bpaddle generated. Tournament has started!",
+        "enValue": "Bracket generated. Tournament has started!",
         "frValue": "(missing)"
       },
       {
@@ -4516,7 +4516,7 @@
         "frValue": "(missing)"
       },
       {
-        "key": "completeMessageWithBpaddle",
+        "key": "completeMessageWithBracket",
         "enValue": "All participants have been assigned seeds.\nYou can now generate the tournament bpaddle.",
         "frValue": "(missing)"
       }
@@ -5407,7 +5407,7 @@
     ]
   },
   {
-    "section": "alert.tournamentBpaddle",
+    "section": "alert.tournamentBracket",
     "count": 3,
     "keys": [
       {
@@ -5484,8 +5484,8 @@
         "frValue": "(missing)"
       },
       {
-        "key": "generateBpaddle",
-        "enValue": "Generating Bpaddle...",
+        "key": "generateBracket",
+        "enValue": "Generating Bracket...",
         "frValue": "(missing)"
       }
     ]
@@ -5752,12 +5752,12 @@
         "frValue": "(missing)"
       },
       {
-        "key": "generatingBpaddle",
+        "key": "generatingBracket",
         "enValue": "Generating bpaddle...",
         "frValue": "(missing)"
       },
       {
-        "key": "generatingBpaddleSubtitle",
+        "key": "generatingBracketSubtitle",
         "enValue": "League will start soon",
         "frValue": "(missing)"
       }

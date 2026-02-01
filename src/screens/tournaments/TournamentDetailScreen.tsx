@@ -22,7 +22,7 @@ import userService from '../../services/userService';
 import { Tournament, BpaddleMatch } from '../../types/tournament';
 import { ScoreInputForm, Match, SetScore } from '../../types/match';
 import { UserProfile } from '../../types/user';
-import TournamentBpaddleView from '../../components/tournaments/TournamentBpaddleView';
+import TournamentBpaddleView from '../../components/tournaments/TournamentBracketView';
 import TournamentRankingsTab from '../../components/tournaments/TournamentRankingsTab';
 import ScoreInputContent from '../../components/tournaments/ScoreInputContent';
 import { db } from '../../firebase/config';

@@ -172,8 +172,8 @@ const translations = {
     submit: 'Enviar Reporte',
   },
 
-  // tournamentBpaddle section (2 keys)
-  tournamentBpaddle: {
+  // tournamentBracket section (2 keys)
+  tournamentBracket: {
     title: 'Cuadro del Torneo',
     round: 'Ronda {{number}}',
   },

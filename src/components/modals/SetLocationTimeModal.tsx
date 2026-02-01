@@ -41,7 +41,7 @@ const SetLocationTimeModal: React.FC<SetLocationTimeModalProps> = ({
 }) => {
   const { paperTheme: theme } = useTheme();
   const { t } = useLanguage();
-  const styles = createStyles(theme);
+  const styles = createStyles(theme as unknown as { colors: Record<string, string> });
 
   // State
   const [location, setLocation] = useState('');

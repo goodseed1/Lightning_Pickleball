@@ -192,6 +192,7 @@ const LocationSearchScreen = () => {
     const returnScreen = (route.params as any)?.returnScreen || 'CreateEventForm';
 
     if (returnScreen === 'CreateClub') {
+      // @ts-expect-error CreateClub is on a different stack
       navigation.navigate('CreateClub', {
         ...route.params,
         selectedLocation: locationData,
@@ -342,6 +343,7 @@ const LocationSearchScreen = () => {
           console.error('🚫 GooglePlacesAutocomplete Error:', error);
         }}
         listViewDisplayed='auto'
+        // @ts-expect-error returnKeyType is passed to underlying TextInput
         returnKeyType={'search'}
         onTimeout={() => console.log('⏰ Request timeout')}
         timeout={20000}

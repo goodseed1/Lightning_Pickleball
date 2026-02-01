@@ -277,7 +277,7 @@ const germanTranslations = {
     registrationClosed: 'Anmeldung geschlossen',
     participants: 'Teilnehmer',
     bpaddle: 'Turnierbaum',
-    manageBpaddle: 'Turnierbaum verwalten',
+    manageBracket: 'Turnierbaum verwalten',
     seeds: 'Setzliste',
   },
 

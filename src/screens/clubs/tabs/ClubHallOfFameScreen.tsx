@@ -69,7 +69,7 @@ type TabValue = 'trophies' | 'rankings';
 const ClubHallOfFameScreen: React.FC<ClubHallOfFameScreenProps> = ({ clubId }) => {
   // Theme setup
   const { theme: currentTheme } = useTheme();
-  const { t, language } = useLanguage();
+  const { t, currentLanguage: language } = useLanguage();
   const paperTheme = usePaperTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
 
@@ -91,8 +91,8 @@ const ClubHallOfFameScreen: React.FC<ClubHallOfFameScreenProps> = ({ clubId }) =
         clubService.getClubEloRankings(clubId),
       ]);
 
-      setTrophies(trophiesData);
-      setRankings(rankingsData);
+      setTrophies(trophiesData as TrophyWithOwner[]);
+      setRankings(rankingsData as MemberRanking[]);
 
       console.log(
         `🏆 [ClubHallOfFame] Loaded ${trophiesData.length} trophies, ${rankingsData.length} rankings`

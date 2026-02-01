@@ -298,3 +298,22 @@ export interface ApplicationQueryParams {
   limit?: number;
   startAfter?: string;
 }
+
+// 🎯 EventData - generic event data for hooks (compatible with LightningEvent)
+// Note: Omit<> is used to allow broader types for scheduledTime and gameType
+export interface EventData extends Omit<Partial<LightningEvent>, 'scheduledTime' | 'gameType'> {
+  id: string;
+  gameType?: string; // Broader type for flexibility
+  type?: EventType;
+  status?: EventStatus;
+  hostId?: string;
+  hostName?: string;
+  title?: string;
+  scheduledTime?: Date | string | { seconds: number; nanoseconds: number };
+  participants?: Array<{
+    userId: string;
+    status: string;
+    [key: string]: unknown;
+  }>;
+  [key: string]: unknown;
+}

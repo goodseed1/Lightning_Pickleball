@@ -129,6 +129,8 @@ export default function PerformanceChart({ type, data, title, subtitle }: Perfor
         data={chartData}
         width={screenWidth - 60}
         height={220}
+        yAxisLabel=""
+        yAxisSuffix=""
         chartConfig={{
           ...chartConfig,
           color: (opacity = 1) => `rgba(255, 152, 0, ${opacity})`,
@@ -141,7 +143,7 @@ export default function PerformanceChart({ type, data, title, subtitle }: Perfor
   };
 
   const renderTimePerformanceChart = () => {
-    const pieData = (data as Array<{ name: string; value: number }>).map((item, index) => ({
+    const pieData = (data as unknown as Array<{ name: string; value: number }>).map((item, index) => ({
       name: item.name,
       population: item.value,
       color: getColorForIndex(index),

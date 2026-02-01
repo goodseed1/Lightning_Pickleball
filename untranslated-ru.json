@@ -473,7 +473,7 @@
   },
   "clubTournamentManagement": {
     "status": {
-      "bpaddleGeneration": "Generating Bpaddle",
+      "bpaddleGeneration": "Generating Bracket",
       "inProgress": "In Progress",
       "completed": "Completed"
     },
@@ -493,11 +493,11 @@
     "tournamentStart": {
       "seedRequired": "Seed Assignment Required",
       "seedRequiredMessage": "Please assign seed numbers to all participants before starting.",
-      "manualSeedingMessage": "Manual seeding is enabled. Please assign seeds in the Participants tab, then press \"Generate Bpaddle & Start\".",
+      "manualSeedingMessage": "Manual seeding is enabled. Please assign seeds in the Participants tab, then press \"Generate Bracket & Start\".",
       "successTitle": "Tournament Started",
-      "successMessage": "Tournament has started successfully! Bpaddle has been generated.",
+      "successMessage": "Tournament has started successfully! Bracket has been generated.",
       "registrationClosedMessage": "Registration closed and bpaddle generated. Tournament has started!",
-      "bpaddleGeneratedMessage": "Bpaddle generated. Tournament has started!",
+      "bpaddleGeneratedMessage": "Bracket generated. Tournament has started!",
       "waitForParticipantAddition": "Please wait until participant addition is complete.",
       "addingParticipants": "Adding Participants"
     },
@@ -508,7 +508,7 @@
       "incompleteTitle": "Seed Assignment Incomplete",
       "completeTitle": "Seed Assignment Complete",
       "completeMessage": "All participants have been assigned seeds.",
-      "completeMessageWithBpaddle": "All participants have been assigned seeds.\nYou can now generate the tournament bpaddle."
+      "completeMessageWithBracket": "All participants have been assigned seeds.\nYou can now generate the tournament bpaddle."
     },
     "deletion": {
       "title": "Delete Tournament",
@@ -536,7 +536,7 @@
       "closeRegistrationDescription": "Close registration and prepare to generate tournament bpaddle",
       "deleteAllParticipantsWarning": "Delete all participant data. This action cannot be undone.",
       "assignSeedsManually": "Assign seeds manually in the Participants tab",
-      "generateBpaddleAndStart": "Generate Bpaddle & Start Tournament",
+      "generateBracketAndStart": "Generate Bracket & Start Tournament",
       "addingParticipantsWait": "Adding participants... Please wait until complete.",
       "cancelAndDeleteWarning": "Cancel bpaddle generation and delete tournament. This action cannot be undone.",
       "tournamentInProgress": "Tournament is in progress. Check match results in the Matches tab.",
@@ -553,8 +553,8 @@
       "noActiveTournaments": "No active tournaments",
       "noCompletedTournaments": "No completed tournaments",
       "createNewMessage": "Create a new tournament to compete with club members",
-      "bpaddleNotGenerated": "Bpaddle not yet generated",
-      "bpaddleAfterRegistration": "Bpaddle will be generated after registration closes",
+      "bpaddleNotGenerated": "Bracket not yet generated",
+      "bpaddleAfterRegistration": "Bracket will be generated after registration closes",
       "clickMatchesForDetails": "Click matches to view details",
       "cannotLoadTeamInfo": "Cannot load team information",
       "participantsCannotFormTeams": "Participants cannot form teams. Please check partner information for each participant.",
@@ -1496,8 +1496,8 @@
     },
     "loading": {
       "league": "Loading league information...",
-      "generatingBpaddle": "Generating bpaddle...",
-      "generatingBpaddleSubtitle": "League will start soon"
+      "generatingBracket": "Generating bpaddle...",
+      "generatingBracketSubtitle": "League will start soon"
     },
     "errors": {
       "leagueNotFound": "League not found"
@@ -1523,10 +1523,10 @@
     },
     "leagueManagement": {
       "title": "League Management",
-      "generateBpaddleButton": "Generate Bpaddle & Start League",
-      "deleteBpaddleButton": "Delete Bpaddle",
-      "deleteBpaddleTitle": "Delete Bpaddle",
-      "deleteBpaddleDescription": "Delete all matches and reset league. This action cannot be undone.",
+      "generateBracketButton": "Generate Bracket & Start League",
+      "deleteBracketButton": "Delete Bracket",
+      "deleteBracketTitle": "Delete Bracket",
+      "deleteBracketDescription": "Delete all matches and reset league. This action cannot be undone.",
       "dangerZoneTitle": "Danger Zone",
       "deleteLeagueButton": "Delete League"
     },
@@ -1538,7 +1538,7 @@
       "seasonComplete": "Regular Season Complete!",
       "seasonCompleteDescription": "All matches are done. Start playoffs to determine the final champion.",
       "startButton": "Start Playoffs",
-      "bpaddleToggle": "Playoff Bpaddle",
+      "bpaddleToggle": "Playoff Bracket",
       "standingsToggle": "Standings"
     },
     "matchApproval": {
@@ -1554,7 +1554,7 @@
       "walkoverQuestion": "Which player should be marked as walkover?",
       "bulkApprovalTitle": "Bulk Approve Match Results",
       "bulkApprovalWarning": "Approved results will be reflected in standings and cannot be undone.",
-      "deleteBpaddleTitle": "⚠️ Delete Bpaddle",
+      "deleteBracketTitle": "⚠️ Delete Bracket",
       "deleteLeagueTitle": "⚠️ Delete League"
     },
     "validation": {
@@ -1722,7 +1722,7 @@
     "loadingClubInfo": "Loading club info...",
     "loadingAnnouncements": "Loading announcements...",
     "noDateInfo": "No date info",
-    "bpaddleGeneration": "Bpaddle Generation",
+    "bpaddleGeneration": "Bracket Generation",
     "playoffsInProgress": "Playoffs in Progress",
     "clubNotifications": "Club Notifications",
     "teamInviteTitle": "Team Invite",

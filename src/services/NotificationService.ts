@@ -43,6 +43,8 @@ class NotificationService {
         shouldShowAlert: true,
         shouldPlaySound: true,
         shouldSetBadge: true, // 🔔 Android 배지 표시 활성화
+        shouldShowBanner: true,
+        shouldShowList: true,
       }),
     });
 
@@ -269,6 +271,7 @@ class NotificationService {
           },
           badge: 1,
         },
+        // @ts-expect-error Expo SDK trigger type
         trigger: {
           date: reminderTime,
         },

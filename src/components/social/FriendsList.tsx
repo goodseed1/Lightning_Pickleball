@@ -28,12 +28,15 @@ const FriendsList: React.FC<FriendsListProps> = ({ onFriendPress, showActions = 
   const { friends, refreshFriends, removeFriend } = useSocial();
   const { t } = useLanguage();
   const [refreshing, setRefreshing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const loadFriends = useCallback(async () => {
     try {
+      setError(null);
       await refreshFriends();
     } catch (_err) {
       console.error('Failed to load friends:', _err);
+      setError(_err instanceof Error ? _err.message : 'Failed to load friends');
     }
   }, [refreshFriends]);
 
@@ -135,8 +138,8 @@ const FriendsList: React.FC<FriendsListProps> = ({ onFriendPress, showActions = 
     );
   };
 
-  const getSkillLevelColor = (level: string) => {
-    const colors: Record<string, unknown> = {
+  const getSkillLevelColor = (level: string): { backgroundColor: string } => {
+    const colors: Record<string, { backgroundColor: string }> = {
       beginner: { backgroundColor: '#4CAF50' },
       intermediate: { backgroundColor: '#FF9800' },
       advanced: { backgroundColor: '#2196F3' },

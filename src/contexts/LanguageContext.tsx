@@ -446,6 +446,90 @@ export interface TranslationStrings {
     permissionGranted: string;
   };
 
+  // Competitions (optional - falls back to English)
+  competitions?: {
+    title: string;
+    leagues: string;
+    tournaments: string;
+    myCompetitions: string;
+    myLeagues: string;
+    myTournaments: string;
+    activeLeagues: string;
+    upcomingTournaments: string;
+    joinLeague: string;
+    registerTournament: string;
+    createLeague: string;
+    createTournament: string;
+    leagueName: string;
+    tournamentName: string;
+    description: string;
+    format: string;
+    roundRobin: string;
+    singleElimination: string;
+    doubleElimination: string;
+    swiss: string;
+    drawSize: string;
+    entryFee: string;
+    free: string;
+    prizes: string;
+    champion: string;
+    runnerUp: string;
+    startDate: string;
+    endDate: string;
+    registrationDeadline: string;
+    checkInDeadline: string;
+    location: string;
+    region: string;
+    season: string;
+    divisions: string;
+    players: string;
+    spotsLeft: string;
+    matchFormat: string;
+    bestOf: string;
+    sets: string;
+    tiebreak: string;
+    standings: string;
+    results: string;
+    schedule: string;
+    bpaddle: string;
+    position: string;
+    points: string;
+    played: string;
+    won: string;
+    lost: string;
+    drawn: string;
+    setDifference: string;
+    gameDifference: string;
+    round: string;
+    match: string;
+    vs: string;
+    score: string;
+    winner: string;
+    loser: string;
+    bye: string;
+    walkover: string;
+    retired: string;
+    inProgress: string;
+    completed: string;
+    cancelled: string;
+    final: string;
+    semifinal: string;
+    quarterfinal: string;
+    roundOf16: string;
+    roundOf32: string;
+    firstRound: string;
+    enterScore: string;
+    submitScore: string;
+    selectWinner: string;
+    matchResultType: string;
+    addSet: string;
+    tiebreakShort: string;
+    seed: string;
+    unseeded: string;
+    yourResult: string;
+    finalPosition: string;
+  };
+
   // Units and Distance
   units: {
     distanceMi: string;
@@ -515,15 +599,15 @@ interface LanguageContextType {
   currentLanguage: SupportedLanguage;
   isRTL: boolean;
   setLanguage: (lang: SupportedLanguage) => Promise<void>;
-  t: (key: string) => string;
+  t: (key: string, params?: Record<string, unknown>) => string;
   getLanguageConfig: (code: SupportedLanguage) => LanguageConfig | undefined;
   isLanguageSelected: boolean;
   isLanguageLoading: boolean; // 🔄 [LANGUAGE LOAD] True while loading from AsyncStorage
   translations: TranslationStrings;
 }
 
-// Default translations
-const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
+// Default translations (en and ko only, other languages loaded from JSON files)
+const defaultTranslations: Partial<Record<SupportedLanguage, Partial<TranslationStrings>>> = {
   en: {
     common: {
       save: 'Save',
@@ -845,6 +929,89 @@ const defaultTranslations: Record<SupportedLanguage, TranslationStrings> = {
       tournamentUpdate: 'Tournament Update',
       permissionRequired: 'Notification Permission Required',
       permissionGranted: 'Notifications Enabled',
+    },
+
+    competitions: {
+      title: 'Competitions',
+      leagues: 'Leagues',
+      tournaments: 'Tournaments',
+      myCompetitions: 'My Competitions',
+      myLeagues: 'My Leagues',
+      myTournaments: 'My Tournaments',
+      activeLeagues: 'Active Leagues',
+      upcomingTournaments: 'Upcoming Tournaments',
+      joinLeague: 'Join League',
+      registerTournament: 'Register',
+      createLeague: 'Create League',
+      createTournament: 'Create Tournament',
+      leagueName: 'League Name',
+      tournamentName: 'Tournament Name',
+      description: 'Description',
+      format: 'Format',
+      roundRobin: 'Round Robin',
+      singleElimination: 'Single Elimination',
+      doubleElimination: 'Double Elimination',
+      swiss: 'Swiss System',
+      drawSize: 'Draw Size',
+      entryFee: 'Entry Fee',
+      free: 'Free',
+      prizes: 'Prizes',
+      champion: 'Champion',
+      runnerUp: 'Runner-up',
+      startDate: 'Start Date',
+      endDate: 'End Date',
+      registrationDeadline: 'Registration Deadline',
+      checkInDeadline: 'Check-in Deadline',
+      location: 'Location',
+      region: 'Region',
+      season: 'Season',
+      divisions: 'Divisions',
+      players: 'players',
+      spotsLeft: 'spots left',
+      matchFormat: 'Match Format',
+      bestOf: 'Best of',
+      sets: 'sets',
+      tiebreak: 'Tiebreak',
+      standings: 'Standings',
+      results: 'Results',
+      schedule: 'Schedule',
+      bpaddle: 'Bracket',
+      position: 'Position',
+      points: 'Points',
+      played: 'Played',
+      won: 'Won',
+      lost: 'Lost',
+      drawn: 'Drawn',
+      setDifference: 'Set Diff',
+      gameDifference: 'Game Diff',
+      round: 'Round',
+      match: 'Match',
+      vs: 'vs',
+      score: 'Score',
+      winner: 'Winner',
+      loser: 'Loser',
+      bye: 'Bye',
+      walkover: 'Walkover',
+      retired: 'Retired',
+      inProgress: 'In Progress',
+      completed: 'Completed',
+      cancelled: 'Cancelled',
+      final: 'Final',
+      semifinal: 'Semifinal',
+      quarterfinal: 'Quarterfinal',
+      roundOf16: 'Round of 16',
+      roundOf32: 'Round of 32',
+      firstRound: 'First Round',
+      enterScore: 'Enter Score',
+      submitScore: 'Submit Score',
+      selectWinner: 'Select Winner',
+      matchResultType: 'Match Result Type',
+      addSet: 'Add Set',
+      tiebreakShort: 'TB',
+      seed: 'Seed',
+      unseeded: 'Unseeded',
+      yourResult: 'Your Result',
+      finalPosition: 'Final Position',
     },
 
     errors: {
@@ -1389,11 +1556,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   const [isLanguageSelected, setIsLanguageSelected] = useState(false);
   const [isLanguageLoading, setIsLanguageLoading] = useState(true); // 🔄 [LANGUAGE LOAD] Start as loading
 
-  // Initialize language from storage on app start
-  useEffect(() => {
-    initializeLanguage();
-  }, [initializeLanguage]);
-
+  // 🎯 [FIX] Define initializeLanguage before useEffect
   const initializeLanguage = useCallback(async () => {
     try {
       const savedLanguage = await AsyncStorage.getItem(LANGUAGE_STORAGE_KEY);
@@ -1417,18 +1580,31 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     }
   }, [i18n]);
 
+  // Initialize language from storage on app start
+  useEffect(() => {
+    initializeLanguage();
+  }, [initializeLanguage]);
+
   const setLanguage = async (lang: SupportedLanguage) => {
     try {
-      // Save to AsyncStorage
+      // Save to AsyncStorage (always works, even before onboarding)
       await AsyncStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
 
-      // 🌐 [LANGUAGE SYNC] Save to Firestore if user is logged in
+      // 🌐 [LANGUAGE SYNC] Try to save to Firestore if user is logged in
+      // Note: This may fail for new users who haven't completed onboarding yet
+      // (their user document doesn't exist yet) - that's OK, we have AsyncStorage backup
       if (auth.currentUser) {
-        const userRef = doc(db, 'users', auth.currentUser.uid);
-        await updateDoc(userRef, {
-          'preferences.language': lang,
-        });
-        console.log(`🌐 [LANGUAGE SYNC] Saved language to Firestore: ${lang}`);
+        try {
+          const userRef = doc(db, 'users', auth.currentUser.uid);
+          await updateDoc(userRef, {
+            'preferences.language': lang,
+          });
+          console.log(`🌐 [LANGUAGE SYNC] Saved language to Firestore: ${lang}`);
+        } catch (firestoreError) {
+          // 🎯 [PICKLEBALL FIX] Don't fail if user document doesn't exist yet
+          // This happens during onboarding before profile is created
+          console.warn(`🌐 [LANGUAGE SYNC] Could not save to Firestore (user doc may not exist yet):`, firestoreError);
+        }
       }
 
       // Update context state
@@ -1449,8 +1625,8 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   const isRTL = getLanguageConfig(currentLanguage)?.rtl || false;
 
   // Translation function - now delegates to i18next
-  const t = (key: string, fallback?: string): string => {
-    return i18n.t(key, fallback || key);
+  const t = (key: string, params?: Record<string, unknown>): string => {
+    return i18n.t(key, params);
   };
 
   const contextValue: LanguageContextType = {
@@ -1461,7 +1637,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     getLanguageConfig,
     isLanguageSelected,
     isLanguageLoading, // 🔄 [LANGUAGE LOAD] Expose loading state
-    translations: defaultTranslations[currentLanguage],
+    translations: (defaultTranslations[currentLanguage] || defaultTranslations.en) as TranslationStrings,
   };
 
   // 🔄 [LANGUAGE LOAD] Don't render children until language is loaded from AsyncStorage
@@ -1485,7 +1661,7 @@ export const useLanguage = (): LanguageContextType => {
       currentLanguage: 'en',
       isRTL: false,
       setLanguage: async () => {},
-      t: (key: string) => key,
+      t: (key: string, _params?: Record<string, unknown>) => key,
       getLanguageConfig: () => ({
         code: 'en',
         name: 'English',
@@ -1495,7 +1671,7 @@ export const useLanguage = (): LanguageContextType => {
       }),
       isLanguageSelected: false,
       isLanguageLoading: false, // 🔄 [LANGUAGE LOAD] Default to not loading
-      translations: defaultTranslations.en,
+      translations: defaultTranslations.en as TranslationStrings,
     };
   }
   return context;

@@ -199,7 +199,7 @@ export const createTournament = onCall<CreateTournamentRequest, Promise<CreateTo
           matchesPerDay: data.settings.matchesPerDay || null,
           restBetweenMatches: data.settings.restBetweenMatches || null,
           thirdPlaceMatch: data.settings.thirdPlaceMatch,
-          consolationBpaddle: data.settings.consolationBpaddle,
+          consolationBracket: data.settings.consolationBracket,
           allowWalkovers: data.settings.allowWalkovers,
           eligibilityCriteria: data.settings.eligibilityCriteria || null,
         },

@@ -59,6 +59,7 @@ const CreateEventChoiceScreen = () => {
     const hasLocation = await checkLocationPermission();
     if (!hasLocation) return;
     try {
+      // @ts-expect-error CreateClub is on a different stack
       navigation.navigate('CreateClub', { mode: 'create' });
     } catch (error) {
       console.error('❌ [CreateEventChoice] Navigation error:', error);

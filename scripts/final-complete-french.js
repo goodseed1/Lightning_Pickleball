@@ -74,7 +74,7 @@ Average matches|Matchs moyens
 Badges|Badges
 Bank|Banque
 Based on last 10 matches|Basé sur les 10 derniers matchs
-Bpaddle generated. Tournament has started!|Tableau généré. Le tournoi a commencé !
+Bracket generated. Tournament has started!|Tableau généré. Le tournoi a commencé !
 Calculate Winner|Calculer le gagnant
 Can be changed in club settings|Peut être modifié dans les paramètres du club
 Cannot load team information|Impossible de charger les informations de l'équipe
@@ -105,7 +105,7 @@ Danger Zone|Zone de danger
 Date|Date
 Day of month|Jour du mois
 Dedicated Player|Joueur dévoué
-Delete Bpaddle|Supprimer le tableau
+Delete Bracket|Supprimer le tableau
 Delete League|Supprimer la ligue
 Delete Lesson|Supprimer la leçon
 Deleting this tournament will remove all match records. Continue?|La suppression de ce tournoi supprimera tous les enregistrements de match. Continuer ?
@@ -151,7 +151,7 @@ Format:|Format :
 Français|Français
 Fri|Ven
 Friday|Vendredi
-Generate Bpaddle & Start League|Générer le tableau et démarrer la ligue
+Generate Bracket & Start League|Générer le tableau et démarrer la ligue
 Getting Started|Commencer
 Global|Global
 Goals|Objectifs
@@ -274,7 +274,7 @@ Pinned|Épinglé
 Play|Jouer
 Player Profile|Profil du joueur
 Players|Joueurs
-Playoff Bpaddle|Tableau des éliminatoires
+Playoff Bracket|Tableau des éliminatoires
 Playoffs|Éliminatoires
 Policy|Règlement
 Policy Name|Nom du règlement
@@ -392,7 +392,7 @@ Update|Mettre à jour
 Upload|Télécharger
 Verified|Vérifié
 View|Voir
-View Bpaddle|Voir le tableau
+View Bracket|Voir le tableau
 View Details|Voir les détails
 View History|Voir l'historique
 View Match|Voir le match
@@ -476,7 +476,7 @@ Object.assign(FINAL_DICT, {
   '{{wins}}W {{losses}}L': '{{wins}}V {{losses}}D',
   '{{year}}': '{{year}}',
   '×{{count}}': '×{{count}}',
-  '⚠️ Delete Bpaddle': '⚠️ Supprimer le tableau',
+  '⚠️ Delete Bracket': '⚠️ Supprimer le tableau',
   '⚠️ Delete League': '⚠️ Supprimer la ligue',
   '🎉 Qualified Players': '🎉 Joueurs qualifiés',
   '🎾 Friend Invitations': "🎾 Invitations d'amis",

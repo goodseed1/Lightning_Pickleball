@@ -337,7 +337,7 @@ export function validateCanRegister(
 }
 
 // ============================================================================
-// Bpaddle Calculation Utilities
+// Bracket Calculation Utilities
 // ============================================================================
 
 /**

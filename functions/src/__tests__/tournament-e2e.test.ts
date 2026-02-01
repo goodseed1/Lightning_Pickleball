@@ -109,7 +109,7 @@ describe('🌉 [HEIMDALL] Tournament E2E Integration Tests', () => {
             },
             matchDuration: 90,
             thirdPlaceMatch: false,
-            consolationBpaddle: false,
+            consolationBracket: false,
             allowWalkovers: true,
           },
           startDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
@@ -173,7 +173,7 @@ describe('🌉 [HEIMDALL] Tournament E2E Integration Tests', () => {
       expect(tournamentDoc?.participantCount).toBe(4);
 
       // ======================================================================
-      // Step 4: Close Registration & Generate Bpaddle (registration → bpaddle_generation)
+      // Step 4: Close Registration & Generate Bracket (registration → bpaddle_generation)
       // ======================================================================
       console.log('🎯 [E2E] Step 4: Closing registration...');
 
@@ -322,7 +322,7 @@ describe('🌉 [HEIMDALL] Tournament E2E Integration Tests', () => {
             },
             matchDuration: 90,
             thirdPlaceMatch: false,
-            consolationBpaddle: false,
+            consolationBracket: false,
             allowWalkovers: true,
           },
           startDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
@@ -460,7 +460,7 @@ describe('🌉 [HEIMDALL] Tournament E2E Integration Tests', () => {
             },
             matchDuration: 90,
             thirdPlaceMatch: false,
-            consolationBpaddle: false,
+            consolationBracket: false,
             allowWalkovers: true,
           },
           startDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),

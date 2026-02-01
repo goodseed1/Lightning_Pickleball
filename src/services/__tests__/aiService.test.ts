@@ -18,6 +18,42 @@
 
 import aiService, { SYSTEM_PROMPT } from '../aiService';
 
+// Type definitions for aiService responses
+interface AIQueryResult {
+  answer: string;
+  sources: unknown[];
+  relatedQuestions: unknown[];
+  confidence: number;
+  filtered?: boolean;
+  filterReason?: string;
+}
+
+interface OnboardingActionResult {
+  message: string;
+  command: { type: string; screen: string; params?: Record<string, unknown> } | null;
+  nextHint: string | null;
+}
+
+interface QuickReply {
+  id: string;
+  label: string;
+  icon: string;
+}
+
+interface NLUCommandResult {
+  command: string;
+  params: Record<string, unknown>;
+  confidence: number;
+  originalQuery: string;
+  error?: boolean;
+}
+
+interface NLUExecutionResult {
+  type: string;
+  message: string;
+  screen?: string;
+}
+
 // Mock Firebase
 jest.mock('firebase/firestore', () => ({
   collection: jest.fn(),
@@ -88,7 +124,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
       it('정치 관련 질문을 차단해야 함 (Korean)', async () => {
         const result = await aiService.processQuery('대통령 선거에 대해 어떻게 생각해?', {
           language: 'ko',
-        });
+        }) as AIQueryResult;
 
         // 거절 응답에 피클볼 이모지와 정중한 거절이 포함되어야 함
         expect(result.answer).toContain('🎾');
@@ -106,7 +142,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
       it('should block political questions (English)', async () => {
         const result = await aiService.processQuery('What do you think about the election?', {
           language: 'en',
-        });
+        }) as AIQueryResult;
 
         expect(result.answer).toContain('🎾');
         expect(result.answer).toMatch(/sorry|cannot/i);
@@ -118,7 +154,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
 
     describe('금지어 차단 - 금융/투자', () => {
       it('암호화폐 질문을 차단해야 함', async () => {
-        const result = await aiService.processQuery('비트코인 투자 어떻게 해?', { language: 'ko' });
+        const result = await aiService.processQuery('비트코인 투자 어떻게 해?', { language: 'ko' }) as AIQueryResult;
 
         expect(result.answer).toContain('🎾');
         expect(result.answer).toMatch(/죄송|어려워/);
@@ -126,7 +162,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
       });
 
       it('주식 투자 질문을 차단해야 함', async () => {
-        const result = await aiService.processQuery('어떤 주식을 사야 할까요?', { language: 'ko' });
+        const result = await aiService.processQuery('어떤 주식을 사야 할까요?', { language: 'ko' }) as AIQueryResult;
 
         expect(result.answer).toContain('🎾');
         expect(result.answer).toMatch(/죄송|어려워/);
@@ -136,7 +172,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
 
     describe('주제 이탈 차단', () => {
       it('날씨 질문을 차단해야 함 (피클볼 맥락 없을 때)', async () => {
-        const result = await aiService.processQuery('오늘 날씨 어때?', { language: 'ko' });
+        const result = await aiService.processQuery('오늘 날씨 어때?', { language: 'ko' }) as AIQueryResult;
 
         expect(result.answer).toContain('🎾');
         expect(result.answer).toMatch(/죄송|어려워/);
@@ -146,7 +182,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
       it('영화 추천 질문을 차단해야 함', async () => {
         const result = await aiService.processQuery('요즘 볼만한 영화 추천해줘', {
           language: 'ko',
-        });
+        }) as AIQueryResult;
 
         expect(result.answer).toContain('🎾');
         expect(result.answer).toMatch(/죄송|어려워/);
@@ -154,7 +190,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
       });
 
       it('음식/맛집 질문을 차단해야 함', async () => {
-        const result = await aiService.processQuery('근처 맛집 추천해줘', { language: 'ko' });
+        const result = await aiService.processQuery('근처 맛집 추천해줘', { language: 'ko' }) as AIQueryResult;
 
         expect(result.answer).toContain('🎾');
         expect(result.answer).toMatch(/죄송|어려워/);
@@ -165,7 +201,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
         // "weather"는 OFF_TOPIC_KEYWORDS에 포함됨
         const result = await aiService.processQuery("What's the weather like today?", {
           language: 'en',
-        });
+        }) as AIQueryResult;
 
         expect(result.answer).toContain('🎾');
         expect(result.answer).toMatch(/sorry|cannot|can't/i);
@@ -196,7 +232,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
     it('피클볼 기술 질문에 정상 응답해야 함', async () => {
       const result = await aiService.processQuery('포핸드 그립 종류가 뭐가 있어?', {
         language: 'ko',
-      });
+      }) as AIQueryResult;
 
       // 정상 응답은 차단되지 않아야 함
       expect(result.filtered).toBeFalsy();
@@ -206,21 +242,21 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
     });
 
     it('앱 사용법 질문에 정상 응답해야 함', async () => {
-      const result = await aiService.processQuery('클럽은 어떻게 만들어?', { language: 'ko' });
+      const result = await aiService.processQuery('클럽은 어떻게 만들어?', { language: 'ko' }) as AIQueryResult;
 
       expect(result.filtered).toBeFalsy();
       expect(result.answer).not.toMatch(/죄송합니다.*도움드리기.*어려/);
     });
 
     it('ELO 랭킹 질문에 정상 응답해야 함', async () => {
-      const result = await aiService.processQuery('ELO 랭킹이 뭐야?', { language: 'ko' });
+      const result = await aiService.processQuery('ELO 랭킹이 뭐야?', { language: 'ko' }) as AIQueryResult;
 
       expect(result.filtered).toBeFalsy();
       expect(result.answer).not.toMatch(/죄송합니다.*도움드리기.*어려/);
     });
 
     it('should respond to pickleball technique questions (English)', async () => {
-      const result = await aiService.processQuery('How do I improve my serve?', { language: 'en' });
+      const result = await aiService.processQuery('How do I improve my serve?', { language: 'en' }) as AIQueryResult;
 
       expect(result.filtered).toBeFalsy();
       expect(result.answer).not.toMatch(/sorry.*outside.*expertise/i);
@@ -229,7 +265,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
     it('피클볼 맥락이 있는 날씨 질문은 허용해야 함', async () => {
       const result = await aiService.processQuery('피클볼 치기 좋은 날씨는 어때야 해?', {
         language: 'ko',
-      });
+      }) as AIQueryResult;
 
       // 피클볼 맥락이 있으므로 차단되지 않아야 함
       expect(result.filtered).toBeFalsy();
@@ -287,22 +323,22 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
 
   describe('📝 거절 응답 형식 검증', () => {
     it('거절 시 피클볼 이모지(🎾)를 포함해야 함', async () => {
-      const result = await aiService.processQuery('정치에 대해 알려줘', { language: 'ko' });
+      const result = await aiService.processQuery('정치에 대해 알려줘', { language: 'ko' }) as AIQueryResult;
       expect(result.answer).toContain('🎾');
     });
 
     it('거절 시 정중한 어조를 사용해야 함', async () => {
-      const result = await aiService.processQuery('주식 투자 방법', { language: 'ko' });
+      const result = await aiService.processQuery('주식 투자 방법', { language: 'ko' }) as AIQueryResult;
       expect(result.answer).toMatch(/죄송|어려워/);
     });
 
     it('거절 시 피클볼 질문으로 유도해야 함', async () => {
-      const result = await aiService.processQuery('맛집 추천해줘', { language: 'ko' });
+      const result = await aiService.processQuery('맛집 추천해줘', { language: 'ko' }) as AIQueryResult;
       expect(result.answer).toMatch(/피클볼.*질문|물어/);
     });
 
     it('should use polite tone in rejection (English)', async () => {
-      const result = await aiService.processQuery('Tell me about politics', { language: 'en' });
+      const result = await aiService.processQuery('Tell me about politics', { language: 'en' }) as AIQueryResult;
       expect(result.answer).toMatch(/sorry|cannot|unable/i);
       expect(result.answer).toMatch(/pickleball/i);
       expect(result.filtered).toBe(true);
@@ -311,7 +347,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
 
   describe('🧪 Edge Cases', () => {
     it('빈 질문에 대한 처리', async () => {
-      const result = await aiService.processQuery('', { language: 'ko' });
+      const result = await aiService.processQuery('', { language: 'ko' }) as AIQueryResult;
 
       expect(result.answer).toBeTruthy();
       expect(result.confidence).toBeDefined();
@@ -319,7 +355,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
 
     it('매우 긴 질문에 대한 처리', async () => {
       const longQuery = '피클볼 '.repeat(100) + '어떻게 쳐요?';
-      const result = await aiService.processQuery(longQuery, { language: 'ko' });
+      const result = await aiService.processQuery(longQuery, { language: 'ko' }) as AIQueryResult;
 
       expect(result.answer).toBeTruthy();
       // 피클볼 관련 질문이므로 차단되지 않아야 함
@@ -327,13 +363,13 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
     });
 
     it('특수문자가 포함된 질문', async () => {
-      const result = await aiService.processQuery('포핸드@#$%^&*()', { language: 'ko' });
+      const result = await aiService.processQuery('포핸드@#$%^&*()', { language: 'ko' }) as AIQueryResult;
 
       expect(result.answer).toBeTruthy();
     });
 
     it('혼합 언어 질문 (한영 섞임)', async () => {
-      const result = await aiService.processQuery('How do I 포핸드를 improve?', { language: 'ko' });
+      const result = await aiService.processQuery('How do I 포핸드를 improve?', { language: 'ko' }) as AIQueryResult;
 
       expect(result.answer).toBeTruthy();
       // 피클볼 관련 질문이므로 차단되지 않아야 함
@@ -345,7 +381,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
     it('API 실패 시 fallback 응답 반환', async () => {
       (global.fetch as jest.Mock).mockRejectedValue(new Error('Network error'));
 
-      const result = await aiService.processQuery('포핸드 그립은?', { language: 'ko' });
+      const result = await aiService.processQuery('포핸드 그립은?', { language: 'ko' }) as AIQueryResult;
 
       expect(result.answer).toBeTruthy();
       expect(result.confidence).toBeDefined();
@@ -357,7 +393,7 @@ describe('aiService - 3중 방어벽 검증 테스트', () => {
         json: () => Promise.resolve({ candidates: [] }),
       });
 
-      const result = await aiService.processQuery('클럽 만들기', { language: 'ko' });
+      const result = await aiService.processQuery('클럽 만들기', { language: 'ko' }) as AIQueryResult;
 
       expect(result.answer).toBeTruthy();
       expect(result.confidence).toBeDefined();

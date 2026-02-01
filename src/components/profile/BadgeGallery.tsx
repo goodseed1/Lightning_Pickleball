@@ -489,7 +489,7 @@ const BadgeGallery: React.FC<BadgeGalleryProps> = ({
             </View>
 
             {/* 배지 이름 */}
-            <Text style={styles.modalBadgeName}>{selectedBadge.name[currentLanguage]}</Text>
+            <Text style={styles.modalBadgeName}>{selectedBadge.name[currentLanguage as 'ko' | 'en'] || selectedBadge.name.en}</Text>
 
             {/* 배지 등급 */}
             <View style={[styles.tierBadge, { backgroundColor: tierStyle.backgroundColor }]}>
@@ -498,7 +498,7 @@ const BadgeGallery: React.FC<BadgeGalleryProps> = ({
 
             {/* 배지 설명 */}
             <Text style={styles.modalBadgeDescription}>
-              {selectedBadge.description[currentLanguage]}
+              {selectedBadge.description[currentLanguage as 'ko' | 'en'] || selectedBadge.description.en}
             </Text>
 
             {/* 획득 정보 */}

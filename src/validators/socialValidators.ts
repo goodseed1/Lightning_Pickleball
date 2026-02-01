@@ -68,7 +68,7 @@ export const ActivityFeedItemSchema = z.object({
   title: z.string(),
   description: z.string(),
   timestamp: FirebaseTimestampSchema,
-  metadata: z.record(z.union([z.string(), z.number(), z.boolean()])).optional(),
+  metadata: z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])).optional(),
 });
 
 // Friendship Status validation schema

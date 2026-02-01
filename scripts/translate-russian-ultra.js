@@ -64,18 +64,18 @@ const translations = {
   },
 
   leagueDetail: {
-    generateBpaddle: 'Создать сетку',
-    generateBpaddleMessage:
+    generateBracket: 'Создать сетку',
+    generateBracketMessage:
       'Управляйте заявками на вкладке Участники, затем создайте сетку на вкладке Управление',
-    generateBpaddleMessageSimple: 'Расписание матчей появится здесь после создания сетки',
+    generateBracketMessageSimple: 'Расписание матчей появится здесь после создания сетки',
     bpaddleGeneratedSuccess: 'Сетка успешно создана!\n\nСписок матчей появится в ближайшее время.',
     bpaddleGenerateError: 'Ошибка создания сетки.',
     bpaddleDeletedSuccess: 'Сетка успешно удалена.\n\nТеперь вы можете создать новую сетку.',
     bpaddleDeleteError: 'Ошибка удаления сетки.',
     startPlayoffs: 'Начать плей-офф',
-    viewBpaddle: 'Просмотреть сетку',
-    editBpaddle: 'Редактировать сетку',
-    deleteBpaddle: 'Удалить сетку',
+    viewBracket: 'Просмотреть сетку',
+    editBracket: 'Редактировать сетку',
+    deleteBracket: 'Удалить сетку',
     bpaddleSettings: 'Настройки сетки',
   },
 

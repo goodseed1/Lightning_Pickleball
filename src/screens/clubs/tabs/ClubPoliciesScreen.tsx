@@ -71,7 +71,7 @@ const ClubPoliciesScreen: React.FC<ClubPoliciesScreenProps> = ({ clubId, clubNam
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
   const { t } = useLanguage();
 
   const [clubData, setClubData] = useState<ClubData | null>(null);
@@ -276,7 +276,7 @@ const ClubPoliciesScreen: React.FC<ClubPoliciesScreenProps> = ({ clubId, clubNam
         <Card style={styles.facilitiesCard}>
           <Card.Content>
             <View style={styles.sectionHeader}>
-              <Ionicons name='pickleballball' size={18} color={themeColors.colors.secondary} />
+              <Ionicons name='ellipse' size={18} color={themeColors.colors.secondary} />
               <PaperText variant='titleMedium' style={styles.sectionTitle}>
                 {t('clubPolicies.sections.facilities')}
               </PaperText>

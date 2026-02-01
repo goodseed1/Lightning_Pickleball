@@ -304,7 +304,7 @@ const zhTranslations = {
       createTournament: '创建锦标赛',
       editTournament: '编辑锦标赛',
       deleteTournament: '删除锦标赛',
-      generateBpaddles: '生成对阵表',
+      generateBrackets: '生成对阵表',
       publishResults: '公布结果',
       sendNotifications: '发送通知',
       exportData: '导出数据',

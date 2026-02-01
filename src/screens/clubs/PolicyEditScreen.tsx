@@ -18,9 +18,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../contexts/AuthContext';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { theme } from '../../theme';
-import { RootStackParamList } from '../../navigation/AppNavigator';
 
-type PolicyEditScreenRouteProp = RouteProp<RootStackParamList, 'PolicyEdit'>;
+type PolicyEditParams = {
+  clubId: string;
+  clubName: string;
+};
+
+type PolicyEditScreenRouteProp = RouteProp<{ PolicyEdit: PolicyEditParams }, 'PolicyEdit'>;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface ClubPolicy {

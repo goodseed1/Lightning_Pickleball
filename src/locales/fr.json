@@ -5293,7 +5293,7 @@
     "deleteLeague": "Supprimer la ligue",
     "deleteLeagueConfirm": "Êtes-vous sûr de vouloir supprimer « {{leagueName}} » ?\n\nCette action est irréversible et toutes les données de matchs et informations des participants seront supprimées.",
     "minParticipantsRequired": "Minimum {{min}} participants requis pour démarrer. Actuel: {{current}}",
-    "minParticipantsDoublesWarning": "La ligue de doubles nécessite au moins 2 équipes (4 joueurs). Actuel: {{current}}",
+    "minParticipantsDoublesWarning": "La ligue de doubles nécessite au moins 2 équipes (4 joueurs). Actuel: {{current}} équipes",
     "minParticipantsSinglesWarning": "Minimum 2 participants requis pour démarrer la ligue. Actuel: {{current}}"
   },
   "cards": {

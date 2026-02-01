@@ -976,7 +976,10 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
           const [memberCounts, clubStats] = await Promise.all([
             clubService.getMultipleClubMemberCounts(clubIds),
             clubService.getMultipleClubStats(clubIds),
-          ]);
+          ]) as [
+            Record<string, number>,
+            Record<string, { eventCount?: number; communicationLevel?: string; memberJoined?: number; memberLeft?: number; monthlyFee?: number }>
+          ];
           console.log('📊 [DiscoveryContext] Real-time member counts:', memberCounts);
           console.log('📊 [DiscoveryContext] Club stats:', clubStats);
 
@@ -988,7 +991,7 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
                 ...club,
                 memberCount: memberCounts[club.id] || 0,
                 eventCount: stats.eventCount || 0,
-                communicationLevel: stats.communicationLevel || 'quiet',
+                communicationLevel: (stats.communicationLevel || 'quiet') as 'active' | 'normal' | 'quiet',
                 memberJoined: stats.memberJoined || 0,
                 memberLeft: stats.memberLeft || 0,
                 monthlyFee: stats.monthlyFee || 0,
@@ -998,10 +1001,10 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               const isPublic = (club as any).isPublic !== false;
               // admin, manager, member 모두 회원으로 간주
-              const isMember = ['admin', 'manager', 'member'].includes(club.userStatus);
+              const isMember = club.userStatus && ['admin', 'manager', 'member'].includes(club.userStatus);
               return isPublic || isMember;
             });
-            setClubs(filteredClubs);
+            setClubs(filteredClubs as Club[]);
             return;
           }
 
@@ -1030,7 +1033,7 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
               creatorName: club.createdBy ? creatorNameMap[club.createdBy] : undefined,
               memberCount: memberCounts[club.id] || 0,
               eventCount: stats.eventCount || 0,
-              communicationLevel: stats.communicationLevel || 'quiet',
+              communicationLevel: (stats.communicationLevel || 'quiet') as 'active' | 'normal' | 'quiet',
               memberJoined: stats.memberJoined || 0,
               memberLeft: stats.memberLeft || 0,
               monthlyFee: stats.monthlyFee || 0,
@@ -1044,11 +1047,11 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const isPublic = (club as any).isPublic !== false;
             // admin, manager, member 모두 회원으로 간주
-            const isMember = ['admin', 'manager', 'member'].includes(club.userStatus);
+            const isMember = club.userStatus && ['admin', 'manager', 'member'].includes(club.userStatus);
             return isPublic || isMember;
           });
 
-          setClubs(filteredClubs);
+          setClubs(filteredClubs as Club[]);
         };
 
         fetchClubDetails();
@@ -1293,7 +1296,7 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
     console.log('  - User Root Location:', user?.location);
     console.log('  - Filter Type:', filterType);
 
-    let results: (Player | Club | Event | CoachLesson)[] = [];
+    let results: (Player | Club | Event | CoachLesson | PickleballService)[] = [];
 
     // 🎯 [KIM FIX v3] 위치 없는 사용자는 모든 데이터 필터아웃 - 위치 기반 서비스 필수
     if (!userLocation) {
@@ -1622,12 +1625,12 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
           }
 
           return true;
-        });
+        }) as (Player | Club | Event | CoachLesson | PickleballService)[];
 
       console.log(`  - Lessons After Processing: ${results.length}`);
     } else if (filterType === 'services') {
       // 🛠️ Pickleball Services Processing Pipeline
-      console.log(`--- 🏭 DISCOVERY FACTORY: TENNIS SERVICES PROCESSING ---`);
+      console.log(`--- 🏭 DISCOVERY FACTORY: PICKLEBALL SERVICES PROCESSING ---`);
       console.log(`  - Total Raw Services: ${services.length}`);
 
       results = services
@@ -1667,7 +1670,7 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
           }
 
           return true;
-        });
+        }) as (Player | Club | Event | CoachLesson | PickleballService)[];
 
       console.log(`  - Services After Processing: ${results.length}`);
     }
@@ -1805,9 +1808,9 @@ export const DiscoveryProvider: React.FC<DiscoveryProviderProps> = ({ children }
     if (filterType === 'events') {
       results = results.sort((a, b) => {
         const aTime =
-          'scheduledTime' in a && a.scheduledTime ? new Date(a.scheduledTime).getTime() : 0;
+          'scheduledTime' in a && a.scheduledTime ? new Date(a.scheduledTime as string | number | Date).getTime() : 0;
         const bTime =
-          'scheduledTime' in b && b.scheduledTime ? new Date(b.scheduledTime).getTime() : 0;
+          'scheduledTime' in b && b.scheduledTime ? new Date(b.scheduledTime as string | number | Date).getTime() : 0;
         return bTime - aTime; // 내림차순 (최신 것 먼저)
       });
     } else {

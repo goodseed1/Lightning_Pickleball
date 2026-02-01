@@ -162,6 +162,20 @@ const CreateClubTournamentForm: React.FC<CreateClubTournamentFormProps> = ({
     'deadline' | 'startDate' | 'endDate' | null
   >(null);
 
+  // 🎯 [FIX] Define loadClubMembers before useEffect that uses it
+  const loadClubMembers = useCallback(async () => {
+    setLoadingMembers(true);
+    try {
+      // Load club members to verify access
+      await clubService.getClubMembers(clubId, 'active');
+    } catch (error) {
+      console.error('Error loading club members:', error);
+      Alert.alert(t('common.error'), t('createClubTournament.errors.loadMembersFailed'));
+    } finally {
+      setLoadingMembers(false);
+    }
+  }, [clubId, t]);
+
   // Load club members from context or fallback to service
   useEffect(() => {
     if (contextClubMembers && contextClubMembers.length > 0) {
@@ -188,19 +202,6 @@ const CreateClubTournamentForm: React.FC<CreateClubTournamentFormProps> = ({
       isValid,
     });
   }, [maxParticipants, minParticipants]);
-
-  const loadClubMembers = useCallback(async () => {
-    setLoadingMembers(true);
-    try {
-      // Load club members to verify access
-      await clubService.getClubMembers(clubId, 'active');
-    } catch (error) {
-      console.error('Error loading club members:', error);
-      Alert.alert(t('common.error'), t('createClubTournament.errors.loadMembersFailed'));
-    } finally {
-      setLoadingMembers(false);
-    }
-  }, [clubId, t]);
 
   const validateForm = (): boolean => {
     if (!name.trim()) {

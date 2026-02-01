@@ -60,7 +60,7 @@ const germanTranslations = {
     },
   },
   alert: {
-    tournamentBpaddle: {
+    tournamentBracket: {
       info: 'Info',
     },
   },

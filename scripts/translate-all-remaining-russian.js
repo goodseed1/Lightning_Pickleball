@@ -96,7 +96,7 @@ const translations = {
     playoffCreated: {
       title: 'Плей-офф создан!',
       message: 'Плей-офф успешно создан',
-      viewBpaddle: 'Просмотр сетки',
+      viewBracket: 'Просмотр сетки',
       startPlayoffs: 'Начать плей-офф',
     },
   },

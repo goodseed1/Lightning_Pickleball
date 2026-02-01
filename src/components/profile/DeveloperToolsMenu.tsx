@@ -21,7 +21,7 @@ export const DeveloperToolsMenu = (): DeveloperToolsReturn => {
         { text: t('common.cancel'), style: 'cancel' },
         {
           text: t('common.confirm'),
-          onPress: password => {
+          onPress: (password?: string) => {
             if (password === '6992') {
               onSuccess();
             } else {

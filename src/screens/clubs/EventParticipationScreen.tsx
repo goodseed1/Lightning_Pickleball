@@ -116,7 +116,7 @@ const EventParticipationScreen: React.FC = () => {
   const [showRegistrationDialog, setShowRegistrationDialog] = useState(false);
   const [isUserRegistered, setIsUserRegistered] = useState(false);
   const [userParticipationStatus, setUserParticipationStatus] = useState<
-    'none' | 'confirmed' | 'pending' | 'waitlisted'
+    'none' | 'confirmed' | 'pending' | 'waitlisted' | 'cancelled'
   >('none');
 
   const [event, setEvent] = useState<Event>({
@@ -663,7 +663,6 @@ const EventParticipationScreen: React.FC = () => {
             {...props}
             indicatorStyle={styles.tabIndicator}
             style={styles.tabBar}
-            labelStyle={styles.tabLabel}
             activeColor={theme.colors.primary}
             inactiveColor='#666'
           />

@@ -42,7 +42,7 @@ const megaFrenchTranslations = `
   "admin": { "devTools": { "mile": "mile", "miles": "miles" }, "matchManagement": { "total": "Total" } },
   "clubChat": { "important": "Important" },
   "clubSelector": { "club": "Club" },
-  "alert": { "tournamentBpaddle": { "info": "Info", "participants": "Participants", "participantsTab": "Participants" } },
+  "alert": { "tournamentBracket": { "info": "Info", "participants": "Participants", "participantsTab": "Participants" } },
   "discover": { "tabs": { "clubs": "Clubs", "services": "Services" }, "skillFilters": { "expert": "Expert" } },
   "emailLogin": { "verification": { "sentTo": "{{email}}" } },
   "clubLeaguesTournaments": {

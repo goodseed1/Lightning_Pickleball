@@ -323,7 +323,7 @@ export const useProfileSettings = (): UseProfileSettingsReturn => {
       },
     ];
 
-    const buttons = themeOptions.map(option => ({
+    const buttons: { text: string; onPress: () => void; style?: 'cancel' | 'destructive' | 'default' }[] = themeOptions.map(option => ({
       text: `${themePreference === option.key ? '✓ ' : ''}${option.title}`,
       onPress: () => {
         setThemePreference(option.key);

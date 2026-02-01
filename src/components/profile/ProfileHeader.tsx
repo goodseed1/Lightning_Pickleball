@@ -63,7 +63,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   const { location: deviceLocation } = useLocation();
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
 
   // No more prop-based state - always use latest data from AuthContext
   // Early return if no user data - should never happen since this component only renders when authenticated
@@ -133,26 +133,23 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
               {profileData.displayName || profileData.nickname}
             </Text>
             {/* 🎯 [KIM FIX] Show gender icon only for male/female - use profile.gender */}
-            {(profileData?.profile?.gender === 'male' ||
-              profileData?.profile?.gender === '남성' ||
-              profileData?.profile?.gender === 'female' ||
-              profileData?.profile?.gender === '여성') && (
-              <Text
-                style={{
-                  marginLeft: 6,
-                  fontSize: 16,
-                  color:
-                    profileData?.profile?.gender === 'male' ||
-                    profileData?.profile?.gender === '남성'
-                      ? '#4A90D9'
-                      : '#E91E8C',
-                }}
-              >
-                {profileData?.profile?.gender === 'male' || profileData?.profile?.gender === '남성'
-                  ? '♂'
-                  : '♀'}
-              </Text>
-            )}
+            {(() => {
+              const gender = profileData?.profile?.gender as string | undefined;
+              const isMale = gender === 'male' || gender === '남성';
+              const isFemale = gender === 'female' || gender === '여성';
+              if (!isMale && !isFemale) return null;
+              return (
+                <Text
+                  style={{
+                    marginLeft: 6,
+                    fontSize: 16,
+                    color: isMale ? '#4A90D9' : '#E91E8C',
+                  }}
+                >
+                  {isMale ? '♂' : '♀'}
+                </Text>
+              );
+            })()}
             {(() => {
               // ⚡ [KIM FIX v25] LPR: Calculate LPR from highest ELO - use eloRatings only (Single Source of Truth)
               const singlesElo = profileData?.eloRatings?.singles?.current || null;
@@ -298,9 +295,11 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
                   const date =
                     typeof profileData.createdAt === 'string'
                       ? new Date(profileData.createdAt)
-                      : profileData.createdAt?.toDate
+                      : profileData.createdAt && 'toDate' in profileData.createdAt && typeof profileData.createdAt.toDate === 'function'
                         ? profileData.createdAt.toDate()
-                        : new Date(profileData.createdAt);
+                        : profileData.createdAt instanceof Date
+                          ? profileData.createdAt
+                          : new Date();
                   return date.toLocaleDateString(t('common.locale'), {
                     year: 'numeric',
                     month: 'long',

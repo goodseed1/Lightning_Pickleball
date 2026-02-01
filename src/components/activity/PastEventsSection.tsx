@@ -66,7 +66,7 @@ const PastEventsSection: React.FC<PastEventsSectionProps> = ({
   const { currentUser } = useAuth();
   const { t } = useLanguage();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
 
   const convertToEventCardType = (event: EventWithParticipation, isHosted: boolean = false) => {
     // 🛡️ Operation: Quarantine Expansion - Enhanced data conversion with safety checks
@@ -312,9 +312,9 @@ const PastEventsSection: React.FC<PastEventsSectionProps> = ({
           // 호스트팀 ID들
           const hostTeamIds = [event.hostId, event.hostPartnerId].filter(Boolean);
           // 도전팀 participants (호스트팀 제외)
-          const challengerParticipants = event.participants.filter(
-            (p: { playerId?: string; playerName?: string } | string) => {
-              const pId = typeof p === 'string' ? p : p?.playerId;
+          const challengerParticipants = (event.participants as unknown as Array<{ playerId?: string; playerName?: string; userId?: string } | string>).filter(
+            (p) => {
+              const pId = typeof p === 'string' ? p : (p?.playerId || p?.userId);
               return pId && !hostTeamIds.includes(pId);
             }
           );
@@ -339,7 +339,7 @@ const PastEventsSection: React.FC<PastEventsSectionProps> = ({
 
             // 🎯 [FIX] playerName이 applicantName과 다른 사람이 파트너
             const partnerParticipant = challengerParticipants.find(
-              (p: { playerId?: string; playerName?: string } | string) => {
+              (p) => {
                 const pName = typeof p === 'string' ? p : p?.playerName;
                 return pName && pName !== applicantName;
               }

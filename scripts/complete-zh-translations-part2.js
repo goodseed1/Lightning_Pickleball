@@ -473,8 +473,8 @@ const translations = {
     actions: {
       register: '报名',
       withdraw: '退出',
-      viewBpaddle: '查看对阵表',
-      manageBpaddle: '管理对阵表',
+      viewBracket: '查看对阵表',
+      manageBracket: '管理对阵表',
       recordScore: '记录比分',
       cancel: '取消',
     },

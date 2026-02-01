@@ -98,8 +98,8 @@ export { registerForTournament } from './registerForTournament';
 export { registerTeamForTournament } from './registerTeamForTournament';
 export { updateTournamentStatus } from './updateTournamentStatus';
 
-// 🌉 [HEIMDALL] SERVER-SIDE MIGRATION Phase 5.2: Bpaddle Generation
-export { generateBpaddle } from './generateBpaddle';
+// 🌉 [HEIMDALL] SERVER-SIDE MIGRATION Phase 5.2: Bracket Generation
+export { generateBracket } from './generateBracket';
 
 // 🌉 [HEIMDALL] SERVER-SIDE MIGRATION Phase 5.3: Critical Security Functions
 export { deleteTournament } from './deleteTournament';
@@ -261,3 +261,6 @@ export { onDirectChatCreated } from './triggers/onDirectChatCreated';
 
 // 🏟️ [CLUB CHAT] Push notifications for club chat messages
 export { onClubChatCreated } from './triggers/onClubChatCreated';
+
+// 🗑️ [STORAGE PROTECTION] Automatic cleanup of expired event chat images
+export { cleanupExpiredEventImages } from './cleanupExpiredEventImages';

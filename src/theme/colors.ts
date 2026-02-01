@@ -8,7 +8,7 @@
 
 import { Platform } from 'react-native';
 
-// ==================== LIGHTNING TENNIS BRAND COLORS ====================
+// ==================== LIGHTNING PICKLEBALL BRAND COLORS ====================
 
 /**
  * Core Lightning Pickleball Brand Colors (Light Mode)
@@ -228,20 +228,20 @@ export const AndroidDarkColors = {
  */
 export const getPlatformLightColors = () =>
   Platform.select({
-    ios: IOSLightColors,
-    android: AndroidLightColors,
-    default: AndroidLightColors,
-  });
+    ios: IOSLightColors as Record<string, string>,
+    android: AndroidLightColors as Record<string, string>,
+    default: AndroidLightColors as Record<string, string>,
+  }) as Record<string, string> | undefined;
 
 /**
  * Get platform-specific dark colors
  */
 export const getPlatformDarkColors = () =>
   Platform.select({
-    ios: IOSDarkColors,
-    android: AndroidDarkColors,
-    default: AndroidDarkColors,
-  });
+    ios: IOSDarkColors as Record<string, string>,
+    android: AndroidDarkColors as Record<string, string>,
+    default: AndroidDarkColors as Record<string, string>,
+  }) as Record<string, string> | undefined;
 
 // ==================== UTILITY FUNCTIONS ====================
 

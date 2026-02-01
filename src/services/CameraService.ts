@@ -223,7 +223,7 @@ class CameraService {
       console.error('Error picking from gallery:', error);
 
       // Enhanced error handling for specific cases
-      if (error.message?.includes('Photos Library')) {
+      if ((error as Error).message?.includes('Photos Library')) {
         Alert.alert(
           i18n.t('services.camera.galleryAccessError'),
           i18n.t('services.camera.simulatorError'),
@@ -299,14 +299,14 @@ class CameraService {
     quality: number = 0.8
   ): Promise<string | null> {
     try {
-      const { uri: resizedUri } = await ImagePicker.launchImageLibraryAsync({
+      const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         allowsEditing: true,
         aspect: [width, height],
         quality,
       });
 
-      return resizedUri || null;
+      return result.canceled ? null : result.assets?.[0]?.uri || null;
     } catch (error) {
       console.error('Error resizing image:', error);
       return null;

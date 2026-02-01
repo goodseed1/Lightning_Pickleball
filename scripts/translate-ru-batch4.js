@@ -121,8 +121,8 @@ const dict = {
   'Insufficient players to create next round.':
     'Недостаточно игроков для создания следующего раунда.',
   'Add Participant Manually': 'Добавить участника вручную',
-  'Generating Bpaddle...': 'Создание сетки...',
-  'View Bpaddle': 'Просмотр сетки',
+  'Generating Bracket...': 'Создание сетки...',
+  'View Bracket': 'Просмотр сетки',
   'Start Tournament': 'Начать турнир',
   'Tournament started successfully!': 'Турнир успешно начался!',
   'Failed to start tournament.': 'Не удалось начать турнир.',

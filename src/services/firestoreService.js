@@ -442,7 +442,7 @@ class FirestoreService {
     }
   }
 
-  // ============ TENNIS CLUBS ============
+  // ============ PICKLEBALL CLUBS ============
 
   /**
    * Create a new pickleball club

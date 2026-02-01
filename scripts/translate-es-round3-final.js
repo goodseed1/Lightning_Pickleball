@@ -179,7 +179,7 @@ const translations = {
     title: {
       error: 'Error',
     },
-    tournamentBpaddle: {
+    tournamentBracket: {
       errorLoadingData: 'Error al cargar datos del torneo',
       matchNotFound: 'Partido no encontrado',
       matchResult: 'Resultado del Partido',
@@ -190,11 +190,11 @@ const translations = {
       scoreSubmitted: 'Marcador Enviado',
       scoreSubmittedSuccess: 'El resultado del partido ha sido enviado exitosamente.',
       errorSubmittingScore: 'Error al enviar marcador del partido.',
-      loadingBpaddle: 'Cargando cuadro...',
+      loadingBracket: 'Cargando cuadro...',
       tournamentNotFound: 'Torneo no encontrado',
       bpaddleNotGenerated: 'Cuadro aún no generado',
       bpaddleWillBeGenerated: 'El cuadro se generará después de cerrar la inscripción',
-      generatingBpaddle: 'Generando Cuadro',
+      generatingBracket: 'Generando Cuadro',
       inProgress: 'En Progreso',
       completed: 'Completado',
       participants: 'Participantes',

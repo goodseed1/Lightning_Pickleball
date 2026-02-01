@@ -9,7 +9,7 @@ import {
   Alert,
   TouchableOpacity,
 } from 'react-native';
-import { Card, Title, Button, TextInput, IconButton, RadioButton } from 'react-native-paper';
+import { Card, Title, Button, IconButton, RadioButton, SegmentedButtons } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -18,12 +18,15 @@ import { getLightningPickleballTheme } from '../../theme';
 import { LeagueMatch } from '../../types/league';
 import { useLanguage } from '../../contexts/LanguageContext';
 
-interface ScoreSet {
-  player1: string;
+// 🏓 피클볼 게임 점수 인터페이스
+interface PickleballGame {
+  player1: string; // 포인트 (0-25+)
   player2: string;
-  player1_tb?: string;
-  player2_tb?: string;
 }
+
+// 🏓 매치 포맷 타입
+type MatchFormat = 'single_game' | 'best_of_3';
+type TargetScore = 11 | 15;
 
 interface LeagueScoreInputModalProps {
   visible: boolean;
@@ -33,7 +36,9 @@ interface LeagueScoreInputModalProps {
     winnerId: string;
     loserId: string;
     score: string;
-    sets: ScoreSet[];
+    sets: { player1Games: number; player2Games: number }[];
+    matchFormat?: MatchFormat;
+    targetScore?: TargetScore;
   }) => void;
   onClose: () => void;
   submitting?: boolean;
@@ -60,37 +65,41 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
     return null;
   };
 
-  const [scoreSets, setScoreSets] = useState<ScoreSet[]>([
-    { player1: '', player2: '', player1_tb: '', player2_tb: '' },
-    { player1: '', player2: '', player1_tb: '', player2_tb: '' },
-    { player1: '', player2: '', player1_tb: '', player2_tb: '' },
+  // 🏓 피클볼 매치 설정
+  const [matchFormat, setMatchFormat] = useState<MatchFormat>('single_game');
+  const [targetScore, setTargetScore] = useState<TargetScore>(11);
+
+  // 🏓 피클볼 게임 점수 (최대 3게임)
+  const [games, setGames] = useState<PickleballGame[]>([
+    { player1: '', player2: '' },
+    { player1: '', player2: '' },
+    { player1: '', player2: '' },
   ]);
+
   const [matchWinner, setMatchWinner] = useState<{ id: string; name: string } | null>(null);
   const [matchLoser, setMatchLoser] = useState<{ id: string; name: string } | null>(null);
   const [retired, setRetired] = useState(false);
   const [walkover, setWalkover] = useState(false);
   const [manualWinner, setManualWinner] = useState<'player1' | 'player2' | null>(null);
 
-  // Reset form when modal opens/closes OR pre-fill existing scores
+  // Reset form when modal opens/closes
   useEffect(() => {
     if (visible && match) {
       // Pre-fill existing scores if match already has results (for admin corrections)
       if (match.score && match.score.sets && match.score.sets.length > 0) {
         console.log('📝 [Pre-fill] Loading existing scores:', match.score);
 
-        const existingSets = match.score.sets.map(set => ({
+        const existingGames = match.score.sets.map(set => ({
           player1: set.player1Games?.toString() || '',
           player2: set.player2Games?.toString() || '',
-          player1_tb: set.tiebreak?.player1Points?.toString() || '',
-          player2_tb: set.tiebreak?.player2Points?.toString() || '',
         }));
 
-        // Pad with empty sets if needed (minimum 3 sets shown)
-        while (existingSets.length < 3) {
-          existingSets.push({ player1: '', player2: '', player1_tb: '', player2_tb: '' });
+        // Pad with empty games if needed
+        while (existingGames.length < 3) {
+          existingGames.push({ player1: '', player2: '' });
         }
 
-        setScoreSets(existingSets);
+        setGames(existingGames);
 
         // Pre-fill winner/loser
         if (match._winner) {
@@ -113,130 +122,111 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
         }
       } else {
         // No existing scores - start fresh
-        setScoreSets([
-          { player1: '', player2: '', player1_tb: '', player2_tb: '' },
-          { player1: '', player2: '', player1_tb: '', player2_tb: '' },
-          { player1: '', player2: '', player1_tb: '', player2_tb: '' },
+        setGames([
+          { player1: '', player2: '' },
+          { player1: '', player2: '' },
+          { player1: '', player2: '' },
         ]);
         setMatchWinner(null);
         setMatchLoser(null);
         setRetired(false);
         setWalkover(false);
         setManualWinner(null);
+        setMatchFormat('single_game');
+        setTargetScore(11);
       }
     }
   }, [visible, match]);
 
-  // Pickleball score validation function
-  const isValidPickleballScore = (score1: number, score2: number): boolean => {
-    const maxScore = Math.max(score1, score2);
-    const minScore = Math.min(score1, score2);
-
-    if (maxScore > 7) return false;
-    if (maxScore <= 6) return true;
-    if (maxScore === 7) {
-      return minScore === 5;
-    }
-    return true;
-  };
-
-  // Unified set winner determination
-  const getSetWinner = useCallback(
-    (set: ScoreSet, setIndex: number): 'player1' | 'player2' | null => {
-      if (!set.player1.trim() || !set.player2.trim()) {
+  // 🏓 피클볼 게임 승자 결정 (win by 2 규칙)
+  const getGameWinner = useCallback(
+    (game: PickleballGame): 'player1' | 'player2' | null => {
+      if (!game.player1.trim() || !game.player2.trim()) {
         return null;
       }
 
-      const player1Games = parseInt(set.player1, 10);
-      const player2Games = parseInt(set.player2, 10);
+      const p1 = parseInt(game.player1, 10);
+      const p2 = parseInt(game.player2, 10);
 
-      if (isNaN(player1Games) || isNaN(player2Games)) {
+      if (isNaN(p1) || isNaN(p2)) {
         return null;
       }
 
-      const isTiebreakSet = player1Games === 6 && player2Games === 6;
+      const maxScore = Math.max(p1, p2);
+      const diff = Math.abs(p1 - p2);
 
-      if (isTiebreakSet) {
-        const player1TB = parseInt(set.player1_tb || '0', 10);
-        const player2TB = parseInt(set.player2_tb || '0', 10);
-
-        const pointsToWin = setIndex === 2 ? 10 : 7;
-
-        if (player1TB >= pointsToWin && player1TB - player2TB >= 2) {
-          return 'player1';
-        } else if (player2TB >= pointsToWin && player2TB - player1TB >= 2) {
-          return 'player2';
-        }
-        return null;
-      } else {
-        if (player1Games > player2Games) {
-          return 'player1';
-        } else if (player2Games > player1Games) {
-          return 'player2';
-        }
-        return null;
+      // 승리 조건: targetScore 이상 + 2점 차이
+      if (maxScore >= targetScore && diff >= 2) {
+        return p1 > p2 ? 'player1' : 'player2';
       }
+
+      return null;
     },
-    []
+    [targetScore]
   );
 
-  // Calculate how many sets should be displayed dynamically
-  const calculateSetsToDisplay = useCallback(() => {
-    let setsCompleted = 0;
-    let player1SetWins = 0;
-    let player2SetWins = 0;
-
-    for (let i = 0; i < scoreSets.length; i++) {
-      const set = scoreSets[i];
-      const winner = getSetWinner(set, i);
-
-      if (winner === null) {
-        break;
-      }
-
-      if (winner === 'player1') {
-        player1SetWins++;
-      } else if (winner === 'player2') {
-        player2SetWins++;
-      }
-      setsCompleted++;
+  // 🏓 표시할 게임 수 계산
+  const calculateGamesToDisplay = useCallback(() => {
+    if (matchFormat === 'single_game') {
+      return 1;
     }
 
-    if (setsCompleted === 0) {
+    // Best of 3: 현재 진행 상황에 따라 동적으로 표시
+    let player1GameWins = 0;
+    let player2GameWins = 0;
+
+    for (let i = 0; i < games.length; i++) {
+      const winner = getGameWinner(games[i]);
+      if (winner === 'player1') player1GameWins++;
+      else if (winner === 'player2') player2GameWins++;
+    }
+
+    // 누군가 2승하면 더 이상 게임 표시 안함
+    if (player1GameWins >= 2 || player2GameWins >= 2) {
+      return player1GameWins + player2GameWins;
+    }
+
+    // 첫 게임 완료 전
+    if (player1GameWins === 0 && player2GameWins === 0) {
       return 1;
-    } else if (setsCompleted === 1) {
+    }
+
+    // 1-0 또는 0-1
+    if (player1GameWins + player2GameWins === 1) {
       return 2;
-    } else if (setsCompleted === 2 && player1SetWins === 1 && player2SetWins === 1) {
+    }
+
+    // 1-1
+    if (player1GameWins === 1 && player2GameWins === 1) {
       return 3;
     }
 
-    return Math.max(2, setsCompleted);
-  }, [scoreSets, getSetWinner]);
+    return Math.max(2, player1GameWins + player2GameWins + 1);
+  }, [games, getGameWinner, matchFormat]);
 
-  // Calculate match winner based on set scores
+  // 🏓 매치 승자 계산
   const calculateMatchWinner = useCallback(() => {
     if (!match) return { winner: null, loser: null };
 
-    let player1SetWins = 0;
-    let player2SetWins = 0;
+    let player1GameWins = 0;
+    let player2GameWins = 0;
 
-    for (let i = 0; i < scoreSets.length; i++) {
-      const set = scoreSets[i];
-      const winner = getSetWinner(set, i);
+    const gamesToCheck = matchFormat === 'single_game' ? 1 : 3;
 
-      if (winner === 'player1') {
-        player1SetWins++;
-      } else if (winner === 'player2') {
-        player2SetWins++;
-      }
+    for (let i = 0; i < gamesToCheck; i++) {
+      const winner = getGameWinner(games[i]);
+      if (winner === 'player1') player1GameWins++;
+      else if (winner === 'player2') player2GameWins++;
     }
 
-    if (player1SetWins >= 2) {
+    const winsNeeded = matchFormat === 'single_game' ? 1 : 2;
+
+    if (player1GameWins >= winsNeeded) {
       return {
         winner: { id: match.player1Id, name: match.player1Name },
         loser: { id: match.player2Id, name: match.player2Name },
       };
-    } else if (player2SetWins >= 2) {
+    } else if (player2GameWins >= winsNeeded) {
       return {
         winner: { id: match.player2Id, name: match.player2Name },
         loser: { id: match.player1Id, name: match.player1Name },
@@ -244,14 +234,14 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
     }
 
     return { winner: null, loser: null };
-  }, [scoreSets, match, getSetWinner]);
+  }, [games, match, getGameWinner, matchFormat]);
 
   // Real-time winner calculation
   useEffect(() => {
     const result = calculateMatchWinner();
     setMatchWinner(result.winner);
     setMatchLoser(result.loser);
-  }, [scoreSets, calculateMatchWinner]);
+  }, [games, calculateMatchWinner]);
 
   // Update matchWinner/matchLoser when manualWinner changes (for retired/walkover)
   useEffect(() => {
@@ -263,245 +253,137 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
 
       setMatchWinner({ id: winnerId, name: winnerName });
       setMatchLoser({ id: loserId, name: loserName });
-    } else if (!retired && !walkover) {
-      // Clear manual winner when returning to normal mode
-      // (matchWinner will be recalculated from scoreSets by the other useEffect)
     }
   }, [retired, walkover, manualWinner, match]);
 
-  // 🔴 [HIGH] 기권 ↔ 부전승 상호 배타성 핸들러
+  // 🔴 기권 ↔ 부전승 상호 배타성 핸들러
   const handleRetiredChange = () => {
     const newRetired = !retired;
     setRetired(newRetired);
     if (newRetired) {
-      setWalkover(false); // 기권 활성화 시 부전승 비활성화
+      setWalkover(false);
     }
-    setManualWinner(null); // 승자 선택 초기화
+    setManualWinner(null);
   };
 
   const handleWalkoverChange = () => {
     const newWalkover = !walkover;
     setWalkover(newWalkover);
     if (newWalkover) {
-      setRetired(false); // 부전승 활성화 시 기권 비활성화
+      setRetired(false);
     }
-    setManualWinner(null); // 승자 선택 초기화
+    setManualWinner(null);
   };
 
-  const updateScore = (
-    setIndex: number,
-    player: 'player1' | 'player2' | 'player1_tb' | 'player2_tb',
-    value: string
-  ) => {
-    if (player.includes('_tb')) {
-      const newScoreSets = [...scoreSets];
-      newScoreSets[setIndex][player] = value;
-      setScoreSets(newScoreSets);
-      return;
-    }
+  // 🏓 점수 업데이트
+  const updateScore = (gameIndex: number, player: 'player1' | 'player2', value: string) => {
+    // 숫자만 허용
+    if (value && !/^\d*$/.test(value)) return;
 
-    const numValue = parseInt(value, 10);
-    if (isNaN(numValue) || numValue < 0) return;
-
-    const newScoreSets = [...scoreSets];
-    newScoreSets[setIndex][player] = value;
-
-    const player1Score = parseInt(newScoreSets[setIndex].player1 || '0', 10);
-    const player2Score = parseInt(newScoreSets[setIndex].player2 || '0', 10);
-
-    if (newScoreSets[setIndex].player1 && newScoreSets[setIndex].player2) {
-      if (!isValidPickleballScore(player1Score, player2Score)) {
-        Alert.alert(
-          t('recordScore.alerts.invalidScore'),
-          t('recordScore.alerts.invalidScoreExplanation'),
-          [{ text: t('recordScore.alerts.confirm'), style: 'default' }]
-        );
-        return;
-      }
-    }
-
-    setScoreSets(newScoreSets);
+    const newGames = [...games];
+    newGames[gameIndex][player] = value;
+    setGames(newGames);
   };
 
+  // 🏓 점수 포맷 (예: "11-7" 또는 "11-8, 9-11, 11-6")
   const formatScore = (): string => {
-    const sets = [];
-    const setsToFormat = calculateSetsToDisplay();
+    const gameScores: string[] = [];
+    const gamesToFormat = calculateGamesToDisplay();
 
-    for (let i = 0; i < setsToFormat; i++) {
-      const set = scoreSets[i];
-      if (set.player1.trim() && set.player2.trim()) {
-        const player1Games = parseInt(set.player1, 10);
-        const player2Games = parseInt(set.player2, 10);
-        let scoreString = `${set.player1}-${set.player2}`;
-
-        const isTiebreakSet = player1Games === 6 && player2Games === 6;
-
-        if (isTiebreakSet && (set.player1_tb || set.player2_tb)) {
-          const player1TB = parseInt(set.player1_tb || '0', 10);
-          const player2TB = parseInt(set.player2_tb || '0', 10);
-
-          // 🎯 [KIM FIX] 타이브레이크 양쪽 점수 모두 표시 (예: 6-6(9-11))
-          if (player1TB > 0 || player2TB > 0) {
-            scoreString += `(${player1TB}-${player2TB})`;
-          }
-        }
-
-        sets.push(scoreString);
+    for (let i = 0; i < gamesToFormat; i++) {
+      const game = games[i];
+      if (game.player1.trim() && game.player2.trim()) {
+        gameScores.push(`${game.player1}-${game.player2}`);
       }
     }
 
-    return sets.join(', ');
+    return gameScores.join(', ');
   };
 
+  // 🏓 점수 검증
   const validateScore = (): boolean => {
-    // 기권/부전승 시 점수 검증 스킵
     if (retired || walkover) {
       return true;
     }
 
     if (!matchWinner || !matchLoser) {
-      Alert.alert(t('recordScore.alerts.notice'), t('recordScore.alerts.matchNotComplete'));
+      Alert.alert(
+        t('recordScore.alerts.notice'),
+        t('recordScore.alerts.pickleballMatchNotComplete')
+      );
       return false;
     }
 
-    let completedSets = 0;
-    const setsToCheck = calculateSetsToDisplay();
+    const gamesToCheck = calculateGamesToDisplay();
 
-    for (let i = 0; i < setsToCheck; i++) {
-      const set = scoreSets[i];
-      if (!set.player1.trim() || !set.player2.trim()) {
+    for (let i = 0; i < gamesToCheck; i++) {
+      const game = games[i];
+
+      if (!game.player1.trim() || !game.player2.trim()) {
         continue;
       }
 
-      const score1 = parseInt(set.player1);
-      const score2 = parseInt(set.player2);
+      const p1 = parseInt(game.player1, 10);
+      const p2 = parseInt(game.player2, 10);
 
-      if (isNaN(score1) || isNaN(score2)) {
+      if (isNaN(p1) || isNaN(p2)) {
         Alert.alert(t('recordScore.alerts.notice'), t('recordScore.alerts.scoresMustBeNumbers'));
         return false;
       }
 
-      if (score1 < 0 || score2 < 0 || score1 > 7 || score2 > 7) {
-        Alert.alert(t('recordScore.alerts.notice'), t('recordScore.alerts.scoresOutOfRange'));
+      if (p1 < 0 || p2 < 0) {
+        Alert.alert(t('recordScore.alerts.notice'), t('recordScore.alerts.scoresCannotBeNegative'));
         return false;
       }
 
-      const isTiebreakSet = score1 === 6 && score2 === 6;
+      const maxScore = Math.max(p1, p2);
+      const minScore = Math.min(p1, p2);
+      const diff = Math.abs(p1 - p2);
 
-      if (isTiebreakSet) {
-        const tb1 = parseInt(set.player1_tb || '0');
-        const tb2 = parseInt(set.player2_tb || '0');
-
-        if (isNaN(tb1) || isNaN(tb2)) {
-          Alert.alert(
-            t('recordScore.alerts.notice'),
-            `${t('recordScore.alerts.tiebreakRequired')} ${i + 1}`
-          );
-          return false;
-        }
-
-        const pointsToWin = i === 2 ? 10 : 7;
-        const isValidTiebreak =
-          (tb1 >= pointsToWin || tb2 >= pointsToWin) && Math.abs(tb1 - tb2) >= 2;
-
-        if (!isValidTiebreak) {
-          Alert.alert(
-            t('recordScore.alerts.notice'),
-            `${t('recordScore.alerts.tiebreakInvalid')} ${i + 1}`
-          );
-          return false;
-        }
-      } else {
-        if (score1 === score2) {
-          if (score1 !== 6) {
-            Alert.alert(
-              t('recordScore.alerts.notice'),
-              `${t('recordScore.alerts.tieOnly66')} ${i + 1}`
-            );
-            return false;
-          }
-          Alert.alert(
-            t('recordScore.alerts.notice'),
-            `${t('recordScore.alerts.tiebreakAt66')} ${i + 1}`
-          );
-          return false;
-        }
-
-        const maxScore = Math.max(score1, score2);
-        const minScore = Math.min(score1, score2);
-
-        if (maxScore >= 6) {
-          if (maxScore === 6 && minScore <= 4) {
-            // Valid: 6-0, 6-1, 6-2, 6-3, 6-4
-          } else if (maxScore === 7 && (minScore === 5 || minScore === 6)) {
-            if (minScore === 6) {
-              Alert.alert(
-                t('recordScore.alerts.notice'),
-                `${t('recordScore.alerts.tiebreakRequired76')} ${i + 1}`
-              );
-              return false;
-            }
-          } else {
-            Alert.alert(
-              t('recordScore.alerts.notice'),
-              `${t('recordScore.alerts.invalidPickleballScore')} ${i + 1}`
-            );
-            return false;
-          }
-        } else {
-          Alert.alert(
-            t('recordScore.alerts.notice'),
-            `${t('recordScore.alerts.minGamesRequired')} ${i + 1}`
-          );
-          return false;
-        }
+      // 승리 조건 검증: targetScore 이상 + 2점 차이
+      if (maxScore < targetScore) {
+        Alert.alert(
+          t('recordScore.alerts.notice'),
+          `${t('recordScore.alerts.pickleballMinScoreRequired')} ${targetScore} (${t('recordScore.alerts.game')} ${i + 1})`
+        );
+        return false;
       }
 
-      completedSets++;
-    }
+      if (diff < 2) {
+        Alert.alert(
+          t('recordScore.alerts.notice'),
+          `${t('recordScore.alerts.pickleballWinBy2')} (${t('recordScore.alerts.game')} ${i + 1})`
+        );
+        return false;
+      }
 
-    if (completedSets === 0) {
-      Alert.alert(t('recordScore.alerts.notice'), t('recordScore.alerts.minOneSetRequired'));
-      return false;
-    }
-
-    if (completedSets < 2) {
-      Alert.alert(t('recordScore.alerts.notice'), t('recordScore.alerts.minTwoSetsRequired'));
-      return false;
+      // 연장전 점수 검증 (targetScore 이상에서 win by 2)
+      if (maxScore > targetScore && minScore < targetScore - 1) {
+        // 예: 15-10에서 15점 게임일 때 - 10은 13보다 작으므로 유효
+        // 예: 13-11에서 11점 게임일 때 - 유효 (11-9, 12-10, 13-11...)
+      }
     }
 
     return true;
   };
 
   const handleSubmit = () => {
-    console.log('🎾 [LeagueScoreInputModal] handleSubmit called with:', {
+    console.log('🏓 [LeagueScoreInputModal] handleSubmit called with:', {
       match: match
         ? {
             id: match.id,
             player1Id: match.player1Id,
             player2Id: match.player2Id,
-            player1Name: match.player1Name,
-            player2Name: match.player2Name,
-            fullMatch: match,
           }
         : null,
-      matchWinner: matchWinner
-        ? {
-            id: matchWinner.id,
-            name: matchWinner.name,
-          }
-        : null,
-      matchLoser: matchLoser
-        ? {
-            id: matchLoser.id,
-            name: matchLoser.name,
-          }
-        : null,
-      scoreSets: scoreSets,
+      matchWinner,
+      matchLoser,
+      games,
       retired,
       walkover,
       manualWinner,
-      validationPassed: validateScore(),
+      matchFormat,
+      targetScore,
     });
 
     // 기권/부전승 시 승자 필수 확인
@@ -513,16 +395,10 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
     // 기권/부전승이 아닐 때는 점수 검증
     if (!retired && !walkover) {
       if (!validateScore() || !match || !matchWinner || !matchLoser) {
-        console.log('❌ [LeagueScoreInputModal] Validation failed:', {
-          validateScore: validateScore(),
-          hasMatch: !!match,
-          hasMatchWinner: !!matchWinner,
-          hasMatchLoser: !!matchLoser,
-        });
+        console.log('❌ [LeagueScoreInputModal] Validation failed');
         return;
       }
     } else {
-      // 기권/부전승 시 수동 선택된 승자 사용
       if (!match || !manualWinner) {
         Alert.alert(t('recordScore.alerts.notice'), t('recordScore.alerts.invalidMatchInfo'));
         return;
@@ -537,22 +413,17 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
       setMatchLoser({ id: loserId, name: loserName });
     }
 
-    // 매치 ID 유효성 검사
     if (!match.id || match.id.trim() === '') {
-      console.error('❌ [LeagueScoreInputModal] Invalid match ID:', {
-        matchId: match.id,
-        match: match,
-      });
       Alert.alert(t('recordScore.alerts.error'), t('recordScore.alerts.invalidMatchInfo'));
       return;
     }
 
-    // Convert scoreSets format to the expected format
-    const formattedSets = scoreSets
-      .filter(set => set.player1.trim() && set.player2.trim())
-      .map(set => ({
-        player1Games: parseInt(set.player1) || 0,
-        player2Games: parseInt(set.player2) || 0,
+    // 🏓 피클볼 점수 포맷으로 변환
+    const formattedGames = games
+      .filter(game => game.player1.trim() && game.player2.trim())
+      .map(game => ({
+        player1Games: parseInt(game.player1) || 0,
+        player2Games: parseInt(game.player2) || 0,
       }));
 
     const result = {
@@ -560,7 +431,9 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
       winnerId: matchWinner!.id,
       loserId: matchLoser!.id,
       score: retired || walkover ? (retired ? 'Retired' : 'Walkover') : formatScore(),
-      sets: retired || walkover ? [] : formattedSets,
+      sets: retired || walkover ? [] : formattedGames,
+      matchFormat,
+      targetScore,
       retired,
       walkover,
     };
@@ -570,70 +443,77 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
     onSubmit(result as any);
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const renderScoreInput = (setIndex: number, setLabel: string) => {
+  // 🏓 피클볼 점수 입력 렌더링
+  const renderGameInput = (gameIndex: number) => {
     if (!match) return null;
 
     const isPlayer1Winner = matchWinner?.id === match.player1Id;
     const isPlayer2Winner = matchWinner?.id === match.player2Id;
-
-    const currentSet = scoreSets[setIndex];
-    const isStandardTiebreak = currentSet.player1 === '6' && currentSet.player2 === '6';
-    const showTiebreak = isStandardTiebreak;
-
-    let tiebreakType = 'standard';
-    let tiebreakPlaceholder = t('recordScore.tiebreak7pt');
-
-    if (setIndex === 2 && isStandardTiebreak) {
-      tiebreakType = 'super';
-      tiebreakPlaceholder = t('recordScore.tiebreakSuper');
-    }
+    const currentGame = games[gameIndex];
+    const gameWinner = getGameWinner(currentGame);
 
     return (
-      <View key={setIndex} style={styles.scoreSetContainer}>
-        <Text style={styles.setLabel}>{`${t('recordScore.set')} ${setIndex + 1}`}</Text>
+      <View key={gameIndex} style={styles.gameContainer}>
+        <Text style={styles.gameLabel}>
+          {matchFormat === 'single_game'
+            ? t('recordScore.game')
+            : `${t('recordScore.game')} ${gameIndex + 1}`}
+        </Text>
 
         <View style={styles.scoreInputRow}>
           <View style={styles.playerInputContainer}>
             <View style={styles.playerLabelContainer}>
-              {/* 🎯 [KIM FIX] 복식: 각 선수 이름을 개별 truncate */}
               {splitDoublesName(match.player1Name) ? (
                 <View style={styles.doublesNameContainer}>
                   <Text
-                    style={[styles.playerLabel, isPlayer1Winner && styles.winnerLabel]}
+                    style={[
+                      styles.playerLabel,
+                      (isPlayer1Winner || gameWinner === 'player1') && styles.winnerLabel,
+                    ]}
                     numberOfLines={1}
-                    ellipsizeMode='tail'
+                    ellipsizeMode="tail"
                   >
                     {splitDoublesName(match.player1Name)!.player1}
                   </Text>
                   <Text style={styles.doublesSlash}>/</Text>
                   <Text
-                    style={[styles.playerLabel, isPlayer1Winner && styles.winnerLabel]}
+                    style={[
+                      styles.playerLabel,
+                      (isPlayer1Winner || gameWinner === 'player1') && styles.winnerLabel,
+                    ]}
                     numberOfLines={1}
-                    ellipsizeMode='tail'
+                    ellipsizeMode="tail"
                   >
                     {splitDoublesName(match.player1Name)!.player2}
                   </Text>
                 </View>
               ) : (
-                <Text style={[styles.playerLabel, isPlayer1Winner && styles.winnerLabel]}>
+                <Text
+                  style={[
+                    styles.playerLabel,
+                    (isPlayer1Winner || gameWinner === 'player1') && styles.winnerLabel,
+                  ]}
+                >
                   {match.player1Name}
                 </Text>
               )}
-              {isPlayer1Winner && <Text style={styles.winnerIcon}>👑</Text>}
+              {(isPlayer1Winner || gameWinner === 'player1') && (
+                <Text style={styles.winnerIcon}>👑</Text>
+              )}
             </View>
-            <TextInput
-              disabled={retired || walkover}
-              value={scoreSets[setIndex].player1}
-              onChangeText={value => updateScore(setIndex, 'player1', value)}
+            <RNTextInput
+              editable={!retired && !walkover}
+              value={currentGame.player1}
+              onChangeText={value => updateScore(gameIndex, 'player1', value)}
               style={[
                 styles.scoreInput,
-                isPlayer1Winner && styles.winnerScoreInput,
+                gameWinner === 'player1' && styles.winnerScoreInput,
                 (retired || walkover) && styles.disabledInput,
               ]}
-              keyboardType='numeric'
-              maxLength={1}
-              dense
+              keyboardType="numeric"
+              maxLength={2}
+              placeholder={targetScore.toString()}
+              placeholderTextColor={themeColors.colors.onSurfaceVariant}
               selectTextOnFocus
             />
           </View>
@@ -642,154 +522,71 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
 
           <View style={styles.playerInputContainer}>
             <View style={styles.playerLabelContainer}>
-              {/* 🎯 [KIM FIX] 복식: 각 선수 이름을 개별 truncate */}
               {splitDoublesName(match.player2Name) ? (
                 <View style={styles.doublesNameContainer}>
                   <Text
-                    style={[styles.playerLabel, isPlayer2Winner && styles.winnerLabel]}
+                    style={[
+                      styles.playerLabel,
+                      (isPlayer2Winner || gameWinner === 'player2') && styles.winnerLabel,
+                    ]}
                     numberOfLines={1}
-                    ellipsizeMode='tail'
+                    ellipsizeMode="tail"
                   >
                     {splitDoublesName(match.player2Name)!.player1}
                   </Text>
                   <Text style={styles.doublesSlash}>/</Text>
                   <Text
-                    style={[styles.playerLabel, isPlayer2Winner && styles.winnerLabel]}
+                    style={[
+                      styles.playerLabel,
+                      (isPlayer2Winner || gameWinner === 'player2') && styles.winnerLabel,
+                    ]}
                     numberOfLines={1}
-                    ellipsizeMode='tail'
+                    ellipsizeMode="tail"
                   >
                     {splitDoublesName(match.player2Name)!.player2}
                   </Text>
                 </View>
               ) : (
-                <Text style={[styles.playerLabel, isPlayer2Winner && styles.winnerLabel]}>
+                <Text
+                  style={[
+                    styles.playerLabel,
+                    (isPlayer2Winner || gameWinner === 'player2') && styles.winnerLabel,
+                  ]}
+                >
                   {match.player2Name}
                 </Text>
               )}
-              {isPlayer2Winner && <Text style={styles.winnerIcon}>👑</Text>}
+              {(isPlayer2Winner || gameWinner === 'player2') && (
+                <Text style={styles.winnerIcon}>👑</Text>
+              )}
             </View>
-            <TextInput
-              disabled={retired || walkover}
-              value={scoreSets[setIndex].player2}
-              onChangeText={value => updateScore(setIndex, 'player2', value)}
+            <RNTextInput
+              editable={!retired && !walkover}
+              value={currentGame.player2}
+              onChangeText={value => updateScore(gameIndex, 'player2', value)}
               style={[
                 styles.scoreInput,
-                isPlayer2Winner && styles.winnerScoreInput,
+                gameWinner === 'player2' && styles.winnerScoreInput,
                 (retired || walkover) && styles.disabledInput,
               ]}
-              keyboardType='numeric'
-              maxLength={1}
-              dense
+              keyboardType="numeric"
+              maxLength={2}
+              placeholder={targetScore.toString()}
+              placeholderTextColor={themeColors.colors.onSurfaceVariant}
               selectTextOnFocus
             />
           </View>
         </View>
 
-        {showTiebreak && (
-          <View style={styles.tiebreakContainer}>
-            <Text style={styles.tiebreakLabel}>
-              {`${t('recordScore.tiebreakLabel')} (${tiebreakPlaceholder})`}
-            </Text>
-            <View style={styles.tiebreakInputRow}>
-              <View style={styles.tiebreakPlayerContainer}>
-                {/* 🎯 [KIM FIX] 복식: 타이브레이크 선수 이름 개별 truncate */}
-                {splitDoublesName(match.player1Name) ? (
-                  <View style={styles.tiebreakDoublesNameContainer}>
-                    <Text
-                      style={[styles.tiebreakPlayerLabel, isPlayer1Winner && styles.winnerLabel]}
-                      numberOfLines={1}
-                      ellipsizeMode='tail'
-                    >
-                      {splitDoublesName(match.player1Name)!.player1}
-                    </Text>
-                    <Text style={styles.tiebreakDoublesSlash}>/</Text>
-                    <Text
-                      style={[styles.tiebreakPlayerLabel, isPlayer1Winner && styles.winnerLabel]}
-                      numberOfLines={1}
-                      ellipsizeMode='tail'
-                    >
-                      {splitDoublesName(match.player1Name)!.player2}
-                    </Text>
-                  </View>
-                ) : (
-                  <Text style={[styles.tiebreakPlayerLabel, isPlayer1Winner && styles.winnerLabel]}>
-                    {match.player1Name}
-                  </Text>
-                )}
-                <View style={styles.tiebreakInputWrapper}>
-                  <Text style={styles.tiebreakBpaddle}>(</Text>
-                  <RNTextInput
-                    editable={!retired && !walkover}
-                    value={currentSet.player1_tb || ''}
-                    onChangeText={value => updateScore(setIndex, 'player1_tb', value)}
-                    style={[
-                      styles.tiebreakInput,
-                      isPlayer1Winner && styles.winnerScoreInput,
-                      (retired || walkover) && styles.disabledInput,
-                    ]}
-                    keyboardType='numeric'
-                    maxLength={2}
-                    placeholder={tiebreakType === 'super' ? '10' : '7'}
-                    placeholderTextColor={themeColors.colors.onSurfaceVariant}
-                    selectTextOnFocus={true}
-                  />
-                  <Text style={styles.tiebreakBpaddle}>)</Text>
-                </View>
-              </View>
-
-              <Text style={styles.tiebreakSeparator}>-</Text>
-
-              <View style={styles.tiebreakPlayerContainer}>
-                {/* 🎯 [KIM FIX] 복식: 타이브레이크 선수 이름 개별 truncate */}
-                {splitDoublesName(match.player2Name) ? (
-                  <View style={styles.tiebreakDoublesNameContainer}>
-                    <Text
-                      style={[styles.tiebreakPlayerLabel, isPlayer2Winner && styles.winnerLabel]}
-                      numberOfLines={1}
-                      ellipsizeMode='tail'
-                    >
-                      {splitDoublesName(match.player2Name)!.player1}
-                    </Text>
-                    <Text style={styles.tiebreakDoublesSlash}>/</Text>
-                    <Text
-                      style={[styles.tiebreakPlayerLabel, isPlayer2Winner && styles.winnerLabel]}
-                      numberOfLines={1}
-                      ellipsizeMode='tail'
-                    >
-                      {splitDoublesName(match.player2Name)!.player2}
-                    </Text>
-                  </View>
-                ) : (
-                  <Text style={[styles.tiebreakPlayerLabel, isPlayer2Winner && styles.winnerLabel]}>
-                    {match.player2Name}
-                  </Text>
-                )}
-                <View style={styles.tiebreakInputWrapper}>
-                  <Text style={styles.tiebreakBpaddle}>(</Text>
-                  <RNTextInput
-                    editable={!retired && !walkover}
-                    value={currentSet.player2_tb || ''}
-                    onChangeText={value => updateScore(setIndex, 'player2_tb', value)}
-                    style={[
-                      styles.tiebreakInput,
-                      isPlayer2Winner && styles.winnerScoreInput,
-                      (retired || walkover) && styles.disabledInput,
-                    ]}
-                    keyboardType='numeric'
-                    maxLength={2}
-                    placeholder={tiebreakType === 'super' ? '10' : '7'}
-                    placeholderTextColor={themeColors.colors.onSurfaceVariant}
-                    selectTextOnFocus={true}
-                  />
-                  <Text style={styles.tiebreakBpaddle}>)</Text>
-                </View>
-              </View>
-            </View>
-
-            <Text style={styles.tiebreakHint}>
-              {tiebreakType === 'super'
-                ? t('recordScore.tiebreakHintSuper')
-                : t('recordScore.tiebreakHintStandard')}
+        {/* 🏓 게임 승자 표시 */}
+        {gameWinner && (
+          <View style={styles.gameWinnerBadge}>
+            <Text style={styles.gameWinnerText}>
+              🏆{' '}
+              {gameWinner === 'player1'
+                ? match.player1Name.split(' / ')[0]
+                : match.player2Name.split(' / ')[0]}{' '}
+              {t('recordScore.winsGame')}
             </Text>
           </View>
         )}
@@ -805,13 +602,13 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
   return (
     <Modal
       visible={visible}
-      animationType='slide'
-      presentationStyle='pageSheet'
+      animationType="slide"
+      presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
       <SafeAreaView style={styles.container}>
         <View style={styles.header}>
-          <IconButton icon='close' size={24} onPress={onClose} style={styles.closeButton} />
+          <IconButton icon="close" size={24} onPress={onClose} style={styles.closeButton} />
           <Title style={styles.title}>{t('recordScore.title')}</Title>
           <View style={styles.placeholder} />
         </View>
@@ -833,6 +630,43 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
             </Card.Content>
           </Card>
 
+          {/* 🏓 Match Settings */}
+          <Card style={styles.sectionCard}>
+            <Card.Content>
+              <Text style={styles.sectionTitle}>{t('recordScore.matchSettings')}</Text>
+
+              {/* Match Format */}
+              <Text style={styles.settingLabel}>{t('recordScore.matchFormat')}</Text>
+              <SegmentedButtons
+                value={matchFormat}
+                onValueChange={value => setMatchFormat(value as MatchFormat)}
+                buttons={[
+                  { value: 'single_game', label: t('recordScore.singleGame') },
+                  { value: 'best_of_3', label: t('recordScore.bestOf3') },
+                ]}
+                style={styles.segmentedButtons}
+              />
+
+              {/* Target Score */}
+              <Text style={[styles.settingLabel, { marginTop: 16 }]}>
+                {t('recordScore.targetScore')}
+              </Text>
+              <SegmentedButtons
+                value={targetScore.toString()}
+                onValueChange={value => setTargetScore(parseInt(value) as TargetScore)}
+                buttons={[
+                  { value: '11', label: '11 ' + t('recordScore.points') },
+                  { value: '15', label: '15 ' + t('recordScore.points') },
+                ]}
+                style={styles.segmentedButtons}
+              />
+
+              <Text style={styles.settingHint}>
+                {t('recordScore.pickleballWinBy2Hint')}
+              </Text>
+            </Card.Content>
+          </Card>
+
           {/* Score Input */}
           <Card style={styles.sectionCard}>
             <Card.Content>
@@ -841,12 +675,12 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
               </View>
 
               <Text style={styles.sectionDescription}>
-                {t('recordScore.scoreInputDescription')}
+                {t('recordScore.pickleballScoreInputDescription')}
               </Text>
 
               <View style={styles.scoreContainer}>
-                {Array.from({ length: calculateSetsToDisplay() }, (_, index) =>
-                  renderScoreInput(index, `${t('recordScore.set')} ${index + 1}`)
+                {Array.from({ length: calculateGamesToDisplay() }, (_, index) =>
+                  renderGameInput(index)
                 )}
               </View>
 
@@ -917,7 +751,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
                     >
                       <RadioButton.Item
                         label={match.player1Name}
-                        value='player1'
+                        value="player1"
                         color={themeColors.colors.primary}
                         labelStyle={[
                           styles.radioButtonLabel,
@@ -933,7 +767,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
                     >
                       <RadioButton.Item
                         label={match.player2Name}
-                        value='player2'
+                        value="player2"
                         color={themeColors.colors.primary}
                         labelStyle={[
                           styles.radioButtonLabel,
@@ -955,7 +789,7 @@ const LeagueScoreInputModal: React.FC<LeagueScoreInputModalProps> = ({
           {/* Submit Button */}
           <View style={styles.submitContainer}>
             <Button
-              mode='contained'
+              mode="contained"
               onPress={handleSubmit}
               loading={submitting}
               disabled={submitting || !matchWinner || !matchLoser}
@@ -1036,16 +870,33 @@ const createStyles = (colors: Record<string, string>, isDarkMode: boolean) =>
       fontSize: 14,
       color: colors.onSurfaceVariant,
     },
+    settingLabel: {
+      fontSize: 14,
+      fontWeight: '500',
+      color: colors.onSurfaceVariant,
+      marginBottom: 8,
+    },
+    settingHint: {
+      fontSize: 12,
+      color: colors.onSurfaceVariant,
+      marginTop: 12,
+      fontStyle: 'italic',
+      textAlign: 'center',
+    },
+    segmentedButtons: {
+      marginVertical: 4,
+    },
     scoreHeader: {
       marginBottom: 8,
     },
     scoreContainer: {
-      gap: 16,
+      gap: 20,
     },
-    scoreSetContainer: {
+    gameContainer: {
       alignItems: 'center',
+      paddingVertical: 8,
     },
-    setLabel: {
+    gameLabel: {
       fontSize: 16,
       fontWeight: '600',
       color: colors.onSurface,
@@ -1080,19 +931,38 @@ const createStyles = (colors: Record<string, string>, isDarkMode: boolean) =>
       marginLeft: 4,
     },
     scoreInput: {
-      backgroundColor: colors.surface,
+      width: 70,
+      height: 50,
+      backgroundColor: colors.surfaceVariant,
+      borderWidth: 1,
+      borderColor: colors.outline,
+      borderRadius: 12,
       textAlign: 'center',
-      width: 80,
+      fontSize: 20,
+      fontWeight: '600',
+      color: colors.onSurface,
     },
     winnerScoreInput: {
       backgroundColor: isDarkMode ? colors.warningContainer : '#FFF8DC',
       borderWidth: 2,
-      borderColor: colors.lightning,
+      borderColor: '#FFD700',
     },
     scoreSeparator: {
       fontSize: 24,
       fontWeight: 'bold',
       color: colors.onSurface,
+    },
+    gameWinnerBadge: {
+      marginTop: 8,
+      paddingHorizontal: 12,
+      paddingVertical: 4,
+      backgroundColor: isDarkMode ? '#2E7D32' : '#E8F5E9',
+      borderRadius: 16,
+    },
+    gameWinnerText: {
+      fontSize: 12,
+      fontWeight: '600',
+      color: isDarkMode ? '#A5D6A7' : '#2E7D32',
     },
     scorePreview: {
       marginTop: 20,
@@ -1135,75 +1005,6 @@ const createStyles = (colors: Record<string, string>, isDarkMode: boolean) =>
       color: colors.onSurfaceVariant,
       fontStyle: 'italic',
       fontWeight: '500',
-    },
-    tiebreakContainer: {
-      marginTop: 16,
-      padding: 16,
-      backgroundColor: colors.surfaceVariant,
-      borderRadius: 12,
-      borderWidth: 2,
-      borderColor: colors.outline,
-      borderStyle: 'dashed',
-    },
-    tiebreakLabel: {
-      fontSize: 16,
-      fontWeight: '600',
-      color: colors.primary,
-      textAlign: 'center',
-      marginBottom: 12,
-    },
-    tiebreakInputRow: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      marginBottom: 8,
-    },
-    tiebreakPlayerContainer: {
-      flex: 1,
-      alignItems: 'center',
-    },
-    tiebreakPlayerLabel: {
-      fontSize: 12,
-      color: colors.onSurfaceVariant,
-      fontWeight: '500',
-      marginBottom: 4,
-    },
-    tiebreakInputWrapper: {
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
-    tiebreakBpaddle: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      color: colors.primary,
-      marginHorizontal: 2,
-    },
-    tiebreakInput: {
-      width: 40,
-      height: 40,
-      backgroundColor: colors.surface,
-      borderWidth: 1,
-      borderColor: colors.primary,
-      borderRadius: 8,
-      textAlign: 'center',
-      textAlignVertical: 'center',
-      fontSize: 16,
-      fontWeight: '600',
-      paddingHorizontal: 0,
-      paddingVertical: 0,
-      color: colors.onSurface,
-    },
-    tiebreakSeparator: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: colors.primary,
-      marginHorizontal: 16,
-    },
-    tiebreakHint: {
-      fontSize: 12,
-      color: colors.onSurfaceVariant,
-      textAlign: 'center',
-      fontStyle: 'italic',
     },
     submitContainer: {
       marginTop: 24,
@@ -1278,7 +1079,6 @@ const createStyles = (colors: Record<string, string>, isDarkMode: boolean) =>
       fontWeight: '700',
       color: colors.primary,
     },
-    // 🎯 [KIM FIX] 복식 선수 이름 스타일
     doublesNameContainer: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -1289,18 +1089,6 @@ const createStyles = (colors: Record<string, string>, isDarkMode: boolean) =>
       fontSize: 14,
       color: colors.onSurfaceVariant,
       marginHorizontal: 2,
-    },
-    tiebreakDoublesNameContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      flexWrap: 'nowrap',
-      maxWidth: 100,
-      marginBottom: 4,
-    },
-    tiebreakDoublesSlash: {
-      fontSize: 12,
-      color: colors.onSurfaceVariant,
-      marginHorizontal: 1,
     },
   });
 

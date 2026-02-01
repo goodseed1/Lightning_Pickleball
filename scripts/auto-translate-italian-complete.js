@@ -67,7 +67,7 @@ const italianDictionary = {
 
   // Tournament terms
   Seed: 'Testa di Serie',
-  Bpaddle: 'Tabellone',
+  Bracket: 'Tabellone',
   Tournament: 'Torneo',
   League: 'Lega',
   Generate: 'Genera',

@@ -60,7 +60,7 @@ const PlayerStatsCard: React.FC<PlayerStatsCardProps> = ({
 
   const stats = playerData.stats;
   const winRate = stats.totalMatches > 0 ? (stats.wins / stats.totalMatches) * 100 : 0;
-  const eloTier = eloRatingService.getRatingTier(stats.eloRating || 1200);
+  const eloTier = eloRatingService.getRatingTier(stats.eloRating || 1200) as { color: string; icon: string; name: string };
 
   const renderOverviewTab = () => (
     <ScrollView style={styles.tabContent} showsVerticalScrollIndicator={false}>

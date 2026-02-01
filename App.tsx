@@ -111,7 +111,7 @@ export default function App() {
         // Configure Google Sign-In
         GoogleSignin.configure({
           webClientId: process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID || '',
-          iosClientId: '815594051044-73ah5eiak4klp7ofgj488ih3f4g97kct.apps.googleusercontent.com',
+          iosClientId: '810250734076-7tncklkuvijeaj88ts9cap20mmj4cann.apps.googleusercontent.com',
         });
         console.log('✅ APP: Google Sign-In configured');
 

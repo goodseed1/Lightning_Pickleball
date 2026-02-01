@@ -38,7 +38,7 @@ jest.mock('firebase/auth', () => ({
   signOut: jest.fn(),
 }));
 
-import { searchEvents, SearchFilters } from '../eventService.ts';
+import { searchEvents, SearchFilters } from '../eventService';
 import { getDocs } from 'firebase/firestore';
 
 describe('eventService', () => {

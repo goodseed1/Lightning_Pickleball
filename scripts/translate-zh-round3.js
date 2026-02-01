@@ -79,8 +79,8 @@ const zhTranslations = {
     },
     loading: {
       league: '加载联赛信息中...',
-      generatingBpaddle: '生成对阵表中...',
-      generatingBpaddleSubtitle: '联赛即将开始',
+      generatingBracket: '生成对阵表中...',
+      generatingBracketSubtitle: '联赛即将开始',
     },
     errors: {
       leagueNotFound: '未找到联赛',
@@ -103,7 +103,7 @@ const zhTranslations = {
     },
     leagueManagement: {
       title: '联赛管理',
-      generateBpaddleButton: '生成对阵表并开始联赛',
+      generateBracketButton: '生成对阵表并开始联赛',
       dangerZoneTitle: '危险区域',
       minParticipantsDoubles: '双打联赛需要至少2支队伍（4名球员）。当前：{{count}}名球员',
     },
@@ -173,7 +173,7 @@ const zhTranslations = {
       assignSeeds: '分配种子',
       completeAssignment: '完成分配',
       crownWinner: '加冕冠军',
-      generateBpaddle: '生成对阵表中...',
+      generateBracket: '生成对阵表中...',
     },
     stats: {
       champion: '冠军：',

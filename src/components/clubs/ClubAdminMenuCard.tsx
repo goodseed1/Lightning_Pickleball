@@ -153,7 +153,7 @@ const ClubAdminMenuCard: React.FC<ClubAdminMenuCardProps> = ({
   const themeColors = getLightningPickleballTheme(currentTheme);
 
   // Apply bulletproof dynamic styling pattern with useMemo
-  const styles = React.useMemo(() => createStyles(themeColors.colors), [themeColors.colors]);
+  const styles = React.useMemo(() => createStyles(themeColors.colors as unknown as Record<string, string>), [themeColors.colors]);
 
   const menuItems = [
     {

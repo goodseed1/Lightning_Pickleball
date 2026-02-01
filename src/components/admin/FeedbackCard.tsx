@@ -53,7 +53,7 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({
   const { theme } = useTheme();
   const { t } = useLanguage();
   const themeColors = getLightningPickleballTheme(theme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
   const [expanded, setExpanded] = useState(false);
   const [showResponseInput, setShowResponseInput] = useState(false);
   const [responseText, setResponseText] = useState('');
@@ -343,7 +343,7 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({
   );
 };
 
-const createStyles = (colors: Record<string, string | object>) =>
+const createStyles = (colors: Record<string, string>) =>
   StyleSheet.create({
     // 🎨 [DARK GLASS] Card Style
     darkGlassCard: {

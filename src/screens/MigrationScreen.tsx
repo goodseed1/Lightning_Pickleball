@@ -169,7 +169,7 @@ const MigrationScreen = () => {
             <Text style={styles.resultText}>Club Matches: {result.stats?.clubMatches || 0}</Text>
             <Text style={styles.resultText}>Errors: {result.stats?.errors || 0}</Text>
 
-            {result.stats?.errorMessages?.length > 0 && (
+            {(result.stats?.errorMessages?.length ?? 0) > 0 && (
               <View style={styles.errorsBox}>
                 <Text style={styles.errorsTitle}>Errors:</Text>
                 {}

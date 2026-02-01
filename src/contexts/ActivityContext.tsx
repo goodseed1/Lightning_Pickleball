@@ -22,7 +22,8 @@ type ApplicationStatus =
   | 'cancelled_by_host'
   | 'looking_for_partner' // Solo lobby status
   | 'pending_partner_approval' // Team application waiting for partner
-  | 'closed'; // 🎯 [KIM FIX] Solo application closed when another team is approved
+  | 'closed' // 🎯 [KIM FIX] Solo application closed when another team is approved
+  | 'merged'; // 🎯 [KIM FIX] Merged into another application
 
 interface Application {
   id: string;
@@ -33,6 +34,8 @@ interface Application {
   updatedAt: Date | string | { seconds: number; nanoseconds: number };
   // 🎯 [KIM FIX] Partner status for team applications
   partnerStatus?: 'pending' | 'accepted' | 'rejected';
+  // 🎯 [KIM FIX] Partner ID for team applications
+  partnerId?: string;
   // 🎯 [SOLO LOBBY] Team proposal from another solo applicant
   pendingProposalFrom?: string;
 }

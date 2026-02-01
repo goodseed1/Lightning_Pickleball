@@ -116,7 +116,7 @@ console.log('\n📊 Completed translations:');
 console.log('  - leagueDetail.genderLabels: Male/Female labels');
 console.log('  - clubTournamentManagement.deletion: Tournament deletion flow');
 console.log('  - clubTournamentManagement.participantRemoval: Participant removal');
-console.log('  - clubTournamentManagement.bpaddleDeletion: Bpaddle deletion');
+console.log('  - clubTournamentManagement.bpaddleDeletion: Bracket deletion');
 console.log('  - clubTournamentManagement.crownWinner: Winner coronation');
 console.log('  - clubTournamentManagement.tournamentStatus: All status labels');
 console.log('  - clubTournamentManagement.notifications: Tournament notifications');

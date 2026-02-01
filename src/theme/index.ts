@@ -165,7 +165,7 @@ const darkShadows = {
   }),
 };
 
-// ==================== LIGHTNING TENNIS THEMES ====================
+// ==================== LIGHTNING PICKLEBALL THEMES ====================
 
 /**
  * Lightning Pickleball Light Theme

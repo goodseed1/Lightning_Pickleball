@@ -286,7 +286,7 @@ const EditClubPolicyScreen = () => {
   };
 
   // Dynamic styles
-  const styles = useMemo(() => createStyles(themeColors.colors), [themeColors.colors]);
+  const styles = useMemo(() => createStyles(themeColors.colors as unknown as Record<string, string>), [themeColors.colors]);
 
   if (loading) {
     return (

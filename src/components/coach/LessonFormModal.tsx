@@ -154,12 +154,14 @@ const LessonFormModal: React.FC<LessonFormModalProps> = ({
       const userLocation = currentUser.profile?.location;
       let coordinates: LessonLocation | undefined;
 
-      if (userLocation?.coordinates?.latitude && userLocation?.coordinates?.longitude) {
+      const lat = userLocation?.latitude ?? userLocation?.lat;
+      const lng = userLocation?.longitude ?? userLocation?.lng;
+      if (lat && lng) {
         coordinates = {
-          latitude: userLocation.coordinates.latitude,
-          longitude: userLocation.coordinates.longitude,
-          city: userLocation.city,
-          country: userLocation.country,
+          latitude: lat,
+          longitude: lng,
+          city: userLocation?.city,
+          country: userLocation?.country,
         };
       }
       // GPS 좌표 없으면 coordinates를 저장하지 않음 (ServiceFormModal과 동일)
@@ -187,15 +189,15 @@ const LessonFormModal: React.FC<LessonFormModalProps> = ({
       } else {
         // 생성
         const displayName =
-          currentUser.profile?.displayName || currentUser.displayName || 'Unknown';
+          (currentUser.profile as unknown as { displayName?: string })?.displayName || currentUser.displayName || 'Unknown';
         const photoURL = currentUser.photoURL || undefined;
 
         // 🎯 [KIM FIX] Author 좌표 추출 - 거리 기반 필터링을 위해 필요
-        const authorCoordinates = currentUser.profile?.location?.latitude
-          ? {
-              latitude: currentUser.profile.location.latitude,
-              longitude: currentUser.profile.location.longitude,
-            }
+        const loc = currentUser.profile?.location;
+        const authorLat = loc?.latitude ?? loc?.lat;
+        const authorLng = loc?.longitude ?? loc?.lng;
+        const authorCoordinates = authorLat && authorLng
+          ? { latitude: authorLat, longitude: authorLng }
           : undefined;
 
         await coachLessonService.createLesson(

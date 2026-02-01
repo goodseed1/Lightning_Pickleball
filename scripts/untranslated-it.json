@@ -456,7 +456,7 @@
     "enValue": "Doubles requires even number of participants (current: {{count}})"
   },
   {
-    "key": "clubTournamentManagement.management.generateBpaddleInstructions",
+    "key": "clubTournamentManagement.management.generateBracketInstructions",
     "enValue": "Generate bpaddle using {{method}} seeding and start the tournament"
   },
   {
@@ -2140,7 +2140,7 @@
     "enValue": "Applications will appear here in real-time"
   },
   {
-    "key": "leagueDetail.loading.generatingBpaddle",
+    "key": "leagueDetail.loading.generatingBracket",
     "enValue": "Generating bpaddle..."
   },
   {

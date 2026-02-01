@@ -147,7 +147,7 @@ const RewardIcon: React.FC<RewardIconProps> = ({ reward, size = 48, style, showG
       width: size + 16,
       height: size + 16,
     },
-    style,
+    ...(style ? [style] : []),
   ];
 
   if (showGlow) {

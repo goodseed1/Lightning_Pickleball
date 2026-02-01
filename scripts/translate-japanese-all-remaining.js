@@ -263,7 +263,7 @@ function autoTranslate(text) {
     Opponent: '対戦相手',
     Partner: 'パートナー',
     Round: 'ラウンド',
-    Bpaddle: 'トーナメント表',
+    Bracket: 'トーナメント表',
     Schedule: 'スケジュール',
     Venue: '会場',
     Practice: '練習',

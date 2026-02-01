@@ -72,7 +72,7 @@ const AchievementsGuideCard: React.FC<AchievementsGuideCardProps> = ({
     }
   };
 
-  const styles = createStyles(themeColors.colors, currentTheme);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>, currentTheme);
 
   // Group badges by category
   const badgesByCategory = useMemo(() => {

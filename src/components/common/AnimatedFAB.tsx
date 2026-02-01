@@ -7,10 +7,24 @@ import React from 'react';
 import * as Animatable from 'react-native-animatable';
 import { FAB, FABProps } from 'react-native-paper';
 
-interface AnimatedFABProps extends FABProps {
+interface AnimatedFABProps {
   animation?: string;
   duration?: number;
   iterationCount?: number | 'infinite';
+  // FAB required props
+  onPress?: () => void;
+  icon: string;
+  label?: string;
+  style?: object;
+  color?: string;
+  disabled?: boolean;
+  visible?: boolean;
+  loading?: boolean;
+  size?: 'small' | 'medium' | 'large';
+  mode?: 'flat' | 'elevated';
+  customSize?: number;
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'surface';
+  [key: string]: unknown;
 }
 
 export const AnimatedFAB: React.FC<AnimatedFABProps> = ({

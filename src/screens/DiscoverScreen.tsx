@@ -194,7 +194,7 @@ export default function DiscoverScreen() {
   const [showLessonFormModal, setShowLessonFormModal] = React.useState(false);
   const [editingLesson, setEditingLesson] = React.useState<CoachLesson | undefined>(undefined);
 
-  // 🛠️ [TENNIS SERVICES] Service form modal state
+  // 🛠️ [PICKLEBALL SERVICES] Service form modal state
   const [showServiceFormModal, setShowServiceFormModal] = React.useState(false);
   const [editingService, setEditingService] = React.useState<PickleballService | undefined>(undefined);
 
@@ -807,7 +807,7 @@ export default function DiscoverScreen() {
     />
   );
 
-  // 🛠️ [TENNIS SERVICES] Service card handlers
+  // 🛠️ [PICKLEBALL SERVICES] Service card handlers
   const handleEditService = (service: PickleballService) => {
     setEditingService(service);
     setShowServiceFormModal(true);
@@ -1344,7 +1344,7 @@ export default function DiscoverScreen() {
             </TouchableOpacity>
           )}
 
-          {/* 🛠️ [TENNIS SERVICES] Floating Action Button for creating services */}
+          {/* 🛠️ [PICKLEBALL SERVICES] Floating Action Button for creating services */}
           {filterType === 'services' && (
             <TouchableOpacity
               style={[styles.fab, { backgroundColor: themeColors.colors.primary }]}
@@ -1368,7 +1368,7 @@ export default function DiscoverScreen() {
             editLesson={editingLesson}
           />
 
-          {/* 🛠️ [TENNIS SERVICES] Service Form Modal */}
+          {/* 🛠️ [PICKLEBALL SERVICES] Service Form Modal */}
           <ServiceFormModal
             visible={showServiceFormModal}
             onClose={() => {

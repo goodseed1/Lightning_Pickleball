@@ -56,10 +56,32 @@ interface ClubNotification {
   createdAt: Timestamp;
   readAt?: Timestamp;
   dismissedAt?: Timestamp;
+  // 🎯 Extended notification data
+  data?: {
+    notificationType?: string;
+    actionRequired?: boolean;
+    deepLink?: string;
+    leagueName?: string;
+    clubName?: string;
+    tournamentName?: string;
+    eventTitle?: string;
+    memberName?: string;
+    newOwnerName?: string;
+    [key: string]: unknown;
+  };
+  leagueName?: string;
+  clubName?: string;
   metadata?: {
     notificationType?: string;
     actionRequired?: boolean;
     deepLink?: string;
+    leagueName?: string;
+    clubName?: string;
+    tournamentName?: string;
+    eventTitle?: string;
+    memberName?: string;
+    newOwnerName?: string;
+    [key: string]: unknown;
   };
 }
 
@@ -75,7 +97,7 @@ const ClubOverviewScreen: React.FC<ClubOverviewScreenProps> = ({
   const theme = useTheme();
   const { theme: currentTheme } = useLTTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
   const { announcement, isLoadingAnnouncement } = useClub();
   const { currentUser } = useAuth();
   const { t } = useLanguage();
@@ -637,7 +659,7 @@ const ClubOverviewScreen: React.FC<ClubOverviewScreenProps> = ({
                                   applicantName:
                                     notification.data?.applicantName ||
                                     notification.metadata?.applicantName ||
-                                    notification.applicantName ||
+                                    (notification as { applicantName?: string }).applicantName ||
                                     '',
                                   inviterName:
                                     notification.data?.inviterName ||
@@ -851,16 +873,14 @@ const ClubOverviewScreen: React.FC<ClubOverviewScreenProps> = ({
                     <TouchableOpacity
                       key={meetup.id}
                       style={styles.activityItem}
-                      onPress={() =>
-                        navigation.navigate(
-                          'MeetupDetail' as never,
-                          { meetupId: meetup.id, clubId } as never
-                        )
-                      }
+                      onPress={() => {
+                        // @ts-expect-error MeetupDetail navigation params
+                        navigation.navigate('MeetupDetail', { meetupId: meetup.id, clubId });
+                      }}
                       activeOpacity={0.7}
                     >
                       <View style={styles.activityIconContainer}>
-                        <Ionicons name='pickleballball' size={20} color={themeColors.colors.primary} />
+                        <Ionicons name='ellipse' size={20} color={themeColors.colors.primary} />
                       </View>
                       <View style={styles.activityContent}>
                         <PaperText variant='bodyMedium' style={styles.activityTitle}>
@@ -1093,12 +1113,10 @@ const ClubOverviewScreen: React.FC<ClubOverviewScreenProps> = ({
                         {/* 🎯 Admin Quick Action: Invite Members */}
                         <TouchableOpacity
                           style={styles.suggestionItemClickable}
-                          onPress={() =>
-                            navigation.navigate(
-                              'ClubMemberInvitation' as never,
-                              { clubId } as never
-                            )
-                          }
+                          onPress={() => {
+                            // @ts-expect-error ClubMemberInvitation navigation params
+                            navigation.navigate('ClubMemberInvitation', { clubId });
+                          }}
                           activeOpacity={0.7}
                         >
                           <Ionicons
@@ -1118,12 +1136,10 @@ const ClubOverviewScreen: React.FC<ClubOverviewScreenProps> = ({
                         {/* 🎯 Admin Quick Action: Create Tournament/League */}
                         <TouchableOpacity
                           style={styles.suggestionItemClickable}
-                          onPress={() =>
-                            navigation.navigate(
-                              'ClubTournamentManagement' as never,
-                              { clubId, clubName: clubProfile?.name } as never
-                            )
-                          }
+                          onPress={() => {
+                            // @ts-expect-error ClubTournamentManagement navigation params
+                            navigation.navigate('ClubTournamentManagement', { clubId, clubName: clubProfile?.name });
+                          }}
                           activeOpacity={0.7}
                         >
                           <Ionicons

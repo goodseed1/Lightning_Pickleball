@@ -67,7 +67,7 @@ const MemberDuesPaymentScreen: React.FC = () => {
   const { t, currentLanguage } = useLanguage();
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
   const { clubId, clubName } = route.params;
 
   // State

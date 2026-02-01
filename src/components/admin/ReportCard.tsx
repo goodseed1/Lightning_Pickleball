@@ -46,7 +46,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
   const { theme } = useTheme();
   const { t } = useTranslation();
   const themeColors = getLightningPickleballTheme(theme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
 
   const [expanded, setExpanded] = useState(false);
   const [showActionInput, setShowActionInput] = useState(false);
@@ -239,7 +239,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
       case 'chat':
         return (
           <View style={styles.snapshotContent}>
-            {snapshot.reportedUserName && (
+            {!!snapshot.reportedUserName && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   👤 {t('report.snapshot.reportedUser', 'Reported User')}:
@@ -247,7 +247,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
                 <Text style={styles.snapshotValue}>{String(snapshot.reportedUserName)}</Text>
               </View>
             )}
-            {snapshot.clubName && (
+            {!!snapshot.clubName && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   🏢 {t('report.snapshot.clubName', 'Club')}:
@@ -255,7 +255,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
                 <Text style={styles.snapshotValue}>{String(snapshot.clubName)}</Text>
               </View>
             )}
-            {snapshot.otherUserName && (
+            {!!snapshot.otherUserName && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   👤 {t('report.snapshot.chatWith', 'Chat with')}:
@@ -271,7 +271,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
                 <Text style={styles.snapshotValue}>{String(snapshot.messageCount)}</Text>
               </View>
             )}
-            {snapshot.conversationId && (
+            {!!snapshot.conversationId && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   🔗 {t('report.snapshot.conversationId', 'Conversation ID')}:
@@ -287,7 +287,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
       case 'user':
         return (
           <View style={styles.snapshotContent}>
-            {snapshot.nickname && (
+            {!!snapshot.nickname && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   👤 {t('report.snapshot.nickname', 'Nickname')}:
@@ -295,7 +295,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
                 <Text style={styles.snapshotValue}>{String(snapshot.nickname)}</Text>
               </View>
             )}
-            {snapshot.skillLevel && (
+            {!!snapshot.skillLevel && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   🏓 {t('report.snapshot.skillLevel', 'Skill Level')}:
@@ -303,7 +303,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
                 <Text style={styles.snapshotValue}>{String(snapshot.skillLevel)}</Text>
               </View>
             )}
-            {snapshot.gender && (
+            {!!snapshot.gender && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   📋 {t('report.snapshot.gender', 'Gender')}:
@@ -317,7 +317,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
       case 'event':
         return (
           <View style={styles.snapshotContent}>
-            {snapshot.title && (
+            {!!snapshot.title && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   📅 {t('report.snapshot.eventTitle', 'Event')}:
@@ -325,7 +325,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
                 <Text style={styles.snapshotValue}>{String(snapshot.title)}</Text>
               </View>
             )}
-            {snapshot.description && (
+            {!!snapshot.description && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   📝 {t('report.snapshot.description', 'Description')}:
@@ -341,7 +341,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
       case 'club':
         return (
           <View style={styles.snapshotContent}>
-            {snapshot.name && (
+            {!!snapshot.name && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   🏢 {t('report.snapshot.clubName', 'Club')}:
@@ -349,7 +349,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
                 <Text style={styles.snapshotValue}>{String(snapshot.name)}</Text>
               </View>
             )}
-            {snapshot.description && (
+            {!!snapshot.description && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   📝 {t('report.snapshot.description', 'Description')}:
@@ -366,7 +366,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
       case 'comment':
         return (
           <View style={styles.snapshotContent}>
-            {(snapshot.content || snapshot.text) && (
+            {!!(snapshot.content || snapshot.text) && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   📄 {t('report.snapshot.content', 'Content')}:
@@ -376,7 +376,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
                 </Text>
               </View>
             )}
-            {snapshot.authorName && (
+            {!!snapshot.authorName && (
               <View style={styles.snapshotRow}>
                 <Text style={styles.snapshotLabel}>
                   👤 {t('report.snapshot.author', 'Author')}:
@@ -666,7 +666,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
 
               {/* Chat Messages (if available) */}
               {report.targetType === 'chat' &&
-                ((report.targetSnapshot as Record<string, unknown>)?.recentMessages ||
+                !!((report.targetSnapshot as Record<string, unknown>)?.recentMessages ||
                   (report.targetSnapshot as Record<string, unknown>)?.reportedUserMessages) && (
                   <View style={styles.modalSection}>
                     <Text style={styles.modalSectionTitle}>
@@ -722,7 +722,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, onStatusChange, onUnban
   );
 };
 
-const createStyles = (colors: Record<string, string | object>) =>
+const createStyles = (colors: Record<string, string>) =>
   StyleSheet.create({
     // [DARK GLASS] Card Style
     darkGlassCard: {

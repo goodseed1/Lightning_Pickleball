@@ -65,7 +65,7 @@ const CreatePostScreen = () => {
         },
         currentUser.uid,
         currentUser.displayName || translate('common.unknownUser'),
-        currentUser.photoURL
+        currentUser.photoURL ?? undefined
       );
 
       Alert.alert(t('createPost.postCreated'), t('createPost.postCreatedSuccess'), [

@@ -55,6 +55,7 @@ import {
 type RootStackParamList = {
   EventChat: { eventId: string; eventTitle?: string };
   EditEvent: { eventId: string };
+  UserProfile: { userId: string };
   // 🎾 경기 분석용 ChatScreen 타입 추가
   ChatScreen: {
     autoAnalyzeEvent?: {

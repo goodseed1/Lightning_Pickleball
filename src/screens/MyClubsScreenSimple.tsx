@@ -158,6 +158,7 @@ const MyClubsScreenSimple = () => {
   }, [currentUser?.uid, userClubs]);
 
   const handleClubPress = (club: UserClub) => {
+    // @ts-expect-error ClubDetail navigation params
     navigation.navigate('ClubDetail', {
       clubId: club.clubId,
       userRole: club.role,
@@ -165,6 +166,7 @@ const MyClubsScreenSimple = () => {
   };
 
   const handleCreateClub = () => {
+    // @ts-expect-error CreateClub is on a different stack
     navigation.navigate('CreateClub');
   };
 

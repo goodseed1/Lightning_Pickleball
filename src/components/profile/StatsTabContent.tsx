@@ -7,7 +7,7 @@ import {
   useTheme as usePaperTheme,
 } from 'react-native-paper';
 import { MainScope, ClubFilter } from '../../types/stats';
-import { Language, useLanguage } from '../../contexts/LanguageContext';
+import { useLanguage, SupportedLanguage as Language } from '../../contexts/LanguageContext';
 import MatchSummaryCard from '../stats/MatchSummaryCard';
 import StatsChartsSection from '../stats/StatsChartsSection';
 import ClubFilterSelector from '../stats/ClubFilterSelector';

@@ -8959,7 +8959,7 @@
     "deleteLeague": "Удалить лигу",
     "deleteLeagueConfirm": "Вы уверены, что хотите удалить «{{leagueName}}»?\n\nЭто действие нельзя отменить, все данные матчей и информация об участниках будут удалены.",
     "minParticipantsRequired": "Минимум {{min}} участников требуется для начала. Текущее: {{current}}",
-    "minParticipantsDoublesWarning": "Для парной лиги требуется минимум 2 команды (4 игрока). Текущее: {{current}}",
+    "minParticipantsDoublesWarning": "Для парной лиги требуется минимум 2 команды (4 игрока). Текущее: {{current}} команд",
     "minParticipantsSinglesWarning": "Для начала лиги требуется минимум 2 участника. Текущее: {{current}}"
   },
   "badgeGallery": {

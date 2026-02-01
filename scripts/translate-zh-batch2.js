@@ -144,7 +144,7 @@ const zhTranslations = {
       generateMatches: '生成比赛',
       publishResults: '发布结果',
       notifyParticipants: '通知参与者',
-      exportBpaddle: '导出对阵图',
+      exportBracket: '导出对阵图',
       printSchedule: '打印赛程',
     },
     status: {

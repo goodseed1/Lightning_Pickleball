@@ -58,7 +58,14 @@ export const AIOnboardingController: React.FC = () => {
       setSelectedAction(actionId);
 
       // AI 응답 가져오기
-      const result = aiService.handleOnboardingAction(actionId, currentLanguage);
+      const result = aiService.handleOnboardingAction(actionId, currentLanguage) as {
+        message: string;
+        command?: {
+          type: 'navigate' | 'reset' | 'goBack';
+          screen?: string;
+          params?: Record<string, unknown>;
+        };
+      };
       setResponseMessage(result.message);
 
       // 2초 후 네비게이션 실행 및 모달 닫기

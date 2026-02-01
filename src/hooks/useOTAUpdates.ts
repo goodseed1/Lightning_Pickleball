@@ -132,27 +132,23 @@ export const useOTAUpdates = (): UseOTAUpdatesReturn => {
 
   /**
    * 업데이트 준비 완료 알림
+   * Note: OTA 업데이트는 앱 초기화 전에 나타날 수 있으므로,
+   * 사용자 언어 설정에 접근할 수 없습니다. 영어를 기본으로 사용합니다.
    */
   const showUpdateReadyAlert = useCallback(() => {
-    const title = Platform.OS === 'ios' ? '업데이트 준비 완료' : 'Update Ready';
-    const message =
-      Platform.OS === 'ios'
-        ? '새로운 업데이트가 다운로드되었습니다. 지금 적용하시겠습니까?'
-        : 'A new update has been downloaded. Would you like to apply it now?';
-
     Alert.alert(
-      title,
-      message,
+      'Update Ready',
+      'A new update has been downloaded. Would you like to apply it now?',
       [
         {
-          text: '나중에 / Later',
+          text: 'Later',
           style: 'cancel',
           onPress: () => {
             console.log('🔄 [OTA] User deferred update');
           },
         },
         {
-          text: '지금 적용 / Apply Now',
+          text: 'Apply Now',
           onPress: async () => {
             try {
               await Updates.reloadAsync();

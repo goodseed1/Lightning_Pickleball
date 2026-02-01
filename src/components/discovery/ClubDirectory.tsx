@@ -60,15 +60,15 @@ const ClubDirectory: React.FC<ClubDirectoryProps> = ({
           hasOpenSpots: selectedFilters.hasOpenSpots,
           sortBy: selectedFilters.sortBy,
         });
-        setClubs(result.clubs.slice(0, maxItems));
+        setClubs((result as { clubs: unknown[] }).clubs.slice(0, maxItems));
       } else {
         // Get featured or nearby clubs
         const featuredClubs = await discoveryService.getFeaturedClubs(maxItems);
         setClubs(featuredClubs);
       }
-    } catch (error: Error | unknown) {
+    } catch (error) {
       console.error('Failed to load clubs:', error);
-      setError(error.message);
+      setError(error instanceof Error ? error.message : 'Unknown error');
     } finally {
       setLoading(false);
     }

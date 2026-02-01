@@ -3,7 +3,7 @@
  * 전체 채팅 UI 컨테이너 - AI 챗봇 인터페이스 전체 구성
  */
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
   View,
   StyleSheet,
@@ -13,6 +13,8 @@ import {
   Platform,
   TouchableOpacity,
   Text,
+  NativeSyntheticEvent, // 🔧 [FLICKER FIX] For scroll event typing
+  NativeScrollEvent,    // 🔧 [FLICKER FIX] For scroll event typing
 } from 'react-native';
 import { IconButton, ActivityIndicator, useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -76,14 +78,27 @@ const ChatUI: React.FC<ChatUIProps> = ({
   const [inputText, setInputText] = useState('');
   const flatListRef = useRef<FlatList>(null);
 
-  // 새 메시지 추가 시 자동 스크롤
+  // 🔧 [FLICKER FIX] Smart scroll state - prevents flickering on new messages
+  const [isNearBottom, setIsNearBottom] = useState(true);
+  const prevMessageCount = useRef(0);
+
+  // 🔧 [FLICKER FIX] Detect scroll position to enable smart auto-scroll
+  const handleScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
+    const paddingToBottom = 100;
+    const isCloseToBottom = layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom;
+    setIsNearBottom(isCloseToBottom);
+  }, []);
+
+  // 🔧 [FLICKER FIX] Only scroll to end when NEW messages are added AND user is near bottom
   useEffect(() => {
-    if (messages.length > 0) {
+    if (messages.length > prevMessageCount.current && isNearBottom) {
       setTimeout(() => {
         flatListRef.current?.scrollToEnd({ animated: true });
-      }, 100);
+      }, 50);
     }
-  }, [messages]);
+    prevMessageCount.current = messages.length;
+  }, [messages.length, isNearBottom]);
 
   // 메시지 전송 핸들러
   const handleSend = () => {
@@ -175,7 +190,9 @@ const ChatUI: React.FC<ChatUIProps> = ({
         renderItem={renderMessage}
         keyExtractor={item => item.id}
         contentContainerStyle={styles.messageList}
-        onContentSizeChange={() => flatListRef.current?.scrollToEnd({ animated: true })}
+        // 🔧 [FLICKER FIX] Removed onContentSizeChange, using smart scroll instead
+        onScroll={handleScroll}
+        scrollEventThrottle={100}
         ListFooterComponent={renderFooter}
       />
 

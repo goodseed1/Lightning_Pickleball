@@ -224,8 +224,8 @@ const BusinessRegistrationForm: React.FC<BusinessRegistrationFormProps> = ({
           onPress: () => onSuccess?.(businessId),
         },
       ]);
-    } catch (error: Error | unknown) {
-      Alert.alert(t('business.form.failedTitle'), error.message);
+    } catch (error) {
+      Alert.alert(t('business.form.failedTitle'), error instanceof Error ? error.message : t('common.unknownError'));
     } finally {
       setLoading(false);
     }

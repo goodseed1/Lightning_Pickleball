@@ -386,7 +386,7 @@ const translationMap = {
   'Scroll up': '上にスクロール',
 
   // Club Tournament Management extended
-  'Tournament Bpaddle': 'トーナメントブラケット',
+  'Tournament Bracket': 'トーナメントブラケット',
   'Match Pairings': 'マッチペアリング',
   'Seed List': 'シードリスト',
   'Wild Card': 'ワイルドカード',

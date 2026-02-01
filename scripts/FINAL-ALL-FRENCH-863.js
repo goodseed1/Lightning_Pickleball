@@ -88,7 +88,7 @@ const frenchTranslations = {
   },
 
   alert: {
-    tournamentBpaddle: {
+    tournamentBracket: {
       info: 'Info',
       participants: 'Participants',
       participantsTab: 'Participants',

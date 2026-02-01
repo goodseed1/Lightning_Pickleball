@@ -7,6 +7,9 @@ import { Timestamp as FirebaseTimestamp } from 'firebase/firestore';
 import { PickleballEventType, Gender } from './league';
 import { MatchStatus } from './match';
 
+// Re-export PickleballEventType as TournamentEventType for backwards compatibility
+export type TournamentEventType = PickleballEventType;
+
 // ============================================================================
 // 🎯 UNIVERSAL BRACKET ENGINE: Competitive Unit Abstractions
 // ============================================================================
@@ -251,6 +254,7 @@ export interface Tournament {
 
   // 참가자
   participants: TournamentParticipant[];
+  doublesTeams?: DoublesTeam[]; // 복식/혼복 토너먼트 팀 목록
   waitlist?: string[]; // userId 배열
   seeds?: SeedAssignment[]; // 시드 배정
 

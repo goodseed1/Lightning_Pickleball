@@ -22,21 +22,21 @@ const part3Translations = {
   leagueDetail: {
     notification: 'Notification',
     applicationApproved: 'Vous avez été approuvé pour rejoindre la ligue !',
-    generateBpaddle: 'Générer le Tableau',
-    generateBpaddleMessage:
+    generateBracket: 'Générer le Tableau',
+    generateBracketMessage:
       "Gérez les candidatures dans l'onglet Participants, puis générez le tableau.",
-    generateBpaddleMessageSimple:
+    generateBracketMessageSimple:
       'Le calendrier des matchs apparaîtra ici une fois le tableau généré.',
     bpaddleGenerated: 'Tableau généré avec succès',
-    viewBpaddle: 'Voir le Tableau',
-    noBpaddleYet: 'Aucun tableau généré',
-    waitingForBpaddle: 'En attente de la génération du tableau',
+    viewBracket: 'Voir le Tableau',
+    noBracketYet: 'Aucun tableau généré',
+    waitingForBracket: 'En attente de la génération du tableau',
     bpaddleLocked: 'Tableau verrouillé',
     bpaddlePublished: 'Tableau publié',
-    publishBpaddle: 'Publier le Tableau',
-    unpublishBpaddle: 'Dépublier le Tableau',
-    editBpaddle: 'Modifier le Tableau',
-    resetBpaddle: 'Réinitialiser le Tableau',
+    publishBracket: 'Publier le Tableau',
+    unpublishBracket: 'Dépublier le Tableau',
+    editBracket: 'Modifier le Tableau',
+    resetBracket: 'Réinitialiser le Tableau',
     confirmReset: 'Confirmer la Réinitialisation',
     resetMessage: 'Réinitialiser le tableau supprimera tous les résultats. Continuer ?',
     bpaddleReset: 'Tableau réinitialisé',

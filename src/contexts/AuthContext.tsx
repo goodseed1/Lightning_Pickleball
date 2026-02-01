@@ -203,8 +203,9 @@ export const useAuth = () => {
       blockedEmail: null as string | null,
       clearAuthBlock: () => {},
       signIn: async () => {},
-      signInWithEmail: async () => ({ success: false, error: 'Not authenticated' }),
-      signUpWithEmail: async () => ({ success: false, error: 'Not authenticated' }),
+      signInWithEmail: async (): Promise<AuthResult> => ({ success: false, error: 'Not authenticated' }),
+      signUpWithEmail: async (): Promise<AuthResult> => ({ success: false, error: 'Not authenticated' }),
+      resendVerificationEmail: async (): Promise<AuthResult> => ({ success: false, error: 'Not authenticated' }),
       signOut: async () => {},
       updateUserProfile: async () => {},
       markOnboardingComplete: async () => {},
@@ -365,9 +366,46 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         currentLanguage,
       });
 
+      // 🔧 [FIX] Firebase 오프라인 대비 - 5초 타임아웃으로 fallback 처리
+      let dataReceived = false;
+      const fallbackTimeout = setTimeout(() => {
+        if (!dataReceived) {
+          console.warn('⚠️ [AuthContext] onSnapshot timeout - using fallback data');
+          // Firebase 데이터가 오지 않으면 fallback 처리
+          const fallbackUser = {
+            uid: firebaseUser.uid,
+            email: firebaseUser.email,
+            displayName: firebaseUser.displayName,
+            photoURL: firebaseUser.photoURL,
+            skillLevel: '3.0-3.5',
+            ltrLevel: '3.0-3.5',
+            playingStyle: 'all-court',
+            maxTravelDistance: 15,
+            profile: {
+              location: {
+                lat: 33.749, lng: -84.388,
+                latitude: 33.749, longitude: -84.388,
+                address: 'Atlanta, GA', country: 'US',
+              },
+            },
+            languages: ['English'],
+            recentMatches: [],
+            goals: null,
+            isOnboardingComplete: false,
+          };
+          setCurrentUser(fallbackUser);
+          setIsOnboardingComplete(false);
+          setIsProfileLoaded(true);
+        }
+      }, 5000); // 5초 타임아웃
+
       const unsubscribeProfile = onSnapshot(
         userDocRef,
         async userDoc => {
+          // 🔧 [FIX] 데이터 수신됨 - 타임아웃 취소
+          dataReceived = true;
+          clearTimeout(fallbackTimeout);
+
           // 🎥 CCTV: Real-time data arrival
           cctvLog('AuthContext', 'DATA_ARRIVAL', 'Real-time profile update received', {
             documentExists: userDoc.exists(),
@@ -757,17 +795,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             });
 
             // 5. 📊 [KIM FIX] Update lastActiveAt for DAU/WAU/MAU tracking
-            try {
-              const { doc, updateDoc, serverTimestamp } = await import('firebase/firestore');
+            // 🔧 [FIX] Fire-and-forget - 사용자가 기다릴 필요 없음!
+            import('firebase/firestore').then(({ doc, updateDoc, serverTimestamp }) => {
               const userDocRef = doc(db, 'users', firebaseUser.uid);
-              await updateDoc(userDocRef, {
-                lastActiveAt: serverTimestamp(),
-              });
-              console.log('📊 [AuthContext] lastActiveAt updated for user:', firebaseUser.uid);
-            } catch (lastActiveError) {
-              console.warn('📊 [AuthContext] Failed to update lastActiveAt:', lastActiveError);
-              // Don't throw - this is not critical for user experience
-            }
+              updateDoc(userDocRef, { lastActiveAt: serverTimestamp() })
+                .then(() => console.log('📊 [AuthContext] lastActiveAt updated for user:', firebaseUser.uid))
+                .catch(err => console.warn('📊 [AuthContext] lastActiveAt update failed (non-blocking):', err));
+            });
           } catch (error) {
             console.error('❌ Error loading user profile:', error);
             // Fallback to basic user data WITHOUT using firebaseUser.displayName
@@ -803,6 +837,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           }
 
           // 3. Auth 로딩이 끝났다고 보고한다.
+          console.log('🔓 AuthContext: setLoading(false) 호출됨!');
           setLoading(false);
         } else {
           // 🔧 [FIX] 로그아웃 시 프로필 리스너 정리 - useRef.current로 항상 최신 값 참조

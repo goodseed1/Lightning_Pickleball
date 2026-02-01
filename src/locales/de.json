@@ -6624,7 +6624,7 @@
     "deleteLeague": "Liga löschen",
     "deleteLeagueConfirm": "Möchten Sie '{{leagueName}}' wirklich löschen?\n\nDiese Aktion kann nicht rückgängig gemacht werden. Alle Spieldaten und Teilnehmerinformationen werden gelöscht.",
     "minParticipantsRequired": "Mindestens {{min}} Teilnehmer erforderlich zum Starten. Aktuell: {{current}}",
-    "minParticipantsDoublesWarning": "Doppel-Liga benötigt mindestens 2 Teams (4 Spieler). Aktuell: {{current}}",
+    "minParticipantsDoublesWarning": "Doppel-Liga benötigt mindestens 2 Teams (4 Spieler). Aktuell: {{current}} Teams",
     "minParticipantsSinglesWarning": "Mindestens 2 Teilnehmer erforderlich zum Starten. Aktuell: {{current}}"
   },
   "friends": {

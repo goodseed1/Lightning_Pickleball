@@ -52,7 +52,7 @@ const EditEventScreen = () => {
   const { currentUser } = useAuth();
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = useMemo(() => createStyles(themeColors.colors), [themeColors.colors]);
+  const styles = useMemo(() => createStyles(themeColors.colors as unknown as Record<string, string>), [themeColors.colors]);
 
   // 로딩 및 이벤트 데이터 상태
   const [loading, setLoading] = useState(true);
@@ -118,10 +118,11 @@ const EditEventScreen = () => {
 
       // 날짜/시간 설정 - Firestore Timestamp 처리
       // 🎯 [KIM FIX] scheduledTime이 Firestore Timestamp일 수 있으므로 toDate() 호출
+      const scheduledTimeAny = event.scheduledTime as unknown as { toDate?: () => Date };
       const eventDateTime =
-        typeof event.scheduledTime?.toDate === 'function'
-          ? event.scheduledTime.toDate()
-          : new Date(event.scheduledTime);
+        scheduledTimeAny && typeof scheduledTimeAny.toDate === 'function'
+          ? scheduledTimeAny.toDate()
+          : new Date(event.scheduledTime as unknown as Date);
       setSelectedDate(eventDateTime);
       setSelectedTime(eventDateTime);
     } catch (error) {
@@ -199,7 +200,7 @@ const EditEventScreen = () => {
         scheduledTime: combinedDateTime,
         duration: formData.duration,
         maxParticipants: formData.maxParticipants,
-        gameType: formData.gameType,
+        gameType: formData.gameType as 'mens_singles' | 'womens_singles' | 'mens_doubles' | 'womens_doubles' | 'mixed_doubles' | 'rally',
         ltrLevel: formData.ltrLevel,
         languages: formData.languages,
         autoApproval: formData.autoApproval,

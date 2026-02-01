@@ -461,7 +461,7 @@ const frenchTranslations = {
     // Playoffs
     playoffs: 'Séries éliminatoires',
     playoffSchedule: 'Calendrier des séries',
-    playoffBpaddle: 'Arbre des séries',
+    playoffBracket: 'Arbre des séries',
     semifinals: 'Demi-finales',
     finals: 'Finales',
     champion: 'Champion',
@@ -519,7 +519,7 @@ const frenchTranslations = {
     reportScore: 'Rapporter le score',
     viewDetails: 'Voir les détails',
     downloadSchedule: 'Télécharger le calendrier',
-    printBpaddle: "Imprimer l'arbre",
+    printBracket: "Imprimer l'arbre",
   },
 
   createEvent: {

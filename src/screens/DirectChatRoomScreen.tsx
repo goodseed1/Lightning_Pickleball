@@ -11,8 +11,14 @@ import {
   ActivityIndicator,
   Alert,
   Keyboard, // 🎯 [KIM FIX] For keyboard event listening
+  Image,
+  Modal,
+  Pressable,
+  Dimensions,
+  NativeSyntheticEvent, // 🔧 [FLICKER FIX] For scroll event typing
+  NativeScrollEvent,    // 🔧 [FLICKER FIX] For scroll event typing
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Avatar, useTheme, MD3Theme } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 import { useRoute, RouteProp, useNavigation, useIsFocused } from '@react-navigation/native';
@@ -25,6 +31,9 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { db } from '../firebase/config';
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import NotificationService from '../services/NotificationService';
+import LinkableText from '../components/common/LinkableText';
+import CameraService from '../services/CameraService';
+import ChatImageService from '../services/ChatImageService';
 
 type DirectChatRoomScreenRouteProp = RouteProp<RootStackParamList, 'DirectChatRoom'>;
 
@@ -45,10 +54,12 @@ interface ChatMessage {
   message: string;
   timestamp: Date | { toDate: () => Date };
   createdAt: Date | { toDate: () => Date };
-  type: 'text' | 'system' | 'club_invitation';
+  type: 'text' | 'system' | 'club_invitation' | 'image';
   isDeleted: boolean;
   readBy: string[];
   metadata?: InvitationMetadata;
+  imageUrl?: string;
+  storagePath?: string;
 }
 
 const DirectChatRoomScreen: React.FC = () => {
@@ -60,6 +71,7 @@ const DirectChatRoomScreen: React.FC = () => {
   const isFocused = useIsFocused();
   const { t, currentLanguage } = useLanguage();
   const { t: translate } = useTranslation();
+  const insets = useSafeAreaInsets(); // 🔧 [FIX] Android navigation bar overlap
 
   const { conversationId, otherUserId, otherUserName, otherUserPhotoURL } = route.params;
 
@@ -69,8 +81,15 @@ const DirectChatRoomScreen: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [sending, setSending] = useState(false);
   const [joiningClub, setJoiningClub] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const flatListRef = useRef<FlatList>(null);
+
+  // 🔧 [FLICKER FIX] Smart scroll state - prevents flickering on new messages
+  const [isNearBottom, setIsNearBottom] = useState(true);
+  const prevMessageCount = useRef(0);
+  const markedAsReadRef = useRef<Set<string>>(new Set()); // Prevents duplicate markAsRead calls
 
   // 🔧 [KIM FIX] Use ref for isFocused to prevent subscription recreation
   // When isFocused changes, the callback doesn't need to be recreated - we just update the ref
@@ -189,6 +208,24 @@ const DirectChatRoomScreen: React.FC = () => {
     ensurePushToken();
   }, [user?.uid]);
 
+  // 🔧 [FLICKER FIX] Detect scroll position to enable smart auto-scroll
+  const handleScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
+    const paddingToBottom = 100;
+    const isCloseToBottom = layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom;
+    setIsNearBottom(isCloseToBottom);
+  }, []);
+
+  // 🔧 [FLICKER FIX] Only scroll to end when NEW messages are added AND user is near bottom
+  useEffect(() => {
+    if (messages.length > prevMessageCount.current && isNearBottom) {
+      setTimeout(() => {
+        flatListRef.current?.scrollToEnd({ animated: true });
+      }, 50);
+    }
+    prevMessageCount.current = messages.length;
+  }, [messages.length, isNearBottom]);
+
   // Subscribe to messages
   useEffect(() => {
     if (!conversationId) return;
@@ -202,18 +239,28 @@ const DirectChatRoomScreen: React.FC = () => {
         setLoading(false);
 
         // Auto-mark as read after 1 second
+        // 🔧 [FLICKER FIX] Exclude already-processed messages to prevent duplicate calls
         const unreadMessages = msgs.filter(
           msg =>
-            msg.senderId !== user?.uid && (!msg.readBy || !msg.readBy.includes(user?.uid || ''))
+            msg.senderId !== user?.uid &&
+            (!msg.readBy || !msg.readBy.includes(user?.uid || '')) &&
+            !markedAsReadRef.current.has(msg.id) // 🔧 Not already processing
         );
 
         if (unreadMessages.length > 0 && user?.uid) {
+          const unreadIds = unreadMessages.map(m => m.id);
+          // 🔧 Add to ref to prevent duplicate calls
+          unreadIds.forEach(id => markedAsReadRef.current.add(id));
+
           setTimeout(() => {
             clubService.markDirectMessagesAsRead(
-              unreadMessages.map(m => m.id),
+              unreadIds,
               user.uid,
               conversationId
-            );
+            ).catch(() => {
+              // 🔧 Remove from ref on failure to allow retry
+              unreadIds.forEach(id => markedAsReadRef.current.delete(id));
+            });
           }, 1000);
         }
       },
@@ -261,6 +308,64 @@ const DirectChatRoomScreen: React.FC = () => {
       console.error('[DirectChatRoomScreen] Error sending message:', error);
     } finally {
       setSending(false);
+    }
+  };
+
+  // 📷 Send image message
+  const sendImage = async () => {
+    if (!user) return;
+
+    try {
+      // Show image picker (camera or gallery)
+      const result = await CameraService.showImagePicker({
+        mediaTypes: 'images',
+        allowsEditing: false,
+        quality: 0.8,
+      });
+
+      if (!result) return;
+
+      setUploadingImage(true);
+
+      // Upload image to Firebase Storage
+      const uploadResult = await ChatImageService.uploadChatImage(
+        'direct',
+        conversationId,
+        result,
+        user.uid
+      );
+
+      if (!uploadResult.success || !uploadResult.imageUrl) {
+        Alert.alert(t('common.error'), t('directChat.imageUploadError') || 'Failed to upload image');
+        return;
+      }
+
+      // Create image message data
+      const messageData = {
+        senderId: user.uid,
+        senderName: user.displayName || '',
+        senderPhotoURL: user.photoURL || '',
+        receiverId: otherUserId,
+        receiverName: otherUserName,
+        receiverPhotoURL: otherUserPhotoURL || '',
+        message: '📷 Photo',
+        type: 'image' as const,
+        imageUrl: uploadResult.imageUrl,
+        storagePath: uploadResult.storagePath,
+      };
+
+      // Save to Firestore
+      await clubService.saveDirectChatMessage(conversationId, messageData);
+
+      // Scroll to bottom
+      setTimeout(() => {
+        flatListRef.current?.scrollToEnd({ animated: true });
+      }, 100);
+    } catch (error) {
+      console.error('[DirectChatRoomScreen] Error sending image:', error);
+      Alert.alert(t('common.error'), t('directChat.imageSendError') || 'Failed to send image');
+    } finally {
+      setUploadingImage(false);
     }
   };
 
@@ -336,6 +441,7 @@ const DirectChatRoomScreen: React.FC = () => {
             text: t('directChat.goToClubHome'),
             onPress: () => {
               if (clubId) {
+                // @ts-expect-error ClubDetail navigation params
                 navigation.navigate('ClubDetail', { clubId, clubName });
               }
             },
@@ -387,7 +493,7 @@ const DirectChatRoomScreen: React.FC = () => {
         >
           {/* Club Name Header */}
           <View style={styles.invitationHeader}>
-            <Ionicons name='pickleballball' size={20} color={theme.colors.primary} />
+            <Ionicons name='ellipse' size={20} color={theme.colors.primary} />
             <Text style={styles.invitationClubName}>
               {metadata?.clubName || t('directChat.club')}
             </Text>
@@ -451,6 +557,9 @@ const DirectChatRoomScreen: React.FC = () => {
     // 📖 [READ RECEIPT] 상대방이 읽었는지 확인
     const isReadByOther = item.readBy?.includes(otherUserId) || false;
 
+    // 📷 Handle image messages
+    const isImageMessage = item.type === 'image' && item.imageUrl;
+
     return (
       <View
         style={[
@@ -473,14 +582,31 @@ const DirectChatRoomScreen: React.FC = () => {
           style={[
             styles.messageBubble,
             isMyMessage ? styles.myMessageBubble : styles.otherMessageBubble,
+            isImageMessage && styles.imageBubble,
           ]}
         >
-          {!isMyMessage && (
+          {!isMyMessage && !isImageMessage && (
             <Text style={styles.senderName}>{item.senderName || translate('common.unknown')}</Text>
           )}
-          <Text style={[styles.messageText, isMyMessage && styles.myMessageText]}>
-            {item.message}
-          </Text>
+          {isImageMessage ? (
+            <TouchableOpacity
+              onPress={() => setSelectedImage(item.imageUrl!)}
+              activeOpacity={0.9}
+            >
+              <Image
+                source={{ uri: item.imageUrl }}
+                style={styles.chatImage}
+                resizeMode="cover"
+              />
+            </TouchableOpacity>
+          ) : (
+            <LinkableText
+              style={[styles.messageText, isMyMessage && styles.myMessageText]}
+              linkStyle={isMyMessage ? { color: '#90CAF9' } : { color: '#2196F3' }}
+            >
+              {item.message}
+            </LinkableText>
+          )}
           <View style={styles.messageFooter}>
             <Text style={[styles.messageTime, isMyMessage && styles.myMessageTime]}>
               {formatMessageTime(item.timestamp)}
@@ -524,8 +650,9 @@ const DirectChatRoomScreen: React.FC = () => {
       </View>
 
       {/* 🎯 [KIM FIX] KeyboardAvoidingView wraps BOTH FlatList and input for proper keyboard handling */}
+      {/* 🔧 [FIX] Android: behavior=undefined allows system default keyboard handling + scroll works */}
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         style={styles.keyboardAvoidingContainer}
         keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
       >
@@ -543,12 +670,28 @@ const DirectChatRoomScreen: React.FC = () => {
             keyExtractor={item => item.id}
             contentContainerStyle={styles.messagesList}
             showsVerticalScrollIndicator={false}
-            onContentSizeChange={() => flatListRef.current?.scrollToEnd({ animated: false })}
+            // 🔧 [FLICKER FIX] Removed onContentSizeChange, using smart scroll instead
+            onScroll={handleScroll}
+            scrollEventThrottle={100}
+            keyboardShouldPersistTaps="handled"
           />
         )}
 
-        {/* Input Area */}
-        <View style={styles.inputContainer}>
+        {/* Input Area - 🔧 [FIX] Android navigation bar padding */}
+        <View style={[styles.inputContainer, { paddingBottom: Math.max(insets.bottom, 8) }]}>
+          {/* 📷 Attachment Button */}
+          <TouchableOpacity
+            onPress={sendImage}
+            disabled={uploadingImage}
+            style={styles.attachButton}
+          >
+            {uploadingImage ? (
+              <ActivityIndicator size='small' color={theme.colors.primary} />
+            ) : (
+              <Ionicons name='camera' size={24} color={theme.colors.primary} />
+            )}
+          </TouchableOpacity>
+
           <TextInput
             style={styles.textInput}
             value={newMessage}
@@ -581,6 +724,33 @@ const DirectChatRoomScreen: React.FC = () => {
         </View>
       </KeyboardAvoidingView>
       {/* 🎯 [KIM FIX] KeyboardAvoidingView now properly wraps FlatList + Input */}
+
+      {/* 📷 Full-screen Image Viewer Modal */}
+      <Modal
+        visible={!!selectedImage}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setSelectedImage(null)}
+      >
+        <Pressable
+          style={styles.imageViewerOverlay}
+          onPress={() => setSelectedImage(null)}
+        >
+          <TouchableOpacity
+            style={styles.closeImageButton}
+            onPress={() => setSelectedImage(null)}
+          >
+            <Ionicons name="close" size={28} color="white" />
+          </TouchableOpacity>
+          {selectedImage && (
+            <Image
+              source={{ uri: selectedImage }}
+              style={styles.fullScreenImage}
+              resizeMode="contain"
+            />
+          )}
+        </Pressable>
+      </Modal>
     </SafeAreaView>
   );
 };
@@ -727,6 +897,42 @@ const createStyles = (theme: MD3Theme) =>
     },
     sendButtonDisabled: {
       backgroundColor: theme.colors.outline,
+    },
+    // 📷 Attachment Button
+    attachButton: {
+      width: 40,
+      height: 40,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginRight: 8,
+    },
+    // 📷 Chat Image Styles
+    imageBubble: {
+      padding: 4,
+      backgroundColor: 'transparent',
+    },
+    chatImage: {
+      width: 200,
+      height: 200,
+      borderRadius: 12,
+    },
+    // 📷 Full-screen Image Viewer
+    imageViewerOverlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.95)',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    closeImageButton: {
+      position: 'absolute',
+      top: 50,
+      right: 20,
+      zIndex: 10,
+      padding: 10,
+    },
+    fullScreenImage: {
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').height * 0.8,
     },
     // 🎾 Club Invitation Card Styles
     invitationCard: {

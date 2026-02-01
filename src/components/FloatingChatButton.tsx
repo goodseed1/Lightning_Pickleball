@@ -16,7 +16,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
-const FloatingChatButton = ({ currentRoute }) => {
+const FloatingChatButton = ({ currentRoute }: { currentRoute?: string }) => {
   const { t } = useLanguage();
   const navigation = useNavigation();
   const route = useRoute();
@@ -133,7 +133,7 @@ const FloatingChatButton = ({ currentRoute }) => {
   const shouldShowButton = () => {
     // 메인 탭에서만 표시
     const mainTabs = ['Feed', 'Discover', 'Create', 'MyClubs'];
-    return mainTabs.includes(currentRoute) || mainTabs.includes(route?.name);
+    return (currentRoute && mainTabs.includes(currentRoute)) || (route?.name && mainTabs.includes(route.name));
   };
 
   if (!shouldShowButton()) {

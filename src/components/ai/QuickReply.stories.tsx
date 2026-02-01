@@ -15,7 +15,7 @@ const meta: Meta<typeof QuickReply> = {
     layout: 'padded',
   },
   decorators: [
-    Story => (
+    (Story: React.ComponentType) => (
       <View style={{ padding: 16, backgroundColor: '#f5f5f5' }}>
         <Story />
       </View>

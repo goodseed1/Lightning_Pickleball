@@ -35,7 +35,7 @@ interface AppealCardProps {
 const AppealCard: React.FC<AppealCardProps> = ({ appeal, onApprove, onReject }) => {
   const { theme } = useTheme();
   const themeColors = getLightningPickleballTheme(theme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
   const { t } = useTranslation();
 
   const [expanded, setExpanded] = useState(false);
@@ -286,7 +286,7 @@ const AppealCard: React.FC<AppealCardProps> = ({ appeal, onApprove, onReject }) 
   );
 };
 
-const createStyles = (colors: Record<string, string | object>) =>
+const createStyles = (colors: Record<string, string>) =>
   StyleSheet.create({
     container: {
       backgroundColor: colors.surface as string,

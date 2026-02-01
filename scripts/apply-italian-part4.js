@@ -11,7 +11,7 @@ const translations = {
     createTournament: 'Crea Torneo',
     editTournament: 'Modifica Torneo',
     deleteTournament: 'Elimina Torneo',
-    viewBpaddle: 'Visualizza Tabellone',
+    viewBracket: 'Visualizza Tabellone',
     registerPlayers: 'Registra Giocatori',
     startTournament: 'Avvia Torneo',
     endTournament: 'Termina Torneo',
@@ -48,7 +48,7 @@ const translations = {
       unregister: 'Annulla Iscrizione',
       submitScore: 'Invia Punteggio',
       viewDetails: 'Visualizza Dettagli',
-      downloadBpaddle: 'Scarica Tabellone',
+      downloadBracket: 'Scarica Tabellone',
     },
     alerts: {
       createSuccess: 'Torneo creato con successo',

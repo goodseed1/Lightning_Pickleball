@@ -84,6 +84,7 @@ describe('AiChatContext - Logic Tests', () => {
       };
 
       // Act
+      // @ts-expect-error Test with userProfile object - actual type varies
       await aiChatService.chat(message, language, userProfile);
 
       // Assert
@@ -342,7 +343,8 @@ describe('AiChatContext - Logic Tests', () => {
 
     it('currentUser가 없을 때 userProfile이 null이어야 함', () => {
       // Arrange
-      const currentUser = null;
+      type UserType = { skillLevel?: string; playingStyle?: string; recentMatches?: unknown[]; goals?: string };
+      const currentUser = null as UserType | null;
 
       // Act
       const userProfile = currentUser
@@ -412,7 +414,7 @@ describe('AiChatContext - Logic Tests', () => {
 
     it('최근 경기가 없을 때 올바른 영어 메시지를 반환해야 함', () => {
       // Arrange
-      const currentLanguage = 'en';
+      const currentLanguage = 'en' as 'ko' | 'en';
       const recentMatches: unknown[] = [];
 
       // Act
@@ -445,7 +447,7 @@ describe('AiChatContext - Logic Tests', () => {
 
     it('로그인하지 않았을 때 올바른 영어 메시지를 반환해야 함', () => {
       // Arrange
-      const currentLanguage = 'en';
+      const currentLanguage = 'en' as 'ko' | 'en';
       const currentUser = null;
 
       // Act

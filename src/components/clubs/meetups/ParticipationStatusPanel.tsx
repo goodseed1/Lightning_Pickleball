@@ -45,7 +45,7 @@ const ParticipationStatusPanel: React.FC<ParticipationStatusPanelProps> = ({
   };
   const { theme: currentTheme } = useLTTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
 
   const getStatusColor = (color: string) => {
     switch (color) {

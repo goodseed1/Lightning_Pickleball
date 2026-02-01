@@ -1,6 +1,8 @@
 // src/firebase/config.ts
 import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getAuth, initializeAuth, getReactNativePersistence } from 'firebase/auth';
+import { getAuth, initializeAuth } from 'firebase/auth';
+// @ts-expect-error getReactNativePersistence exists in runtime but not in TypeScript types
+import { getReactNativePersistence } from 'firebase/auth';
 import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 import { getFunctions } from 'firebase/functions';
 import { getStorage } from 'firebase/storage';
@@ -107,4 +109,5 @@ console.log('🔥 [FIREBASE INIT] Configuration loaded:', {
 });
 
 export { auth };
+export { app };  // Named export for compatibility
 export default app;

@@ -34,7 +34,7 @@ const RankingPrivacySettingsScreen: React.FC = () => {
     route.params as RankingPrivacySettingsScreenParams;
 
   // Create styles with dynamic theme colors
-  const styles = useMemo(() => createStyles(themeColors.colors), [themeColors.colors]);
+  const styles = useMemo(() => createStyles(themeColors.colors as unknown as Record<string, string>), [themeColors.colors]);
 
   const [selectedVisibility, setSelectedVisibility] = useState<ClubVisibility>(
     currentVisibility || 'public'

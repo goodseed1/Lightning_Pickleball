@@ -67,6 +67,7 @@ interface WeatherData {
 }
 
 export interface AppliedEvent extends SimpleEvent {
+  eventId?: string; // Alias for id (used in some contexts)
   applicationStatus?:
     | 'pending'
     | 'approved'
@@ -154,7 +155,7 @@ const AppliedEventCard: React.FC<AppliedEventCardProps> = ({
 }) => {
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors, currentTheme);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>, currentTheme);
   const { t } = useLanguage();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const navigation = useNavigation<any>();

@@ -5,6 +5,7 @@
   },
   "exclude": [
     ".storybook",
+    "functions",
     "functions/temp_disabled"
   ]
 }

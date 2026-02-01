@@ -15,7 +15,9 @@ export type {
   GooglePlaceDetail,
 } from 'react-native-google-places-autocomplete';
 
-interface SafeGooglePlacesAutocompleteProps extends GooglePlacesAutocompleteProps {
+interface SafeGooglePlacesAutocompleteProps extends Omit<GooglePlacesAutocompleteProps, 'query'> {
+  /** Optional query - defaults are applied internally for Atlanta/US bias */
+  query?: GooglePlacesAutocompleteProps['query'];
   /** Optional override, but default is always 'en' per product policy */
   forceLanguage?: string;
   /** Optional override for country bias; default 'us' */

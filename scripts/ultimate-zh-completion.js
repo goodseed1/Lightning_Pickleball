@@ -87,7 +87,7 @@ const ultimateMap = {
   Applicant: '申请人',
   'Areas for Improvement': '需要改进的领域',
   Both: '两者',
-  'Bpaddle Generation': '生成对阵表',
+  'Bracket Generation': '生成对阵表',
   'Change Roles': '更改角色',
   characters: '字符',
   'Checking available apps...': '正在检查可用应用...',

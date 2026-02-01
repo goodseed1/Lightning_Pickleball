@@ -32,7 +32,7 @@ const TeamInvitationsScreen = () => {
   const { t } = useLanguage();
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
 
   // State
   const [pendingInvites, setPendingInvites] = useState<Team[]>([]);
@@ -157,6 +157,7 @@ const TeamInvitationsScreen = () => {
               text: t('teamInvitations.ok'),
               onPress: () => {
                 // 토너먼트 화면으로 이동
+                // @ts-expect-error ClubDetail navigation params
                 navigation.navigate('ClubDetail', {
                   clubId: team.tournamentId, // TODO: Need to get clubId from tournament
                   initialTab: 'tournaments',

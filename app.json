@@ -9,15 +9,21 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#4CAF50"
+      "backgroundColor": "#001930"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.lightningpickleball.community",
+      "googleServicesFile": "./GoogleService-Info.plist",
       "buildNumber": "1",
       "entitlements": {
-        "com.apple.developer.applesignin": ["Default", "Default"]
+        "com.apple.developer.applesignin": [
+          "Default",
+          "Default"
+        ]
       },
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
@@ -32,12 +38,7 @@
         "CFBundleURLTypes": [
           {
             "CFBundleURLSchemes": [
-              "com.googleusercontent.apps.815594051044-73ah5eiak4klp7ofgj488ih3f4g97kct"
-            ]
-          },
-          {
-            "CFBundleURLSchemes": [
-              "com.googleusercontent.apps.815594051044-73ah5eiak4klp7ofgj488ih3f4g97kct"
+              "com.googleusercontent.apps.810250734076-7tncklkuvijeaj88ts9cap20mmj4cann"
             ]
           }
         ]
@@ -46,7 +47,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#4CAF50"
+        "backgroundColor": "#001930"
       },
       "package": "com.lightningpickleball.app",
       "versionCode": 1,
@@ -68,7 +69,7 @@
     },
     "notification": {
       "icon": "./assets/notification-icon.png",
-      "color": "#4CAF50",
+      "color": "#FFD425",
       "androidMode": "default",
       "androidCollapsedTitle": "Lightning Pickleball"
     },
@@ -82,7 +83,11 @@
       }
     },
     "owner": "goodseed1",
-    "plugins": ["@react-native-community/datetimepicker", "expo-localization", "expo-font"],
+    "plugins": [
+      "@react-native-community/datetimepicker",
+      "expo-localization",
+      "expo-font"
+    ],
     "runtimeVersion": "1.0.0",
     "updates": {
       "url": "https://u.expo.dev/21147a75-4071-46b1-b5c2-41916ccce97a"

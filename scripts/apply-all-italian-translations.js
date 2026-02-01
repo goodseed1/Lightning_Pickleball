@@ -314,7 +314,7 @@ const completeItalianTranslations = {
     unregisterFromTournament: 'Annulla Iscrizione',
     confirmRegistration: 'Conferma Iscrizione',
     paymentRequired: 'Pagamento Richiesto',
-    viewBpaddle: 'Visualizza Tabellone',
+    viewBracket: 'Visualizza Tabellone',
     updateScore: 'Aggiorna Punteggio',
     reportWinner: 'Dichiara Vincitore',
     tournamentWinner: 'Vincitore Torneo',

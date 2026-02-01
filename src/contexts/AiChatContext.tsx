@@ -12,7 +12,17 @@ import { searchEvents, formatSearchResultForAI } from '../services/eventService'
 import { executeAICommand } from '../services/navigationService';
 import { useAuth } from './AuthContext';
 import { useLanguage } from './LanguageContext';
+import i18n from '../i18n';
 import type { EventData } from '../types/ai';
+
+// NLU 결과 타입 정의
+interface NLUResult {
+  command: string;
+  params: Record<string, unknown>;
+  confidence: number;
+  originalQuery: string;
+  error?: boolean;
+}
 import {
   collection,
   query,
@@ -226,7 +236,7 @@ export const AIChatProvider: React.FC<AIChatProviderProps> = ({ children }) => {
 
       // 🧠 NLU 엔진으로 자연어 파싱
       console.log('🧠 NLU: Parsing user query...');
-      const nluResult = await aiService.parseUserQueryToCommand(message, currentLanguage);
+      const nluResult = await aiService.parseUserQueryToCommand(message, currentLanguage) as NLUResult;
       console.log('🧠 NLU Result:', nluResult);
 
       // 명령에 따른 처리
@@ -264,7 +274,7 @@ export const AIChatProvider: React.FC<AIChatProviderProps> = ({ children }) => {
           }
 
           case 'navigate': {
-            const screen = nluResult.params.screen;
+            const screen = nluResult.params.screen as string;
             const navMessageKey = `aiChat.navigation.${screen}`;
 
             // Try to get specific navigation message, fallback to generic
@@ -301,7 +311,7 @@ export const AIChatProvider: React.FC<AIChatProviderProps> = ({ children }) => {
                 }
               : null;
 
-            const chatResponse = await aiChatService.chat(message, currentLanguage, userProfile);
+            const chatResponse = await aiChatService.chat(message, currentLanguage, userProfile as Parameters<typeof aiChatService.chat>[2]);
 
             // 🚨 [Sentinel] Check for feedback report and submit if detected
             if (chatResponse.feedbackReport && chatResponse.feedbackReport.detected) {
@@ -345,7 +355,7 @@ export const AIChatProvider: React.FC<AIChatProviderProps> = ({ children }) => {
             }
           : null;
 
-        const chatResponse = await aiChatService.chat(message, currentLanguage, userProfile);
+        const chatResponse = await aiChatService.chat(message, currentLanguage, userProfile as Parameters<typeof aiChatService.chat>[2]);
 
         // 🚨 [Sentinel] Check for feedback report and submit if detected
         if (chatResponse.feedbackReport && chatResponse.feedbackReport.detected) {

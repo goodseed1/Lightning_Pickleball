@@ -8811,7 +8811,7 @@
     "deleteLeague": "删除联赛",
     "deleteLeagueConfirm": "您确定要删除「{{leagueName}}」吗？\n\n此操作无法撤消，所有比赛数据和参与者信息将被删除。",
     "minParticipantsRequired": "开始需要至少{{min}}名参与者。当前：{{current}}名",
-    "minParticipantsDoublesWarning": "双打联赛需要至少2支队伍（4名球员）。当前：{{current}}名",
+    "minParticipantsDoublesWarning": "双打联赛需要至少2支队伍（4名球员）。当前：{{current}}支队伍",
     "minParticipantsSinglesWarning": "联赛开始需要至少2名参与者。当前：{{current}}名"
   },
   "badgeGallery": {

@@ -421,7 +421,7 @@ const MyClubsScreenSimple = () => {
             />
           ) : (
             <View style={styles.clubLogoPlaceholder}>
-              <MaterialCommunityIcons name='pickleball' size={28} color='white' />
+              <MaterialCommunityIcons name='tennis' size={28} color='white' />
             </View>
           )}
         </View>

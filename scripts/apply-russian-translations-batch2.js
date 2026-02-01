@@ -87,7 +87,7 @@ const translations = {
   'tournament.bpaddle.semifinals': 'Полуфиналы',
   'tournament.bpaddle.finals': 'Финалы',
   'tournament.bpaddle.winner': 'Победитель',
-  'tournament.bpaddle.generateBpaddle': 'Создать сетку',
+  'tournament.bpaddle.generateBracket': 'Создать сетку',
   'tournament.bpaddle.seedPlayers': 'Распределить игроков',
   'tournament.bpaddle.randomize': 'Случайный порядок',
   'tournament.register.title': 'Регистрация на турнир',

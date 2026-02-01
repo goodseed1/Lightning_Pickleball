@@ -931,7 +931,7 @@ export default function ClubDetailScreen() {
           />
         );
       case 'activities':
-        return <ClubRegularMeetupsScreen clubId={clubId} userRole={userRole || ''} />;
+        return <ClubRegularMeetupsScreen clubId={clubId} userRole={(userRole || 'member') as 'admin' | 'member' | 'manager'} />;
       case 'leagues':
         return (
           <ClubLeaguesTournamentsScreen
@@ -997,7 +997,7 @@ export default function ClubDetailScreen() {
 
   // Conditionally use ImageBackground or View based on whether cover image exists
   const headerImageProps = getHeaderImageProps();
-  const CoverComponent = headerImageProps ? ImageBackground : View;
+  const CoverComponent = (headerImageProps ? ImageBackground : View) as React.ComponentType<{ style?: object; source?: { uri: string }; children?: React.ReactNode }>;
   const coverProps = headerImageProps
     ? { ...headerImageProps, style: styles.coverImage }
     : { style: styles.coverImage };

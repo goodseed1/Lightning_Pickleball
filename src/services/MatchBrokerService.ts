@@ -122,6 +122,7 @@ class MatchBrokerService {
         preferences: {
           skillLevel: 'intermediate',
           gameType: 'singles',
+          location: 'any',
         },
       },
     ];
@@ -166,11 +167,13 @@ class MatchBrokerService {
     return [
       {
         id: `opp_${Date.now()}`,
-        distance: Math.random() * 5 + 1, // 1-6 km
+        partnerId: 'mock_user_id',
+        partnerName: 'Pickleball Partner',
         skillLevel: 'intermediate',
-        availableTime: new Date(Date.now() + Math.random() * 86400000), // Next 24 hours
-        userId: 'mock_user_id',
-        userName: 'Pickleball Partner',
+        distance: Math.random() * 5 + 1, // 1-6 km
+        availableTime: new Date(Date.now() + Math.random() * 86400000).toISOString(), // Next 24 hours
+        gameType: 'singles',
+        location: { name: 'Local Court', latitude: location.latitude, longitude: location.longitude },
       },
     ];
   }

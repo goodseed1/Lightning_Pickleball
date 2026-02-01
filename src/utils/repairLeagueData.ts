@@ -66,6 +66,8 @@ export const repairLeagueData = async (leagueId: string) => {
       const participantData: Omit<LeagueParticipant, 'id'> = {
         leagueId,
         userId: testParticipant.userId,
+        playerId: testParticipant.userId, // playerId maps to userId
+        playerName: testParticipant.userDisplayName, // playerName maps to displayName
         status: 'confirmed',
         appliedAt: serverTimestamp() as Timestamp,
         processedAt: serverTimestamp() as Timestamp,

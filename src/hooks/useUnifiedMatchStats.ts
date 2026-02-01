@@ -76,8 +76,10 @@ export function useUnifiedMatchStats({
         rankingService.getUserRanking(userId, 'season'),
         rankingService.getUserRanking(userId, 'alltime'),
         // 🆕 [KIM] Pass gender for gender-filtered club rankings
-        clubService.getClubLeagueRankings(userId, gender),
-        clubService.getClubTournamentRankings(userId, gender),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        clubService.getClubLeagueRankings(userId, gender as any),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        clubService.getClubTournamentRankings(userId, gender as any),
         // 🆕 [KIM] Win rate based ranking for "all" tab - with gender filter
         rankingService.getPublicRankingByWinRate(userId, 'alltime', gender),
         // 🆕 [KIM] ELO based rankings for specific matchTypes - with gender filter

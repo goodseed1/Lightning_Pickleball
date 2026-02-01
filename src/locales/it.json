@@ -8467,7 +8467,7 @@
     "generateBpaddleAndStartLeague": "Genera tabellone e avvia lega",
     "deleteLeagueConfirm": "Sei sicuro di voler eliminare «{{leagueName}}»?\n\nQuesta azione non può essere annullata e tutti i dati delle partite e le informazioni dei partecipanti verranno eliminati.",
     "minParticipantsRequired": "Minimo {{min}} partecipanti richiesti per iniziare. Attuale: {{current}}",
-    "minParticipantsDoublesWarning": "La lega doppio richiede almeno 2 squadre (4 giocatori). Attuale: {{current}}",
+    "minParticipantsDoublesWarning": "La lega doppio richiede almeno 2 squadre (4 giocatori). Attuale: {{current}} squadre",
     "minParticipantsSinglesWarning": "Minimo 2 partecipanti richiesti per iniziare la lega. Attuale: {{current}}"
   },
   "cards": {

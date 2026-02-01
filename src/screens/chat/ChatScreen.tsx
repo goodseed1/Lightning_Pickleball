@@ -177,7 +177,7 @@ const ChatScreen: React.FC = () => {
       </Appbar.Header>
 
       <ChatUI
-        messages={messages}
+        messages={messages as Parameters<typeof ChatUI>[0]['messages']}
         onSendMessage={handleSendMessage}
         isLoading={isLoading}
         isTyping={isTyping}

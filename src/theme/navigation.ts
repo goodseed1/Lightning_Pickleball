@@ -17,7 +17,7 @@ import {
   withOpacity,
 } from './colors';
 
-// ==================== LIGHTNING TENNIS NAVIGATION THEMES ====================
+// ==================== LIGHTNING PICKLEBALL NAVIGATION THEMES ====================
 
 /**
  * Lightning Pickleball Light Navigation Theme

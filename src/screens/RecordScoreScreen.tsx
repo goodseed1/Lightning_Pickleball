@@ -6,10 +6,15 @@
  *
  * 이유: Firestore 필드명 변경은 데이터 마이그레이션 위험이 있어
  *       UI 텍스트만 LPR로 변경하고 코드는 ntrp를 유지합니다.
+ *
+ * 🏓 피클볼 점수 시스템 (2026-01-29 업데이트)
+ * - Rally scoring: 11점 또는 15점 먼저 도달 (win by 2)
+ * - 포맷: 단일 게임 또는 Best of 3 게임
+ * - 타이브레이크 없음! (win by 2 규칙이 연장 처리)
  */
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, StyleSheet, ScrollView, Alert, TextInput as RNTextInput } from 'react-native';
-import { Card, Title, Button, TextInput, ActivityIndicator, IconButton } from 'react-native-paper';
+import { View, Text, StyleSheet, ScrollView, Alert, TouchableOpacity } from 'react-native';
+import { Card, Title, Button, TextInput, ActivityIndicator, IconButton, SegmentedButtons } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -23,6 +28,10 @@ import userService from '../services/userService';
 import rankingService from '../services/rankingService';
 import { useLanguage } from '../contexts/LanguageContext';
 
+// 🏓 피클볼 타입 정의
+type PickleballGameTarget = 11 | 15;
+type PickleballMatchFormat = 'single_game' | 'best_of_3';
+
 interface Participant {
   id: string;
   displayName: string;
@@ -31,11 +40,10 @@ interface Participant {
   ltrLevel?: number;
 }
 
-interface ScoreSet {
-  player1: string;
+// 🏓 피클볼 게임 점수 (테니스 세트가 아님!)
+interface PickleballGame {
+  player1: string;  // 점수 (0-25+)
   player2: string;
-  player1_tb?: string; // Tiebreak points for player 1
-  player2_tb?: string; // Tiebreak points for player 2
 }
 
 interface EventData {
@@ -59,6 +67,44 @@ interface EventData {
 type RecordScoreNavigationProp = NativeStackNavigationProp<RootStackParamList, 'RecordScore'>;
 type RecordScoreRouteProp = RouteProp<RootStackParamList, 'RecordScore'>;
 
+// 🏓 피클볼 게임 승자 결정 (win by 2!)
+const determinePickleballGameWinner = (
+  p1Score: number,
+  p2Score: number,
+  targetScore: PickleballGameTarget
+): 'player1' | 'player2' | null => {
+  const maxScore = Math.max(p1Score, p2Score);
+  const diff = Math.abs(p1Score - p2Score);
+
+  // 목표 점수 도달 + 2점 차이 필요
+  if (maxScore >= targetScore && diff >= 2) {
+    return p1Score > p2Score ? 'player1' : 'player2';
+  }
+  return null;
+};
+
+// 🏓 Best of 3 매치 승자 결정
+const determineBestOf3Winner = (
+  games: PickleballGame[],
+  targetScore: PickleballGameTarget
+): 'player1' | 'player2' | null => {
+  let p1Wins = 0;
+  let p2Wins = 0;
+
+  for (const game of games) {
+    const p1 = parseInt(game.player1 || '0', 10);
+    const p2 = parseInt(game.player2 || '0', 10);
+    const winner = determinePickleballGameWinner(p1, p2, targetScore);
+
+    if (winner === 'player1') p1Wins++;
+    else if (winner === 'player2') p2Wins++;
+  }
+
+  if (p1Wins >= 2) return 'player1';
+  if (p2Wins >= 2) return 'player2';
+  return null;
+};
+
 export default function RecordScoreScreen() {
   const navigation = useNavigation<RecordScoreNavigationProp>();
   const route = useRoute<RecordScoreRouteProp>();
@@ -75,114 +121,81 @@ export default function RecordScoreScreen() {
   const [participants, setParticipants] = useState<Participant[]>([]);
   const [winnerId, setWinnerId] = useState('');
   const [loserId, setLoserId] = useState('');
-  const [scoreSets, setScoreSets] = useState<ScoreSet[]>([
-    { player1: '', player2: '', player1_tb: '', player2_tb: '' },
-    { player1: '', player2: '', player1_tb: '', player2_tb: '' },
-    { player1: '', player2: '', player1_tb: '', player2_tb: '' },
+
+  // 🏓 피클볼 점수 설정
+  const [matchFormat, setMatchFormat] = useState<PickleballMatchFormat>('single_game');
+  const [targetScore, setTargetScore] = useState<PickleballGameTarget>(11);
+  const [games, setGames] = useState<PickleballGame[]>([
+    { player1: '', player2: '' },
+    { player1: '', player2: '' },
+    { player1: '', player2: '' },
   ]);
   const [matchWinner, setMatchWinner] = useState<Participant | null>(null);
   const [matchLoser, setMatchLoser] = useState<Participant | null>(null);
 
-  // Unified set winner determination - handles all tiebreak types correctly
-  const getSetWinner = useCallback(
-    (set: ScoreSet, setIndex: number): 'player1' | 'player2' | null => {
-      if (!set.player1.trim() || !set.player2.trim()) {
-        return null; // Incomplete set
+  // 🏓 피클볼 게임 승자 결정 (컴포넌트 내부 버전)
+  const getGameWinner = useCallback(
+    (game: PickleballGame): 'player1' | 'player2' | null => {
+      if (!game.player1.trim() || !game.player2.trim()) {
+        return null; // 미완료 게임
       }
 
-      const player1Games = parseInt(set.player1, 10);
-      const player2Games = parseInt(set.player2, 10);
+      const p1 = parseInt(game.player1, 10);
+      const p2 = parseInt(game.player2, 10);
 
-      if (isNaN(player1Games) || isNaN(player2Games)) {
-        return null; // Invalid scores
+      if (isNaN(p1) || isNaN(p2)) {
+        return null; // 유효하지 않은 점수
       }
 
-      // Check for tiebreak situations
-      const isTiebreakSet = player1Games === 6 && player2Games === 6;
-
-      if (isTiebreakSet) {
-        // 6-6 requires tiebreak - check tiebreak scores
-        const player1TB = parseInt(set.player1_tb || '0', 10);
-        const player2TB = parseInt(set.player2_tb || '0', 10);
-
-        // Determine tiebreak type: 3rd set (index 2) uses 10-point, others use 7-point
-        const pointsToWin = setIndex === 2 ? 10 : 7;
-
-        // Apply appropriate tiebreak rules
-        if (player1TB >= pointsToWin && player1TB - player2TB >= 2) {
-          return 'player1';
-        } else if (player2TB >= pointsToWin && player2TB - player1TB >= 2) {
-          return 'player2';
-        }
-        // If no clear tiebreak winner, set is not complete
-        return null;
-      } else {
-        // Regular set - higher score wins
-        if (player1Games > player2Games) {
-          return 'player1';
-        } else if (player2Games > player1Games) {
-          return 'player2';
-        }
-        // Equal scores that aren't 6-6 are invalid
-        return null;
-      }
+      return determinePickleballGameWinner(p1, p2, targetScore);
     },
-    []
+    [targetScore]
   );
 
-  // Pickleball score validation function
-  const isValidPickleballScore = (score1: number, score2: number): boolean => {
-    const maxScore = Math.max(score1, score2);
-    const minScore = Math.min(score1, score2);
-
-    // 7점 이상은 불가능
-    if (maxScore > 7) return false;
-
-    // 6점 이하면 항상 유효
-    if (maxScore <= 6) return true;
-
-    // 7점인 경우: 7-5만 가능
-    if (maxScore === 7) {
-      return minScore === 5;
-    }
-
+  // 🏓 피클볼 점수 검증 (rally scoring)
+  const isValidPickleballScore = useCallback((p1: number, p2: number): boolean => {
+    // 음수는 불가
+    if (p1 < 0 || p2 < 0) return false;
+    // 점수가 너무 높으면 불가 (현실적인 제한)
+    if (p1 > 30 || p2 > 30) return false;
     return true;
-  };
+  }, []);
 
-  // Calculate how many sets should be displayed dynamically
-  const calculateSetsToDisplay = useCallback(() => {
-    let setsCompleted = 0;
-    let player1SetWins = 0;
-    let player2SetWins = 0;
+  // 🏓 게임이 완료되었는지 확인
+  const isGameComplete = useCallback((p1: number, p2: number): boolean => {
+    const maxScore = Math.max(p1, p2);
+    const diff = Math.abs(p1 - p2);
+    return maxScore >= targetScore && diff >= 2;
+  }, [targetScore]);
 
-    // Count completed sets using proper tiebreak logic
-    for (let i = 0; i < scoreSets.length; i++) {
-      const set = scoreSets[i];
-      const winner = getSetWinner(set, i);
-
-      if (winner === null) {
-        break; // Stop at first incomplete set
-      }
-
-      if (winner === 'player1') {
-        player1SetWins++;
-      } else if (winner === 'player2') {
-        player2SetWins++;
-      }
-      setsCompleted++;
+  // 🏓 표시할 게임 수 계산
+  const calculateGamesToDisplay = useCallback(() => {
+    if (matchFormat === 'single_game') {
+      return 1;
     }
 
-    // Start with 1 set, add more as needed
-    if (setsCompleted === 0) {
-      return 1; // Always show at least the first set
-    } else if (setsCompleted === 1) {
-      return 2; // Show second set after first is completed
-    } else if (setsCompleted === 2 && player1SetWins === 1 && player2SetWins === 1) {
-      return 3; // Show third set only if tied 1-1
+    // Best of 3: 동적으로 게임 수 표시
+    let gamesCompleted = 0;
+    let p1Wins = 0;
+    let p2Wins = 0;
+
+    for (const game of games) {
+      const winner = getGameWinner(game);
+      if (winner === null) break;
+
+      if (winner === 'player1') p1Wins++;
+      else if (winner === 'player2') p2Wins++;
+      gamesCompleted++;
+
+      // 2승 달성시 중단
+      if (p1Wins >= 2 || p2Wins >= 2) break;
     }
 
-    return Math.max(2, setsCompleted);
-  }, [scoreSets, getSetWinner]);
+    // 최소 1게임, 완료된 게임 + 1 (진행 중인 게임용)
+    if (gamesCompleted === 0) return 1;
+    if (p1Wins >= 2 || p2Wins >= 2) return gamesCompleted;
+    return Math.min(gamesCompleted + 1, 3);
+  }, [matchFormat, games, getGameWinner]);
 
   const loadEventAndParticipants = useCallback(async () => {
     try {
@@ -342,209 +355,194 @@ export default function RecordScoreScreen() {
     }
   }, [eventId, navigation, currentUser?.uid]);
 
-  // Calculate match winner based on set scores with tiebreak rules
+  // 🏓 피클볼 매치 승자 계산
   const calculateMatchWinner = useCallback(
-    (scoreSets: ScoreSet[], participants: Participant[]) => {
+    (games: PickleballGame[], participants: Participant[]) => {
       if (participants.length !== 2) {
         return { winner: null, loser: null };
       }
 
-      let player1SetWins = 0;
-      let player2SetWins = 0;
-
-      // Count completed sets using unified set winner logic
-      for (let i = 0; i < scoreSets.length; i++) {
-        const set = scoreSets[i];
-        const winner = getSetWinner(set, i);
-
-        if (winner === 'player1') {
-          player1SetWins++;
-        } else if (winner === 'player2') {
-          player2SetWins++;
+      if (matchFormat === 'single_game') {
+        // 단일 게임: 첫 번째 게임만 확인
+        const game = games[0];
+        if (!game.player1.trim() || !game.player2.trim()) {
+          return { winner: null, loser: null };
         }
-        // If winner is null, set is not complete - continue checking others
-      }
 
-      // Determine match winner: first to win 2 sets
-      if (player1SetWins >= 2) {
-        return {
-          winner: participants[0],
-          loser: participants[1],
-        };
-      } else if (player2SetWins >= 2) {
-        return {
-          winner: participants[1],
-          loser: participants[0],
-        };
-      }
+        const p1 = parseInt(game.player1, 10);
+        const p2 = parseInt(game.player2, 10);
 
-      // No winner yet
-      return { winner: null, loser: null };
+        if (isNaN(p1) || isNaN(p2)) {
+          return { winner: null, loser: null };
+        }
+
+        const gameWinner = determinePickleballGameWinner(p1, p2, targetScore);
+
+        if (gameWinner === 'player1') {
+          return { winner: participants[0], loser: participants[1] };
+        } else if (gameWinner === 'player2') {
+          return { winner: participants[1], loser: participants[0] };
+        }
+
+        return { winner: null, loser: null };
+      } else {
+        // Best of 3: 2게임 먼저 이긴 사람 승리
+        const matchWinnerKey = determineBestOf3Winner(games, targetScore);
+
+        if (matchWinnerKey === 'player1') {
+          return { winner: participants[0], loser: participants[1] };
+        } else if (matchWinnerKey === 'player2') {
+          return { winner: participants[1], loser: participants[0] };
+        }
+
+        return { winner: null, loser: null };
+      }
     },
-    [getSetWinner]
+    [matchFormat, targetScore]
   );
 
   useEffect(() => {
     loadEventAndParticipants();
   }, [loadEventAndParticipants]);
 
-  // Real-time winner calculation - runs whenever scores change
+  // 🏓 실시간 승자 계산 - 점수가 변경될 때마다 실행
   useEffect(() => {
     if (participants.length === 2) {
-      const result = calculateMatchWinner(scoreSets, participants);
+      const result = calculateMatchWinner(games, participants);
 
       setMatchWinner(result.winner);
       setMatchLoser(result.loser);
 
-      // Update winnerId and loserId for compatibility with existing validation
+      // winnerId와 loserId 업데이트 (기존 검증과의 호환성)
       if (result.winner && result.loser) {
         setWinnerId(result.winner.id);
         setLoserId(result.loser.id);
       } else {
-        // Clear winner/loser if no clear winner yet
+        // 승자가 없으면 초기화
         setWinnerId('');
         setLoserId('');
       }
     }
-  }, [scoreSets, participants, calculateMatchWinner]);
+  }, [games, participants, calculateMatchWinner, matchFormat, targetScore]);
 
+  // 🏓 피클볼 점수 검증
   const validateScore = (): boolean => {
-    // Check if we have a clear winner from automatic detection
+    // 자동 감지로 승자가 결정되었는지 확인
     if (!matchWinner || !matchLoser) {
-      Alert.alert(t('recordScore.alerts.notice'), t('recordScore.alerts.matchNotComplete'));
-      return false;
-    }
-
-    // Comprehensive pickleball rules validation
-    let completedSets = 0;
-    const setsToCheck = calculateSetsToDisplay();
-
-    for (let i = 0; i < setsToCheck; i++) {
-      const set = scoreSets[i];
-      if (!set.player1.trim() || !set.player2.trim()) {
-        continue; // Skip incomplete sets
-      }
-
-      const score1 = parseInt(set.player1);
-      const score2 = parseInt(set.player2);
-
-      if (isNaN(score1) || isNaN(score2)) {
-        Alert.alert(t('recordScore.alerts.notice'), t('recordScore.alerts.scoresMustBeNumbers'));
-        return false;
-      }
-
-      if (score1 < 0 || score2 < 0 || score1 > 7 || score2 > 7) {
-        Alert.alert(t('recordScore.alerts.notice'), t('recordScore.alerts.scoresOutOfRange'));
-        return false;
-      }
-
-      // Pickleball scoring rules validation
-      const isTiebreakSet = score1 === 6 && score2 === 6;
-
-      if (isTiebreakSet) {
-        // Tiebreak validation - different rules for 3rd set (10-point) vs 1st/2nd sets (7-point)
-        const tb1 = parseInt(set.player1_tb || '0');
-        const tb2 = parseInt(set.player2_tb || '0');
-
-        if (isNaN(tb1) || isNaN(tb2)) {
-          Alert.alert(
-            t('recordScore.alerts.notice'),
-            t('recordScore.alerts.tiebreakRequired', { set: i + 1 })
-          );
-          return false;
-        }
-
-        if (tb1 < 0 || tb2 < 0 || tb1 > 99 || tb2 > 99) {
-          Alert.alert(
-            t('recordScore.alerts.notice'),
-            t('recordScore.alerts.tiebreakInvalid', { set: i + 1 })
-          );
-          return false;
-        }
-
-        // Apply different tiebreak rules: 3rd set = 10 points, others = 7 points
-        const pointsToWin = i === 2 ? 10 : 7;
-        const isValidTiebreak =
-          (tb1 >= pointsToWin || tb2 >= pointsToWin) && Math.abs(tb1 - tb2) >= 2;
-
-        if (!isValidTiebreak) {
-          const tiebreakName =
-            i === 2
-              ? t('recordScore.alerts.superTiebreak')
-              : t('recordScore.alerts.standardTiebreak');
-          Alert.alert(
-            t('recordScore.alerts.notice'),
-            t('recordScore.alerts.tiebreakRuleViolation', {
-              set: i + 1,
-              type: tiebreakName,
-              points: pointsToWin,
-            })
-          );
-          return false;
-        }
-      } else {
-        // Regular set validation
-        if (score1 === score2) {
-          if (score1 !== 6) {
-            Alert.alert(
-              t('recordScore.alerts.notice'),
-              t('recordScore.alerts.equalScoresInvalid', { set: i + 1 })
-            );
-            return false;
-          }
-          Alert.alert(
-            t('recordScore.alerts.notice'),
-            t('recordScore.alerts.needTiebreakAt66', { set: i + 1 })
-          );
-          return false;
-        }
-
-        // Check valid set scores
-        const maxScore = Math.max(score1, score2);
-        const minScore = Math.min(score1, score2);
-
-        if (maxScore >= 6) {
-          if (maxScore === 6 && minScore <= 4) {
-            // Valid: 6-0, 6-1, 6-2, 6-3, 6-4
-          } else if (maxScore === 7 && (minScore === 5 || minScore === 6)) {
-            // Valid: 7-5, 7-6 (but 7-6 should have tiebreak)
-            if (minScore === 6) {
-              Alert.alert(
-                t('recordScore.alerts.notice'),
-                t('recordScore.alerts.needTiebreakAt76', { set: i + 1 })
-              );
-              return false;
-            }
-          } else {
-            Alert.alert(
-              t('recordScore.alerts.notice'),
-              t('recordScore.alerts.invalidPickleballScore', { set: i + 1 })
-            );
-            return false;
-          }
-        } else {
-          Alert.alert(
-            t('recordScore.alerts.notice'),
-            t('recordScore.alerts.needSixGames', { set: i + 1 })
-          );
-          return false;
-        }
-      }
-
-      completedSets++;
-    }
-
-    if (completedSets === 0) {
-      Alert.alert(t('recordScore.alerts.notice'), t('recordScore.alerts.enterAtLeastOneSet'));
-      return false;
-    }
-
-    // Ensure we have enough completed sets to determine a winner
-    const setsNeededToWin = 2;
-    if (completedSets < setsNeededToWin) {
       Alert.alert(
         t('recordScore.alerts.notice'),
-        t('recordScore.alerts.needMoreSets', { count: setsNeededToWin })
+        t('recordScore.alerts.matchNotComplete')
+      );
+      return false;
+    }
+
+    const gamesToCheck = calculateGamesToDisplay();
+
+    // 필요한 게임 수 확인
+    const requiredWins = matchFormat === 'single_game' ? 1 : 2;
+    let p1Wins = 0;
+    let p2Wins = 0;
+    let completedGames = 0;
+
+    for (let i = 0; i < gamesToCheck; i++) {
+      const game = games[i];
+
+      // 빈 게임은 건너뛰기
+      if (!game.player1.trim() && !game.player2.trim()) {
+        continue;
+      }
+
+      // 한쪽만 입력된 경우
+      if (!game.player1.trim() || !game.player2.trim()) {
+        Alert.alert(
+          t('recordScore.alerts.notice'),
+          t('recordScore.alerts.bothScoresRequired', { game: i + 1 })
+        );
+        return false;
+      }
+
+      const p1 = parseInt(game.player1, 10);
+      const p2 = parseInt(game.player2, 10);
+
+      // 숫자 검증
+      if (isNaN(p1) || isNaN(p2)) {
+        Alert.alert(
+          t('recordScore.alerts.notice'),
+          t('recordScore.alerts.scoresMustBeNumbers')
+        );
+        return false;
+      }
+
+      // 범위 검증
+      if (p1 < 0 || p2 < 0) {
+        Alert.alert(
+          t('recordScore.alerts.notice'),
+          t('recordScore.alerts.scoresCannotBeNegative')
+        );
+        return false;
+      }
+
+      if (p1 > 30 || p2 > 30) {
+        Alert.alert(
+          t('recordScore.alerts.notice'),
+          t('recordScore.alerts.scoresTooHigh')
+        );
+        return false;
+      }
+
+      // 🏓 피클볼 승리 조건 검증: 목표 점수 도달 + 2점 차이
+      const maxScore = Math.max(p1, p2);
+      const diff = Math.abs(p1 - p2);
+
+      if (maxScore < targetScore) {
+        Alert.alert(
+          t('recordScore.alerts.notice'),
+          t('recordScore.alerts.needTargetScore', { game: i + 1, target: targetScore })
+        );
+        return false;
+      }
+
+      if (diff < 2) {
+        Alert.alert(
+          t('recordScore.alerts.notice'),
+          t('recordScore.alerts.needWinByTwo', { game: i + 1 })
+        );
+        return false;
+      }
+
+      // 승자 카운트
+      if (p1 > p2) p1Wins++;
+      else p2Wins++;
+      completedGames++;
+
+      // Best of 3에서 2승 달성하면 중단
+      if (matchFormat === 'best_of_3' && (p1Wins >= 2 || p2Wins >= 2)) {
+        break;
+      }
+    }
+
+    // 최소 게임 수 확인
+    if (completedGames === 0) {
+      Alert.alert(
+        t('recordScore.alerts.notice'),
+        t('recordScore.alerts.enterAtLeastOneGame')
+      );
+      return false;
+    }
+
+    // 승리 조건 확인
+    if (matchFormat === 'single_game' && completedGames < 1) {
+      Alert.alert(
+        t('recordScore.alerts.notice'),
+        t('recordScore.alerts.enterGameScore')
+      );
+      return false;
+    }
+
+    if (matchFormat === 'best_of_3' && Math.max(p1Wins, p2Wins) < 2) {
+      Alert.alert(
+        t('recordScore.alerts.notice'),
+        t('recordScore.alerts.needTwoWins')
       );
       return false;
     }
@@ -552,48 +550,34 @@ export default function RecordScoreScreen() {
     return true;
   };
 
+  // 🏓 피클볼 점수 포맷
   const formatScore = (): string => {
-    const sets = [];
-    const setsToFormat = calculateSetsToDisplay();
+    const gameScores: string[] = [];
+    const gamesToFormat = calculateGamesToDisplay();
 
-    for (let i = 0; i < setsToFormat; i++) {
-      const set = scoreSets[i];
-      const isMatchTiebreak = i === 2 && isSetsTied();
+    for (let i = 0; i < gamesToFormat; i++) {
+      const game = games[i];
 
-      if (isMatchTiebreak) {
-        // Match tiebreak - only show tiebreak score
-        if (set.player1_tb && set.player2_tb) {
-          const player1TB = parseInt(set.player1_tb || '0', 10);
-          const player2TB = parseInt(set.player2_tb || '0', 10);
-          const scoreString = `${t('recordScore.matchTB')}: ${player1TB}-${player2TB}`;
-          sets.push(scoreString);
+      if (game.player1.trim() && game.player2.trim()) {
+        const p1 = parseInt(game.player1, 10);
+        const p2 = parseInt(game.player2, 10);
+
+        if (!isNaN(p1) && !isNaN(p2)) {
+          gameScores.push(`${p1}-${p2}`);
         }
-        continue; // Skip regular score formatting for match tiebreak
-      }
-
-      if (set.player1.trim() && set.player2.trim()) {
-        const player1Games = parseInt(set.player1, 10);
-        const player2Games = parseInt(set.player2, 10);
-        let scoreString = `${set.player1}-${set.player2}`;
-
-        // Add tiebreak scores in proper pickleball format for 6-6 sets
-        const isTiebreakSet = player1Games === 6 && player2Games === 6;
-
-        if (isTiebreakSet && (set.player1_tb || set.player2_tb)) {
-          const player1TB = parseInt(set.player1_tb || '0', 10);
-          const player2TB = parseInt(set.player2_tb || '0', 10);
-
-          // 🎯 [KIM FIX] 타이브레이크 양쪽 점수 모두 표시 (예: 6-6(9-11))
-          if (player1TB > 0 || player2TB > 0) {
-            scoreString += `(${player1TB}-${player2TB})`;
-          }
-        }
-
-        sets.push(scoreString);
       }
     }
 
-    return sets.join(', ');
+    if (gameScores.length === 0) {
+      return '';
+    }
+
+    // 포맷 정보 추가
+    const formatLabel = matchFormat === 'single_game'
+      ? t('recordScore.singleGame')
+      : t('recordScore.bestOf3');
+
+    return `${gameScores.join(', ')} (${formatLabel}, ${targetScore}pt)`;
   };
 
   const handleSubmit = async () => {
@@ -605,14 +589,23 @@ export default function RecordScoreScreen() {
         '▶️ 1단계: 경기 결과 제출 시 clubId 유무에 따라 올바른 랭킹 시스템을 호출하도록 수정합니다...'
       );
 
-      const resultData = {
-        winnerId,
-        loserId,
-        score: formatScore(),
-      };
+      // 🏓 피클볼 매치 결과 저장
+      const { doc, updateDoc } = await import('firebase/firestore');
+      const { db } = await import('../firebase/config');
 
-      // Record match result first
-      await eventService.recordMatchResult(eventId, resultData);
+      const eventRef = doc(db, 'events', eventId);
+      await updateDoc(eventRef, {
+        matchResult: {
+          winnerId,
+          loserId,
+          score: formatScore(),
+          matchFormat,
+          targetScore,
+          submittedAt: new Date(),
+        },
+      });
+
+      console.log('✅ Match result saved to Firestore');
 
       // Update rankings using the Executive Branch Integration
       // Route to appropriate ELO system based on match context
@@ -746,112 +739,74 @@ export default function RecordScoreScreen() {
     }
   };
 
+  // 🏓 피클볼 점수 업데이트
   const updateScore = (
-    setIndex: number,
-    player: 'player1' | 'player2' | 'player1_tb' | 'player2_tb',
+    gameIndex: number,
+    player: 'player1' | 'player2',
     value: string
   ) => {
-    // 타이브레이크 점수는 별도 처리 (검증 없음)
-    if (player.includes('_tb')) {
-      const newScoreSets = [...scoreSets];
-      newScoreSets[setIndex][player] = value;
-      setScoreSets(newScoreSets);
+    // 빈 문자열 또는 숫자만 허용
+    if (value !== '' && !/^\d+$/.test(value)) {
       return;
     }
 
-    // 일반 세트 점수 검증
-    const numValue = parseInt(value, 10);
-    if (isNaN(numValue) || numValue < 0) return;
+    const numValue = value === '' ? 0 : parseInt(value, 10);
 
-    const newScoreSets = [...scoreSets];
-
-    // 임시로 점수 설정
-    newScoreSets[setIndex][player] = value;
-
-    const player1Score = parseInt(newScoreSets[setIndex].player1 || '0', 10);
-    const player2Score = parseInt(newScoreSets[setIndex].player2 || '0', 10);
-
-    // 피클볼 규칙 검증 (둘 다 점수가 입력된 경우에만)
-    if (newScoreSets[setIndex].player1 && newScoreSets[setIndex].player2) {
-      if (!isValidPickleballScore(player1Score, player2Score)) {
-        // 유효하지 않은 점수면 경고 표시하고 입력 차단
-        Alert.alert(
-          t('recordScore.alerts.invalidScore'),
-          t('recordScore.alerts.invalidScoreExplanation'),
-          [{ text: t('recordScore.alerts.confirm'), style: 'default' }]
-        );
-        return;
-      }
+    // 범위 검증 (0-30)
+    if (numValue < 0 || numValue > 30) {
+      return;
     }
 
-    setScoreSets(newScoreSets);
+    const newGames = [...games];
+    newGames[gameIndex] = {
+      ...newGames[gameIndex],
+      [player]: value,
+    };
+
+    setGames(newGames);
   };
 
-  // Check if sets are tied 1-1 (for match tiebreak determination)
-  const isSetsTied = useCallback(() => {
-    let player1SetWins = 0;
-    let player2SetWins = 0;
-
-    for (let i = 0; i < 2; i++) {
-      // Only check first 2 sets
-      const set = scoreSets[i];
-      const winner = getSetWinner(set, i);
-
-      if (winner === null) {
-        return false; // Set not complete
-      }
-
-      if (winner === 'player1') {
-        player1SetWins++;
-      } else if (winner === 'player2') {
-        player2SetWins++;
-      }
-    }
-
-    return player1SetWins === 1 && player2SetWins === 1;
-  }, [scoreSets, getSetWinner]);
-
-  const renderScoreInput = (setIndex: number, setLabel: string) => {
+  // 🏓 피클볼 게임 점수 입력 UI
+  const renderGameInput = (gameIndex: number, gameLabel: string) => {
     const isPlayer1Winner = matchWinner?.id === participants[0]?.id;
     const isPlayer2Winner = matchWinner?.id === participants[1]?.id;
 
-    // Intelligent 6-6 detection for tiebreak
-    const currentSet = scoreSets[setIndex];
-    const isStandardTiebreak = currentSet.player1 === '6' && currentSet.player2 === '6';
-    const showTiebreak = isStandardTiebreak;
+    const currentGame = games[gameIndex];
+    const p1Score = parseInt(currentGame.player1 || '0', 10);
+    const p2Score = parseInt(currentGame.player2 || '0', 10);
 
-    // Determine tiebreak type based on official pickleball rules:
-    // - 1st/2nd set at 6-6: 7-point tiebreak
-    // - 3rd set at 6-6: 10-point super tiebreak
-    let tiebreakType = 'standard';
-    let tiebreakPlaceholder = t('recordScore.tiebreak7pt');
-
-    if (setIndex === 2 && isStandardTiebreak) {
-      // 3rd set super tiebreak (when it reaches 6-6)
-      tiebreakType = 'super';
-      tiebreakPlaceholder = t('recordScore.tiebreakSuper');
-    }
+    // 이 게임의 승자 확인
+    const gameWinner = getGameWinner(currentGame);
+    const isP1GameWinner = gameWinner === 'player1';
+    const isP2GameWinner = gameWinner === 'player2';
 
     return (
-      <View key={setIndex} style={styles.scoreSetContainer}>
-        <Text style={styles.setLabel}>{setLabel}</Text>
+      <View key={gameIndex} style={styles.scoreSetContainer}>
+        <Text style={styles.setLabel}>{gameLabel}</Text>
 
-        {/* Always show regular set inputs - tiebreak appears in addition when 6-6 */}
         <View style={styles.scoreInputRow}>
           <View style={styles.playerInputContainer}>
             <View style={styles.playerLabelContainer}>
-              <Text style={[styles.playerLabel, isPlayer1Winner && styles.winnerLabel]}>
+              <Text style={[
+                styles.playerLabel,
+                (isPlayer1Winner || isP1GameWinner) && styles.winnerLabel
+              ]}>
                 {participants[0]?.displayName || participants[0]?.name || 'Player 1'}
               </Text>
+              {isP1GameWinner && <Text style={styles.winnerIcon}>✓</Text>}
               {isPlayer1Winner && <Text style={styles.winnerIcon}>👑</Text>}
             </View>
             <TextInput
-              value={scoreSets[setIndex].player1}
-              onChangeText={value => updateScore(setIndex, 'player1', value)}
-              style={[styles.scoreInput, isPlayer1Winner && styles.winnerScoreInput]}
+              value={currentGame.player1}
+              onChangeText={value => updateScore(gameIndex, 'player1', value)}
+              style={[
+                styles.scoreInput,
+                isP1GameWinner && styles.winnerScoreInput
+              ]}
               keyboardType='numeric'
-              maxLength={1}
+              maxLength={2}
               dense
+              placeholder='0'
             />
           </View>
 
@@ -859,74 +814,37 @@ export default function RecordScoreScreen() {
 
           <View style={styles.playerInputContainer}>
             <View style={styles.playerLabelContainer}>
-              <Text style={[styles.playerLabel, isPlayer2Winner && styles.winnerLabel]}>
+              <Text style={[
+                styles.playerLabel,
+                (isPlayer2Winner || isP2GameWinner) && styles.winnerLabel
+              ]}>
                 {participants[1]?.displayName || participants[1]?.name || 'Player 2'}
               </Text>
+              {isP2GameWinner && <Text style={styles.winnerIcon}>✓</Text>}
               {isPlayer2Winner && <Text style={styles.winnerIcon}>👑</Text>}
             </View>
             <TextInput
-              value={scoreSets[setIndex].player2}
-              onChangeText={value => updateScore(setIndex, 'player2', value)}
-              style={[styles.scoreInput, isPlayer2Winner && styles.winnerScoreInput]}
+              value={currentGame.player2}
+              onChangeText={value => updateScore(gameIndex, 'player2', value)}
+              style={[
+                styles.scoreInput,
+                isP2GameWinner && styles.winnerScoreInput
+              ]}
               keyboardType='numeric'
-              maxLength={1}
+              maxLength={2}
               dense
+              placeholder='0'
             />
           </View>
         </View>
 
-        {/* Conditional Tiebreak UI - appears magically when 6-6 */}
-        {showTiebreak && (
-          <View style={styles.tiebreakContainer}>
-            <Text style={styles.tiebreakLabel}>
-              {t('recordScore.tiebreakLabel', { placeholder: tiebreakPlaceholder })}
-            </Text>
-            <View style={styles.tiebreakInputRow}>
-              <View style={styles.tiebreakPlayerContainer}>
-                <Text style={[styles.tiebreakPlayerLabel, isPlayer1Winner && styles.winnerLabel]}>
-                  {participants[0]?.displayName || 'Player 1'}
-                </Text>
-                <View style={styles.tiebreakInputWrapper}>
-                  <Text style={styles.tiebreakBpaddle}>(</Text>
-                  <RNTextInput
-                    value={currentSet.player1_tb || ''}
-                    onChangeText={value => updateScore(setIndex, 'player1_tb', value)}
-                    style={[styles.tiebreakInput, isPlayer1Winner && styles.winnerScoreInput]}
-                    keyboardType='numeric'
-                    maxLength={2}
-                    placeholder={tiebreakType === 'match' || tiebreakType === 'super' ? '10' : '7'}
-                    placeholderTextColor={themeColors.colors.onSurfaceVariant}
-                  />
-                  <Text style={styles.tiebreakBpaddle}>)</Text>
-                </View>
-              </View>
-
-              <Text style={styles.tiebreakSeparator}>-</Text>
-
-              <View style={styles.tiebreakPlayerContainer}>
-                <Text style={[styles.tiebreakPlayerLabel, isPlayer2Winner && styles.winnerLabel]}>
-                  {participants[1]?.displayName || 'Player 2'}
-                </Text>
-                <View style={styles.tiebreakInputWrapper}>
-                  <Text style={styles.tiebreakBpaddle}>(</Text>
-                  <RNTextInput
-                    value={currentSet.player2_tb || ''}
-                    onChangeText={value => updateScore(setIndex, 'player2_tb', value)}
-                    style={[styles.tiebreakInput, isPlayer2Winner && styles.winnerScoreInput]}
-                    keyboardType='numeric'
-                    maxLength={2}
-                    placeholder={tiebreakType === 'match' || tiebreakType === 'super' ? '10' : '7'}
-                    placeholderTextColor={themeColors.colors.onSurfaceVariant}
-                  />
-                  <Text style={styles.tiebreakBpaddle}>)</Text>
-                </View>
-              </View>
-            </View>
-
-            <Text style={styles.tiebreakHint}>
-              {tiebreakType === 'match' || tiebreakType === 'super'
-                ? t('recordScore.tiebreakHintSuper')
-                : t('recordScore.tiebreakHintStandard')}
+        {/* 🏓 피클볼 점수 힌트 */}
+        {currentGame.player1.trim() && currentGame.player2.trim() && !gameWinner && (
+          <View style={styles.gameHintContainer}>
+            <Text style={styles.gameHintText}>
+              {p1Score >= targetScore || p2Score >= targetScore
+                ? t('recordScore.needWinByTwoHint')
+                : t('recordScore.needTargetScoreHint', { target: targetScore })}
             </Text>
           </View>
         )}
@@ -984,18 +902,69 @@ export default function RecordScoreScreen() {
           </Card.Content>
         </Card>
 
-        {/* Score Input */}
+        {/* 🏓 피클볼 매치 설정 */}
+        <Card style={styles.sectionCard}>
+          <Card.Content>
+            <Text style={styles.sectionTitle}>{t('recordScore.matchSettings')}</Text>
+
+            {/* 매치 포맷 선택 */}
+            <View style={styles.settingRow}>
+              <Text style={styles.settingLabel}>{t('recordScore.matchFormat')}</Text>
+              <SegmentedButtons
+                value={matchFormat}
+                onValueChange={value => setMatchFormat(value as PickleballMatchFormat)}
+                buttons={[
+                  { value: 'single_game', label: t('recordScore.singleGame') },
+                  { value: 'best_of_3', label: t('recordScore.bestOf3') },
+                ]}
+                style={styles.segmentedButtons}
+              />
+            </View>
+
+            {/* 목표 점수 선택 */}
+            <View style={styles.settingRow}>
+              <Text style={styles.settingLabel}>{t('recordScore.targetScore')}</Text>
+              <SegmentedButtons
+                value={String(targetScore)}
+                onValueChange={value => setTargetScore(parseInt(value, 10) as PickleballGameTarget)}
+                buttons={[
+                  { value: '11', label: '11' },
+                  { value: '15', label: '15' },
+                ]}
+                style={styles.segmentedButtons}
+              />
+            </View>
+
+            {/* 피클볼 규칙 힌트 */}
+            <View style={styles.ruleHintContainer}>
+              <Text style={styles.ruleHintText}>
+                🏓 {t('recordScore.pickleballRuleHint', {
+                  target: targetScore,
+                  format: matchFormat === 'single_game'
+                    ? t('recordScore.singleGame')
+                    : t('recordScore.bestOf3'),
+                })}
+              </Text>
+            </View>
+          </Card.Content>
+        </Card>
+
+        {/* 🏓 피클볼 점수 입력 */}
         <Card style={styles.sectionCard}>
           <Card.Content>
             <View style={styles.scoreHeader}>
               <Text style={styles.sectionTitle}>{t('recordScore.scoreInput')}</Text>
             </View>
 
-            <Text style={styles.sectionDescription}>{t('recordScore.scoreInputDescription')}</Text>
+            <Text style={styles.sectionDescription}>
+              {matchFormat === 'single_game'
+                ? t('recordScore.singleGameDescription', { target: targetScore })
+                : t('recordScore.bestOf3Description', { target: targetScore })}
+            </Text>
 
             <View style={styles.scoreContainer}>
-              {Array.from({ length: calculateSetsToDisplay() }, (_, index) =>
-                renderScoreInput(index, t('recordScore.setN', { n: index + 1 }))
+              {Array.from({ length: calculateGamesToDisplay() }, (_, index) =>
+                renderGameInput(index, t('recordScore.gameN', { n: index + 1 }))
               )}
             </View>
 
@@ -1225,70 +1194,38 @@ const createStyles = (colors: Record<string, string>, isDarkMode: boolean) =>
       fontStyle: 'italic',
       fontWeight: '500',
     },
-    tiebreakContainer: {
-      marginTop: 16,
-      padding: 16,
-      backgroundColor: colors.surfaceVariant,
-      borderRadius: 12,
-      borderWidth: 2,
-      borderColor: colors.outline,
-      borderStyle: 'dashed',
+    // 🏓 피클볼 매치 설정 스타일
+    settingRow: {
+      marginBottom: 16,
     },
-    tiebreakLabel: {
-      fontSize: 16,
+    settingLabel: {
+      fontSize: 14,
       fontWeight: '600',
-      color: colors.primary,
-      textAlign: 'center',
-      marginBottom: 12,
-    },
-    tiebreakInputRow: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      color: colors.onSurface,
       marginBottom: 8,
     },
-    tiebreakPlayerContainer: {
-      flex: 1,
-      alignItems: 'center',
+    segmentedButtons: {
+      marginTop: 4,
     },
-    tiebreakPlayerLabel: {
-      fontSize: 12,
-      color: colors.onSurfaceVariant,
-      fontWeight: '500',
-      marginBottom: 4,
-    },
-    tiebreakInputWrapper: {
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
-    tiebreakBpaddle: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      color: colors.primary,
-      marginHorizontal: 2,
-    },
-    tiebreakInput: {
-      width: 40,
-      height: 40,
-      backgroundColor: colors.surface,
-      borderWidth: 1,
-      borderColor: colors.primary,
+    ruleHintContainer: {
+      marginTop: 8,
+      padding: 12,
+      backgroundColor: colors.primaryContainer,
       borderRadius: 8,
+    },
+    ruleHintText: {
+      fontSize: 13,
+      color: colors.onPrimaryContainer,
       textAlign: 'center',
-      textAlignVertical: 'center',
-      fontSize: 16,
-      fontWeight: '600',
-      paddingHorizontal: 0,
-      paddingVertical: 0,
-      color: colors.onSurface,
+      lineHeight: 18,
     },
-    tiebreakSeparator: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: colors.primary,
-      marginHorizontal: 16,
+    gameHintContainer: {
+      marginTop: 8,
+      padding: 8,
+      backgroundColor: colors.surfaceVariant,
+      borderRadius: 6,
     },
-    tiebreakHint: {
+    gameHintText: {
       fontSize: 12,
       color: colors.onSurfaceVariant,
       textAlign: 'center',

@@ -52,10 +52,11 @@ export const NotificationBanner: React.FC<NotificationBannerProps> = ({
   };
 
   const variantColor = getVariantColor();
-  const styles = createStyles(themeColors.colors, variantColor);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>, variantColor);
 
   const handlePress = () => {
-    navigation.navigate(destination.screen as never, destination.params as never);
+    // @ts-expect-error Dynamic navigation to any screen
+    navigation.navigate(destination.screen, destination.params);
   };
 
   return (

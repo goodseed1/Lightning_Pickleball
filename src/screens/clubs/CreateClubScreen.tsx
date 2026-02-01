@@ -189,6 +189,56 @@ export default function CreateClubScreen() {
     }
   }, [clubId, t]);
 
+  // Overall validation (for button state)
+  // 🎯 [KIM FIX] Edit mode has relaxed validation - only name is required
+  // Create mode requires name, address, and meetings
+  const validate = useCallback(() => {
+    console.log('🔍 VALIDATION DEBUG - Form Data:', {
+      name: formData?.name,
+      courtAddress: formData?.courtAddress,
+      meetings: formData?.meetings,
+      description: formData?.description,
+      isEditMode,
+    });
+
+    // Name is always required
+    if (!isNonEmpty(formData?.name)) {
+      console.log('❌ VALIDATION FAILED: Club name is empty');
+      return { ok: false, msg: t('createClub.validation.nameRequired') };
+    }
+    console.log('✅ Club name is valid:', formData.name);
+
+    // 🎯 [KIM FIX] In edit mode, only require name - allow partial updates
+    if (isEditMode) {
+      console.log('🎉 EDIT MODE - Relaxed validation passed!');
+      return { ok: true as const };
+    }
+
+    // Create mode: require address and meetings
+    if (!isNonEmpty(formData?.courtAddress?.address)) {
+      console.log('❌ VALIDATION FAILED: Court address is empty');
+      return { ok: false, msg: t('createClub.validation.addressRequired') };
+    }
+    console.log('✅ Court address is valid:', formData.courtAddress?.address);
+
+    const meetings = Array.isArray(formData?.meetings) ? formData.meetings : [];
+    console.log('🔍 Meetings array:', meetings, 'length:', meetings.length);
+    if (!meetings.length) {
+      console.log('❌ VALIDATION FAILED: No meetings found');
+      return { ok: false, msg: t('createClub.validation.meetingsRequired') };
+    }
+    console.log('✅ Meetings are valid:', meetings);
+
+    if (isNonEmpty(formData?.description) && String(formData.description).trim().length < 5) {
+      console.log('❌ VALIDATION FAILED: Description too short');
+      return { ok: false, msg: t('createClub.validation.descShort') };
+    }
+    console.log('✅ Description is valid');
+
+    console.log('🎉 ALL VALIDATION PASSED!');
+    return { ok: true as const };
+  }, [formData, isEditMode, t]);
+
   // 🎯 [KIM FIX] Direct save handler for back navigation (more reliable than beforeRemove)
   const handleBackWithSave = useCallback(async () => {
     if (!isEditMode || !clubId) {
@@ -340,56 +390,6 @@ export default function CreateClubScreen() {
     setFieldValidation(newValidation);
   }, [formData, validateField]);
 
-  // Overall validation (for button state)
-  // 🎯 [KIM FIX] Edit mode has relaxed validation - only name is required
-  // Create mode requires name, address, and meetings
-  const validate = useCallback(() => {
-    console.log('🔍 VALIDATION DEBUG - Form Data:', {
-      name: formData?.name,
-      courtAddress: formData?.courtAddress,
-      meetings: formData?.meetings,
-      description: formData?.description,
-      isEditMode,
-    });
-
-    // Name is always required
-    if (!isNonEmpty(formData?.name)) {
-      console.log('❌ VALIDATION FAILED: Club name is empty');
-      return { ok: false, msg: t('createClub.validation.nameRequired') };
-    }
-    console.log('✅ Club name is valid:', formData.name);
-
-    // 🎯 [KIM FIX] In edit mode, only require name - allow partial updates
-    if (isEditMode) {
-      console.log('🎉 EDIT MODE - Relaxed validation passed!');
-      return { ok: true as const };
-    }
-
-    // Create mode: require address and meetings
-    if (!isNonEmpty(formData?.courtAddress?.address)) {
-      console.log('❌ VALIDATION FAILED: Court address is empty');
-      return { ok: false, msg: t('createClub.validation.addressRequired') };
-    }
-    console.log('✅ Court address is valid:', formData.courtAddress?.address);
-
-    const meetings = Array.isArray(formData?.meetings) ? formData.meetings : [];
-    console.log('🔍 Meetings array:', meetings, 'length:', meetings.length);
-    if (!meetings.length) {
-      console.log('❌ VALIDATION FAILED: No meetings found');
-      return { ok: false, msg: t('createClub.validation.meetingsRequired') };
-    }
-    console.log('✅ Meetings are valid:', meetings);
-
-    if (isNonEmpty(formData?.description) && String(formData.description).trim().length < 5) {
-      console.log('❌ VALIDATION FAILED: Description too short');
-      return { ok: false, msg: t('createClub.validation.descShort') };
-    }
-    console.log('✅ Description is valid');
-
-    console.log('🎉 ALL VALIDATION PASSED!');
-    return { ok: true as const };
-  }, [formData, isEditMode]);
-
   // Create or Update club handler
   const handleCreate = useCallback(async () => {
     if (isLoading) return;
@@ -505,7 +505,7 @@ export default function CreateClubScreen() {
 
         // Navigate to club detail
         setTimeout(() => {
-          navigation.navigate('ClubDetail', {
+          (navigation.navigate as (screen: string, params: unknown) => void)('ClubDetail', {
             clubId: newId,
             isNewClub: true,
             fallbackClub: {
@@ -571,6 +571,7 @@ export default function CreateClubScreen() {
           if (!v.ok) {
             console.log('⚠️ [CreateClubScreen] Validation failed, navigating back without save');
             // Don't set hasSavedRef.current = true here! Allow retry.
+            // @ts-expect-error Navigation action type
             navigation.dispatch(e.data.action);
             return;
           }
@@ -609,11 +610,13 @@ export default function CreateClubScreen() {
           console.log('✅ [CreateClubScreen] Auto-save completed successfully');
 
           // Navigate after save
+          // @ts-expect-error Navigation action type
           navigation.dispatch(e.data.action);
         } catch (error) {
           console.error('❌ [CreateClubScreen] Auto-save failed:', error);
           hasSavedRef.current = false;
           // Navigate anyway even if save fails
+          // @ts-expect-error Navigation action type
           navigation.dispatch(e.data.action);
         }
       }

@@ -278,12 +278,14 @@ function detectWarnings(result: AssessmentResult): string[] {
   }
 
   // Over-estimation Warning (using existing util)
-  if (shouldShowOverEstimationWarning(recommendedLtr)) {
+  // selfAssessedLtr: derived from selfPercentage (0-1) mapped to LPR scale (1-5)
+  const selfAssessedLtr = Math.round(selfPercentage * 4) + 1; // Maps 0-1 to 1-5
+  if (shouldShowOverEstimationWarning(selfAssessedLtr, recommendedLtr)) {
     warnings.push(i18n.t('utils.lprAssessment.warnings.highLevelWarning'));
   }
 
   // Under-estimation Recommendation (using existing util)
-  if (shouldShowUnderEstimationRecommendation(recommendedLtr)) {
+  if (shouldShowUnderEstimationRecommendation(selfAssessedLtr, recommendedLtr)) {
     warnings.push(i18n.t('utils.lprAssessment.warnings.beginnerEncouragement'));
   }
 

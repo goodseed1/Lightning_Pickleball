@@ -361,7 +361,7 @@ const FeedScreen = () => {
       // 관리자 피드백 → Admin Dashboard > User Feedback
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (navigation as any).navigate('AdminDashboard', {
-        screen: item.metadata?.navigationParams?.screen || 'UserFeedback',
+        screen: (item.metadata?.navigationParams as { screen?: string })?.screen || 'UserFeedback',
         feedbackId: item.metadata?.feedbackId,
       });
     } else if (navigationTarget === 'AiChatbot' || navigationTarget === 'ChatScreen') {
@@ -369,7 +369,7 @@ const FeedScreen = () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (navigation as any).navigate('ChatScreen', {
         feedbackId: item.metadata?.feedbackId,
-        showResponse: item.metadata?.navigationParams?.showResponse,
+        showResponse: (item.metadata?.navigationParams as { showResponse?: boolean })?.showResponse,
       });
     } else {
       // 기본 네비게이션: 피드 타입별 처리
@@ -703,7 +703,7 @@ const FeedScreen = () => {
               initialActivityTab: 'applied',
             },
           }}
-          icon='pickleballball'
+          icon='checkmark-circle'
           variant='success'
         />
       )}

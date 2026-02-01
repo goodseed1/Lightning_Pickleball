@@ -36,13 +36,13 @@ const CreateModal: React.FC<CreateModalProps> = ({ visible, onClose }) => {
   const handleCreateMatch = () => {
     console.log('Create Ranked Match');
     onClose();
-    navigation.navigate('CreateEventChoice');
+    navigation.navigate('CreateEventChoice' as never);
   };
 
   const handleCreateMeetup = () => {
     console.log('Create Casual Meetup');
     onClose();
-    navigation.navigate('CreateEventChoice');
+    navigation.navigate('CreateEventChoice' as never);
   };
 
   const styles = StyleSheet.create({

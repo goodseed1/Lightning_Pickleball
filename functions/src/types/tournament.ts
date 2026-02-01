@@ -107,7 +107,7 @@ export interface TournamentSettings {
 
   // 규칙
   thirdPlaceMatch: boolean; // 3,4위전
-  consolationBpaddle: boolean; // 패자부활전
+  consolationBracket: boolean; // 패자부활전
   allowWalkovers: boolean; // 부전승 허용
 
   // 자격 조건
@@ -270,18 +270,18 @@ export interface CloudFunctionResponse<T = unknown> {
 }
 
 // ============================================================================
-// Bpaddle Types (Phase 5.2 - Server-Side Bpaddle Generation)
+// Bracket Types (Phase 5.2 - Server-Side Bracket Generation)
 // ============================================================================
 
 /**
- * Match Status for Bpaddle Matches
+ * Match Status for Bracket Matches
  */
 export type MatchStatus = 'scheduled' | 'in_progress' | 'completed' | 'cancelled' | 'walkover';
 
 /**
- * Bpaddle Position Status
+ * Bracket Position Status
  */
-export type BpaddlePositionStatus =
+export type BracketPositionStatus =
   | 'empty' // 비어있음
   | 'bye' // 부전승
   | 'filled' // 선수 배정됨
@@ -289,17 +289,17 @@ export type BpaddlePositionStatus =
   | 'loser'; // 이전 경기 패자 (더블 엘리미네이션)
 
 /**
- * BpaddleUnit - The fundamental building block of tournament bpaddles
+ * BracketUnit - The fundamental building block of tournament bpaddles
  *
  * This interface represents the minimum contract that any competitive entity
  * must fulfill to participate in a bpaddle. It abstracts away the differences
  * between singles and doubles formats.
  */
-export interface BpaddleUnit {
+export interface BracketUnit {
   id: string; // Unique identifier (playerId or teamId)
   displayName: string; // Name shown in bpaddle (player name or "Player1 / Player2")
   seed?: number; // Seeding position (1, 2, 3, ...)
-  status?: BpaddlePositionStatus; // Current bpaddle position status
+  status?: BracketPositionStatus; // Current bpaddle position status
 }
 
 /**
@@ -362,13 +362,13 @@ export type CompetitiveUnit = TournamentParticipant | DoublesTeam;
 export type MatchFormat = 'singles' | 'doubles';
 
 /**
- * BpaddlePlayer - Player in a bpaddle match
+ * BracketPlayer - Player in a bpaddle match
  */
-export interface BpaddlePlayer {
+export interface BracketPlayer {
   playerId: string;
   playerName: string;
   seed?: number; // 시드 번호
-  status: BpaddlePositionStatus;
+  status: BracketPositionStatus;
 
   // 복식인 경우 파트너 정보
   partnerId?: string;
@@ -385,9 +385,9 @@ export interface BpaddlePlayer {
 }
 
 /**
- * BpaddleMatch - Single match in the bpaddle
+ * BracketMatch - Single match in the bpaddle
  */
-export interface BpaddleMatch {
+export interface BracketMatch {
   id: string;
   tournamentId: string;
   roundNumber: number;
@@ -395,8 +395,8 @@ export interface BpaddleMatch {
   bpaddlePosition: number; // 전체 대진표에서의 위치
 
   // 참가자
-  player1?: BpaddlePlayer;
-  player2?: BpaddlePlayer;
+  player1?: BracketPlayer;
+  player2?: BracketPlayer;
 
   // 승자
   winnerId?: string;
@@ -436,12 +436,12 @@ export interface BpaddleMatch {
 }
 
 /**
- * BpaddleRound - Single round in the bpaddle
+ * BracketRound - Single round in the bpaddle
  */
-export interface BpaddleRound {
+export interface BracketRound {
   roundNumber: number;
   roundName: string; // "Round of 16", "Quarter Finals", etc.
-  matches: BpaddleMatch[];
+  matches: BracketMatch[];
   startDate?: FirebaseTimestamp;
   endDate?: FirebaseTimestamp;
   isCompleted: boolean;

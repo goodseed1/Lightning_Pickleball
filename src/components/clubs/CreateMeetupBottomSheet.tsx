@@ -647,7 +647,7 @@ const CreateMeetupBottomSheet: React.FC<CreateMeetupBottomSheetProps> = ({
                         placeholder={t('createMeetupBottomSheet.searchLocation')}
                         onPress={handlePlaceSelect}
                         fetchDetails={true}
-                        isLoading={isLoadingPlaceDetails}
+                        // isLoading prop removed - not supported by SafeGooglePlacesAutocomplete
                         // 🎯 [KIM] Fix VirtualizedList nesting warning
                         // scrollEnabled: false prevents the internal FlatList from scrolling
                         // keyboardShouldPersistTaps ensures tap events work properly
@@ -718,7 +718,7 @@ const CreateMeetupBottomSheet: React.FC<CreateMeetupBottomSheetProps> = ({
               {/* Court Count */}
               <View style={styles.inputRow}>
                 <View style={styles.inputLabel}>
-                  <Ionicons name='pickleballball-outline' size={22} color={theme?.colors.primary} />
+                  <Ionicons name='ellipse-outline' size={22} color={theme?.colors.primary} />
                   <Text style={styles.labelText}>{t('createMeetupBottomSheet.courts')}</Text>
                 </View>
                 <View style={styles.counterContainer}>

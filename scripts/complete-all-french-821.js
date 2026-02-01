@@ -144,7 +144,7 @@ const completeFrench = {
 
   // Alert
   alert: {
-    tournamentBpaddle: {
+    tournamentBracket: {
       info: 'Info',
       participants: 'Participants',
       participantsTab: 'Participants',

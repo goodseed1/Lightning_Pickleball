@@ -405,7 +405,7 @@ const TournamentBpaddleView: React.FC<TournamentBpaddleViewProps> = ({
   };
 
   const renderRound = (round: Round) => {
-    const roundName = getRoundName(round.roundNumber, bpaddle.rounds.length, round.matches.length);
+    const roundName = getRoundName(round.roundNumber, bpaddle.rounds.length);
     const matchSpacing = getMatchSpacing(round.roundNumber);
 
     // Check if this is the current active round

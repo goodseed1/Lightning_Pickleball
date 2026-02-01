@@ -67,6 +67,7 @@ export interface ApprovedApplication extends PendingApplication {
   partnerId?: string;
   partnerName?: string; // 🎯 [KIM FIX] Partner name for doubles team display
   teamId?: string;
+  type?: string; // 🎯 [KIM FIX] 'partner_invitation' = 호스트 파트너 (상대팀 아님!)
   // 🎯 [KIM FIX] LPR fields for team display
   applicantLtr?: number;
   partnerLtr?: number;
@@ -203,7 +204,7 @@ const HostedEventCard: React.FC<HostedEventCardProps> = ({
   const { theme: currentTheme } = useTheme();
   const { t } = useLanguage();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors, currentTheme);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>, currentTheme);
 
   // 🆕 Firestore에서 실시간으로 가져온 데이터를 로컬 state로 관리
   const [localUnreadCount, setLocalUnreadCount] = useState<number>(0);
@@ -1386,7 +1387,7 @@ const HostedEventCard: React.FC<HostedEventCardProps> = ({
 
     // 💨 Wind Speed: Use mph for US/UK, km/h for others
     // windSpeedMph is provided by Open-Meteo, windSpeed might be in different units
-    const windSpeedInMph = weather.windSpeedMph ?? Math.round(weather.windSpeed * 0.621371);
+    const windSpeedInMph = (weather as unknown as { windSpeedMph?: number }).windSpeedMph ?? Math.round((weather.windSpeed || 0) * 0.621371);
     const displayWindSpeed =
       weather.windSpeed !== undefined
         ? useImperialUnits
@@ -2557,7 +2558,8 @@ const HostedEventCard: React.FC<HostedEventCardProps> = ({
           hostPartnerName: event.hostPartnerName,
           partnerAccepted: event.partnerAccepted, // 🆕 [KIM FIX] Partner acceptance status
           partnerStatus: (event.partnerStatus === 'accepted' ? undefined : event.partnerStatus) as
-            | string
+            | 'pending'
+            | 'rejected'
             | undefined, // 🆕 [KIM FIX] Partner invitation status
           gameType: localGameType,
           scheduledTime: event.date,

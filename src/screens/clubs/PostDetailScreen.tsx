@@ -103,7 +103,7 @@ const PostDetailScreen = () => {
         },
         currentUser.uid,
         currentUser.displayName || translate('common.unknownUser'),
-        currentUser.photoURL
+        currentUser.photoURL ?? undefined
       );
 
       setCommentText('');
@@ -128,7 +128,7 @@ const PostDetailScreen = () => {
         onPress: async () => {
           try {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            await clubCommsService.deleteComment(commentId, currentUser.uid as any);
+            await clubCommsService.deleteComment(commentId, currentUser?.uid as any);
           } catch (error) {
             console.error('Error deleting comment:', error);
             Alert.alert(t('postDetail.deleteFailed'), t('postDetail.commentDeleteError'));

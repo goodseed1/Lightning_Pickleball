@@ -91,7 +91,7 @@ const translations = {
       applyFailed: 'Error al aplicar',
       withdrawSuccess: 'Te has retirado',
       withdrawFailed: 'Error al retirarse',
-      bpaddleGenerated: 'Bpaddle generado',
+      bpaddleGenerated: 'Bracket generado',
       bpaddleFailed: 'Error al generar bpaddle',
     },
     // Tournament service

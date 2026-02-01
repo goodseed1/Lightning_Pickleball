@@ -86,7 +86,7 @@ const ULPRA_DICT = {
     'Générer le tableau en utilisant les séries attribuées et démarrer le tournoi',
   'Generate tournament bpaddle and start the competition':
     'Générer le tableau du tournoi et commencer la compétition',
-  'Generating Bpaddle...': 'Génération du tableau...',
+  'Generating Bracket...': 'Génération du tableau...',
   'Generating bpaddle...': 'Génération du tableau...',
   'Generating...': 'Génération...',
   'Go to Management tab and click "Open Registration"':
@@ -317,7 +317,7 @@ const ULPRA_DICT = {
   'Total Members': 'Total des membres',
   'Total Points': 'Points totaux',
   'Total Wins': 'Victoires totales',
-  'Tournament Bpaddles': 'Tableaux du tournoi',
+  'Tournament Brackets': 'Tableaux du tournoi',
   'Tournament Dashboard': 'Tableau de bord du tournoi',
   'Tournament Ended': 'Tournoi terminé',
   'Tournament Info': 'Informations sur le tournoi',
@@ -333,7 +333,7 @@ const ULPRA_DICT = {
   'View All Achievements': 'Voir tous les succès',
   'View All Matches': 'Voir tous les matchs',
   'View All Stats': 'Voir toutes les statistiques',
-  'View Bpaddle': 'Voir le tableau',
+  'View Bracket': 'Voir le tableau',
   'View Dashboard': 'Voir le tableau de bord',
   'View League': 'Voir la ligue',
   'View Match Details': 'Voir les détails du match',

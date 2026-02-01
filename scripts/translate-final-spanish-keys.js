@@ -800,8 +800,8 @@ Al aceptar esta política, reconoces entender y aceptar estos términos.`,
     matchesPlayed: 'Partidos Jugados',
   },
 
-  // tournamentBpaddle (3 keys)
-  tournamentBpaddle: {
+  // tournamentBracket (3 keys)
+  tournamentBracket: {
     round: 'Ronda',
     winner: 'Ganador',
     tbd: 'Por Determinar',

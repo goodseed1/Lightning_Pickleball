@@ -281,7 +281,7 @@ export const ACHIEVEMENT_DEFINITIONS = {
   },
 
   // 6. Pickleball Prodigy - 피클볼 신동 (100% 승률, 최소 5회 참가)
-  TENNIS_PRODIGY: {
+  PICKLEBALL_PRODIGY: {
     id: 'pickleball_prodigy',
     name: 'Pickleball Prodigy',
     nameKo: '피클볼 신동',

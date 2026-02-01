@@ -35,6 +35,7 @@ import {
 import { db, auth, functions } from '../firebase/config';
 import { httpsCallable } from 'firebase/functions';
 import i18n from '../i18n';
+import clubService from './clubService';
 import {
   League,
   LeagueStatus,
@@ -2103,9 +2104,19 @@ class LeagueService {
         throw new Error('League not found');
       }
 
-      // 권한 확인 (클럽 관리자 또는 리그 생성자만 가능)
-      if (league.createdBy !== auth.currentUser.uid) {
-        throw new Error('Only league creator or club admin can remove participants');
+      // 권한 확인 (리그 생성자, 클럽 관리자, 또는 운영진만 가능)
+      const currentUserId = auth.currentUser.uid;
+      const isLeagueCreator = league.createdBy === currentUserId;
+
+      // 클럽 역할 확인 (admin 또는 manager)
+      let isClubAdminOrManager = false;
+      if (league.clubId) {
+        const userRole = await clubService.getUserRoleInClub(league.clubId, currentUserId);
+        isClubAdminOrManager = userRole === 'admin' || userRole === 'manager';
+      }
+
+      if (!isLeagueCreator && !isClubAdminOrManager) {
+        throw new Error('Only league creator, club admin, or manager can remove participants');
       }
 
       // 진행 중인 리그는 참가자 제거 불가

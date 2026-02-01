@@ -20,7 +20,7 @@ interface ActivityTabSectionProps {
   onRejectFriendInvitation?: (eventId: string) => void;
   loading: boolean;
   currentLanguage: string;
-  initialTab?: string;
+  initialTab?: 'applied' | 'hosted' | 'past';
   onRefresh: () => Promise<void>;
   onEditEvent: (eventId: string, eventData: EventWithParticipation) => void;
 }
@@ -44,7 +44,7 @@ const ActivityTabSection: React.FC<ActivityTabSectionProps> = ({
 }) => {
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
 
   return (
     <View style={styles.container}>

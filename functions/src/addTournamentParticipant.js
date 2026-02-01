@@ -80,7 +80,7 @@ exports.addTournamentParticipant = onCall(async request => {
 
       // Check tournament status
       // ⚠️ RACE CONDITION FIX: Allow participant addition during 'registration' or 'bpaddle_generation'
-      // This prevents rejection when user quickly clicks "Close Registration" → "Generate Bpaddle"
+      // This prevents rejection when user quickly clicks "Close Registration" → "Generate Bracket"
       const allowedStatuses = ['registration', 'bpaddle_generation'];
       if (!allowedStatuses.includes(tournament.status)) {
         throw new HttpsError(

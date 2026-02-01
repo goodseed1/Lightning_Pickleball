@@ -82,7 +82,7 @@ const PastEventCard: React.FC<PastEventCardProps> = ({
   const { t, currentLanguage: contextLanguage } = useLanguage();
   const { currentUser } = useAuth();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors, currentTheme);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>, currentTheme);
 
   // 🌍 [KIM FIX] Get user's country for distance unit display
   const userCountry = currentUser?.profile?.location?.country;

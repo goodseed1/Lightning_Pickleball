@@ -251,7 +251,7 @@ const ClubLeagueManagementScreen = () => {
               }
             }}
           >
-            <Ionicons name='pickleballball' size={16} color={theme.colors.primary} />
+            <Ionicons name='ellipse' size={16} color={theme.colors.primary} />
             <Text style={[styles.actionButtonText, { color: theme.colors.primary }]}>
               {t('clubLeagueManagement.manageMatches')}
             </Text>

@@ -55,7 +55,7 @@ export default function ScheduleMeetupScreen() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const _navigation = useNavigation();
   const route = useRoute();
-  const { clubId } = route.params;
+  const { clubId } = route.params as { clubId: string };
   const { t } = useLanguage();
 
   const DAYS_OF_WEEK = [

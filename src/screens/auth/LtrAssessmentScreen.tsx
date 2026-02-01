@@ -27,22 +27,22 @@ import { AuthStackParamList } from '../../navigation/AuthNavigator';
 // Type Definitions
 // ============================================================================
 
-type NtrpAssessmentScreenRouteProp = RouteProp<AuthStackParamList, 'NtrpAssessment'>;
-type NtrpAssessmentScreenNavigationProp = NativeStackNavigationProp<
+type LtrAssessmentScreenRouteProp = RouteProp<AuthStackParamList, 'LtrAssessment'>;
+type LtrAssessmentScreenNavigationProp = NativeStackNavigationProp<
   AuthStackParamList,
-  'NtrpAssessment'
+  'LtrAssessment'
 >;
 
-interface NtrpAssessmentScreenProps {
-  route: NtrpAssessmentScreenRouteProp;
-  navigation: NtrpAssessmentScreenNavigationProp;
+interface LtrAssessmentScreenProps {
+  route: LtrAssessmentScreenRouteProp;
+  navigation: LtrAssessmentScreenNavigationProp;
 }
 
 // ============================================================================
 // Main Component
 // ============================================================================
 
-const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation, route }) => {
+const LtrAssessmentScreen: React.FC<LtrAssessmentScreenProps> = ({ navigation, route }) => {
   const { currentLanguage, t } = useLanguage();
   const themeColors = lightningPickleballDarkTheme.colors;
 
@@ -135,7 +135,7 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
   };
 
   const handleAdjustNtrp = (delta: number) => {
-    const currentNtrp = adjustedNtrp || result!.recommendedNtrp;
+    const currentNtrp = adjustedNtrp || result!.recommendedLtr;
     const newNtrp = currentNtrp + delta;
     if (newNtrp >= 2.0 && newNtrp <= 5.5) {
       setAdjustedNtrp(newNtrp);
@@ -143,13 +143,13 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
   };
 
   const handleComplete = () => {
-    const finalNtrp = adjustedNtrp || result!.recommendedNtrp;
+    const finalNtrp = adjustedNtrp || result!.recommendedLtr;
 
     // Call the callback function passed via route params
     if (route.params?.onSelect) {
       route.params.onSelect(finalNtrp, {
-        answers,
-        result: result!,
+        answers: answers as unknown as { questionId: string; selectedOption: string }[],
+        result: result as unknown as { recommendedLtr: number; confidence: number; categoryScores: { groundstrokes: number; volley: number; serve: number; return: number; tactics: number; experience: number } },
       });
     }
 
@@ -231,7 +231,7 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
   const renderResultScreen = () => {
     if (!result) return null;
 
-    const displayLtr = adjustedNtrp || result.recommendedNtrp;
+    const displayLtr = adjustedNtrp || result.recommendedLtr;
     const ltrDetails = getLtrDetails(displayLtr, currentLanguage);
 
     return (
@@ -241,7 +241,7 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
 
           <Text style={styles.resultTitle}>{t('lprAssessment.recommendedLevel')}</Text>
 
-          <Text style={styles.resultNtrp}>{displayNtrp.toFixed(1)}</Text>
+          <Text style={styles.resultNtrp}>{displayLtr.toFixed(1)}</Text>
 
           <Text style={styles.resultLabel}>{ltrDetails.label}</Text>
 
@@ -290,16 +290,16 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
             <Text style={styles.adjustmentTitle}>{t('lprAssessment.adjustLevel')}</Text>
             <View style={styles.adjustmentButtons}>
               <TouchableOpacity
-                style={[styles.adjustButton, displayNtrp <= 2.0 && styles.disabledButton]}
+                style={[styles.adjustButton, displayLtr <= 2.0 && styles.disabledButton]}
                 onPress={() => handleAdjustNtrp(-0.5)}
-                disabled={displayNtrp <= 2.0}
+                disabled={displayLtr <= 2.0}
               >
                 <Ionicons
                   name='remove-circle-outline'
                   size={24}
-                  color={displayNtrp <= 2.0 ? '#666' : '#FFF'}
+                  color={displayLtr <= 2.0 ? '#666' : '#FFF'}
                 />
-                <Text style={[styles.adjustText, displayNtrp <= 2.0 && styles.disabledText]}>
+                <Text style={[styles.adjustText, displayLtr <= 2.0 && styles.disabledText]}>
                   -0.5
                 </Text>
               </TouchableOpacity>
@@ -309,16 +309,16 @@ const NtrpAssessmentScreen: React.FC<NtrpAssessmentScreenProps> = ({ navigation,
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[styles.adjustButton, displayNtrp >= 5.5 && styles.disabledButton]}
+                style={[styles.adjustButton, displayLtr >= 5.5 && styles.disabledButton]}
                 onPress={() => handleAdjustNtrp(+0.5)}
-                disabled={displayNtrp >= 5.5}
+                disabled={displayLtr >= 5.5}
               >
                 <Ionicons
                   name='add-circle-outline'
                   size={24}
-                  color={displayNtrp >= 5.5 ? '#666' : '#FFF'}
+                  color={displayLtr >= 5.5 ? '#666' : '#FFF'}
                 />
-                <Text style={[styles.adjustText, displayNtrp >= 5.5 && styles.disabledText]}>
+                <Text style={[styles.adjustText, displayLtr >= 5.5 && styles.disabledText]}>
                   +0.5
                 </Text>
               </TouchableOpacity>
@@ -706,4 +706,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NtrpAssessmentScreen;
+export default LtrAssessmentScreen;

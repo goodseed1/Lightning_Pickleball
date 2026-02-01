@@ -715,7 +715,7 @@ const chineseTranslations = {
     title: '锦标赛',
     register: '注册',
     withdraw: '退出',
-    viewBpaddle: '查看对阵图',
+    viewBracket: '查看对阵图',
     viewDetails: '查看详情',
   },
 

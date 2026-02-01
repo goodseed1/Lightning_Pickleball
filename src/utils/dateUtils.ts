@@ -22,6 +22,7 @@ interface ForensicContext {
   itemId?: string;
   fieldName?: string;
   functionName?: string;
+  additionalContext?: Record<string, unknown>;
 }
 
 /**

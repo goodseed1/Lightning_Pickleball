@@ -38,7 +38,7 @@ const UpdatePromptModal: React.FC<UpdatePromptModalProps> = ({
   onDismiss,
 }) => {
   const { theme } = useTheme();
-  const colors = getLightningPickleballTheme(theme);
+  const { colors } = getLightningPickleballTheme(theme);
   const { currentLanguage, t } = useLanguage();
 
   if (!updateInfo) return null;

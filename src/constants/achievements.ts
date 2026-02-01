@@ -150,8 +150,8 @@ export const ACHIEVEMENT_DEFINITIONS = {
     id: 'bagel_master',
     name: 'Bagel Master',
     nameKo: '베이글 마스터',
-    description: 'Win matches 6-0 or 6-0, 6-0',
-    descriptionKo: '6-0 또는 6-0, 6-0으로 승리하세요',
+    description: 'Win a game 11-0 or 15-0 (shutout)',
+    descriptionKo: '11-0 또는 15-0으로 셧아웃 승리하세요',
     category: ACHIEVEMENT_CATEGORIES.SPECIAL,
     tiers: {
       bronze: {
@@ -527,7 +527,7 @@ export const ACHIEVEMENT_DEFINITIONS = {
   },
 
   // 6. Pickleball Prodigy - 피클볼 신동 (100% 승률, 최소 5회 참가)
-  TENNIS_PRODIGY: {
+  PICKLEBALL_PRODIGY: {
     id: 'pickleball_prodigy',
     name: 'Pickleball Prodigy',
     nameKo: '피클볼 신동',

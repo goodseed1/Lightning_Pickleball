@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { useNavigation } from '@react-navigation/native';
 
 // Import components
 import LeagueListPage from '../components/leagues/LeagueListPage';
@@ -15,6 +16,8 @@ import TournamentListPage from '../components/tournaments/TournamentListPage';
 const Tab = createMaterialTopTabNavigator();
 
 const CompetitionsPage = () => {
+  const navigation = useNavigation();
+
   // My Competitions Tab
   const MyCompetitionsTab = () => {
     const [activeTab, setActiveTab] = useState<'leagues' | 'tournaments'>('leagues');
@@ -72,6 +75,7 @@ const CompetitionsPage = () => {
         <View style={styles.headerActions}>
           <TouchableOpacity
             style={styles.headerButton}
+            // @ts-expect-error MyStats screen navigation
             onPress={() => navigation.navigate('MyStats')}
           >
             <Ionicons name='stats-chart' size={24} color='#2196F3' />

@@ -7,12 +7,11 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import { useAuth } from './AuthContext';
 import { useClub } from './ClubContext';
-import { listenToFeed, getFeedItems } from '../services/feedService';
-import { ActivityFeedItem } from '../types/social';
+import { listenToFeed, getFeedItems, FeedItem } from '../services/feedService';
 import i18n from '../i18n';
 
 interface FeedContextType {
-  feedItems: ActivityFeedItem[];
+  feedItems: FeedItem[];
   isLoadingFeed: boolean;
   refreshFeed: () => Promise<void>;
   error: string | null;
@@ -32,7 +31,7 @@ interface FeedProviderProps {
 export const FeedProvider: React.FC<FeedProviderProps> = ({ children }) => {
   const { currentUser: user } = useAuth();
   const { userClubs } = useClub();
-  const [feedItems, setFeedItems] = useState<ActivityFeedItem[]>([]);
+  const [feedItems, setFeedItems] = useState<FeedItem[]>([]);
   const [isLoadingFeed, setIsLoadingFeed] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

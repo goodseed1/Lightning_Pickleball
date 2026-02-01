@@ -18,7 +18,7 @@ class PersonalizationService {
     // Stub: return candidates as-is for now
     console.log('📊 PersonalizationService: Reordering candidates (stub implementation)');
     return candidates.map(candidate => ({
-      ...candidate,
+      ...(candidate as Record<string, unknown>),
       personalizedScore: Math.random() * 100, // Mock personalization score
     }));
   }

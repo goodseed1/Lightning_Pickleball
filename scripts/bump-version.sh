@@ -1,5 +1,5 @@
 #!/bin/bash
-# 🎾 Lightning Tennis - 버전 업데이트 자동화 스크립트
+# 🏓 Lightning Pickleball - 버전 업데이트 자동화 스크립트
 #
 # 이 스크립트는 app.json, build.gradle, Info.plist 3곳의 버전을
 # 동시에 업데이트하여 EAS Build fingerprint 불일치 문제를 방지합니다.
@@ -8,9 +8,9 @@
 #   ./scripts/bump-version.sh <version> <build_number>
 #
 # 예시:
-#   ./scripts/bump-version.sh 2.0.8 17
+#   ./scripts/bump-version.sh 1.0.0 1
 #
-# 작성일: 2025-12-19
+# 작성일: 2026-02-01
 # 작성자: Kim (킴)
 
 VERSION=$1
@@ -29,7 +29,7 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_ROOT"
 
 echo ""
-echo -e "${BLUE}🎾 Lightning Tennis 버전 업데이트 스크립트${NC}"
+echo -e "${BLUE}🏓 Lightning Pickleball 버전 업데이트 스크립트${NC}"
 echo "================================================"
 echo ""
 
@@ -77,9 +77,9 @@ sed -i '' "s/versionName \"[^\"]*\"/versionName \"$VERSION\"/" android/app/build
 echo "      ✅ build.gradle 업데이트 완료"
 
 # 3. iOS Info.plist 업데이트
-echo -e "${BLUE}[3/4] ios/LightningTennis/Info.plist 업데이트 중...${NC}"
-plutil -replace CFBundleShortVersionString -string "$VERSION" ios/LightningTennis/Info.plist
-plutil -replace CFBundleVersion -string "$BUILD_NUMBER" ios/LightningTennis/Info.plist
+echo -e "${BLUE}[3/4] ios/LightningPickleball/Info.plist 업데이트 중...${NC}"
+plutil -replace CFBundleShortVersionString -string "$VERSION" ios/LightningPickleball/Info.plist
+plutil -replace CFBundleVersion -string "$BUILD_NUMBER" ios/LightningPickleball/Info.plist
 echo "      ✅ Info.plist 업데이트 완료"
 
 # 4. Firestore app_config/version 업데이트 (앱 업데이트 알림용)
@@ -110,8 +110,8 @@ echo -e "${BLUE}🤖 android/app/build.gradle:${NC}"
 grep -E "versionCode|versionName" android/app/build.gradle | head -2
 
 echo ""
-echo -e "${BLUE}🍏 ios/LightningTennis/Info.plist:${NC}"
-grep -A1 "CFBundleShortVersionString\|CFBundleVersion" ios/LightningTennis/Info.plist | head -4
+echo -e "${BLUE}🍏 ios/LightningPickleball/Info.plist:${NC}"
+grep -A1 "CFBundleShortVersionString\|CFBundleVersion" ios/LightningPickleball/Info.plist | head -4
 
 echo ""
 echo "================================================"

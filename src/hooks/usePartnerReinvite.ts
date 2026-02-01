@@ -37,7 +37,7 @@ interface SelectedUser {
  */
 interface EventData {
   id: string;
-  clubId: string;
+  clubId?: string;
   hostId?: string; // 🎯 [LPR FIX v2] Host's user ID for ELO lookup fallback
   hostLtr?: number; // 🎯 [LPR FIX] Host's LPR level for ±1 filtering (preferred)
   hostLtrLevel?: number; // 🎯 [LPR FIX v2] Legacy field fallback
@@ -185,7 +185,7 @@ export const usePartnerReinvite = ({
       });
       setReinviteEventId(eventId);
       setReinviteGameType(effectiveGameType);
-      setReinviteClubId(event.clubId);
+      setReinviteClubId(event.clubId || '');
       setReinviteHostLtr(effectiveHostLtr); // 🎯 [LPR FIX v2] Store hostLtr for filtering
       setReinviteModalVisible(true);
     },

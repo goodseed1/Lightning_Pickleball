@@ -566,15 +566,17 @@ const RegularMeetupTab: React.FC<MeetupTabProps> = ({
           const weather = await weatherService.getWeatherForMeetup(meetup.location, meetupDate);
 
           if (weather) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const w = weather as any;
             return {
               meetupId: meetup.id,
               data: {
-                temperature: weather.temperature,
-                temperatureF: weather.temperatureF,
-                condition: weather.condition,
-                icon: weather.icon,
-                chanceOfRain: weather.chanceOfRain || 0,
-                windSpeedMph: weather.windSpeedMph || 0,
+                temperature: w.temperature,
+                temperatureF: w.temperatureF,
+                condition: w.condition,
+                icon: w.icon,
+                chanceOfRain: w.chanceOfRain || 0,
+                windSpeedMph: w.windSpeedMph || 0,
                 lastUpdated: new Date(),
               },
             };

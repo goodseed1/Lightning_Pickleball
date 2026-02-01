@@ -4,7 +4,7 @@ import RegularMeetupTab from '../RegularMeetupTab';
 
 interface ClubRegularMeetupsScreenProps {
   clubId: string;
-  userRole: string;
+  userRole: 'admin' | 'member' | 'manager';
 }
 
 const ClubRegularMeetupsScreen: React.FC<ClubRegularMeetupsScreenProps> = ({
@@ -16,7 +16,6 @@ const ClubRegularMeetupsScreen: React.FC<ClubRegularMeetupsScreenProps> = ({
       <RegularMeetupTab
         clubId={clubId}
         userRole={userRole}
-        style={styles.tabContent}
       />
     </View>
   );

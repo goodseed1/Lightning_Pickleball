@@ -72,9 +72,9 @@ const ClubLeagueStandings: React.FC<ClubLeagueStandingsProps> = ({
       const sortedStandings = sortStandings(mockStandings, sortBy);
 
       setStandings(sortedStandings.slice(0, maxPlayers));
-    } catch (error: Error | unknown) {
+    } catch (error) {
       console.error('Failed to load league standings:', error);
-      setError(error.message);
+      setError(error instanceof Error ? error.message : 'Unknown error');
     } finally {
       setLoading(false);
     }

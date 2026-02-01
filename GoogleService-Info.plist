@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyChKRhAByro1DYlvQ_qpT0IOp2kwjaRwCI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>810250734076</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.lightningpickleball.community</string>
+	<key>PROJECT_ID</key>
+	<string>lightning-pickleball</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lightning-pickleball.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:810250734076:ios:24cc21bdd2d9f1054eca79</string>
+	<key>CLIENT_ID</key>
+	<string>810250734076-7tncklkuvijeaj88ts9cap20mmj4cann.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.810250734076-7tncklkuvijeaj88ts9cap20mmj4cann</string>
+</dict>
+</plist>

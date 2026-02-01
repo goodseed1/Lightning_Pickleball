@@ -85,9 +85,9 @@ const ScoreConfirmationModal: React.FC<ScoreConfirmationModalProps> = ({
   };
 
   const getWinnerDisplay = () => {
-    if (!match.score?.winner) return t('scoreConfirmation.matchIncomplete');
+    if (!match.score?._winner) return t('scoreConfirmation.matchIncomplete');
 
-    if (match.score.winner === 'player1') {
+    if (match.score._winner === 'player1') {
       return t('scoreConfirmation.winner', { name: match.player1.userName });
     } else {
       return t('scoreConfirmation.winner', { name: match.player2.userName });

@@ -910,7 +910,7 @@ const ProfileSetupScreen: React.FC<ProfileSetupScreenProps> = ({ onComplete, onB
             {/* Feature list - Warning style */}
             <View style={styles.locationModalFeatures}>
               <View style={styles.locationModalFeatureItem}>
-                <Ionicons name='pickleballball-outline' size={20} color='#FF9800' />
+                <Ionicons name='ellipse-outline' size={20} color='#FF9800' />
                 <Text
                   style={[styles.locationModalFeatureText, { color: themeColors.colors.onSurface }]}
                 >

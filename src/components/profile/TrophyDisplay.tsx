@@ -62,10 +62,18 @@ const TrophyDisplay: React.FC<TrophyDisplayProps> = ({ trophy }) => {
   const iconName = getTrophyIcon(trophy.rank || '');
 
   // Format date with user's locale
-  const formatDate = (timestamp: Timestamp | string | undefined) => {
+  const formatDate = (timestamp: Timestamp | string | Date | { toDate: () => Date } | undefined) => {
     if (!timestamp) return '';
-    const date =
-      typeof timestamp === 'string' ? new Date(timestamp) : (timestamp as Timestamp).toDate();
+    let date: Date;
+    if (typeof timestamp === 'string') {
+      date = new Date(timestamp);
+    } else if (timestamp instanceof Date) {
+      date = timestamp;
+    } else if ('toDate' in timestamp && typeof timestamp.toDate === 'function') {
+      date = timestamp.toDate();
+    } else {
+      date = new Date();
+    }
     // Map language code to locale
     const localeMap: Record<string, string> = {
       ko: 'ko-KR',
@@ -90,11 +98,13 @@ const TrophyDisplay: React.FC<TrophyDisplayProps> = ({ trophy }) => {
   // Get translated rank display
   const getRankDisplay = () => {
     // If trophy.rank is stored (e.g., "Winner"), translate it
-    const rankValue = trophy.rank || (trophy.type === 'tournament_winner' ? 'Winner' : 'Runner-up');
-    if (rankValue === 'Winner' || rankValue === '우승' || rankValue === 'winner') {
+    const rankValue: string = trophy.rank || (trophy.type === 'tournament_winner' ? 'Winner' : 'Runner-up');
+    const winnerValues = ['Winner', '우승', 'winner'];
+    const runnerUpValues = ['Runner-up', '준우승', 'runner-up'];
+    if (winnerValues.includes(rankValue)) {
       return t('hallOfFame.winner');
     }
-    if (rankValue === 'Runner-up' || rankValue === '준우승' || rankValue === 'runner-up') {
+    if (runnerUpValues.includes(rankValue)) {
       return t('hallOfFame.runnerUp');
     }
     return rankValue;

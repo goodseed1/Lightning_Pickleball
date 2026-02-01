@@ -29,7 +29,7 @@ interface StatsChartsSectionProps {
     winRate: number;
   };
   userId: string;
-  currentLanguage: 'ko' | 'en';
+  currentLanguage: string; // Any supported language, charts will fallback to 'en' if needed
   scope: 'public' | 'club';
   showEloChart?: boolean; // Optional override for ELO chart visibility
   clubFilter?: ClubFilterValue; // Club filter: 'all' | 'league' | 'tournament'
@@ -86,26 +86,19 @@ const StatsChartsSection: React.FC<StatsChartsSectionProps> = ({
       <View style={isSideBySide ? styles.sideBySideContainer : styles.stackedContainer}>
         {/* 🥧 Win Rate Chart - Always shown */}
         <View style={isSideBySide ? styles.chartHalf : styles.chartFull}>
-          <WinRateChart stats={stats} currentLanguage={currentLanguage} />
+          <WinRateChart stats={stats} />
         </View>
 
         {/* 📈 ELO Chart or 🏆 Tournament Win Rate Chart - Only for club scope */}
         {showEloChart && (
           <View style={isSideBySide ? styles.chartHalf : styles.chartFull}>
             {clubFilter === 'tournament' ? (
-              <TournamentWinRateChart
-                userId={userId}
-                currentLanguage={currentLanguage}
-                selectedClubId={selectedClubId}
-              />
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              <TournamentWinRateChart userId={userId} selectedClubId={selectedClubId as any} />
             ) : (
               // 🎯 [KIM FIX] Pass selectedClubId to EloChart for club-specific ELO history
-              <EloChart
-                userId={userId}
-                currentLanguage={currentLanguage}
-                scope={scope}
-                selectedClubId={selectedClubId}
-              />
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              <EloChart userId={userId} scope={scope} selectedClubId={selectedClubId as any} />
             )}
           </View>
         )}

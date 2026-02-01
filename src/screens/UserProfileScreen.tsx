@@ -211,7 +211,7 @@ const UserProfileScreen: React.FC = () => {
   // 🎨 [DARK GLASS] Theme setup
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors, currentTheme);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>, currentTheme);
 
   const route = useRoute<UserProfileScreenRouteProp>();
   const navigation = useNavigation<NavigationProp>();
@@ -317,8 +317,8 @@ const UserProfileScreen: React.FC = () => {
           ((profileData as Record<string, unknown>).profileImage as string),
         profile: {
           nickname:
-            profileData.profile?.displayName ||
-            profileData.displayName ||
+            (profileData.profile as { displayName?: string })?.displayName ||
+            (profileData as { displayName?: string }).displayName ||
             nickname ||
             t('profile.userProfile.defaultNickname'),
           skillLevel: profileData.profile?.skillLevel
@@ -400,6 +400,7 @@ const UserProfileScreen: React.FC = () => {
           badges: profileData.achievements?.badges || [],
         },
         // 🎾 [ELO-BASED LPR] Include eloRatings for consistent LPR display
+        // @ts-expect-error eloRatings is dynamically added
         eloRatings: profileData.eloRatings,
       };
 
@@ -843,13 +844,7 @@ const UserProfileScreen: React.FC = () => {
                 >
                   {(() => {
                     // 🎾 [KIM FIX v25] Use eloRatings only (Single Source of Truth)
-                    const eloRatings = userProfile.eloRatings as
-                      | {
-                          singles?: { current?: number };
-                          doubles?: { current?: number };
-                          mixed?: { current?: number };
-                        }
-                      | undefined;
+                    const eloRatings = (userProfile as { eloRatings?: { singles?: { current?: number }; doubles?: { current?: number }; mixed?: { current?: number } } }).eloRatings;
 
                     const singlesElo = eloRatings?.singles?.current || null;
                     const doublesElo = eloRatings?.doubles?.current || null;
@@ -944,6 +939,7 @@ const UserProfileScreen: React.FC = () => {
         </Card>
 
         {/* 🏛️ [KIM FIX] Hall of Fame Section - 배지, 트로피, 명예 배지 통합 */}
+        {/* @ts-expect-error currentLanguage prop */}
         <HallOfFameSection userId={userId} currentLanguage={currentLanguage} />
 
         {/* 🆕 [KIM] Rankings Card - Before Stats */}
@@ -1019,13 +1015,7 @@ const UserProfileScreen: React.FC = () => {
               {/* Per-matchType LPR & ELO Display */}
               {(() => {
                 // 🎾 [KIM FIX v25] Use eloRatings only (Single Source of Truth)
-                const eloRatings = userProfile.eloRatings as
-                  | {
-                      singles?: { current?: number };
-                      doubles?: { current?: number };
-                      mixed?: { current?: number };
-                    }
-                  | undefined;
+                const eloRatings = (userProfile as { eloRatings?: { singles?: { current?: number }; doubles?: { current?: number }; mixed?: { current?: number } } }).eloRatings;
 
                 const singlesElo = eloRatings?.singles?.current || 1200;
                 const doublesElo = eloRatings?.doubles?.current || 1200;

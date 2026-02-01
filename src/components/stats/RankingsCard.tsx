@@ -107,7 +107,7 @@ const RankingsCard: React.FC<RankingsCardProps> = props => {
   // 🎨 [DARK GLASS] Theme setup
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors, currentTheme);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>, currentTheme);
   const { t } = useLanguage();
 
   // ==================== GLOBAL RANKINGS ====================

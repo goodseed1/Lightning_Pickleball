@@ -49,7 +49,7 @@ import LeagueScoreInputModal from '../components/leagues/LeagueScoreInputModal';
 import UserSearchModal from '../components/modals/UserSearchModal';
 import TeamPairingModal from '../components/modals/TeamPairingModal';
 import { PlayoffCreatedModal } from '../components/modals/PlayoffCreatedModal';
-import TournamentBpaddleView from '../components/tournaments/TournamentBpaddleView';
+import TournamentBpaddleView from '../components/tournaments/TournamentBracketView';
 import { MD3Theme } from 'react-native-paper';
 
 // User interface matching UserSearchModal's format
@@ -1991,6 +1991,11 @@ const LeagueDetailScreen = () => {
     );
   }
 
+  // Helper to render Portal with proper typing (Portal returns void but renders children)
+  const renderDialogPortal = (children: React.ReactNode): React.ReactNode => {
+    return <Portal>{children}</Portal> as unknown as React.ReactNode;
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       {/* Header */}
@@ -3018,15 +3023,17 @@ const LeagueDetailScreen = () => {
               {/* 대진표 생성 버튼 (open 상태) */}
               {league?.status === 'open' &&
                 (() => {
-                  // 🎯 [KIM FIX] 최소 {t('leagueDetail.participants')} 수 검증 - 토너먼트와 동일한 로직 적용
+                  // 🎯 [KIM FIX] 최소 참가자 수 검증
+                  // 복식: participants 배열에는 **팀** 단위로 저장됨 (각 participant가 하나의 팀)
+                  // 단식: participants 배열에는 **선수** 단위로 저장됨
                   const participantCount = league?.participants?.length || 0;
                   const isDoubles = league?.eventType
                     ? getMatchFormatFromEventType(league.eventType) === 'doubles'
                     : false;
-                  // 단식: 최소 2명, 복식: 최소 4명 (2팀)
+                  // 단식: 최소 2명, 복식: 최소 2팀 (participants.length가 팀 수)
                   const hasMinimumParticipants = isDoubles
-                    ? participantCount >= 4 // 복식: 2팀 = 4명
-                    : participantCount >= 2; // 단식: 2명
+                    ? participantCount >= 2 // 복식: 최소 2팀 필요
+                    : participantCount >= 2; // 단식: 최소 2명 필요
 
                   return (
                     <>
@@ -3180,7 +3187,8 @@ const LeagueDetailScreen = () => {
         />
       ) : null}
 
-      <Portal>
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+      {(renderDialogPortal as (children: React.ReactNode) => any)(<React.Fragment>
         {/* Reschedule Match Dialog */}
         <Dialog visible={showRescheduleDialog} onDismiss={() => setShowRescheduleDialog(false)}>
           <Dialog.Title>{t('leagueDetail.changeSchedule')}</Dialog.Title>
@@ -3300,7 +3308,7 @@ const LeagueDetailScreen = () => {
             </Button>
           </Dialog.Actions>
         </Dialog>
-      </Portal>
+      </React.Fragment>)}
 
       {/* 대진표 생성 중 로딩 오버레이 */}
       {isGeneratingBpaddle && (

@@ -40,7 +40,7 @@ interface SelectedUser {
  */
 interface EventData {
   id: string;
-  clubId: string;
+  clubId?: string;
   hostId?: string;
   hostLtr?: number;
   hostLtrLevel?: number;
@@ -183,7 +183,7 @@ export const useFriendReinvite = ({
 
       setReinviteEventId(eventId);
       setReinviteGameType(effectiveGameType);
-      setReinviteClubId(event.clubId);
+      setReinviteClubId(event.clubId || '');
       setReinviteHostLtr(effectiveHostLtr);
       setExcludedUserIds(excludeIds);
       setReinviteModalVisible(true);

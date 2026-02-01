@@ -46,7 +46,7 @@ const translations = {
       deleteTitle: 'Eliminar Torneo',
       participants: 'Participantes',
       matches: 'Partidos',
-      bpaddle: 'Bpaddle',
+      bpaddle: 'Bracket',
       results: 'Resultados',
       winner: 'Ganador',
       runnerUp: 'Subcampeón',

@@ -5202,7 +5202,7 @@
     "winsLosses": "{{wins}}승 {{losses}}패",
     "pointsHeader": "승점",
     "dangerZone": "위험 구역",
-    "minParticipantsDoublesWarning": "복식 리그는 최소 2팀 (4명)이 필요합니다. 현재: {{current}}명",
+    "minParticipantsDoublesWarning": "복식 리그는 최소 2팀 (4명)이 필요합니다. 현재: {{current}}팀",
     "minParticipantsSinglesWarning": "리그 시작을 위해 최소 2명의 참가자가 필요합니다. 현재: {{current}}명",
     "tabs": {
       "matches": "경기",

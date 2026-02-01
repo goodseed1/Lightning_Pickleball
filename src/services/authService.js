@@ -35,7 +35,7 @@ import {
 } from 'firebase/firestore';
 import { httpsCallable } from 'firebase/functions';
 import { auth, db, functions } from '../firebase/config';
-import { getInitialEloFromNtrp } from '../utils/ltrUtils';
+import { getInitialEloFromNtrp } from '../utils/lprUtils';
 
 /**
  * Firebase Authentication Service for Lightning Pickleball
@@ -191,10 +191,29 @@ class AuthService {
 
   /**
    * Sign out current user
+   * 🔧 [PUSH TOKEN FIX] Clears pushToken before signing out to prevent
+   * notifications being sent to wrong device when another user logs in
    * @returns {Promise} Sign out promise
    */
   async signOut() {
     try {
+      // 🔧 [PUSH TOKEN FIX] Clear pushToken before signing out
+      // This prevents the scenario where User A logs out, User B logs in on same device,
+      // but User A's document still has the device's pushToken
+      if (this.currentUser?.uid) {
+        try {
+          const userRef = doc(db, 'users', this.currentUser.uid);
+          await updateDoc(userRef, {
+            pushToken: null,
+            pushTokenUpdatedAt: null,
+          });
+          console.log('🧹 PushToken cleared for user:', this.currentUser.uid);
+        } catch (tokenError) {
+          // Don't block sign-out if pushToken clearing fails
+          console.warn('⚠️ Failed to clear pushToken (non-blocking):', tokenError);
+        }
+      }
+
       await signOut(auth);
       console.log('✅ Sign-out successful');
     } catch (error) {

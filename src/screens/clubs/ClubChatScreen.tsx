@@ -11,6 +11,12 @@ import {
   Alert,
   ActivityIndicator,
   Keyboard, // 🎯 [KIM FIX] For keyboard event listening
+  Image,
+  Modal,
+  Pressable,
+  Dimensions,
+  NativeSyntheticEvent, // 🔧 [FLICKER FIX] For scroll event typing
+  NativeScrollEvent,    // 🔧 [FLICKER FIX] For scroll event typing
 } from 'react-native';
 import {
   Card,
@@ -34,7 +40,7 @@ import {
   MD3Theme,
   Surface,
 } from 'react-native-paper';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRoute, RouteProp, useNavigation, useIsFocused } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -46,6 +52,9 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useChatNotification } from '../../contexts/ChatNotificationContext';
 import { RootStackParamList } from '../../navigation/AppNavigator';
 import clubService from '../../services/clubService';
+import LinkableText from '../../components/common/LinkableText';
+import CameraService from '../../services/CameraService';
+import ChatImageService from '../../services/ChatImageService';
 
 type ClubChatScreenRouteProp = RouteProp<RootStackParamList, 'ClubChat'>;
 
@@ -59,11 +68,13 @@ interface ChatMessage {
   message: string;
   timestamp: Date | { seconds: number; nanoseconds: number };
   createdAt?: Date | { seconds: number; nanoseconds: number };
-  type: 'text' | 'announcement' | 'system' | 'notification';
+  type: 'text' | 'announcement' | 'system' | 'notification' | 'image';
   isImportant?: boolean;
   isDeleted?: boolean;
   replyTo?: string;
   readBy?: string[]; // Array of user IDs who have read this message
+  imageUrl?: string;
+  storagePath?: string;
 }
 
 const ClubChatScreen: React.FC = () => {
@@ -75,6 +86,7 @@ const ClubChatScreen: React.FC = () => {
   const { showNotification } = useChatNotification();
   const isFocused = useIsFocused();
   const { clubId } = route.params;
+  const insets = useSafeAreaInsets(); // 🔧 [FIX] Android navigation bar overlap
 
   const [isLoading, setIsLoading] = useState(true);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -85,8 +97,15 @@ const ClubChatScreen: React.FC = () => {
   const [memberInfo, setMemberInfo] = useState<
     Map<string, { role: string; profileImage?: string }>
   >(new Map());
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const flatListRef = useRef<FlatList>(null);
+
+  // 🔧 [FLICKER FIX] Smart scroll state - prevents flickering on new messages
+  const [isNearBottom, setIsNearBottom] = useState(true);
+  const prevMessageCount = useRef(0);
+  const markedAsReadRef = useRef<Set<string>>(new Set()); // Prevents duplicate markAsRead calls
 
   // 🎯 [KIM FIX] Scroll to end when keyboard appears
   useEffect(() => {
@@ -104,28 +123,60 @@ const ClubChatScreen: React.FC = () => {
     };
   }, []);
 
+  // 🔧 [FLICKER FIX] Detect scroll position to enable smart auto-scroll
+  const handleScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
+    const paddingToBottom = 100;
+    const isCloseToBottom = layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom;
+    setIsNearBottom(isCloseToBottom);
+  }, []);
+
+  // 🔧 [FLICKER FIX] Only scroll to end when NEW messages are added AND user is near bottom
+  useEffect(() => {
+    if (messages.length > prevMessageCount.current && isNearBottom) {
+      // Small delay to ensure content is rendered
+      setTimeout(() => {
+        flatListRef.current?.scrollToEnd({ animated: true });
+      }, 50);
+    }
+    prevMessageCount.current = messages.length;
+  }, [messages.length, isNearBottom]);
+
   // Memoize styles to prevent re-creation on every render (CRITICAL for TextInput focus stability)
   const styles = useMemo(() => createStyles(paperTheme), [paperTheme]);
 
+  // 🔧 [FLICKER FIX] Only subscribe when screen is focused
   useEffect(() => {
+    // Don't subscribe if screen is not focused
+    if (!isFocused) {
+      return;
+    }
+
     let unsubscribeFn: (() => void) | undefined;
+    let isMounted = true;
 
     loadClubChatData()
       .then(unsub => {
-        unsubscribeFn = unsub;
+        if (isMounted) {
+          unsubscribeFn = unsub;
+        } else {
+          // Already unmounted, clean up immediately
+          unsub?.();
+        }
       })
       .catch(error => {
         console.error('Error loading club chat data:', error);
       });
 
-    // Cleanup subscription on unmount
+    // Cleanup subscription on unmount or when focus changes
     return () => {
+      isMounted = false;
       if (unsubscribeFn) {
         unsubscribeFn();
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [clubId]);
+  }, [clubId, isFocused]); // 🔧 Added isFocused dependency
 
   // Calculate unread count
   const unreadCount = useMemo(() => {
@@ -147,26 +198,33 @@ const ClubChatScreen: React.FC = () => {
   }, [unreadCount]);
 
   // Mark messages as read when user views the chat
+  // 🔧 [FLICKER FIX] Optimized to prevent duplicate calls and reduce re-renders
   useEffect(() => {
     if (messages.length === 0 || !user) {
       return;
     }
 
-    // Find unread messages (messages where current user is NOT in readBy array)
+    // Find unread messages (exclude already marked ones using ref)
     const unreadMessages = messages.filter(
       msg =>
         msg.senderId !== user.uid && // Not sent by current user
-        (!msg.readBy || !msg.readBy.includes(user.uid)) // User hasn't read it yet
+        (!msg.readBy || !msg.readBy.includes(user.uid)) && // User hasn't read it yet
+        !markedAsReadRef.current.has(msg.id) // 🔧 Not already processing
     );
 
     if (unreadMessages.length > 0) {
       const unreadMessageIds = unreadMessages.map(msg => msg.id);
+
+      // 🔧 Add to ref to prevent duplicate calls
+      unreadMessageIds.forEach(id => markedAsReadRef.current.add(id));
 
       console.log(`[ClubChatScreen] Marking ${unreadMessageIds.length} messages as read`);
 
       // Mark as read after a small delay (to ensure user actually saw them)
       const timeoutId = setTimeout(() => {
         clubService.markMessagesAsRead(unreadMessageIds, user.uid).catch((error: Error) => {
+          // 🔧 Remove from ref on failure to allow retry
+          unreadMessageIds.forEach(id => markedAsReadRef.current.delete(id));
           console.error('[ClubChatScreen] Error marking messages as read:', error);
         });
       }, 1000); // 1 second delay
@@ -277,6 +335,58 @@ const ClubChatScreen: React.FC = () => {
       Alert.alert(t('common.error'), t('clubChat.sendError'));
     } finally {
       setSending(false);
+    }
+  };
+
+  // 📷 Send image message
+  const sendImage = async () => {
+    if (!user) return;
+
+    try {
+      const result = await CameraService.showImagePicker({
+        mediaTypes: 'images',
+        allowsEditing: false,
+        quality: 0.8,
+      });
+
+      if (!result) return;
+
+      setUploadingImage(true);
+
+      // Upload image to Firebase Storage (club limit: 50 images)
+      const uploadResult = await ChatImageService.uploadChatImage(
+        'club',
+        clubId,
+        result,
+        user.uid
+      );
+
+      if (!uploadResult.success || !uploadResult.imageUrl) {
+        Alert.alert(t('common.error'), t('clubChat.imageUploadError') || 'Failed to upload image');
+        return;
+      }
+
+      const messageData = {
+        senderId: user.uid,
+        senderName: user.displayName || t('clubChat.defaultSenderName'),
+        senderPhotoURL: user.photoURL || null,
+        senderRole: userRole,
+        message: '📷 Photo',
+        type: 'image' as const,
+        imageUrl: uploadResult.imageUrl,
+        storagePath: uploadResult.storagePath,
+      };
+
+      await clubService.saveClubChatMessage(clubId, messageData);
+
+      setTimeout(() => {
+        flatListRef.current?.scrollToEnd({ animated: true });
+      }, 100);
+    } catch (error) {
+      console.error('Error sending image:', error);
+      Alert.alert(t('common.error'), t('clubChat.imageSendError') || 'Failed to send image');
+    } finally {
+      setUploadingImage(false);
     }
   };
 
@@ -393,7 +503,7 @@ const ClubChatScreen: React.FC = () => {
               </View>
               <Text style={styles.announcementTime}>{formatMessageTime(item.timestamp)}</Text>
             </View>
-            <Text style={styles.announcementText}>{item.message}</Text>
+            <LinkableText style={styles.announcementText}>{item.message}</LinkableText>
             <View style={styles.announcementFooter}>
               <Text style={styles.announcementAuthor}>
                 {item.senderName} · {roleLabel}
@@ -438,16 +548,31 @@ const ClubChatScreen: React.FC = () => {
           style={[
             styles.messageBubble,
             isMyMessage ? styles.myMessageBubble : styles.otherMessageBubble,
+            item.type === 'image' && styles.imageBubble,
           ]}
         >
-          <Text
-            style={[
-              styles.messageText,
-              isMyMessage ? styles.myMessageText : styles.otherMessageText,
-            ]}
-          >
-            {item.message}
-          </Text>
+          {item.type === 'image' && item.imageUrl ? (
+            <TouchableOpacity
+              onPress={() => setSelectedImage(item.imageUrl!)}
+              activeOpacity={0.9}
+            >
+              <Image
+                source={{ uri: item.imageUrl }}
+                style={styles.chatImage}
+                resizeMode="cover"
+              />
+            </TouchableOpacity>
+          ) : (
+            <LinkableText
+              style={[
+                styles.messageText,
+                isMyMessage ? styles.myMessageText : styles.otherMessageText,
+              ]}
+              linkStyle={isMyMessage ? { color: '#90CAF9' } : { color: '#2196F3' }}
+            >
+              {item.message}
+            </LinkableText>
+          )}
         </View>
         <View style={styles.messageFooter}>
           <Text style={styles.messageTime}>{formatMessageTime(item.timestamp)}</Text>
@@ -493,8 +618,9 @@ const ClubChatScreen: React.FC = () => {
       </Surface>
 
       {/* Chat Content - 🎯 [KIM FIX] KeyboardAvoidingView wraps BOTH FlatList and input */}
+      {/* 🔧 [FIX] Android: behavior=undefined allows system default keyboard handling + scroll works */}
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         style={styles.chatContainer}
         keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
       >
@@ -506,11 +632,28 @@ const ClubChatScreen: React.FC = () => {
           style={styles.messagesList}
           contentContainerStyle={styles.messagesContent}
           showsVerticalScrollIndicator={false}
+          // 🔧 [FLICKER FIX] Removed onContentSizeChange, using smart scroll instead
+          onScroll={handleScroll}
+          scrollEventThrottle={100}
+          keyboardShouldPersistTaps="handled"
         />
 
-        {/* Input Area */}
-        <View style={styles.inputContainer}>
+        {/* Input Area - 🔧 [FIX] Android navigation bar padding */}
+        <View style={[styles.inputContainer, { paddingBottom: Math.max(insets.bottom, 8) }]}>
           <View style={styles.inputRow}>
+            {/* 📷 Attachment Button */}
+            <TouchableOpacity
+              onPress={sendImage}
+              disabled={uploadingImage}
+              style={styles.attachButton}
+            >
+              {uploadingImage ? (
+                <ActivityIndicator size='small' color={paperTheme.colors.primary} />
+              ) : (
+                <Ionicons name='camera' size={24} color={paperTheme.colors.primary} />
+              )}
+            </TouchableOpacity>
+
             <TextInput
               style={styles.textInput}
               value={newMessage}
@@ -539,6 +682,33 @@ const ClubChatScreen: React.FC = () => {
         </View>
       </KeyboardAvoidingView>
       {/* 🎯 [KIM FIX] KeyboardAvoidingView now properly wraps FlatList + Input */}
+
+      {/* 📷 Full-screen Image Viewer Modal */}
+      <Modal
+        visible={!!selectedImage}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setSelectedImage(null)}
+      >
+        <Pressable
+          style={styles.imageViewerOverlay}
+          onPress={() => setSelectedImage(null)}
+        >
+          <TouchableOpacity
+            style={styles.closeImageButton}
+            onPress={() => setSelectedImage(null)}
+          >
+            <Ionicons name="close" size={28} color="white" />
+          </TouchableOpacity>
+          {selectedImage && (
+            <Image
+              source={{ uri: selectedImage }}
+              style={styles.fullScreenImage}
+              resizeMode="contain"
+            />
+          )}
+        </Pressable>
+      </Modal>
     </SafeAreaView>
   );
 };
@@ -858,6 +1028,42 @@ const createStyles = (theme: MD3Theme) =>
     },
     sendButtonDisabled: {
       backgroundColor: theme.colors.outline,
+    },
+    // 📷 Attachment Button
+    attachButton: {
+      width: 40,
+      height: 40,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginRight: 8,
+    },
+    // 📷 Chat Image Styles
+    imageBubble: {
+      padding: 4,
+      backgroundColor: 'transparent',
+    },
+    chatImage: {
+      width: 200,
+      height: 200,
+      borderRadius: 12,
+    },
+    // 📷 Full-screen Image Viewer
+    imageViewerOverlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.95)',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    closeImageButton: {
+      position: 'absolute',
+      top: 50,
+      right: 20,
+      zIndex: 10,
+      padding: 10,
+    },
+    fullScreenImage: {
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').height * 0.8,
     },
     emptyState: {
       flex: 1,

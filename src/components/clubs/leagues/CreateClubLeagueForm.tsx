@@ -151,7 +151,7 @@ const CreateClubLeagueForm: React.FC<CreateClubLeagueFormProps> = ({
       // Default league settings
       const defaultSettings: LeagueSettings = {
         format: 'round_robin',
-        scoringSystem: 'pickleballball',
+        scoringSystem: 'pickleball',
         pointsForWin: 2,
         pointsForLoss: 0,
         minParticipants: parseInt(minParticipants) || 4,

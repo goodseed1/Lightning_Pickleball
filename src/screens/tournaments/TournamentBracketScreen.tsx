@@ -22,7 +22,7 @@ import tournamentService from '../../services/tournamentService';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Tournament, BpaddleMatch } from '../../types/tournament';
 import { ScoreInputForm, Match } from '../../types/match';
-import TournamentBpaddleView from '../../components/tournaments/TournamentBpaddleView';
+import TournamentBpaddleView from '../../components/tournaments/TournamentBracketView';
 import TournamentRankingsTab from '../../components/tournaments/TournamentRankingsTab';
 import ScoreInputModal from '../../components/match/ScoreInputModal';
 

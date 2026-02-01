@@ -100,7 +100,7 @@ const spanishTranslations = {
   },
 
   alert: {
-    tournamentBpaddle: {
+    tournamentBracket: {
       info: 'Info',
       participants: 'Participantes',
       participantsTab: 'Participantes',

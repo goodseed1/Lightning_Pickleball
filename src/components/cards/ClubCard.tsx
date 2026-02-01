@@ -50,7 +50,7 @@ const ClubCard: React.FC<ClubCardProps> = ({ club, onPress, onMapPress, notifica
   const { theme: currentTheme } = useTheme();
   const { currentUser } = useAuth();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
 
   // Get user's country for distance formatting
   const userCountry = currentUser?.profile?.location?.country;
@@ -129,7 +129,7 @@ const ClubCard: React.FC<ClubCardProps> = ({ club, onPress, onMapPress, notifica
               <Avatar.Image size={42} source={{ uri: club.logoUrl }} style={styles.logo} />
             ) : (
               <View style={styles.logoPlaceholder}>
-                <MaterialCommunityIcons name='pickleball' size={20} color='white' />
+                <MaterialCommunityIcons name='tennis' size={20} color='white' />
               </View>
             )}
             <View style={styles.clubDetails}>

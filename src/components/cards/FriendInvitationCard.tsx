@@ -35,7 +35,7 @@ const FriendInvitationCard: React.FC<Props> = ({ invitation, onAccept, onReject,
   const { t } = useLanguage();
   const { theme: currentTheme } = useTheme();
   const themeColors = getLightningPickleballTheme(currentTheme);
-  const styles = createStyles(themeColors.colors);
+  const styles = createStyles(themeColors.colors as unknown as Record<string, string>);
 
   // 🎾 [KIM FIX] Format LPR level for display
   const formatLtr = (ltr?: number) => {

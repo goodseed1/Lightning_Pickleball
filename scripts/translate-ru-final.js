@@ -161,7 +161,7 @@ const dict = {
   // Tournament
   Participants: 'Участники',
   Participant: 'Участник',
-  Bpaddle: 'Сетка',
+  Bracket: 'Сетка',
   Round: 'Раунд',
   Seed: 'Посев',
   Final: 'Финал',

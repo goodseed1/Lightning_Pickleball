@@ -26,6 +26,7 @@ interface RankingItemProps {
 
 function RankingItem({ ranking, isCurrentUser = false, showDetails = false }: RankingItemProps) {
   const theme = useTheme();
+  const { t } = useTranslation();
 
   const getRankIcon = (rank: number) => {
     if (rank === 1) return { name: 'looks-one', color: '#FFD700' };
@@ -157,7 +158,10 @@ export default function LeaderboardScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [categories, setCategories] = useState<LeaderboardCategory[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<LeaderboardCategory | null>(null);
-  const [userRanking, setUserRanking] = useState<unknown>(null);
+  const [userRanking, setUserRanking] = useState<{
+    global: UserRanking;
+    categories: { [categoryId: string]: UserRanking };
+  } | null>(null);
 
   const loadLeaderboardData = useCallback(async () => {
     try {

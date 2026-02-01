@@ -8,9 +8,9 @@ import { useTranslation } from 'react-i18next';
 
 import { useAuth } from '../../contexts/AuthContext';
 import { theme } from '../../theme';
-import { RootStackParamList } from '../../navigation/AppNavigator';
+import { AuthStackParamList } from '../../navigation/AuthNavigator';
 
-type RegisterScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Register'>;
+type RegisterScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList>;
 
 export default function RegisterScreen() {
   const { t } = useTranslation();

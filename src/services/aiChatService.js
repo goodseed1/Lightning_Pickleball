@@ -22,7 +22,7 @@ class AIChatService {
   constructor() {
     // Initialize Gemini API
     this.genAI = new GoogleGenerativeAI(process.env.EXPO_PUBLIC_GEMINI_API_KEY);
-    this.model = this.genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+    this.model = this.genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
     // 🛡️ [Accuracy Guard v2] Track recent KB answers to prevent repetition
     this.recentKbAnswers = []; // Track last 3 KB answers
@@ -130,7 +130,7 @@ You MUST answer based on the following official app documentation. If a question
 2. **Players**: Search nearby pickleball players
 3. **Clubs**: Find pickleball clubs
 4. **Coaches**: Lesson bulletin board (anyone can post)
-5. **Services**: Equipment services (stringing, repairs, used items)
+5. **Services**: Equipment services (paddle sales, rentals, used items, court rental, lessons)
 
 ### 3. EVENT TYPES
 | Type | Description | ELO Impact |

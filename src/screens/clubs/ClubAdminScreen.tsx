@@ -150,7 +150,7 @@ const ClubAdminScreen: React.FC = () => {
       ]);
 
       // Extract activity stats for this club
-      const activityStats = clubActivityStats[clubId] || {
+      const activityStats = (clubActivityStats as Record<string, { eventCount: number; communicationLevel: string; memberJoined: number; memberLeft: number; monthlyFee: number }>)[clubId] || {
         eventCount: 0,
         communicationLevel: 'quiet',
         memberJoined: 0,

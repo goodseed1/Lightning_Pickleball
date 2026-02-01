@@ -257,7 +257,7 @@ const EditProfileScreen = () => {
         goals: currentUser.goals || '',
         photoURL: currentUser.photoURL || null, // 📸 프로필 사진 URL
         // 🎯 Activity Time Preferences
-        availabilityPreference: currentUser.availabilityPreference || 'weekdays',
+        availabilityPreference: (currentUser.availabilityPreference || 'weekdays') as 'weekdays' | 'weekends',
         preferredTimesWeekdays: currentUser.preferredTimesWeekdays || [],
         preferredTimesWeekends: currentUser.preferredTimesWeekends || [],
       });
@@ -370,11 +370,13 @@ const EditProfileScreen = () => {
           console.log('✅ [EditProfile] Auto-save completed successfully');
 
           // 저장 완료 후 네비게이션 진행
+          // @ts-expect-error Navigation action type
           navigation.dispatch(e.data.action);
         } catch (error) {
           console.error('❌ [EditProfile] Auto-save failed:', error);
           hasSavedRef.current = false;
           // 에러 시에도 네비게이션 진행
+          // @ts-expect-error Navigation action type
           navigation.dispatch(e.data.action);
         }
       }
@@ -531,16 +533,16 @@ const EditProfileScreen = () => {
             </Text>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               {/* 🎯 [KIM FIX] Use profile.gender (not root gender) */}
-              {currentUser?.profile?.gender === 'male' ||
-              currentUser?.profile?.gender === '남성' ? (
+              {(currentUser?.profile?.gender as string) === 'male' ||
+              (currentUser?.profile?.gender as string) === '남성' ? (
                 <>
                   <Text style={{ fontSize: 16, color: '#4A90D9', marginRight: 6 }}>♂</Text>
                   <Text style={[styles.lockInfoText, { color: themeColors.colors.onSurface }]}>
                     {t('editProfile.gender.male')}
                   </Text>
                 </>
-              ) : currentUser?.profile?.gender === 'female' ||
-                currentUser?.profile?.gender === '여성' ? (
+              ) : (currentUser?.profile?.gender as string) === 'female' ||
+                (currentUser?.profile?.gender as string) === '여성' ? (
                 <>
                   <Text style={{ fontSize: 16, color: '#E91E8C', marginRight: 6 }}>♀</Text>
                   <Text style={[styles.lockInfoText, { color: themeColors.colors.onSurface }]}>

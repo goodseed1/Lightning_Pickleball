@@ -183,7 +183,7 @@ const TeamPairingModal: React.FC<TeamPairingModalProps> = ({
                 handlePlayerSelect(team.player1);
               }
             }}
-            disabled={isPlayer1SameTeamAsSelected}
+            disabled={isPlayer1SameTeamAsSelected ?? undefined}
           >
             <Ionicons
               name='person'
@@ -230,7 +230,7 @@ const TeamPairingModal: React.FC<TeamPairingModalProps> = ({
                 handlePlayerSelect(team.player2);
               }
             }}
-            disabled={isPlayer2SameTeamAsSelected}
+            disabled={isPlayer2SameTeamAsSelected ?? undefined}
           >
             <Ionicons
               name='person'

@@ -30,7 +30,7 @@ interface OnboardingContainerProps {
 }
 
 export interface UserData {
-  language: 'en' | 'ko';
+  language: string; // SupportedLanguage (en, ko, ja, zh, ru, de, fr, es, it, pt)
   authProvider: 'google' | 'apple' | 'facebook' | 'email';
   termsAccepted: boolean;
   profile: ProfileData;

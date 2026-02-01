@@ -84,7 +84,8 @@ const ClubMembersScreen: React.FC<ClubMembersScreenProps> = ({
   const [dialogType, setDialogType] = useState('');
   const [removalReason, setRemovalReason] = useState('');
   const [isProcessing, setIsProcessing] = useState(false); // 🔒 더블 클릭 방지
-  const textInputRef = useRef<typeof TextInput>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const textInputRef = useRef<any>(null);
 
   const isAdmin = userRole === 'admin' || userRole === 'manager' || userRole === 'owner';
 

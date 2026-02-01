@@ -172,6 +172,34 @@ export interface ClubNotification {
   relatedId?: string; // postId or messageId
   isRead: boolean;
   createdAt: FirebaseTimestamp;
+  // 알림 유형별 추가 데이터
+  data?: {
+    notificationType?: string;
+    actionRequired?: boolean;
+    deepLink?: string;
+    leagueName?: string;
+    clubName?: string;
+    tournamentName?: string;
+    eventTitle?: string;
+    memberName?: string;
+    newOwnerName?: string;
+    [key: string]: unknown;
+  };
+  leagueName?: string;
+  clubName?: string;
+  // Legacy metadata for backward compatibility
+  metadata?: {
+    notificationType?: string;
+    actionRequired?: boolean;
+    deepLink?: string;
+    leagueName?: string;
+    clubName?: string;
+    tournamentName?: string;
+    eventTitle?: string;
+    memberName?: string;
+    newOwnerName?: string;
+    [key: string]: unknown;
+  };
 }
 
 // Helper Functions
