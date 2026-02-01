@@ -38,11 +38,15 @@ yarn-error.*
 firebase-debug.log
 .firebase/
 firebase-adminsdk-*.json
+*firebase-adminsdk*.json
+lightning-pickleball-firebase-adminsdk*.json
 # Note: google-services.json is tracked in git for EAS Build
 # GoogleService-Info.plist is tracked in git for EAS Build
 
 # Firebase Admin SDK service account key
 serviceAccountKey.json
+service-account*.json
+*-adminsdk-*.json
 
 # typescript
 *.tsbuildinfo
