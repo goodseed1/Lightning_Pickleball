@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Lightning Pickleball</title>
+    <style>
+        :root {
+            --primary-color: #2E7D32;
+            --primary-light: #4CAF50;
+            --secondary-color: #FFC107;
+            --text-color: #333;
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        h3 {
+            color: var(--primary-light);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin: 1rem 0 1rem 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .lang-switch {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .lang-switch button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switch button:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .lang-switch button.active {
+            background: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-color);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🏓</div>
+        <h1>Lightning Pickleball</h1>
+        <p>Privacy Policy | 개인정보 처리방침</p>
+    </header>
+
+    <main>
+        <div class="lang-switch">
+            <button id="btn-en" class="active" onclick="switchLang('en')">English</button>
+            <button id="btn-ko" onclick="switchLang('ko')">한국어</button>
+        </div>
+
+        <!-- English Version -->
+        <div id="content-en" class="lang-content active">
+            <div class="card">
+                <h2>Introduction</h2>
+                <p><strong>Last Updated: February 1, 2026</strong></p>
+                <p>Lightning Pickleball ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application Lightning Pickleball (the "App").</p>
+                <p>Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the App.</p>
+            </div>
+
+            <div class="card">
+                <h2>Information We Collect</h2>
+
+                <h3>Personal Information</h3>
+                <p>We may collect personal information that you voluntarily provide to us when you:</p>
+                <ul>
+                    <li>Register for an account</li>
+                    <li>Create or update your profile</li>
+                    <li>Participate in matches, tournaments, or events</li>
+                    <li>Communicate with other users</li>
+                    <li>Contact us with inquiries</li>
+                </ul>
+
+                <p>This information may include:</p>
+                <ul>
+                    <li><strong>Account Information</strong>: Name, email address, username, password</li>
+                    <li><strong>Profile Information</strong>: Profile picture, skill level (LPR rating), playing preferences, bio</li>
+                    <li><strong>Authentication Data</strong>: Information from third-party sign-in services (Google Sign-In, Apple Sign-In)</li>
+                </ul>
+
+                <h3>Automatically Collected Information</h3>
+                <p>When you use our App, we may automatically collect certain information, including:</p>
+                <ul>
+                    <li><strong>Device Information</strong>: Device type, operating system, unique device identifiers</li>
+                    <li><strong>Usage Data</strong>: App features used, interactions, timestamps</li>
+                    <li><strong>Location Data</strong>: With your permission, we collect location data to help you find nearby players and courts</li>
+                </ul>
+
+                <h3>Camera and Photo Library Access</h3>
+                <div class="highlight">
+                    <p>Our App requests access to your device's camera and photo library to:</p>
+                    <ul>
+                        <li>Allow you to take and upload profile pictures</li>
+                        <li>Share match photos and moments with your community</li>
+                        <li>Capture and share tournament highlights</li>
+                    </ul>
+                    <p><strong>We do not access your camera or photos without your explicit permission, and we do not use this data for any purpose other than the features you explicitly use.</strong></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>How We Use Your Information</h2>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Create and manage your account</li>
+                    <li>Facilitate match-making with other players</li>
+                    <li>Display your profile to other users in the community</li>
+                    <li>Send push notifications about matches, tournaments, and community updates</li>
+                    <li>Improve our App and develop new features</li>
+                    <li>Communicate with you about your account or our services</li>
+                    <li>Ensure the security and integrity of our platform</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Data Storage and Security</h2>
+                <p>We use Firebase (Google Cloud Platform) to store and process your data. Your information is protected using industry-standard security measures including:</p>
+                <ul>
+                    <li>Encrypted data transmission (HTTPS/TLS)</li>
+                    <li>Secure authentication systems</li>
+                    <li>Access controls and monitoring</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Information Sharing</h2>
+                <p>We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:</p>
+                <ul>
+                    <li><strong>With Other Users</strong>: Your profile information (name, profile picture, skill level) is visible to other App users to facilitate community building and match-making</li>
+                    <li><strong>Service Providers</strong>: We may share data with third-party services that help us operate the App (e.g., Firebase, Google Cloud)</li>
+                    <li><strong>Legal Requirements</strong>: We may disclose information if required by law or to protect our rights</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Third-Party Services</h2>
+                <p>Our App uses the following third-party services:</p>
+                <ul>
+                    <li><strong>Firebase</strong> (Google): Authentication, database, cloud storage, push notifications</li>
+                    <li><strong>Google Sign-In</strong>: Optional authentication method</li>
+                    <li><strong>Apple Sign-In</strong>: Optional authentication method</li>
+                    <li><strong>Google Maps</strong>: Location services for finding courts and players</li>
+                </ul>
+                <p>Each of these services has its own privacy policy governing the use of your information.</p>
+            </div>
+
+            <div class="card">
+                <h2>Your Rights and Choices</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li><strong>Access</strong>: Request a copy of the personal information we hold about you</li>
+                    <li><strong>Update</strong>: Correct or update your personal information through the App</li>
+                    <li><strong>Delete</strong>: Request deletion of your account and associated data</li>
+                    <li><strong>Opt-Out</strong>: Disable push notifications or location services through your device settings</li>
+                </ul>
+                <p>To exercise these rights, please contact us at the email address provided below.</p>
+            </div>
+
+            <div class="card">
+                <h2>Children's Privacy</h2>
+                <p>Our App is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.</p>
+            </div>
+
+            <div class="card">
+                <h2>Changes to This Privacy Policy</h2>
+                <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+            </div>
+
+            <div class="card">
+                <h2>Contact Us</h2>
+                <p>If you have questions or concerns about this Privacy Policy, please contact us at:</p>
+                <p><strong>Email</strong>: support@lightningpickleball.com</p>
+                <p><strong>GitHub</strong>: <a href="https://github.com/goodseed1/Lightning_Pickleball">https://github.com/goodseed1/Lightning_Pickleball</a></p>
+            </div>
+        </div>
+
+        <!-- Korean Version -->
+        <div id="content-ko" class="lang-content">
+            <div class="card">
+                <h2>소개</h2>
+                <p><strong>최종 수정일: 2026년 2월 1일</strong></p>
+                <p>Lightning Pickleball("저희", "우리")은 귀하의 개인정보 보호를 위해 최선을 다하고 있습니다. 이 개인정보 처리방침은 귀하가 Lightning Pickleball 모바일 애플리케이션("앱")을 사용할 때 수집, 사용, 공개 및 보호하는 정보에 대해 설명합니다.</p>
+                <p>이 개인정보 처리방침을 주의 깊게 읽어주세요. 이 방침에 동의하지 않으시면 앱을 사용하지 마시기 바랍니다.</p>
+            </div>
+
+            <div class="card">
+                <h2>수집하는 정보</h2>
+
+                <h3>개인 정보</h3>
+                <p>다음과 같은 경우에 귀하가 자발적으로 제공하는 개인정보를 수집할 수 있습니다:</p>
+                <ul>
+                    <li>계정 등록 시</li>
+                    <li>프로필 생성 또는 업데이트 시</li>
+                    <li>매치, 토너먼트, 이벤트 참여 시</li>
+                    <li>다른 사용자와 소통 시</li>
+                    <li>문의사항 접수 시</li>
+                </ul>
+
+                <p>수집하는 정보는 다음과 같습니다:</p>
+                <ul>
+                    <li><strong>계정 정보</strong>: 이름, 이메일 주소, 사용자 이름, 비밀번호</li>
+                    <li><strong>프로필 정보</strong>: 프로필 사진, 실력 수준(LPR 레이팅), 플레이 선호도, 자기소개</li>
+                    <li><strong>인증 데이터</strong>: 제3자 로그인 서비스 정보 (Google 로그인, Apple 로그인)</li>
+                </ul>
+
+                <h3>자동 수집 정보</h3>
+                <p>앱 사용 시 다음 정보가 자동으로 수집될 수 있습니다:</p>
+                <ul>
+                    <li><strong>기기 정보</strong>: 기기 유형, 운영체제, 고유 기기 식별자</li>
+                    <li><strong>사용 데이터</strong>: 사용한 앱 기능, 상호작용, 타임스탬프</li>
+                    <li><strong>위치 데이터</strong>: 귀하의 동의 하에 근처 플레이어 및 코트를 찾기 위해 위치 정보 수집</li>
+                </ul>
+
+                <h3>카메라 및 사진 라이브러리 접근</h3>
+                <div class="highlight">
+                    <p>앱은 다음 목적을 위해 기기의 카메라 및 사진 라이브러리 접근 권한을 요청합니다:</p>
+                    <ul>
+                        <li>프로필 사진 촬영 및 업로드</li>
+                        <li>매치 사진 및 순간을 커뮤니티와 공유</li>
+                        <li>토너먼트 하이라이트 캡처 및 공유</li>
+                    </ul>
+                    <p><strong>귀하의 명시적 동의 없이 카메라나 사진에 접근하지 않으며, 귀하가 명시적으로 사용하는 기능 외의 목적으로 이 데이터를 사용하지 않습니다.</strong></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>정보 사용 목적</h2>
+                <p>수집된 정보는 다음 목적으로 사용됩니다:</p>
+                <ul>
+                    <li>계정 생성 및 관리</li>
+                    <li>다른 플레이어와의 매칭 촉진</li>
+                    <li>커뮤니티 내 다른 사용자에게 프로필 표시</li>
+                    <li>매치, 토너먼트, 커뮤니티 업데이트에 대한 푸시 알림 발송</li>
+                    <li>앱 개선 및 새로운 기능 개발</li>
+                    <li>계정 또는 서비스 관련 소통</li>
+                    <li>플랫폼의 보안 및 무결성 보장</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>데이터 저장 및 보안</h2>
+                <p>저희는 Firebase(Google Cloud Platform)를 사용하여 데이터를 저장하고 처리합니다. 귀하의 정보는 다음과 같은 업계 표준 보안 조치를 통해 보호됩니다:</p>
+                <ul>
+                    <li>암호화된 데이터 전송 (HTTPS/TLS)</li>
+                    <li>안전한 인증 시스템</li>
+                    <li>접근 제어 및 모니터링</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>정보 공유</h2>
+                <p>저희는 귀하의 개인정보를 제3자에게 판매, 거래 또는 임대하지 않습니다. 다음 상황에서 정보를 공유할 수 있습니다:</p>
+                <ul>
+                    <li><strong>다른 사용자</strong>: 귀하의 프로필 정보(이름, 프로필 사진, 실력 수준)는 커뮤니티 구축 및 매칭을 위해 다른 앱 사용자에게 표시됩니다</li>
+                    <li><strong>서비스 제공업체</strong>: 앱 운영을 돕는 제3자 서비스(예: Firebase, Google Cloud)와 데이터를 공유할 수 있습니다</li>
+                    <li><strong>법적 요구사항</strong>: 법에 의해 요구되거나 저희의 권리를 보호하기 위해 정보를 공개할 수 있습니다</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>제3자 서비스</h2>
+                <p>앱은 다음 제3자 서비스를 사용합니다:</p>
+                <ul>
+                    <li><strong>Firebase</strong> (Google): 인증, 데이터베이스, 클라우드 스토리지, 푸시 알림</li>
+                    <li><strong>Google 로그인</strong>: 선택적 인증 방법</li>
+                    <li><strong>Apple 로그인</strong>: 선택적 인증 방법</li>
+                    <li><strong>Google Maps</strong>: 코트 및 플레이어 찾기를 위한 위치 서비스</li>
+                </ul>
+                <p>각 서비스는 귀하의 정보 사용에 관한 자체 개인정보 처리방침을 가지고 있습니다.</p>
+            </div>
+
+            <div class="card">
+                <h2>귀하의 권리와 선택</h2>
+                <p>귀하는 다음과 같은 권리를 가집니다:</p>
+                <ul>
+                    <li><strong>접근</strong>: 저희가 보유한 개인정보 사본 요청</li>
+                    <li><strong>수정</strong>: 앱을 통해 개인정보 수정 또는 업데이트</li>
+                    <li><strong>삭제</strong>: 계정 및 관련 데이터 삭제 요청</li>
+                    <li><strong>거부</strong>: 기기 설정을 통해 푸시 알림 또는 위치 서비스 비활성화</li>
+                </ul>
+                <p>이러한 권리를 행사하시려면 아래 이메일 주소로 연락해 주세요.</p>
+            </div>
+
+            <div class="card">
+                <h2>아동 개인정보 보호</h2>
+                <p>저희 앱은 13세 미만 아동을 대상으로 하지 않습니다. 13세 미만 아동의 개인정보를 고의로 수집하지 않습니다. 부모 또는 보호자이시고 자녀가 저희에게 개인정보를 제공했다고 생각되시면 연락해 주세요.</p>
+            </div>
+
+            <div class="card">
+                <h2>개인정보 처리방침 변경</h2>
+                <p>저희는 수시로 이 개인정보 처리방침을 업데이트할 수 있습니다. 변경 사항이 있을 경우 이 페이지에 새로운 개인정보 처리방침을 게시하고 "최종 수정일"을 업데이트하여 알려드립니다.</p>
+            </div>
+
+            <div class="card">
+                <h2>문의하기</h2>
+                <p>이 개인정보 처리방침에 대한 질문이나 우려 사항이 있으시면 다음으로 연락해 주세요:</p>
+                <p><strong>이메일</strong>: support@lightningpickleball.com</p>
+                <p><strong>GitHub</strong>: <a href="https://github.com/goodseed1/Lightning_Pickleball">https://github.com/goodseed1/Lightning_Pickleball</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Lightning Pickleball. All rights reserved.</p>
+        <p>
+            <a href="https://github.com/goodseed1/Lightning_Pickleball">GitHub</a> |
+            <a href="mailto:support@lightningpickleball.com">Contact Us</a>
+        </p>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            // Hide all content
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Remove active from all buttons
+            document.querySelectorAll('.lang-switch button').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Show selected content
+            document.getElementById('content-' + lang).classList.add('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+    </script>
+</body>
+</html>
